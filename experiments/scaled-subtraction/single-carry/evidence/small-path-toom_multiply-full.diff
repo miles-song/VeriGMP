@@ -1,0 +1,417 @@
+--- baseline::toom_multiply::full
++++ candidate::toom_multiply::full
+@@ -6,20 +6,20 @@
+ push %rbx
+ sub $0x58,%rsp
+ test %rcx,%rcx
+-je @instruction_642
++je @instruction_643
+ cmp %r9,%rcx
+-jne @instruction_642
++jne @instruction_643
+ lea (%rcx,%rcx,1),%rax
+ cmp %rax,%rsi
+-jne @instruction_638
++jne @instruction_639
+ mov 0x98(%rsp),%r10
+ lea 0x0(,%rcx,4),%rax
+ lea (%rax,%rax,2),%rax
+ cmp %rax,%r10
+-jb @instruction_638
++jb @instruction_639
+ mov 0xa0(%rsp),%r15
+ cmp $0x17,%r15
+-jbe @instruction_638
++jbe @instruction_639
+ mov %r8,%r14
+ mov %rdx,%rbp
+ mov %rdi,%rbx
+@@ -38,18 +38,18 @@
+ sub %rdx,%r10
+ lea (%r10,%rax,4),%rdx
+ cmp %rdx,%r13
+-jae @instruction_665
++jae @instruction_666
+ lea 0x1(%r13),%rdi
+ sub %rdi,%rdx
+ cmp %rdx,%r13
+-jae @instruction_669
++jae @instruction_670
+ cmp %rcx,%r13
+-ja @instruction_646
++ja @instruction_647
+ mov %rsi,0x50(%rsp)
+ lea 0x0(,%r13,2),%rsi
+ mov %rcx,%r12
+ sub %rsi,%r12
+-jb @instruction_673
++jb @instruction_674
+ mov %rdi,%rcx
+ shl $0x4,%rcx
+ lea (%r11,%rcx,1),%rax
+@@ -88,7 +88,7 @@
+ lea (%r12,%r12,1),%r15
+ lea 0x2(,%r13,2),%rdx
+ cmp %r15,%rdx
+-jb @instruction_652
++jb @instruction_653
+ lea 0x0(,%rcx,8),%rdx
+ add %rbp,%rdx
+ lea (%r14,%rcx,8),%r8
+@@ -115,29 +115,29 @@
+ xor %esi,%esi
+ call *@memset@GLIBC_2.2.5
+ cmp %r13,%r12
+-ja @instruction_656
++ja @instruction_657
+ mov %r13,%r15
+ shl $0x4,%r15
+ xor %edi,%edi
+ mov 0x10(%rsp),%rdx
+ mov %rdx,%rax
+ mov %r13,%rcx
+-mov %rbp,%r11
+-xor %esi,%esi
+-mov 0x18(%rsp),%r10
++mov %rbp,%r10
++xor %esi,%esi
++mov 0x18(%rsp),%r11
+ jmp @instruction_143
+-mov (%r11,%r15,1),%r8
++mov (%r10,%r15,1),%r8
+ xor %r9d,%r9d
+ add %rdi,%r8
+ setb %r9b
+-add (%r11,%r13,8),%r8
++add (%r10,%r13,8),%r8
+ adc $0x0,%r9
+-add (%r11),%r8
++add (%r10),%r8
+ mov %r9,%rdi
+ adc $0x0,%rdi
+ mov %r8,(%rax)
+ inc %rsi
+-add $0x8,%r11
++add $0x8,%r10
+ add $0x8,%rax
+ dec %rcx
+ je @instruction_158
+@@ -155,27 +155,27 @@
+ push %r11
+ call *@crate::fast_multiply::full
+ add $0x78,%rsp
+-jmp @instruction_631
++jmp @instruction_632
+ mov %rdi,(%rdx,%r13,8)
+ xor %edi,%edi
+ mov (%rsp),%rax
+ mov %r13,%rcx
+-mov %r14,%r11
++mov %r14,%r10
+ xor %esi,%esi
+ jmp @instruction_181
+ cs nopw 0x0(%rax,%rax,1)
+-mov (%r11,%r15,1),%r8
++mov (%r10,%r15,1),%r8
+ xor %r9d,%r9d
+ add %rdi,%r8
+ setb %r9b
+-add (%r11,%r13,8),%r8
++add (%r10,%r13,8),%r8
+ adc $0x0,%r9
+-add (%r11),%r8
++add (%r10),%r8
+ mov %r9,%rdi
+ adc $0x0,%rdi
+ mov %r8,(%rax)
+ inc %rsi
+-add $0x8,%r11
++add $0x8,%r10
+ add $0x8,%rax
+ dec %rcx
+ je @instruction_185
+@@ -193,7 +193,7 @@
+ mov 0xa8(%rsp),%rax
+ push %rax
+ push 0x30(%rsp)
+-push %r10
++push %r11
+ call *@crate::toom_multiply::full
+ add $0x20,%rsp
+ mov 0x10(%rsp),%rdi
+@@ -298,37 +298,38 @@
+ mov (%rsp),%r8
+ mov %rsi,(%r8,%r13,8)
+ sub $0x8,%rsp
+-mov 0x48(%rsp),%rdi
++mov 0x48(%rsp),%r14
++mov %r14,%rdi
+ mov %rbp,%rsi
+ lea 0x1(%r13),%rcx
+ mov %rcx,%r9
+ push 0xa8(%rsp)
+ mov 0x30(%rsp),%r12
+ push %r12
+-mov 0x30(%rsp),%r14
+-push %r14
++push 0x30(%rsp)
+ call *@crate::toom_multiply::full
+ add $0x20,%rsp
+ cmp %r12,%rbp
+-ja @instruction_660
+-movzbl 0x28(%rsp),%eax
+-xor 0x30(%rsp),%al
+-sub $0x8,%rsp
+-movzbl %al,%eax
+-mov 0x50(%rsp),%rdi
+-mov %rbp,%rsi
+-mov 0x40(%rsp),%rdx
++ja @instruction_661
++movzbl 0x28(%rsp),%edx
++xor 0x30(%rsp),%dl
++sub $0x40,%rsp
++mov %rbp,0x30(%rsp)
++mov %rbp,0x18(%rsp)
++mov 0x48(%rsp),%rax
++mov %rax,0x10(%rsp)
++mov %rbp,0x8(%rsp)
++mov 0xd0(%rsp),%rax
+ mov %rbp,%rcx
+-mov 0x48(%rsp),%r8
+-mov %rbp,%r9
+-push %rbp
+-push %r14
+-push %rax
+-push %rbp
+-push 0x30(%rsp)
+-push %rbp
+-mov 0xc8(%rsp),%rbp
+-push %rbp
++mov %rax,%rbp
++mov %rax,(%rsp)
++movzbl %dl,%eax
++mov %eax,0x20(%rsp)
++mov 0x88(%rsp),%rdi
++mov %rcx,%rsi
++mov 0x78(%rsp),%rdx
++mov %r14,%r8
++mov %rcx,%r9
+ call *@crate::toom_interpolate::interpolate
+ add $0x40,%rsp
+ mov 0x50(%rsp),%r12
+@@ -340,7 +341,7 @@
+ mov %rbp,%r10
+ lea 0x10(%r15),%rcx
+ xor %eax,%eax
+-nopl 0x0(%rax)
++cs nopw 0x0(%rax,%rax,1)
+ xor %edx,%edx
+ add (%rbx,%rax,1),%r14
+ setb %dl
+@@ -354,10 +355,10 @@
+ mov %rdx,0x8(%rbx,%rax,1)
+ add $0x10,%rax
+ cmp %rax,%rcx
+-jne @instruction_343
++jne @instruction_344
+ test %r14,%r14
+ lea 0x2(%r13,%r13,1),%rbp
+-je @instruction_375
++je @instruction_376
+ mov %r12,%rax
+ sub %rbp,%rax
+ lea (%rbx,%rbp,8),%rdx
+@@ -367,12 +368,12 @@
+ add %r14,-0x8(%rdx,%rsi,8)
+ setb %r8b
+ cmp %rax,%rsi
+-jae @instruction_375
++jae @instruction_376
+ mov %r8b,%dil
+ inc %rsi
+ mov %rdi,%r14
+ test %dil,%dil
+-jne @instruction_365
++jne @instruction_366
+ lea (%rbx,%r13,8),%rsi
+ mov %r13,%rax
+ shl $0x5,%rax
+@@ -394,9 +395,9 @@
+ mov %r9,0x8(%rsi,%r8,1)
+ add $0x10,%r8
+ cmp %r8,%rcx
+-jne @instruction_383
++jne @instruction_384
+ test %rdx,%rdx
+-je @instruction_415
++je @instruction_416
+ mov %r12,%rdi
+ sub %r13,%rdi
+ sub %rbp,%rdi
+@@ -407,24 +408,24 @@
+ add %rdx,-0x8(%rsi,%r8,8)
+ setb %dl
+ cmp %rdi,%r8
+-jae @instruction_415
++jae @instruction_416
+ mov %dl,%r9b
+ inc %r8
+ mov %r9,%rdx
+ test %r9b,%r9b
+-jne @instruction_405
++jne @instruction_406
+ mov %r12,%rsi
+ lea 0x0(,%r13,2),%rdi
+ sub %rdi,%rsi
+ lea (%rbx,%rdi,8),%rdx
+ cmp %rbp,%rsi
+-jae @instruction_427
++jae @instruction_428
+ lea 0x1(%rdi),%rsi
+ cmp %rsi,%r12
+-jne @instruction_470
+-xor %esi,%esi
+-xor %edi,%edi
+-jmp @instruction_500
++jne @instruction_471
++xor %esi,%esi
++xor %edi,%edi
++jmp @instruction_501
+ lea (%r15,%rbx,1),%r8
+ add $0x8,%r8
+ lea 0x0(,%r13,2),%rdi
+@@ -448,12 +449,12 @@
+ mov %r11,(%r8,%r10,1)
+ add $0x10,%r10
+ cmp %r10,%rcx
+-jne @instruction_437
++jne @instruction_438
+ sub %rbp,%rsi
+ mov 0x90(%rsp),%r10
+-je @instruction_504
++je @instruction_505
+ test %rdi,%rdi
+-je @instruction_504
++je @instruction_505
+ lea (%rdx,%rbp,8),%rdx
+ mov $0x1,%r8d
+ nopl 0x0(%rax,%rax,1)
+@@ -461,13 +462,13 @@
+ add %rdi,-0x8(%rdx,%r8,8)
+ setb %dil
+ cmp %rsi,%r8
+-jae @instruction_504
++jae @instruction_505
+ mov %dil,%r9b
+ inc %r8
+ mov %r9,%rdi
+ test %r9b,%r9b
+-jne @instruction_459
+-jmp @instruction_504
++jne @instruction_460
++jmp @instruction_505
+ lea (%r15,%rbx,1),%r8
+ add $0x8,%r8
+ lea 0x0(,%r13,2),%rsi
+@@ -494,10 +495,10 @@
+ mov %r11,(%r8,%rdi,8)
+ add $0x2,%rdi
+ cmp %rdi,%r10
+-jne @instruction_483
++jne @instruction_484
+ test $0x1,%r12b
+ mov 0x90(%rsp),%r10
+-je @instruction_504
++je @instruction_505
+ add (%rdx,%rdi,8),%rsi
+ mov 0x38(%rsp),%r8
+ add (%r8,%rdi,8),%rsi
+@@ -508,13 +509,13 @@
+ sub %rdi,%rdx
+ lea (%rbx,%rdi,8),%rsi
+ cmp %rbp,%rdx
+-jae @instruction_517
++jae @instruction_518
+ lea 0x1(%rdi),%rcx
+ cmp %rcx,%r12
+-jne @instruction_558
++jne @instruction_559
+ xor %ecx,%ecx
+ xor %edi,%edi
+-jmp @instruction_585
++jmp @instruction_586
+ lea (%rbx,%rdi,8),%r8
+ add $0x8,%r8
+ mov %r13,%rdi
+@@ -537,11 +538,11 @@
+ mov %r11,(%r8,%r10,1)
+ add $0x10,%r10
+ cmp %r10,%rcx
+-jne @instruction_526
++jne @instruction_527
+ sub %rbp,%rdx
+-je @instruction_589
++je @instruction_590
+ test %rdi,%rdi
+-je @instruction_589
++je @instruction_590
+ lea (%rsi,%rbp,8),%rcx
+ mov $0x1,%esi
+ data16 data16 data16 data16 cs nopw 0x0(%rax,%rax,1)
+@@ -549,13 +550,13 @@
+ add %rdi,-0x8(%rcx,%rsi,8)
+ setb %dil
+ cmp %rdx,%rsi
+-jae @instruction_589
++jae @instruction_590
+ mov %dil,%r8b
+ inc %rsi
+ mov %r8,%rdi
+ test %r8b,%r8b
+-jne @instruction_547
+-jmp @instruction_589
++jne @instruction_548
++jmp @instruction_590
+ movabs $0xffffffffffffffe,%r8
+ and %rdx,%r8
+ lea (%rbx,%rdi,8),%r9
+@@ -580,22 +581,22 @@
+ mov %r11,(%r9,%rdi,8)
+ add $0x2,%rdi
+ cmp %rdi,%r8
+-jne @instruction_569
++jne @instruction_570
+ test $0x1,%dl
+-je @instruction_589
++je @instruction_590
+ add (%rsi,%rdi,8),%rcx
+ mov 0x40(%rsp),%rdx
+ add (%rdx,%rdi,8),%rcx
+ mov %rcx,(%rsi,%rdi,8)
+ shl $0x2,%r13
+ cmp %r13,%r12
+-je @instruction_630
++je @instruction_631
+ lea 0x1(%r13),%rcx
+ cmp %rcx,%r12
+-jne @instruction_598
++jne @instruction_599
+ xor %ecx,%ecx
+ xor %edx,%edx
+-jmp @instruction_625
++jmp @instruction_626
+ lea (%rax,%rbx,1),%rsi
+ add $0x8,%rsi
+ mov 0x90(%rsp),%rcx
+@@ -620,9 +621,9 @@
+ mov %r9,(%rsi,%rdx,8)
+ add $0x2,%rdx
+ cmp %rdx,%r8
+-jne @instruction_609
++jne @instruction_610
+ test $0x1,%r12b
+-je @instruction_630
++je @instruction_631
+ add %rax,%rbx
+ add (%rbx,%rdx,8),%rcx
+ mov 0x8(%rsp),%rax

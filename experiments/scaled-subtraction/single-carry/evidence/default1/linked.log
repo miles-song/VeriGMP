@@ -1,0 +1,5 @@
+	linux-vdso.so.1 (0x00007ffdc6ffa000)
+	libgmp.so.10 => /lib/x86_64-linux-gnu/libgmp.so.10 (0x000074d2ddefc000)
+	libgcc_s.so.1 => /lib/x86_64-linux-gnu/libgcc_s.so.1 (0x000074d2ddece000)
+	libc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x000074d2ddc00000)
+	/lib64/ld-linux-x86-64.so.2 (0x000074d2ddff6000)
