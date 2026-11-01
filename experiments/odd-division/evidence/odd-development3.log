@@ -1,0 +1,5 @@
+note: verifying module odd_division
+
+note: verifying module odd_division_spec
+
+verification results:: 13 verified, 0 errors (partial verification with `--verify-*`)

@@ -1,0 +1,8 @@
+error: expected `,`
+  --> <stage>/candidate/native/verified/odd_division.rs:38:44
+   |
+38 | ...nt)*bas...
+   |       ^
+
+error: aborting due to 1 previous error
+

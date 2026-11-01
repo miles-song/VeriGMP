@@ -1,0 +1,1127 @@
+--- a/native/lib.rs
++++ b/native/lib.rs
+@@ -25,3 +25,12 @@
+ 
+ #[path="specs/square_base.rs"] pub mod square_base_spec;
+ #[path="verified/square_base.rs"] pub mod square_base;
++#[path="specs/toom4.rs"] pub mod toom4;
++#[path="verified/toom4_interpolate.rs"] pub mod toom4_interpolate;
++#[path="verified/toom4_evaluate.rs"] pub mod toom4_evaluate;
++#[path="specs/toom4_blocks.rs"] pub mod toom4_blocks;
++#[path="verified/toom4_multiply.rs"] pub mod toom4_multiply;
++#[path="verified/toom4_square.rs"] pub mod toom4_square;
++#[path="verified/toom4_low.rs"] pub mod toom4_low;
++#[path="verified/toom4_square_low.rs"] pub mod toom4_square_low;
++#[path="verified/toom4_candidate.rs"] pub mod toom4_candidate;
+--- /dev/null
++++ b/native/toom4_codegen.rs
+@@ -0,0 +1,41 @@
++#[path="specs/radix.rs"] mod radix;
++#[path="specs/precision.rs"] mod precision;
++#[path="specs/product.rs"] mod product;
++#[path="specs/fast_product.rs"] mod fast_product;
++#[path="specs/toom.rs"] mod toom;
++#[path="specs/toom_blocks.rs"] mod toom_blocks;
++#[path="specs/square.rs"] mod square_spec;
++#[path="verified/kernel.rs"] mod kernel;
++#[path="verified/limbs.rs"] mod limbs;
++#[path="verified/pow2.rs"] mod pow2;
++#[path="verified/multiply.rs"] mod multiply;
++#[path="verified/fast_words.rs"] mod fast_words;
++#[path="verified/toom_words.rs"] mod toom_words;
++#[path="verified/toom_evaluate.rs"] mod toom_evaluate;
++#[path="verified/toom_interpolate.rs"] mod toom_interpolate;
++#[path="verified/fast_multiply.rs"] mod fast_multiply;
++#[path="verified/toom_multiply.rs"] mod toom_multiply;
++#[path="verified/toom_low.rs"] mod toom_low;
++#[path="verified/square.rs"] mod square;
++#[path="verified/toom_square.rs"] mod toom_square;
++#[path="verified/square_low.rs"] mod square_low;
++#[path="verified/mac4.rs"] mod mac4;
++#[path="verified/arithmetic.rs"] mod arithmetic;
++
++#[no_mangle]pub fn verified_product(out:&mut[u64],a:&[u64],b:&[u64],scratch:&mut[u64],top:u32){toom4_candidate::mul_mod(out,a,b,scratch,top);}
++#[no_mangle]pub fn verified_square(out:&mut[u64],a:&[u64],scratch:&mut[u64],top:u32){toom4_candidate::square_mod(out,a,scratch,top);}
++#[no_mangle]pub fn verified_mac4(out:&mut[u64],a:&[u64],word:u64)->u64{mac4::add_mul_word(out,a,word)}
++fn main(){}
++
++#[path="specs/square_base.rs"] mod square_base_spec;
++#[path="verified/square_base.rs"] mod square_base;
++
++#[path="specs/toom4.rs"] mod toom4;
++#[path="verified/toom4_interpolate.rs"] mod toom4_interpolate;
++#[path="verified/toom4_evaluate.rs"] mod toom4_evaluate;
++#[path="specs/toom4_blocks.rs"] mod toom4_blocks;
++#[path="verified/toom4_multiply.rs"] mod toom4_multiply;
++#[path="verified/toom4_square.rs"] mod toom4_square;
++#[path="verified/toom4_low.rs"] mod toom4_low;
++#[path="verified/toom4_square_low.rs"] mod toom4_square_low;
++#[path="verified/toom4_candidate.rs"] mod toom4_candidate;
+--- /dev/null
++++ b/native/toom4_runner.rs
+@@ -0,0 +1,109 @@
++#[path="specs/radix.rs"] mod radix;
++#[path="specs/precision.rs"] mod precision;
++#[path="specs/product.rs"] mod product;
++#[path="specs/fast_product.rs"] mod fast_product;
++#[path="specs/toom.rs"] mod toom;
++#[path="specs/toom_blocks.rs"] mod toom_blocks;
++#[path="specs/square.rs"] mod square_spec;
++#[path="verified/kernel.rs"] mod kernel;
++#[path="verified/limbs.rs"] mod limbs;
++#[path="verified/pow2.rs"] mod pow2;
++#[path="verified/multiply.rs"] mod multiply;
++#[path="verified/fast_words.rs"] mod fast_words;
++#[path="verified/toom_words.rs"] mod toom_words;
++#[path="verified/toom_evaluate.rs"] mod toom_evaluate;
++#[path="verified/toom_interpolate.rs"] mod toom_interpolate;
++#[path="verified/fast_multiply.rs"] mod fast_multiply;
++#[path="verified/toom_multiply.rs"] mod toom_multiply;
++#[path="verified/toom_low.rs"] mod toom_low;
++#[path="verified/square.rs"] mod square;
++#[path="verified/toom_square.rs"] mod toom_square;
++#[path="verified/square_low.rs"] mod square_low;
++#[path="verified/mac4.rs"] mod mac4;
++#[path="verified/arithmetic.rs"] mod arithmetic;
++
++fn main(){
++    use std::io::{self,BufRead,Write};
++    let mut output=io::BufWriter::new(io::stdout().lock());
++    for line in io::stdin().lock().lines(){
++        let line=line.unwrap();let mut fields=line.split_whitespace();
++        let op=fields.next().unwrap();let args:Vec<u64>=fields.map(|s|s.parse().unwrap()).collect();
++        let out=if op=="weighted4"||op=="signed4"{
++            let signed=op=="signed4";let off=if signed{1}else{4};
++            assert!(args.len()>=off+2);let n=args[off] as usize;let h=args[off+1] as usize;
++            assert!(h<=n && args.len()==off+2+3*n+h);let inputs=&args[off+2..];
++            let a0=&inputs[..n];let a1=&inputs[n..2*n];let a2=&inputs[2*n..3*n];let a3=&inputs[3*n..];
++            let mut out=vec![u64::MAX;n+3];let mut temp=vec![u64::MAX;n+3];let saved=inputs.to_vec();
++            let neg=if signed{
++                assert!(args[0]<=1);toom4_evaluate::signed(&mut out[1..n+2],&mut temp[1..n+2],a0,a1,a2,a3,args[0]!=0)
++            }else{
++                toom4_evaluate::weighted(&mut out[1..n+2],a0,a1,a2,a3,args[0],args[1],args[2],args[3]);false
++            };
++            assert_eq!((out[0],out[n+2],temp[0],temp[n+2]),(u64::MAX,u64::MAX,u64::MAX,u64::MAX));
++            assert_eq!(saved,inputs);let mut answer=out[1..n+2].to_vec();if signed{answer.push(neg as u64);}answer
++        }else if op=="divide"{
++            let mut out=args[1..].to_vec();let rem=toom_words::divide_word(&mut out,args[0]);out.push(rem);out
++        }else if op=="squarebaselow"{
++            assert!(!args.is_empty());let n=args.len();let mut out=vec![u64::MAX;n+2];
++            square_base::low(&mut out[1..n+1],&args);
++            assert_eq!((out[0],out[n+1]),(u64::MAX,u64::MAX));out[1..n+1].to_vec()
++        }else if op=="squarebase"{
++            assert!(!args.is_empty());let n=args.len();let mut out=vec![u64::MAX;2*n+2];
++            square_base::full(&mut out[1..2*n+1],&args);
++            assert_eq!((out[0],out[2*n+1]),(u64::MAX,u64::MAX));out[1..2*n+1].to_vec()
++        }else if op=="workspace"{
++            let n=usize::try_from(args[0]).unwrap();
++            vec![arithmetic::workspace_len(n).unwrap_or(0) as u64,arithmetic::square_workspace_len(n).unwrap_or(0) as u64]
++        }else if op=="row"{
++            let word=args[0];let n=usize::try_from(args[1]).unwrap();let m=usize::try_from(args[2]).unwrap();
++            assert_eq!(args.len(),3+n+m);let mut out=vec![u64::MAX;n+2];out[1..n+1].copy_from_slice(&args[3..3+n]);
++            let carry=mac4::add_mul_word(&mut out[1..n+1],&args[3+n..],word);
++            assert_eq!((out[0],out[n+1]),(u64::MAX,u64::MAX));let mut out=out[1..n+1].to_vec();out.push(carry);out
++        }else{
++            assert!(args.len()>=6 && (args.len()-4)%2==0);
++            let top=u32::try_from(args[0]).unwrap();let threshold=usize::try_from(args[1]).unwrap();
++            let low=usize::try_from(args[2]).unwrap();let split=u32::try_from(args[3]).unwrap();let n=(args.len()-4)/2;
++            let a=&args[4..4+n];let b=&args[4+n..];
++            let full=matches!(op,"full"|"squarefull"|"squarek"|"full4"|"full4same"|"squarefull4"|"shortscratch4");let size=if full{2*n}else{n};
++            let capacity=match op{"squarek"=>3*n,"squarefull"|"squarelow"|"square"|"squarefull4"|"squarelow4"|"candidate4square"=>10*n,_=>12*n};
++            let mut out=vec![u64::MAX;size+2];let mut scratch=vec![u64::MAX;capacity+2];
++            let dst=&mut out[1..size+1];let work=&mut scratch[1..capacity+1];
++            match op{
++                "full4"=>toom4_multiply::full(dst,a,b,work,threshold),
++                "full4same"=>toom4_multiply::full(dst,a,a,work,threshold),
++                "squarefull4"=>toom4_square::full(dst,a,work,threshold),
++                "low4"=>toom4_low::modular(dst,a,b,work,top,threshold,low,split),
++                "squarelow4"=>{toom4_square_low::low(dst,a,work,threshold,low,split);pow2::normalize_top(dst,top);},
++                "candidate4"=>toom4_candidate::mul_mod(dst,a,b,work,top),
++                "candidate4square"=>toom4_candidate::square_mod(dst,a,work,top),
++                "shortscratch4"=>toom4_multiply::full(dst,a,b,&mut work[..12*n-1],threshold),
++                "full"=>toom_multiply::full(dst,a,b,work,threshold),
++                "low"=>toom_low::modular(dst,a,b,work,top,threshold,low,split),
++                "default"=>arithmetic::mul_mod(dst,a,b,work,top),
++                "same"=>arithmetic::mul_mod(dst,a,a,work,top),
++                "shortscratch"=>arithmetic::mul_mod(dst,a,b,&mut work[..3*n],top),
++                "squarefull"=>toom_square::full(dst,a,work,threshold),
++                "squarek"=>square::full(dst,a,work,threshold),
++                "squarelow"=>{square_low::low(dst,a,work,threshold,low,split);pow2::normalize_top(dst,top);},
++                "square"=>arithmetic::square_mod(dst,a,work,top),
++                _=>panic!("operation"),
++            }
++            assert_eq!((out[0],out[size+1]),(u64::MAX,u64::MAX));
++            assert_eq!((scratch[0],scratch[capacity+1]),(u64::MAX,u64::MAX));out[1..size+1].to_vec()
++        };
++        writeln!(output,"{}",out.iter().map(u64::to_string).collect::<Vec<_>>().join(" ")).unwrap();
++    }
++}
++
++#[path="specs/square_base.rs"] mod square_base_spec;
++#[path="verified/square_base.rs"] mod square_base;
++
++#[path="specs/toom4.rs"] mod toom4;
++#[path="verified/toom4_interpolate.rs"] mod toom4_interpolate;
++#[path="verified/toom4_evaluate.rs"] mod toom4_evaluate;
++#[path="specs/toom4_blocks.rs"] mod toom4_blocks;
++#[path="verified/toom4_multiply.rs"] mod toom4_multiply;
++#[path="verified/toom4_square.rs"] mod toom4_square;
++#[path="verified/toom4_low.rs"] mod toom4_low;
++#[path="verified/toom4_square_low.rs"] mod toom4_square_low;
++#[path="verified/toom4_candidate.rs"] mod toom4_candidate;
+--- /dev/null
++++ b/native/specs/toom4.rs
+@@ -0,0 +1,261 @@
++//! Seven-point Toom-4 polynomial meanings and exact interpolation obligations.
++//! Coefficients are defined from input blocks, independently of executable output.
++use vstd::prelude::*;
++use vstd::arithmetic::div_mod::*;
++use vstd::arithmetic::mul::*;
++verus! {
++pub open spec fn eval(a:Seq<int>,x:int)->int recommends a.len()==4 {
++    a[0]+x*a[1]+x*x*a[2]+x*x*x*a[3]
++}
++pub open spec fn half(a:Seq<int>)->int recommends a.len()==4 {
++    8*a[0]+4*a[1]+2*a[2]+a[3]
++}
++pub open spec fn negative_half(a:Seq<int>)->int recommends a.len()==4 {
++    8*a[0]-4*a[1]+2*a[2]-a[3]
++}
++pub open spec fn coefficients(a:Seq<int>,b:Seq<int>)->Seq<int>
++    recommends a.len()==4,b.len()==4,
++{
++    seq![a[0]*b[0],a[0]*b[1]+a[1]*b[0],
++        a[0]*b[2]+a[1]*b[1]+a[2]*b[0],
++        a[0]*b[3]+a[1]*b[2]+a[2]*b[1]+a[3]*b[0],
++        a[1]*b[3]+a[2]*b[2]+a[3]*b[1],a[2]*b[3]+a[3]*b[2],a[3]*b[3]]
++}
++pub open spec fn polynomial(c:Seq<int>,x:int)->int recommends c.len()==7 {
++    c[0]+x*c[1]+x*x*c[2]+x*x*x*c[3]+x*x*x*x*c[4]+x*x*x*x*x*c[5]+x*x*x*x*x*x*c[6]
++}
++pub open spec fn one(c:Seq<int>)->int recommends c.len()==7 {
++    c[0]+c[1]+c[2]+c[3]+c[4]+c[5]+c[6]
++}
++pub open spec fn negative(c:Seq<int>)->int recommends c.len()==7 {
++    c[0]-c[1]+c[2]-c[3]+c[4]-c[5]+c[6]
++}
++pub open spec fn scaled_half(c:Seq<int>)->int recommends c.len()==7 {
++    64*c[0]+32*c[1]+16*c[2]+8*c[3]+4*c[4]+2*c[5]+c[6]
++}
++pub open spec fn scaled_negative_half(c:Seq<int>)->int recommends c.len()==7 {
++    64*c[0]-32*c[1]+16*c[2]-8*c[3]+4*c[4]-2*c[5]+c[6]
++}
++pub open spec fn two(c:Seq<int>)->int recommends c.len()==7 {
++    c[0]+2*c[1]+4*c[2]+8*c[3]+16*c[4]+32*c[5]+64*c[6]
++}
++
++pub proof fn evaluation_forms(a:Seq<int>)
++    requires a.len()==4,
++    ensures eval(a,1)==a[0]+a[1]+a[2]+a[3],eval(a,-1)==a[0]-a[1]+a[2]-a[3],
++        eval(a,2)==a[0]+2*a[1]+4*a[2]+8*a[3],
++{
++    lemma_mul_basics(a[1]);lemma_mul_basics(a[2]);lemma_mul_basics(a[3]);
++    lemma_mul_is_distributive_sub_other_way(a[1],0,1);
++    lemma_mul_is_distributive_sub_other_way(a[3],0,1);
++    assert(2int*2==4 && 2int*2*2==8);
++}
++
++pub proof fn signed_product(a:int,b:int,x:int,y:int,na:bool,nb:bool)
++    requires (if na{-a}else{a})==x,(if nb{-b}else{b})==y,
++    ensures (if na!=nb{-(a*b)}else{a*b})==x*y,
++{
++    assert((if na!=nb{-(a*b)}else{a*b})==x*y) by(nonlinear_arith)
++        requires (if na{-a}else{a})==x,(if nb{-b}else{b})==y;
++}
++
++pub proof fn evaluation_products(a:Seq<int>,b:Seq<int>)
++    requires a.len()==4,b.len()==4,
++    ensures coefficients(a,b).len()==7,
++        eval(a,0)*eval(b,0)==coefficients(a,b)[0],
++        a[3]*b[3]==coefficients(a,b)[6],
++        eval(a,1)*eval(b,1)==one(coefficients(a,b)),
++        eval(a,-1)*eval(b,-1)==negative(coefficients(a,b)),
++        eval(a,2)*eval(b,2)==two(coefficients(a,b)),
++        half(a)*half(b)==scaled_half(coefficients(a,b)),
++        negative_half(a)*negative_half(b)==scaled_negative_half(coefficients(a,b)),
++{
++    let c=coefficients(a,b);
++    recompose(a,b,1);recompose(a,b,-1);recompose(a,b,2);
++    half_products(a[0],a[1],a[2],a[3],b[0],b[1],b[2],b[3]);
++    lemma_mul_is_associative(64,a[0],b[0]);
++    lemma_mul_basics(c[1]);lemma_mul_basics(c[2]);lemma_mul_basics(c[3]);lemma_mul_basics(c[4]);lemma_mul_basics(c[5]);
++    lemma_mul_is_distributive_sub_other_way(c[1],0,1);
++    lemma_mul_is_distributive_sub_other_way(c[3],0,1);
++    lemma_mul_is_distributive_sub_other_way(c[5],0,1);
++}
++
++pub proof fn quad_product(a:int,b:int,c:int,d:int,e:int,f:int,g:int,h:int)
++    ensures (a+b+c+d)*(e+f+g+h)==a*e+a*f+a*g+a*h+b*e+b*f+b*g+b*h+c*e+c*f+c*g+c*h+d*e+d*f+d*g+d*h,
++{
++    lemma_mul_is_distributive_add(a+b+c+d,e+f+g,h);
++    lemma_mul_is_distributive_add(a+b+c+d,e+f,g);
++    lemma_mul_is_distributive_add(a+b+c+d,e,f);
++    lemma_mul_is_distributive_add_other_way(e,a+b+c,d);
++    lemma_mul_is_distributive_add_other_way(e,a+b,c);
++    lemma_mul_is_distributive_add_other_way(e,a,b);
++    lemma_mul_is_distributive_add_other_way(f,a+b+c,d);
++    lemma_mul_is_distributive_add_other_way(f,a+b,c);
++    lemma_mul_is_distributive_add_other_way(f,a,b);
++    lemma_mul_is_distributive_add_other_way(g,a+b+c,d);
++    lemma_mul_is_distributive_add_other_way(g,a+b,c);
++    lemma_mul_is_distributive_add_other_way(g,a,b);
++    lemma_mul_is_distributive_add_other_way(h,a+b+c,d);
++    lemma_mul_is_distributive_add_other_way(h,a+b,c);
++    lemma_mul_is_distributive_add_other_way(h,a,b);
++}
++pub proof fn monomial_mul(x:int,y:int,p:int,q:int)
++    ensures (p*x)*(q*y)==(p*q)*(x*y),
++{
++    lemma_mul_is_associative(p,x,q*y);
++    lemma_mul_is_associative(x,q,y);
++    lemma_mul_is_commutative(x,q);
++    lemma_mul_is_associative(q,x,y);
++    lemma_mul_is_associative(p,q,x*y);
++}
++
++pub proof fn half_products(a0:int,a1:int,a2:int,a3:int,b0:int,b1:int,b2:int,b3:int)
++    ensures
++        (8*a0+4*a1+2*a2+a3)*(8*b0+4*b1+2*b2+b3)==64*a0*b0+32*(a0*b1+a1*b0)
++            +16*(a0*b2+a1*b1+a2*b0)+8*(a0*b3+a1*b2+a2*b1+a3*b0)
++            +4*(a1*b3+a2*b2+a3*b1)+2*(a2*b3+a3*b2)+a3*b3,
++        (8*a0-4*a1+2*a2-a3)*(8*b0-4*b1+2*b2-b3)==64*a0*b0-32*(a0*b1+a1*b0)
++            +16*(a0*b2+a1*b1+a2*b0)-8*(a0*b3+a1*b2+a2*b1+a3*b0)
++            +4*(a1*b3+a2*b2+a3*b1)-2*(a2*b3+a3*b2)+a3*b3,
++{
++    quad_product(8*a0,4*a1,2*a2,a3,8*b0,4*b1,2*b2,b3);
++    monomial_mul(a0,b0,8,8);monomial_mul(a0,b1,8,4);monomial_mul(a0,b2,8,2);monomial_mul(a0,b3,8,1);
++    monomial_mul(a1,b0,4,8);monomial_mul(a1,b1,4,4);monomial_mul(a1,b2,4,2);monomial_mul(a1,b3,4,1);
++    monomial_mul(a2,b0,2,8);monomial_mul(a2,b1,2,4);monomial_mul(a2,b2,2,2);monomial_mul(a2,b3,2,1);
++    monomial_mul(a3,b0,1,8);monomial_mul(a3,b1,1,4);monomial_mul(a3,b2,1,2);monomial_mul(a3,b3,1,1);
++    lemma_mul_is_associative(64,a0,b0);
++    quad_product(8*a0,-4*a1,2*a2,-a3,8*b0,-4*b1,2*b2,-b3);
++    monomial_mul(a0,b0,8,8);monomial_mul(a0,b1,8,-4);monomial_mul(a0,b2,8,2);monomial_mul(a0,b3,8,-1);
++    monomial_mul(a1,b0,-4,8);monomial_mul(a1,b1,-4,-4);monomial_mul(a1,b2,-4,2);monomial_mul(a1,b3,-4,-1);
++    monomial_mul(a2,b0,2,8);monomial_mul(a2,b1,2,-4);monomial_mul(a2,b2,2,2);monomial_mul(a2,b3,2,-1);
++    monomial_mul(a3,b0,-1,8);monomial_mul(a3,b1,-1,-4);monomial_mul(a3,b2,-1,2);monomial_mul(a3,b3,-1,-1);
++}
++
++pub proof fn recompose(a:Seq<int>,b:Seq<int>,r:int)
++    requires a.len()==4,b.len()==4,
++    ensures eval(a,r)*eval(b,r)==polynomial(coefficients(a,b),r),
++{
++    let a0=a[0];let a1=a[1];let a2=a[2];let a3=a[3];
++    let b0=b[0];let b1=b[1];let b2=b[2];let b3=b[3];
++    quad_product(a0,r*a1,r*r*a2,r*r*r*a3,b0,r*b1,r*r*b2,r*r*r*b3);
++    monomial_mul(a0,b0,1,1);monomial_mul(a0,b1,1,r);monomial_mul(a0,b2,1,r*r);monomial_mul(a0,b3,1,r*r*r);
++    monomial_mul(a1,b0,r,1);monomial_mul(a1,b1,r,r);monomial_mul(a1,b2,r,r*r);monomial_mul(a1,b3,r,r*r*r);
++    monomial_mul(a2,b0,r*r,1);monomial_mul(a2,b1,r*r,r);monomial_mul(a2,b2,r*r,r*r);monomial_mul(a2,b3,r*r,r*r*r);
++    monomial_mul(a3,b0,r*r*r,1);monomial_mul(a3,b1,r*r*r,r);monomial_mul(a3,b2,r*r*r,r*r);monomial_mul(a3,b3,r*r*r,r*r*r);
++    lemma_mul_is_associative(r,r,r);
++    lemma_mul_is_associative(r*r,r,r);
++    lemma_mul_is_associative(r,r*r,r);
++    lemma_mul_is_associative(r*r,r*r,r);
++    lemma_mul_is_associative(r,r,r*r*r);
++    lemma_mul_is_associative(r*r,r,r*r);
++    lemma_mul_is_associative(r*r*r,r,r);
++    lemma_mul_is_associative(r*r*r,r*r,r);
++    lemma_mul_is_associative(r*r*r,r,r*r);
++    lemma_mul_is_distributive_add(r,a0*b1,a1*b0);
++    lemma_mul_is_distributive_add(r*r,a0*b2+a1*b1,a2*b0);
++    lemma_mul_is_distributive_add(r*r,a0*b2,a1*b1);
++    lemma_mul_is_distributive_add(r*r*r,a0*b3+a1*b2+a2*b1,a3*b0);
++    lemma_mul_is_distributive_add(r*r*r,a0*b3+a1*b2,a2*b1);
++    lemma_mul_is_distributive_add(r*r*r,a0*b3,a1*b2);
++    lemma_mul_is_distributive_add(r*r*r*r,a1*b3+a2*b2,a3*b1);
++    lemma_mul_is_distributive_add(r*r*r*r,a1*b3,a2*b2);
++    lemma_mul_is_distributive_add(r*r*r*r*r,a2*b3,a3*b2);
++}
++
++pub proof fn evaluation_bounds(a:Seq<int>,r:int)
++    requires a.len()==4,r>0,forall|i:int|0<=i<4 ==> 0<=#[trigger] a[i]<r,
++    ensures 0<=eval(a,1)<4*r,-2*r<eval(a,-1)<2*r,
++        0<=eval(a,2)<15*r,0<=half(a)<15*r,-5*r<negative_half(a)<10*r,
++{
++    assert(0<=a[0]<r && 0<=a[1]<r && 0<=a[2]<r && 0<=a[3]<r);
++    lemma_mul_basics(a[1]);lemma_mul_basics(a[2]);lemma_mul_basics(a[3]);
++    lemma_mul_is_distributive_sub_other_way(a[1],0,1);
++    lemma_mul_is_distributive_sub_other_way(a[3],0,1);
++    assert(2int*2==4 && 2int*2*2==8);
++    assert(eval(a,2)==a[0]+2*a[1]+4*a[2]+8*a[3]);
++}
++
++pub proof fn coefficient_bounds(a:Seq<int>,b:Seq<int>,r:int)
++    requires a.len()==4,b.len()==4,r>0,
++        forall|i:int|0<=i<4 ==> 0<=#[trigger] a[i]<r,
++        forall|i:int|0<=i<4 ==> 0<=#[trigger] b[i]<r,
++    ensures forall|i:int|0<=i<7 ==> 0<=#[trigger] coefficients(a,b)[i]<4*r*r,
++        0<=one(coefficients(a,b))<16*r*r,
++{
++    assert forall|i:int,j:int|0<=i<4 && 0<=j<4 implies 0<=#[trigger] (a[i]*b[j])<r*r by {
++        assert(0<=a[i]<r && 0<=b[j]<r);
++        assert(0<=a[i]*b[j]<r*r) by(nonlinear_arith)
++            requires r>0,0<=a[i]<r,0<=b[j]<r;
++    }
++    let c=coefficients(a,b);
++    assert(c.len()==7);
++    lemma_mul_is_associative(4,r,r);lemma_mul_is_associative(16,r,r);
++    assert forall|i:int|0<=i<7 implies 0<=#[trigger] c[i]<4*r*r by {}
++}
++
++// Each value is an intermediate in the prospective in-place kernel. Only
++// input-defined coefficients occur here; no runtime result defines its own spec.
++pub open spec fn even_one(c:Seq<int>)->int { (one(c)+negative(c))/2 }
++pub open spec fn odd_one(c:Seq<int>)->int { (one(c)-negative(c))/2 }
++pub open spec fn even_half(c:Seq<int>)->int { (scaled_half(c)+scaled_negative_half(c))/2 }
++pub open spec fn odd_half(c:Seq<int>)->int { (scaled_half(c)-scaled_negative_half(c))/4 }
++pub open spec fn even_middle(c:Seq<int>)->int {even_one(c)-c[0]-c[6]}
++pub open spec fn half_middle(c:Seq<int>)->int {(even_half(c)-64*c[0]-c[6])/4}
++pub open spec fn recover_c2(c:Seq<int>)->int {(half_middle(c)-even_middle(c))/3}
++pub open spec fn recover_c4(c:Seq<int>)->int {even_middle(c)-recover_c2(c)}
++pub open spec fn odd_two(c:Seq<int>)->int {(two(c)-c[0]-4*recover_c2(c)-16*recover_c4(c)-64*c[6])/2}
++pub open spec fn recover_c3(c:Seq<int>)->int {(17*odd_one(c)-odd_half(c)-odd_two(c))/9}
++pub open spec fn recover_c1(c:Seq<int>)->int {(odd_half(c)-odd_one(c)-3*recover_c3(c))/15}
++pub open spec fn recover_c5(c:Seq<int>)->int {odd_one(c)-recover_c1(c)-recover_c3(c)}
++
++pub proof fn exact_division(q:int,d:int)
++    requires d>0,
++    ensures (d*q)%d==0,(d*q)/d==q,
++{
++    lemma_mod_multiples_basic(q,d);
++    lemma_div_multiples_vanish(q,d);
++    lemma_mul_is_commutative(q,d);
++}
++
++pub proof fn interpolation(c:Seq<int>)
++    requires c.len()==7,forall|i:int|0<=i<7 ==> 0<=#[trigger] c[i],
++    ensures
++        even_one(c)==c[0]+c[2]+c[4]+c[6],odd_one(c)==c[1]+c[3]+c[5],
++        even_half(c)==64*c[0]+16*c[2]+4*c[4]+c[6],odd_half(c)==16*c[1]+4*c[3]+c[5],
++        even_middle(c)==c[2]+c[4],half_middle(c)==4*c[2]+c[4],
++        odd_two(c)==c[1]+4*c[3]+16*c[5],
++        recover_c1(c)==c[1],recover_c2(c)==c[2],recover_c3(c)==c[3],recover_c4(c)==c[4],recover_c5(c)==c[5],
++        0<=one(c)+negative(c), (one(c)+negative(c))%2==0,
++        0<=one(c)-negative(c), (one(c)-negative(c))%2==0,
++        0<=scaled_half(c)+scaled_negative_half(c), (scaled_half(c)+scaled_negative_half(c))%2==0,
++        0<=scaled_half(c)-scaled_negative_half(c), (scaled_half(c)-scaled_negative_half(c))%4==0,
++        0<=even_half(c)-64*c[0]-c[6], (even_half(c)-64*c[0]-c[6])%4==0,
++        0<=half_middle(c)-even_middle(c), (half_middle(c)-even_middle(c))%3==0,
++        0<=two(c)-c[0]-4*recover_c2(c)-16*recover_c4(c)-64*c[6],
++        (two(c)-c[0]-4*recover_c2(c)-16*recover_c4(c)-64*c[6])%2==0,
++        0<=17*odd_one(c)-odd_half(c)-odd_two(c), (17*odd_one(c)-odd_half(c)-odd_two(c))%9==0,
++        0<=odd_half(c)-odd_one(c)-3*recover_c3(c), (odd_half(c)-odd_one(c)-3*recover_c3(c))%15==0,
++{
++    exact_division(c[0]+c[2]+c[4]+c[6],2);
++    exact_division(c[1]+c[3]+c[5],2);
++    exact_division(64*c[0]+16*c[2]+4*c[4]+c[6],2);
++    exact_division(16*c[1]+4*c[3]+c[5],4);
++    exact_division(4*c[2]+c[4],4);
++    exact_division(c[2],3);
++    assert(recover_c2(c)==c[2] && recover_c4(c)==c[4]);
++    exact_division(c[1]+4*c[3]+16*c[5],2);
++    exact_division(c[3],9);
++    assert(recover_c3(c)==c[3]);
++    exact_division(c[1],15);
++}
++
++// This is the numeric capacity obligation for the planned caller-owned layout.
++// Slice splitting/lifetimes are not verified until the executable kernel exists.
++pub proof fn workspace(n:int,k:int,m:int)
++    requires n>=25,k==n/4+if n%4==0{0int}else{1int},m==k+1,
++    ensures 0<k,3*k<n<=4*k,m<n,28*m<=12*n,25*m<=10*n,12*m>=2*m,10*m>=2*m,
++{
++    lemma_fundamental_div_mod(n,4);
++    lemma_mod_division_less_than_divisor(n,4);
++}
++}
+--- /dev/null
++++ b/native/specs/toom4_blocks.rs
+@@ -0,0 +1,81 @@
++//! Four input blocks and seven coefficient slots in base 2^64.
++use vstd::prelude::*;
++use vstd::arithmetic::div_mod::*;
++use crate::radix::*;
++use crate::product::*;
++use crate::fast_product::*;
++use crate::toom4;
++verus! {
++pub open spec fn blocks(a:Seq<u64>,k:nat)->Seq<int>
++    recommends 3*k<=a.len()<=4*k,
++{
++    seq![part(a,0,k),part(a,k,2*k),part(a,2*k,3*k),part(a,3*k,a.len())]
++}
++pub proof fn four_blocks(a:Seq<u64>,k:nat)
++    requires 3*k<=a.len()<=4*k,
++    ensures blocks(a,k).len()==4,value(a)==toom4::eval(blocks(a,k),radix(k)),
++        forall|i:int|0<=i<4 ==> 0<=#[trigger] blocks(a,k)[i]<radix(k),
++{
++    split(a,3*k);segment_split(a,2*k,3*k);segment_split(a,k,2*k);split(a,k);
++    radix_add(k,k);radix_add(2*k,k);
++    prefix_range(a.subrange(0,k as int),k);
++    prefix_range(a.subrange(k as int,(2*k) as int),k);
++    prefix_range(a.subrange((2*k) as int,(3*k) as int),k);
++    prefix_range(a.subrange((3*k) as int,a.len() as int),(a.len()-3*k) as nat);
++    radix_add((a.len()-3*k) as nat,(4*k-a.len()) as nat);
++    radix_positive((4*k-a.len()) as nat);
++    assert(radix((a.len()-3*k) as nat)<=radix(k)) by(nonlinear_arith)
++        requires radix(k)==radix((a.len()-3*k) as nat)*radix((4*k-a.len()) as nat),
++            radix((a.len()-3*k) as nat)>0,radix((4*k-a.len()) as nat)>=1;
++    let c=blocks(a,k);assert(c.len()==4);
++    assert forall|i:int|0<=i<4 implies 0<=#[trigger] c[i]<radix(k) by {}
++}
++
++pub proof fn product_capacity(k:nat,c:Seq<int>)
++    requires c.len()==7,0<=toom4::one(c)<16*radix(k)*radix(k),
++    ensures 128*toom4::one(c)<radix(2*(k+1)),
++{
++    radix_add(k,k);radix_add(2*k,2);radix_positive(k);
++    reveal_with_fuel(radix,3);
++    assert(radix(2)==base()*base());
++    assert(128*toom4::one(c)<radix(2*(k+1))) by(nonlinear_arith)
++        requires 0<=toom4::one(c)<16*radix(k)*radix(k),
++            radix(2*(k+1))==radix(k)*radix(k)*radix(2),radix(2)==base()*base(),radix(k)>0;
++}
++
++pub proof fn coefficient_radices(c:Seq<int>,k:nat)
++    requires c.len()==7,
++    ensures toom4::polynomial(c,radix(k))==c[0]+radix(k)*c[1]+radix(2*k)*c[2]
++        +radix(3*k)*c[3]+radix(4*k)*c[4]+radix(5*k)*c[5]+radix(6*k)*c[6],
++{
++    radix_add(k,k);radix_add(2*k,k);radix_add(3*k,k);radix_add(4*k,k);radix_add(5*k,k);
++}
++
++pub proof fn input_model(a:Seq<u64>,b:Seq<u64>,k:nat)
++    requires a.len()>0,a.len()==b.len(),3*k<a.len()<=4*k,
++    ensures coefficients_for(a,b,k).len()==7,
++        forall|i:int|0<=i<7 ==> 0<=#[trigger] coefficients_for(a,b,k)[i],
++        128*toom4::one(coefficients_for(a,b,k))<radix(2*(k+1)),
++        value(a)*value(b)==toom4::polynomial(coefficients_for(a,b,k),radix(k)),
++{
++    four_blocks(a,k);four_blocks(b,k);radix_positive(k);
++    let aa=blocks(a,k);let bb=blocks(b,k);let c=toom4::coefficients(aa,bb);
++    toom4::coefficient_bounds(aa,bb,radix(k));product_capacity(k,c);
++    toom4::recompose(aa,bb,radix(k));
++}
++pub open spec fn coefficients_for(a:Seq<u64>,b:Seq<u64>,k:nat)->Seq<int> {
++    toom4::coefficients(blocks(a,k),blocks(b,k))
++}
++pub proof fn recover_product(dst:Seq<u64>,a:Seq<u64>,b:Seq<u64>,k:nat)
++    requires a.len()>0,a.len()==b.len(),dst.len()==2*a.len(),3*k<a.len()<=4*k,
++        value(dst)==toom4::polynomial(coefficients_for(a,b,k),radix(k))%radix(dst.len()),
++    ensures value(dst)==value(a)*value(b),
++{
++    input_model(a,b,k);
++    prefix_range(a,a.len());prefix_range(b,b.len());radix_add(a.len(),a.len());
++    assert(0<=value(a)*value(b)<radix(dst.len())) by(nonlinear_arith)
++        requires 0<=value(a)<radix(a.len()),0<=value(b)<radix(a.len()),
++            radix(dst.len())==radix(a.len())*radix(a.len());
++    lemma_small_mod((value(a)*value(b)) as nat,radix(dst.len()) as nat);
++}
++}
+--- /dev/null
++++ b/native/verified/toom4_candidate.rs
+@@ -0,0 +1,62 @@
++//! Isolated measurement policy; the production arithmetic entry points are unchanged.
++use vstd::prelude::*;
++use vstd::arithmetic::div_mod::*;
++use vstd::arithmetic::power2::*;
++use crate::radix::*;
++use crate::precision::*;
++use crate::{fast_multiply,square_low,toom4_low,toom4_square_low,pow2};
++verus! {
++pub fn mul_mod(dst:&mut[u64],a:&[u64],b:&[u64],scratch:&mut[u64],top:u32)
++    requires a@.len()>0,a@.len()==b@.len(),old(dst)@.len()==a@.len(),
++        old(scratch)@.len()>=12*a@.len(),1<=top<=64,
++    ensures final(dst)@.len()==old(dst)@.len(),final(scratch)@.len()==old(scratch)@.len(),
++        value(final(dst)@)==(value(a@)*value(b@))%modulus(a@.len(),top as nat),
++        0<=value(final(dst)@)<modulus(a@.len(),top as nat),
++{
++    if a.len()<512{fast_multiply::mul_mod(dst,a,b,scratch,top);}
++    else{toom4_low::modular(dst,a,b,scratch,top,256,128,2);}
++}
++
++#[inline(always)]
++fn square_small(dst:&mut[u64],a:&[u64],scratch:&mut[u64],top:u32)
++    requires a@.len()>0,old(dst)@.len()==a@.len(),old(scratch)@.len()>=10*a@.len(),1<=top<=64,
++    ensures final(dst)@.len()==old(dst)@.len(),final(scratch)@.len()==old(scratch)@.len(),
++        value(final(dst)@)==(value(a@)*value(a@))%modulus(a@.len(),top as nat),
++        0<=value(final(dst)@)<modulus(a@.len(),top as nat),
++{
++    assert!(1<=top && top<=64);
++    square_low::low(dst,a,scratch,192,64,1);
++    pow2::normalize_top(dst,top);
++    proof {
++        modulus_properties(a@.len(),top as nat);lemma_pow2_pos((64-top) as nat);
++        lemma_mod_mod(value(a@)*value(a@),modulus(a@.len(),top as nat),pow2((64-top) as nat) as int);
++    }
++}
++
++#[inline(never)]
++fn square_large(dst:&mut[u64],a:&[u64],scratch:&mut[u64],top:u32)
++    requires a@.len()>0,old(dst)@.len()==a@.len(),old(scratch)@.len()>=10*a@.len(),1<=top<=64,
++    ensures final(dst)@.len()==old(dst)@.len(),final(scratch)@.len()==old(scratch)@.len(),
++        value(final(dst)@)==(value(a@)*value(a@))%modulus(a@.len(),top as nat),
++        0<=value(final(dst)@)<modulus(a@.len(),top as nat),
++{
++    assert!(1<=top && top<=64);
++    toom4_square_low::low(dst,a,scratch,256,64,1);
++    pow2::normalize_top(dst,top);
++    proof {
++        modulus_properties(a@.len(),top as nat);lemma_pow2_pos((64-top) as nat);
++        lemma_mod_mod(value(a@)*value(a@),modulus(a@.len(),top as nat),pow2((64-top) as nat) as int);
++    }
++}
++
++#[inline(always)]
++pub fn square_mod(dst:&mut[u64],a:&[u64],scratch:&mut[u64],top:u32)
++    requires a@.len()>0,old(dst)@.len()==a@.len(),old(scratch)@.len()>=10*a@.len(),1<=top<=64,
++    ensures final(dst)@.len()==old(dst)@.len(),final(scratch)@.len()==old(scratch)@.len(),
++        value(final(dst)@)==(value(a@)*value(a@))%modulus(a@.len(),top as nat),
++        0<=value(final(dst)@)<modulus(a@.len(),top as nat),
++{
++    if a.len()<512{square_small(dst,a,scratch,top);}
++    else{square_large(dst,a,scratch,top);}
++}
++}
+--- /dev/null
++++ b/native/verified/toom4_evaluate.rs
+@@ -0,0 +1,106 @@
++//! Single-pass four-block weighted evaluation; signed points reuse caller scratch.
++use vstd::prelude::*;
++use vstd::arithmetic::div_mod::*;
++use vstd::arithmetic::mul::*;
++use crate::radix::*;
++use crate::fast_product::*;
++use crate::{fast_words,toom_words};
++verus! {
++pub proof fn term_bound(w:int,x:int)
++    requires 0<=w,0<=x<=u64::MAX,
++    ensures 0<=w*x<=w*(u64::MAX as int),
++{
++    assert(0<=w*x<=w*(u64::MAX as int)) by(nonlinear_arith)
++        requires 0<=w,0<=x<=u64::MAX;
++}
++
++#[inline(always)]
++pub fn weighted(dst:&mut[u64],a0:&[u64],a1:&[u64],a2:&[u64],a3:&[u64],w0:u64,w1:u64,w2:u64,w3:u64)
++    requires a0@.len()==a1@.len(),a0@.len()==a2@.len(),a3@.len()<=a0@.len(),old(dst)@.len()==a0@.len()+1,
++        w0<=8,w1<=8,w2<=8,w3<=8,(w0 as int)+(w1 as int)+(w2 as int)+(w3 as int)<=15,
++    ensures final(dst)@.len()==old(dst)@.len(),
++        value(final(dst)@)==(w0 as int)*value(a0@)+(w1 as int)*value(a1@)+(w2 as int)*value(a2@)+(w3 as int)*value(a3@),
++{
++    let _output_len=dst.len();
++    assert!(a0.len()==a1.len() && a0.len()==a2.len() && a3.len()<=a0.len());
++    assert!(a0.len()<usize::MAX && dst.len()==a0.len()+1);
++    assert!(w0<=8 && w1<=8 && w2<=8 && w3<=8 && w0+w1+w2+w3<=15);
++    let k=a0.len();let mut carry=0u64;let mut i=0usize;
++    while i<k
++        invariant i<=k,a0@.len()==k,a1@.len()==k,a2@.len()==k,a3@.len()<=k,dst@.len()==k+1,carry<=14,
++            w0<=8,w1<=8,w2<=8,w3<=8,(w0 as int)+(w1 as int)+(w2 as int)+(w3 as int)<=15,
++            prefix(dst@,i as nat)+radix(i as nat)*(carry as int)
++                ==(w0 as int)*prefix(a0@,i as nat)+(w1 as int)*prefix(a1@,i as nat)
++                    +(w2 as int)*prefix(a2@,i as nat)+(w3 as int)*extended(a3@,i as nat),
++        decreases k-i,
++    {
++        let x0=a0[i];let x1=a1[i];let x2=a2[i];let x3=if i<a3.len(){a3[i]}else{0};
++        let ghost before=dst@;let ghost incoming=carry;
++        proof {term_bound(w0 as int,x0 as int);term_bound(w1 as int,x1 as int);
++            term_bound(w2 as int,x2 as int);term_bound(w3 as int,x3 as int);}
++        let total=(w0 as u128)*(x0 as u128)+(w1 as u128)*(x1 as u128)
++            +(w2 as u128)*(x2 as u128)+(w3 as u128)*(x3 as u128)+(carry as u128);
++        let low=(total%18446744073709551616u128) as u64;
++        let next=(total/18446744073709551616u128) as u64;
++        proof {
++            lemma_fundamental_div_mod(total as int,base());
++            assert(total<=15*base()-1);
++            assert(next<=14);
++        }
++        dst[i]=low;
++        proof {
++            equal_prefix(dst@,before,i as nat);extended_step(a3@,i as nat);
++            let r=radix(i as nat);
++            lemma_mul_is_distributive_add(w0 as int,prefix(a0@,i as nat),(x0 as int)*r);
++            lemma_mul_is_distributive_add(w1 as int,prefix(a1@,i as nat),(x1 as int)*r);
++            lemma_mul_is_distributive_add(w2 as int,prefix(a2@,i as nat),(x2 as int)*r);
++            lemma_mul_is_distributive_add(w3 as int,extended(a3@,i as nat),(x3 as int)*r);
++            lemma_mul_is_associative(w0 as int,x0 as int,r);
++            lemma_mul_is_associative(w1 as int,x1 as int,r);
++            lemma_mul_is_associative(w2 as int,x2 as int,r);
++            lemma_mul_is_associative(w3 as int,x3 as int,r);
++            lemma_mul_is_distributive_add_other_way(r,(w0 as int)*(x0 as int)+(w1 as int)*(x1 as int)
++                +(w2 as int)*(x2 as int)+(w3 as int)*(x3 as int),incoming as int);
++            lemma_mul_is_distributive_add_other_way(r,(w0 as int)*(x0 as int)+(w1 as int)*(x1 as int)
++                +(w2 as int)*(x2 as int),(w3 as int)*(x3 as int));
++            lemma_mul_is_distributive_add_other_way(r,(w0 as int)*(x0 as int)+(w1 as int)*(x1 as int),(w2 as int)*(x2 as int));
++            lemma_mul_is_distributive_add_other_way(r,(w0 as int)*(x0 as int),(w1 as int)*(x1 as int));
++            lemma_mul_is_distributive_add_other_way(r,low as int,base()*(next as int));
++            lemma_mul_is_commutative(r,incoming as int);
++            lemma_mul_is_commutative(base()*r,next as int);
++            lemma_mul_is_associative(next as int,base(),r);
++            lemma_mul_is_commutative(next as int,base());
++            assert(prefix(dst@,(i+1) as nat)+radix((i+1) as nat)*(next as int)
++                ==(w0 as int)*prefix(a0@,(i+1) as nat)+(w1 as int)*prefix(a1@,(i+1) as nat)
++                    +(w2 as int)*prefix(a2@,(i+1) as nat)+(w3 as int)*extended(a3@,(i+1) as nat));
++        }
++        carry=next;i+=1;
++    }
++    let ghost before=dst@;dst[k]=carry;
++    proof {equal_prefix(dst@,before,k as nat);assert(extended(a3@,k as nat)==value(a3@));
++        lemma_mul_is_commutative(carry as int,radix(k as nat));}
++}
++
++pub fn signed(dst:&mut[u64],tmp:&mut[u64],a0:&[u64],a1:&[u64],a2:&[u64],a3:&[u64],half:bool)->(neg:bool)
++    requires a0@.len()==a1@.len(),a0@.len()==a2@.len(),a3@.len()<=a0@.len(),
++        old(dst)@.len()==a0@.len()+1,old(tmp)@.len()==old(dst)@.len(),
++    ensures final(dst)@.len()==old(dst)@.len(),final(tmp)@.len()==old(tmp)@.len(),
++        (if neg{-value(final(dst)@)}else{value(final(dst)@)})
++            ==if half{8*value(a0@)-4*value(a1@)+2*value(a2@)-value(a3@)}
++                else{value(a0@)-value(a1@)+value(a2@)-value(a3@)},
++        neg==(if half{8*value(a0@)+2*value(a2@)<4*value(a1@)+value(a3@)}
++            else{value(a0@)+value(a2@)<value(a1@)+value(a3@)}),
++{
++    if half {
++        weighted(dst,a0,a1,a2,a3,8,0,2,0);weighted(tmp,a0,a1,a2,a3,0,4,0,1);
++    }else{
++        weighted(dst,a0,a1,a2,a3,1,0,1,0);weighted(tmp,a0,a1,a2,a3,0,1,0,1);
++    }
++    let neg=fast_words::less(dst,tmp);
++    if neg {
++        let borrow=fast_words::reverse_subtract(dst,tmp);
++        proof {prefix_range(dst@,dst@.len());if borrow!=0{assert(borrow==1);}}
++    }else{toom_words::sub_exact(dst,tmp);}
++    neg
++}
++}
+--- /dev/null
++++ b/native/verified/toom4_interpolate.rs
+@@ -0,0 +1,108 @@
++//! Exact seven-point interpolation using caller-owned buffers.
++use vstd::prelude::*;
++use vstd::arithmetic::div_mod::*;
++use crate::radix::*;
++use crate::{toom4,toom_words,fast_words};
++verus! {
++pub fn interpolate(p1:&mut[u64],pm:&mut[u64],p2:&mut[u64],ph:&mut[u64],pmh:&mut[u64],
++    z0:&[u64],z6:&[u64],negative:bool,negative_half:bool,scratch:&mut[u64],Ghost(c):Ghost<Seq<int>>)
++    requires c.len()==7,forall|i:int|0<=i<7 ==> 0<=#[trigger] c[i],
++        old(p1)@.len()==old(pm)@.len(),old(p1)@.len()==old(p2)@.len(),
++        old(p1)@.len()==old(ph)@.len(),old(p1)@.len()==old(pmh)@.len(),old(p1)@.len()==old(scratch)@.len(),
++        z0@.len()<=old(p1)@.len(),z6@.len()<=old(p1)@.len(),
++        128*toom4::one(c)<radix(old(p1)@.len()),
++        value(z0@)==c[0],value(z6@)==c[6],value(old(p1)@)==toom4::one(c),
++        (if negative{-value(old(pm)@)}else{value(old(pm)@)})==toom4::negative(c),
++        value(old(p2)@)==toom4::two(c),value(old(ph)@)==toom4::scaled_half(c),
++        (if negative_half{-value(old(pmh)@)}else{value(old(pmh)@)})==toom4::scaled_negative_half(c),
++    ensures final(p1)@.len()==old(p1)@.len(),final(pm)@.len()==old(pm)@.len(),final(p2)@.len()==old(p2)@.len(),
++        final(ph)@.len()==old(ph)@.len(),final(pmh)@.len()==old(pmh)@.len(),final(scratch)@.len()==old(scratch)@.len(),
++        value(final(ph)@)==c[1],value(final(pmh)@)==c[2],value(final(scratch)@)==c[3],
++        value(final(pm)@)==c[4],value(final(p1)@)==c[5],value(final(p2)@)==3*c[3],
++{
++    assert!(p1.len()==pm.len() && p1.len()==p2.len() && p1.len()==ph.len());
++    assert!(p1.len()==pmh.len() && p1.len()==scratch.len());
++    assert!(z0.len()<=p1.len() && z6.len()<=p1.len());
++    proof {toom4::interpolation(c);}
++    if negative {
++        let borrow=fast_words::reverse_subtract(pm,p1);
++        proof {prefix_range(pm@,pm@.len());if borrow!=0{assert(borrow==1);}}
++    }else{toom_words::add_exact(pm,p1);}
++    assert(value(pm@)==2*(c[0]+c[2]+c[4]+c[6]));
++    proof {toom4::exact_division(c[0]+c[2]+c[4]+c[6],2);}
++    toom_words::divide_exact(pm,2);
++    toom_words::sub_exact(p1,pm);
++    assert(value(p1@)==c[1]+c[3]+c[5]);
++    if negative_half {
++        let borrow=fast_words::reverse_subtract(pmh,ph);
++        proof {prefix_range(pmh@,pmh@.len());if borrow!=0{assert(borrow==1);}}
++    }else{toom_words::add_exact(pmh,ph);}
++    assert(value(pmh@)==2*(64*c[0]+16*c[2]+4*c[4]+c[6]));
++    proof {toom4::exact_division(64*c[0]+16*c[2]+4*c[4]+c[6],2);}
++    toom_words::divide_exact(pmh,2);
++    toom_words::sub_exact(ph,pmh);
++    assert(value(ph@)==2*(16*c[1]+4*c[3]+c[5]));
++    proof {toom4::exact_division(16*c[1]+4*c[3]+c[5],2);}
++    toom_words::divide_exact(ph,2);
++    toom_words::sub_exact(pm,z0);toom_words::sub_exact(pm,z6);
++    assert(value(pm@)==c[2]+c[4]);
++    toom_words::copy_pad(scratch,z0);toom_words::scale_exact(scratch,64);
++    toom_words::sub_exact(pmh,scratch);toom_words::sub_exact(pmh,z6);
++    assert(value(pmh@)==4*(4*c[2]+c[4]));
++    proof {toom4::exact_division(4*c[2]+c[4],4);}
++    toom_words::divide_exact(pmh,4);toom_words::sub_exact(pmh,pm);
++    assert(value(pmh@)==3*c[2]);
++    proof {toom4::exact_division(c[2],3);}
++    toom_words::divide_exact(pmh,3);toom_words::sub_exact(pm,pmh);
++    toom_words::sub_exact(p2,z0);
++    toom_words::copy_pad(scratch,pmh);toom_words::scale_exact(scratch,4);toom_words::sub_exact(p2,scratch);
++    toom_words::copy_pad(scratch,pm);toom_words::scale_exact(scratch,16);toom_words::sub_exact(p2,scratch);
++    toom_words::copy_pad(scratch,z6);toom_words::scale_exact(scratch,64);toom_words::sub_exact(p2,scratch);
++    assert(value(p2@)==2*(c[1]+4*c[3]+16*c[5]));
++    proof {toom4::exact_division(c[1]+4*c[3]+16*c[5],2);}
++    toom_words::divide_exact(p2,2);
++    toom_words::copy_pad(scratch,p1);toom_words::scale_exact(scratch,17);
++    toom_words::sub_exact(scratch,ph);toom_words::sub_exact(scratch,p2);
++    assert(value(scratch@)==9*c[3]);
++    proof {toom4::exact_division(c[3],9);}
++    toom_words::divide_exact(scratch,9);
++    toom_words::sub_exact(ph,p1);
++    toom_words::copy_pad(p2,scratch);toom_words::scale_exact(p2,3);toom_words::sub_exact(ph,p2);
++    assert(value(ph@)==15*c[1]);
++    proof {toom4::exact_division(c[1],15);}
++    toom_words::divide_exact(ph,15);
++    toom_words::sub_exact(p1,ph);toom_words::sub_exact(p1,scratch);
++}
++
++pub fn assemble(dst:&mut[u64],z0:&[u64],z1:&[u64],z2:&[u64],z3:&[u64],z4:&[u64],z5:&[u64],z6:&[u64],
++    k:usize,Ghost(c):Ghost<Seq<int>>)
++    requires c.len()==7,old(dst)@.len()>0,6*(k as int)<=old(dst)@.len(),
++        value(z0@)==c[0],value(z1@)==c[1],value(z2@)==c[2],value(z3@)==c[3],
++        value(z4@)==c[4],value(z5@)==c[5],value(z6@)==c[6],
++    ensures final(dst)@.len()==old(dst)@.len(),
++        value(final(dst)@)==toom4::polynomial(c,radix(k as nat))%radix(old(dst)@.len()),
++{
++    let _capacity=dst.len();
++    proof {lemma_fundamental_div_mod(usize::MAX as int,6);}
++    assert!(dst.len()>0 && k<=usize::MAX/6 && 6*k<=dst.len());
++    toom_words::zero(dst);
++    toom_words::add_shifted(dst,z0,0);
++    toom_words::add_shifted(dst,z1,k);
++    toom_words::add_shifted(dst,z2,2*k);
++    toom_words::add_shifted(dst,z3,3*k);
++    toom_words::add_shifted(dst,z4,4*k);
++    toom_words::add_shifted(dst,z5,5*k);
++    toom_words::add_shifted(dst,z6,6*k);
++    proof {
++        let q=radix(dst@.len());let r=radix(k as nat);
++        radix_positive(dst@.len());assert(radix(0)==1);
++        lemma_add_mod_noop_right(r*c[1],c[0],q);
++        lemma_add_mod_noop_right(radix((2*k) as nat)*c[2],c[0]+r*c[1],q);
++        lemma_add_mod_noop_right(radix((3*k) as nat)*c[3],c[0]+r*c[1]+radix((2*k) as nat)*c[2],q);
++        lemma_add_mod_noop_right(radix((4*k) as nat)*c[4],c[0]+r*c[1]+radix((2*k) as nat)*c[2]+radix((3*k) as nat)*c[3],q);
++        lemma_add_mod_noop_right(radix((5*k) as nat)*c[5],c[0]+r*c[1]+radix((2*k) as nat)*c[2]+radix((3*k) as nat)*c[3]+radix((4*k) as nat)*c[4],q);
++        lemma_add_mod_noop_right(radix((6*k) as nat)*c[6],c[0]+r*c[1]+radix((2*k) as nat)*c[2]+radix((3*k) as nat)*c[3]+radix((4*k) as nat)*c[4]+radix((5*k) as nat)*c[5],q);
++        crate::toom4_blocks::coefficient_radices(c,k as nat);
++    }
++}
++}
+--- /dev/null
++++ b/native/verified/toom4_low.rs
+@@ -0,0 +1,78 @@
++//! Forced truncated Toom-4-backed products; all paths preserve exact modular semantics.
++use vstd::prelude::*;
++use vstd::arithmetic::div_mod::*;
++use crate::radix::*;
++use crate::product::*;
++use crate::fast_product::*;
++use crate::precision::*;
++use vstd::arithmetic::power2::*;
++use crate::{fast_multiply,toom4_multiply,fast_words,limbs,pow2};
++verus! {
++#[verifier::spinoff_prover]
++#[verifier::rlimit(20)]
++pub fn low(dst:&mut[u64],a:&[u64],b:&[u64],scratch:&mut[u64],threshold:usize,low_limit:usize,split_mode:u32)
++    requires a@.len()>0,a@.len()==b@.len(),old(dst)@.len()==a@.len(),
++        old(scratch)@.len()>=12*a@.len(),threshold>=24,low_limit>=24,split_mode<=2,
++    ensures final(dst)@.len()==old(dst)@.len(),final(scratch)@.len()==old(scratch)@.len(),
++        value(final(dst)@)==(value(a@)*value(b@))%radix(a@.len()),
++    decreases a.len(),
++{
++    let _capacity=scratch.len();
++    proof {lemma_fundamental_div_mod(usize::MAX as int,12);}
++    assert!(a.len()>0 && a.len()==b.len());assert!(a.len()<=usize::MAX/12);
++    assert!(dst.len()==a.len() && scratch.len()>=12*a.len());assert!(threshold>=24 && low_limit>=24 && split_mode<=2);
++    let n=a.len();
++    if n<=low_limit {fast_multiply::base_low(dst,a,b);return;}
++    // Quotient-first form avoids overflowing 11*n.
++    let h=if split_mode==2 {(n/40)*9+((n%40)*9)/40}else if split_mode==1 {(n/36)*11+((n%36)*11)/36}else{n/2};
++    proof {
++        lemma_fundamental_div_mod(n as int,40);lemma_mod_division_less_than_divisor(n as int,40);
++        lemma_fundamental_div_mod(((n%40)*9) as int,40);lemma_mod_division_less_than_divisor(((n%40)*9) as int,40);
++        lemma_fundamental_div_mod(n as int,36);lemma_mod_division_less_than_divisor(n as int,36);
++        lemma_fundamental_div_mod(((n%36)*11) as int,36);lemma_mod_division_less_than_divisor(((n%36)*11) as int,36);
++        lemma_fundamental_div_mod(n as int,2);lemma_mod_division_less_than_divisor(n as int,2);
++    }
++    let k=n-h;
++    {
++        let (product,work)=scratch.split_at_mut(2*k);
++        toom4_multiply::full(product,&a[..k],&b[..k],work,threshold);
++        proof {prefix_mod(product@,n as nat);}
++        fast_words::copy_words(dst,&product[..n]);
++    }
++    let ghost initial=dst@;
++    let ghost z0=part(a@,0,k as nat)*part(b@,0,k as nat);
++    let (temp,work)=scratch.split_at_mut(h);
++    low(temp,&a[k..],&b[..h],work,threshold,low_limit,split_mode);
++    let ghost c1=value(temp@);
++    let _carry=limbs::add_assign(&mut dst[k..],temp);
++    let ghost middle=dst@;
++    proof {congruent_suffix(initial,middle,k as nat,c1);}
++    low(temp,&a[..h],&b[k..],work,threshold,low_limit,split_mode);
++    let ghost c2=value(temp@);
++    let _carry=limbs::add_assign(&mut dst[k..],temp);
++    proof {
++        congruent_suffix(middle,dst@,k as nat,c2);
++        low_identity(a@,b@,k as nat,h as nat,z0,c1,c2);
++        radix_positive(k as nat);radix_positive(h as nat);radix_add(k as nat,h as nat);
++        mod_add_scaled(z0,c1,radix(k as nat),radix(h as nat));
++        mod_add_scaled(z0+radix(k as nat)*c1,c2,radix(k as nat),radix(h as nat));
++        assert(z0+radix(k as nat)*c1+radix(k as nat)*c2==z0+radix(k as nat)*(c1+c2)) by(nonlinear_arith);
++    }
++}
++
++pub fn modular(dst:&mut[u64],a:&[u64],b:&[u64],scratch:&mut[u64],top:u32,threshold:usize,low_limit:usize,split_mode:u32)
++    requires a@.len()>0,a@.len()==b@.len(),old(dst)@.len()==a@.len(),
++        old(scratch)@.len()>=12*a@.len(),threshold>=24,low_limit>=24,split_mode<=2,1<=top<=64,
++    ensures final(dst)@.len()==old(dst)@.len(),final(scratch)@.len()==old(scratch)@.len(),
++        value(final(dst)@)==(value(a@)*value(b@))%modulus(a@.len(),top as nat),
++        0<=value(final(dst)@)<modulus(a@.len(),top as nat),
++{
++    assert!(1<=top && top<=64);
++    low(dst,a,b,scratch,threshold,low_limit,split_mode);
++    pow2::normalize_top(dst,top);
++    proof {
++        modulus_properties(a@.len(),top as nat);lemma_pow2_pos((64-top) as nat);
++        lemma_mod_mod(value(a@)*value(b@),modulus(a@.len(),top as nat),pow2((64-top) as nat) as int);
++    }
++}
++}--- /dev/null
++++ b/native/verified/toom4_multiply.rs
+@@ -0,0 +1,77 @@
++//! Forced seven-product Toom-4; default dispatch does not select this module.
++use vstd::prelude::*;
++use vstd::arithmetic::div_mod::*;
++use crate::radix::*;
++use crate::product::*;
++use crate::fast_product::*;
++use crate::{toom4,toom4_blocks,toom4_evaluate,toom4_interpolate,toom_words,toom_multiply};
++verus! {
++#[verifier::spinoff_prover]
++#[verifier::rlimit(30)]
++pub fn full(dst:&mut[u64],a:&[u64],b:&[u64],scratch:&mut[u64],threshold:usize)
++    requires a@.len()>0,a@.len()==b@.len(),old(dst)@.len()==2*a@.len(),
++        old(scratch)@.len()>=12*a@.len(),threshold>=24,
++    ensures final(dst)@.len()==old(dst)@.len(),final(scratch)@.len()==old(scratch)@.len(),
++        value(final(dst)@)==value(a@)*value(b@),
++    decreases a.len(),
++{
++    let _capacity=scratch.len();
++    proof {lemma_fundamental_div_mod(usize::MAX as int,12);}
++    assert!(a.len()>0 && a.len()==b.len() && a.len()<=usize::MAX/12);
++    assert!(dst.len()==2*a.len() && scratch.len()>=12*a.len() && threshold>=24);
++    let n=a.len();
++    if n<=threshold{toom_multiply::full(dst,a,b,scratch,192);return;}
++    let k=n/4+if n%4==0{0}else{1};let m=k+1;
++    proof {toom4::workspace(n as int,k as int,m as int);}
++    let (p0,rest)=scratch.split_at_mut(2*m);
++    let (p6,rest)=rest.split_at_mut(2*m);
++    let (p1,rest)=rest.split_at_mut(2*m);
++    let (pm,rest)=rest.split_at_mut(2*m);
++    let (p2,rest)=rest.split_at_mut(2*m);
++    let (ph,rest)=rest.split_at_mut(2*m);
++    let (pmh,rest)=rest.split_at_mut(2*m);
++    let (ax,rest)=rest.split_at_mut(m);let (bx,work)=rest.split_at_mut(m);
++    let a0=&a[..k];let a1=&a[k..2*k];let a2=&a[2*k..3*k];let a3=&a[3*k..];
++    let b0=&b[..k];let b1=&b[k..2*k];let b2=&b[2*k..3*k];let b3=&b[3*k..];
++    let ghost aa=seq![value(a0@),value(a1@),value(a2@),value(a3@)];
++    let ghost bb=seq![value(b0@),value(b1@),value(b2@),value(b3@)];
++    let ghost c=toom4::coefficients(aa,bb);
++    proof {toom4::evaluation_forms(aa);toom4::evaluation_forms(bb);}
++    full(&mut p0[..2*k],a0,b0,work,threshold);
++    let ghost low_block=p0@;toom_words::zero(&mut p0[2*k..]);
++    proof {split(p0@,(2*k) as nat);equal_prefix(p0@,low_block,(2*k) as nat);}
++    let h=n-3*k;
++    full(&mut p6[..2*h],a3,b3,work,threshold);
++    let ghost high_block=p6@;toom_words::zero(&mut p6[2*h..]);
++    proof {split(p6@,(2*h) as nat);equal_prefix(p6@,high_block,(2*h) as nat);}
++    toom4_evaluate::weighted(ax,a0,a1,a2,a3,1,1,1,1);
++    toom4_evaluate::weighted(bx,b0,b1,b2,b3,1,1,1,1);
++    full(p1,ax,bx,work,threshold);
++    let na=toom4_evaluate::signed(ax,&mut work[..m],a0,a1,a2,a3,false);
++    let nb=toom4_evaluate::signed(bx,&mut work[..m],b0,b1,b2,b3,false);let negative=na!=nb;
++    let ghost av=value(ax@);let ghost bv=value(bx@);
++    full(pm,ax,bx,work,threshold);
++    toom4_evaluate::weighted(ax,a0,a1,a2,a3,1,2,4,8);
++    toom4_evaluate::weighted(bx,b0,b1,b2,b3,1,2,4,8);
++    full(p2,ax,bx,work,threshold);
++    toom4_evaluate::weighted(ax,a0,a1,a2,a3,8,4,2,1);
++    toom4_evaluate::weighted(bx,b0,b1,b2,b3,8,4,2,1);
++    full(ph,ax,bx,work,threshold);
++    let nha=toom4_evaluate::signed(ax,&mut work[..m],a0,a1,a2,a3,true);
++    let nhb=toom4_evaluate::signed(bx,&mut work[..m],b0,b1,b2,b3,true);let negative_half=nha!=nhb;
++    let ghost ah=value(ax@);let ghost bh=value(bx@);
++    full(pmh,ax,bx,work,threshold);
++    proof {
++        assert(aa==toom4_blocks::blocks(a@,k as nat));assert(bb==toom4_blocks::blocks(b@,k as nat));
++        toom4_blocks::input_model(a@,b@,k as nat);
++        toom4::evaluation_products(aa,bb);
++        toom4::signed_product(av,bv,toom4::eval(aa,-1),toom4::eval(bb,-1),na,nb);
++        toom4::signed_product(ah,bh,toom4::negative_half(aa),toom4::negative_half(bb),nha,nhb);
++    }
++    toom4_interpolate::interpolate(p1,pm,p2,ph,pmh,p0,p6,negative,negative_half,&mut work[..2*m],Ghost(c));
++    toom4_interpolate::assemble(dst,p0,ph,pmh,&work[..2*m],pm,p1,p6,k,Ghost(c));
++    proof {
++        toom4_blocks::recover_product(dst@,a@,b@,k as nat);
++    }
++}
++}
+--- /dev/null
++++ b/native/verified/toom4_square.rs
+@@ -0,0 +1,75 @@
++//! Forced seven-square Toom-4 with one operand evaluation per point.
++use vstd::prelude::*;
++use vstd::arithmetic::div_mod::*;
++use crate::radix::*;
++use crate::product::*;
++use crate::fast_product::*;
++use crate::{toom4,toom4_blocks,toom4_evaluate,toom4_interpolate,toom_words,toom_square};
++verus! {
++#[verifier::spinoff_prover]
++#[verifier::rlimit(30)]
++pub fn full(dst:&mut[u64],a:&[u64],scratch:&mut[u64],threshold:usize)
++    requires a@.len()>0,old(dst)@.len()==2*a@.len(),
++        old(scratch)@.len()>=10*a@.len(),threshold>=24,
++    ensures final(dst)@.len()==old(dst)@.len(),final(scratch)@.len()==old(scratch)@.len(),
++        value(final(dst)@)==value(a@)*value(a@),
++    decreases a.len(),
++{
++    let b=a;
++    let _capacity=scratch.len();
++    proof {lemma_fundamental_div_mod(usize::MAX as int,10);}
++    assert!(a.len()>0 && a.len()==b.len() && a.len()<=usize::MAX/10);
++    assert!(dst.len()==2*a.len() && scratch.len()>=10*a.len() && threshold>=24);
++    let n=a.len();
++    if n<=threshold{toom_square::full(dst,a,scratch,192);return;}
++    let k=n/4+if n%4==0{0}else{1};let m=k+1;
++    proof {toom4::workspace(n as int,k as int,m as int);}
++    let (p0,rest)=scratch.split_at_mut(2*m);
++    let (p6,rest)=rest.split_at_mut(2*m);
++    let (p1,rest)=rest.split_at_mut(2*m);
++    let (pm,rest)=rest.split_at_mut(2*m);
++    let (p2,rest)=rest.split_at_mut(2*m);
++    let (ph,rest)=rest.split_at_mut(2*m);
++    let (pmh,rest)=rest.split_at_mut(2*m);
++    let (ax,work)=rest.split_at_mut(m);
++    let a0=&a[..k];let a1=&a[k..2*k];let a2=&a[2*k..3*k];let a3=&a[3*k..];
++    let b0=&b[..k];let b1=&b[k..2*k];let b2=&b[2*k..3*k];let b3=&b[3*k..];
++    let ghost aa=seq![value(a0@),value(a1@),value(a2@),value(a3@)];
++    let ghost bb=seq![value(b0@),value(b1@),value(b2@),value(b3@)];
++    let ghost c=toom4::coefficients(aa,bb);
++    proof {toom4::evaluation_forms(aa);toom4::evaluation_forms(bb);}
++    full(&mut p0[..2*k],a0,work,threshold);
++    let ghost low_block=p0@;toom_words::zero(&mut p0[2*k..]);
++    proof {split(p0@,(2*k) as nat);equal_prefix(p0@,low_block,(2*k) as nat);}
++    let h=n-3*k;
++    full(&mut p6[..2*h],a3,work,threshold);
++    let ghost high_block=p6@;toom_words::zero(&mut p6[2*h..]);
++    proof {split(p6@,(2*h) as nat);equal_prefix(p6@,high_block,(2*h) as nat);}
++    toom4_evaluate::weighted(ax,a0,a1,a2,a3,1,1,1,1);
++    full(p1,ax,work,threshold);
++    let na=toom4_evaluate::signed(ax,&mut work[..m],a0,a1,a2,a3,false);
++    let nb=na;let negative=na!=nb;
++    let ghost av=value(ax@);let ghost bv=av;
++    full(pm,ax,work,threshold);
++    toom4_evaluate::weighted(ax,a0,a1,a2,a3,1,2,4,8);
++    full(p2,ax,work,threshold);
++    toom4_evaluate::weighted(ax,a0,a1,a2,a3,8,4,2,1);
++    full(ph,ax,work,threshold);
++    let nha=toom4_evaluate::signed(ax,&mut work[..m],a0,a1,a2,a3,true);
++    let nhb=nha;let negative_half=nha!=nhb;
++    let ghost ah=value(ax@);let ghost bh=ah;
++    full(pmh,ax,work,threshold);
++    proof {
++        assert(aa==toom4_blocks::blocks(a@,k as nat));assert(bb==toom4_blocks::blocks(b@,k as nat));
++        toom4_blocks::input_model(a@,b@,k as nat);
++        toom4::evaluation_products(aa,bb);
++        toom4::signed_product(av,bv,toom4::eval(aa,-1),toom4::eval(bb,-1),na,nb);
++        toom4::signed_product(ah,bh,toom4::negative_half(aa),toom4::negative_half(bb),nha,nhb);
++    }
++    toom4_interpolate::interpolate(p1,pm,p2,ph,pmh,p0,p6,negative,negative_half,&mut work[..2*m],Ghost(c));
++    toom4_interpolate::assemble(dst,p0,ph,pmh,&work[..2*m],pm,p1,p6,k,Ghost(c));
++    proof {
++        toom4_blocks::recover_product(dst@,a@,b@,k as nat);
++    }
++}
++}
+--- /dev/null
++++ b/native/verified/toom4_square_low.rs
+@@ -0,0 +1,68 @@
++//! Forced Toom-4 low square uses one cross product, contributing twice by symmetry.
++use vstd::prelude::*;
++use vstd::arithmetic::div_mod::*;
++use crate::radix::*;
++use crate::product::*;
++use crate::fast_product::*;
++use crate::{fast_multiply,toom4_square,toom4_low,fast_words,limbs};
++verus! {
++#[verifier::spinoff_prover]
++#[verifier::rlimit(20)]
++pub fn low(dst:&mut[u64],a:&[u64],scratch:&mut[u64],threshold:usize,low_limit:usize,split_mode:u32)
++    requires a@.len()>0,old(dst)@.len()==a@.len(),
++        old(scratch)@.len()>=10*a@.len(),threshold>=24,low_limit>=24,split_mode<=2,
++    ensures final(dst)@.len()==old(dst)@.len(),final(scratch)@.len()==old(scratch)@.len(),
++        value(final(dst)@)==(value(a@)*value(a@))%radix(a@.len()),
++    decreases a.len(),
++{
++    let b=a;
++    let _capacity=scratch.len();
++    proof {lemma_fundamental_div_mod(usize::MAX as int,10);}
++    assert!(a.len()>0 && a.len()==b.len());assert!(a.len()<=usize::MAX/10);
++    assert!(dst.len()==a.len() && scratch.len()>=10*a.len());assert!(threshold>=24 && low_limit>=24 && split_mode<=2);
++    let n=a.len();
++    if n<=low_limit {
++        if n<9 {fast_multiply::base_low(dst,a,b);}
++        else {crate::square_base::low(dst,a);}
++        return;
++    }
++    // Quotient-first form avoids overflowing 11*n.
++    let h=if split_mode==2 {(n/40)*9+((n%40)*9)/40}else if split_mode==1 {(n/36)*11+((n%36)*11)/36}else{n/2};
++    proof {
++        lemma_fundamental_div_mod(n as int,40);lemma_mod_division_less_than_divisor(n as int,40);
++        lemma_fundamental_div_mod(((n%40)*9) as int,40);lemma_mod_division_less_than_divisor(((n%40)*9) as int,40);
++        lemma_fundamental_div_mod(n as int,36);lemma_mod_division_less_than_divisor(n as int,36);
++        lemma_fundamental_div_mod(((n%36)*11) as int,36);lemma_mod_division_less_than_divisor(((n%36)*11) as int,36);
++        lemma_fundamental_div_mod(n as int,2);lemma_mod_division_less_than_divisor(n as int,2);
++    }
++    let k=n-h;
++    {
++        let (product,work)=scratch.split_at_mut(2*k);
++        toom4_square::full(product,&a[..k],work,threshold);
++        proof {prefix_mod(product@,n as nat);}
++        fast_words::copy_words(dst,&product[..n]);
++    }
++    let ghost initial=dst@;
++    let ghost z0=part(a@,0,k as nat)*part(b@,0,k as nat);
++    let (temp,work)=scratch.split_at_mut(h);
++    toom4_low::low(temp,&a[k..],&b[..h],work,threshold,low_limit,split_mode);
++    let ghost c1=value(temp@);
++    let _carry=limbs::add_assign(&mut dst[k..],temp);
++    let ghost middle=dst@;
++    proof {congruent_suffix(initial,middle,k as nat,c1);}
++
++    let ghost c2=value(temp@);
++    let _carry=limbs::add_assign(&mut dst[k..],temp);
++    proof {
++        congruent_suffix(middle,dst@,k as nat,c2);
++        assert(part(a@,0,h as nat)*part(a@,k as nat,a@.len())
++            ==part(a@,k as nat,a@.len())*part(a@,0,h as nat)) by(nonlinear_arith);
++        low_identity(a@,b@,k as nat,h as nat,z0,c1,c2);
++        radix_positive(k as nat);radix_positive(h as nat);radix_add(k as nat,h as nat);
++        mod_add_scaled(z0,c1,radix(k as nat),radix(h as nat));
++        mod_add_scaled(z0+radix(k as nat)*c1,c2,radix(k as nat),radix(h as nat));
++        assert(z0+radix(k as nat)*c1+radix(k as nat)*c2==z0+radix(k as nat)*(c1+c2)) by(nonlinear_arith);
++    }
++}
++
++}
+--- a/native/verified/toom_words.rs
++++ b/native/verified/toom_words.rs
+@@ -253,6 +253,11 @@
+             let delta=prefix(rhs@,length as nat);
+             equal_prefix(rhs@,rhs@.subrange(0,length as int),length as nat);
+             prefix_range(dst@.subrange(offset as int,dst@.len() as int),length as nat);radix_positive(length as nat);
++            assert(value(rhs@.subrange(0,length as int))==delta);
++            assert(value(original.subrange(offset as int,original.len() as int))+delta
++                ==(carry as int)*radix(length as nat)+value(dst@.subrange(offset as int,dst@.len() as int))) by(nonlinear_arith)
++                requires value(dst@.subrange(offset as int,dst@.len() as int))+radix(length as nat)*(carry as int)
++                    ==value(original.subrange(offset as int,original.len() as int))+delta;
+             lemma_fundamental_div_mod_converse(value(original.subrange(offset as int,original.len() as int))+delta,
+                 radix(length as nat),carry as int,value(dst@.subrange(offset as int,dst@.len() as int)));
+             congruent_suffix(original,dst@,offset as nat,delta);

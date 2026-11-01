@@ -1,0 +1,34 @@
+verification results:: 2 verified, 1 errors (partial verification with `--verify-*`)
+note: verifying module toom4_square_low, function lib::toom4_square_low::low
+
+note: assert_nonlinear_by: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> <stage>/candidate/native/verified/toom4_square_low.rs:58:9
+   |
+58 | ...   assert(pa...
+   |       ^^^^^^
+
+note: assert_nonlinear_by: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> <stage>/candidate/native/verified/toom4_square_low.rs:64:9
+   |
+64 | ...   assert(z0...
+   |       ^^^^^^
+
+note: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> <stage>/candidate/native/verified/toom4_square_low.rs:11:1
+   |
+11 | pub f...:u32)
+   | ^^^^^...^^^^^
+
+error: precondition not satisfied
+  --> <stage>/candidate/native/verified/toom4_square_low.rs:57:9
+   |
+57 | ...   congr...t,c2);
+   |       ^^^^^...^^^^^
+   |
+  ::: <stage>/candidate/native/specs/fast_product.rs:51:9
+   |
+51 | ...   part(... nat),
+   |       -----...----- failed precondition
+
+error: aborting due to 1 previous error
+

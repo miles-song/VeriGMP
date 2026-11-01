@@ -1,0 +1,29 @@
+verification results:: 1 verified, 1 errors (partial verification with `--verify-*`)
+note: verifying module toom4_interpolate
+
+note: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+ --> <stage>/candidate/native/verified/toom4_interpolate.rs:7:1
+  |
+7 | / pub fn interpolate(p1:&mut[u64],pm:&mut[u64],p2:&mut[u64],ph:&mut[u64],pmh:&mut[u64],
+8 | |     z0:&[u64],z6:&[u64],negative:bool,negative_half:bool,scratch:&mut[u64],Ghost(c):Ghost<Seq<int>>)
+  | |____________________________________________________________________________________________________^
+
+error: postcondition not satisfied
+  --> <stage>/candidate/native/verified/toom4_interpolate.rs:21:33
+   |
+ 7 | / pub fn interpolate(p1:&mut[u64],pm:&mut[u64],p2:&mut[u64],ph:&mut[u64],pmh:&mut[u64],
+ 8 | |     z0:&[u64],z6:&[u64],negative:bool,negative_half:bool,scratch:&mut[u64],Ghost(c):Ghost<Seq<int>>)
+   | |____________________________________________________________________________________________________- at the end of the function body
+...
+21 |           value(final(pm)@)==c[4],value...=c[5],value(final(p2)@)==3*c[3],
+   |                                   ^^^^^...^^^^^ failed this postcondition
+
+note: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> <stage>/candidate/native/verified/toom4_interpolate.rs:77:1
+   |
+77 | / pub fn assemble(dst:&mut[u64],z0:&[u64],...
+78 | |     k:usize,Ghost(c):Ghost<Seq<int>>)
+   | |_____________________________________^
+
+error: aborting due to 1 previous error
+
