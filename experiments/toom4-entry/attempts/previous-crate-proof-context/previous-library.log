@@ -1,0 +1,79 @@
+verification results:: 272 verified, 1 errors
+note: assert_nonlinear_by has been running for 2 seconds
+      reporting errors as they are discovered (they may not be in source order)
+   --> <stage>/previous/native/verified/multiply.rs:112:9
+    |
+112 | ...   assert(to...
+    |       ^^^^^^
+
+note: assert_nonlinear_by finished in 5 seconds
+   --> <stage>/previous/native/verified/multiply.rs:112:9
+    |
+112 | ...   assert(to...
+    |       ^^^^^^
+
+error: precondition not satisfied
+   --> <stage>/previous/native/verified/toom_words.rs:256:13
+    |
+256 | / ...   lemma_fundamental_div_mod_converse(value(original.subrange(offset as int,original.len() as int)...
+257 | | ...       radix(length as nat),carry as int,value(dst@.subrange(offset as int,dst@.len() as int)));
+    | |__________________________________________________________________________________________________^
+    |
+   --> arithmetic/div_mod.rs:1374:8
+    |
+    = note: failed precondition
+
+note: function body check has been running for 2 seconds
+      reporting errors as they are discovered (they may not be in source order)
+  --> <stage>/previous/native/verified/toom4_multiply.rs:11:1
+   |
+11 | pub f...size)
+   | ^^^^^...^^^^^
+
+note: function body check finished in 3 seconds
+  --> <stage>/previous/native/verified/toom4_multiply.rs:11:1
+   |
+11 | pub f...size)
+   | ^^^^^...^^^^^
+
+note: function body check has been running for 2 seconds
+      reporting errors as they are discovered (they may not be in source order)
+  --> <stage>/previous/native/verified/toom4_square.rs:11:1
+   |
+11 | pub f...size)
+   | ^^^^^...^^^^^
+
+note: function body check finished in 2 seconds
+  --> <stage>/previous/native/verified/toom4_square.rs:11:1
+   |
+11 | pub f...size)
+   | ^^^^^...^^^^^
+
+note: function body check has been running for 2 seconds
+      reporting errors as they are discovered (they may not be in source order)
+  --> <stage>/previous/native/verified/toom_multiply.rs:12:1
+   |
+12 | pub f...size)
+   | ^^^^^...^^^^^
+
+note: function body check finished in 3 seconds
+  --> <stage>/previous/native/verified/toom_multiply.rs:12:1
+   |
+12 | pub f...size)
+   | ^^^^^...^^^^^
+
+note: function body check has been running for 2 seconds
+      reporting errors as they are discovered (they may not be in source order)
+  --> <stage>/previous/native/verified/toom_square.rs:12:1
+   |
+12 | pub f...size)
+   | ^^^^^...^^^^^
+
+note: function body check finished in 4 seconds
+  --> <stage>/previous/native/verified/toom_square.rs:12:1
+   |
+12 | pub f...size)
+   | ^^^^^...^^^^^
+
+error: aborting due to 1 previous error
+

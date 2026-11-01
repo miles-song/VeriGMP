@@ -1,0 +1,124 @@
+{
+  "status": "read_only_analysis",
+  "normalization_is_not_a_formal_equivalence_proof": true,
+  "scope": "Exact five-line insertion within proof; compare normalized machine functions containing interpolation/assembly. Missing standalone symbols are reported as missing, not equal.",
+  "normalization": "Instruction addresses, crate prefixes, local branch labels, relocated references and nop/int3 alignment padding normalized; generic data references are not a comparison of data bytes.",
+  "original_verification_sha256": "c23734e7081ff80af3bda3f5d7bcd7a5ad85ed0d2128bffbe57ee6302ecd9442",
+  "new_verification_sha256": "418176c2a050449108589f07fb84691a48482dc36ea8b6cd17782d6af170b013",
+  "original_binary_sha256": "b2fe4c39f5a08c6280a0c58439ae84f29ec4c5c6c102dab92298c464f0042ae4",
+  "new_binary_sha256": "e22f32cb9d2e82e322be7e0ecc4c11e349443f4b2cf01170b0b017872bd41c10",
+  "analysis_script_sha256": "41c8087a908e48ecd933a4cfe1c0665076d8dbd55cc3a9c7f92b326767d23c6a",
+  "functions": [
+    {
+      "function": "toom_words::add_shifted",
+      "present": [
+        false,
+        false,
+        false
+      ],
+      "old_archived_algorithm_vs_proof_stable_control": null,
+      "proof_stable_control_vs_entry_candidate": null,
+      "instruction_counts": [
+        null,
+        null,
+        null
+      ]
+    },
+    {
+      "function": "toom_multiply::full",
+      "present": [
+        true,
+        true,
+        true
+      ],
+      "old_archived_algorithm_vs_proof_stable_control": true,
+      "proof_stable_control_vs_entry_candidate": true,
+      "instruction_counts": [
+        665,
+        665,
+        665
+      ],
+      "diff_sha256": "7eb70257593da06f682a3ddda54a9d260d4fc514f645237f5ca74b08f8da61a6"
+    },
+    {
+      "function": "toom_square::full",
+      "present": [
+        true,
+        true,
+        true
+      ],
+      "old_archived_algorithm_vs_proof_stable_control": true,
+      "proof_stable_control_vs_entry_candidate": true,
+      "instruction_counts": [
+        565,
+        565,
+        565
+      ],
+      "diff_sha256": "7eb70257593da06f682a3ddda54a9d260d4fc514f645237f5ca74b08f8da61a6"
+    },
+    {
+      "function": "toom4_multiply::full",
+      "present": [
+        true,
+        true,
+        true
+      ],
+      "old_archived_algorithm_vs_proof_stable_control": true,
+      "proof_stable_control_vs_entry_candidate": true,
+      "instruction_counts": [
+        627,
+        627,
+        627
+      ],
+      "diff_sha256": "7eb70257593da06f682a3ddda54a9d260d4fc514f645237f5ca74b08f8da61a6"
+    },
+    {
+      "function": "toom4_square::full",
+      "present": [
+        true,
+        true,
+        true
+      ],
+      "old_archived_algorithm_vs_proof_stable_control": true,
+      "proof_stable_control_vs_entry_candidate": true,
+      "instruction_counts": [
+        439,
+        439,
+        439
+      ],
+      "diff_sha256": "7eb70257593da06f682a3ddda54a9d260d4fc514f645237f5ca74b08f8da61a6"
+    },
+    {
+      "function": "toom4_interpolate::interpolate",
+      "present": [
+        true,
+        true,
+        true
+      ],
+      "old_archived_algorithm_vs_proof_stable_control": true,
+      "proof_stable_control_vs_entry_candidate": true,
+      "instruction_counts": [
+        1172,
+        1172,
+        1172
+      ],
+      "diff_sha256": "7eb70257593da06f682a3ddda54a9d260d4fc514f645237f5ca74b08f8da61a6"
+    },
+    {
+      "function": "toom4_interpolate::assemble",
+      "present": [
+        true,
+        true,
+        true
+      ],
+      "old_archived_algorithm_vs_proof_stable_control": true,
+      "proof_stable_control_vs_entry_candidate": true,
+      "instruction_counts": [
+        709,
+        709,
+        709
+      ],
+      "diff_sha256": "7eb70257593da06f682a3ddda54a9d260d4fc514f645237f5ca74b08f8da61a6"
+    }
+  ]
+}

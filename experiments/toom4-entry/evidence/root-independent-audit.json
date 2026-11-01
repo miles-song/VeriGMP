@@ -1,0 +1,40 @@
+{
+  "status": "pass",
+  "scope": "Independent source, proof-log, artifact and complete raw timing audit; not performance acceptance",
+  "report_sha256": "418176c2a050449108589f07fb84691a48482dc36ea8b6cd17782d6af170b013",
+  "handoff_sha256": "8123efd0ccd91fda1b3650f89eee3b5f91e6935639543347cf28238bc2d3f574",
+  "identities": {
+    "source": 222,
+    "tools": 20,
+    "runtime": 3,
+    "artifacts": 4,
+    "handoff_evidence": 14,
+    "review_scripts": 4
+  },
+  "proof_mutants": 20,
+  "runs": [
+    {
+      "tag": "default1",
+      "samples": 1456,
+      "groups": 52,
+      "minimum_ns": 10056772,
+      "principal_failed": 10,
+      "key_failed": 33,
+      "baseline_regressions": 23,
+      "previous_regressions": 19
+    },
+    {
+      "tag": "default2",
+      "samples": 1456,
+      "groups": 52,
+      "minimum_ns": 10116950,
+      "principal_failed": 10,
+      "key_failed": 35,
+      "baseline_regressions": 24,
+      "previous_regressions": 22
+    }
+  ],
+  "consistent_regressions_vs_e22": 15,
+  "consistent_regressions_vs_previous": 8,
+  "performance_target_met": false
+}

@@ -1,0 +1,118 @@
+verification results:: 274 verified, 0 errors
+note: assert_nonlinear_by has been running for 2 seconds
+      reporting errors as they are discovered (they may not be in source order)
+   --> <stage>/previous/native/verified/multiply.rs:112:9
+    |
+112 | ...   assert(to...
+    |       ^^^^^^
+
+note: assert_nonlinear_by finished in 6 seconds
+   --> <stage>/previous/native/verified/multiply.rs:112:9
+    |
+112 | ...   assert(to...
+    |       ^^^^^^
+
+note: function body check has been running for 2 seconds
+      reporting errors as they are discovered (they may not be in source order)
+  --> <stage>/previous/native/verified/fast_multiply.rs:80:1
+   |
+80 | pub f...size)
+   | ^^^^^...^^^^^
+
+note: function body check finished in 3 seconds
+  --> <stage>/previous/native/verified/fast_multiply.rs:80:1
+   |
+80 | pub f...size)
+   | ^^^^^...^^^^^
+
+note: function body check has been running for 2 seconds
+      reporting errors as they are discovered (they may not be in source order)
+  --> <stage>/previous/native/verified/square.rs:11:1
+   |
+11 | pub f...size)
+   | ^^^^^...^^^^^
+
+note: function body check finished in 4 seconds
+  --> <stage>/previous/native/verified/square.rs:11:1
+   |
+11 | pub f...size)
+   | ^^^^^...^^^^^
+
+note: assert_nonlinear_by has been running for 2 seconds
+      reporting errors as they are discovered (they may not be in source order)
+   --> <stage>/previous/native/verified/square_base.rs:204:17
+    |
+204 | ...   assert(va...
+    |       ^^^^^^
+
+note: assert_nonlinear_by finished in 3 seconds
+   --> <stage>/previous/native/verified/square_base.rs:204:17
+    |
+204 | ...   assert(va...
+    |       ^^^^^^
+
+note: function body check has been running for 2 seconds
+      reporting errors as they are discovered (they may not be in source order)
+  --> <stage>/previous/native/verified/square_low.rs:11:1
+   |
+11 | pub f...:u32)
+   | ^^^^^...^^^^^
+
+note: function body check finished in 3 seconds
+  --> <stage>/previous/native/verified/square_low.rs:11:1
+   |
+11 | pub f...:u32)
+   | ^^^^^...^^^^^
+
+note: function body check has been running for 2 seconds
+      reporting errors as they are discovered (they may not be in source order)
+  --> <stage>/previous/native/verified/toom4_multiply.rs:11:1
+   |
+11 | pub f...size)
+   | ^^^^^...^^^^^
+
+note: function body check finished in 4 seconds
+  --> <stage>/previous/native/verified/toom4_multiply.rs:11:1
+   |
+11 | pub f...size)
+   | ^^^^^...^^^^^
+
+note: function body check has been running for 2 seconds
+      reporting errors as they are discovered (they may not be in source order)
+  --> <stage>/previous/native/verified/toom4_square.rs:11:1
+   |
+11 | pub f...size)
+   | ^^^^^...^^^^^
+
+note: function body check finished in 2 seconds
+  --> <stage>/previous/native/verified/toom4_square.rs:11:1
+   |
+11 | pub f...size)
+   | ^^^^^...^^^^^
+
+note: function body check has been running for 2 seconds
+      reporting errors as they are discovered (they may not be in source order)
+  --> <stage>/previous/native/verified/toom_multiply.rs:12:1
+   |
+12 | pub f...size)
+   | ^^^^^...^^^^^
+
+note: function body check finished in 4 seconds
+  --> <stage>/previous/native/verified/toom_multiply.rs:12:1
+   |
+12 | pub f...size)
+   | ^^^^^...^^^^^
+
+note: function body check has been running for 2 seconds
+      reporting errors as they are discovered (they may not be in source order)
+  --> <stage>/previous/native/verified/toom_square.rs:12:1
+   |
+12 | pub f...size)
+   | ^^^^^...^^^^^
+
+note: function body check finished in 5 seconds
+  --> <stage>/previous/native/verified/toom_square.rs:12:1
+   |
+12 | pub f...size)
+   | ^^^^^...^^^^^
+

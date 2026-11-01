@@ -1,0 +1,15 @@
+{
+  "status": "explicit_ghost_only_proof_repair",
+  "original_experiment_commit": "1e78a6d8edd9c38d87f9578a23dbb1ac49f2c0e1",
+  "file": "native/verified/toom_words.rs",
+  "source_original_sha256": "221e6592c48904135aef8cce941675fe067b8d2b9253bd507293363a3ab104d7",
+  "source_repaired_sha256": "6fd7273be9256f9448e56ebe80ecbaac350df315fe20dd8b613f8255072b148f",
+  "applied_to": [
+    "previous",
+    "candidate"
+  ],
+  "failure": "original source compiled under previous crate name: 272 verified, 1 failed fundamental-div-mod-converse equality precondition at add_shifted truncated rhs branch",
+  "change": "Add explicit rhs-prefix equality and commuted carry equality inside existing proof block; no executable statement changed",
+  "original_report_sha256": "8ccf499183d8c7736a46b292da96973d769bed41a3d0c26cdd8565400aa3f332",
+  "codegen_equivalence": "pending same-source fresh compilation and normalized function audit"
+}

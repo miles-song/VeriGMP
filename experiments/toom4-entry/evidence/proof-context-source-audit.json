@@ -1,0 +1,9 @@
+{
+  "status": "pass",
+  "scope": "Exact source-byte deletion recovers original after EOL normalization; inserted assertions are wholly inside an existing proof block",
+  "original_sha256": "221e6592c48904135aef8cce941675fe067b8d2b9253bd507293363a3ab104d7",
+  "repaired_sha256": "6fd7273be9256f9448e56ebe80ecbaac350df315fe20dd8b613f8255072b148f",
+  "same_patch_previous_candidate": true,
+  "inserted_lines": 5,
+  "machine_code_comparison": "pending fresh complete gate"
+}

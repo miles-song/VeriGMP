@@ -1,0 +1,78 @@
+{
+  "status": "ready_for_independent_review_not_promotion",
+  "production_default_changed": false,
+  "consumer_pin_changed": false,
+  "candidate_stage": "toom4-entry-stage-e22a4dd",
+  "baseline_commit": "e22a4dd00a28681fd27d68e2a78fa304cf17563e",
+  "original_toom4_experiment_commit": "1e78a6d8edd9c38d87f9578a23dbb1ac49f2c0e1",
+  "old_control_boundary": "Same original Toom4 algorithm with the identical five-line ghost-only proof stabilization used by the new entry candidate; source is not byte-identical to the prior archive",
+  "full_gate": {
+    "library_verified_items": {
+      "baseline": 234,
+      "previous": 274,
+      "candidate": 276
+    },
+    "runner_verified_items": 276,
+    "oracle_cases": 25062,
+    "invalid_commands": 8,
+    "semantic_mutants": 20,
+    "source_tool_artifact_checks": true
+  },
+  "measurement": {
+    "independent_runs": 2,
+    "records_each": 1456,
+    "shape_groups_each": 52,
+    "modes": 4,
+    "repetitions_per_mode": 7,
+    "minimum_actual_ns_each": [
+      10056772,
+      10116950
+    ],
+    "performance_status": "target_not_met",
+    "primary_gmp_failures_each": [
+      10,
+      10
+    ],
+    "key_gmp_failures_each": [
+      33,
+      35
+    ],
+    "regressions_vs_e22_each": [
+      23,
+      24
+    ],
+    "regressions_vs_previous_each": [
+      19,
+      22
+    ],
+    "consistent_regressions_vs_e22": 15,
+    "consistent_regressions_vs_previous": 8,
+    "consistent_improvements_vs_previous": 19,
+    "new_confirmation_runs_after_results": 0
+  },
+  "evidence_sha256": {
+    "verification.json": "418176c2a050449108589f07fb84691a48482dc36ea8b6cd17782d6af170b013",
+    "confirmation-window.json": "9c7fe0480dcc33de2fb492dfc21971153aa12e004affc2ee1d025655e5d14bd8",
+    "performance-summary.json": "14002c788960f94fa7088d42693808e1e21ee4a383f95c60cdd27066d3cafecb",
+    "performance-comparison.json": "94c351618e0258e39ddcad537ab0f3daf9d86cf075a6730117cdd3b4d739ba53",
+    "entry-path-audit.json": "d6716e449666e09471dc582b31229b7876bd50283764f2ba06f366f4629f21e4",
+    "entry-path-review.json": "1982863d8dcd4364db8394082eed9969b69f0ca61bb7608d828bf3c8c4f0e3e9",
+    "ghost-patch-codegen-audit.json": "2617eb7bd806729570802d36490d02c897111854ddb3ea73fa9f2388f38ec3e8",
+    "proof-context-source-audit.json": "5d5ad095d5fad34b15fcc703e45c408698fec8f6a9e0f68e674f5c24ac9c8051",
+    "default1/benchmark.csv": "4132d7df2928040dc937f321a3cb737af3a7f4225d3462921e0eabe8109b166e",
+    "default1/measurements.json": "21b885a7442fd91d4080475da5b57e17720ccb3dc2a1c99270d0585868cc3e80",
+    "default1-binding.json": "709841cd6b7cea26b20ca9115d34c95212b7ff424807f53d99103f8d26a212a8",
+    "default2/benchmark.csv": "12975921cf08b76510e7a4361a16cc5535610e2ca77fc88d426aa265b071121d",
+    "default2/measurements.json": "fefe233038601b75efd678aee2ec5fdabb3cc6be189840db9b77f88d485bf9f4",
+    "default2-binding.json": "4d58fcc84ce4641cc0b74bed8d9028c81069f53ecd99361486e7d5a03e6ee331"
+  },
+  "review_scripts_sha256": {
+    "audit_entry_paths.py": "36f183f676879fbae9fee3de78092ceb2ee1f1b32dda07769cafa9912cd5086c",
+    "audit_ghost_patch_codegen.py": "41c8087a908e48ecd933a4cfe1c0665076d8dbd55cc3a9c7f92b326767d23c6a",
+    "review_entry_paths.py": "68157dbc57600603f072e48d08e0acb0787ef1b66d3e84a830fcfd444a963e92",
+    "compare_confirmations.py": "903e78d4e14b224a33c5a9ffbeab7234bda69bb260e79edb4f9ad1756d696e2b"
+  },
+  "prior_failed_attempt": "attempts/previous-crate-proof-context",
+  "preliminary_rejected_helper_layout": "attempts/split-both-helpers",
+  "decision": "Retain all results; no production promotion and no GMP parity claim; no additional timing without a new independently scoped candidate"
+}

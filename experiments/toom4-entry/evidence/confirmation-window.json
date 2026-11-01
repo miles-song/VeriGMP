@@ -1,0 +1,29 @@
+{
+  "status": "pass",
+  "benchmark_started": true,
+  "policy": "Exactly two predeclared default runs; no result-based retry",
+  "tags": [
+    "default1",
+    "default2"
+  ],
+  "cpu": 0,
+  "startup_settle_seconds": 10,
+  "idle_probe_seconds": 1,
+  "max_other_process_cpu_percent": 10,
+  "measurement_controller_sha256": "2b37e639b8e6ea36d283e616c7e05e5c7fe05f62cc26b3325ea5dc6e4fc3a045",
+  "boot_id": "a1b93b4f-7eac-43af-930e-ed83d0b76cc4",
+  "started_utc": "2026-11-01T20:36:09.173011+00:00",
+  "preflight_process_cpu": [],
+  "bindings": {
+    "default1": {
+      "sha256": "709841cd6b7cea26b20ca9115d34c95212b7ff424807f53d99103f8d26a212a8",
+      "raw_sha256": "4132d7df2928040dc937f321a3cb737af3a7f4225d3462921e0eabe8109b166e"
+    },
+    "default2": {
+      "sha256": "4d58fcc84ce4641cc0b74bed8d9028c81069f53ecd99361486e7d5a03e6ee331",
+      "raw_sha256": "12975921cf08b76510e7a4361a16cc5535610e2ca77fc88d426aa265b071121d"
+    }
+  },
+  "finished_utc": "2026-11-01T20:37:27.189946+00:00",
+  "scope": "Same continuous WSL session, same pinned artifacts and two complete four-mode registered matrices"
+}

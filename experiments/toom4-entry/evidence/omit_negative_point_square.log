@@ -1,0 +1,22 @@
+verification results:: 0 verified, 1 errors (partial verification with `--verify-*`)
+note: verifying module toom4_square, function lib::toom4_square::full
+
+note: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> <stage>/candidate/native/verified/toom4_square.rs:11:1
+   |
+11 | pub f...size)
+   | ^^^^^...^^^^^
+
+error: precondition not satisfied
+  --> <stage>/candidate/native/verified/toom4_square.rs:69:5
+   |
+69 |     toom4...t(c));
+   |     ^^^^^...^^^^^
+   |
+  ::: <stage>/candidate/native/verified/toom4_interpolate.rs:15:9
+   |
+15 | ...   (if n...ve(c),
+   |       -----...----- failed precondition
+
+error: aborting due to 1 previous error
+
