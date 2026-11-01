@@ -62,11 +62,11 @@ function's postcondition.
 |---|---|---|
 | Integer models | `specs/radix.rs`, `precision.rs`, `product.rs`, `fast_product.rs` | Define `value`, `radix(n) = B^n` and `modulus`; prove range, splitting, congruence, Karatsuba and low-product identities. |
 | Polynomial models | `specs/toom.rs`, `toom_blocks.rs`, `square.rs` | Prove the five-point Toom-3 identities, three-block decomposition, coefficient bounds, product capacity and square symmetry. |
-| Scalar words | `verified/kernel.rs` | Add-with-carry and word-level modular primitives. |
+| Scalar words | `verified/kernel.rs` | Add-with-carry, subtract-with-borrow and word-level modular primitives. |
 | Slice arithmetic | `verified/limbs.rs`, `pow2.rs`, `fast_words.rs` | Exact addition with carry out, subtraction with borrow, absolute differences, word scaling and precision normalization. |
 | Toom words | `verified/toom_words.rs` | Padded add/subtract, exact scaling, exact division by a word, shifted modular accumulation. |
 | Evaluation and interpolation | `verified/toom_evaluate.rs`, `toom_interpolate.rs` | Evaluate three blocks at 1, -1 and 2 (with a sign for -1); recover the middle coefficients from five point products in place. |
-| Basecase and Karatsuba | `verified/multiply.rs`, `fast_multiply.rs`, `square.rs` | Schoolbook rows, difference-form Karatsuba, its low-product recursion, Karatsuba squaring. |
+| Basecase and Karatsuba | `verified/multiply.rs`, `fast_multiply.rs`, `square.rs`, `square_base.rs` | Schoolbook rows, difference-form Karatsuba, low-product recursion, Karatsuba squaring and the triangular full-square leaf. |
 | Toom recursion | `verified/toom_multiply.rs`, `toom_square.rs` | Full products and full squares with five recursive point products. |
 | Low products | `verified/toom_low.rs`, `square_low.rs` | Products and squares modulo `B^n` built from one full block product and shorter low products. |
 | Public dispatch | `verified/arithmetic.rs` | Fixed policy for `mul_mod` and `square_mod`, plus workspace sizing. |
@@ -74,9 +74,8 @@ function's postcondition.
 
 All paths are relative to `native/`. [native/lib.rs](../native/lib.rs) declares
 each file as a public module of the crate `verigmp`. Module names match file
-names, for example `verigmp::arithmetic`, with one exception: `specs/square.rs`
-is exported as `verigmp::square_spec`, while `verified/square.rs` is
-`verigmp::square`.
+names, for example `verigmp::arithmetic`. The square model/implementation pairs
+use distinct names: `square_spec` / `square` and `square_base_spec` / `square_base`.
 
 The model files contain only spec and proof functions, so they compile to nothing.
 They are separate so that an identity such as "five point values determine the
@@ -113,7 +112,8 @@ flowchart TD
     SL --> TS["toom_square::full"]
     SL --> TL2["toom_low::low<br/>cross product"]
     TS -->|n <= 192| KS["square::full"]
-    KS --> BF["fast_multiply::base_full<br/>generic schoolbook"]
+    KS -->|leaf n < 8| BF["fast_multiply::base_full<br/>generic schoolbook"]
+    KS -->|leaf n >= 8| SB["square_base::full<br/>triangular cross products + diagonal"]
     KF --> BF
 ```
 
@@ -226,12 +226,16 @@ and no sign bookkeeping reaches interpolation. Karatsuba squaring likewise
 computes one absolute difference.
 
 In a low square, the two cross terms `a_hi*a_lo'` and `a_lo'*a_hi` are equal.
-`square_low` computes that low product once and adds it twice. One of the 12
-mutation checks removes the second addition and is rejected by the proof.
+`square_low` computes that low product once and adds it twice. A semantic
+mutation test removes the second addition and is rejected by the proof.
 
-The leaf of the square recursion is still the generic schoolbook multiplication
-called with `a` as both operands. A basecase that exploits symmetry inside a
-single row is not implemented.
+For full-square leaves of at least eight limbs, the proved `square_base::full`
+computes each cross product once, then combines twice the triangular sum with the
+diagonal squares. Its independent model proves that this is the exact square.
+The kernel performs `n(n-1)/2 + n` word multiplications, uses `O(1)` extra words,
+and adds no scratch requirement. The operation count is an analytic count, not a
+composed machine-checked cost theorem. Smaller full-square leaves and the low-square
+entry up to 64 limbs use generic multiplication.
 
 ## Public dispatch
 
@@ -239,11 +243,11 @@ single row is not implemented.
 `toom_low::modular` with Toom threshold 192, low threshold 128 and short ratio
 9/40 otherwise. `arithmetic::square_mod` always uses `square_low::low` with Toom
 threshold 192, low threshold 64 and ratio 11/36, then normalizes the top limb.
-The thresholds act inside the recursion, not on the top-level input: up to 64
+These thresholds act inside the recursion, not on the top-level input: up to 64
 limbs the low square calls the generic basecase product directly, and 192 limits
 the full low-block square. At `n = 193`, for example, the short block is 58 limbs
-and the 135-limb full block is still squared by Karatsuba. The
-original `fast_multiply::mul_mod` API keeps its own Karatsuba policy and its `4n`
+and the 135-limb full block is still squared by Karatsuba. The original
+`fast_multiply::mul_mod` API keeps its own Karatsuba policy and its `4n`
 low-product workspace (`3n` for full products).
 
 These thresholds are constants in the source, not run-time parameters, so the

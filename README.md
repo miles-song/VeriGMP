@@ -2,7 +2,8 @@
 
 [简体中文](README.zh-CN.md)
 
-VeriGMP is a Rust library for multiprecision multiplication and squaring whose
+VeriGMP is a Rust library for multiprecision multiplication, squaring and modular
+slice arithmetic whose
 executable functions are proved correct with [Verus](https://github.com/verus-lang/verus).
 It adopts algorithm and storage strategies from GMP (the GNU Multiple Precision
 Arithmetic Library), writes the implementation and proofs independently, and
@@ -10,6 +11,13 @@ measures the result against GMP and against its own earlier code.
 
 The library is experimental and deliberately narrow. It does not verify GMP, does
 not offer a GMP-compatible API and does not claim performance parity with GMP.
+
+The registered performance target is a median time no greater than GMP on the
+principal workloads, with no registered key shape above 1.2 times GMP. The target
+requires matching result semantics, the same compiler toolchain and linked builds,
+and a confirming run; it has not been reached.
+See [the measurement contract](native/performance-target.json) and
+[its evaluation procedure](docs/benchmarks.md#performance-target).
 
 ## What it computes
 
@@ -36,9 +44,10 @@ low-product recursion. Products below 512 limbs take the original Karatsuba
 path and larger products take the Toom-3 path. Squares always take the dedicated
 low-square recursion. Up to 64 limbs it calls the generic basecase product;
 above that it squares a low block of `n - floor(11n/36)` limbs in full, with
-Toom-3 when that block exceeds 192 limbs and Karatsuba squaring otherwise, and
-leaves are generic schoolbook rows. These thresholds are a fixed, measured
-policy, not a claim of optimality.
+Toom-3 when that block exceeds 192 limbs and Karatsuba squaring otherwise.
+Full-square leaves of at least eight limbs use a proved triangular symmetric kernel;
+smaller leaves and the low-square entry up to 64 limbs retain generic multiplication.
+These thresholds are a fixed, measured policy, not a claim of optimality.
 
 ## Quick start
 
@@ -110,23 +119,24 @@ walks through the layers with a worked example.
 At source commit `ab5eaf6`, the library proof reports 199 verified items and no
 errors. The Toom and squaring oracle checks 9,648 cases up to 4,097 limbs against
 Python integers, and 12 deliberate semantic mutations are each rejected by the
-proof. These counts describe that snapshot; they are not counts of public
-functions.
+proof. These counts describe that snapshot; they are not counts of public functions.
 
 The proof covers functional refinement: given the stated preconditions, the
 output has the stated integer value. Termination and scratch capacity are also
 checked. For fixed thresholds, the Toom recurrence gives an analytic bound of
 `O(n^log3(5))`, about `O(n^1.465)`, word operations; that bound is derived by hand
-and is not a machine-checked cost theorem. Measured timings on one machine are
+and is not a machine-checked cost theorem. Frozen-baseline timings on one machine are
 reported separately in [docs/benchmarks.md](docs/benchmarks.md). On that machine,
 at the measured sizes from 63 limbs for products and 23 limbs for squares up to
 4,096 limbs, the default path takes 1.16 to 2.51 times as long as the GMP
 baseline. At 512 and 513 limbs, the first measured sizes where products switch
 to Toom-3, they are 3.6% and 2.2% slower than the previous Karatsuba path; at
 the measured sizes from 1,023 to 4,096 limbs they are faster, by 19% at 4,096.
+The frozen benchmark commit used generic multiplication at full-square leaves;
+the current implementation uses a proved triangular kernel from eight limbs.
 
 Not yet implemented: architecture-specific assembly, a symmetry-specialized
-basecase square, Toom-4 and higher, FFT multiplication, and general division,
+truncated low-square leaf, Toom-4 and higher, FFT multiplication, and general division,
 inversion or higher-level integer APIs. The exact claimed scope is recorded in
 [native/proof-status.json](native/proof-status.json).
 

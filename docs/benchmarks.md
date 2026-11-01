@@ -9,7 +9,10 @@ proof overhead and not evidence of parity with GMP.
 ## Published data set
 
 The frozen data set in [docs/data/2026-11-01/](data/2026-11-01/) was produced
-from source commit `ab5eaf670865a4438301b6dce6b4e5175c4a6c22`:
+from source commit `ab5eaf670865a4438301b6dce6b4e5175c4a6c22`. The reachable
+code-equivalent identity is `bf2821728fb5c7228609c4447327ba95eccdc5c9`, recorded in
+[history-provenance.json](../native/history-provenance.json). The raw observations
+and their original execution identities remain fixed:
 
 | Item | Value |
 |---|---|
@@ -67,12 +70,11 @@ shapes use `top = 63`; the 1- and 2-limb shapes also use `top = 1` and `top = 64
 The `threshold` and `low_limit` columns record the scan context of each row (192
 and 128 in the published set). Modes 1 and 2 use both values at run time. Mode 3
 uses the Toom threshold but computes a full product, so it ignores `low_limit`.
-Modes 0, 4 and 5 ignore both. Mode 5 is the
-actual public dispatch, whose thresholds are compile-time constants: for
-products, Karatsuba below 512 limbs and Toom 192/128 with ratio 9/40 above; for
-squares, Toom 192/64 with ratio 11/36. A forced mode with the same numbers is a
-different compilation of the call graph, which is why the default is measured
-directly.
+Modes 0, 4 and 5 ignore both. Mode 5 is the actual public dispatch, whose thresholds
+are compile-time constants: for products, Karatsuba below 512 limbs and Toom 192/128
+with ratio 9/40 above; for squares, Toom 192/64 with ratio 11/36. A forced mode with
+the same numbers is a different compilation of the call graph, which is why the
+default is measured directly.
 
 GMP's public `mpn` interface has no low-half product, so mode 4 computes twice
 as many output limbs as the other modes need. That is the semantic match
@@ -143,11 +145,48 @@ At every measured size from 64 to 4,096 limbs, the dedicated square is faster
 than the previous generic product with equal operands, by 14% at 128 limbs and
 33% at 4,096 limbs. Below that it is mixed: 1.1% to 2.3% slower at 23, 24 and
 63 limbs, 3% to 4% slower at 1 limb, equal at 2 limbs and faster at 25 limbs.
-At the
-measured sizes from 23 to 4,096 limbs it takes 1.30 to 2.51 times as long as
+At the measured sizes from 23 to 4,096 limbs it takes 1.30 to 2.51 times as long as
 GMP's `mpn_sqr` baseline.
-GMP has a symmetry-specialized basecase square; VeriGMP's leaf is still generic
-multiplication.
+
+The published benchmark data used generic multiplication at full-square leaves.
+The current verified implementation uses a proved triangular full-square kernel
+from eight limbs (no extra scratch, `n(n-1)/2 + n` multiplications analytic count),
+while the low-square basecase entry up to 64 limbs continues to use generic
+multiplication. That newer implementation is not measured in the frozen table.
+
+## Performance target
+
+[performance-target.json](../native/performance-target.json) registers the
+workloads before target evaluation. Each principal workload must have a median
+time at most GMP's; every other registered key shape must be within 1.2 times GMP.
+Inputs, precision, result semantics and caller allocation boundaries must match.
+Seven repetitions are retained for every group, and each recorded batch must
+last at least 10 ms. Calibration alone does not establish that requirement.
+The frozen data above follow their original calibration protocol and are not
+evidence of passing this stricter target.
+
+Run acceptance and evaluate its bound observations:
+
+```sh
+python3 scripts/verify.py --output results/acceptance-1 --export-dir build/exports-1
+python3 scripts/check_performance_target.py \
+  --csv results/acceptance-1/toom/benchmark.csv \
+  --evidence results/acceptance-1/verification.json
+```
+
+The evaluator checks the CSV hash, source snapshot, evaluator and target identity,
+group coverage, repetition counts and actual durations. It compares the median
+of per-operation times, `ns / iterations`, for the default implementation and
+GMP. A second independent acceptance run can be supplied through
+`--confirmation-csv` and `--confirmation-evidence`; confirmation requires the
+same source, tools, platform and actual linked-library builds.
+
+Results are `invalid_evidence`, `target_not_met`, `provisional_library_pass` or
+`confirmed_library_pass`. `--require-library-target` returns a failure status
+unless the last state is reached. A library pass alone never authorizes replacing
+the solver's GMP backend: semantic compatibility and frozen representative solver
+traces are separate requirements. The target remains unmet. GMP is a baseline
+for future verified algorithms, not a limit on attainable performance.
 
 ## MAC4 row candidate
 

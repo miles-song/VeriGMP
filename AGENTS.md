@@ -4,6 +4,14 @@ Use the installed karpathy-guidelines skill when available. The current user's
 instructions take precedence. This repository owns general multiprecision
 arithmetic; application-specific mathematics belong in consuming projects.
 
+VeriGMP continues implementing and verifying performance improvements. Its
+registered target is principal-workload median time no greater than GMP, with
+every key shape at most 1.2 times GMP under native/performance-target.json.
+GMP is a comparator, not a ceiling. The consuming solver's policy of recording
+optimizations for a later version does not defer arithmetic work in this library.
+Use miles-song <2324715854@qq.com> as both author and committer, without coauthor
+trailers, for this task's new commits.
+
 ## Refinement and performance
 
 1. Define integer meanings and algebraic identities independently of executable
@@ -50,6 +58,8 @@ arithmetic; application-specific mathematics belong in consuming projects.
   established by the caller; never define correct answers from executable output.
 - `verified/square.rs`, `toom_square.rs`, `square_low.rs`: symmetry refinements.
   Retain the distinction between dedicated recursion and a specialized leaf kernel.
+- `specs/square_base.rs`, `verified/square_base.rs`: independent triangular-square
+  identity and its actual full-square leaf implementation.
 - `verified/arithmetic.rs`: measured fixed production policy; forced alternatives
   and actual default dispatch both require oracle and codegen coverage.
 - `verified/mac4.rs`: measured candidate only. A proven optimization must still

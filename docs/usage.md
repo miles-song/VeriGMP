@@ -203,14 +203,17 @@ A git submodule pinned to the source baseline:
 
 ```sh
 git submodule add https://github.com/miles-song/VeriGMP.git third_party/VeriGMP
-git -C third_party/VeriGMP checkout ab5eaf670865a4438301b6dce6b4e5175c4a6c22
+git -C third_party/VeriGMP checkout bf2821728fb5c7228609c4447327ba95eccdc5c9
 git add .gitmodules third_party/VeriGMP
 ```
 
-Commit `ab5eaf670865a4438301b6dce6b4e5175c4a6c22` is the library source baseline
-described in these documents. Its library sources are the ones documented here,
-but it predates this documentation and the `examples/` directory. A later commit
-is acceptable if its own `verify.py` run and remote CI pass.
+Commit `bf2821728fb5c7228609c4447327ba95eccdc5c9` reproduces the library source
+used by the frozen benchmark data. Those measurements retain their original
+commit identity `ab5eaf670865a4438301b6dce6b4e5175c4a6c22`; the code-equivalence
+mapping is recorded in [history-provenance.json](../native/history-provenance.json).
+This baseline predates the documentation examples, the proved full-square leaf
+and modular subtraction. For those features, pin a later commit whose own
+`verify.py` run and remote CI pass, and build its matching library/metadata pair.
 
 Build the dependency into a directory your project owns:
 

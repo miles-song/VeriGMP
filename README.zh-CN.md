@@ -2,13 +2,18 @@
 
 [English](README.md)
 
-VeriGMP 是一个 Rust 多精度乘法与平方库，其可执行函数由
+VeriGMP 是一个 Rust 多精度乘法、平方与模切片算术库，其可执行函数由
 [Verus](https://github.com/verus-lang/verus) 证明正确。它借鉴 GMP（GNU Multiple
 Precision Arithmetic Library，GNU 多精度算术库）的算法与存储策略，但实现和证明
 均独立编写，并与 GMP 及本项目早先的代码做性能对照。
 
 本库处于实验阶段，范围刻意保持狭窄：不验证 GMP 本身，不提供与 GMP 兼容的 API，
 也不声称与 GMP 性能相当。
+
+已登记的性能目标是：主要负载的中位耗时不超过 GMP，全部关键尺寸不超过 GMP
+的 1.2 倍。比较须采用相同结果语义、相同编译器工具链和相同源代码构建，并由第二次独立运行确认；当前尚未达到目标。
+测量条件见 [性能契约](native/performance-target.json)，判定方法见
+[基准说明](docs/benchmarks.md#performance-target)。
 
 ## 计算什么
 
@@ -31,7 +36,8 @@ Precision Arithmetic Library，GNU 多精度算术库）的算法与存储策略
 以及截断低位积递归。少于 512 个 limb 的乘积走原有 Karatsuba 路径，更大的乘积走
 Toom-3 路径。平方总是走专用低位平方递归：不超过 64 个 limb 时直接调用通用基础乘法；
 超过时对 `n - floor(11n/36)` 个 limb 的低块做完整平方，该块超过 192 个 limb 用 Toom-3，
-否则用 Karatsuba 平方，叶子仍是通用 schoolbook 行乘。
+否则用 Karatsuba 平方。完整平方的叶子在至少 8 个 limb 时使用已证明的专用对称内核，
+更小的叶子和不超过 64 个 limb 的低位平方入口保留通用乘法。
 这些阈值是固定的、经测量选定的策略，并非最优性声明。
 
 ## 快速开始
@@ -102,13 +108,14 @@ Python 整数检查了 9,648 个用例，最大 4,097 个 limb；12 个刻意引
 
 证明覆盖的是功能 refinement：在所述前置条件下，输出具有所述整数值。终止性和 scratch
 容量同样经过检查。在固定阈值下，Toom 递推给出 `O(n^log3(5))`（约 `O(n^1.465)`）次字
-运算的解析界；该界由人工推导，不是机器检查的代价定理。单台机器上的实测耗时单独列于
+运算的解析界；该界由人工推导，不是机器检查的代价定理。冻结基线的单机实测耗时列于
 [docs/benchmarks.md](docs/benchmarks.md)：在该机器上，就所测尺寸而言（乘积 63 个 limb、
 平方 23 个 limb 起，至 4,096 个 limb），默认路径耗时是 GMP 基线的 1.16 到 2.51 倍。在乘积
 首次切换到 Toom-3 的所测尺寸 512 和 513 个 limb，比原 Karatsuba 路径分别慢 3.6% 和 2.2%；
 在 1,023 到 4,096 个 limb 的所测尺寸上更快，4,096 个 limb 时快 19%。
+冻结的基准测试提交在完整平方叶子使用通用乘法；当前实现从 8 个 limb 起使用已证明的三角形内核。
 
-尚未实现：特定体系结构的汇编、利用对称性的专用基础平方、Toom-4 及更高阶、FFT 乘法，
+尚未实现：特定体系结构的汇编、利用对称性的截断低位平方叶子、Toom-4 及更高阶、FFT 乘法，
 以及通用除法、求逆或更高层的整数 API。确切的声明范围记录在
 [native/proof-status.json](native/proof-status.json)。
 

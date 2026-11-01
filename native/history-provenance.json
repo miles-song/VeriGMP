@@ -1,0 +1,10 @@
+{
+  "identity": "miles-song <2324715854@qq.com>",
+  "commits": {
+    "41a1fb1b14cae06fe95b209d81d3e1ac4622a3be": "90ed93390eda29b6551cd16bf935def4f4068a58",
+    "ab5eaf670865a4438301b6dce6b4e5175c4a6c22": "bf2821728fb5c7228609c4447327ba95eccdc5c9",
+    "01d58a84e1338b76c7be773b1e1f4e61d9a6a646": "6bfb82513ba167a2e928f2518fad7ac18b54e785"
+  },
+  "original_bundle_sha256": "d79adbf1fef00f9474f89e7d110c68bf06e9eedcf3f39d335e573ecb4f694863",
+  "invariant": "All source blobs, dates and messages preserved; author/committer metadata changed. Prior evidence retains original run identities."
+}

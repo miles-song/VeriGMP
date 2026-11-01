@@ -14,6 +14,20 @@ kept apart:
 The current functional-refinement proofs do not establish the cost bound, and a
 benchmark says nothing about worst cases.
 
+The current full-square leaf and modular-subtraction implementation have focused
+same-source evidence: 220 library verification items; the precision layer has
+33 items, 27,193 integer cases, 11 invalid-input cases and seven proof-rejected
+mutations. The Toom/square gate has 9,852 integer cases, 11 invalid-input cases
+and 16 proof-rejected mutations. Five precision-layer API controls have matching
+normalized instructions, including modular subtraction. These counts identify
+this implementation's focused gates; release acceptance also requires the full
+`verify.py` snapshot and its matching remote CI.
+
+The subtraction chain is `kernel::sub_limb` → `limbs::sub_assign` →
+`pow2::sub_mod_assign`. Its contracts cover exact borrow identities and the
+canonical Euclidean remainder of a potentially negative difference.
+`fast_words::sub_word` reuses the same scalar primitive.
+
 ## What a contract says
 
 Each verified function carries `requires` (preconditions) and `ensures`
@@ -226,5 +240,7 @@ evidence; they are not part of the library.
 The machine-readable scope is
 [native/proof-status.json](../native/proof-status.json). The counts quoted here
 (199 verified library items, 9,648 oracle cases, 12 mutations) describe the
-baseline commit `ab5eaf6` and will change as modules are added; they are not
+historical benchmark commit `ab5eaf6`, whose reachable code-equivalent identity is
+`bf28217` in [history-provenance.json](../native/history-provenance.json).
+The frozen counts are retained as historical evidence; they are not
 counts of public functions.
