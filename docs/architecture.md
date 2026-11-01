@@ -66,7 +66,7 @@ function's postcondition.
 | Slice arithmetic | `verified/limbs.rs`, `pow2.rs`, `fast_words.rs` | Exact addition with carry out, subtraction with borrow, absolute differences, word scaling and precision normalization. |
 | Toom words | `verified/toom_words.rs` | Padded add/subtract, exact scaling, exact division by a word, shifted modular accumulation. |
 | Evaluation and interpolation | `verified/toom_evaluate.rs`, `toom_interpolate.rs` | Evaluate three blocks at 1, -1 and 2 (with a sign for -1); recover the middle coefficients from five point products in place. |
-| Basecase and Karatsuba | `verified/multiply.rs`, `fast_multiply.rs`, `square.rs`, `square_base.rs` | Schoolbook rows, difference-form Karatsuba, low-product recursion, Karatsuba squaring and the triangular full-square leaf. |
+| Basecase and Karatsuba | `verified/multiply.rs`, `fast_multiply.rs`, `square.rs`, `square_base.rs` | Schoolbook rows, difference-form Karatsuba, low-product recursion, Karatsuba squaring, the triangular full-square leaf and the triangular low-square leaf. |
 | Toom recursion | `verified/toom_multiply.rs`, `toom_square.rs` | Full products and full squares with five recursive point products. |
 | Low products | `verified/toom_low.rs`, `square_low.rs` | Products and squares modulo `B^n` built from one full block product and shorter low products. |
 | Public dispatch | `verified/arithmetic.rs` | Fixed policy for `mul_mod` and `square_mod`, plus workspace sizing. |
@@ -231,11 +231,15 @@ mutation test removes the second addition and is rejected by the proof.
 
 For full-square leaves of at least eight limbs, the proved `square_base::full`
 computes each cross product once, then combines twice the triangular sum with the
-diagonal squares. Its independent model proves that this is the exact square.
-The kernel performs `n(n-1)/2 + n` word multiplications, uses `O(1)` extra words,
-and adds no scratch requirement. The operation count is an analytic count, not a
-composed machine-checked cost theorem. Smaller full-square leaves and the low-square
-entry up to 64 limbs use generic multiplication.
+diagonal squares. For low-square leaves from 9 to 64 limbs, the proved
+`square_base::low` applies the same triangular approach to compute only the lower
+`n` limbs, retaining cross products whose bit positions fall within the output
+radix and fusing their doubled contribution with the diagonals. Both kernels use
+`O(1)` extra words and add no scratch requirement. The full leaf uses
+`n(n-1)/2` cross products and `n` diagonals; the low leaf uses `floor(n*n/4)`
+retained cross products and `ceil(n/2)` diagonals. The operation counts are
+analytic counts, not composed machine-checked cost theorems. Below 9 limbs
+the low-square entry retains generic multiplication.
 
 ## Public dispatch
 
@@ -243,8 +247,8 @@ entry up to 64 limbs use generic multiplication.
 `toom_low::modular` with Toom threshold 192, low threshold 128 and short ratio
 9/40 otherwise. `arithmetic::square_mod` always uses `square_low::low` with Toom
 threshold 192, low threshold 64 and ratio 11/36, then normalizes the top limb.
-These thresholds act inside the recursion, not on the top-level input: up to 64
-limbs the low square calls the generic basecase product directly, and 192 limits
+At the low-square entry, inputs of at most 64 limbs use a leaf: the generic
+product below 9 limbs, and the symmetric low square from 9 limbs. The 192 limit applies to
 the full low-block square. At `n = 193`, for example, the short block is 58 limbs
 and the 135-limb full block is still squared by Karatsuba. The original
 `fast_multiply::mul_mod` API keeps its own Karatsuba policy and its `4n`

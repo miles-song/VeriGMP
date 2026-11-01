@@ -15,6 +15,7 @@ from verify_multiply import integer, words, MAX
 
 SEED = 20261101
 BENCH_SEED = 16438731
+LOW_SQUARE_SEED = 20261103
 SHAPES = [(1,1),(1,64),(2,1),*((n,63) for n in (23,24,25,63,64,65,127,128,129,
     191,192,193,255,256,257,511,512,513,1023,1024,1025,2048,4096))]
 MODES = {0:'previous_karatsuba',1:'low_9_40',2:'low_11_36',3:'full_then_truncate',
@@ -69,6 +70,11 @@ def cases():
             q=1<<(64*(n-1)+top)
             add('default',[top,192,128,2,*a,*b],words(integer(a)*integer(b)%q,n))
             add('square',[top,192,128,2,*a,*b],words(integer(a)**2%q,n))
+    low_rng=random.Random(LOW_SQUARE_SEED)
+    for n in [*range(1,131),191,192,193,255,256,257,511,512,513,1023,1024,1025,2048,4096]:
+        arrays=[[0]*n,[MAX]*n,[1]*n,[MAX if i%2 else 0 for i in range(n)],[1<<(i%64) for i in range(n)]]
+        arrays += [[low_rng.getrandbits(64) for _ in range(n)] for _ in range(5)]
+        for a in arrays:add('squarebaselow',a,words(integer(a)**2,n))
     return rows
 
 
@@ -149,17 +155,24 @@ def check_toom(snapshot,verifier,env,output):
             raise RuntimeError(f'Integer oracle mismatch {i}; exit={r.returncode}; {r.stderr[:400]}')
         if digest(binary)!=binary_hash:raise RuntimeError('Oracle binary changed')
         report['oracle']={'cases':len(rows),'seed':SEED,'max_limbs':4097,'binary_sha256':binary_hash,
+            'direct_low_square_seed':LOW_SQUARE_SEED,'direct_low_square_cases':sum(x.startswith('squarebaselow ') for x,_ in rows),
             'input_sha256':hashlib.sha256(inputs.encode()).hexdigest(),'output_sha256':hashlib.sha256(r.stdout.encode()).hexdigest(),
-            'coverage':'Default and forced recursion, three low splits, n mod 3, signed/zero evaluations, full MAX carry chains, all top bits, immutable input alias, nonzero storage, exact scratch and surrounding canaries, row tails including empty, quotient/remainder'}
+            'coverage':'Default and forced recursion, three low splits, n mod 3, signed/zero evaluations, full MAX carry chains, all top bits, immutable input alias, nonzero storage, exact scratch and surrounding canaries, row tails including empty, quotient/remainder, direct symmetric low squares including odd/even lengths and cutoff 8/9'}
         invalid=['default 0 192 128 2 1 2','default 65 192 128 2 1 2','square 4294967297 192 128 2 1 2',
             'full 64 23 24 0 1 2','low 64 24 23 0 1 2','low 64 24 24 3 1 2',
-            'squarek 64 7 24 0 1 2','shortscratch 64 192 128 2 1 2','divide 0 1','row 1 2 1 1 2 3','squarebase']
+            'squarek 64 7 24 0 1 2','shortscratch 64 192 128 2 1 2','divide 0 1','row 1 2 1 1 2 3','squarebase','squarebaselow']
         for i,line in enumerate(invalid):
             r,_=run([binary],f'invalid-{i}.log',input=line+'\n')
             if r.returncode==0 or r.stdout.strip():raise RuntimeError(f'Invalid input accepted: {line}')
         report['invalid_commands_rejected']=len(invalid)
         report['mutations']=[]
+        low_square_mutants={'drop_low_row_carry', 'omit_odd_diagonal', 'drop_odd_output', 'omit_low_cross_row', 'truncate_retained_row'}
         mutations=[
+            ('square_base.rs', 'omit_low_cross_row', 'while i<n\n        invariant a@.len()==n,dst@.len()==n', 'while i<n-1\n        invariant a@.len()==n,dst@.len()==n', 1),
+            ('square_base.rs', 'truncate_retained_row', 'let count=if i<n-i {i}else{n-i};', 'let count=if i<n-i {i-1}else{n-i};', 1),
+            ('square_base.rs', 'drop_low_row_carry', 'dst[i+count]=carry;', 'dst[i+count]=0;', 1),
+            ('square_base.rs', 'omit_odd_diagonal', 'double_diagonal(dst[n-1],0,a[n/2],carry)', 'double_diagonal(dst[n-1],0,0,carry)', 1),
+            ('square_base.rs', 'drop_odd_output', 'double_diagonal(dst[n-1],0,a[n/2],carry);dst[n-1]=low;', 'double_diagonal(dst[n-1],0,a[n/2],carry);dst[n-1]=0;', 1),
             ('square_base.rs','omit_square_cross_double','let low=2*(lo as u128)','let low=1*(lo as u128)',1),
             ('square_base.rs','wrong_square_diagonal','let square=(a as u128)*(a as u128);','let square=a as u128;',1),
             ('square_base.rs','drop_square_row_carry','dst[2*i]=carry;','dst[2*i]=0;',1),
@@ -182,11 +195,13 @@ def check_toom(snapshot,verifier,env,output):
             if text.count(before)!=count:raise RuntimeError(f'Mutant anchor mismatch: {name}: {text.count(before)}')
             try:
                 source.write_text(text.replace(before,after,1))
-                r,log=run([verifier,snapshot/'native/toom_words_runner.rs','--multiple-errors','0'],name+'.log')
+                flags=['--verify-module','square_base'] if name in low_square_mutants else []
+                r,log=run([verifier,snapshot/'native/toom_words_runner.rs',*flags,'--multiple-errors','0'],name+'.log')
                 detected=bool(r.returncode and re.search(r'verification results:: \d+ verified, [1-9]\d* errors',log)
                     and any(x in log for x in ('postcondition not satisfied','assertion failed','invariant not satisfied','requires not satisfied','precondition not satisfied'))
                     and not any(x in log.lower() for x in ('resource limit','timed out','unexpected token')))
-                report['mutations'].append({'name':name,'rejected_by_semantic_proof':detected,'diagnostics':'first semantic error per function'})
+                report['mutations'].append({'name':name,'rejected_by_semantic_proof':detected,'diagnostics':'first semantic error per function',
+                    'scope':'square_base module after complete positive library/runner verification' if name in low_square_mutants else 'complete runner imports'})
                 if not detected:raise RuntimeError(f'Mutant not rejected semantically: {name}')
             finally:source.write_bytes(original)
         asm=snapshot/'toom-codegen.s';compile('native/toom_codegen.rs',asm,'codegen.log','--emit=asm')
@@ -246,11 +261,12 @@ def check_toom(snapshot,verifier,env,output):
             'mac4_workload':'Same initial destination and common iteration count across modes; destination reset outside timing and final states compared.',
             'mac4_default':False,'mac4_policy':'Kept as verified candidate; no consistent win over original carry loop in local measurements.',
             'square_base_modes':{0:'previous_generic_full',1:'symmetric_full',2:'gmp_sqr'},
-            'square_base_policy':'Full-square leaves use the symmetric kernel from 8 limbs; below 8 retain generic multiplication. Low-square leaf remains generic.'}
+            'square_base_policy':'Full-square leaves use the symmetric kernel from 8 limbs; below 8 retain generic multiplication. Low-square leaves use the symmetric truncated kernel from 9 limbs; below 9 retain the generic low product.'}
         report['cost']={'toom_full':'T(n)=2T(at most ceil(n/3))+3T(ceil(n/3)+1)+O(n)',
             'low':'L(n)=T(n-h)+2L(h)+O(n), h=floor(9n/40) or floor(11n/36) or floor(n/2)',
             'square':'Dedicated five-point squares; low square computes one cross multiplication and adds it twice',
             'square_base':'Triangular n(n-1)/2 cross products plus n diagonal products, one zero fill and one fused doubling/diagonal pass; O(n^2) operations and O(1) extra words, no extra scratch. Operation formula is analytic.',
+            'square_low_base':'floor(n*n/4) retained cross products plus ceil(n/2) diagonal products, O(n^2) word operations and O(1) extra words, no added scratch; analytic operation count.',
             'bound':'O(n^log3(5)) word operations for fixed Toom/base thresholds and all three low splits; analytic derivation, not checked cost theorem',
             'scratch_words':'Full/low product 12n, full/low square 10n; checked recursive capacity; O(log n) call depth',
             'composed_cost_proved':False,'all_gmp_optimizations_implemented':False}

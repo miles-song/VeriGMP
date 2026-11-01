@@ -21,7 +21,11 @@ pub fn low(dst:&mut[u64],a:&[u64],scratch:&mut[u64],threshold:usize,low_limit:us
     assert!(a.len()>0 && a.len()==b.len());assert!(a.len()<=usize::MAX/10);
     assert!(dst.len()==a.len() && scratch.len()>=10*a.len());assert!(threshold>=24 && low_limit>=24 && split_mode<=2);
     let n=a.len();
-    if n<=low_limit {fast_multiply::base_low(dst,a,b);return;}
+    if n<=low_limit {
+        if n<9 {fast_multiply::base_low(dst,a,b);}
+        else {crate::square_base::low(dst,a);}
+        return;
+    }
     // Quotient-first form avoids overflowing 11*n.
     let h=if split_mode==2 {(n/40)*9+((n%40)*9)/40}else if split_mode==1 {(n/36)*11+((n%36)*11)/36}else{n/2};
     proof {
@@ -51,6 +55,8 @@ pub fn low(dst:&mut[u64],a:&[u64],scratch:&mut[u64],threshold:usize,low_limit:us
     let _carry=limbs::add_assign(&mut dst[k..],temp);
     proof {
         congruent_suffix(middle,dst@,k as nat,c2);
+        assert(part(a@,0,h as nat)*part(a@,k as nat,a@.len())
+            ==part(a@,k as nat,a@.len())*part(a@,0,h as nat)) by(nonlinear_arith);
         low_identity(a@,b@,k as nat,h as nat,z0,c1,c2);
         radix_positive(k as nat);radix_positive(h as nat);radix_add(k as nat,h as nat);
         mod_add_scaled(z0,c1,radix(k as nat),radix(h as nat));

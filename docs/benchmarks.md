@@ -6,13 +6,15 @@ with parameterized alternatives and with GMP computing the same result? They are
 observations on one machine. They are not worst-case bounds, not a measure of
 proof overhead and not evidence of parity with GMP.
 
-## Published data set
+## Published data sets
 
-The frozen data set in [docs/data/2026-11-01/](data/2026-11-01/) was produced
-from source commit `ab5eaf670865a4438301b6dce6b4e5175c4a6c22`. The reachable
-code-equivalent identity is `bf2821728fb5c7228609c4447327ba95eccdc5c9`, recorded in
-[history-provenance.json](../native/history-provenance.json). The raw observations
-and their original execution identities remain fixed:
+The frozen baseline data set in [docs/data/2026-11-01/](data/2026-11-01/) was
+produced from source commit `ab5eaf670865a4438301b6dce6b4e5175c4a6c22`. The
+reachable code-equivalent identity is `bf2821728fb5c7228609c4447327ba95eccdc5c9`,
+recorded in [history-provenance.json](../native/history-provenance.json). The raw
+observations and their original execution identities remain fixed:
+
+### Baseline (2026-11-01)
 
 | Item | Value |
 |---|---|
@@ -148,11 +150,54 @@ than the previous generic product with equal operands, by 14% at 128 limbs and
 At the measured sizes from 23 to 4,096 limbs it takes 1.30 to 2.51 times as long as
 GMP's `mpn_sqr` baseline.
 
-The published benchmark data used generic multiplication at full-square leaves.
-The current verified implementation uses a proved triangular full-square kernel
-from eight limbs (no extra scratch, `n(n-1)/2 + n` multiplications analytic count),
-while the low-square basecase entry up to 64 limbs continues to use generic
-multiplication. That newer implementation is not measured in the frozen table.
+The published benchmark data used generic multiplication at full-square leaves
+and low-square leaves. The current verified implementation uses a proved
+triangular full-square kernel from eight limbs, and a proved triangular low-square
+kernel from nine limbs for computing only the lower n limbs, while retaining
+generic multiplication below 9 limbs for low squares and below 8 limbs for full
+squares. See [the 2026-11-02 measurement](#incremental-measurements-2026-11-02).
+
+### Incremental measurements (2026-11-02)
+
+The dataset in [docs/data/2026-11-02-low-square-cutoff9/](data/2026-11-02-low-square-cutoff9/)
+measures the low-square triangular symmetric kernel at cutoff 9. It compares
+baseline commit `c083839dc07f9b0cffea1a52cd6810d817105355` with that baseline plus
+the frozen five-file candidate patch identified in the metadata. It uses the same
+hardware, matching result semantics and 7 repetitions per group; each recorded batch lasted at least
+10 ms (minimum observed 10,012,950 ns). Two complete actual-dispatch runs and two
+dense boundary runs (sampled square sizes from 3 to 128 limbs) yielded 3,486 raw records across both
+products and squares. The complete measurement metadata and verification report are
+at [metadata.json](data/2026-11-02-low-square-cutoff9/metadata.json) and the
+[performance-summary.json](data/2026-11-02-low-square-cutoff9/performance-summary.json).
+
+On the sampled dense square sizes within 9 to 64 limbs, both runs improve:
+candidate-over-baseline ratios range from 0.536746 to 0.951054. In the two complete
+actual-dispatch runs, the 23-limb square takes 33–36% less time and the 64-limb
+square takes 45–47% less time. These are measured samples, not every integer size.
+Registered principal workloads (256, 512, 1024, 2048, 4096 limbs at top 63) remain
+unsatisfactory at the target. At 4096 limbs, products take 2.330 and 2.359 times GMP
+in the two runs; squares take 2.173 and 2.141 times GMP. The performance target is
+not met. Release acceptance separately requires the complete fixed-snapshot
+verification and matching remote CI; frozen isolated measurements do not replace them.
+
+The isolation and measurements serve as same-source evidence that the new kernel
+computes correctly (verified oracle cases and mutation detection) and improves the
+low-square path on the measured machine. All regression results across both runs are
+preserved in the full dataset, including measurements at sizes above 64 limbs
+where the default low-square entry follows the existing recursive path.
+
+To reconstruct the baseline and frozen candidate from a clone and repeat this
+comparison, use a new output directory and an available logical CPU:
+
+```sh
+python3 docs/data/2026-11-02-low-square-cutoff9/reproduce.py \
+  --output build/reproduced-low-square --cpu 0
+```
+
+The script checks the captured source identities, rebuilds and verifies both
+library/metadata pairs, and repeats the two complete and two dense measurements.
+The published reports retain the paths of the original measurement machine;
+new output belongs to the reproduction run and does not replace those reports.
 
 ## Performance target
 
@@ -162,8 +207,9 @@ time at most GMP's; every other registered key shape must be within 1.2 times GM
 Inputs, precision, result semantics and caller allocation boundaries must match.
 Seven repetitions are retained for every group, and each recorded batch must
 last at least 10 ms. Calibration alone does not establish that requirement.
-The frozen data above follow their original calibration protocol and are not
-evidence of passing this stricter target.
+The historical 2026-11-01 dataset follows its original calibration protocol and
+does not establish this stricter duration requirement. The cutoff9 dataset does
+meet the recorded-duration requirement; its runtime ratios still fail the target.
 
 Run acceptance and evaluate its bound observations:
 

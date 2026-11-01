@@ -1,0 +1,146 @@
+{
+  "status": "verified_and_twice_measured_candidate_pending_independent_review_and_canonical_gate",
+  "created_utc": "2026-11-01T16:43:46.597702+00:00",
+  "canonical_baseline_commit": "c083839dc07f9b0cffea1a52cd6810d817105355",
+  "precursor_evidence": {
+    "cutoff": 8,
+    "handoff_sha256": "f707e3332ede2017c5cc580d8b661d4750585dd8d6fe28f373d5364fa0ad3bc9",
+    "verification_sha256": "b7f0aabf0ef95d3d5486fdfa943ab6f113078b2c1b37ddfc8df65451aa5d2c69",
+    "source_manifest_sha256": "600386845c0eb76af916cbf03b6b727bdcccea9c48e78b2b8695108cb1385a5c",
+    "patch_sha256": "9e9e6765f473a4a8016c284f5229a5bb798eefc3210f81bbfc7a999d80f646e5",
+    "measurement_csv_sha256": {
+      "default1": "f37317ff90361352defcf212b75c35c048b36a1b7a2001c135c2aeb136896fa6",
+      "default2": "5b5d3538417433036e296b1b75dceb801d0ba2722d738412e7569e2ad2a5ff1f",
+      "dense1": "8fca845cc445e5154a592098dab4a86048e42eb41e4334fb56bdb3daf15704e8",
+      "leaf1": "69cb050c50fa30b494db77de56d351d8d6466d536f32fb855ff9372f7dfd4372"
+    }
+  },
+  "candidate_low_cutoff": 9,
+  "production_files_modified": false,
+  "changed_files": [
+    {
+      "path": "native/specs/square_base.rs",
+      "baseline_lf_sha256": "76c202441f26ca065beef59ea5450a187c5a7a3ed15754bb499fbe612f7dcf31",
+      "candidate_lf_sha256": "9436705847c6cf4c8353a324e9154767a2a8ac57b13ca13a26b523f973ea6768"
+    },
+    {
+      "path": "native/toom_words_runner.rs",
+      "baseline_lf_sha256": "e8414f15777896c26cd851b558b4e899e523d5632589d5df59653d676f94037b",
+      "candidate_lf_sha256": "ebfc236535004e57a0932a45dd263b8e944064ef394490cf367c92003681126d"
+    },
+    {
+      "path": "native/verified/square_base.rs",
+      "baseline_lf_sha256": "5bc652b293e2800c29d969b29b55fc845902861a5810dbc1e6d61b54d1afb868",
+      "candidate_lf_sha256": "d56438d15c969b475d74c431bef66dbe8c6befd67699196b096c1773c68094b3"
+    },
+    {
+      "path": "native/verified/square_low.rs",
+      "baseline_lf_sha256": "1ec917ab1a36d35e2401fa4a35bee5202adaeb905bfc0009f3b3e48a4685838d",
+      "candidate_lf_sha256": "1e85ae150c7d5801d57f41d460de651b5ba9d5ae96c910f52b83bb602dd6ad21"
+    },
+    {
+      "path": "native/verified/toom_words.rs",
+      "baseline_lf_sha256": "2b18b7ce7aaf54768a60e7d6a81c583781ffc1ff84f234d646f5a342a0448e9e",
+      "candidate_lf_sha256": "221e6592c48904135aef8cce941675fe067b8d2b9253bd507293363a3ab104d7"
+    }
+  ],
+  "patch_sha256": "696cdef1303ae1a9883fff1e1821581cedb0ecee4a40dc739555fdc26524243b",
+  "patch_applies_to_current_canonical": true,
+  "verification_report_sha256": "f62fc89fcbcf0cb27e5fcff0ad559cd9a00e8ce2cdaa93031af22c7bba14b07b",
+  "verification": {
+    "libraries": {
+      "baseline": {
+        "verified": 220,
+        "rlib_sha256": "30faad85bd2343032877e99699a3babd7ee80ce3e97ea340e3af1ac050238e0d",
+        "vir_sha256": "a2dcbadf11c4cba86898d29476285e4e8ad8a05f3b2c2500c11672a62e013efd"
+      },
+      "candidate": {
+        "verified": 234,
+        "rlib_sha256": "6ab7d819b36514300877c67550da29fc8b001e12b7cf9030e977bb0654d522e6",
+        "vir_sha256": "0f6237ffb27e84b20acae733eac02c80f99c6fe2089fd4ae8bce5a2efffe656e"
+      }
+    },
+    "oracle": {
+      "cases": 11292,
+      "existing_suite": 9852,
+      "new_direct_low": 1440,
+      "max_limbs": 4097,
+      "seed": 20261103,
+      "binary_sha256": "00766d5c2aea31f6827ecc26188b3d2dac86fc93940754481a96ed0b2e257e53",
+      "input_sha256": "fc6a8f97ceaecd82fb11a523a3b699813e9e7f541d8e00227303493b00c2a315",
+      "output_sha256": "d2c98546338613da025aedccfc799551975b0cd8d8ec845800a5c3f8398033a9"
+    },
+    "new_semantic_mutants": 5,
+    "all_new_mutants_rejected": true,
+    "codegen": {
+      "reachable_functions": [
+        "_RNvNtCsbDILi4yaNOE_12toom_codegen10fast_words13combine_cross",
+        "_RNvNtCsbDILi4yaNOE_12toom_codegen10fast_words14abs_difference",
+        "_RNvNtCsbDILi4yaNOE_12toom_codegen11toom_square4full",
+        "_RNvNtCsbDILi4yaNOE_12toom_codegen13fast_multiply3low",
+        "_RNvNtCsbDILi4yaNOE_12toom_codegen13fast_multiply4full",
+        "_RNvNtCsbDILi4yaNOE_12toom_codegen13toom_evaluate8negative",
+        "_RNvNtCsbDILi4yaNOE_12toom_codegen13toom_multiply4full",
+        "_RNvNtCsbDILi4yaNOE_12toom_codegen16toom_interpolate11interpolate",
+        "_RNvNtCsbDILi4yaNOE_12toom_codegen6square4full",
+        "_RNvNtCsbDILi4yaNOE_12toom_codegen8toom_low3low",
+        "verified_product",
+        "verified_square"
+      ],
+      "external_calls": [
+        "*_RNvNtCskADBYZwJmSU_4core9panicking5panic@GOTPCREL(%rip)",
+        "*_RNvNtCskADBYZwJmSU_4core9panicking9panic_fmt@GOTPCREL(%rip)",
+        "*_RNvNtNtCskADBYZwJmSU_4core5slice5index16slice_index_fail@GOTPCREL(%rip)",
+        "*memcpy@GOTPCREL(%rip)",
+        "*memset@GOTPCREL(%rip)"
+      ],
+      "element_bounds_check_functions": [],
+      "no_allocator_general_division_element_bounds_panic": true,
+      "scope": "Actual fixed product/square dispatch; arbitrary-divisor API excluded from division-free claim",
+      "retained_checks": "Entry assertions and slice-region checks; required copying and zero fill retained",
+      "mac4_candidate": {
+        "reachable_functions": [
+          "verified_mac4"
+        ],
+        "external_calls": [
+          "*_RNvNtCskADBYZwJmSU_4core9panicking18panic_bounds_check@GOTPCREL(%rip)",
+          "*_RNvNtCskADBYZwJmSU_4core9panicking5panic@GOTPCREL(%rip)"
+        ],
+        "element_bounds_check_functions": [
+          "verified_mac4"
+        ],
+        "selected_by_default": false,
+        "limitation": "Experimental unrolling retains per-element checks on this compiler; measured separately"
+      }
+    },
+    "identity_checks_before_after": true,
+    "cpu_affinity": [
+      6,
+      7
+    ]
+  },
+  "benchmark_run_for_this_snapshot": true,
+  "performance_summary_sha256": "e14cb5f70a69db4d7a3dc85ff7a5040670db7cc14f4eceb6d6fffede0cf17bd1",
+  "performance_status": "Two complete actual-dispatch runs and two dense boundary runs; same verified libraries, raw records retained",
+  "registered_gmp_target_status": "target_not_met",
+  "measured_samples": 3486,
+  "minimum_actual_batch_ns": 10012950,
+  "selected_leaf_range_9_through_64": {
+    "scope": "Only the sampled dense sizes; no extrapolation beyond measured sizes or hardware",
+    "candidate_over_baseline_min": 0.536746125866696,
+    "candidate_over_baseline_max": 0.9510543332908381,
+    "both_runs_every_sampled_size_faster": true
+  },
+  "cost": {
+    "cross_products": "floor(n*n/4)",
+    "diagonal_products": "ceil(n/2)",
+    "leaf_time": "O(n^2) word operations",
+    "extra_storage": "O(1) words; no added scratch",
+    "proof_scope": "functional refinement and safety; operation counts analytic, not a composed cost theorem"
+  },
+  "remaining": [
+    "Independent source/checker review before canonical integration.",
+    "Integrate direct-low oracle and semantic mutants into canonical acceptance, then run complete fixed-snapshot gate.",
+    "Continue arithmetic optimization: registered principal and key-shape GMP performance thresholds remain unmet."
+  ]
+}

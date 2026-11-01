@@ -42,12 +42,15 @@ Behind those two functions are schoolbook multiplication, difference-form
 Karatsuba, five-point Toom-3, dedicated recursive squaring and truncated
 low-product recursion. Products below 512 limbs take the original Karatsuba
 path and larger products take the Toom-3 path. Squares always take the dedicated
-low-square recursion. Up to 64 limbs it calls the generic basecase product;
+low-square recursion. Up to 64 limbs it uses a leaf kernel described below;
 above that it squares a low block of `n - floor(11n/36)` limbs in full, with
 Toom-3 when that block exceeds 192 limbs and Karatsuba squaring otherwise.
-Full-square leaves of at least eight limbs use a proved triangular symmetric kernel;
-smaller leaves and the low-square entry up to 64 limbs retain generic multiplication.
-These thresholds are a fixed, measured policy, not a claim of optimality.
+Full-square leaves of at least eight limbs use a proved triangular symmetric kernel.
+Low-square leaves from 9 to 64 limbs use a proved triangular symmetric kernel for
+the truncated low-product case, computing only the lower `n` limbs by retaining
+its cross products and diagonals below the output radix. Below 9 limbs the
+low-square entry retains generic multiplication. These thresholds are a fixed,
+measured policy, not a claim of optimality.
 
 ## Quick start
 
@@ -116,29 +119,32 @@ walks through the layers with a worked example.
 
 ## Status and limits
 
-At source commit `ab5eaf6`, the library proof reports 199 verified items and no
-errors. The Toom and squaring oracle checks 9,648 cases up to 4,097 limbs against
-Python integers, and 12 deliberate semantic mutations are each rejected by the
-proof. These counts describe that snapshot; they are not counts of public functions.
+The [frozen low-square candidate](docs/data/2026-11-02-low-square-cutoff9/metadata.json)
+reports 234 library verification items and no errors. Its 11,292 independent
+integer oracle cases include 1,440 direct low-square cases and cover inputs up
+to 4,097 limbs. The current Toom/square acceptance gate checks those cases,
+12 invalid-input controls and 21 semantic mutations. Release acceptance requires
+the complete `verify.py` snapshot and matching remote CI; isolated candidate
+evidence does not replace those gates. Verification items are not counts of
+public functions. Detailed scope and historical results are in
+[docs/verification.md](docs/verification.md).
 
 The proof covers functional refinement: given the stated preconditions, the
 output has the stated integer value. Termination and scratch capacity are also
 checked. For fixed thresholds, the Toom recurrence gives an analytic bound of
 `O(n^log3(5))`, about `O(n^1.465)`, word operations; that bound is derived by hand
-and is not a machine-checked cost theorem. Frozen-baseline timings on one machine are
-reported separately in [docs/benchmarks.md](docs/benchmarks.md). On that machine,
-at the measured sizes from 63 limbs for products and 23 limbs for squares up to
-4,096 limbs, the default path takes 1.16 to 2.51 times as long as the GMP
-baseline. At 512 and 513 limbs, the first measured sizes where products switch
-to Toom-3, they are 3.6% and 2.2% slower than the previous Karatsuba path; at
-the measured sizes from 1,023 to 4,096 limbs they are faster, by 19% at 4,096.
-The frozen benchmark commit used generic multiplication at full-square leaves;
-the current implementation uses a proved triangular kernel from eight limbs.
+and is not a machine-checked cost theorem. Measurements are reported separately
+in [docs/benchmarks.md](docs/benchmarks.md). In two runs comparing the low-square
+candidate with commit `c083839` on one machine, the 23-limb square takes 33–36%
+less time and the 64-limb square takes 45–47% less time. The sampled dense sizes
+from 9 to 64 limbs improve in both runs. This does not establish GMP parity:
+at 4,096 limbs, products still take 2.330 and 2.359 times GMP, and squares take
+2.173 and 2.141 times GMP. All measured shapes, including regressions, remain
+in the linked dataset.
 
-Not yet implemented: architecture-specific assembly, a symmetry-specialized
-truncated low-square leaf, Toom-4 and higher, FFT multiplication, and general division,
-inversion or higher-level integer APIs. The exact claimed scope is recorded in
-[native/proof-status.json](native/proof-status.json).
+Not yet implemented: architecture-specific assembly, higher Toom variants and FFT,
+composed cost model, and general division, inversion or higher-level integer APIs.
+The exact claimed scope is recorded in [native/proof-status.json](native/proof-status.json).
 
 ## Documentation
 

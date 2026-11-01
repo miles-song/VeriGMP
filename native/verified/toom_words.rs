@@ -239,6 +239,10 @@ pub fn add_shifted(dst:&mut[u64],rhs:&[u64],offset:usize)
         let carry=fast_words::add_extended(&mut dst[offset..],rhs);
         proof {
             prefix_range(dst@.subrange(offset as int,dst@.len() as int),length as nat);radix_positive(length as nat);
+            assert(value(original.subrange(offset as int,original.len() as int))+value(rhs@)
+                ==(carry as int)*radix(length as nat)+value(dst@.subrange(offset as int,dst@.len() as int))) by(nonlinear_arith)
+                requires value(dst@.subrange(offset as int,dst@.len() as int))+radix(length as nat)*(carry as int)
+                    ==value(original.subrange(offset as int,original.len() as int))+value(rhs@);
             lemma_fundamental_div_mod_converse(value(original.subrange(offset as int,original.len() as int))+value(rhs@),
                 radix(length as nat),carry as int,value(dst@.subrange(offset as int,dst@.len() as int)));
             congruent_suffix(original,dst@,offset as nat,value(rhs@));

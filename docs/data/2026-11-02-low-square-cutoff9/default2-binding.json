@@ -1,0 +1,9 @@
+{
+  "status": "pass",
+  "verification_report_sha256": "f62fc89fcbcf0cb27e5fcff0ad559cd9a00e8ce2cdaa93031af22c7bba14b07b",
+  "measurements_sha256": "0b7b515c848bed44bb063258d94ebb512890c698860728c1a5e397b681629f54",
+  "raw_sha256": "f1386196975a33531aefba64e818b89ce259828db29c64f7eaeb87b3f097003c",
+  "source_tool_artifact_checks_before_after": true,
+  "samples": 1092,
+  "minimum_observed_batch_ns": 10057077
+}

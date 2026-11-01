@@ -30,6 +30,10 @@ fn main(){
         let op=fields.next().unwrap();let args:Vec<u64>=fields.map(|s|s.parse().unwrap()).collect();
         let out=if op=="divide"{
             let mut out=args[1..].to_vec();let rem=toom_words::divide_word(&mut out,args[0]);out.push(rem);out
+        }else if op=="squarebaselow"{
+            assert!(!args.is_empty());let n=args.len();let mut out=vec![u64::MAX;n+2];
+            square_base::low(&mut out[1..n+1],&args);
+            assert_eq!((out[0],out[n+1]),(u64::MAX,u64::MAX));out[1..n+1].to_vec()
         }else if op=="squarebase"{
             assert!(!args.is_empty());let n=args.len();let mut out=vec![u64::MAX;2*n+2];
             square_base::full(&mut out[1..2*n+1],&args);

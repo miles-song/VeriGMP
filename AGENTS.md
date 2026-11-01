@@ -57,9 +57,12 @@ trailers, for this task's new commits.
   coefficients must be defined from input blocks, with all helper preconditions
   established by the caller; never define correct answers from executable output.
 - `verified/square.rs`, `toom_square.rs`, `square_low.rs`: symmetry refinements.
-  Retain the distinction between dedicated recursion and a specialized leaf kernel.
+  Retain the distinction between dedicated recursion and specialized leaf kernels.
 - `specs/square_base.rs`, `verified/square_base.rs`: independent triangular-square
-  identity and its actual full-square leaf implementation.
+  identity and its full-square and low-square leaf implementations. Full leaves
+  from 8 limbs upward; low leaves from 9 to low_limit limbs compute only the lower
+  n limbs by retaining cross products below the output radix and fusing doubling
+  with diagonals.
 - `verified/arithmetic.rs`: measured fixed production policy; forced alternatives
   and actual default dispatch both require oracle and codegen coverage.
 - `verified/mac4.rs`: measured candidate only. A proven optimization must still

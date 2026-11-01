@@ -2,6 +2,7 @@
 use vstd::prelude::*;
 use crate::radix::*;
 use crate::product::*;
+use vstd::arithmetic::div_mod::*;
 verus! {
 pub open spec fn triangle(a:Seq<u64>,n:nat)->int
     recommends n<=a.len(),
@@ -39,6 +40,25 @@ pub proof fn square_identity(a:Seq<u64>,n:nat)
                 a[k as int]>=0,radix(k)>0,radix(2*k)==radix(k)*radix(k),
                 triangle(a,n)==triangle(a,k)+(a[k as int] as int)*prefix(a,k)*radix(k),
                 diagonal(a,n)==diagonal(a,k)+(a[k as int] as int)*(a[k as int] as int)*radix(2*k);
+    }
+}
+
+pub proof fn diagonal_drop_high(a:Seq<u64>,cut:nat,total:nat,words:nat)
+    requires cut<=total<=a.len(),2*cut>=words,
+    ensures diagonal(a,total)%radix(words)==diagonal(a,cut)%radix(words),
+    decreases total-cut,
+{
+    radix_positive(words);
+    if total>cut {
+        let k=(total-1) as nat;
+        diagonal_drop_high(a,cut,k,words);
+        radix_add(words,(2*k-words) as nat);
+        let q=(a[k as int] as int)*(a[k as int] as int)*radix((2*k-words) as nat);
+        assert(diagonal(a,total)==radix(words)*q+diagonal(a,k)) by(nonlinear_arith)
+            requires diagonal(a,total)==diagonal(a,k)+(a[k as int] as int)*(a[k as int] as int)*radix(2*k),
+                radix(2*k)==radix(words)*radix((2*k-words) as nat),
+                q==(a[k as int] as int)*(a[k as int] as int)*radix((2*k-words) as nat);
+        lemma_mod_multiples_vanish(q,diagonal(a,k),radix(words));
     }
 }
 }

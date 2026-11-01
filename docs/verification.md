@@ -14,14 +14,15 @@ kept apart:
 The current functional-refinement proofs do not establish the cost bound, and a
 benchmark says nothing about worst cases.
 
-The current full-square leaf and modular-subtraction implementation have focused
-same-source evidence: 220 library verification items; the precision layer has
-33 items, 27,193 integer cases, 11 invalid-input cases and seven proof-rejected
-mutations. The Toom/square gate has 9,852 integer cases, 11 invalid-input cases
-and 16 proof-rejected mutations. Five precision-layer API controls have matching
-normalized instructions, including modular subtraction. These counts identify
-this implementation's focused gates; release acceptance also requires the full
-`verify.py` snapshot and its matching remote CI.
+The frozen low-square candidate reports 234 library verification items,
+11,292 integer oracle cases and five new semantic mutants rejected by the proof.
+The current Toom/square gate checks those 11,292 cases, including 1,440 direct
+low-square cases, plus 12 invalid-input controls and 21 semantic mutations.
+The precision layer retains 33 items, 27,193 integer cases, 11 invalid-input
+controls and seven mutations. Five precision-layer API controls have matching
+normalized instructions, including modular subtraction. Release acceptance
+requires the complete `verify.py` snapshot and matching remote CI; the frozen
+isolated candidate report is separate evidence.
 
 The subtraction chain is `kernel::sub_limb` → `limbs::sub_assign` →
 `pow2::sub_mod_assign`. Its contracts cover exact borrow identities and the
@@ -125,8 +126,9 @@ Python's arbitrary-precision integers. A Verus-compiled runner reads commands,
 calls the real library functions, and prints results that `verify.py` compares
 line by line with values computed in Python.
 
-For the Toom and squaring layer at the baseline commit, the oracle has 9,648
-cases with seed 20261101 and sizes up to 4,097 limbs. It covers:
+The current Toom/square oracle has 11,292 cases and sizes up to 4,097 limbs.
+Its existing cases use seed 20261101; the 1,440 direct low-square cases use seed
+20261103. Coverage includes:
 
 - the default dispatch and forced recursion with thresholds 24 and 192, all three
   low-product splits and Karatsuba squaring;
@@ -140,9 +142,9 @@ cases with seed 20261101 and sizes up to 4,097 limbs. It covers:
 - the MAC4 row candidate including an empty tail, and `divide_word`
   quotient/remainder.
 
-Ten malformed commands must each produce no output and a nonzero exit, including
+Twelve malformed commands must each produce no output and a nonzero exit, including
 `top = 0`, `top = 65`, `3n` scratch, thresholds below the contract minimum and
-divisor 0.
+divisor 0 and empty full-square or low-square inputs.
 
 The earlier modules (limbs, `pow2`, schoolbook multiplication, Karatsuba) keep
 their own oracles, mutation checks and inspections, and `verify.py` reruns all of
@@ -156,7 +158,9 @@ semantic failure: a nonzero exit, at least one reported verification error and a
 diagnostic such as "postcondition not satisfied". Timeouts, resource-limit
 messages and parse errors do not count as detection; they fail the run.
 
-The 12 Toom-layer mutations, all rejected at the baseline:
+The current gate requires semantic rejection of all 21 mutations below. The five
+low-square mutations target `square_base` after complete positive library and
+runner verification; the remaining mutations check the complete runner imports.
 
 | Mutation | Change |
 |---|---|
@@ -172,6 +176,15 @@ The 12 Toom-layer mutations, all rejected at the baseline:
 | `drop_carry` | MAC4 resets one propagated carry to zero |
 | `omit_tail` | MAC4 skips its last word |
 | `wrong_default_precision` | Default product ignores `top` |
+| `omit_square_cross_double` | Full-square cross contribution is not doubled |
+| `wrong_square_diagonal` | A diagonal uses the input word instead of its square |
+| `drop_square_row_carry` | Full-square cross-row carry is replaced by zero |
+| `drop_square_diagonal_carry` | Full-square diagonal carry is reset to zero |
+| `omit_low_cross_row` | Low-square skips its last cross-product row |
+| `truncate_retained_row` | Low-square shortens a retained cross-product row |
+| `drop_low_row_carry` | Low-square cross-row carry is replaced by zero |
+| `omit_odd_diagonal` | Odd-length low square omits its final diagonal |
+| `drop_odd_output` | Odd-length low square overwrites its final output word with zero |
 
 ## Inspecting the generated code
 
@@ -193,6 +206,9 @@ targets are `memcpy`, `memset`, `core` panic entry points and the slice-range
 failure handler. Those remaining checks are intentional: entry assertions,
 slice-region checks for `split_at_mut` and subslicing, the copies the algorithm
 requires and zero fills of padding.
+
+At the current state, low-square also fills initial words and calls the triangular
+function at the chosen cutoff.
 
 This inspection applies to the fixed product and square dispatch. It does not
 cover `toom_words::divide_word` called with an arbitrary divisor, which divides
@@ -238,9 +254,9 @@ evidence; they are not part of the library.
 - No verification of GMP, and no GMP performance parity.
 
 The machine-readable scope is
-[native/proof-status.json](../native/proof-status.json). The counts quoted here
-(199 verified library items, 9,648 oracle cases, 12 mutations) describe the
-historical benchmark commit `ab5eaf6`, whose reachable code-equivalent identity is
-`bf28217` in [history-provenance.json](../native/history-provenance.json).
-The frozen counts are retained as historical evidence; they are not
-counts of public functions.
+[native/proof-status.json](../native/proof-status.json). The historical benchmark
+snapshot `ab5eaf6` reports 199 library items, 9,648 oracle cases and 12 mutations;
+its reachable code-equivalent identity is `bf28217`, recorded in
+[history-provenance.json](../native/history-provenance.json). The frozen cutoff9
+candidate and the current gate contents are identified separately above.
+Verification items are not counts of public functions.
