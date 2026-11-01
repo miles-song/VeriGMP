@@ -1,0 +1,4 @@
+
+thread 'main' (32543) panicked at <stage>/candidate/native/toom4_runner.rs:34:13:
+assertion failed: h <= n && args.len() == off + 2 + 3 * n + h
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace

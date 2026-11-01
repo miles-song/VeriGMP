@@ -1,0 +1,4 @@
+
+thread 'main' (32510) panicked at <stage>/candidate/native/toom4_runner.rs:98:13:
+assertion failed: args.len() >= 6 && (args.len() - 4) % 2 == 0
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace

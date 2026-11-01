@@ -1,0 +1,442 @@
+{
+  "status": "pass",
+  "report_sha256": "129ddcdd2bf777422b2d2317f36d6813104a6141361cd26c11a530cfc4f25190",
+  "source_count": 235,
+  "tool_count": 21,
+  "runtime_count": 3,
+  "artifact_count": 9,
+  "compiled_pairs": 3,
+  "positive_logs": {
+    "baseline-library.log": {
+      "verified": 234,
+      "sha256": "bd059648a0582011fb57f720d8b4b663b4f6669928e8e85fd1eaa32ab96f0654"
+    },
+    "previous-library.log": {
+      "verified": 298,
+      "sha256": "eca4ba758f85d697782b5d76439c80cebbcd5fb2da29f5aa7b66e60288502395"
+    },
+    "candidate-library.log": {
+      "verified": 311,
+      "sha256": "d646011ef02b152588573051ff949be6b44d80b9b3f2d044ad38c8ee1fa20ea9"
+    },
+    "runner-build.log": {
+      "verified": 311,
+      "sha256": "d646011ef02b152588573051ff949be6b44d80b9b3f2d044ad38c8ee1fa20ea9"
+    },
+    "codegen.log": {
+      "verified": 311,
+      "sha256": "0704758009254b04f5e7913709abbd24e7938bc75e561211f6f89bb00eb427db"
+    },
+    "compare-build.log": {
+      "verified": 0,
+      "sha256": "ac38eb7ec194153b4a9c8a0fe622fb1451adbaf12e25b4e6ceea174956f16b4b"
+    },
+    "legacy-mac4_bench.rs.log": {
+      "verified": 244,
+      "sha256": "bf26a0e7fce74775f63a2e87b6fa49b3eece6241268d8bdbf75c2076dba345be"
+    },
+    "legacy-square_base_bench.rs.log": {
+      "verified": 248,
+      "sha256": "bb9fe73af245760fe0854cf8df9333b307693f1d49598bf92ccc9397f0b6b887"
+    },
+    "legacy-toom_codegen.rs.log": {
+      "verified": 248,
+      "sha256": "e25eea74ee29df4a5f12df07e89403d7343efca2a104b3befb06bdecdc4d8f5a"
+    },
+    "legacy-toom_words_runner.rs.log": {
+      "verified": 248,
+      "sha256": "71b22af5c6e4beff167badced8b98a42a879602ea18500eaa08879879c2fedd1"
+    },
+    "legacy-toom_bench.rs.log": {
+      "verified": 248,
+      "sha256": "71b22af5c6e4beff167badced8b98a42a879602ea18500eaa08879879c2fedd1"
+    }
+  },
+  "strict_raw_semantic_logs": {
+    "drop_evaluation_carry": {
+      "sha256": "2af4e90dbf7c1997f2f3d7c8b288f5eb73588c21aea1023a363c8b2cf523c2c1",
+      "summary": "verification results:: 4 verified, 1 errors (partial verification with `--verify-*`)",
+      "diagnostics": [
+        "error: invariant not satisfied at end of loop body"
+      ]
+    },
+    "wrong_fourth_evaluation_limb": {
+      "sha256": "cc428b7cf9cf18cea0349f8533dcf688350191a24386c06672b863a88e30e527",
+      "summary": "verification results:: 4 verified, 1 errors (partial verification with `--verify-*`)",
+      "diagnostics": [
+        "error: assertion failed"
+      ]
+    },
+    "drop_evaluation_high_word": {
+      "sha256": "c94471db2172fb0062eabbb7d62fe384caf623812415e2174d02a8badeda98f8",
+      "summary": "verification results:: 4 verified, 1 errors (partial verification with `--verify-*`)",
+      "diagnostics": [
+        "error: postcondition not satisfied"
+      ]
+    },
+    "reverse_signed_comparison": {
+      "sha256": "b03a6741b5d9e168bc4a2b3809c355fdd1bb54e080f496479fc46f1a107b1d46",
+      "summary": "verification results:: 9 verified, 1 errors (partial verification with `--verify-*`)",
+      "diagnostics": [
+        "error: requires not satisfied"
+      ]
+    },
+    "wrong_cubic_elimination_factor": {
+      "sha256": "61343cd04b79fe1a60edfee24ea5b7e839005d4db64857fda1f6f19daaa609b6",
+      "summary": "verification results:: 1 verified, 1 errors (partial verification with `--verify-*`)",
+      "diagnostics": [
+        "error: precondition not satisfied"
+      ]
+    },
+    "wrong_cubic_exact_divisor": {
+      "sha256": "6b0006367bcc45d14e30dce4680334ee2189fbdfdbf38f41920b42e6ad05fac0",
+      "summary": "verification results:: 1 verified, 1 errors (partial verification with `--verify-*`)",
+      "diagnostics": [
+        "error: precondition not satisfied"
+      ]
+    },
+    "wrong_linear_exact_divisor": {
+      "sha256": "da9fb4e231b5ce231cf2f76f52a0cb00d7243131b53df55ae1e3fde06faa3e3f",
+      "summary": "verification results:: 1 verified, 1 errors (partial verification with `--verify-*`)",
+      "diagnostics": [
+        "error: precondition not satisfied"
+      ]
+    },
+    "wrong_half_even_divisor": {
+      "sha256": "15ba1331d488162a35c9ce9753c10b56976936b9d9487ef79154d9a2c2c2e338",
+      "summary": "verification results:: 1 verified, 1 errors (partial verification with `--verify-*`)",
+      "diagnostics": [
+        "error: assertion failed"
+      ]
+    },
+    "omit_fifth_coefficient_subtraction": {
+      "sha256": "7d2fc2fe587ecdc17a8c6a820c13a8996764d17a2c6a5e95ee36a11a2d92bb55",
+      "summary": "verification results:: 1 verified, 1 errors (partial verification with `--verify-*`)",
+      "diagnostics": [
+        "error: postcondition not satisfied"
+      ]
+    },
+    "wrong_high_coefficient_offset": {
+      "sha256": "307c0eb136bc88174b38610e2844c36e4515a8675de023c5929a220237012363",
+      "summary": "verification results:: 1 verified, 1 errors (partial verification with `--verify-*`)",
+      "diagnostics": [
+        "error: postcondition not satisfied"
+      ]
+    },
+    "wrong_negative_half_sign": {
+      "sha256": "2fd37d7d1f4568eaf68741ffd8fedf749e93f591bef369014f01e77d1a3c327f",
+      "summary": "verification results:: 0 verified, 1 errors (partial verification with `--verify-*`)",
+      "diagnostics": [
+        "error: precondition not satisfied"
+      ]
+    },
+    "wrong_high_product_operand": {
+      "sha256": "c7a35fa09e9c4910c4a911214cbed994318771141d4df6793bd436656286b338",
+      "summary": "verification results:: 0 verified, 1 errors (partial verification with `--verify-*`)",
+      "diagnostics": [
+        "error: precondition not satisfied"
+      ]
+    },
+    "wrong_positive_two_evaluation": {
+      "sha256": "de499a9c075cd11fb102781b279425e36d0c66d7dc7cf38300b11a5410defde8",
+      "summary": "verification results:: 0 verified, 1 errors (partial verification with `--verify-*`)",
+      "diagnostics": [
+        "error: precondition not satisfied"
+      ]
+    },
+    "omit_toom4_base_product": {
+      "sha256": "06564ae1ac3caaa628d93b7f7b53d733ecabf43c2d80c2896e278617e6a914ef",
+      "summary": "verification results:: 0 verified, 1 errors (partial verification with `--verify-*`)",
+      "diagnostics": [
+        "error: postcondition not satisfied"
+      ]
+    },
+    "omit_negative_point_square": {
+      "sha256": "476f6c294cdee769ee43b5e140dc74db54219f58d9c536d0cba2f4dabac160a3",
+      "summary": "verification results:: 0 verified, 1 errors (partial verification with `--verify-*`)",
+      "diagnostics": [
+        "error: precondition not satisfied"
+      ]
+    },
+    "omit_toom4_base_square": {
+      "sha256": "4f7f83f298213c3358e0284bc6c8efde382e11f8e6c5bf8eb931026ed7d5e7cc",
+      "summary": "verification results:: 0 verified, 1 errors (partial verification with `--verify-*`)",
+      "diagnostics": [
+        "error: postcondition not satisfied"
+      ]
+    },
+    "wrong_low_product_operand": {
+      "sha256": "856fbf2910c7a73d34207a51c17d5bedf1c85570af948cdfc9b5e61f9c6ec1b8",
+      "summary": "verification results:: 2 verified, 1 errors (partial verification with `--verify-*`)",
+      "diagnostics": [
+        "error: postcondition not satisfied"
+      ]
+    },
+    "omit_second_cross_square_term": {
+      "sha256": "30a8b839cc3bc94eda18d096fd9c2603bb0a7f22e9e7e5800cdc0c38307f9c31",
+      "summary": "verification results:: 2 verified, 1 errors (partial verification with `--verify-*`)",
+      "diagnostics": [
+        "error: precondition not satisfied"
+      ]
+    },
+    "wrong_small_product_operand": {
+      "sha256": "ecd5f0fef3a5a8b1874d06a0e44b1748af36baa7071048be3ec038a498d8e911",
+      "summary": "verification results:: 3 verified, 1 errors (partial verification with `--verify-*`)",
+      "diagnostics": [
+        "error: postcondition not satisfied"
+      ]
+    },
+    "omit_small_square_normalization": {
+      "sha256": "a351d67ad1fe2fc8bb40f29b9aa66c98e1dd8ef93d753c8b7c1d5e4693b41f94",
+      "summary": "verification results:: 3 verified, 1 errors (partial verification with `--verify-*`)",
+      "diagnostics": [
+        "error: postcondition not satisfied"
+      ]
+    },
+    "odd_wrong_borrow_direction": {
+      "sha256": "75afc2490efe94ac796ec6f62f3484d48ad3ea4a9e1323b70fed0153c3554001",
+      "summary": "verification results:: 8 verified, 1 errors (partial verification with `--verify-*`)",
+      "diagnostics": [
+        "error: assertion failed"
+      ]
+    },
+    "odd_omit_inverse_product": {
+      "sha256": "cc2f8760d83208ffd716b3ffb6dedd022b0a43701de2f33ca28b862e5e582179",
+      "summary": "verification results:: 8 verified, 1 errors (partial verification with `--verify-*`)",
+      "diagnostics": [
+        "error: assertion failed"
+      ]
+    },
+    "odd_drop_wide_incoming_carry": {
+      "sha256": "88e569afec5d6c3edddc2bb91d7140ca7c8a9221332bc263966d29f83e42b4c7",
+      "summary": "verification results:: 8 verified, 1 errors (partial verification with `--verify-*`)",
+      "diagnostics": [
+        "error: requires not satisfied"
+      ]
+    },
+    "odd_wrong_outgoing_carry": {
+      "sha256": "0a0e598c3d0c2280b7e91f0018325e4295b6ecdd62566599299f356a73482423",
+      "summary": "verification results:: 8 verified, 1 errors (partial verification with `--verify-*`)",
+      "diagnostics": [
+        "error: requires not satisfied"
+      ]
+    },
+    "odd_write_original_word": {
+      "sha256": "3c3bdb3ae3f666bdea91463247d85e178694949e8e97e9c859ea51868d6dc7ab",
+      "summary": "verification results:: 8 verified, 1 errors (partial verification with `--verify-*`)",
+      "diagnostics": [
+        "error: requires not satisfied"
+      ]
+    },
+    "odd_drop_loop_carry": {
+      "sha256": "b9f6ec65f68c61e47d70ac3bd47a7cbf441ce4e77161d5bd6d8514879be45897",
+      "summary": "verification results:: 8 verified, 1 errors (partial verification with `--verify-*`)",
+      "diagnostics": [
+        "error: invariant not satisfied at end of loop body"
+      ]
+    },
+    "odd_wrong_inverse3": {
+      "sha256": "7b0ea9fb4315e69f1df5a9a24a2912fed32c0844c6481a63ae09e64b0f8b488e",
+      "summary": "verification results:: 8 verified, 1 errors (partial verification with `--verify-*`)",
+      "diagnostics": [
+        "error: invariant not satisfied before loop"
+      ]
+    },
+    "odd_wrong_inverse9": {
+      "sha256": "7b0ea9fb4315e69f1df5a9a24a2912fed32c0844c6481a63ae09e64b0f8b488e",
+      "summary": "verification results:: 8 verified, 1 errors (partial verification with `--verify-*`)",
+      "diagnostics": [
+        "error: invariant not satisfied before loop"
+      ]
+    },
+    "odd_wrong_inverse15": {
+      "sha256": "7b0ea9fb4315e69f1df5a9a24a2912fed32c0844c6481a63ae09e64b0f8b488e",
+      "summary": "verification results:: 8 verified, 1 errors (partial verification with `--verify-*`)",
+      "diagnostics": [
+        "error: invariant not satisfied before loop"
+      ]
+    },
+    "odd_admit_even_divisor": {
+      "sha256": "61c79dbaf4530ed931fd9dfbb3fe88256f692410f198024acd0f1533f2cfa3ab",
+      "summary": "verification results:: 26 verified, 1 errors (partial verification with `--verify-*`)",
+      "diagnostics": [
+        "error: precondition not satisfied"
+      ]
+    },
+    "fusion_drop_incoming_carry": {
+      "sha256": "ddd2b93dbd634910b414dcfe12a6e67494024a561b1d33343bce2d2463d64e5f",
+      "summary": "verification results:: 8 verified, 1 errors (partial verification with `--verify-*`)",
+      "diagnostics": [
+        "error: requires not satisfied"
+      ]
+    },
+    "fusion_reverse_subtraction": {
+      "sha256": "0e59aff41704ccc2ca1f1a9d0121501453a69321fd3f282f86cd706b07e62c5f",
+      "summary": "verification results:: 8 verified, 1 errors (partial verification with `--verify-*`)",
+      "diagnostics": [
+        "error: requires not satisfied"
+      ]
+    },
+    "fusion_drop_borrow": {
+      "sha256": "50ceb23321ed4a38ad6320d497961c7ffa58604f8a7de781b38cf300648dacdd",
+      "summary": "verification results:: 8 verified, 1 errors (partial verification with `--verify-*`)",
+      "diagnostics": [
+        "error: requires not satisfied"
+      ]
+    },
+    "fusion_write_product": {
+      "sha256": "e7c88dcb05ac53433d722f5a55ab5268b7fee460f474ff1e2daca4d35d6feb56",
+      "summary": "verification results:: 8 verified, 1 errors (partial verification with `--verify-*`)",
+      "diagnostics": [
+        "error: requires not satisfied"
+      ]
+    },
+    "fusion_drop_loop_carry": {
+      "sha256": "703cd51d7083a20310713e1b6624edab00af8d6387fef03c4ca4d26b8896f462",
+      "summary": "verification results:: 8 verified, 1 errors (partial verification with `--verify-*`)",
+      "diagnostics": [
+        "error: invariant not satisfied at end of loop body"
+      ]
+    },
+    "fusion_wrong_zero_padding": {
+      "sha256": "fe3eda2599f308b51cad90131d9c9b13e40ad17dcb5346795b1438bf1fc0f3c8",
+      "summary": "verification results:: 8 verified, 1 errors (partial verification with `--verify-*`)",
+      "diagnostics": [
+        "error: requires not satisfied"
+      ]
+    },
+    "fusion_wrong_half_constant": {
+      "sha256": "eb01b9eb6019bd8023559010be75e46b39a98101a45b12587ff2d05b0f0c4920",
+      "summary": "verification results:: 1 verified, 1 errors (partial verification with `--verify-*`)",
+      "diagnostics": [
+        "error: assertion failed"
+      ]
+    },
+    "fusion_wrong_quadratic_constant": {
+      "sha256": "0941699bacd8810ba06d2261c20a468255e21c9d8c771d159a51ad4e5a0e8810",
+      "summary": "verification results:: 1 verified, 1 errors (partial verification with `--verify-*`)",
+      "diagnostics": [
+        "error: assertion failed"
+      ]
+    },
+    "fusion_wrong_quartic_constant": {
+      "sha256": "0941699bacd8810ba06d2261c20a468255e21c9d8c771d159a51ad4e5a0e8810",
+      "summary": "verification results:: 1 verified, 1 errors (partial verification with `--verify-*`)",
+      "diagnostics": [
+        "error: assertion failed"
+      ]
+    },
+    "fusion_wrong_sixth_constant": {
+      "sha256": "0941699bacd8810ba06d2261c20a468255e21c9d8c771d159a51ad4e5a0e8810",
+      "summary": "verification results:: 1 verified, 1 errors (partial verification with `--verify-*`)",
+      "diagnostics": [
+        "error: assertion failed"
+      ]
+    },
+    "signed_wrong_half_weight": {
+      "sha256": "1cf00da115866df0acf6fd6fdc14eea965cdb72e0ceb53318108f8710f5fb0ff",
+      "summary": "verification results:: 9 verified, 1 errors (partial verification with `--verify-*`)",
+      "diagnostics": [
+        "error: postcondition not satisfied"
+      ]
+    },
+    "signed_drop_scalar_carry": {
+      "sha256": "1cf00da115866df0acf6fd6fdc14eea965cdb72e0ceb53318108f8710f5fb0ff",
+      "summary": "verification results:: 9 verified, 1 errors (partial verification with `--verify-*`)",
+      "diagnostics": [
+        "error: postcondition not satisfied"
+      ]
+    },
+    "signed_wrong_carry_bias": {
+      "sha256": "a901c95e5f8f2f48cff1310078b115fa8f4b0ffc136f9a5ae8028cbaf2051b63",
+      "summary": "verification results:: 9 verified, 1 errors (partial verification with `--verify-*`)",
+      "diagnostics": [
+        "error: postcondition not satisfied"
+      ]
+    },
+    "signed_drop_negation_borrow": {
+      "sha256": "63b8af5269af5b3237642264f358cdbbf042740f901daed6c3892cae060877ff",
+      "summary": "verification results:: 9 verified, 1 errors (partial verification with `--verify-*`)",
+      "diagnostics": [
+        "error: requires not satisfied"
+      ]
+    },
+    "signed_drop_loop_carry": {
+      "sha256": "1b6ca1e97565304137d9024a82bb05dac5624b9b6c10f627c524daa880775d99",
+      "summary": "verification results:: 9 verified, 1 errors (partial verification with `--verify-*`)",
+      "diagnostics": [
+        "error: invariant not satisfied at end of loop body"
+      ]
+    },
+    "signed_wrong_padding": {
+      "sha256": "3207fdeedfe2dd7d9a682eec94513c2f41b67865f793af790ae277c6f0c968f8",
+      "summary": "verification results:: 9 verified, 1 errors (partial verification with `--verify-*`)",
+      "diagnostics": [
+        "error: requires not satisfied"
+      ]
+    },
+    "signed_omit_negative_conversion": {
+      "sha256": "e8ab5bfeb48dd2a96b4b78ac4835bc1b31c7d6e61d939b1a5a93d22697959f2c",
+      "summary": "verification results:: 9 verified, 1 errors (partial verification with `--verify-*`)",
+      "diagnostics": [
+        "error: postcondition not satisfied"
+      ]
+    },
+    "signed_mutate_preserved_tmp": {
+      "sha256": "755b76ceb41949205fe7118d7ad2b33dd222507affefc804435cc6acfc44ee8a",
+      "summary": "verification results:: 9 verified, 1 errors (partial verification with `--verify-*`)",
+      "diagnostics": [
+        "error: postcondition not satisfied"
+      ]
+    },
+    "signed_wrong_high_encoding": {
+      "sha256": "16d9407ceda1b6606c7cac60e6dd81ee7dcbc3d2f44c8e133c416ca09ba5ad43",
+      "summary": "verification results:: 9 verified, 1 errors (partial verification with `--verify-*`)",
+      "diagnostics": [
+        "error: requires not satisfied"
+      ]
+    }
+  },
+  "independent_integer_signed_cases": 25200,
+  "signed_operation_counts": {
+    "signedlimb4": 21024,
+    "negatewords": 144,
+    "signeddirect4": 4032
+  },
+  "signed_result_signs": {
+    "zero": 501,
+    "positive": 2581,
+    "negative": 950
+  },
+  "new_saved_runner_replayed": true,
+  "replay_input_sha256": "ccec9340eab0ed3a38da0e0816055b00e9d67cb8a7da5fe6ab15f3ef70837034",
+  "replay_output_sha256": "3c99a694c30b173f8bf20869e1d92785352592cc46f998c203e7bb2624f3bbdf",
+  "invalid_commands_replayed": 38,
+  "unchanged_legacy_raw_output_cases": 35555,
+  "changed_candidate_files": [
+    "native/lib.rs",
+    "native/specs/signed_evaluation.rs",
+    "native/toom4_codegen.rs",
+    "native/toom4_runner.rs",
+    "native/verified/signed_evaluation.rs",
+    "native/verified/toom4_evaluate.rs"
+  ],
+  "source_tool_artifact_before_after": true,
+  "approved_for_two_controlled_runs": true,
+  "benchmark_run": false,
+  "limits": "No machine-code equivalence or speed claim. Focused mutant logs are accepted only after complete positive library/runner verification. Original process exit statuses come from the gate; raw VC diagnostics were independently classified. New scalar and array answers independently recomputed by integer/Fraction Horner evaluation.",
+  "actual_binary_disassembly_reproduced_sha256": "78f4888de0e38b533ceb6a91fbe67866b5fb24b30e0d44a68d3e6d0503fe4f85",
+  "baseline_git_identity": {
+    "commit": "e22a4dd00a28681fd27d68e2a78fa304cf17563e",
+    "raw_equal": 51,
+    "newline_only": 11,
+    "non_newline_changes": 0
+  },
+  "previous_git_identity": {
+    "commit": "6a6cd3509ec42013513eb9793fdae948726722aa",
+    "raw_equal": 65,
+    "newline_only": 11,
+    "non_newline_changes": 0,
+    "composition": "e22 baseline plus public experiments/toom4-fusion/overlay/candidate"
+  }
+}

@@ -1,0 +1,6 @@
+
+thread 'main' (32539) panicked at <stage>/candidate/native/toom4_runner.rs:47:13:
+assertion `left == right` failed
+  left: 5
+ right: 6
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace

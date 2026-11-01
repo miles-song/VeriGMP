@@ -1,0 +1,10 @@
+{
+  "version": "6.3.0",
+  "archive_sha256": "a3c2b80201b89e68616f4ad30bc66aee4927c3ce50e33929ca819d5c43538898",
+  "files_sha256": {
+    "gmp-6.3.0/mpn/generic/diveby3.c": "edbe9d46289da509a128d1d7890f8b4d604818f0ed6e1c219f5cd89b352446ac",
+    "gmp-6.3.0/mpn/generic/dive_1.c": "e72c32169dc7bfba868d76e13a5056a2e4569af7f47fb399ff567c47bd018e6d"
+  },
+  "relationship": "Independent scalar inverse/carry implementation and Verus proof; pinned GMP exact-division routines are algorithmic reference, not imported runtime code",
+  "license_boundary": "No GMP source code is copied into the arithmetic core; GMP is linked only in benchmark controls under its existing license boundary"
+}

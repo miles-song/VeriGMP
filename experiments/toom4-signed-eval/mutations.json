@@ -1,0 +1,345 @@
+[
+  [
+    "toom4_evaluate.rs",
+    "drop_evaluation_carry",
+    "carry=next;i+=1;",
+    "carry=0;i+=1;",
+    "toom4_evaluate"
+  ],
+  [
+    "toom4_evaluate.rs",
+    "wrong_fourth_evaluation_limb",
+    "let x3=if i<a3.len(){a3[i]}else{0};",
+    "let x3=a2[i];",
+    "toom4_evaluate"
+  ],
+  [
+    "toom4_evaluate.rs",
+    "drop_evaluation_high_word",
+    "dst[k]=carry;",
+    "dst[k]=0;",
+    "toom4_evaluate"
+  ],
+  [
+    "signed_evaluation.rs",
+    "reverse_signed_comparison",
+    "let negative=carry<0;",
+    "let negative=carry>0;",
+    "signed_evaluation"
+  ],
+  [
+    "toom4_interpolate.rs",
+    "wrong_cubic_elimination_factor",
+    "scale_exact(scratch,17)",
+    "scale_exact(scratch,16)",
+    "toom4_interpolate"
+  ],
+  [
+    "toom4_interpolate.rs",
+    "wrong_cubic_exact_divisor",
+    "divide_exact(scratch,9)",
+    "divide_exact(scratch,3)",
+    "toom4_interpolate"
+  ],
+  [
+    "toom4_interpolate.rs",
+    "wrong_linear_exact_divisor",
+    "divide_exact(ph,15)",
+    "divide_exact(ph,5)",
+    "toom4_interpolate"
+  ],
+  [
+    "toom4_interpolate.rs",
+    "wrong_half_even_divisor",
+    "divide_exact(pmh,4)",
+    "divide_exact(pmh,2)",
+    "toom4_interpolate"
+  ],
+  [
+    "toom4_interpolate.rs",
+    "omit_fifth_coefficient_subtraction",
+    "toom_words::sub_exact(p1,scratch);",
+    "/* semantic mutant omits final subtraction */",
+    "toom4_interpolate"
+  ],
+  [
+    "toom4_interpolate.rs",
+    "wrong_high_coefficient_offset",
+    "add_shifted(dst,z6,6*k)",
+    "add_shifted(dst,z6,5*k)",
+    "toom4_interpolate"
+  ],
+  [
+    "toom4_multiply.rs",
+    "wrong_negative_half_sign",
+    "let negative_half=nha!=nhb;",
+    "let negative_half=nha==nhb;",
+    "toom4_multiply"
+  ],
+  [
+    "toom4_multiply.rs",
+    "wrong_high_product_operand",
+    "full(&mut p6[..2*h],a3,b3,work,threshold);",
+    "full(&mut p6[..2*h],a3,a3,work,threshold);",
+    "toom4_multiply"
+  ],
+  [
+    "toom4_multiply.rs",
+    "wrong_positive_two_evaluation",
+    "weighted(ax,a0,a1,a2,a3,1,2,4,8)",
+    "weighted(ax,a0,a1,a2,a3,1,2,4,4)",
+    "toom4_multiply"
+  ],
+  [
+    "toom4_multiply.rs",
+    "omit_toom4_base_product",
+    "toom_multiply::full(dst,a,b,scratch,192);return;",
+    "toom_words::zero(dst);return;",
+    "toom4_multiply"
+  ],
+  [
+    "toom4_square.rs",
+    "omit_negative_point_square",
+    "full(pm,ax,work,threshold);",
+    "toom_words::zero(pm);",
+    "toom4_square"
+  ],
+  [
+    "toom4_square.rs",
+    "omit_toom4_base_square",
+    "toom_square::full(dst,a,scratch,192);return;",
+    "toom_words::zero(dst);return;",
+    "toom4_square"
+  ],
+  [
+    "toom4_low.rs",
+    "wrong_low_product_operand",
+    "toom4_multiply::full(product,&a[..k],&b[..k],work,threshold);",
+    "toom4_multiply::full(product,&a[..k],&a[..k],work,threshold);",
+    "toom4_low"
+  ],
+  [
+    "toom4_square_low.rs",
+    "omit_second_cross_square_term",
+    "let _carry=limbs::add_assign(&mut dst[k..],temp);\n    proof {",
+    "/* semantic mutant omits second cross term */\n    proof {",
+    "toom4_square_low"
+  ],
+  [
+    "toom4_candidate.rs",
+    "wrong_small_product_operand",
+    "fast_multiply::mul_mod(dst,a,b,scratch,top);",
+    "fast_multiply::mul_mod(dst,a,a,scratch,top);",
+    "toom4_candidate"
+  ],
+  [
+    "toom4_candidate.rs",
+    "omit_small_square_normalization",
+    "square_low::low(dst,a,scratch,192,64,1);\n    pow2::normalize_top(dst,top);",
+    "square_low::low(dst,a,scratch,192,64,1);",
+    "toom4_candidate"
+  ],
+  [
+    "odd_division.rs",
+    "odd_wrong_borrow_direction",
+    "let difference=x.wrapping_sub(carry);",
+    "let difference=x.wrapping_add(carry);",
+    "odd_division"
+  ],
+  [
+    "odd_division.rs",
+    "odd_omit_inverse_product",
+    "let q=difference.wrapping_mul(inv);",
+    "let q=difference;",
+    "odd_division"
+  ],
+  [
+    "odd_division.rs",
+    "odd_drop_wide_incoming_carry",
+    "let wide=(divisor as u128)*(q as u128)+(carry as u128);",
+    "let wide=(divisor as u128)*(q as u128);",
+    "odd_division"
+  ],
+  [
+    "odd_division.rs",
+    "odd_wrong_outgoing_carry",
+    "let next=(wide/18446744073709551616u128) as u64;",
+    "let next=(wide%18446744073709551616u128) as u64;",
+    "odd_division"
+  ],
+  [
+    "odd_division.rs",
+    "odd_write_original_word",
+    "dst[i]=q;",
+    "dst[i]=x;",
+    "odd_division"
+  ],
+  [
+    "odd_division.rs",
+    "odd_drop_loop_carry",
+    "carry=next;i+=1;",
+    "carry=0;i+=1;",
+    "odd_division"
+  ],
+  [
+    "odd_division.rs",
+    "odd_wrong_inverse3",
+    "{12297829382473034411u64}",
+    "{12297829382473034410u64}",
+    "odd_division"
+  ],
+  [
+    "odd_division.rs",
+    "odd_wrong_inverse9",
+    "{10248191152060862009u64}",
+    "{10248191152060862008u64}",
+    "odd_division"
+  ],
+  [
+    "odd_division.rs",
+    "odd_wrong_inverse15",
+    "{17216961135462248175u64}",
+    "{17216961135462248174u64}",
+    "odd_division"
+  ],
+  [
+    "toom_words.rs",
+    "odd_admit_even_divisor",
+    "if divisor==3 || divisor==9 || divisor==15 {",
+    "if divisor==3 || divisor==9 || divisor==15 || divisor==16 {",
+    "toom_words"
+  ],
+  [
+    "scaled_subtraction.rs",
+    "fusion_drop_incoming_carry",
+    "multiply::mac(word,y,0,carry)",
+    "multiply::mac(word,y,0,0)",
+    "scaled_subtraction"
+  ],
+  [
+    "scaled_subtraction.rs",
+    "fusion_reverse_subtraction",
+    "fast_words::sub_word(x,product,0)",
+    "fast_words::sub_word(product,x,0)",
+    "scaled_subtraction"
+  ],
+  [
+    "scaled_subtraction.rs",
+    "fusion_drop_borrow",
+    "let next=high+borrow;",
+    "let next=high;",
+    "scaled_subtraction"
+  ],
+  [
+    "scaled_subtraction.rs",
+    "fusion_write_product",
+    "dst[i]=low;",
+    "dst[i]=product;",
+    "scaled_subtraction"
+  ],
+  [
+    "scaled_subtraction.rs",
+    "fusion_drop_loop_carry",
+    "carry=next;",
+    "carry=0;",
+    "scaled_subtraction"
+  ],
+  [
+    "scaled_subtraction.rs",
+    "fusion_wrong_zero_padding",
+    "if i<rhs.len(){rhs[i]}else{0}",
+    "if i<rhs.len(){rhs[i]}else{1}",
+    "scaled_subtraction"
+  ],
+  [
+    "toom4_interpolate.rs",
+    "fusion_wrong_half_constant",
+    "sub_scaled_exact(pmh,z0,64)",
+    "sub_scaled_exact(pmh,z0,63)",
+    "toom4_interpolate"
+  ],
+  [
+    "toom4_interpolate.rs",
+    "fusion_wrong_quadratic_constant",
+    "sub_scaled_exact(p2,pmh,4)",
+    "sub_scaled_exact(p2,pmh,3)",
+    "toom4_interpolate"
+  ],
+  [
+    "toom4_interpolate.rs",
+    "fusion_wrong_quartic_constant",
+    "sub_scaled_exact(p2,pm,16)",
+    "sub_scaled_exact(p2,pm,15)",
+    "toom4_interpolate"
+  ],
+  [
+    "toom4_interpolate.rs",
+    "fusion_wrong_sixth_constant",
+    "sub_scaled_exact(p2,z6,64)",
+    "sub_scaled_exact(p2,z6,63)",
+    "toom4_interpolate"
+  ],
+  [
+    "signed_evaluation.rs",
+    "signed_wrong_half_weight",
+    "8*(x0 as i128)",
+    "7*(x0 as i128)",
+    "signed_evaluation"
+  ],
+  [
+    "signed_evaluation.rs",
+    "signed_drop_scalar_carry",
+    "else {(x0 as i128)-(x1 as i128)+(x2 as i128)-(x3 as i128)+(incoming as i128)}",
+    "else {(x0 as i128)-(x1 as i128)+(x2 as i128)-(x3 as i128)}",
+    "signed_evaluation"
+  ],
+  [
+    "signed_evaluation.rs",
+    "signed_wrong_carry_bias",
+    "(low,high-16)",
+    "(low,high-15)",
+    "signed_evaluation"
+  ],
+  [
+    "signed_evaluation.rs",
+    "signed_drop_negation_borrow",
+    "kernel::sub_limb(0,dst[i],borrow)",
+    "kernel::sub_limb(0,dst[i],0)",
+    "signed_evaluation"
+  ],
+  [
+    "signed_evaluation.rs",
+    "signed_drop_loop_carry",
+    "carry=next;i+=1;",
+    "carry=0;i+=1;",
+    "signed_evaluation"
+  ],
+  [
+    "signed_evaluation.rs",
+    "signed_wrong_padding",
+    "if i<a3.len(){a3[i]}else{0}",
+    "if i<a3.len(){a3[i]}else{1}",
+    "signed_evaluation"
+  ],
+  [
+    "signed_evaluation.rs",
+    "signed_omit_negative_conversion",
+    "if negative {negate(dst);}",
+    "if !negative {negate(dst);}",
+    "signed_evaluation"
+  ],
+  [
+    "signed_evaluation.rs",
+    "signed_mutate_preserved_tmp",
+    "let k=a0.len();",
+    "let k=a0.len(); if tmp.len()>0 {tmp[0]=0;}",
+    "signed_evaluation"
+  ],
+  [
+    "signed_evaluation.rs",
+    "signed_wrong_high_encoding",
+    "18446744073709551616i128+(carry as i128)",
+    "18446744073709551615i128+(carry as i128)",
+    "signed_evaluation"
+  ]
+]

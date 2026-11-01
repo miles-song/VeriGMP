@@ -1,0 +1,53 @@
+verification results:: 49 verified, 1 errors
+note: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> <stage>/development/../candidate/native/verified/signed_evaluation.rs:62:1
+   |
+62 | pub f...:bool)
+   | ^^^^^...^^^^^
+
+[rust_verify/src/verifier.rs:112:17] &note = "failed precondition"
+[rust_verify/src/verifier.rs:112:17] &sp.as_string = "std_specs/core.rs:190:9: 190:14 (#0)"
+error: precondition not satisfied
+  --> <stage>/development/../candidate/native/verified/signed_evaluation.rs:71:5
+   |
+71 |     asser...en());
+   |     ^^^^^...^^^^^
+
+error: requires not satisfied
+   --> <stage>/development/../candidate/native/verified/signed_evaluation.rs:108:17
+    |
+108 | ...   value... int),
+    |       ^^^^^...^^^^^
+
+note: automatically chose triggers for this expression:
+  --> <stage>/development/../candidate/native/verified/signed_evaluation.rs:38:13
+   |
+38 | ...   foral...al[j],
+   |       ^^^^^...^^^^^
+
+note:   trigger 1 of 1:
+  --> <stage>/development/../candidate/native/verified/signed_evaluation.rs:38:47
+   |
+38 | ...]==original[j],
+   |       ^^^^^^^^^^^
+
+note: Verus printed one or more automatically chosen quantifier triggers
+      because it had low confidence in the chosen triggers.
+      To suppress these messages, do one of the following:
+        (1) manually annotate a single desired trigger using `#[trigger]`
+            (example: `forall|i: int, j: int| f(i) && #[trigger] g(i) && #[trigger] h(j)`),
+        (2) manually annotate multiple desired triggers using `#![trigger ...]`
+            (example: `forall|i: int| #![trigger f(i)] #![trigger g(i)] f(i) && g(i)`),
+        (3) accept the automatically chosen trigger using `#![auto]`
+            (example: `forall|i: int, j: int| #![auto] f(i) && g(i) && h(j)`)
+        (4) use the `--triggers-mode silent` command-line option to suppress all printing of triggers.
+      (Note: triggers are used by the underlying SMT theorem prover to instantiate quantifiers;
+      the theorem prover instantiates a quantifier whenever some expression matches the
+      pattern specified by one of the quantifier's triggers.)
+  --> <stage>/development/../candidate/native/verified/signed_evaluation.rs:38:13
+   |
+38 | ...   foral...al[j],
+   |       ^^^^^...^^^^^
+
+error: aborting due to 2 previous errors
+

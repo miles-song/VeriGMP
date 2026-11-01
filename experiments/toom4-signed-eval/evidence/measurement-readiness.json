@@ -1,0 +1,168 @@
+{
+  "status": "ready_not_measured",
+  "benchmark_run": false,
+  "verification_sha256": "129ddcdd2bf777422b2d2317f36d6813104a6141361cd26c11a530cfc4f25190",
+  "local_final_audit_sha256": "7fd050be6b14917e0a4e634727f4d19657845cf03c36e1339b4e7353f1c76312",
+  "matched_binary_audit_sha256": "95048b046444637325763f4dab04c857a7c91dbd187e1d87bef2e36b00097df0",
+  "source_manifest_sha256": "df4ca10fd5535dbb9ccc275eb74fad3cc58de24fdc2a99061155fab52383898a",
+  "libraries": {
+    "baseline": {
+      "verified": 234,
+      "rlib_sha256": "ece9788e1011e30c39585e74d5c8e568adb8d08e3a6f6be83af689461b5dd77e",
+      "vir_sha256": "39897d1b80720d986e223811efe304fdd072f402f87394564b0010500f2d6cff"
+    },
+    "previous": {
+      "verified": 298,
+      "rlib_sha256": "8fa4b71745e233a5f8096b8e26536d7a0762d975f344bc171369c9b979829112",
+      "vir_sha256": "79ae04fbc1019ad50be343430754de36a93ed07721aed5a3686f6e971e42d981"
+    },
+    "candidate": {
+      "verified": 311,
+      "rlib_sha256": "10b19dfeca4a85d33d01880f588c37bc960678b874777f58383614fce3eadc44",
+      "vir_sha256": "b419cf1ad6f697f8f41ae4a004c00a306ca894a3093deca113192d7e0b7cc3a7"
+    }
+  },
+  "benchmark_source_sha256": "652f3c3d6440d3b3b6eba36f00e8115374ed0cc84b6aadc2ccd91e4c8e31a2c6",
+  "benchmark_binary_sha256": "fdb191db19be31bebe0f5db2de979c7f5a128a8ac249ef83a15afdbf41de260f",
+  "controller_sha256": "2b37e639b8e6ea36d283e616c7e05e5c7fe05f62cc26b3325ea5dc6e4fc3a045",
+  "measurement_script_sha256": "e613dabd61b821cc55ecd01602542409f51e0a98e66404bb73bf6f6525a757f0",
+  "fixed_runs": [
+    "default1",
+    "default2"
+  ],
+  "operations": [
+    "mul_mod",
+    "square_mod"
+  ],
+  "shapes": [
+    [
+      1,
+      1
+    ],
+    [
+      1,
+      64
+    ],
+    [
+      2,
+      1
+    ],
+    [
+      23,
+      63
+    ],
+    [
+      24,
+      63
+    ],
+    [
+      25,
+      63
+    ],
+    [
+      63,
+      63
+    ],
+    [
+      64,
+      63
+    ],
+    [
+      65,
+      63
+    ],
+    [
+      127,
+      63
+    ],
+    [
+      128,
+      63
+    ],
+    [
+      129,
+      63
+    ],
+    [
+      191,
+      63
+    ],
+    [
+      192,
+      63
+    ],
+    [
+      193,
+      63
+    ],
+    [
+      255,
+      63
+    ],
+    [
+      256,
+      63
+    ],
+    [
+      257,
+      63
+    ],
+    [
+      511,
+      63
+    ],
+    [
+      512,
+      63
+    ],
+    [
+      513,
+      63
+    ],
+    [
+      1023,
+      63
+    ],
+    [
+      1024,
+      63
+    ],
+    [
+      1025,
+      63
+    ],
+    [
+      2048,
+      63
+    ],
+    [
+      4096,
+      63
+    ]
+  ],
+  "groups_per_run": 52,
+  "modes_per_group": 4,
+  "repetitions": 7,
+  "minimum_recorded_batch_ns": 10000000,
+  "mode_order": "(j+repetition)%4 for j=0..3",
+  "expected_wall_seconds": [
+    90,
+    110
+  ],
+  "mode_identities": {
+    "0": "e22 canonical production source",
+    "1": "frozen interpolation-fusion experimental candidate source, 298 verified items",
+    "2": "same source plus single-pass signed evaluation, 311 verified items",
+    "3": "GMP full then copy low words and top mask"
+  },
+  "window_policy": "Explicit coordinated CPU0 window; existing settle and quiet preflight; two complete independent runs, no result-dependent retry or sample selection; retain all negative outcomes",
+  "parent_control_performance": "target_not_met",
+  "performance_acceptance": "not_evaluated",
+  "static_mechanism_sha256": "9afaa59b61dbb4771e0838695859dd4a2d96a5a84b6229aa8e1e2141628a14a0",
+  "binding_script_sha256": "90ebb657d419b680ff54d38ee14617958a2a96b5e4520ae504478102d2434b9a",
+  "review_scripts_sha256": {
+    "audit_signed_eval_stage.py": "f331707770b7a0334e637618e93f654c6e9a94cd9eacb3730ef8578071d470a2",
+    "audit_entry_paths.py": "f81a707f3a7f68f17dade672a723cd64b425b838cec7b722f70d995c4bde532e"
+  },
+  "review_required": true
+}
