@@ -13,6 +13,8 @@ The largest tested modular operations improve modestly against the previous expe
 | 2 | Odd-division candidate | The same entry and recursive policies, using the new exact-division kernel for 3, 9 and 15. |
 | 3 | GMP | Full multiplication or squaring, followed by copying the requested low words and masking the top word. |
 
+The frozen measurement reports retain historical `mode_names` display labels. Modes 0–3 have the actual identities in this table, established by their frozen source and linked library hashes; the [machine-readable mapping](mode-identities.json) ties each label to those artifacts. The original scripts, reports and raw CSV bytes remain unchanged.
+
 The [independent specification](overlay/candidate/native/specs/odd_division.rs) states radix-unit identities. The [actual Rust kernel](overlay/candidate/native/verified/odd_division.rs) processes low limbs first with a fixed inverse modulo `B=2^64`. Its scalar relation is `d*q+carry = x+B*next`, with `next<d`. The array invariant composes these relations over prefixes. Exact divisibility of the original integer, cancellation of the radix power modulo d, and the final carry bound imply that the final carry is zero.
 
 The direct helper accepts every u64 input word and every carry smaller than its selected divisor. Exact arrays may be empty. The existing [divide_exact API](overlay/candidate/native/verified/toom_words.rs) retains its complete positive-u64 divisor domain and exact-input precondition; divisors other than 3, 9 and 15 use the existing implementation. No interpolation fusion, threshold change or new trusted arithmetic escape is included.
