@@ -41,8 +41,19 @@ arithmetic; application-specific mathematics belong in consuming projects.
 - `native/verified/limbs.rs`, `pow2.rs`, `fast_words.rs`: slice arithmetic and precision.
 - `native/verified/multiply.rs`: schoolbook reference/basecase.
 - `native/verified/fast_multiply.rs`: complete and low-product recursion and dispatch.
-- Further Toom and squaring modules must expose their evaluation/interpolation or
-  symmetry properties before composing recursive refinement.
+- `specs/toom.rs`, `toom_blocks.rs`, `square.rs`: independent polynomial,
+  decomposition, capacity and symmetry models.
+- `verified/toom_evaluate.rs`, `toom_interpolate.rs`, `toom_words.rs`: exact
+  evaluation and interpolation properties, signed magnitude and coefficient bounds.
+- `verified/toom_multiply.rs`, `toom_low.rs`: recursive composition. Ghost
+  coefficients must be defined from input blocks, with all helper preconditions
+  established by the caller; never define correct answers from executable output.
+- `verified/square.rs`, `toom_square.rs`, `square_low.rs`: symmetry refinements.
+  Retain the distinction between dedicated recursion and a specialized leaf kernel.
+- `verified/arithmetic.rs`: measured fixed production policy; forced alternatives
+  and actual default dispatch both require oracle and codegen coverage.
+- `verified/mac4.rs`: measured candidate only. A proven optimization must still
+  improve runtime before replacing the default path.
 - `native/lib.rs`: library entry, compiled and exported with its Verus metadata.
 - Runners, controls, benchmark FFI and Python scripts are unverified test infrastructure.
 

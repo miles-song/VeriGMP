@@ -6,7 +6,11 @@
     "mpn/generic/mullo_n.c": "2827a74d3d2abd6b397fc2498fae0b03252282b7872b07bf5e6db34a6174dadf",
     "mpn/generic/toom22_mul.c": "810ae3b9ddb2af85e4fd96bb54dcc0b04aa5fbed9dabbae0eac56e477315c598",
     "mpn/generic/mullo_basecase.c": "77dc8a1c2bc14d9c0860fa515da95fdc5756ba9e598f09c7ef7ea6f0de652eca",
-    "mpn/generic/mul_basecase.c": "b105d712b9f22b1aed8c270be2a889235b439623060c71016970c848c42320c1"
+    "mpn/generic/mul_basecase.c": "b105d712b9f22b1aed8c270be2a889235b439623060c71016970c848c42320c1",
+    "mpn/generic/toom33_mul.c": "c90e5a5f53b4334bdbce16da821c251cb28ec829162933f6113686bd030e6289",
+    "mpn/generic/toom3_sqr.c": "2509295cf5ed658194774f1e9025d1e594d6361d69d798f4d8240e65635af763",
+    "mpn/generic/toom_interpolate_5pts.c": "d0c2a28a0cb0418de418b7a07cecfd43538b16669ccea0d3a970ac2da7dcca31",
+    "mpn/generic/addmul_1.c": "bef7649f76faafdade1abf8f9a1f72dd032e2e40d870d8258e2f85765a62020d"
   },
   "scope": "Reviewed algorithm and storage strategies; new Rust and proof source is independently written. Reference implementation is not linked into verified kernels.",
   "adopted": [
@@ -15,7 +19,19 @@
     "Reuse one child scratch region for sequential recursive calls",
     "Direct multiply-write first row instead of zeroing then accumulating",
     "Low product as one full low-block product plus two shorter low products",
-    "11/36 short-block candidate in the Karatsuba cost regime"
+    "11/36 short-block candidate in the Karatsuba cost regime",
+    "Five-point Toom-3 at 0, 1, -1, 2 and infinity with exact division by 2 and 3",
+    "Dedicated recursive squares with one evaluation per point and one low cross multiplication",
+    "Caller-owned linear scratch with sequential reuse; zero and infinity use unpadded blocks",
+    "9/40 short-block candidate for the Toom cost regime"
   ],
-  "not_yet_implemented": ["Architecture-specific addmul assembly", "Toom-3 and higher", "FFT", "Dedicated squaring"]
+  "not_yet_implemented": [
+    "Architecture-specific addmul assembly",
+    "Symmetry-specialized basecase square",
+    "Toom-4 and higher",
+    "FFT"
+  ],
+  "evaluated_candidates": [
+    "Four-word row unrolling is proved and measured, but disabled in default dispatch because it lacks a consistent speedup"
+  ]
 }

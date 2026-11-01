@@ -14,6 +14,7 @@ from verify_limbs import check_limbs
 from verify_pow2 import check_pow2
 from verify_multiply import check_multiply
 from verify_fast import check_fast
+from verify_toom import check_toom
 
 ROOT=Path(__file__).resolve().parents[1]
 
@@ -77,7 +78,7 @@ def verify(output,export_dir):
             match=re.search(r'verification results:: (\d+) verified, 0 errors',log)
             if not match:raise RuntimeError('Missing successful library verification')
             report['library']={'verified_items':int(match[1]),'files':{p.name:digest(p) for p in (library,metadata)}}
-            for name,check in [('limbs',check_limbs),('pow2',check_pow2),('multiply',check_multiply),('fast_multiply',check_fast)]:
+            for name,check in [('limbs',check_limbs),('pow2',check_pow2),('multiply',check_multiply),('fast_multiply',check_fast),('toom',check_toom)]:
                 report[name]=check(snapshot,verifier,env,output/name)
             if any((ROOT/p).read_bytes()!=data for p,data in inputs.items()):raise RuntimeError('Source changed during verification')
             if any(digest(p)!=identities[p.name] for p in tools):raise RuntimeError('Verifier files changed during verification')
