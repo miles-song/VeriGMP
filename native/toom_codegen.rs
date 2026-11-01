@@ -26,3 +26,6 @@
 #[no_mangle]pub fn verified_square(out:&mut[u64],a:&[u64],scratch:&mut[u64],top:u32){arithmetic::square_mod(out,a,scratch,top);}
 #[no_mangle]pub fn verified_mac4(out:&mut[u64],a:&[u64],word:u64)->u64{mac4::add_mul_word(out,a,word)}
 fn main(){}
+
+#[path="specs/square_base.rs"] mod square_base_spec;
+#[path="verified/square_base.rs"] mod square_base;

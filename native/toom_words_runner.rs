@@ -30,6 +30,10 @@ fn main(){
         let op=fields.next().unwrap();let args:Vec<u64>=fields.map(|s|s.parse().unwrap()).collect();
         let out=if op=="divide"{
             let mut out=args[1..].to_vec();let rem=toom_words::divide_word(&mut out,args[0]);out.push(rem);out
+        }else if op=="squarebase"{
+            assert!(!args.is_empty());let n=args.len();let mut out=vec![u64::MAX;2*n+2];
+            square_base::full(&mut out[1..2*n+1],&args);
+            assert_eq!((out[0],out[2*n+1]),(u64::MAX,u64::MAX));out[1..2*n+1].to_vec()
         }else if op=="workspace"{
             let n=usize::try_from(args[0]).unwrap();
             vec![arithmetic::workspace_len(n).unwrap_or(0) as u64,arithmetic::square_workspace_len(n).unwrap_or(0) as u64]
@@ -65,3 +69,6 @@ fn main(){
         writeln!(output,"{}",out.iter().map(u64::to_string).collect::<Vec<_>>().join(" ")).unwrap();
     }
 }
+
+#[path="specs/square_base.rs"] mod square_base_spec;
+#[path="verified/square_base.rs"] mod square_base;

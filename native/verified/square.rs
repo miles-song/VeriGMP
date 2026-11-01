@@ -21,7 +21,11 @@ pub fn full(dst:&mut[u64],a:&[u64],scratch:&mut[u64],threshold:usize)
     assert!(a.len()>0 && a.len()==b.len());assert!(a.len()<=usize::MAX/3);
     assert!(dst.len()==2*a.len() && scratch.len()>=3*a.len());assert!(threshold>=8);
     let n=a.len();
-    if n<=threshold {fast_multiply::base_full(dst,a,a);return;}
+    if n<=threshold {
+        if n<8 {fast_multiply::base_full(dst,a,a);}
+        else {crate::square_base::full(dst,a);}
+        return;
+    }
     let h=n/2;
     let k=n-h;
     proof {lemma_fundamental_div_mod(n as int,2);lemma_mod_division_less_than_divisor(n as int,2);}

@@ -49,6 +49,8 @@ def cases():
             pairs+=list(itertools.product(signs,repeat=2))
         for a,b in pairs:
             product=integer(a)*integer(b);square=integer(a)**2
+            if n<=257:
+                add('squarebase',a,words(square,2*n))
             for threshold in [24,192]:
                 add('full',[64,threshold,24,0,*a,*b],words(product,2*n))
                 add('squarefull',[64,threshold,24,0,*a,*b],words(square,2*n))
@@ -151,13 +153,17 @@ def check_toom(snapshot,verifier,env,output):
             'coverage':'Default and forced recursion, three low splits, n mod 3, signed/zero evaluations, full MAX carry chains, all top bits, immutable input alias, nonzero storage, exact scratch and surrounding canaries, row tails including empty, quotient/remainder'}
         invalid=['default 0 192 128 2 1 2','default 65 192 128 2 1 2','square 4294967297 192 128 2 1 2',
             'full 64 23 24 0 1 2','low 64 24 23 0 1 2','low 64 24 24 3 1 2',
-            'squarek 64 7 24 0 1 2','shortscratch 64 192 128 2 1 2','divide 0 1','row 1 2 1 1 2 3']
+            'squarek 64 7 24 0 1 2','shortscratch 64 192 128 2 1 2','divide 0 1','row 1 2 1 1 2 3','squarebase']
         for i,line in enumerate(invalid):
             r,_=run([binary],f'invalid-{i}.log',input=line+'\n')
             if r.returncode==0 or r.stdout.strip():raise RuntimeError(f'Invalid input accepted: {line}')
         report['invalid_commands_rejected']=len(invalid)
         report['mutations']=[]
         mutations=[
+            ('square_base.rs','omit_square_cross_double','let low=2*(lo as u128)','let low=1*(lo as u128)',1),
+            ('square_base.rs','wrong_square_diagonal','let square=(a as u128)*(a as u128);','let square=a as u128;',1),
+            ('square_base.rs','drop_square_row_carry','dst[2*i]=carry;','dst[2*i]=0;',1),
+            ('square_base.rs','drop_square_diagonal_carry','carry=next;j+=1;','carry=0;j+=1;',1),
             ('toom_multiply.rs','wrong_evaluation_sign','let negative=na!=nb;','let negative=na==nb;',1),
             ('toom_multiply.rs','omit_top_padding','toom_words::zero(&mut p4[2*h..]);','// high padding omitted',1),
             ('toom_multiply.rs','wrong_coefficient_offset','add_shifted(dst,p2,3*k)','add_shifted(dst,p2,2*k)',1),
@@ -193,7 +199,8 @@ def check_toom(snapshot,verifier,env,output):
         report['gmp_identity']=identity.strip()
         bench=snapshot/'toom-bench';compile('native/toom_bench.rs',bench,'bench-build.log')
         rowbench=snapshot/'mac4-bench';compile('native/mac4_bench.rs',rowbench,'mac4-build.log')
-        binary_hashes={str(p):digest(p) for p in (bench,rowbench)}
+        squarebench=snapshot/'square-base-bench';compile('native/square_base_bench.rs',squarebench,'square-base-build.log')
+        binary_hashes={str(p):digest(p) for p in (bench,rowbench,squarebench)}
         r,linked=run(['ldd',bench],'linked.log')
         if r.returncode:raise RuntimeError('Linkage inspection failed')
         library_hashes={p:digest(Path(p)) for p in re.findall(r'=> (\S+) \(',linked)}
@@ -204,6 +211,7 @@ def check_toom(snapshot,verifier,env,output):
         r,_=run([bench,str(BENCH_SEED)],'benchmark.csv',timeout=360,preexec_fn=affinity)
         if r.returncode:raise RuntimeError('Benchmark failed')
         report['measurements']=summarize(r.stdout)
+        benchmark_csv_sha256=hashlib.sha256(r.stdout.encode()).hexdigest()
         r,_=run([rowbench],'mac4.csv',timeout=120,preexec_fn=affinity)
         if r.returncode:raise RuntimeError('MAC4 benchmark failed')
         row_groups={}
@@ -215,19 +223,34 @@ def check_toom(snapshot,verifier,env,output):
         for (n,m),group in sorted(row_groups.items()):
             if len(group)!=7 or {int(r['repetition']) for r in group}!=set(range(7)):raise RuntimeError('Incomplete MAC4 repetitions')
             report['mac4_measurements'].append({'limbs':n,'mode':m,'ns_median':statistics.median(int(r['ns'])/int(r['iterations']) for r in group)})
+        r,_=run([squarebench],'square-base.csv',timeout=120,preexec_fn=affinity)
+        if r.returncode:raise RuntimeError('Square basecase benchmark failed')
+        groups={}
+        for row in csv.DictReader(io.StringIO(r.stdout)):
+            groups.setdefault((int(row['limbs']),int(row['mode'])),[]).append(row)
+        expected={(n,m) for n,m in itertools.product([1,2,4,5,6,7,8,9,10,12,15,16,17,23,24,25,32,48,64,128,256],range(3))}
+        if set(groups)!=expected:raise RuntimeError('Incomplete square basecase benchmark')
+        report['square_base_measurements']=[]
+        for (n,m),group in sorted(groups.items()):
+            if len(group)!=7 or {int(r['repetition']) for r in group}!=set(range(7)):raise RuntimeError('Incomplete square repetitions')
+            report['square_base_measurements'].append({'limbs':n,'mode':m,'ns_median':statistics.median(int(r['ns'])/int(r['iterations']) for r in group)})
         if any(digest(Path(p))!=h for p,h in (binary_hashes|library_hashes).items()):raise RuntimeError('Measured code changed')
         cpuinfo=Path('/proc/cpuinfo').read_text()
         report['benchmark']={'flags':['-O'],'platform':platform.platform(),'cpu_model':next(x.split(':',1)[1].strip() for x in cpuinfo.splitlines() if x.startswith('model name')),
+            'raw_csv_sha256':benchmark_csv_sha256,'minimum_recorded_batch_ms':10,
             'pinned_cpu':cpu,'seed':BENCH_SEED,'repetitions':7,'calibration_target_ms':10,'mode_names':MODES,
             'binary_sha256':binary_hashes,'linked_library_sha256':library_hashes,'timing_is_observational':True,
             'semantics':'Multiplication or square modulo 2^p, including required copying/masking. Public GMP mul_n/sqr computes full product first. Allocation setup excluded, GMP internal allocation not instrumented.',
             'controls':'Previous verified Karatsuba, forced Toom splits, full Toom, GMP, actual default; no isolated proof-overhead inference. Row control uses original loop and public GMP addmul_1.',
             'parameter_columns':'threshold/low_limit describe forced modes 1-3; modes 0,4,5 ignore scan context. Default product: K below 512, else 192/128/9:40. Default square: 192/64/11:36.',
             'mac4_workload':'Same initial destination and common iteration count across modes; destination reset outside timing and final states compared.',
-            'mac4_default':False,'mac4_policy':'Kept as verified candidate; no consistent win over original carry loop in local measurements.'}
+            'mac4_default':False,'mac4_policy':'Kept as verified candidate; no consistent win over original carry loop in local measurements.',
+            'square_base_modes':{0:'previous_generic_full',1:'symmetric_full',2:'gmp_sqr'},
+            'square_base_policy':'Full-square leaves use the symmetric kernel from 8 limbs; below 8 retain generic multiplication. Low-square leaf remains generic.'}
         report['cost']={'toom_full':'T(n)=2T(at most ceil(n/3))+3T(ceil(n/3)+1)+O(n)',
             'low':'L(n)=T(n-h)+2L(h)+O(n), h=floor(9n/40) or floor(11n/36) or floor(n/2)',
             'square':'Dedicated five-point squares; low square computes one cross multiplication and adds it twice',
+            'square_base':'Triangular n(n-1)/2 cross products plus n diagonal products, one zero fill and one fused doubling/diagonal pass; O(n^2) operations and O(1) extra words, no extra scratch. Operation formula is analytic.',
             'bound':'O(n^log3(5)) word operations for fixed Toom/base thresholds and all three low splits; analytic derivation, not checked cost theorem',
             'scratch_words':'Full/low product 12n, full/low square 10n; checked recursive capacity; O(log n) call depth',
             'composed_cost_proved':False,'all_gmp_optimizations_implemented':False}

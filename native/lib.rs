@@ -22,3 +22,6 @@
 #[path="verified/square_low.rs"] pub mod square_low;
 #[path="verified/mac4.rs"] pub mod mac4;
 #[path="verified/arithmetic.rs"] pub mod arithmetic;
+
+#[path="specs/square_base.rs"] pub mod square_base_spec;
+#[path="verified/square_base.rs"] pub mod square_base;

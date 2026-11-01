@@ -20,7 +20,7 @@
         "verified/fast_words.rs"
       ],
       "status": "impl_refined",
-      "scope": "Scalar and slice arithmetic, carries, borrows, absolute differences and precision normalization"
+      "scope": "Scalar and slice arithmetic, carries, borrows, absolute differences and precision normalization; in-place exact borrow and canonical modular subtraction"
     },
     {
       "files": [
@@ -66,6 +66,21 @@
       ],
       "status": "impl_refined_candidate",
       "scope": "Four-word row unrolling with exact carry and short tail; not selected by default"
+    },
+    {
+      "files": [
+        "specs/square_base.rs"
+      ],
+      "status": "model_proved",
+      "scope": "Independent triangular cross-product/diagonal decomposition equals the mathematical square"
+    },
+    {
+      "files": [
+        "verified/square_base.rs"
+      ],
+      "status": "impl_refined",
+      "scope": "Full symmetry-specialized basecase square; checked carries, no scratch, default full-square leaves from 8 limbs",
+      "cost": "n(n-1)/2 cross multiplications and n diagonal multiplications, O(n^2) word operations and O(1) extra words; analytic count, no composed cost theorem"
     }
   ],
   "resource_contract": "Karatsuba full 3n / low 4n; Toom full/low product 12n, full/low square 10n; checked actual recursive slice capacity and strict decreases",
@@ -74,9 +89,9 @@
   "gmp_performance_parity_established": false,
   "remaining": [
     "Architecture-specific assembly",
-    "Symmetry-specialized basecase square",
     "Higher Toom variants and FFT",
     "Composed cost model",
-    "General division, inversion and higher-level integer APIs"
+    "General division, inversion and higher-level integer APIs",
+    "Truncated symmetry-specialized low-square leaf"
   ]
 }

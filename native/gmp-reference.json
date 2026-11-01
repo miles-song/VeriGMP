@@ -10,7 +10,8 @@
     "mpn/generic/toom33_mul.c": "c90e5a5f53b4334bdbce16da821c251cb28ec829162933f6113686bd030e6289",
     "mpn/generic/toom3_sqr.c": "2509295cf5ed658194774f1e9025d1e594d6361d69d798f4d8240e65635af763",
     "mpn/generic/toom_interpolate_5pts.c": "d0c2a28a0cb0418de418b7a07cecfd43538b16669ccea0d3a970ac2da7dcca31",
-    "mpn/generic/addmul_1.c": "bef7649f76faafdade1abf8f9a1f72dd032e2e40d870d8258e2f85765a62020d"
+    "mpn/generic/addmul_1.c": "bef7649f76faafdade1abf8f9a1f72dd032e2e40d870d8258e2f85765a62020d",
+    "mpn/generic/sqr_basecase.c": "154922c1af86992a05dc5eecfade2c160b71271120e50fe52b4dee471d7ea2a0"
   },
   "scope": "Reviewed algorithm and storage strategies; new Rust and proof source is independently written. Reference implementation is not linked into verified kernels.",
   "adopted": [
@@ -23,13 +24,14 @@
     "Five-point Toom-3 at 0, 1, -1, 2 and infinity with exact division by 2 and 3",
     "Dedicated recursive squares with one evaluation per point and one low cross multiplication",
     "Caller-owned linear scratch with sequential reuse; zero and infinity use unpadded blocks",
-    "9/40 short-block candidate for the Toom cost regime"
+    "9/40 short-block candidate for the Toom cost regime",
+    "Triangular basecase square with each cross product once, then fused doubling and diagonal addition; independent Rust implementation/proof"
   ],
   "not_yet_implemented": [
     "Architecture-specific addmul assembly",
-    "Symmetry-specialized basecase square",
     "Toom-4 and higher",
-    "FFT"
+    "FFT",
+    "Truncated symmetry-specialized low-square leaf"
   ],
   "evaluated_candidates": [
     "Four-word row unrolling is proved and measured, but disabled in default dispatch because it lacks a consistent speedup"

@@ -65,10 +65,18 @@ fn main(){
                 let mut counts=[1u64;6];
                 for mode in 0..6{run(sq,mode,&mut out,&a,&b,&mut scratch,top,*t,*low);assert_eq!(out,expected);
                     while batch(sq,mode,&mut out,&a,&b,&mut scratch,top,*t,*low,counts[mode as usize])<if tuning{5_000_000}else{10_000_000}{counts[mode as usize]*=2;}}
-                for rep in 0..if tuning{3}else{7}{for j in 0..6{let mode=(j+rep)%6;let count=counts[mode as usize];
-                    let ns=batch(sq,mode,&mut out,&a,&b,&mut scratch,top,*t,*low,count);assert_eq!(out,expected);
+                for rep in 0..if tuning{3}else{7}{for j in 0..6{let mode=(j+rep)%6;let mut count=counts[mode as usize];
+                    let mut ns=batch(sq,mode,&mut out,&a,&b,&mut scratch,top,*t,*low,count);
+                    while !tuning && ns<10_000_000 {
+                        count=count.checked_mul(2).expect("benchmark iteration capacity");
+                        ns=batch(sq,mode,&mut out,&a,&b,&mut scratch,top,*t,*low,count);
+                    }
+                    counts[mode as usize]=count;assert_eq!(out,expected);
                     println!("{},{n},{top},{t},{low},{mode},{rep},{count},{ns}",sq as u32);}}
             }}
         }
     }
 }
+
+#[path="specs/square_base.rs"] mod square_base_spec;
+#[path="verified/square_base.rs"] mod square_base;

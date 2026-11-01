@@ -257,6 +257,7 @@ pub fn add_shifted(dst:&mut[u64],rhs:&[u64],offset:usize)
                 ==value(original)+radix(offset as nat)*delta+radix(dst@.len())*tail(rhs@,length as nat)) by(nonlinear_arith)
                 requires value(rhs@)==delta+radix(length as nat)*tail(rhs@,length as nat),
                     radix(dst@.len())==radix(offset as nat)*radix(length as nat);
+            assert(radix(dst@.len())>0) by {radix_positive(dst@.len());}
             lemma_mod_multiples_vanish(tail(rhs@,length as nat),value(original)+radix(offset as nat)*delta,radix(dst@.len()));
         }
     }
