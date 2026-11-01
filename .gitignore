@@ -1,0 +1,8 @@
+/deps/
+/build/
+/results/
+__pycache__/
+*.pyc
+.verus-log/
+*.rlib
+*.vir

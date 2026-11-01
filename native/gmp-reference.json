@@ -1,0 +1,21 @@
+{
+  "release": "6.3.0",
+  "archive_url": "https://ftp.gnu.org/gnu/gmp/gmp-6.3.0.tar.xz",
+  "archive_sha256": "a3c2b80201b89e68616f4ad30bc66aee4927c3ce50e33929ca819d5c43538898",
+  "source_sha256": {
+    "mpn/generic/mullo_n.c": "2827a74d3d2abd6b397fc2498fae0b03252282b7872b07bf5e6db34a6174dadf",
+    "mpn/generic/toom22_mul.c": "810ae3b9ddb2af85e4fd96bb54dcc0b04aa5fbed9dabbae0eac56e477315c598",
+    "mpn/generic/mullo_basecase.c": "77dc8a1c2bc14d9c0860fa515da95fdc5756ba9e598f09c7ef7ea6f0de652eca",
+    "mpn/generic/mul_basecase.c": "b105d712b9f22b1aed8c270be2a889235b439623060c71016970c848c42320c1"
+  },
+  "scope": "Reviewed algorithm and storage strategies; new Rust and proof source is independently written. Reference implementation is not linked into verified kernels.",
+  "adopted": [
+    "Difference-form Karatsuba without an extra input carry limb",
+    "Use output space for temporary absolute differences",
+    "Reuse one child scratch region for sequential recursive calls",
+    "Direct multiply-write first row instead of zeroing then accumulating",
+    "Low product as one full low-block product plus two shorter low products",
+    "11/36 short-block candidate in the Karatsuba cost regime"
+  ],
+  "not_yet_implemented": ["Architecture-specific addmul assembly", "Toom-3 and higher", "FFT", "Dedicated squaring"]
+}

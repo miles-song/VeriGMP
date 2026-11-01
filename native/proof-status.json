@@ -1,0 +1,14 @@
+{
+  "scope": "Borrowed-slice multiprecision arithmetic; partial library API",
+  "representation": "Little-endian base-2^64 words interpreted as nonnegative mathematical integers",
+  "modules": [
+    {"files": ["specs/radix.rs", "specs/precision.rs", "specs/product.rs", "specs/fast_product.rs"], "status": "model_proved", "scope": "Range, precision, decomposition, congruence, Karatsuba and low-product identities"},
+    {"files": ["verified/kernel.rs", "verified/limbs.rs", "verified/pow2.rs", "verified/fast_words.rs"], "status": "impl_refined", "scope": "Scalar and slice arithmetic, carries, borrows, absolute differences and precision normalization"},
+    {"files": ["verified/multiply.rs", "verified/fast_multiply.rs"], "status": "impl_refined", "scope": "Schoolbook, difference Karatsuba, low-product recursion and canonical modular multiplication under explicit interface preconditions"}
+  ],
+  "resource_contract": "Full multiplication scratch >=3n; low/modular multiplication scratch >=4n; every actual recursive subcall checked",
+  "cost_status": "Analytic fixed-threshold O(n^log2(3)) recurrence, not a checked composed machine-cost theorem",
+  "complete_multiprecision_api": false,
+  "gmp_performance_parity_established": false,
+  "remaining": ["Toom and specialized squaring", "Word-level optimization", "Composed cost model", "Division, inversion and higher-level integer APIs"]
+}
