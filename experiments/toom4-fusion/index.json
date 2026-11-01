@@ -1,0 +1,295 @@
+{
+  "baseline_commit": "e22a4dd00a28681fd27d68e2a78fa304cf17563e",
+  "decision": "Verified four-group Toom-4 interpolation fusion experiment; performance target not met; not accepted for production default dispatch",
+  "production_files_changed": false,
+  "registered_gmp_target_status": "target_not_met",
+  "publication_policy": "Source and raw CSV bytes are exact. Historical report and log host paths are replaced by logical placeholders; original and published digests are recorded. Binaries are not distributed.",
+  "library_proof_items": 298,
+  "baseline_library_proof_items": 234,
+  "oracle_cases": 35555,
+  "new_oracle_cases": 5655,
+  "semantic_mutants": 40,
+  "invalid_commands": 30,
+  "changed_source_paths": [
+    {
+      "side": "previous",
+      "path": "native/lib.rs",
+      "baseline_sha256": "eae4fa2b755108dc29890ba0ae137f2478099a99ae6655eaf1f257c9cf5c4a00",
+      "candidate_sha256": "0286c305847ad310474983bf7f24a24fa0d82971ad1339ed2de885e80a5cb0b7"
+    },
+    {
+      "side": "previous",
+      "path": "native/mac4_bench.rs",
+      "baseline_sha256": "6519f9828fb9dafbbb200926f7358dded24909e462447a1753626c81a399be1f",
+      "candidate_sha256": "79335fb39eb054704b6621803368e965892a6285bc9ab82ec687bea991bcf22f"
+    },
+    {
+      "side": "previous",
+      "path": "native/square_base_bench.rs",
+      "baseline_sha256": "96d985005b1bf24282c2981fb6ac1290f9ce5ee056c58305798d87fb8447e671",
+      "candidate_sha256": "abd4f11755f244753167bd92447412c16308876a634c9951663de8ce7494dcaa"
+    },
+    {
+      "side": "previous",
+      "path": "native/toom4_codegen.rs",
+      "baseline_sha256": null,
+      "candidate_sha256": "8942cb4ade53751f909c7a77ab8ced123a8ae87f0a9653b63f8dbf2e83249fac"
+    },
+    {
+      "side": "previous",
+      "path": "native/toom4_runner.rs",
+      "baseline_sha256": null,
+      "candidate_sha256": "18b5e0e33be79539171955f57387074efbfa466f915a4d2322e8839ab1d76a56"
+    },
+    {
+      "side": "previous",
+      "path": "native/toom_bench.rs",
+      "baseline_sha256": "c1be0d2aec144ea6d4abf6946206e23f543fdbab0ddb2829278cbaa919b614f2",
+      "candidate_sha256": "e0b5829fc235eeada95e987542073d3e190c0c1d10c7d48ec4f6d787f8fa1daf"
+    },
+    {
+      "side": "previous",
+      "path": "native/toom_codegen.rs",
+      "baseline_sha256": "ed180241882078324268bf9803b4d85d457000e18d4035d44435800e3c3652a7",
+      "candidate_sha256": "17f41d3dbc4ba891dc298c12cb86cbef8339b21dda321deff08c1801e62274f2"
+    },
+    {
+      "side": "previous",
+      "path": "native/toom_words_runner.rs",
+      "baseline_sha256": "ebfc236535004e57a0932a45dd263b8e944064ef394490cf367c92003681126d",
+      "candidate_sha256": "1ed994eab17583d7d0eacf580d897897d4afab5405de58d9d4779d913e783a66"
+    },
+    {
+      "side": "previous",
+      "path": "native/specs/odd_division.rs",
+      "baseline_sha256": null,
+      "candidate_sha256": "2a471b8a9836d404c3b5118c924fe99d9e34816c29630766abbf627817c63aea"
+    },
+    {
+      "side": "previous",
+      "path": "native/specs/toom4.rs",
+      "baseline_sha256": null,
+      "candidate_sha256": "352ff71f3f711225dd6c98e8c89e3491d88fb8f67a614d2f36bc96e4f0f34033"
+    },
+    {
+      "side": "previous",
+      "path": "native/specs/toom4_blocks.rs",
+      "baseline_sha256": null,
+      "candidate_sha256": "caaf8f02256bf53655a4a3d5dbf59ad7283b8ab3f524c7e872c6664eba8ea715"
+    },
+    {
+      "side": "previous",
+      "path": "native/verified/odd_division.rs",
+      "baseline_sha256": null,
+      "candidate_sha256": "ff2b7ecc484d03e248b9f423dde531efd8f1b7fad9000c52854c6c8a32e849b1"
+    },
+    {
+      "side": "previous",
+      "path": "native/verified/toom4_candidate.rs",
+      "baseline_sha256": null,
+      "candidate_sha256": "5bedfab6640c7d5b84bb4d1de95c84e2daa8a7f0f25fdb6ccf20c6f221a84cac"
+    },
+    {
+      "side": "previous",
+      "path": "native/verified/toom4_evaluate.rs",
+      "baseline_sha256": null,
+      "candidate_sha256": "150f2454b5a63318d174a2aa84c32e8dbcc851b77f65b437e16019115483a16e"
+    },
+    {
+      "side": "previous",
+      "path": "native/verified/toom4_interpolate.rs",
+      "baseline_sha256": null,
+      "candidate_sha256": "a54f4bb20ac3a5ff86159255245b4529eca4905e08338f164375a4470813a602"
+    },
+    {
+      "side": "previous",
+      "path": "native/verified/toom4_low.rs",
+      "baseline_sha256": null,
+      "candidate_sha256": "19e062300f1639a3c2af9b5a873f674b4f34b5efe3377bb2008133ad42b0b4a5"
+    },
+    {
+      "side": "previous",
+      "path": "native/verified/toom4_multiply.rs",
+      "baseline_sha256": null,
+      "candidate_sha256": "e62c3b4778cf887146f30d0c7bef8a12c630291063cf967c668ba010afbd116b"
+    },
+    {
+      "side": "previous",
+      "path": "native/verified/toom4_square.rs",
+      "baseline_sha256": null,
+      "candidate_sha256": "efaaf282edac2852829df4d5fd6439a7c18f33413b668d0857f73f9ac1e7d0a0"
+    },
+    {
+      "side": "previous",
+      "path": "native/verified/toom4_square_low.rs",
+      "baseline_sha256": null,
+      "candidate_sha256": "d1ca0f9f60c70436d05a9fb14f631f92f7271f97613efbcdfbd1967dab7cc4df"
+    },
+    {
+      "side": "previous",
+      "path": "native/verified/toom_words.rs",
+      "baseline_sha256": "221e6592c48904135aef8cce941675fe067b8d2b9253bd507293363a3ab104d7",
+      "candidate_sha256": "04786af608e65f40447cfee7defff9f1ab624157708b56237149e588ca5c485d"
+    },
+    {
+      "side": "candidate",
+      "path": "native/lib.rs",
+      "baseline_sha256": "eae4fa2b755108dc29890ba0ae137f2478099a99ae6655eaf1f257c9cf5c4a00",
+      "candidate_sha256": "e8ed4a113899750290ddd8798c6d9ced47dfc6fa59b268e2adcfefc628a73d81"
+    },
+    {
+      "side": "candidate",
+      "path": "native/mac4_bench.rs",
+      "baseline_sha256": "6519f9828fb9dafbbb200926f7358dded24909e462447a1753626c81a399be1f",
+      "candidate_sha256": "79335fb39eb054704b6621803368e965892a6285bc9ab82ec687bea991bcf22f"
+    },
+    {
+      "side": "candidate",
+      "path": "native/square_base_bench.rs",
+      "baseline_sha256": "96d985005b1bf24282c2981fb6ac1290f9ce5ee056c58305798d87fb8447e671",
+      "candidate_sha256": "abd4f11755f244753167bd92447412c16308876a634c9951663de8ce7494dcaa"
+    },
+    {
+      "side": "candidate",
+      "path": "native/toom4_codegen.rs",
+      "baseline_sha256": null,
+      "candidate_sha256": "790d812c35f6cb2ae8af43ac4237beda370786776f5f1a6e38b44cd1ef1df75b"
+    },
+    {
+      "side": "candidate",
+      "path": "native/toom4_runner.rs",
+      "baseline_sha256": null,
+      "candidate_sha256": "cf1174a10954ca9b1a0db7c48304c80e9ecb0bb142bab7d636473db0b0b6c3a3"
+    },
+    {
+      "side": "candidate",
+      "path": "native/toom_bench.rs",
+      "baseline_sha256": "c1be0d2aec144ea6d4abf6946206e23f543fdbab0ddb2829278cbaa919b614f2",
+      "candidate_sha256": "e0b5829fc235eeada95e987542073d3e190c0c1d10c7d48ec4f6d787f8fa1daf"
+    },
+    {
+      "side": "candidate",
+      "path": "native/toom_codegen.rs",
+      "baseline_sha256": "ed180241882078324268bf9803b4d85d457000e18d4035d44435800e3c3652a7",
+      "candidate_sha256": "17f41d3dbc4ba891dc298c12cb86cbef8339b21dda321deff08c1801e62274f2"
+    },
+    {
+      "side": "candidate",
+      "path": "native/toom_words_runner.rs",
+      "baseline_sha256": "ebfc236535004e57a0932a45dd263b8e944064ef394490cf367c92003681126d",
+      "candidate_sha256": "1ed994eab17583d7d0eacf580d897897d4afab5405de58d9d4779d913e783a66"
+    },
+    {
+      "side": "candidate",
+      "path": "native/specs/odd_division.rs",
+      "baseline_sha256": null,
+      "candidate_sha256": "2a471b8a9836d404c3b5118c924fe99d9e34816c29630766abbf627817c63aea"
+    },
+    {
+      "side": "candidate",
+      "path": "native/specs/toom4.rs",
+      "baseline_sha256": null,
+      "candidate_sha256": "352ff71f3f711225dd6c98e8c89e3491d88fb8f67a614d2f36bc96e4f0f34033"
+    },
+    {
+      "side": "candidate",
+      "path": "native/specs/toom4_blocks.rs",
+      "baseline_sha256": null,
+      "candidate_sha256": "caaf8f02256bf53655a4a3d5dbf59ad7283b8ab3f524c7e872c6664eba8ea715"
+    },
+    {
+      "side": "candidate",
+      "path": "native/verified/odd_division.rs",
+      "baseline_sha256": null,
+      "candidate_sha256": "ff2b7ecc484d03e248b9f423dde531efd8f1b7fad9000c52854c6c8a32e849b1"
+    },
+    {
+      "side": "candidate",
+      "path": "native/verified/scaled_subtraction.rs",
+      "baseline_sha256": null,
+      "candidate_sha256": "451292f4889f824a25e14904fb5163785d5ab439303e17aa3f6179d859a3a349"
+    },
+    {
+      "side": "candidate",
+      "path": "native/verified/toom4_candidate.rs",
+      "baseline_sha256": null,
+      "candidate_sha256": "5bedfab6640c7d5b84bb4d1de95c84e2daa8a7f0f25fdb6ccf20c6f221a84cac"
+    },
+    {
+      "side": "candidate",
+      "path": "native/verified/toom4_evaluate.rs",
+      "baseline_sha256": null,
+      "candidate_sha256": "150f2454b5a63318d174a2aa84c32e8dbcc851b77f65b437e16019115483a16e"
+    },
+    {
+      "side": "candidate",
+      "path": "native/verified/toom4_interpolate.rs",
+      "baseline_sha256": null,
+      "candidate_sha256": "1a61a240c3f75722be08a63e1006e2e1deff800cc2163fd569ed33038e9a34ec"
+    },
+    {
+      "side": "candidate",
+      "path": "native/verified/toom4_low.rs",
+      "baseline_sha256": null,
+      "candidate_sha256": "19e062300f1639a3c2af9b5a873f674b4f34b5efe3377bb2008133ad42b0b4a5"
+    },
+    {
+      "side": "candidate",
+      "path": "native/verified/toom4_multiply.rs",
+      "baseline_sha256": null,
+      "candidate_sha256": "e62c3b4778cf887146f30d0c7bef8a12c630291063cf967c668ba010afbd116b"
+    },
+    {
+      "side": "candidate",
+      "path": "native/verified/toom4_square.rs",
+      "baseline_sha256": null,
+      "candidate_sha256": "efaaf282edac2852829df4d5fd6439a7c18f33413b668d0857f73f9ac1e7d0a0"
+    },
+    {
+      "side": "candidate",
+      "path": "native/verified/toom4_square_low.rs",
+      "baseline_sha256": null,
+      "candidate_sha256": "d1ca0f9f60c70436d05a9fb14f631f92f7271f97613efbcdfbd1967dab7cc4df"
+    },
+    {
+      "side": "candidate",
+      "path": "native/verified/toom_words.rs",
+      "baseline_sha256": "221e6592c48904135aef8cce941675fe067b8d2b9253bd507293363a3ab104d7",
+      "candidate_sha256": "04786af608e65f40447cfee7defff9f1ab624157708b56237149e588ca5c485d"
+    }
+  ],
+  "source_patch_sha256": {
+    "previous.patch": "dbd0a52417f88e98500736fc1841b6af83ff699eacfd762998188ed71141dafd",
+    "candidate.patch": "d2e1821a63647a560bb47187b30c249a833ffbdc28ab6511d891a5b39b2cf40b"
+  },
+  "previous_library_proof_items": 289,
+  "parent_odd_experiment_commit": "6d4d967d69d1c1928f0394b1c2c3a348bd99537c",
+  "previous_control_scope": "Exact frozen source bytes of the prior odd-division candidate; that control already missed the registered GMP target",
+  "source_snapshot_files": 230,
+  "measurement_result_original_sha256": "9d65657902cadc76e3abf68b8ca4da71e638b1b4c391a481607f6e4047f466e1",
+  "benchmark_run": true,
+  "production_default_promoted": false,
+  "consumer_pin_changed": false,
+  "runs": {
+    "default1": {
+      "samples": 1456,
+      "minimum_recorded_ns": 10016769,
+      "regressions_vs_baseline": 17,
+      "regressions_vs_previous": 25,
+      "key_gmp_failures": 32,
+      "primary_gmp_failures": 10,
+      "raw_sha256": "bcf91726063536acf4e1d294010b4ac074c9787bbbf2a5a3afcede91ba371651",
+      "performance_status": "target_not_met"
+    },
+    "default2": {
+      "samples": 1456,
+      "minimum_recorded_ns": 10022112,
+      "regressions_vs_baseline": 28,
+      "regressions_vs_previous": 28,
+      "key_gmp_failures": 34,
+      "primary_gmp_failures": 10,
+      "raw_sha256": "8a1ec6c154b867082e05a98513b3aa5315580c1fa87bb65577dbe6d3a35cbac3",
+      "performance_status": "target_not_met"
+    }
+  }
+}

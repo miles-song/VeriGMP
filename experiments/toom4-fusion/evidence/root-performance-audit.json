@@ -1,0 +1,31 @@
+{
+  "status": "pass",
+  "scope": "Independent complete CSV order, sample, median, acceptance and identity audit; no new timing",
+  "script_sha256": "19b9dbcf022c7a9317b6850cfad5e34f073ddde9aaabb5759a1c4dae1c00dd17",
+  "measurement_receipt_sha256": "9d65657902cadc76e3abf68b8ca4da71e638b1b4c391a481607f6e4047f466e1",
+  "verification_sha256": "c249402c4f09867268b5db58b437636275c2b34a224f3593c4d11876a874ba7a",
+  "confirmation_window_sha256": "0121e8697e2491dbf0b48183fefb595ea864896ecb5d50f805b44aeeadbd3de7",
+  "records": 2912,
+  "runs": 2,
+  "groups_per_run": 52,
+  "repetitions": 7,
+  "all_records_at_least_10ms": true,
+  "performance_status": "target_not_met",
+  "key_failures": [
+    32,
+    34
+  ],
+  "primary_failures": [
+    10,
+    10
+  ],
+  "consistent_outcomes": {
+    "regressions_vs_e22": 13,
+    "regressions_vs_previous": 16,
+    "improvements_vs_previous": 15,
+    "key_gmp_failures_both_runs": 32
+  },
+  "production_promotion_approved": false,
+  "source_tool_runtime_artifact_readback": true,
+  "timing_replayed": false
+}

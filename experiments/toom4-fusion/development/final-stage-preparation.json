@@ -1,0 +1,12 @@
+{
+  "status": "prepared_fresh_snapshot_not_gate_acceptance",
+  "previous_fusion_gate_sha256": "92cc31355a7f42a0c3c541ddb5ff8814cbe07cebabbf3ea2d8969878f279863d",
+  "native_source_changes": false,
+  "benchmark_run": false,
+  "changed_gate_inputs": [
+    "measure_interpolation.py",
+    "summarize_confirmations.py",
+    "origin.json",
+    "fusion_codegen.py"
+  ]
+}

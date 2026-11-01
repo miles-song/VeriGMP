@@ -1,0 +1,46 @@
+verification results:: 4 verified, 1 errors (partial verification with `--verify-*`)
+note: verifying module toom4_evaluate
+
+note: assert_nonlinear_by: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> <stage>/candidate/native/verified/toom4_evaluate.rs:13:5
+   |
+13 |     assert(0<...
+   |     ^^^^^^
+
+note: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+ --> <stage>/candidate/native/verified/toom4_evaluate.rs:9:1
+  |
+9 | pub p...:int)
+  | ^^^^^...^^^^^
+
+note: while loop: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> <stage>/candidate/native/verified/toom4_evaluate.rs:29:5
+   |
+29 |     while i<k
+   |     ^^^^^^^^^
+
+note: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> <stage>/candidate/native/verified/toom4_evaluate.rs:18:1
+   |
+18 | pub f...:u64)
+   | ^^^^^...^^^^^
+
+note: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> <stage>/candidate/native/verified/toom4_evaluate.rs:84:1
+   |
+84 | pub f...:bool)
+   | ^^^^^...^^^^^
+
+error: precondition not satisfied
+   --> <stage>/candidate/native/verified/toom4_evaluate.rs:103:11
+    |
+103 | ...se{toom_...,tmp);}
+    |       ^^^^^...^^^^^
+    |
+   ::: <stage>/candidate/native/verified/toom_words.rs:196:42
+    |
+196 | ...(),value...rhs@),
+    |       -----...----- failed precondition
+
+error: aborting due to 1 previous error
+

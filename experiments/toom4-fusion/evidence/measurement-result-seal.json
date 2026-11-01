@@ -1,0 +1,10 @@
+{
+  "status": "sealed",
+  "receipt": "review/measurement-result.json",
+  "sha256": "9d65657902cadc76e3abf68b8ca4da71e638b1b4c391a481607f6e4047f466e1",
+  "retained_development_draft": "review/final-measurement-result.json",
+  "retained_development_draft_sha256": "5dab711517a830201cad27da184f1c47b3036eb038864ed8beefcee912f8465a",
+  "draft_embedded_digest_is_not_file_identity": true,
+  "historical_raw_binding_summary_bytes_changed": false,
+  "benchmark_rerun": false
+}

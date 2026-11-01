@@ -1,0 +1,80 @@
+{
+  "status": "pass",
+  "scope": "Two complete fixed-source runs; measurement result is immutable evidence, not production acceptance",
+  "candidate": "Four-group Toom-4 interpolation scaled-subtraction fusion",
+  "baseline_commit": "e22a4dd00a28681fd27d68e2a78fa304cf17563e",
+  "performance_status": "target_not_met",
+  "production_default_promoted": false,
+  "consumer_pin_changed": false,
+  "no_result_based_rerun": true,
+  "verification_report_sha256": "c249402c4f09867268b5db58b437636275c2b34a224f3593c4d11876a874ba7a",
+  "root_prebenchmark_audit_sha256": "ee013a564156a7ab9ba5fdc12474f34d6b00b0fbdb835580cbe54a383d964cd6",
+  "final_audit_sha256": "4419054e59f0edee840e21416e29b3ed48216e3f3bc868c1c073973ae90f8300",
+  "measurement_readiness_sha256": "7d1ca12fefa3f61338d6103b1c03e93d2ad63c6f8ebcb4ea5022fd1f5feb730c",
+  "confirmation_window_sha256": "0121e8697e2491dbf0b48183fefb595ea864896ecb5d50f805b44aeeadbd3de7",
+  "performance_summary_sha256": "268ff3aedd143181c3260c09602b7d3d9db8e51863f6f15ba45112984946a634",
+  "performance_comparison_sha256": "75413c9c6968ae70a66adf72a19769ae3d8defc935faa0ace28d776f9cedd421",
+  "measurement_controller_sha256": "2b37e639b8e6ea36d283e616c7e05e5c7fe05f62cc26b3325ea5dc6e4fc3a045",
+  "benchmark_source_sha256": "652f3c3d6440d3b3b6eba36f00e8115374ed0cc84b6aadc2ccd91e4c8e31a2c6",
+  "benchmark_binary_sha256": "dcc3e4f1210eac9f02035428697a82e5f9a2cf83574319fa83547d43975df7ae",
+  "runs": [
+    {
+      "tag": "default1",
+      "raw_sha256": "bcf91726063536acf4e1d294010b4ac074c9787bbbf2a5a3afcede91ba371651",
+      "binding_sha256": "ef5462bbd06329adeff38a0ff820c3d58c8a62606af72f6f530141c6f11fb39d",
+      "measurements_sha256": "3daa82b8b9c31c842fce7be42a4d787591c3a305a460d36869366362fd5e8694",
+      "samples": 1456,
+      "minimum_recorded_ns": 10016769,
+      "primary_gmp_failures": 10,
+      "key_gmp_failures": 32,
+      "regressions_vs_baseline": 17,
+      "regressions_vs_previous": 25,
+      "candidate_over_gmp_median_all_52": 1.254508724280158,
+      "candidate_over_gmp_median_mul_26": 1.3648405603112836,
+      "candidate_over_gmp_median_square_26": 1.2430267295645696,
+      "candidate_over_gmp_max": 2.0816440906454345
+    },
+    {
+      "tag": "default2",
+      "raw_sha256": "8a1ec6c154b867082e05a98513b3aa5315580c1fa87bb65577dbe6d3a35cbac3",
+      "binding_sha256": "8527e4b80adcd94f93d4c9aaa2a24678fdf75561ca0550cb5a98f4d5225da498",
+      "measurements_sha256": "42546ea5e1a990cc443fc0a1daf2444bde3ee7ab45cfde886c1bbd0ba24b7f32",
+      "samples": 1456,
+      "minimum_recorded_ns": 10022112,
+      "primary_gmp_failures": 10,
+      "key_gmp_failures": 34,
+      "regressions_vs_baseline": 28,
+      "regressions_vs_previous": 28,
+      "candidate_over_gmp_median_all_52": 1.2696292683667914,
+      "candidate_over_gmp_median_mul_26": 1.377473258197591,
+      "candidate_over_gmp_median_square_26": 1.2637951930029612,
+      "candidate_over_gmp_max": 2.0596826102942845
+    }
+  ],
+  "consistent_outcomes": {
+    "regressions_vs_e22": 13,
+    "regressions_vs_previous": 16,
+    "improvements_vs_previous": 15
+  },
+  "next_analysis": {
+    "status": "planned_diagnostic_not_implemented",
+    "priority": "Diagnose the remaining 4096-limb gap and repeated sub-512 regressions from actual generated code and fixed dispatch paths",
+    "current_evidence": [
+      "Toom-4 interpolation source selected operations 40 to 32",
+      "Matched compare binary interpolation instructions excluding int3 1242 to 923",
+      "mul/imul count remains 19 in both controls",
+      "mul_mod and square_large normalized entry bodies match between previous and candidate"
+    ],
+    "next_questions": [
+      "Separate interpolation instruction reduction from recursive leaf and dispatch costs",
+      "Inspect register pressure, stack spills, memory traffic and recursive call boundaries at 4096",
+      "Explain repeated sub-512 regressions without threshold tuning or result-selected reruns"
+    ],
+    "constraints": [
+      "No production default or consumer pin change until target passes",
+      "No machine-cost theorem inferred from instruction counts",
+      "Any next candidate requires a fresh proof/oracle/mutation/codegen gate and a predeclared complete matrix"
+    ]
+  },
+  "result_sha256": "cf55913e20be38ed5914125c07d7f0180e32caf3d0be18884783248e7586a403"
+}
