@@ -5,25 +5,8 @@ use crate::radix::*;
 use crate::product::*;
 use crate::fast_product::*;
 use crate::{kernel,limbs,multiply};
+pub use crate::kernel::sub_limb as sub_word;
 verus! {
-
-pub fn sub_word(a:u64,b:u64,borrow:u64)->(out:(u64,u64))
-    requires borrow<=1,
-    ensures out.1<=1,
-        out.0 as int - base()*(out.1 as int) == (a as int)-(b as int)-(borrow as int),
-{
-    let difference=a.wrapping_sub(b);let first=a<b;
-    let low=difference.wrapping_sub(borrow);let second=difference<borrow;
-    proof {
-        assert(!(first && second));
-        assert((low as int)-base()*((first||second) as int)==(a as int)-(b as int)-(borrow as int))
-            by(nonlinear_arith)
-            requires difference as int==(a as int)-(b as int)+(if first {base()}else{0}),
-                low as int==(difference as int)-(borrow as int)+(if second {base()}else{0}),
-                !(first && second);
-    }
-    (low,(first||second) as u64)
-}
 
 pub fn copy_words(dst:&mut[u64],src:&[u64])
     requires old(dst)@.len()==src@.len(),

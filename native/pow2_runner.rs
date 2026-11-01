@@ -23,12 +23,17 @@ fn main() {
         let result = match op {
             "mask" => vec![pow2::mask_word(words[0], top)],
             "norm" => { let mut dst = words; pow2::normalize_top(&mut dst, top); dst },
-            "add" => {
+            "add" | "sub" | "subraw" => {
                 assert!(words.len() % 2 == 0);
                 let n = words.len() / 2;
-                let mut dst = words[..n].to_vec();
-                pow2::add_mod_assign(&mut dst, &words[n..], top);
-                dst
+                let mut dst = vec![u64::MAX;n+2];dst[1..n+1].copy_from_slice(&words[..n]);
+                if op=="add" {pow2::add_mod_assign(&mut dst[1..n+1], &words[n..], top);}
+                else if op=="sub" {pow2::sub_mod_assign(&mut dst[1..n+1], &words[n..], top);}
+                else {let borrow=limbs::sub_assign(&mut dst[1..n+1],&words[n..]);
+                    assert_eq!((dst[0],dst[n+1]),(u64::MAX,u64::MAX));
+                    let mut result=dst[1..n+1].to_vec();result.push(borrow);
+                    writeln!(output,"{}",result.iter().map(u64::to_string).collect::<Vec<_>>().join(" ")).unwrap();continue;}
+                assert_eq!((dst[0],dst[n+1]),(u64::MAX,u64::MAX));dst[1..n+1].to_vec()
             },
             _ => panic!("unsupported operation"),
         };

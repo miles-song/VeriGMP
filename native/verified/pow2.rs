@@ -86,4 +86,19 @@ pub fn add_mod_assign(dst: &mut [u64], rhs: &[u64], top: u32)
     }
 }
 
+pub fn sub_mod_assign(dst:&mut[u64],rhs:&[u64],top:u32)
+    requires old(dst)@.len()>0,old(dst)@.len()==rhs@.len(),1<=top<=64,
+    ensures final(dst)@.len()==old(dst)@.len(),
+        value(final(dst)@)==(value(old(dst)@)-value(rhs@))%modulus(rhs@.len(),top as nat),
+        0<=value(final(dst)@)<modulus(rhs@.len(),top as nat),
+{
+    assert!(dst.len()>0);assert!(1<=top && top<=64);
+    let ghost before=dst@;
+    let _borrow=limbs::sub_assign(dst,rhs);
+    normalize_top(dst,top);
+    proof {
+        modulus_properties(rhs@.len(),top as nat);lemma_pow2_pos((64-top) as nat);
+        lemma_mod_mod(value(before)-value(rhs@),modulus(rhs@.len(),top as nat),pow2((64-top) as nat) as int);
+    }
+}
 } // verus!

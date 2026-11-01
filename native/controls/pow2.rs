@@ -24,3 +24,9 @@ pub fn add_mod_assign(dst: &mut [u64], rhs: &[u64], top: u32) {
     let _carry = limb_control::add_assign(dst, rhs);
     normalize_top(dst, top);
 }
+
+pub fn sub_mod_assign(dst:&mut[u64],rhs:&[u64],top:u32) {
+    assert!(dst.len()>0);assert!(1<=top && top<=64);
+    let _borrow=limb_control::sub_assign(dst,rhs);
+    normalize_top(dst,top);
+}

@@ -22,5 +22,9 @@ pub fn ordinary_normalize(dst: &mut [u64], top: u32) { control::normalize_top(ds
 pub fn verified_add_mod(dst: &mut [u64], rhs: &[u64], top: u32) { pow2::add_mod_assign(dst, rhs, top); }
 #[no_mangle]
 pub fn ordinary_add_mod(dst: &mut [u64], rhs: &[u64], top: u32) { control::add_mod_assign(dst, rhs, top); }
+#[no_mangle]
+pub fn verified_sub_mod(dst:&mut[u64],rhs:&[u64],top:u32){pow2::sub_mod_assign(dst,rhs,top);}
+#[no_mangle]
+pub fn ordinary_sub_mod(dst:&mut[u64],rhs:&[u64],top:u32){control::sub_mod_assign(dst,rhs,top);}
 
 fn main() {}

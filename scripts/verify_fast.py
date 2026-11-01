@@ -145,7 +145,7 @@ def check_fast(snapshot,verifier,env,output):
 
         report['mutations']=[]
         for path,name,before,after in [
-            ('fast_words.rs','drop_second_borrow','(low,(first||second) as u64)','(low,first as u64)'),
+            ('kernel.rs','drop_second_borrow','(low,(first||second) as u64)','(low,first as u64)'),
             ('fast_words.rs','accumulate_old_first_row','multiply::mac(word,rhs[i],0,carry)','multiply::mac(word,rhs[i],dst[i],carry)'),
             ('fast_multiply.rs','flip_difference_sign','let negative=neg_a!=neg_b;','let negative=neg_a==neg_b;'),
             ('fast_multiply.rs','drop_cross_high','words::add_cross(&mut dst[k..],diff_product,high);','words::add_cross(&mut dst[k..],diff_product,0);'),

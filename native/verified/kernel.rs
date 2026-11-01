@@ -39,4 +39,22 @@ pub fn add_limb(a: u64, b: u64, carry: u64) -> (answer: (u64, u64))
     ((sum % base) as u64, (sum / base) as u64)
 }
 
+pub fn sub_limb(a:u64,b:u64,borrow:u64)->(out:(u64,u64))
+    requires borrow<=1,
+    ensures out.1<=1,
+        out.0 as int - 18446744073709551616int*(out.1 as int) == (a as int)-(b as int)-(borrow as int),
+{
+    let difference=a.wrapping_sub(b);let first=a<b;
+    let low=difference.wrapping_sub(borrow);let second=difference<borrow;
+    proof {
+        assert(!(first && second));
+        assert((low as int)-18446744073709551616int*((first||second) as int)==(a as int)-(b as int)-(borrow as int))
+            by(nonlinear_arith)
+            requires difference as int==(a as int)-(b as int)+(if first {18446744073709551616int}else{0}),
+                low as int==(difference as int)-(borrow as int)+(if second {18446744073709551616int}else{0}),
+                !(first && second);
+    }
+    (low,(first||second) as u64)
+}
+
 } // verus!
