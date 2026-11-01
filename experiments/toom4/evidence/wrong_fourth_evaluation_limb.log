@@ -1,0 +1,44 @@
+verification results:: 4 verified, 1 errors (partial verification with `--verify-*`)
+note: verifying module toom4_evaluate
+
+note: assert_nonlinear_by: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> <stage>/candidate/native/verified/toom4_evaluate.rs:13:5
+   |
+13 |     assert(0<...
+   |     ^^^^^^
+
+note: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+ --> <stage>/candidate/native/verified/toom4_evaluate.rs:9:1
+  |
+9 | pub p...:int)
+  | ^^^^^...^^^^^
+
+note: while loop: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> <stage>/candidate/native/verified/toom4_evaluate.rs:29:5
+   |
+29 |     while i<k
+   |     ^^^^^^^^^
+
+note: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> <stage>/candidate/native/verified/toom4_evaluate.rs:18:1
+   |
+18 | pub f...:u64)
+   | ^^^^^...^^^^^
+
+error: assertion failed
+  --> <stage>/candidate/native/verified/toom4_evaluate.rs:73:20
+   |
+73 |               assert(prefix(dst@,(i+1) as nat)+radix((i+1) as nat)*(next as int)
+   |  ____________________^
+74 | |                 ==(w0 as int)*prefix(a0@,(i+1) as nat)+(w1 as int)*prefix(a1@,(i+1) as nat)
+75 | |                     +(w2 as int)*prefix(a2@,(i+1) as nat)+(w3 as int)*extended(a3@,(i+1) as nat));
+   | |________________________________________________________________________________________________^ assertion failed
+
+note: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> <stage>/candidate/native/verified/toom4_evaluate.rs:84:1
+   |
+84 | pub f...:bool)
+   | ^^^^^...^^^^^
+
+error: aborting due to 1 previous error
+

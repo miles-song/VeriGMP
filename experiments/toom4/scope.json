@@ -1,0 +1,27 @@
+{
+  "status": "candidate_scope_not_an_acceptance_record",
+  "production_default_changed": false,
+  "module_domains": {
+    "full_product": "equal nonempty inputs, 2n output limbs, caller scratch >=12n, fixed or caller-selected threshold >=24",
+    "full_square": "nonempty input, 2n output limbs, caller scratch >=10n, threshold >=24",
+    "weighted_evaluation": "three equal blocks plus a no-longer-than-first fourth block; each weight <=8 and total weights <=15; k+1 output limbs",
+    "interpolation": "seven independently input-defined nonnegative coefficients and 128 times their sum below output radix; exact odd divisors 3,9,15",
+    "low_product_and_square": "same precision and split conventions as existing verified low kernels"
+  },
+  "resource_evidence": "Actual recursive bodies include the disjoint caller-scratch layout and slice length obligations; acceptance requires the matching full verification report",
+  "asymptotic_scope": {
+    "domain": "limb count n, fixed cutoff independent of n",
+    "exponent": "log_4(7)",
+    "checked_cost_theorem": false,
+    "relation_to_sat_variable_count": "No claim about whole SAT solver complexity is made by this arithmetic experiment",
+    "actual_full_call_structure": "T_full(k)+T_full(h)+5T_full(m)+O(n), k=ceil(n/4), h=n-3k, m=k+1",
+    "full_upper_bound": "T_full(n)<=2T_full(k)+5T_full(m)+O(n)<=7T_full(m)+O(n), using a monotone worst-case envelope",
+    "dedicated_square_full": "Same seven-call structure with T_square_full",
+    "low_product": "T_low(n)<=T_full(k)+2T_low(h)+O(n)",
+    "low_square": "T_square_low(n)<=T_square_full(k)+T_low_product(h)+O(n)"
+  },
+  "independent_oracle_cases": 25062,
+  "new_semantic_mutants": 18,
+  "new_invalid_commands": 6,
+  "performance_claim": "No performance acceptance follows from this scope; separate fixed-source measurements are required"
+}

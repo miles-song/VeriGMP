@@ -1,0 +1,91 @@
+note: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> <stage>/candidate/native/specs/toom4.rs:43:1
+   |
+43 | pub p...int>)
+   | ^^^^^...^^^^^
+
+error: postcondition not satisfied
+  --> <stage>/candidate/native/specs/toom4.rs:51:9
+   |
+43 | pub p...int>)
+   | -----...----- at the end of the function body
+...
+51 |         half(...a,b)),
+   |         ^^^^^...^^^^^ failed this postcondition
+
+error: postcondition not satisfied
+  --> <stage>/candidate/native/specs/toom4.rs:52:9
+   |
+43 | pub p...int>)
+   | -----...----- at the end of the function body
+...
+52 |         negat...a,b)),
+   |         ^^^^^...^^^^^ failed this postcondition
+
+note: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+   --> <stage>/candidate/native/specs/toom4.rs:141:1
+    |
+141 | pub p...:int)
+    | ^^^^^...^^^^^
+
+error: postcondition not satisfied
+   --> <stage>/candidate/native/specs/toom4.rs:143:13
+    |
+141 | pub p...:int)
+    | -----...----- at the end of the function body
+142 |     requires a.len()==4,r>0,forall|i:int|0<=i<4 ==>...
+143 |     ensures 0<=ev...)<4*r,-2*r<eval(a,-1)<2*r,
+    |             ^^^^^...^^^^^ failed this postcondition
+
+error: postcondition not satisfied
+   --> <stage>/candidate/native/specs/toom4.rs:143:30
+    |
+141 | pub p...:int)
+    | -----...----- at the end of the function body
+142 |     requires a.len()==4,r>0,forall|i:int|0<=i<4 ==>...
+143 |     ensures 0<=eval(a,1)<4*r,-2*r<...)<2*r,
+    |                              ^^^^^...^^^^^ failed this postcondition
+
+note: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+   --> <stage>/candidate/native/specs/toom4.rs:147:1
+    |
+147 | pub p...:int)
+    | ^^^^^...^^^^^
+
+error: assertion failed
+   --> <stage>/candidate/native/specs/toom4.rs:160:40
+    |
+160 | ...es 0<=#[...4*r*r by {}
+    |       ^^^^^...^^^^^ assertion failed
+
+error: postcondition not satisfied
+   --> <stage>/candidate/native/specs/toom4.rs:152:9
+    |
+152 |         0<=on...6*r*r,
+    |         ^^^^^...^^^^^ failed this postcondition
+...
+160 |     assert forall|i:int|0<=i<7 implies 0<=#...
+    |     ------ at the end of the function body
+
+note: recommendation not met
+   --> <stage>/candidate/native/specs/toom4.rs:160:43
+    |
+160 | ...0<=#[tri... c[i]<4*...
+    |       ^^^^^...^^^^^
+    |
+   --> seq.rs:980:12
+    |
+    = note: recommendation not met
+
+error: postcondition not satisfied
+   --> <stage>/candidate/native/specs/toom4.rs:180:13
+    |
+178 | pub p...:int)
+    | -----...----- at the end of the function body
+179 |     requires d>0,
+180 |     ensures (d*q)%d==0,(d*q)/d==q,
+    |             ^^^^^^^^^^ failed this postcondition
+
+verification results:: 7 verified, 4 errors
+error: aborting due to 7 previous errors
+

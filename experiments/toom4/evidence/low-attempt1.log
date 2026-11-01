@@ -1,0 +1,7 @@
+note: verifying module toom4_low
+
+note: verifying module toom4_low, function lib::toom4_low::low
+
+note: verifying module toom4_square_low, function lib::toom4_square_low::low
+
+verification results:: 6 verified, 0 errors (partial verification with `--verify-*`)

@@ -1,0 +1,128 @@
+[
+  [
+    "toom4_evaluate.rs",
+    "drop_evaluation_carry",
+    "carry=next;i+=1;",
+    "carry=0;i+=1;",
+    "toom4_evaluate"
+  ],
+  [
+    "toom4_evaluate.rs",
+    "wrong_fourth_evaluation_limb",
+    "+(w3 as u128)*(x3 as u128)",
+    "+(w3 as u128)*(x2 as u128)",
+    "toom4_evaluate"
+  ],
+  [
+    "toom4_evaluate.rs",
+    "drop_evaluation_high_word",
+    "dst[k]=carry;",
+    "dst[k]=0;",
+    "toom4_evaluate"
+  ],
+  [
+    "toom4_evaluate.rs",
+    "reverse_signed_comparison",
+    "let neg=fast_words::less(dst,tmp);",
+    "let neg=fast_words::less(tmp,dst);",
+    "toom4_evaluate"
+  ],
+  [
+    "toom4_interpolate.rs",
+    "wrong_cubic_elimination_factor",
+    "scale_exact(scratch,17)",
+    "scale_exact(scratch,16)",
+    "toom4_interpolate"
+  ],
+  [
+    "toom4_interpolate.rs",
+    "wrong_cubic_exact_divisor",
+    "divide_exact(scratch,9)",
+    "divide_exact(scratch,3)",
+    "toom4_interpolate"
+  ],
+  [
+    "toom4_interpolate.rs",
+    "wrong_linear_exact_divisor",
+    "divide_exact(ph,15)",
+    "divide_exact(ph,5)",
+    "toom4_interpolate"
+  ],
+  [
+    "toom4_interpolate.rs",
+    "wrong_half_even_divisor",
+    "divide_exact(pmh,4)",
+    "divide_exact(pmh,2)",
+    "toom4_interpolate"
+  ],
+  [
+    "toom4_interpolate.rs",
+    "omit_fifth_coefficient_subtraction",
+    "toom_words::sub_exact(p1,scratch);",
+    "/* semantic mutant omits final subtraction */",
+    "toom4_interpolate"
+  ],
+  [
+    "toom4_interpolate.rs",
+    "wrong_high_coefficient_offset",
+    "add_shifted(dst,z6,6*k)",
+    "add_shifted(dst,z6,5*k)",
+    "toom4_interpolate"
+  ],
+  [
+    "toom4_multiply.rs",
+    "wrong_negative_half_sign",
+    "let negative_half=nha!=nhb;",
+    "let negative_half=nha==nhb;",
+    "toom4_multiply"
+  ],
+  [
+    "toom4_multiply.rs",
+    "wrong_high_product_operand",
+    "full(&mut p6[..2*h],a3,b3,work,threshold);",
+    "full(&mut p6[..2*h],a3,a3,work,threshold);",
+    "toom4_multiply"
+  ],
+  [
+    "toom4_multiply.rs",
+    "wrong_positive_two_evaluation",
+    "weighted(ax,a0,a1,a2,a3,1,2,4,8)",
+    "weighted(ax,a0,a1,a2,a3,1,2,4,4)",
+    "toom4_multiply"
+  ],
+  [
+    "toom4_multiply.rs",
+    "omit_toom4_base_product",
+    "toom_multiply::full(dst,a,b,scratch,192);return;",
+    "toom_words::zero(dst);return;",
+    "toom4_multiply"
+  ],
+  [
+    "toom4_square.rs",
+    "omit_negative_point_square",
+    "full(pm,ax,work,threshold);",
+    "toom_words::zero(pm);",
+    "toom4_square"
+  ],
+  [
+    "toom4_square.rs",
+    "omit_toom4_base_square",
+    "toom_square::full(dst,a,scratch,192);return;",
+    "toom_words::zero(dst);return;",
+    "toom4_square"
+  ],
+  [
+    "toom4_low.rs",
+    "wrong_low_product_operand",
+    "toom4_multiply::full(product,&a[..k],&b[..k],work,threshold);",
+    "toom4_multiply::full(product,&a[..k],&a[..k],work,threshold);",
+    "toom4_low"
+  ],
+  [
+    "toom4_square_low.rs",
+    "omit_second_cross_square_term",
+    "let _carry=limbs::add_assign(&mut dst[k..],temp);\n    proof {",
+    "/* semantic mutant omits second cross term */\n    proof {",
+    "toom4_square_low"
+  ]
+]

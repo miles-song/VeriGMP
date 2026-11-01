@@ -1,0 +1,30 @@
+{
+  "status": "analysis_only_not_implemented_or_measured",
+  "problem": "Twelve registered shapes below 512 limbs regressed in both runs. The candidate entry wrappers differ despite normalized equality of the inspected existing kernels.",
+  "causal_boundary": "Static instruction differences do not establish the cause or magnitude of the regressions. No unobserved result is assigned to noise.",
+  "proposal": "Create a separate candidate with a direct small-product branch and an isolated large-product path, eliminating the duplicate arithmetic-dispatch trampoline. Examine inlining and branch placement for the square entry while preserving its small-kernel frame and all mathematical contracts.",
+  "frozen_policy_to_preserve": {
+    "minimum_limbs": 512,
+    "full_toom4_cutoff": 256,
+    "product_low_limit": 128,
+    "product_split_mode": 2,
+    "square_low_limit": 64,
+    "square_split_mode": 1
+  },
+  "proof_obligations": [
+    "Both dispatch branches refine the same input-defined modular product or square.",
+    "Retain complete length, top-bit, alias, overflow and capacity domains; no narrower shortcut specification.",
+    "Preserve product 12n and square 10n caller-scratch requirements and actual disjoint slice bounds.",
+    "Keep the same recursive mathematical kernels and termination arguments. No new proof escape or unchecked intrinsic.",
+    "Treat wrapper restructuring as constant overhead only. It does not improve the analytic recurrence exponent."
+  ],
+  "codegen_acceptance_before_timing": [
+    "The small-product call path has one dispatch length decision and no added save/restore tail-jump trampoline.",
+    "The small-square path does not acquire the large-path stack frame or extra allocation.",
+    "Compare complete reachable kernels and successful entry paths against both the baseline and this frozen candidate; retain any differences.",
+    "Inspect actual optimized code, not only source attributes; no claim of a complete formal machine-stack theorem."
+  ],
+  "experimental_requirements": "A new immutable verification snapshot, independent oracle, semantic mutations, codegen gate and two predeclared complete 52-shape runs with seven repetitions and actual batches >=10ms. Retain all regressions and compare against both the baseline and this candidate. Do not change cutoffs after inspecting favorable rows.",
+  "larger_gap": "The 4096-limb candidate/GMP ratios remain 2.15619/2.10776 for product and 1.94239/1.86450 for square. Entry-wrapper work alone cannot be assumed to close this gap.",
+  "production_status": "No change to canonical main, default dispatch, or consuming backend."
+}

@@ -1,0 +1,18 @@
+error[E0283]: type annotations needed
+   --> <stage>/candidate/native/specs/toom4.rs:149:37
+    |
+149 | ...=0{0}el...
+    |       ^ cannot infer type of the type parameter `hint_please_add_suffix_on_literal_like_100u32_or_100int_or_100nat` declared on the function `spec_literal_integer`
+    |
+    = note: the type must implement `Integer`
+    = note: required for `int` to implement `SpecAdd<_>`
+    = note: the full name for the type has been written to 'spec_runner.long-type-4726896508047578514.txt'
+    = note: consider using `--verbose` to print the full type name to the console
+help: consider specifying a concrete type for the type parameter `hint_please_add_suffix_on_literal_like_100u32_or_100int_or_100nat`
+    |
+149 |     requires n>=25,k==n/4+if n%4==0{0::</* Type */>}else{1},m==k+1,
+    |                                      ++++++++++++++
+
+error: aborting due to 1 previous error
+
+For more information about this error, try `rustc --explain E0283`.

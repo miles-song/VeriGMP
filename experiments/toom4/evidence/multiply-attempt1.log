@@ -1,0 +1,50 @@
+note: verifying module toom4_interpolate
+
+note: verifying module toom4_multiply, function lib::toom4_multiply::full
+
+error: requires not satisfied
+  --> <stage>/candidate/native/verified/toom4_multiply.rs:70:17
+   |
+70 | ...   (if n...a,-1),(i...
+   |       ^^^^^...^^^^^
+
+note: function body check has been running for 2 seconds
+      reporting errors as they are discovered (they may not be in source order)
+  --> <stage>/candidate/native/verified/toom4_multiply.rs:11:1
+   |
+11 | pub f...size)
+   | ^^^^^...^^^^^
+
+note: function body check finished in 2 seconds
+  --> <stage>/candidate/native/verified/toom4_multiply.rs:11:1
+   |
+11 | pub f...size)
+   | ^^^^^...^^^^^
+
+error: requires not satisfied
+  --> <stage>/candidate/native/verified/toom4_multiply.rs:70:58
+   |
+70 | ...1),(if n...b,-1),
+   |       ^^^^^...^^^^^
+
+note: function body check finished in 5 seconds
+  --> <stage>/candidate/native/verified/toom4_multiply.rs:11:1
+   |
+11 | pub f...size)
+   | ^^^^^...^^^^^
+
+error: function body check: resource limit (rlimit) exceeded; consider rerunning with `--profile` for more details
+  --> <stage>/candidate/native/verified/toom4_multiply.rs:11:1
+   |
+11 | pub f...size)
+   | ^^^^^...^^^^^
+
+note: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> <stage>/candidate/native/verified/toom4_multiply.rs:11:1
+   |
+11 | pub f...size)
+   | ^^^^^...^^^^^
+
+verification results:: 5 verified, 1 errors (partial verification with `--verify-*`)
+error: aborting due to 3 previous errors
+
