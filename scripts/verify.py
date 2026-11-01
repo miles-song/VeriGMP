@@ -62,7 +62,9 @@ def verify(output,export_dir):
         sources=sorted((ROOT/'native').rglob('*.rs'))
         files=sources+sorted((ROOT/'native/controls').glob('*.cpp'))+sorted((ROOT/'scripts').glob('*.py'))
         files+=sorted((ROOT/'native').glob('*.json'))
-        files+=[ROOT/p for p in ('README.md','AGENTS.md','LICENSE','.gitattributes','.gitignore','.github/workflows/verify.yml')]
+        files+=[ROOT/p for p in ('README.md','README.zh-CN.md','CONTRIBUTING.md','AGENTS.md','LICENSE','.gitattributes','.gitignore','.github/workflows/verify.yml')]
+        examples=sorted((ROOT/'examples').glob('*.rs'))
+        files+=examples+[p for p in sorted((ROOT/'docs').rglob('*')) if p.is_file()]
         inputs={p.relative_to(ROOT):p.read_bytes() for p in files}
         report['source_hashes_lf']={p.as_posix():hashlib.sha256(data.replace(b'\r\n',b'\n')).hexdigest() for p,data in inputs.items()}
         forbidden=r'\b(assume|admit|axiom)\s*\(|verifier::(external_body|external_fn_specification|external|trusted|verify\s*=\s*false)'
@@ -78,6 +80,19 @@ def verify(output,export_dir):
             match=re.search(r'verification results:: (\d+) verified, 0 errors',log)
             if not match:raise RuntimeError('Missing successful library verification')
             report['library']={'verified_items':int(match[1]),'files':{p.name:digest(p) for p in (library,metadata)}}
+            report['examples']=[]
+            for source in examples:
+                relative=source.relative_to(ROOT);binary=snapshot/source.stem
+                log=run([verifier,snapshot/relative,'--import',f'verigmp={metadata}',
+                    '--extern',f'verigmp={library}','--compile','-O','-o',binary],source.stem+'-build.log',snapshot)
+                match=re.search(r'verification results:: (\d+) verified, 0 errors',log)
+                if not match:raise RuntimeError(f'Missing successful example verification: {relative}')
+                binary_hash=digest(binary)
+                result=run([binary],source.stem+'-output.log',snapshot)
+                if digest(binary)!=binary_hash:raise RuntimeError(f'Example binary changed during execution: {relative}')
+                report['examples'].append({'source':relative.as_posix(),'binary_sha256':binary_hash,
+                    'verified_items':int(match[1]),'output':result,
+                    'scope':'Verus checks annotated callers; ordinary main and runtime assertions are executable tests'})
             for name,check in [('limbs',check_limbs),('pow2',check_pow2),('multiply',check_multiply),('fast_multiply',check_fast),('toom',check_toom)]:
                 report[name]=check(snapshot,verifier,env,output/name)
             if any((ROOT/p).read_bytes()!=data for p,data in inputs.items()):raise RuntimeError('Source changed during verification')
