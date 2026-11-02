@@ -37,3 +37,6 @@ jobs:
       - run: python3 experiments/toom8-primitives/normalization/audit.py
       - run: python3 experiments/toom8-primitives/normalization/test_prepare_boundaries.py
       - run: python3 experiments/toom8-primitives/normalization/prepare.py --output /tmp/verigmp-normalization
+      - run: python3 experiments/toom8-primitives/even/audit.py
+      - run: python3 experiments/toom8-primitives/even/test_prepare_boundaries.py
+      - run: python3 experiments/toom8-primitives/even/prepare.py --output /tmp/verigmp-even

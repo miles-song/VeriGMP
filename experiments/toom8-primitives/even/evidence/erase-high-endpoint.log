@@ -1,0 +1,26 @@
+verification results:: 1 verified, 1 errors (partial verification with `--verify-*`)
+note: verifying module toom8_even
+
+note: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> <stage>/feature-gates/even-feature1/inputs/candidate/native/verified/toom8_even.rs:10:1
+   |
+10 | pub f...size)
+   | ^^^^^...^^^^^
+
+note: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> <stage>/feature-gates/even-feature1/inputs/candidate/native/verified/toom8_even.rs:81:1
+   |
+81 | pub f...size)
+   | ^^^^^...^^^^^
+
+error: precondition not satisfied
+   --> <stage>/feature-gates/even-feature1/inputs/candidate/native/verified/toom8_even.rs:141:5
+    |
+ 26 |         value...int)),
+    |         -----...----- failed precondition
+...
+141 |     with_...hold);
+    |     ^^^^^...^^^^^
+
+error: aborting due to 1 previous error
+

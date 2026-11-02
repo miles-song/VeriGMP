@@ -1,0 +1,63 @@
+{
+  "status": "pass",
+  "report_sha256": "6318278299c08c70baaaca358f24d9c3733baa6c32383f4b65faafe0b81d93e2",
+  "audit_source_sha256": "064e2425400f10d079d9c52f5a7aa0cbb9548a03863858af1ca849a1fc1070de",
+  "source_inputs": 108,
+  "tools": 21,
+  "runtimes": 3,
+  "artifacts": 4,
+  "locked_paths": 374,
+  "verified_full_library_runner_codegen": [
+    502,
+    502,
+    502
+  ],
+  "true_scoped_mutants": {
+    "skip-node-0": [
+      "1",
+      "1"
+    ],
+    "skip-node-3": [
+      "1",
+      "1"
+    ],
+    "skip-node-5": [
+      "1",
+      "1"
+    ],
+    "wrong-node-four": [
+      "1",
+      "1"
+    ],
+    "swap-even-odd-two": [
+      "1",
+      "1"
+    ],
+    "skip-newton": [
+      "1",
+      "1"
+    ],
+    "swap-newton-nodes": [
+      "1",
+      "1"
+    ],
+    "square-low-endpoint": [
+      "1",
+      "1"
+    ],
+    "erase-high-endpoint": [
+      "1",
+      "1"
+    ],
+    "swap-shared-endpoints": [
+      "1",
+      "1"
+    ]
+  },
+  "mixed_fatal_rejections": 90,
+  "oracle_cases": 336,
+  "invalid_commands": 12,
+  "saved_runner_replayed": true,
+  "no_new_proof_escape": true,
+  "boundary": "Actual eight-block inputs produce shared endpoints and twelve point child products, discharge all six even Newton node and nonnegative coefficient preconditions, and return c2,c4,c6,c8,c10,c12 while preserving six odd normalized nodes. k=0 and empty final blocks are covered. Caller scratch 18*(k+1) excludes twelve output buffers of 2*(k+1); shared-endpoint core uses 14*(k+1). Seventh odd node, odd caller, full recomposition/recursion, total workspace/cost and performance remain open."
+}

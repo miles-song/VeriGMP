@@ -1,0 +1,36 @@
+{
+  "accepted_gate": "even-feature1",
+  "attempts": [
+    {
+      "name": "even-focused1",
+      "reported_status": "error",
+      "report": "development/even-focused1/report.json",
+      "source_overlays": {
+        "candidate/native/verified/toom8_even.rs": "development/even-focused1/overlays/candidate/native/verified/toom8_even.rs",
+        "check_development.py": "development/even-focused1/overlays/check_development.py",
+        "origin.json": "development/even-focused1/overlays/origin.json"
+      },
+      "status_boundary": "Historical record; accepted gate is even-feature1."
+    },
+    {
+      "name": "even-focused2",
+      "reported_status": "pass",
+      "report": "development/even-focused2/report.json",
+      "source_overlays": {
+        "check_development.py": "development/even-focused2/overlays/check_development.py",
+        "origin.json": "development/even-focused2/overlays/origin.json"
+      },
+      "status_boundary": "Historical record; accepted gate is even-feature1."
+    },
+    {
+      "name": "even-codegen1",
+      "reported_status": "pass",
+      "report": "development/even-codegen1/report.json",
+      "source_overlays": {
+        "check_development.py": "development/even-codegen1/overlays/check_development.py"
+      },
+      "status_boundary": "Historical record; accepted gate is even-feature1."
+    }
+  ],
+  "development_boundary": "All three development attempts are retained, including the first caller-capacity precondition failure and the successful focused/codegen attempts."
+}

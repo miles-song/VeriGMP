@@ -1,0 +1,18 @@
+{
+  "status": "candidate_ready_for_frozen_gate",
+  "semantics": "Six even interior convolution coefficients c2,c4,c6,c8,c10,c12 and six unchanged normalized odd node values, all independently defined from input blocks.",
+  "domain": "Full-u64 equal-length inputs,7*k<=n<=8*k including k=0 and empty final block, original threshold>=24.",
+  "execution": "Two actual shared endpoints plus six actual signed pairs, six exact normalization calls and existing even Newton interpolation.",
+  "local_workspace": "prepare_even scratch>=18*(k+1), twelve separate output buffers of2*(k+1); with_endpoints scratch>=14*(k+1). No complete kernel workspace/lifetime theorem.",
+  "analytic_work": "T_existing(k)+T_existing(h)+12*T_existing(k+1)+O(k), skipping empty endpoints; not a checked machine-cost theorem.",
+  "remaining": [
+    "Single positive-eight child product and seventh odd normalization",
+    "Actual odd Newton caller",
+    "Full recomposition and decreasing Toom8 recursion",
+    "Whole-kernel workspace and cost",
+    "Performance acceptance"
+  ],
+  "benchmark_run": false,
+  "complete_toom8": false,
+  "production_promoted": false
+}

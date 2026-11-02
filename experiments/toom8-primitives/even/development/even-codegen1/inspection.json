@@ -1,0 +1,47 @@
+{
+  "status": "pass",
+  "scope": "Actual shared endpoint products, six signed node pairs, normalization and even Newton interpolation",
+  "no_allocator_general_division_or_element_bounds_panic": true,
+  "paths": {
+    "verified_even_24": {
+      "reachable_functions": [
+        "_RNvNtCs1RMPT3ldnJ6_20toom8_even_candidate10fast_words14abs_difference",
+        "_RNvNtCs1RMPT3ldnJ6_20toom8_even_candidate10toom8_even12prepare_even",
+        "_RNvNtCs1RMPT3ldnJ6_20toom8_even_candidate13fast_multiply4full",
+        "_RNvNtCs1RMPT3ldnJ6_20toom8_even_candidate14toom4_evaluate6signed",
+        "_RNvNtCs1RMPT3ldnJ6_20toom8_even_candidate14toom4_multiply4full",
+        "_RNvNtCs1RMPT3ldnJ6_20toom8_even_candidate14toom8_producer13weighted_pair",
+        "_RNvNtCs1RMPT3ldnJ6_20toom8_even_candidate14toom8_producer14normalize_pair",
+        "verified_even_24"
+      ],
+      "external_calls": [
+        "*_RNvNtCskADBYZwJmSU_4core9panicking5panic@GOTPCREL(%rip)",
+        "*_RNvNtCskADBYZwJmSU_4core9panicking9panic_fmt@GOTPCREL(%rip)",
+        "*_RNvNtNtCskADBYZwJmSU_4core5slice5index16slice_index_fail@GOTPCREL(%rip)",
+        "*memset@GOTPCREL(%rip)"
+      ],
+      "root_body_lines": 35
+    },
+    "verified_even_48": {
+      "reachable_functions": [
+        "_RNvNtCs1RMPT3ldnJ6_20toom8_even_candidate10fast_words14abs_difference",
+        "_RNvNtCs1RMPT3ldnJ6_20toom8_even_candidate10toom8_even12prepare_even",
+        "_RNvNtCs1RMPT3ldnJ6_20toom8_even_candidate13fast_multiply4full",
+        "_RNvNtCs1RMPT3ldnJ6_20toom8_even_candidate14toom4_evaluate6signed",
+        "_RNvNtCs1RMPT3ldnJ6_20toom8_even_candidate14toom4_multiply4full",
+        "_RNvNtCs1RMPT3ldnJ6_20toom8_even_candidate14toom8_producer13weighted_pair",
+        "_RNvNtCs1RMPT3ldnJ6_20toom8_even_candidate14toom8_producer14normalize_pair",
+        "verified_even_48"
+      ],
+      "external_calls": [
+        "*_RNvNtCskADBYZwJmSU_4core9panicking5panic@GOTPCREL(%rip)",
+        "*_RNvNtCskADBYZwJmSU_4core9panicking9panic_fmt@GOTPCREL(%rip)",
+        "*_RNvNtNtCskADBYZwJmSU_4core5slice5index16slice_index_fail@GOTPCREL(%rip)",
+        "*memset@GOTPCREL(%rip)"
+      ],
+      "root_body_lines": 35
+    }
+  },
+  "limitation": "Textual assembly inspection; no machine-code equivalence or performance claim",
+  "assembly_sha256": "94d0e79f16f387a65a5a65ca519984c69b4e190ab368a62b8ecf2288871600ab"
+}
