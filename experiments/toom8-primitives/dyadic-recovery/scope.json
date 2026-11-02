@@ -1,0 +1,37 @@
+{
+  "status": "scoped_progress_blocked",
+  "scope": "Generic dyadic proof exports, actual interpolation consumer, static proof erasure, and independent coefficient-layout evidence",
+  "source_candidate": "experiments/toom8-primitives/interpolation/candidate",
+  "actual_consumer": "candidate/native/verified/toom8_interpolation.rs::interpolate",
+  "generic_exports": [
+    "toom8_newton_spec",
+    "toom8_newton",
+    "toom8_convolution",
+    "toom8_dyadic_producer_spec",
+    "toom8_dyadic_producer",
+    "toom8_normalization_spec",
+    "toom8_normalization",
+    "toom8_even",
+    "toom8_seventh_spec",
+    "toom8_seventh",
+    "toom8_interpolation"
+  ],
+  "independent_mapping_cases": 336,
+  "saved_assembly_roots": [
+    "verified_interpolation_24",
+    "verified_interpolation_48"
+  ],
+  "fresh_verus": false,
+  "fresh_runner": false,
+  "benchmark_run": false,
+  "gmp_performance_parity_established": false,
+  "m7_status": "spec_only",
+  "m8_status": "conditional_composition",
+  "solver_consumer_pinned": false,
+  "promotion": false,
+  "blockers": [
+    "No fresh Verus/Rust proof or compiled runner execution in the local environment",
+    "No fresh GMP benchmark and the registered performance target remains unmet",
+    "SAT M7/M8 are not an accepted concrete consumer path for this arithmetic experiment"
+  ]
+}
