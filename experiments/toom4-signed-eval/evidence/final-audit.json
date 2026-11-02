@@ -1,0 +1,528 @@
+{
+  "status": "pass",
+  "audited_utc": "2026-11-01T23:13:27.784849+00:00",
+  "script_sha256": "f331707770b7a0334e637618e93f654c6e9a94cd9eacb3730ef8578071d470a2",
+  "source_manifest_sha256": "df4ca10fd5535dbb9ccc275eb74fad3cc58de24fdc2a99061155fab52383898a",
+  "verification_sha256": "129ddcdd2bf777422b2d2317f36d6813104a6141361cd26c11a530cfc4f25190",
+  "source_count": 235,
+  "tool_count": 21,
+  "runtime_count": 3,
+  "artifact_count": 9,
+  "library_pairs": {
+    "baseline": {
+      "verified": 234,
+      "rlib_sha256": "ece9788e1011e30c39585e74d5c8e568adb8d08e3a6f6be83af689461b5dd77e",
+      "vir_sha256": "39897d1b80720d986e223811efe304fdd072f402f87394564b0010500f2d6cff"
+    },
+    "previous": {
+      "verified": 298,
+      "rlib_sha256": "8fa4b71745e233a5f8096b8e26536d7a0762d975f344bc171369c9b979829112",
+      "vir_sha256": "79ae04fbc1019ad50be343430754de36a93ed07721aed5a3686f6e971e42d981"
+    },
+    "candidate": {
+      "verified": 311,
+      "rlib_sha256": "10b19dfeca4a85d33d01880f588c37bc960678b874777f58383614fce3eadc44",
+      "vir_sha256": "b419cf1ad6f697f8f41ae4a004c00a306ca894a3093deca113192d7e0b7cc3a7"
+    }
+  },
+  "positive_logs": {
+    "baseline-library.log": {
+      "verified": 234,
+      "sha256": "bd059648a0582011fb57f720d8b4b663b4f6669928e8e85fd1eaa32ab96f0654"
+    },
+    "previous-library.log": {
+      "verified": 298,
+      "sha256": "eca4ba758f85d697782b5d76439c80cebbcd5fb2da29f5aa7b66e60288502395"
+    },
+    "candidate-library.log": {
+      "verified": 311,
+      "sha256": "d646011ef02b152588573051ff949be6b44d80b9b3f2d044ad38c8ee1fa20ea9"
+    },
+    "runner-build.log": {
+      "verified": 311,
+      "sha256": "d646011ef02b152588573051ff949be6b44d80b9b3f2d044ad38c8ee1fa20ea9"
+    },
+    "codegen.log": {
+      "verified": 311,
+      "sha256": "0704758009254b04f5e7913709abbd24e7938bc75e561211f6f89bb00eb427db"
+    },
+    "legacy-mac4_bench.rs.log": {
+      "verified": 244,
+      "sha256": "bf26a0e7fce74775f63a2e87b6fa49b3eece6241268d8bdbf75c2076dba345be"
+    },
+    "legacy-square_base_bench.rs.log": {
+      "verified": 248,
+      "sha256": "bb9fe73af245760fe0854cf8df9333b307693f1d49598bf92ccc9397f0b6b887"
+    },
+    "legacy-toom_codegen.rs.log": {
+      "verified": 248,
+      "sha256": "e25eea74ee29df4a5f12df07e89403d7343efca2a104b3befb06bdecdc4d8f5a"
+    },
+    "legacy-toom_words_runner.rs.log": {
+      "verified": 248,
+      "sha256": "71b22af5c6e4beff167badced8b98a42a879602ea18500eaa08879879c2fedd1"
+    },
+    "legacy-toom_bench.rs.log": {
+      "verified": 248,
+      "sha256": "71b22af5c6e4beff167badced8b98a42a879602ea18500eaa08879879c2fedd1"
+    },
+    "compare-build.log": {
+      "verified": 0,
+      "sha256": "ac38eb7ec194153b4a9c8a0fe622fb1451adbaf12e25b4e6ceea174956f16b4b"
+    }
+  },
+  "semantic_mutants": {
+    "drop_evaluation_carry": {
+      "sha256": "2af4e90dbf7c1997f2f3d7c8b288f5eb73588c21aea1023a363c8b2cf523c2c1",
+      "diagnostics": [
+        "invariant not satisfied at end of loop body"
+      ],
+      "verified": 4,
+      "errors": 1
+    },
+    "wrong_fourth_evaluation_limb": {
+      "sha256": "cc428b7cf9cf18cea0349f8533dcf688350191a24386c06672b863a88e30e527",
+      "diagnostics": [
+        "assertion failed"
+      ],
+      "verified": 4,
+      "errors": 1
+    },
+    "drop_evaluation_high_word": {
+      "sha256": "c94471db2172fb0062eabbb7d62fe384caf623812415e2174d02a8badeda98f8",
+      "diagnostics": [
+        "postcondition not satisfied"
+      ],
+      "verified": 4,
+      "errors": 1
+    },
+    "reverse_signed_comparison": {
+      "sha256": "b03a6741b5d9e168bc4a2b3809c355fdd1bb54e080f496479fc46f1a107b1d46",
+      "diagnostics": [
+        "requires not satisfied"
+      ],
+      "verified": 9,
+      "errors": 1
+    },
+    "wrong_cubic_elimination_factor": {
+      "sha256": "61343cd04b79fe1a60edfee24ea5b7e839005d4db64857fda1f6f19daaa609b6",
+      "diagnostics": [
+        "precondition not satisfied"
+      ],
+      "verified": 1,
+      "errors": 1
+    },
+    "wrong_cubic_exact_divisor": {
+      "sha256": "6b0006367bcc45d14e30dce4680334ee2189fbdfdbf38f41920b42e6ad05fac0",
+      "diagnostics": [
+        "precondition not satisfied"
+      ],
+      "verified": 1,
+      "errors": 1
+    },
+    "wrong_linear_exact_divisor": {
+      "sha256": "da9fb4e231b5ce231cf2f76f52a0cb00d7243131b53df55ae1e3fde06faa3e3f",
+      "diagnostics": [
+        "precondition not satisfied"
+      ],
+      "verified": 1,
+      "errors": 1
+    },
+    "wrong_half_even_divisor": {
+      "sha256": "15ba1331d488162a35c9ce9753c10b56976936b9d9487ef79154d9a2c2c2e338",
+      "diagnostics": [
+        "assertion failed"
+      ],
+      "verified": 1,
+      "errors": 1
+    },
+    "omit_fifth_coefficient_subtraction": {
+      "sha256": "7d2fc2fe587ecdc17a8c6a820c13a8996764d17a2c6a5e95ee36a11a2d92bb55",
+      "diagnostics": [
+        "postcondition not satisfied"
+      ],
+      "verified": 1,
+      "errors": 1
+    },
+    "wrong_high_coefficient_offset": {
+      "sha256": "307c0eb136bc88174b38610e2844c36e4515a8675de023c5929a220237012363",
+      "diagnostics": [
+        "postcondition not satisfied"
+      ],
+      "verified": 1,
+      "errors": 1
+    },
+    "wrong_negative_half_sign": {
+      "sha256": "2fd37d7d1f4568eaf68741ffd8fedf749e93f591bef369014f01e77d1a3c327f",
+      "diagnostics": [
+        "precondition not satisfied"
+      ],
+      "verified": 0,
+      "errors": 1
+    },
+    "wrong_high_product_operand": {
+      "sha256": "c7a35fa09e9c4910c4a911214cbed994318771141d4df6793bd436656286b338",
+      "diagnostics": [
+        "precondition not satisfied"
+      ],
+      "verified": 0,
+      "errors": 1
+    },
+    "wrong_positive_two_evaluation": {
+      "sha256": "de499a9c075cd11fb102781b279425e36d0c66d7dc7cf38300b11a5410defde8",
+      "diagnostics": [
+        "precondition not satisfied"
+      ],
+      "verified": 0,
+      "errors": 1
+    },
+    "omit_toom4_base_product": {
+      "sha256": "06564ae1ac3caaa628d93b7f7b53d733ecabf43c2d80c2896e278617e6a914ef",
+      "diagnostics": [
+        "postcondition not satisfied"
+      ],
+      "verified": 0,
+      "errors": 1
+    },
+    "omit_negative_point_square": {
+      "sha256": "476f6c294cdee769ee43b5e140dc74db54219f58d9c536d0cba2f4dabac160a3",
+      "diagnostics": [
+        "precondition not satisfied"
+      ],
+      "verified": 0,
+      "errors": 1
+    },
+    "omit_toom4_base_square": {
+      "sha256": "4f7f83f298213c3358e0284bc6c8efde382e11f8e6c5bf8eb931026ed7d5e7cc",
+      "diagnostics": [
+        "postcondition not satisfied"
+      ],
+      "verified": 0,
+      "errors": 1
+    },
+    "wrong_low_product_operand": {
+      "sha256": "856fbf2910c7a73d34207a51c17d5bedf1c85570af948cdfc9b5e61f9c6ec1b8",
+      "diagnostics": [
+        "postcondition not satisfied"
+      ],
+      "verified": 2,
+      "errors": 1
+    },
+    "omit_second_cross_square_term": {
+      "sha256": "30a8b839cc3bc94eda18d096fd9c2603bb0a7f22e9e7e5800cdc0c38307f9c31",
+      "diagnostics": [
+        "precondition not satisfied"
+      ],
+      "verified": 2,
+      "errors": 1
+    },
+    "wrong_small_product_operand": {
+      "sha256": "ecd5f0fef3a5a8b1874d06a0e44b1748af36baa7071048be3ec038a498d8e911",
+      "diagnostics": [
+        "postcondition not satisfied"
+      ],
+      "verified": 3,
+      "errors": 1
+    },
+    "omit_small_square_normalization": {
+      "sha256": "a351d67ad1fe2fc8bb40f29b9aa66c98e1dd8ef93d753c8b7c1d5e4693b41f94",
+      "diagnostics": [
+        "postcondition not satisfied"
+      ],
+      "verified": 3,
+      "errors": 1
+    },
+    "odd_wrong_borrow_direction": {
+      "sha256": "75afc2490efe94ac796ec6f62f3484d48ad3ea4a9e1323b70fed0153c3554001",
+      "diagnostics": [
+        "assertion failed"
+      ],
+      "verified": 8,
+      "errors": 1
+    },
+    "odd_omit_inverse_product": {
+      "sha256": "cc2f8760d83208ffd716b3ffb6dedd022b0a43701de2f33ca28b862e5e582179",
+      "diagnostics": [
+        "assertion failed"
+      ],
+      "verified": 8,
+      "errors": 1
+    },
+    "odd_drop_wide_incoming_carry": {
+      "sha256": "88e569afec5d6c3edddc2bb91d7140ca7c8a9221332bc263966d29f83e42b4c7",
+      "diagnostics": [
+        "requires not satisfied"
+      ],
+      "verified": 8,
+      "errors": 1
+    },
+    "odd_wrong_outgoing_carry": {
+      "sha256": "0a0e598c3d0c2280b7e91f0018325e4295b6ecdd62566599299f356a73482423",
+      "diagnostics": [
+        "requires not satisfied"
+      ],
+      "verified": 8,
+      "errors": 1
+    },
+    "odd_write_original_word": {
+      "sha256": "3c3bdb3ae3f666bdea91463247d85e178694949e8e97e9c859ea51868d6dc7ab",
+      "diagnostics": [
+        "requires not satisfied"
+      ],
+      "verified": 8,
+      "errors": 1
+    },
+    "odd_drop_loop_carry": {
+      "sha256": "b9f6ec65f68c61e47d70ac3bd47a7cbf441ce4e77161d5bd6d8514879be45897",
+      "diagnostics": [
+        "invariant not satisfied at end of loop body"
+      ],
+      "verified": 8,
+      "errors": 1
+    },
+    "odd_wrong_inverse3": {
+      "sha256": "7b0ea9fb4315e69f1df5a9a24a2912fed32c0844c6481a63ae09e64b0f8b488e",
+      "diagnostics": [
+        "invariant not satisfied before loop"
+      ],
+      "verified": 8,
+      "errors": 1
+    },
+    "odd_wrong_inverse9": {
+      "sha256": "7b0ea9fb4315e69f1df5a9a24a2912fed32c0844c6481a63ae09e64b0f8b488e",
+      "diagnostics": [
+        "invariant not satisfied before loop"
+      ],
+      "verified": 8,
+      "errors": 1
+    },
+    "odd_wrong_inverse15": {
+      "sha256": "7b0ea9fb4315e69f1df5a9a24a2912fed32c0844c6481a63ae09e64b0f8b488e",
+      "diagnostics": [
+        "invariant not satisfied before loop"
+      ],
+      "verified": 8,
+      "errors": 1
+    },
+    "odd_admit_even_divisor": {
+      "sha256": "61c79dbaf4530ed931fd9dfbb3fe88256f692410f198024acd0f1533f2cfa3ab",
+      "diagnostics": [
+        "precondition not satisfied"
+      ],
+      "verified": 26,
+      "errors": 1
+    },
+    "fusion_drop_incoming_carry": {
+      "sha256": "ddd2b93dbd634910b414dcfe12a6e67494024a561b1d33343bce2d2463d64e5f",
+      "diagnostics": [
+        "requires not satisfied"
+      ],
+      "verified": 8,
+      "errors": 1
+    },
+    "fusion_reverse_subtraction": {
+      "sha256": "0e59aff41704ccc2ca1f1a9d0121501453a69321fd3f282f86cd706b07e62c5f",
+      "diagnostics": [
+        "requires not satisfied"
+      ],
+      "verified": 8,
+      "errors": 1
+    },
+    "fusion_drop_borrow": {
+      "sha256": "50ceb23321ed4a38ad6320d497961c7ffa58604f8a7de781b38cf300648dacdd",
+      "diagnostics": [
+        "requires not satisfied"
+      ],
+      "verified": 8,
+      "errors": 1
+    },
+    "fusion_write_product": {
+      "sha256": "e7c88dcb05ac53433d722f5a55ab5268b7fee460f474ff1e2daca4d35d6feb56",
+      "diagnostics": [
+        "requires not satisfied"
+      ],
+      "verified": 8,
+      "errors": 1
+    },
+    "fusion_drop_loop_carry": {
+      "sha256": "703cd51d7083a20310713e1b6624edab00af8d6387fef03c4ca4d26b8896f462",
+      "diagnostics": [
+        "invariant not satisfied at end of loop body"
+      ],
+      "verified": 8,
+      "errors": 1
+    },
+    "fusion_wrong_zero_padding": {
+      "sha256": "fe3eda2599f308b51cad90131d9c9b13e40ad17dcb5346795b1438bf1fc0f3c8",
+      "diagnostics": [
+        "requires not satisfied"
+      ],
+      "verified": 8,
+      "errors": 1
+    },
+    "fusion_wrong_half_constant": {
+      "sha256": "eb01b9eb6019bd8023559010be75e46b39a98101a45b12587ff2d05b0f0c4920",
+      "diagnostics": [
+        "assertion failed"
+      ],
+      "verified": 1,
+      "errors": 1
+    },
+    "fusion_wrong_quadratic_constant": {
+      "sha256": "0941699bacd8810ba06d2261c20a468255e21c9d8c771d159a51ad4e5a0e8810",
+      "diagnostics": [
+        "assertion failed"
+      ],
+      "verified": 1,
+      "errors": 1
+    },
+    "fusion_wrong_quartic_constant": {
+      "sha256": "0941699bacd8810ba06d2261c20a468255e21c9d8c771d159a51ad4e5a0e8810",
+      "diagnostics": [
+        "assertion failed"
+      ],
+      "verified": 1,
+      "errors": 1
+    },
+    "fusion_wrong_sixth_constant": {
+      "sha256": "0941699bacd8810ba06d2261c20a468255e21c9d8c771d159a51ad4e5a0e8810",
+      "diagnostics": [
+        "assertion failed"
+      ],
+      "verified": 1,
+      "errors": 1
+    },
+    "signed_wrong_half_weight": {
+      "sha256": "1cf00da115866df0acf6fd6fdc14eea965cdb72e0ceb53318108f8710f5fb0ff",
+      "diagnostics": [
+        "postcondition not satisfied"
+      ],
+      "verified": 9,
+      "errors": 1
+    },
+    "signed_drop_scalar_carry": {
+      "sha256": "1cf00da115866df0acf6fd6fdc14eea965cdb72e0ceb53318108f8710f5fb0ff",
+      "diagnostics": [
+        "postcondition not satisfied"
+      ],
+      "verified": 9,
+      "errors": 1
+    },
+    "signed_wrong_carry_bias": {
+      "sha256": "a901c95e5f8f2f48cff1310078b115fa8f4b0ffc136f9a5ae8028cbaf2051b63",
+      "diagnostics": [
+        "postcondition not satisfied"
+      ],
+      "verified": 9,
+      "errors": 1
+    },
+    "signed_drop_negation_borrow": {
+      "sha256": "63b8af5269af5b3237642264f358cdbbf042740f901daed6c3892cae060877ff",
+      "diagnostics": [
+        "requires not satisfied"
+      ],
+      "verified": 9,
+      "errors": 1
+    },
+    "signed_drop_loop_carry": {
+      "sha256": "1b6ca1e97565304137d9024a82bb05dac5624b9b6c10f627c524daa880775d99",
+      "diagnostics": [
+        "invariant not satisfied at end of loop body"
+      ],
+      "verified": 9,
+      "errors": 1
+    },
+    "signed_wrong_padding": {
+      "sha256": "3207fdeedfe2dd7d9a682eec94513c2f41b67865f793af790ae277c6f0c968f8",
+      "diagnostics": [
+        "requires not satisfied"
+      ],
+      "verified": 9,
+      "errors": 1
+    },
+    "signed_omit_negative_conversion": {
+      "sha256": "e8ab5bfeb48dd2a96b4b78ac4835bc1b31c7d6e61d939b1a5a93d22697959f2c",
+      "diagnostics": [
+        "postcondition not satisfied"
+      ],
+      "verified": 9,
+      "errors": 1
+    },
+    "signed_mutate_preserved_tmp": {
+      "sha256": "755b76ceb41949205fe7118d7ad2b33dd222507affefc804435cc6acfc44ee8a",
+      "diagnostics": [
+        "postcondition not satisfied"
+      ],
+      "verified": 9,
+      "errors": 1
+    },
+    "signed_wrong_high_encoding": {
+      "sha256": "16d9407ceda1b6606c7cac60e6dd81ee7dcbc3d2f44c8e133c416ca09ba5ad43",
+      "diagnostics": [
+        "requires not satisfied"
+      ],
+      "verified": 9,
+      "errors": 1
+    }
+  },
+  "invalid_logs": 38,
+  "oracle": {
+    "cases": 60755,
+    "existing_suite": 11292,
+    "direct_toom4_cases": 13770,
+    "seed": 20261107,
+    "max_limbs": 4097,
+    "binary_sha256": "5d0c6d21937ff595be8bbe330ebbeeec81e089b8269fa255b994de4391781f23",
+    "input_sha256": "7e40e869f673194d19c81102ae84b3c34c0e792f5e3f3b4d8a19a30c8d557c3e",
+    "output_sha256": "c82f42b1b147f902b1f8deb303b8b3a08731094184d1c25f922182b97fc78487",
+    "signed_cases": 25200,
+    "signed_coverage": {
+      "seed": 20261111,
+      "cases": 25200,
+      "max_limbs": 4096,
+      "by_operation": {
+        "signedlimb4": 21024,
+        "negatewords": 144,
+        "signeddirect4": 4032
+      },
+      "invalid_commands": 8,
+      "coverage": "Every incoming carry -5..10; full-u64 extreme/random digits; both weights and signs; exact zero and +/-1; empty/short fourth blocks; long modular-negation carries; untouched tmp/input and output canaries"
+    },
+    "fusion_cases": 5655,
+    "fusion_coverage": {
+      "seed": 20261110,
+      "cases": 5655,
+      "max_limbs": 4096,
+      "by_operation": {
+        "subscaled": 5655
+      },
+      "invalid_commands": 8,
+      "coverage": "Full-u64 multipliers including zero/MAX; empty destination and RHS; equal/short/padded RHS; exact zero/max output; carry==word==MAX with next high==word; long borrow/carry chains; canaries and immutable RHS"
+    },
+    "odd_division_cases": 4838,
+    "odd_division_coverage": {
+      "seed": 20261109,
+      "cases": 4838,
+      "by_operation": {
+        "oddlimb": 1098,
+        "exactodd": 660,
+        "exactapi": 3080
+      },
+      "max_limbs": 4096,
+      "direct_divisors": [
+        3,
+        9,
+        15
+      ],
+      "invalid_commands": 14,
+      "coverage": "All allowed incoming carries; x and quotient full-u64 boundaries including MAX; wrapping-borrow cases; empty arrays; exact maximum-capacity quotients; in-place canaries; old API positive full-u64 divisor domain retained"
+    },
+    "coverage": "Forced thresholds 24/192/256; full products, dedicated squares, aliased read-only operands, low products at all split modes and top-bit boundaries, exact workspace and output canaries, four-block weighted and signed evaluation including empty/short top blocks; unchanged existing suite retained"
+  },
+  "static_mechanism_sha256": "9afaa59b61dbb4771e0838695859dd4a2d96a5a84b6229aa8e1e2141628a14a0",
+  "benchmark_source_sha256": "652f3c3d6440d3b3b6eba36f00e8115374ed0cc84b6aadc2ccd91e4c8e31a2c6",
+  "benchmark_binary_sha256": "fdb191db19be31bebe0f5db2de979c7f5a128a8ac249ef83a15afdbf41de260f",
+  "benchmark_run": false,
+  "promotion": false,
+  "independent_review_required": true
+}

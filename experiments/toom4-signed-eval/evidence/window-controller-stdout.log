@@ -1,0 +1,53 @@
+{"status": "pass", "samples": 1456, "minimum_observed_batch_ns": 10002904}
+{
+  "status": "pass",
+  "verification_report_sha256": "129ddcdd2bf777422b2d2317f36d6813104a6141361cd26c11a530cfc4f25190",
+  "measurement_script_sha256": "e613dabd61b821cc55ecd01602542409f51e0a98e66404bb73bf6f6525a757f0",
+  "measurement_binding_script_sha256": "90ebb657d419b680ff54d38ee14617958a2a96b5e4520ae504478102d2434b9a",
+  "measurements_sha256": "4ec055a147340e868080ee20a1c741f067d53689b80cc69de3dd403566a1a61c",
+  "raw_sha256": "da1c7552a617bd36d9588bd4266d8f433d775f191e482ff809522645537ffc42",
+  "source_tool_artifact_checks_before_after": true,
+  "samples": 1456,
+  "minimum_observed_batch_ns": 10002904
+}
+{"status": "pass", "samples": 1456, "minimum_observed_batch_ns": 10005125}
+{
+  "status": "pass",
+  "verification_report_sha256": "129ddcdd2bf777422b2d2317f36d6813104a6141361cd26c11a530cfc4f25190",
+  "measurement_script_sha256": "e613dabd61b821cc55ecd01602542409f51e0a98e66404bb73bf6f6525a757f0",
+  "measurement_binding_script_sha256": "90ebb657d419b680ff54d38ee14617958a2a96b5e4520ae504478102d2434b9a",
+  "measurements_sha256": "e5fea8e17f62cf7dbe15963b5d6a3c98f8d090abf29cdc7f8bb9aad887c74742",
+  "raw_sha256": "7b1762eda0ae702bbd346e831681d52cfc0aa7a68968e00b395959136bec668b",
+  "source_tool_artifact_checks_before_after": true,
+  "samples": 1456,
+  "minimum_observed_batch_ns": 10005125
+}
+{
+  "status": "pass",
+  "benchmark_started": true,
+  "policy": "Exactly two predeclared default runs; no result-based retry",
+  "tags": [
+    "default1",
+    "default2"
+  ],
+  "cpu": 0,
+  "startup_settle_seconds": 10,
+  "idle_probe_seconds": 1,
+  "max_other_process_cpu_percent": 10,
+  "measurement_controller_sha256": "2b37e639b8e6ea36d283e616c7e05e5c7fe05f62cc26b3325ea5dc6e4fc3a045",
+  "boot_id": "a1b93b4f-7eac-43af-930e-ed83d0b76cc4",
+  "started_utc": "2026-11-01T23:24:55.812253+00:00",
+  "preflight_process_cpu": [],
+  "bindings": {
+    "default1": {
+      "sha256": "670ae4c58da90bdf383354fa737b0fd51e3dc0197c5b9d92981cbc01276158d6",
+      "raw_sha256": "da1c7552a617bd36d9588bd4266d8f433d775f191e482ff809522645537ffc42"
+    },
+    "default2": {
+      "sha256": "a478f92472c797bec0d129fd811d60cfad793ebd08bd323b5f8e3b74a56aca3c",
+      "raw_sha256": "7b1762eda0ae702bbd346e831681d52cfc0aa7a68968e00b395959136bec668b"
+    }
+  },
+  "finished_utc": "2026-11-01T23:26:13.904014+00:00",
+  "scope": "Same continuous WSL session, same pinned artifacts and two complete four-mode registered matrices"
+}

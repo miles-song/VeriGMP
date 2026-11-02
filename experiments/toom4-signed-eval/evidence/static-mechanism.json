@@ -1,0 +1,93 @@
+{
+  "scope": "Static actual source and optimized benchmark disassembly; no measured speed claim.",
+  "previous": "Two k-word weighted evaluations write 2(k+1) words; unsigned comparison inspects between 1 and k+1 limbs; magnitude subtraction writes k+1 words.",
+  "candidate": "One k-word signed carry loop plus top word writes k+1 words; a negative result adds one k+1-word in-place negation. tmp contents are preserved, but caller scratch length/allocation remains unchanged.",
+  "write_counts": "Previous 3(k+1) limb stores; candidate (1+negative)*(k+1), source-level count excluding compiler transformations.",
+  "word_contract": "Every input word is full u64, scalar carry -5..10. Bias 16B turns signed i128 total into nonnegative u128 before power-of-two split. No signed division instruction or allocator on inspected roots.",
+  "time_space": "O(k) word work, O(1) internal extra words, unchanged caller workspace; proof ghost values erase. Source pass reduction is not a timing theorem.",
+  "symbols": {
+    "baseline": {
+      "baseline::arithmetic::square_mod": {
+        "instruction_lines": 37,
+        "normal_form_sha256": "8eadfd47dcfcd13fc40aec901ef07500064b520c897f2248dfc12f1480851454",
+        "initial_stack_adjustments": [
+          "sub    $0x8,%rsp",
+          "add    $0x20,%rsp"
+        ]
+      },
+      "baseline::arithmetic::mul_mod": {
+        "instruction_lines": 61,
+        "normal_form_sha256": "d96541f8c32ebdea66da88b0f4ce92d2a8f746ddf501c0a2066475d565b288eb",
+        "initial_stack_adjustments": [
+          "sub    $0x8,%rsp"
+        ]
+      }
+    },
+    "previous": {
+      "previous::toom4_evaluate::signed": {
+        "instruction_lines": 284,
+        "normal_form_sha256": "9808331bfa9f0d479711bdc1a0e02e7ea9a7555c9f7398299e9637462191479b",
+        "initial_stack_adjustments": []
+      },
+      "previous::toom4_candidate::square_large": {
+        "instruction_lines": 37,
+        "normal_form_sha256": "8e308a869439396aebe4f1c82d36206ab6613ade0654b2342cd8f5a688d1b8d5",
+        "initial_stack_adjustments": [
+          "sub    $0x8,%rsp",
+          "add    $0x20,%rsp"
+        ]
+      }
+    },
+    "candidate": {
+      "candidate::toom4_evaluate::signed": {
+        "instruction_lines": 153,
+        "normal_form_sha256": "d72e0c3c70623fd5835827baa4c736629c63f0f6a1b67e45601629d3c5f622b8",
+        "initial_stack_adjustments": [
+          "sub    $0x18,%rsp"
+        ]
+      },
+      "candidate::toom4_candidate::square_large": {
+        "instruction_lines": 37,
+        "normal_form_sha256": "43035afbbe9e586facb15b39bfaa613e0ea041cf11b5a97770b6a475e31c69ac",
+        "initial_stack_adjustments": [
+          "sub    $0x8,%rsp",
+          "add    $0x20,%rsp"
+        ]
+      }
+    }
+  },
+  "shared_paths": [
+    {
+      "function": "toom_square::full",
+      "normalized_equal": false,
+      "previous_instruction_lines": 571,
+      "candidate_instruction_lines": 571
+    },
+    {
+      "function": "fast_multiply::low",
+      "normalized_equal": false,
+      "previous_instruction_lines": 321,
+      "candidate_instruction_lines": 321
+    },
+    {
+      "function": "fast_multiply::full",
+      "normalized_equal": false,
+      "previous_instruction_lines": 226,
+      "candidate_instruction_lines": 226
+    },
+    {
+      "function": "fast_multiply::base_full",
+      "normalized_equal": false,
+      "previous_instruction_lines": 125,
+      "candidate_instruction_lines": 125
+    },
+    {
+      "function": "toom4_candidate::square_large",
+      "normalized_equal": false,
+      "previous_instruction_lines": 37,
+      "candidate_instruction_lines": 37
+    }
+  ],
+  "normalization_scope": "Local/direct branch/call destinations and leading crate names only; data constants and stack adjustments retained.",
+  "disassembly_sha256": "78f4888de0e38b533ceb6a91fbe67866b5fb24b30e0d44a68d3e6d0503fe4f85"
+}

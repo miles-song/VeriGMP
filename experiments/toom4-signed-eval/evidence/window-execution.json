@@ -1,0 +1,16 @@
+{
+  "status": "pass",
+  "started_utc": "2026-11-01T23:24:55.742100+00:00",
+  "authorization": "Parent explicitly authorized the frozen default1/default2 window after independent review; relayed solver quiet receipt received before invocation.",
+  "readiness_sha256": "f83eca999d8a706d834c6c6ff751aff55f744f916616b693324bb02d71f161bd",
+  "independent_review_sha256": "7327805cecb1ca1794e21e7330e53dcc03382713fd0356ccb0f643ba78d9e1b0",
+  "script_sha256": "0ac0833474936042e434b1207e2275f24bf4f606a6b7a8708b436c5042319fdd",
+  "controller_sha256": "2b37e639b8e6ea36d283e616c7e05e5c7fe05f62cc26b3325ea5dc6e4fc3a045",
+  "cpu": 0,
+  "no_result_based_retries": true,
+  "returncode": 0,
+  "controller_report_sha256": "7bc7f4224229c11ad0138f85350f259996b2c3cdb4ff293becbc7b87b4544eb0",
+  "benchmark_started": true,
+  "controller_status": "pass",
+  "finished_utc": "2026-11-01T23:26:13.919611+00:00"
+}
