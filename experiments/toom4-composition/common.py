@@ -23,8 +23,14 @@ def write(path, data):
 
 
 def checked(command, log, cwd, input=None, timeout=600):
-    result = subprocess.run(list(map(str, command)), cwd=cwd, input=input,
-        text=True, capture_output=True, timeout=timeout)
+    try:
+        result = subprocess.run(list(map(str, command)), cwd=cwd, input=input,
+            text=True, capture_output=True, timeout=timeout)
+    except subprocess.TimeoutExpired as error:
+        def partial(value):
+            return value.decode(errors='replace') if isinstance(value, bytes) else (value or '')
+        log.write_text(partial(error.stdout) + partial(error.stderr) + '\nCommand timed out; not a verification result.\n')
+        raise
     log.write_text(result.stdout + result.stderr)
     if result.returncode:
         raise RuntimeError('Command failed; inspect ' + str(log))
@@ -55,11 +61,23 @@ def bind_tools(stage, out):
     rustc = Path(checked(['rustup', 'which', '--toolchain', pin['rust_toolchain'], 'rustc'],
         out / 'rustc-path.log', stage).stdout.strip()).resolve()
     rust_version = checked([rustc, '-vV'], out / 'rustc.log', stage).stdout
-    linkage = checked(['ldd', rustc], out / 'rustc-linked.log', stage).stdout
     files = [verifier.parent / name for name in ['verus', 'rust_verify', 'z3', 'vstd.vir',
         'libvstd.rlib', 'libverus_builtin.rlib', 'libverus_builtin_macros.so', 'libverus_state_machines_macros.so']]
-    files += [rustc, Path(shutil.which('rustup')).resolve(), Path(shutil.which('c++')).resolve(), Path(sys.executable).resolve()]
-    files += [Path(p).resolve() for p in re.findall(r'=> (\S+) \(', linkage)]
+    executables = {'rustc': rustc, 'verus': verifier,
+        'rust_verify': verifier.parent / 'rust_verify', 'z3': verifier.parent / 'z3',
+        'python': Path(sys.executable).resolve()}
+    executables.update({name: Path(shutil.which(name)).resolve()
+        for name in ['rustup', 'c++', 'objdump', 'readelf']})
+    files += list(executables.values())
+    for name, executable in executables.items():
+        linked = subprocess.run(['ldd', str(executable)], cwd=stage,
+            text=True, capture_output=True, timeout=60)
+        linkage = linked.stdout + linked.stderr
+        (out / (name + '-linked.log')).write_text(linkage)
+        if linked.returncode and not re.search(r'not a dynamic executable|statically linked', linkage):
+            raise RuntimeError('Cannot inventory tool runtime: ' + name)
+        files += [Path(p).resolve() for p in re.findall(r'=> (\S+) \(', linkage)]
+        files += [Path(p).resolve() for p in re.findall(r'(?m)^\s*(/\S+) \(', linkage)]
     return verifier, {'version': version, 'rustc': rust_version,
         'sha256': {str(p): sha(p) for p in sorted(set(files))}}
 

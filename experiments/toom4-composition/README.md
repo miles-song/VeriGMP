@@ -60,6 +60,14 @@ python3 build/toom4-composition/summarize.py
 
 Output directories refuse overwrites. Run these commands from the repository root.
 
+## Hosted correctness and codegen
+
+The [workflow](../../.github/workflows/toom4-composition-proof.yml) is prepared but not yet pushed or run. It declares triggers on the feature/toom4-composition-policy branch and workflow_dispatch for manual execution. The single sequential job uses Ubuntu 24.04 with a 180-minute timeout, existing commit-pinned actions, and checksum-pinned Verus bootstrap plus Rust 1.99.1. No dependency or tool upgrade is introduced.
+
+The job executes [ci.py](ci.py) which reuses prepare.py → build.py for seven library proofs and optimized .rlib/.vir compiles, the actual arithmetic default Python integer oracle, bench_build.py exploration-mode compilation of matched comparisons without invoking the binary's timing main, and audit_codegen.py for linked actual arithmetic::mul_mod and square_mod entries. An always-run artifact step collects the immutable inputs.tar.gz, preparation manifest, raw logs, artifact pairs and ci.json, including failed attempts when preparation completed. Timeout failures preserve available partial logs. Artifact hashes serve as evidence inventories, not independent authentication or formal machine-code proof.
+
+Hosted results, once actually run and passed, establish only correctness, compile, and codegen scope. They do not run the forced/helper oracle and semantic-mutant acceptance gate. They establish no execution under the local WSL toolchain and no local host performance. Exploration timing and both confirmation runs still require registered local coordinated quiet windows after WSL recovers; selection follows those local exploration results.
+
 ## Current Status
 
-Production native arithmetic is unchanged. Scripts are implemented and syntax-checked. WSL process launch failures currently prevent proof verification, compilation, oracle testing, and timing execution. All historical experiment archives remain immutable.
+The native production policy and thresholds are unchanged. Current WSL process creation remains blocked. Only Python syntax checks, portable synthetic binding/log-failure tests, and independent prepared source inventory are available. No fresh Verus proof, optimized compile, arithmetic integer-oracle run, actual semantic mutants, or timing has executed in this composition work. No candidate has been selected or promoted. Historical archives and frozen local stages are preserved.
