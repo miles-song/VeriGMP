@@ -1,0 +1,23 @@
+verification results:: 12 verified, 3 errors (partial verification with `--verify-*`)
+note: verifying module toom8_producer_spec
+
+error: assertion failed
+  --> <stage>/development/producer-spec1/inputs/candidate/native/specs/toom8_producer.rs:80:12
+   |
+80 | ...rt((w[0]...sum*r) b...
+   |       ^^^^^...^^^^^ assertion failed
+
+error: assertion failed
+  --> <stage>/development/producer-spec1/inputs/candidate/native/specs/toom8_producer.rs:92:12
+   |
+92 | ...rt(e>=0 && o>=0) b...
+   |       ^^^^^^^^^^^^ assertion failed
+
+error: assertion failed
+  --> <stage>/development/producer-spec1/inputs/candidate/native/specs/toom8_producer.rs:93:12
+   |
+93 | ...rt((ea+o...==e-o) b...
+   |       ^^^^^...^^^^^ assertion failed
+
+error: aborting due to 3 previous errors
+

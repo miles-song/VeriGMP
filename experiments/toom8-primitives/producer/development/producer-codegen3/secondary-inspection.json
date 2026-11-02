@@ -1,0 +1,9 @@
+{
+  "status": "diagnostic_only_not_acceptance",
+  "other_checks": "pass",
+  "paths": {
+    "verified_producer_generic": 4,
+    "verified_producer_point_one": 4,
+    "verified_producer_point_eight": 4
+  }
+}

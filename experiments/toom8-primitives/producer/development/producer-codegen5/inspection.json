@@ -1,0 +1,56 @@
+{
+  "status": "pass",
+  "scope": "Actual eight-block evaluation/product/pair composition and child multiplication paths",
+  "no_allocator_general_division_or_element_bounds_panic": true,
+  "paths": {
+    "verified_producer_generic": {
+      "reachable_functions": [
+        "_RNvNtCs2KbcOUtr08H_24toom8_producer_candidate14toom4_evaluate6signed",
+        "_RNvNtCs2KbcOUtr08H_24toom8_producer_candidate14toom4_multiply4full",
+        "_RNvNtCs2KbcOUtr08H_24toom8_producer_candidate14toom8_producer13weighted_pair",
+        "_RNvNtCs2KbcOUtr08H_24toom8_producer_candidate14toom8_producer14normalize_pair",
+        "verified_producer_generic"
+      ],
+      "external_calls": [
+        "*_RNvNtCskADBYZwJmSU_4core9panicking5panic@GOTPCREL(%rip)",
+        "*_RNvNtCskADBYZwJmSU_4core9panicking9panic_fmt@GOTPCREL(%rip)",
+        "*_RNvNtNtCskADBYZwJmSU_4core5slice5index16slice_index_fail@GOTPCREL(%rip)",
+        "*memset@GOTPCREL(%rip)"
+      ],
+      "root_body_lines": 3
+    },
+    "verified_producer_point_one": {
+      "reachable_functions": [
+        "_RNvNtCs2KbcOUtr08H_24toom8_producer_candidate14toom4_evaluate6signed",
+        "_RNvNtCs2KbcOUtr08H_24toom8_producer_candidate14toom4_multiply4full",
+        "_RNvNtCs2KbcOUtr08H_24toom8_producer_candidate14toom8_producer13weighted_pair",
+        "_RNvNtCs2KbcOUtr08H_24toom8_producer_candidate14toom8_producer14normalize_pair",
+        "verified_producer_point_one"
+      ],
+      "external_calls": [
+        "*_RNvNtCskADBYZwJmSU_4core9panicking5panic@GOTPCREL(%rip)",
+        "*_RNvNtCskADBYZwJmSU_4core9panicking9panic_fmt@GOTPCREL(%rip)",
+        "*_RNvNtNtCskADBYZwJmSU_4core5slice5index16slice_index_fail@GOTPCREL(%rip)",
+        "*memset@GOTPCREL(%rip)"
+      ],
+      "root_body_lines": 21
+    },
+    "verified_producer_point_eight": {
+      "reachable_functions": [
+        "_RNvNtCs2KbcOUtr08H_24toom8_producer_candidate14toom4_evaluate6signed",
+        "_RNvNtCs2KbcOUtr08H_24toom8_producer_candidate14toom4_multiply4full",
+        "_RNvNtCs2KbcOUtr08H_24toom8_producer_candidate14toom8_producer13weighted_pair",
+        "_RNvNtCs2KbcOUtr08H_24toom8_producer_candidate14toom8_producer14normalize_pair",
+        "verified_producer_point_eight"
+      ],
+      "external_calls": [
+        "*_RNvNtCskADBYZwJmSU_4core9panicking5panic@GOTPCREL(%rip)",
+        "*_RNvNtCskADBYZwJmSU_4core9panicking9panic_fmt@GOTPCREL(%rip)",
+        "*_RNvNtNtCskADBYZwJmSU_4core5slice5index16slice_index_fail@GOTPCREL(%rip)",
+        "*memset@GOTPCREL(%rip)"
+      ],
+      "root_body_lines": 24
+    }
+  },
+  "limitation": "Textual assembly inspection; no machine-code equivalence or performance claim"
+}

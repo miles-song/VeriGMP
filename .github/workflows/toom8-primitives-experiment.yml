@@ -28,3 +28,6 @@ jobs:
       - run: python3 experiments/toom8-primitives/pair/audit.py
       - run: python3 experiments/toom8-primitives/pair/test_prepare_boundaries.py
       - run: python3 experiments/toom8-primitives/pair/prepare.py --output /tmp/verigmp-pair
+      - run: python3 experiments/toom8-primitives/producer/audit.py
+      - run: python3 experiments/toom8-primitives/producer/test_prepare_boundaries.py
+      - run: python3 experiments/toom8-primitives/producer/prepare.py --output /tmp/verigmp-producer

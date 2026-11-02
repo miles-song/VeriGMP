@@ -1,0 +1,6 @@
+
+thread 'main' (18923) panicked at <stage>/feature-gates/producer-feature1/inputs/candidate/native/toom8_producer_runner.rs:67:96:
+assertion `left == right` failed
+  left: "unknown"
+ right: "pair"
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
