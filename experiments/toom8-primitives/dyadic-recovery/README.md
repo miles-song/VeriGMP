@@ -35,6 +35,11 @@ Run the scoped audit from the repository root:
 python experiments/toom8-primitives/dyadic-recovery/check_dyadic_recovery.py
 ```
 
+The 2026-11-03 run is recorded in
+[`evidence/check-20261103.json`](evidence/check-20261103.json). It ran against
+source commit `c3f5db9a015a1aa71e1d4ebb0c815a7c5b8a4633`, returned code 0, and
+records the SHA-256 of the command report, checker, and scope manifest.
+
 The audit runs the saved interpolation and dyadic archive audits, then
 independently recomputes all 336 interpolation cases from the command inputs.
 It records M7/M8 status from the separate `sat-counting-lab-src` checkout and

@@ -1,0 +1,27 @@
+{
+  "status": "scoped_progress",
+  "source_commit": "c3f5db9a015a1aa71e1d4ebb0c815a7c5b8a4633",
+  "source_commit_identity": "miles-song <2324715854@qq.com>|miles-song <2324715854@qq.com>|Add dyadic recovery scoped acceptance gate",
+  "command": "python experiments/toom8-primitives/dyadic-recovery/check_dyadic_recovery.py",
+  "returncode": 0,
+  "report_sha256": "ffa364a776d4413337f3f8e4990e89d211f21b6a5164c3905079240fe04aa9c2",
+  "script_sha256": "57556a23e053b591dbe2a4b24b57eb2c2c99f20af24de208c26a84d8a28c102c",
+  "scope_sha256": "afe12b6a5e1fd8d0a9793ed1c75a74888651e05d7590e317ebb48b3c3ee3c2ba",
+  "source_consumer": "pass",
+  "archive_interpolation": "pass",
+  "archive_dyadic": "pass",
+  "independent_cases": 336,
+  "static_proof_erasure": true,
+  "semantic_mapping": true,
+  "historical_archive_integrity": true,
+  "fresh_verus": false,
+  "fresh_runner": false,
+  "performance": false,
+  "m7_m8_solver_consumer": false,
+  "promotion": false,
+  "blockers": [
+    "Fresh Verus/Rust verification and compiled runner execution were not available in the local Windows/WSL environment.",
+    "No fresh GMP benchmark was run; the registered performance target remains unmet.",
+    "The SAT consumer has no dyadic-recovery pin; M7 is spec_only and M8 is conditional_composition."
+  ]
+}
