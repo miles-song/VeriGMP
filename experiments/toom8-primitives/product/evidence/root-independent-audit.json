@@ -1,0 +1,71 @@
+{
+  "status": "pass",
+  "report_sha256": "32dc93d9a9d87bca3853fed00a34b2bb5eacfd16ba628d84367ec3316edd34b0",
+  "audit_source_sha256": "620c6fabe24a39524063501f85d150ef2c077a9f7650d7af840902de24493e21",
+  "source_inputs": 122,
+  "tools": 21,
+  "runtimes": 3,
+  "artifacts": 4,
+  "locked_paths": 420,
+  "verified_full_library_runner_codegen": [
+    525,
+    525,
+    525
+  ],
+  "true_scoped_mutants": {
+    "skip-interpolation": [
+      "2",
+      "1"
+    ],
+    "square-interpolation": [
+      "2",
+      "1"
+    ],
+    "skip-assembly": [
+      "2",
+      "1"
+    ],
+    "swap-assembly-endpoints": [
+      "2",
+      "1"
+    ],
+    "swap-first-parities": [
+      "2",
+      "1"
+    ],
+    "swap-final-parities": [
+      "2",
+      "1"
+    ],
+    "clear-product": [
+      "2",
+      "1"
+    ],
+    "skip-basecase": [
+      "2",
+      "1"
+    ],
+    "square-basecase": [
+      "2",
+      "1"
+    ],
+    "skip-balanced": [
+      "2",
+      "1"
+    ],
+    "square-balanced": [
+      "2",
+      "1"
+    ],
+    "undersized-scratch": [
+      "2",
+      "1"
+    ]
+  },
+  "mixed_fatal_rejections": 108,
+  "oracle_cases": 696,
+  "invalid_commands": 14,
+  "saved_runner_replayed": true,
+  "no_new_proof_escape": true,
+  "boundary": "Actual original-input interpolation-to-recomposition caller establishes all fifteen numeric coefficient premises and computes exact full product; verified borrowed disjoint scratch split uses 44*(k+1), and positive full dispatch uses 12*n via n>56. Balanced includes k=0/h=0. 696 saved-runner products, 288 immutable input aliases and 14 malformed harness inputs replayed independently. Three full 525-item verification entries and twelve actual caller mutants passed strict classification. Children remain Toom4; no recursive Toom8 or performance/whole-machine cost claim."
+}

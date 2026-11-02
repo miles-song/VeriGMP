@@ -49,3 +49,6 @@ jobs:
       - run: python3 experiments/toom8-primitives/recomposition/audit.py
       - run: python3 experiments/toom8-primitives/recomposition/test_prepare_boundaries.py
       - run: python3 experiments/toom8-primitives/recomposition/prepare.py --output /tmp/verigmp-recomposition
+      - run: python3 experiments/toom8-primitives/product/audit.py
+      - run: python3 experiments/toom8-primitives/product/test_prepare_boundaries.py
+      - run: python3 experiments/toom8-primitives/product/prepare.py --output /tmp/verigmp-product

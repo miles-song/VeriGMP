@@ -1,0 +1,4 @@
+
+thread 'main' (103911) panicked at <stage>/feature-gates/product-feature1/inputs/candidate/native/toom8_product_runner.rs:87:23:
+assertion failed: matches!(mode,"balanced"|"balanced-alias"|"full"|"full-alias")
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace

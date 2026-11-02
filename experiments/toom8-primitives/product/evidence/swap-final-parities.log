@@ -1,0 +1,34 @@
+verification results:: 2 verified, 1 errors (partial verification with `--verify-*`)
+note: verifying module toom8_product
+
+note: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+ --> <stage>/feature-gates/product-feature1/inputs/candidate/native/verified/toom8_product.rs:7:1
+  |
+7 | pub p...:int)
+  | ^^^^^...^^^^^
+
+note: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> <stage>/feature-gates/product-feature1/inputs/candidate/native/verified/toom8_product.rs:14:1
+   |
+14 | pub f...size)
+   | ^^^^^...^^^^^
+
+error: precondition not satisfied
+  --> <stage>/feature-gates/product-feature1/inputs/candidate/native/verified/toom8_product.rs:41:5
+   |
+41 |     toom8...,b,k);
+   |     ^^^^^...^^^^^
+   |
+  ::: <stage>/feature-gates/product-feature1/inputs/candidate/native/verified/toom8_recomposition.rs:80:9
+   |
+80 | ...   value...)[12],
+   |       -----...----- failed precondition
+
+note: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> <stage>/feature-gates/product-feature1/inputs/candidate/native/verified/toom8_product.rs:43:1
+   |
+43 | pub f...size)
+   | ^^^^^...^^^^^
+
+error: aborting due to 1 previous error
+
