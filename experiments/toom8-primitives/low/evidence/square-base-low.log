@@ -1,0 +1,34 @@
+verification results:: 2 verified, 1 errors (partial verification with `--verify-*`)
+note: verifying module toom8_low
+
+note: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> <stage>/feature-gates/low-feature1/inputs/candidate/native/verified/toom8_low.rs:63:1
+   |
+63 | pub f...:u32)
+   | ^^^^^...^^^^^
+
+note: verifying module toom8_low, function toom8_low_runner::toom8_low::low
+
+note: assert_nonlinear_by: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> <stage>/feature-gates/low-feature1/inputs/candidate/native/verified/toom8_low.rs:59:9
+   |
+59 | ...   assert(z0...
+   |       ^^^^^^
+
+note: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> <stage>/feature-gates/low-feature1/inputs/candidate/native/verified/toom8_low.rs:13:1
+   |
+13 | pub f...:u32)
+   | ^^^^^...^^^^^
+
+error: postcondition not satisfied
+  --> <stage>/feature-gates/low-feature1/inputs/candidate/native/verified/toom8_low.rs:17:9
+   |
+17 | ...   value...en()),
+   |       ^^^^^...^^^^^ failed this postcondition
+...
+25 | ...f n<=low_limit {fast_multiply::base_low(dst,a,a);return;}
+   |                                                     ------ at this exit
+
+error: aborting due to 1 previous error
+

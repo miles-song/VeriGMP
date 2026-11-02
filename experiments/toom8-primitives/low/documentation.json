@@ -1,0 +1,11 @@
+{
+  "requested_model": "claude-opus-5-5",
+  "actual_model": "claude-opus-5-5",
+  "effort": "max",
+  "actual_cli_returncode": 0,
+  "elapsed_seconds": 21.54429629999504,
+  "draft_sha256": "ed7360bc6ce0b23561738a7b88bfd9dfef6ca0e58976e27580fa0e1fc0a11a3d",
+  "actual_output_sha256": "e825df6a17cd03ef92673c6e41755bec86bf6a3ad12a2e56bb1adf44ce6f20be",
+  "final_readme_sha256": "46a207d23356d81e7aa8a3093fdaafaa1930052e7185b7aad86524f911530019",
+  "fact_review": "Actual low modular formulas and complete parameter domain,12n/10n workspace,one cross product reused twice,556 proofs/2700 cases/16 invalid/14 VC and qualified-note classifier boundary independently checked"
+}

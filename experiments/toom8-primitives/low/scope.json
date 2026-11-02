@@ -1,0 +1,13 @@
+{
+  "status": "both_actual_modules_focused_verified_pending_frozen_gate",
+  "purpose": "Exact low multiplication and dedicated low-square composition backed by accepted recursive full kernels.",
+  "domain": "Positive full-u64 equal-length inputs, top1..64; full threshold>=56, low_limit>=24, all pre-existing split modes0/1/2 retained. No normalized-input precondition.",
+  "mul_space": "12n caller-owned scratch, reusing product2k+full child12k and truncated cross-product h+12h lifetimes. Actual module focused proof passed; immutable whole gate pending.",
+  "square_space": "10n caller-owned scratch, full square2k+10k and one low product h+12h lifetimes. Actual module focused proof passed; immutable whole gate pending.",
+  "square_mechanism": "One truncated cross product contributes twice; specialized low square leaves from9 limbs are retained.",
+  "analytic_cost": "Low multiply<=full(k)+2low(h)+O(n); low square<=full_square(k)+low_product(h)+O(n), using the actual selected split. Analytic only.",
+  "modular_semantics": "Output equals a*b or a*a modulo2^(64*(n-1)+top).",
+  "benchmark_run": false,
+  "production_default_modified": false,
+  "promotion": false
+}
