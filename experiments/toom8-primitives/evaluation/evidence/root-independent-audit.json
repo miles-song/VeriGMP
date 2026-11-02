@@ -1,0 +1,95 @@
+{
+  "status": "pass",
+  "report_sha256": "c1f218ea0d8eafad460426d6362b9d20d98d98c6afbd8c7794fa0515e47d5c5c",
+  "old_report_sha256": "2ff976a45067007b07a4378b58c30ff8cb806420c094f7d4a5a9ad3820872f9d",
+  "checker_only_changed": [
+    "check_evaluation.py"
+  ],
+  "source_files": 87,
+  "tool_paths": 21,
+  "runtime_paths": 3,
+  "artifacts": 4,
+  "commands": 37,
+  "locked_paths": 238,
+  "full_positive_proof_summaries": {
+    "library.log": 447,
+    "runner-build.log": 72,
+    "codegen-build.log": 72
+  },
+  "real_semantic_mutants": {
+    "ignore-negative": [
+      11,
+      1
+    ],
+    "ignore-incoming": [
+      11,
+      1
+    ],
+    "wrong-radix": [
+      11,
+      1
+    ],
+    "wrong-carry-bias": [
+      11,
+      1
+    ],
+    "omit-high-input": [
+      11,
+      1
+    ],
+    "zero-loop-carry": [
+      11,
+      1
+    ],
+    "drop-top-word": [
+      11,
+      1
+    ],
+    "skip-magnitude-conversion": [
+      11,
+      1
+    ],
+    "wrong-sign": [
+      11,
+      1
+    ],
+    "wrong-point-eight": [
+      11,
+      1
+    ],
+    "ignore-caller-sign": [
+      11,
+      1
+    ],
+    "overwrite-tmp": [
+      11,
+      1
+    ]
+  },
+  "fatal_append_negative_fixtures": [
+    "solver returned unknown",
+    "rlimit",
+    "failed to typecheck",
+    "failed to load metadata",
+    "could not compile crate",
+    "internal compiler error",
+    "verification timed out",
+    "out of memory",
+    "segmentation fault"
+  ],
+  "captured_checker_modules_origin_execution_reviewed": true,
+  "independent_replayed_cases": 14156,
+  "invalid_replayed": 16,
+  "input_sha256": "cd3cf49277ed6d502f1e7f7b38d3f7e476bf9afe9589b0a97c48f8aff9de6d6f",
+  "output_sha256": "938c7670f9bd7a3818d2589bef70fc4353365c2a58bc5929d565e87969c581d8",
+  "independent_expected_method": "Parsed full-limb integers with unbounded signed weighted sums and direct homogeneous dyadic weights; scalar floor quotient/remainder.",
+  "scope": "Eight-block bounded-weight signed evaluation and dyadic homogeneous callers; not a completed Toom8 kernel",
+  "limitations": [
+    "Input generation is reused, but expected values were independently recomputed from commands.",
+    "Scoped negative proofs are accepted only with the matching successful full-library/runner baselines.",
+    "The interpolation caller still must establish its coefficient/evaluation relation; this is not an actual complete Toom8 multiplication caller.",
+    "Textual codegen inspection is neither a formal machine-code equivalence proof nor a timing result."
+  ],
+  "no_proof_compilation_or_benchmark_rerun": true,
+  "required": []
+}

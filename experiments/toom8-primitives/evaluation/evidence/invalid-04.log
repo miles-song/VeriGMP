@@ -1,0 +1,4 @@
+
+thread 'main' (126393) panicked at <stage>/feature-gates/evaluation-feature3/inputs/candidate/native/toom8_evaluation_runner.rs:14:5:
+assertion failed: a.iter().map(|x| *x as u128).sum::<u128>() < 4194304
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace

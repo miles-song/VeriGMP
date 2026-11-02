@@ -1,0 +1,855 @@
+{
+  "status": "pass",
+  "scope": "Eight-block bounded-weight signed evaluation and dyadic homogeneous callers; not a completed Toom8 kernel",
+  "source_sha256": {
+    "candidate/native/controls/fast_multiply.rs": "64ddb1d8919da86881791d88d42916fd0f2d73e14073c6a53850d337e02a6714",
+    "candidate/native/controls/gmp_abi.cpp": "433b99417b38004a1684537a644cfe9cd7e7852df8864ce12dc9d1c4dfce6ed8",
+    "candidate/native/controls/gmp_multiply.cpp": "87658c00944326f26f5fd016d0c845ca2efe7b32d2329abe190787830a39f5f4",
+    "candidate/native/controls/limbs.rs": "b7161f5897667d8d6bc96ec5ca6eddf63384efd4eb0568ecbb6c4cccf500e4da",
+    "candidate/native/controls/multiply.rs": "5a824d2201674935a97e655b6eeda0ced04c7f6ef769877255cb09a21049d824",
+    "candidate/native/controls/pow2.rs": "ba0a8a8bb404c4778ddd3c03ba254dfcca6efc28a94d293368db2e5ee2e79dac",
+    "candidate/native/fast_bench.rs": "20c4c261f1ed6d5974a7bd250cc148d900b86472206330e9ee2a44060865551f",
+    "candidate/native/fast_codegen.rs": "e68214b600c37fbf436a9d4ad0a649c000eb133e5ecf1d38948dbe5edda37283",
+    "candidate/native/fast_runner.rs": "2cca8d6653330bd3f80461f7fc2b34adf28c6e282452934e916cd5dc4b657308",
+    "candidate/native/gmp-reference.json": "e67ba09749bc761cd581218bebd6cde5f1fdf56a2711924e1ceb45d4c7e247ff",
+    "candidate/native/history-provenance.json": "195aa85724547b02db939d9561bd1304acb87a9944b4f6912156b6aafe367560",
+    "candidate/native/lib.rs": "f666ca134055d9c382da287d19cb08d6b1ca378a2dce9c263d5244660abfe20b",
+    "candidate/native/limbs_bench.rs": "937ed74d98f739b2333e1feb78c65dbefb86b5af1c051c864ef269fb6b304215",
+    "candidate/native/limbs_codegen.rs": "465962efb3dc1e0f2414295228414112e3843dbaf467a41b705e53a3255e255e",
+    "candidate/native/limbs_runner.rs": "4aced8bc95027c78bbac6690f112dcd9e0b892f521baa6e29515b65862c05c01",
+    "candidate/native/mac4_bench.rs": "79335fb39eb054704b6621803368e965892a6285bc9ab82ec687bea991bcf22f",
+    "candidate/native/multiply_bench.rs": "d28537c1ee449c452b8c0f549a3555fbf50f59a680240b371335ccb106061d12",
+    "candidate/native/multiply_codegen.rs": "3855098a24804a8cba3ff8b094b159290e0e27e13fc1a558b456aebfeddb1229",
+    "candidate/native/multiply_runner.rs": "856d5b82363f2bf9170bf15cf45f2b0b9ae713a1475f5ceed1751fcaf18c52c7",
+    "candidate/native/performance-target.json": "7e1f7c27007d65ca77979c693c0f105d2ac4686fd90e853ab86c43684f485a37",
+    "candidate/native/pow2_bench.rs": "9e4390cabef56661544491deb928ee2f7a11199d34ada5b6a185a54a45622c1c",
+    "candidate/native/pow2_codegen.rs": "2372573334ffb9778295bd775ea23302207017bb699598606f3254f3cf3d36dd",
+    "candidate/native/pow2_runner.rs": "c916b36cc11923b309aacccd8e54ae5bde951d651abb1360f05715b82706a647",
+    "candidate/native/proof-status.json": "194025f62a4731b99253011c18f6c4716d12631b0dc81efcc6ed726b0583740e",
+    "candidate/native/specs/fast_product.rs": "1d3a4f9397375741f6fcaea5bacf5977f73c56ba051893cd81a83709385b2cd7",
+    "candidate/native/specs/odd_division.rs": "2a471b8a9836d404c3b5118c924fe99d9e34816c29630766abbf627817c63aea",
+    "candidate/native/specs/precision.rs": "38ffadc6cd04602b40457711b25ec3e89de5fb0ebf92136645da93fb18d4cde0",
+    "candidate/native/specs/product.rs": "24de04dda22e2ca1262ade8328b3f164612b59188df14dbe84988b94592563ae",
+    "candidate/native/specs/radix.rs": "51bddb73e0cfcc2fda095ac5f35fe4853417c1fff858133dab56b05ba9573219",
+    "candidate/native/specs/signed_evaluation.rs": "726da6650427fa0e660e3b624d609d9bcf1bc9a7856ea1916f06c93f51994cbc",
+    "candidate/native/specs/square.rs": "3d716c2905d4f34929e3177e853196f84faef8a63c10e7e1bb7593a9e62be87e",
+    "candidate/native/specs/square_base.rs": "9436705847c6cf4c8353a324e9154767a2a8ac57b13ca13a26b523f973ea6768",
+    "candidate/native/specs/toom.rs": "ed543569ac0996a16546211241b52f5a7ae945e8fce873f5195340cf290456ff",
+    "candidate/native/specs/toom4.rs": "352ff71f3f711225dd6c98e8c89e3491d88fb8f67a614d2f36bc96e4f0f34033",
+    "candidate/native/specs/toom4_blocks.rs": "caaf8f02256bf53655a4a3d5dbf59ad7283b8ab3f524c7e872c6664eba8ea715",
+    "candidate/native/specs/toom8_evaluation.rs": "9560ab9d8a40de3a933f04872ce5ba19c3c05c8586cc6447abff14a89ccbbb3a",
+    "candidate/native/specs/toom8_newton.rs": "a04d903bd2bc9fe8562aa12092d6de67eba0d3f953a606d73462dfc6e33226ff",
+    "candidate/native/specs/toom_blocks.rs": "d799a910b67b26fbbdbdefc50bf49063f8ca39790f6d48f60a7ed1315d00df9d",
+    "candidate/native/specs/wide_odd_division.rs": "3feb744112b12d7f1708f615c2a94bfb3090deca7f3797967f558a48ef495cab",
+    "candidate/native/square_base_bench.rs": "abd4f11755f244753167bd92447412c16308876a634c9951663de8ce7494dcaa",
+    "candidate/native/toolchain.json": "a8f1ba756fd50480017e10d24c390a4b94528ab387c965d28c35cf3432c9e678",
+    "candidate/native/toom4_codegen.rs": "42fe2571e7ff0e5d35a4e7acbe014ff676170518d32f45577d4ef7eb584ec5df",
+    "candidate/native/toom4_runner.rs": "1b4b9a4a151aa17522720708acf580f6eb53c7b5ec8449982267cc926f365177",
+    "candidate/native/toom8_evaluation_codegen.rs": "24a822a0b73897888e39a265959a89df14c0f487605cd0434f3a773bca5da00c",
+    "candidate/native/toom8_evaluation_runner.rs": "ab457dfb2874f0095c339e7b6dc18e592fef217205fd1f270c55e48cadd63882",
+    "candidate/native/toom8_newton_codegen.rs": "9a7894553f028d2a21dcfd60fe1853eee0b9295e91a58b235fbee1d9fa45c61a",
+    "candidate/native/toom8_newton_runner.rs": "39d79c0a304f325c1563a660ac3b64308530b5dfa40e524c333e75c43a9a6e9e",
+    "candidate/native/toom8_newton_test_bridge.rs": "19f4f0534e871439aa4388c93bed5caa4f4137933fce5d55d7c01878ad1986b3",
+    "candidate/native/toom_bench.rs": "e0b5829fc235eeada95e987542073d3e190c0c1d10c7d48ec4f6d787f8fa1daf",
+    "candidate/native/toom_codegen.rs": "17f41d3dbc4ba891dc298c12cb86cbef8339b21dda321deff08c1801e62274f2",
+    "candidate/native/toom_words_runner.rs": "1ed994eab17583d7d0eacf580d897897d4afab5405de58d9d4779d913e783a66",
+    "candidate/native/verified/arithmetic.rs": "7c0181fed9d53f842062fd2f4e738dedf42985fee28bff53cabba4a7fc20cc54",
+    "candidate/native/verified/fast_multiply.rs": "f4c873122c592487e776d346cef950f76779f58aa285b4342333a077e20e226d",
+    "candidate/native/verified/fast_words.rs": "76c8a6e5558df51af8975ad6db606947d032c3b583a5def4da88571d48f56287",
+    "candidate/native/verified/kernel.rs": "b54e17dd245655deacae37d89071a6c5ae5c39421ba7d3ac5728346e63f77080",
+    "candidate/native/verified/limbs.rs": "913c88133f2bd46b3b4a59794eba5b8d43dfdbdac720918e375b47a52adbff28",
+    "candidate/native/verified/mac4.rs": "9cf6fd885a42e63a7cb1f697833bfa7e82d5b65a85e4351de2252a11b6afce2f",
+    "candidate/native/verified/multiply.rs": "83bfff3bb71a8c429e48551532a39fd92773b7e0b4b94b7c4b5263d59c854f9c",
+    "candidate/native/verified/odd_division.rs": "ff2b7ecc484d03e248b9f423dde531efd8f1b7fad9000c52854c6c8a32e849b1",
+    "candidate/native/verified/pow2.rs": "893234a990b3b3bf308253ce318411fb5247157cfabe2d02ce603c6c86c1dcec",
+    "candidate/native/verified/scaled_subtraction.rs": "451292f4889f824a25e14904fb5163785d5ab439303e17aa3f6179d859a3a349",
+    "candidate/native/verified/signed_evaluation.rs": "165232d5dc11f819a31c553ae0996aa5d03b36419d556530f484b4257e872541",
+    "candidate/native/verified/square.rs": "66d8baca34c6daf25b3116c22a9f9071691f882d653e6f586ea6eb64b50c3164",
+    "candidate/native/verified/square_base.rs": "d56438d15c969b475d74c431bef66dbe8c6befd67699196b096c1773c68094b3",
+    "candidate/native/verified/square_low.rs": "1e85ae150c7d5801d57f41d460de651b5ba9d5ae96c910f52b83bb602dd6ad21",
+    "candidate/native/verified/toom4_candidate.rs": "5bedfab6640c7d5b84bb4d1de95c84e2daa8a7f0f25fdb6ccf20c6f221a84cac",
+    "candidate/native/verified/toom4_evaluate.rs": "a6d15ee01d5c4996f8ce5c6f8910c2d62547509a75fe3d553ebb8fcb27bff920",
+    "candidate/native/verified/toom4_interpolate.rs": "1a61a240c3f75722be08a63e1006e2e1deff800cc2163fd569ed33038e9a34ec",
+    "candidate/native/verified/toom4_low.rs": "19e062300f1639a3c2af9b5a873f674b4f34b5efe3377bb2008133ad42b0b4a5",
+    "candidate/native/verified/toom4_multiply.rs": "e62c3b4778cf887146f30d0c7bef8a12c630291063cf967c668ba010afbd116b",
+    "candidate/native/verified/toom4_square.rs": "efaaf282edac2852829df4d5fd6439a7c18f33413b668d0857f73f9ac1e7d0a0",
+    "candidate/native/verified/toom4_square_low.rs": "d1ca0f9f60c70436d05a9fb14f631f92f7271f97613efbcdfbd1967dab7cc4df",
+    "candidate/native/verified/toom8_evaluation.rs": "4ba9f3b7b965fe0677a2887147309d434e9b3c5cdb8786d48f5e98aaa6a2b266",
+    "candidate/native/verified/toom8_newton.rs": "387694964036d1caf68a077944a9baa90a82ee113403aad3a0bb4c8a30d9154e",
+    "candidate/native/verified/toom_evaluate.rs": "80fb7c4b0db769debe3091289cfe8a71703e9e1bf7b9e26a622e4df08f164699",
+    "candidate/native/verified/toom_interpolate.rs": "dd3e97eac34fb6cf6920302eeb5cc2bc8b257a6beb7a2e952f52ccf20ae5e352",
+    "candidate/native/verified/toom_low.rs": "d73bd14a640f96cc383fcc9234452e500cf217f58e935bacc96728f4d3a96929",
+    "candidate/native/verified/toom_multiply.rs": "58830125c0e82680f11fec6aba9677c8986c8f84fdbe53e3a38dc01b24871602",
+    "candidate/native/verified/toom_square.rs": "2706c576e99df5d4b90159cd671e208e6e7a521daa4bb3624666ed97c7332826",
+    "candidate/native/verified/toom_words.rs": "04786af608e65f40447cfee7defff9f1ab624157708b56237149e588ca5c485d",
+    "candidate/native/verified/wide_odd_division.rs": "2fdc06bb5992e6b89e4d2171cc036cb5540d954bebd8fc510d6a2b18b0ea6774",
+    "candidate/native/wide_odd_codegen.rs": "fc9ef7aa95c818edcd168a2354886f10a23454f5e0b402e6e99bb01e41d71b2c",
+    "candidate/native/wide_odd_runner.rs": "3300aeb7d5438ad4d46f026f165e65f4bd4065123eef0f1d2185c1c467d872d7",
+    "check_evaluation.py": "e36c7565b390c36feae22971578883edf54d75af01497f990883b4513dc0b377",
+    "evaluation_oracle.py": "ccafded8a99898627cf2eabd73b7aae2ac403da536f6cb3ebf042189ead9a91f",
+    "evaluation_codegen.py": "0863423408b7de1aab7476f051f113d63373a6ce3a4a0037472a78c690df2d44",
+    "origin.json": "e1a65a3df36478453df89ad262d68cc0675f94677cd1a8a41db57523ade19879"
+  },
+  "started_utc": "2026-11-02T00:44:44.069140+00:00",
+  "benchmark_run": false,
+  "production_modified": false,
+  "cpu_affinity": [
+    6,
+    7
+  ],
+  "commands": [
+    {
+      "argv": [
+        "<verus-home>/verus-x86-linux/verus",
+        "--version"
+      ],
+      "log": "toolchain.log",
+      "status": "completed",
+      "returncode": 0,
+      "elapsed_seconds": 0.16679902699252125,
+      "log_sha256": "43bbcb88d622ee4e1fb08655b4393b56725fedd6fce064101e6f9cd64fd07152"
+    },
+    {
+      "argv": [
+        "rustup",
+        "which",
+        "--toolchain",
+        "1.99.1-x86_64-unknown-linux-gnu",
+        "rustc"
+      ],
+      "log": "rustc-path.log",
+      "status": "completed",
+      "returncode": 0,
+      "elapsed_seconds": 0.07182599999941885,
+      "log_sha256": "aea0aadcfcccc7b6ad8bc33cb88e358b707146f07fe541c9bd11f4453113c7b1"
+    },
+    {
+      "argv": [
+        "<rustup-home>/toolchains/1.99.1-x86_64-unknown-linux-gnu/bin/rustc",
+        "-vV"
+      ],
+      "log": "rustc.log",
+      "status": "completed",
+      "returncode": 0,
+      "elapsed_seconds": 0.03688683400105219,
+      "log_sha256": "f22d5e4e9ced367e774ce5bc140d9e6b1235c1882fec80d011044851f3ae6369"
+    },
+    {
+      "argv": [
+        "ldd",
+        "<rustup-home>/toolchains/1.99.1-x86_64-unknown-linux-gnu/bin/rustc"
+      ],
+      "log": "rustc-linked.log",
+      "status": "completed",
+      "returncode": 0,
+      "elapsed_seconds": 0.03255806499510072,
+      "log_sha256": "0d58d6d2ed593ed21b4d80094587d823d433e37b6a4e13d89c9d924b8773271b"
+    },
+    {
+      "argv": [
+        "<verus-home>/verus-x86-linux/verus",
+        "<stage>/feature-gates/evaluation-feature2/inputs/candidate/native/lib.rs",
+        "--crate-name",
+        "evaluation_candidate",
+        "--crate-type",
+        "lib",
+        "--export",
+        "<stage>/feature-gates/evaluation-feature2/candidate.vir",
+        "--compile",
+        "-O",
+        "-o",
+        "<stage>/feature-gates/evaluation-feature2/libcandidate.rlib"
+      ],
+      "log": "library.log",
+      "status": "completed",
+      "returncode": 0,
+      "elapsed_seconds": 84.13901418200112,
+      "log_sha256": "2b2f7b4baab38940b19f497780f6c23ab43bfcd19770ba2431b5a14714267277"
+    },
+    {
+      "argv": [
+        "<verus-home>/verus-x86-linux/verus",
+        "<stage>/feature-gates/evaluation-feature2/inputs/candidate/native/toom8_evaluation_runner.rs",
+        "--compile",
+        "-O",
+        "-o",
+        "<stage>/feature-gates/evaluation-feature2/oracle-runner"
+      ],
+      "log": "runner-build.log",
+      "status": "completed",
+      "returncode": 0,
+      "elapsed_seconds": 10.424815965001471,
+      "log_sha256": "3fb9c98bf4636874238cd3592403c3f8495466c5aadf8e6782f4cf5fe94b18ab"
+    },
+    {
+      "argv": [
+        "ldd",
+        "<stage>/feature-gates/evaluation-feature2/oracle-runner"
+      ],
+      "log": "runner-linked.log",
+      "status": "completed",
+      "returncode": 0,
+      "elapsed_seconds": 0.02404229399689939,
+      "log_sha256": "e46872cf23afc0a037283b460ef513f2187082fc35073b341eeb82061fee842a"
+    },
+    {
+      "argv": [
+        "<stage>/feature-gates/evaluation-feature2/oracle-runner"
+      ],
+      "log": "oracle.log",
+      "status": "completed",
+      "returncode": 0,
+      "elapsed_seconds": 0.09626710700104013,
+      "log_sha256": "938c7670f9bd7a3818d2589bef70fc4353365c2a58bc5929d565e87969c581d8"
+    },
+    {
+      "argv": [
+        "<stage>/feature-gates/evaluation-feature2/oracle-runner"
+      ],
+      "log": "invalid-00.log",
+      "status": "completed",
+      "returncode": 101,
+      "elapsed_seconds": 0.011420173002989031,
+      "log_sha256": "e26f0b6e1d91bc7c560629258303e42d85bd0bed16cda3fe0aaba2b9884e26c0"
+    },
+    {
+      "argv": [
+        "<stage>/feature-gates/evaluation-feature2/oracle-runner"
+      ],
+      "log": "invalid-01.log",
+      "status": "completed",
+      "returncode": 101,
+      "elapsed_seconds": 0.013940165998064913,
+      "log_sha256": "fb4800718917714e4172049f1c5c92619353f664b3c26d1bf2203db390593bc2"
+    },
+    {
+      "argv": [
+        "<stage>/feature-gates/evaluation-feature2/oracle-runner"
+      ],
+      "log": "invalid-02.log",
+      "status": "completed",
+      "returncode": 101,
+      "elapsed_seconds": 0.013617814998724498,
+      "log_sha256": "a3dfa6737f463d2a4f2a6ade32b2ca571dc970059ca0612af628ae95232a74c7"
+    },
+    {
+      "argv": [
+        "<stage>/feature-gates/evaluation-feature2/oracle-runner"
+      ],
+      "log": "invalid-03.log",
+      "status": "completed",
+      "returncode": 101,
+      "elapsed_seconds": 0.012000514005194418,
+      "log_sha256": "0e163337f59df5073ac0a345bd2152fec9ec8878b260431ebeb6468c9c3d9338"
+    },
+    {
+      "argv": [
+        "<stage>/feature-gates/evaluation-feature2/oracle-runner"
+      ],
+      "log": "invalid-04.log",
+      "status": "completed",
+      "returncode": 101,
+      "elapsed_seconds": 0.011605092993704602,
+      "log_sha256": "5744c3b25db00f8649c8bf3485216ef083f512a421b7f828da9722ab2ea9dbd7"
+    },
+    {
+      "argv": [
+        "<stage>/feature-gates/evaluation-feature2/oracle-runner"
+      ],
+      "log": "invalid-05.log",
+      "status": "completed",
+      "returncode": 101,
+      "elapsed_seconds": 0.012057240004651248,
+      "log_sha256": "78da875740903322d4c5c480ee3b2a6842e137a9fda1724f88c8a2759d8f018d"
+    },
+    {
+      "argv": [
+        "<stage>/feature-gates/evaluation-feature2/oracle-runner"
+      ],
+      "log": "invalid-06.log",
+      "status": "completed",
+      "returncode": 101,
+      "elapsed_seconds": 0.011581551007111557,
+      "log_sha256": "a3b222cba426c625f2dcf561441638bca5fc97b2e4af43168dd52e9ec441f1d1"
+    },
+    {
+      "argv": [
+        "<stage>/feature-gates/evaluation-feature2/oracle-runner"
+      ],
+      "log": "invalid-07.log",
+      "status": "completed",
+      "returncode": 101,
+      "elapsed_seconds": 0.012767348001943901,
+      "log_sha256": "effe8b76033d3735e119e8bc545917ea3ffcbd5759bbe4eb6a2f82ef4b257e5c"
+    },
+    {
+      "argv": [
+        "<stage>/feature-gates/evaluation-feature2/oracle-runner"
+      ],
+      "log": "invalid-08.log",
+      "status": "completed",
+      "returncode": 101,
+      "elapsed_seconds": 0.012620596011402085,
+      "log_sha256": "df0e99e633ae5eb474610a51ec98c5a3294a08cf4bebc21c522f1bfccdbf640a"
+    },
+    {
+      "argv": [
+        "<stage>/feature-gates/evaluation-feature2/oracle-runner"
+      ],
+      "log": "invalid-09.log",
+      "status": "completed",
+      "returncode": 101,
+      "elapsed_seconds": 0.011690350002027117,
+      "log_sha256": "3dcd1ab4c99772b07976f9c7ebdd049e80dfae462ccec30f912040346afd41b5"
+    },
+    {
+      "argv": [
+        "<stage>/feature-gates/evaluation-feature2/oracle-runner"
+      ],
+      "log": "invalid-10.log",
+      "status": "completed",
+      "returncode": 101,
+      "elapsed_seconds": 0.012116746991523542,
+      "log_sha256": "d4e3995474d98f26a0ac66d7e7ab932be7050d86fa97e0e56b6e9dc4345c7b10"
+    },
+    {
+      "argv": [
+        "<stage>/feature-gates/evaluation-feature2/oracle-runner"
+      ],
+      "log": "invalid-11.log",
+      "status": "completed",
+      "returncode": 101,
+      "elapsed_seconds": 0.011909792010555975,
+      "log_sha256": "d37de5c6ce80147580e29794dae79be2acd3092c2500cd577017a2aa99a3c32c"
+    },
+    {
+      "argv": [
+        "<stage>/feature-gates/evaluation-feature2/oracle-runner"
+      ],
+      "log": "invalid-12.log",
+      "status": "completed",
+      "returncode": 101,
+      "elapsed_seconds": 0.011903107995749451,
+      "log_sha256": "7bb93dd3a338dc55eb05f248ba914b96ca0ac6a3f0d5fb2555199f0d953bd80f"
+    },
+    {
+      "argv": [
+        "<stage>/feature-gates/evaluation-feature2/oracle-runner"
+      ],
+      "log": "invalid-13.log",
+      "status": "completed",
+      "returncode": 101,
+      "elapsed_seconds": 0.0129644400003599,
+      "log_sha256": "91ae330dec407a91158bfd6e18eeac95707411c2a7e1a5abfb2799a7d7535104"
+    },
+    {
+      "argv": [
+        "<stage>/feature-gates/evaluation-feature2/oracle-runner"
+      ],
+      "log": "invalid-14.log",
+      "status": "completed",
+      "returncode": 101,
+      "elapsed_seconds": 0.012764740997226909,
+      "log_sha256": "a995a1397ea9a749af873795defab4aa1fd58fd7a47752c9dfcbcae221dbe214"
+    },
+    {
+      "argv": [
+        "<stage>/feature-gates/evaluation-feature2/oracle-runner"
+      ],
+      "log": "invalid-15.log",
+      "status": "completed",
+      "returncode": 101,
+      "elapsed_seconds": 0.013921919991844334,
+      "log_sha256": "2ec0f1eca813f57ab08156cd1e833a0913add9283f041a26ad616b717eb1cd14"
+    },
+    {
+      "argv": [
+        "<verus-home>/verus-x86-linux/verus",
+        "<stage>/feature-gates/evaluation-feature2/inputs/candidate/native/toom8_evaluation_codegen.rs",
+        "--compile",
+        "-O",
+        "--emit=asm",
+        "-o",
+        "<stage>/feature-gates/evaluation-feature2/codegen.s"
+      ],
+      "log": "codegen-build.log",
+      "status": "completed",
+      "returncode": 0,
+      "elapsed_seconds": 9.897909060004167,
+      "log_sha256": "3fb9c98bf4636874238cd3592403c3f8495466c5aadf8e6782f4cf5fe94b18ab"
+    },
+    {
+      "argv": [
+        "<verus-home>/verus-x86-linux/verus",
+        "<stage>/feature-gates/evaluation-feature2/inputs/candidate/native/toom8_evaluation_runner.rs",
+        "--verify-module",
+        "toom8_evaluation",
+        "--multiple-errors",
+        "0"
+      ],
+      "log": "ignore-negative.log",
+      "status": "completed",
+      "returncode": 1,
+      "elapsed_seconds": 3.254813406994799,
+      "log_sha256": "cd9c5047525f96f87c9785d9e50c513fcca7330f582e535a660b5602ab87643d"
+    },
+    {
+      "argv": [
+        "<verus-home>/verus-x86-linux/verus",
+        "<stage>/feature-gates/evaluation-feature2/inputs/candidate/native/toom8_evaluation_runner.rs",
+        "--verify-module",
+        "toom8_evaluation",
+        "--multiple-errors",
+        "0"
+      ],
+      "log": "ignore-incoming.log",
+      "status": "completed",
+      "returncode": 1,
+      "elapsed_seconds": 3.318019236990949,
+      "log_sha256": "cd9c5047525f96f87c9785d9e50c513fcca7330f582e535a660b5602ab87643d"
+    },
+    {
+      "argv": [
+        "<verus-home>/verus-x86-linux/verus",
+        "<stage>/feature-gates/evaluation-feature2/inputs/candidate/native/toom8_evaluation_runner.rs",
+        "--verify-module",
+        "toom8_evaluation",
+        "--multiple-errors",
+        "0"
+      ],
+      "log": "wrong-radix.log",
+      "status": "completed",
+      "returncode": 1,
+      "elapsed_seconds": 3.4477794139966136,
+      "log_sha256": "cd9c5047525f96f87c9785d9e50c513fcca7330f582e535a660b5602ab87643d"
+    },
+    {
+      "argv": [
+        "<verus-home>/verus-x86-linux/verus",
+        "<stage>/feature-gates/evaluation-feature2/inputs/candidate/native/toom8_evaluation_runner.rs",
+        "--verify-module",
+        "toom8_evaluation",
+        "--multiple-errors",
+        "0"
+      ],
+      "log": "wrong-carry-bias.log",
+      "status": "completed",
+      "returncode": 1,
+      "elapsed_seconds": 3.383678889993462,
+      "log_sha256": "b556fadf235319fbc426dd2428e0debbb58ea3039e2ddddca0a61beb9034dae8"
+    },
+    {
+      "argv": [
+        "<verus-home>/verus-x86-linux/verus",
+        "<stage>/feature-gates/evaluation-feature2/inputs/candidate/native/toom8_evaluation_runner.rs",
+        "--verify-module",
+        "toom8_evaluation",
+        "--multiple-errors",
+        "0"
+      ],
+      "log": "omit-high-input.log",
+      "status": "completed",
+      "returncode": 1,
+      "elapsed_seconds": 3.2971107670018682,
+      "log_sha256": "56f0726b4eef2cde3b492c7caa017288629fc119e178699bf2d39472c0b47d56"
+    },
+    {
+      "argv": [
+        "<verus-home>/verus-x86-linux/verus",
+        "<stage>/feature-gates/evaluation-feature2/inputs/candidate/native/toom8_evaluation_runner.rs",
+        "--verify-module",
+        "toom8_evaluation",
+        "--multiple-errors",
+        "0"
+      ],
+      "log": "zero-loop-carry.log",
+      "status": "completed",
+      "returncode": 1,
+      "elapsed_seconds": 3.3314434360072482,
+      "log_sha256": "53f0d17bfb747ca1a89eddb5aa17dbf0062432fed84966e484e1e5a6f4b2618e"
+    },
+    {
+      "argv": [
+        "<verus-home>/verus-x86-linux/verus",
+        "<stage>/feature-gates/evaluation-feature2/inputs/candidate/native/toom8_evaluation_runner.rs",
+        "--verify-module",
+        "toom8_evaluation",
+        "--multiple-errors",
+        "0"
+      ],
+      "log": "drop-top-word.log",
+      "status": "completed",
+      "returncode": 1,
+      "elapsed_seconds": 3.7142809400102124,
+      "log_sha256": "66c15b21099d9f0dcedf401b035604dcf59a4902aa0afa845e6e94f6b31d0b91"
+    },
+    {
+      "argv": [
+        "<verus-home>/verus-x86-linux/verus",
+        "<stage>/feature-gates/evaluation-feature2/inputs/candidate/native/toom8_evaluation_runner.rs",
+        "--verify-module",
+        "toom8_evaluation",
+        "--multiple-errors",
+        "0"
+      ],
+      "log": "skip-magnitude-conversion.log",
+      "status": "completed",
+      "returncode": 1,
+      "elapsed_seconds": 3.7852753320039483,
+      "log_sha256": "d7c2ae6d1f4da3c79ff05f7357050ef572a631bfa35f7dcb41ad59a3f7e8f80d"
+    },
+    {
+      "argv": [
+        "<verus-home>/verus-x86-linux/verus",
+        "<stage>/feature-gates/evaluation-feature2/inputs/candidate/native/toom8_evaluation_runner.rs",
+        "--verify-module",
+        "toom8_evaluation",
+        "--multiple-errors",
+        "0"
+      ],
+      "log": "wrong-sign.log",
+      "status": "completed",
+      "returncode": 1,
+      "elapsed_seconds": 4.383690567992744,
+      "log_sha256": "05e78262f254bdc9f2f2273decc8656b6e09b1e0ef6b69c273f85892e46d7c38"
+    },
+    {
+      "argv": [
+        "<verus-home>/verus-x86-linux/verus",
+        "<stage>/feature-gates/evaluation-feature2/inputs/candidate/native/toom8_evaluation_runner.rs",
+        "--verify-module",
+        "toom8_evaluation",
+        "--multiple-errors",
+        "0"
+      ],
+      "log": "wrong-point-eight.log",
+      "status": "completed",
+      "returncode": 1,
+      "elapsed_seconds": 3.3927447889873292,
+      "log_sha256": "ae2540ca274c9a031e6095589f64ad5c69fbf20c356e2b0bc986130625d769d2"
+    },
+    {
+      "argv": [
+        "<verus-home>/verus-x86-linux/verus",
+        "<stage>/feature-gates/evaluation-feature2/inputs/candidate/native/toom8_evaluation_runner.rs",
+        "--verify-module",
+        "toom8_evaluation",
+        "--multiple-errors",
+        "0"
+      ],
+      "log": "ignore-caller-sign.log",
+      "status": "completed",
+      "returncode": 1,
+      "elapsed_seconds": 3.3402278059948003,
+      "log_sha256": "7aafcbe3e3ad311c3a1b0b7ed34dfd0eb258cca257210bfe16a121ce81d28e56"
+    },
+    {
+      "argv": [
+        "<verus-home>/verus-x86-linux/verus",
+        "<stage>/feature-gates/evaluation-feature2/inputs/candidate/native/toom8_evaluation_runner.rs",
+        "--verify-module",
+        "toom8_evaluation",
+        "--multiple-errors",
+        "0"
+      ],
+      "log": "overwrite-tmp.log",
+      "status": "completed",
+      "returncode": 1,
+      "elapsed_seconds": 3.672792515993933,
+      "log_sha256": "c17fc46eb965b8c7d8757b83dfe81b3678a2df81ecdd3316d968abbd1461a2e6"
+    }
+  ],
+  "strict_classifier_selfcheck": "pass",
+  "toolchain": "Verus\n  Version: 0.2026.10.26.d17fbd0\n  Profile: release\n  Platform: linux_x86_64\n  Toolchain: 1.99.1-x86_64-unknown-linux-gnu (overridden by environment variable RUSTUP_TOOLCHAIN)\n\n",
+  "rustc": "rustc 1.99.1 (58cf8f9c3 2026-10-13)\nbinary: rustc\ncommit-hash: 58cf8f9c35b355199727627d07ae34a4e2846d67\ncommit-date: 2026-10-13\nhost: x86_64-unknown-linux-gnu\nrelease: 1.99.1\nLLVM version: 23.1.1\n",
+  "toolchain_file_sha256": {
+    "<cargo-home>/bin/rustup": "5be191e8c70a5007074254cb74d78dbfdd25cd5a61c27de7b8e5410122ec24f4",
+    "<rustup-home>/toolchains/1.99.1-x86_64-unknown-linux-gnu/bin/rustc": "b53b780f77f952062f8ca8a3b70aef2390b1e45ad91939be94afdc9543026853",
+    "<rustup-home>/toolchains/1.99.1-x86_64-unknown-linux-gnu/lib/libLLVM.so.23.1-rust-1.99.1-stable": "1cfbe1392a767227b88b33ab6187283e281c63f80f9b1ca9010d9cee5fdf9131",
+    "<rustup-home>/toolchains/1.99.1-x86_64-unknown-linux-gnu/lib/librustc_driver-7ed0375ae352bd75.so": "5a2cd52edba7d15f8d898b92a912638f5b73a089c7c1bfde5604ab45665602c7",
+    "<verus-home>/verus-x86-linux/libverus_builtin.rlib": "f01e88f055e7c19b1a9a6a6118648f20708347d23040ddaee6493b6a4e3f6510",
+    "<verus-home>/verus-x86-linux/libverus_builtin_macros.so": "57bf8ebf436d974a7e05efdd2341bd40c51e737bdb6dd791026165e21f64e3f0",
+    "<verus-home>/verus-x86-linux/libverus_state_machines_macros.so": "8489b80f5a493855ea658a2b2d1850d0957d3149c8240cf7e490b984049d1149",
+    "<verus-home>/verus-x86-linux/libvstd.rlib": "da07ffe583aa14ec1ba5e4aa2295cec538c2a9b59bfbbf4d60f16e20d540befd",
+    "<verus-home>/verus-x86-linux/rust_verify": "7dc66fc35b1ef434d7db3d17f4a7bc9fe1f40b896cbe18a1193820270fa462f6",
+    "<verus-home>/verus-x86-linux/verus": "1208c995c8e5244577693eba311d34bc2050c4acf984e10c4c7baf2003abff14",
+    "<verus-home>/verus-x86-linux/vstd.vir": "6bf002dd6aacba73f8cbf09a1855b6330aa4773752878d2b702a52cc4f1538e2",
+    "<verus-home>/verus-x86-linux/z3": "e583c4186a45e72411fa2cb2048401eed03f0f8e5f24694676a8f6271a50b765",
+    "/usr/bin/python3.12": "1643dacd9feaedc58f3cc581e4d22577dfe25c09b10282936186ccf0f2e61118",
+    "/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2": "1cd555ac46b7887edeaf3c42aac5408c8135e52f6b37870da2cf82d5fe14e829",
+    "/usr/lib/x86_64-linux-gnu/libc.so.6": "d8db8739a1633c972cec6a4fe0566bdcec6fd088f98723492ab0361f66238f75",
+    "/usr/lib/x86_64-linux-gnu/libdl.so.2": "850b46fd4f4478060fc106f4d1dc4aa35c969eb5c9bd98aaf64dc6cb3d6a5e32",
+    "/usr/lib/x86_64-linux-gnu/libgcc_s.so.1": "d93224d2b0dab4247598be683adca02f5cf00586f99c187579cd7e92058fb7cb",
+    "/usr/lib/x86_64-linux-gnu/libm.so.6": "1b87a1a50b496cfead2b0ad134c2ff536705c82608db240c7e8aa48d6c0e4217",
+    "/usr/lib/x86_64-linux-gnu/libpthread.so.0": "92dcea07a5b11d939c22a96131d3fbb995e0a84a4d02db7d799bf357689cd794",
+    "/usr/lib/x86_64-linux-gnu/librt.so.1": "9d1cefae4c0e4995cc35ea3195f805454b2d59a27ad15397a1096e735d341faf",
+    "/usr/lib/x86_64-linux-gnu/libz.so.1.3": "9b64150b28505a33d6bc3ecf709c279f6de97a1c184dbda65d06ee4537f6d286"
+  },
+  "library_verified": 447,
+  "runner_verified": 72,
+  "runtime_library_sha256": {
+    "/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2": "1cd555ac46b7887edeaf3c42aac5408c8135e52f6b37870da2cf82d5fe14e829",
+    "/usr/lib/x86_64-linux-gnu/libc.so.6": "d8db8739a1633c972cec6a4fe0566bdcec6fd088f98723492ab0361f66238f75",
+    "/usr/lib/x86_64-linux-gnu/libgcc_s.so.1": "d93224d2b0dab4247598be683adca02f5cf00586f99c187579cd7e92058fb7cb"
+  },
+  "oracle": {
+    "cases": 14156,
+    "counts": {
+      "scalar": 8532,
+      "weighted_arrays": 2160,
+      "dyadic_arrays": 3456,
+      "point_weights": 8
+    },
+    "input_sha256": "cd3cf49277ed6d502f1e7f7b38d3f7e476bf9afe9589b0a97c48f8aff9de6d6f",
+    "output_sha256": "938c7670f9bd7a3818d2589bef70fc4353365c2a58bc5929d565e87969c581d8",
+    "oracle_model": "Independent Python unbounded weighted sums and homogeneous dyadic polynomials"
+  },
+  "invalid": [
+    {
+      "command": "limb|4194305|0|1,1,1,1,1,1,1,1|0,0,0,0,0,0,0,0",
+      "returncode": 101,
+      "log_sha256": "e26f0b6e1d91bc7c560629258303e42d85bd0bed16cda3fe0aaba2b9884e26c0"
+    },
+    {
+      "command": "limb|-4194305|0|1,1,1,1,1,1,1,1|0,0,0,0,0,0,0,0",
+      "returncode": 101,
+      "log_sha256": "fb4800718917714e4172049f1c5c92619353f664b3c26d1bf2203db390593bc2"
+    },
+    {
+      "command": "limb|0|2|1,1,1,1,1,1,1,1|0,0,0,0,0,0,0,0",
+      "returncode": 101,
+      "log_sha256": "a3dfa6737f463d2a4f2a6ade32b2ca571dc970059ca0612af628ae95232a74c7"
+    },
+    {
+      "command": "limb|0|0|2097153,0,0,0,0,0,0,0|0,0,0,0,0,0,0,0",
+      "returncode": 101,
+      "log_sha256": "0e163337f59df5073ac0a345bd2152fec9ec8878b260431ebeb6468c9c3d9338"
+    },
+    {
+      "command": "limb|0|0|2097152,2097152,0,0,0,0,0,0|0,0,0,0,0,0,0,0",
+      "returncode": 101,
+      "log_sha256": "5744c3b25db00f8649c8bf3485216ef083f512a421b7f828da9722ab2ea9dbd7"
+    },
+    {
+      "command": "limb|0|0|1,1|0,0,0,0,0,0,0,0",
+      "returncode": 101,
+      "log_sha256": "78da875740903322d4c5c480ee3b2a6842e137a9fda1724f88c8a2759d8f018d"
+    },
+    {
+      "command": "limb|0|0|1,1,1,1,1,1,1,1|1",
+      "returncode": 101,
+      "log_sha256": "a3b222cba426c625f2dcf561441638bca5fc97b2e4af43168dd52e9ec441f1d1"
+    },
+    {
+      "command": "weights|4|0",
+      "returncode": 101,
+      "log_sha256": "effe8b76033d3735e119e8bc545917ea3ffcbd5759bbe4eb6a2f82ef4b257e5c"
+    },
+    {
+      "command": "weights|0|2",
+      "returncode": 101,
+      "log_sha256": "df0e99e633ae5eb474610a51ec98c5a3294a08cf4bebc21c522f1bfccdbf640a"
+    },
+    {
+      "command": "dyadic|4|0|0|-|-|-|-|-|-|-|-",
+      "returncode": 101,
+      "log_sha256": "3dcd1ab4c99772b07976f9c7ebdd049e80dfae462ccec30f912040346afd41b5"
+    },
+    {
+      "command": "dyadic|0|0|2|-|-|-|-|-|-|-|-",
+      "returncode": 101,
+      "log_sha256": "d4e3995474d98f26a0ac66d7e7ab932be7050d86fa97e0e56b6e9dc4345c7b10"
+    },
+    {
+      "command": "eval|0|1,1,1,1,1,1,1,1|0|-|-|-|-|-|-|-",
+      "returncode": 101,
+      "log_sha256": "d37de5c6ce80147580e29794dae79be2acd3092c2500cd577017a2aa99a3c32c"
+    },
+    {
+      "command": "eval|0|1,1,1,1,1,1,1,1|0|0|0|0|0|0|0|0,1",
+      "returncode": 101,
+      "log_sha256": "7bb93dd3a338dc55eb05f248ba914b96ca0ac6a3f0d5fb2555199f0d953bd80f"
+    },
+    {
+      "command": "eval|0|0,0,0,0,0,0,0,0|-|-|-|-|-|-|-",
+      "returncode": 101,
+      "log_sha256": "91ae330dec407a91158bfd6e18eeac95707411c2a7e1a5abfb2799a7d7535104"
+    },
+    {
+      "command": "unknown",
+      "returncode": 101,
+      "log_sha256": "a995a1397ea9a749af873795defab4aa1fd58fd7a47752c9dfcbcae221dbe214"
+    },
+    {
+      "command": "weights|0|0|extra",
+      "returncode": 101,
+      "log_sha256": "2ec0f1eca813f57ab08156cd1e833a0913add9283f041a26ad616b717eb1cd14"
+    }
+  ],
+  "codegen_verified": 72,
+  "codegen": {
+    "status": "pass",
+    "scope": "Actual generic bounded-weight scalar/slice and dyadic eight-block evaluation",
+    "no_allocator_general_division_or_element_bounds_panic": true,
+    "paths": {
+      "verified_eval8_limb": {
+        "reachable_functions": [
+          "verified_eval8_limb"
+        ],
+        "external_calls": [],
+        "root_body_lines": 84
+      },
+      "verified_eval8_generic": {
+        "reachable_functions": [
+          "verified_eval8_generic"
+        ],
+        "external_calls": [
+          "*_RNvNtCskADBYZwJmSU_4core9panicking5panic@GOTPCREL(%rip)"
+        ],
+        "root_body_lines": 224
+      },
+      "verified_eval8_dyadic": {
+        "reachable_functions": [
+          "verified_eval8_dyadic"
+        ],
+        "external_calls": [
+          "*_RNvNtCskADBYZwJmSU_4core9panicking5panic@GOTPCREL(%rip)"
+        ],
+        "root_body_lines": 336
+      },
+      "verified_eval8_eight": {
+        "reachable_functions": [
+          "verified_eval8_eight"
+        ],
+        "external_calls": [
+          "*_RNvNtCskADBYZwJmSU_4core9panicking5panic@GOTPCREL(%rip)"
+        ],
+        "root_body_lines": 152
+      },
+      "verified_eval8_negative_eight": {
+        "reachable_functions": [
+          "verified_eval8_negative_eight"
+        ],
+        "external_calls": [
+          "*_RNvNtCskADBYZwJmSU_4core9panicking5panic@GOTPCREL(%rip)"
+        ],
+        "root_body_lines": 194
+      },
+      "verified_eval8_negative_eighth": {
+        "reachable_functions": [
+          "verified_eval8_negative_eighth"
+        ],
+        "external_calls": [
+          "*_RNvNtCskADBYZwJmSU_4core9panicking5panic@GOTPCREL(%rip)"
+        ],
+        "root_body_lines": 199
+      }
+    },
+    "limitation": "Textual assembly inspection; no machine-code equivalence or performance claim"
+  },
+  "mutations": [
+    {
+      "name": "ignore-negative",
+      "semantically_rejected": true,
+      "source_sha256": "ff6284eaeaef3506ec227b39f477712a33d8434c224d001a1ce44f520af3cc7c",
+      "before": "let total=even+(if negative {-odd}else{odd})+(incoming as i128);",
+      "after": "let total=even+odd+(incoming as i128);",
+      "log_sha256": "cd9c5047525f96f87c9785d9e50c513fcca7330f582e535a660b5602ab87643d"
+    },
+    {
+      "name": "ignore-incoming",
+      "semantically_rejected": true,
+      "source_sha256": "c39f0a061fcb063817d6e3494ba0656d7a46209938945fb15a2a52188f909a2e",
+      "before": "let total=even+(if negative {-odd}else{odd})+(incoming as i128);",
+      "after": "let total=even+(if negative {-odd}else{odd});",
+      "log_sha256": "cd9c5047525f96f87c9785d9e50c513fcca7330f582e535a660b5602ab87643d"
+    },
+    {
+      "name": "wrong-radix",
+      "semantically_rejected": true,
+      "source_sha256": "99e181d9a93e5c71700c4557bcda7f630dcaf854f5adb6a73169391e9075dfc4",
+      "before": "biased%18446744073709551616u128",
+      "after": "biased%18446744073709551615u128",
+      "log_sha256": "cd9c5047525f96f87c9785d9e50c513fcca7330f582e535a660b5602ab87643d"
+    },
+    {
+      "name": "wrong-carry-bias",
+      "semantically_rejected": true,
+      "source_sha256": "99e39b79fe7f6c628d4bd141af52ba32523b9a403f151770c9b633396620faa5",
+      "before": "(low,high-4194304)",
+      "after": "(low,high-4194303)",
+      "log_sha256": "b556fadf235319fbc426dd2428e0debbb58ea3039e2ddddca0a61beb9034dae8"
+    },
+    {
+      "name": "omit-high-input",
+      "semantically_rejected": true,
+      "source_sha256": "acf1df9d3f4678dfcd4508c5fbaac1f45541d08156d4e523166d27bcbcc6d34f",
+      "before": "let x7=if i<a7.len(){a7[i]}else{0};",
+      "after": "let x7=0u64;",
+      "log_sha256": "56f0726b4eef2cde3b492c7caa017288629fc119e178699bf2d39472c0b47d56"
+    },
+    {
+      "name": "zero-loop-carry",
+      "semantically_rejected": true,
+      "source_sha256": "1992a7101ef543991879b28f17c57f8cbe5a5fafc1224adfab3dd6eed44f79e3",
+      "before": "carry=next;i+=1;",
+      "after": "carry=0;i+=1;",
+      "log_sha256": "53f0d17bfb747ca1a89eddb5aa17dbf0062432fed84966e484e1e5a6f4b2618e"
+    },
+    {
+      "name": "drop-top-word",
+      "semantically_rejected": true,
+      "source_sha256": "541ed7e14c17814b2d62995c8fa4c6e900d3205ea289fb6637041e8cd46685e0",
+      "before": "let ghost before=dst@;dst[k]=high;",
+      "after": "let ghost before=dst@;dst[k]=0u64;",
+      "log_sha256": "66c15b21099d9f0dcedf401b035604dcf59a4902aa0afa845e6e94f6b31d0b91"
+    },
+    {
+      "name": "skip-magnitude-conversion",
+      "semantically_rejected": true,
+      "source_sha256": "5256182f05efb18913e4d340bf27196ef28d8a3633fb2694a49619156089cdb3",
+      "before": "if negative {crate::signed_evaluation::negate(dst);}",
+      "after": "if negative {let _unused=negative;}",
+      "log_sha256": "d7c2ae6d1f4da3c79ff05f7357050ef572a631bfa35f7dcb41ad59a3f7e8f80d"
+    },
+    {
+      "name": "wrong-sign",
+      "semantically_rejected": true,
+      "source_sha256": "8f153260474cbe13639b899f9da52a5a65cc6a8b3663428c13aaa7162c400809",
+      "before": "let negative=carry<0;",
+      "after": "let negative=carry>0;",
+      "log_sha256": "05e78262f254bdc9f2f2273decc8656b6e09b1e0ef6b69c273f85892e46d7c38"
+    },
+    {
+      "name": "wrong-point-eight",
+      "semantically_rejected": true,
+      "source_sha256": "1ccf3051c06b3067b4c59b9780b16828e9759c77fc60bd6445d204761189cae2",
+      "before": "[1u64,8,64,512,4096,32768,262144,2097152]",
+      "after": "[1u64,8,64,512,4096,32768,262144,2097151]",
+      "log_sha256": "ae2540ca274c9a031e6095589f64ad5c69fbf20c356e2b0bc986130625d769d2"
+    },
+    {
+      "name": "ignore-caller-sign",
+      "semantically_rejected": true,
+      "source_sha256": "ceda57c6ee3f5534b1bd74b690cd64c9d0c80b468736ad5bf82cd33766bea997",
+      "before": "evaluate(dst,tmp,a0,a1,a2,a3,a4,a5,a6,a7,weights,negative_point)",
+      "after": "evaluate(dst,tmp,a0,a1,a2,a3,a4,a5,a6,a7,weights,false)",
+      "log_sha256": "7aafcbe3e3ad311c3a1b0b7ed34dfd0eb258cca257210bfe16a121ce81d28e56"
+    },
+    {
+      "name": "overwrite-tmp",
+      "semantically_rejected": true,
+      "source_sha256": "b9331426c879a7a65336b337c6decdd4cf9504dcb1c13dd16372014ffe7f14fd",
+      "before": "let _capacity=dst.len();let _tmp_capacity=tmp.len();",
+      "after": "let _capacity=dst.len();let _tmp_capacity=tmp.len();if tmp.len()>0 {tmp[0]=0;}",
+      "log_sha256": "c17fc46eb965b8c7d8757b83dfe81b3678a2df81ecdd3316d968abbd1461a2e6"
+    }
+  ],
+  "artifact_sha256": {
+    "libcandidate.rlib": "641d6bf9dba50821b7aeac60556d77ac74a93d919cd4ec684f189c2b6306a4dd",
+    "candidate.vir": "b758959adcfebb7c41499824a16d60e4ec8f755ecea8cbbfcacff790b90ba643",
+    "oracle-runner": "0b4d684774b05b8121780ac3b5b9086fcf2455d0d16bdfef928f9b5c88bd7b05",
+    "codegen.s": "9672365e6b1a7f0e30e9199df4c3e6022c1694b9079e01ebb2f4d3b53437b263"
+  },
+  "finished_utc": "2026-11-02T00:47:17.934557+00:00"
+}

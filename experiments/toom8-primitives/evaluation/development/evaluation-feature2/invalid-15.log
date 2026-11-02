@@ -1,0 +1,6 @@
+
+thread 'main' (55855) panicked at <stage>/feature-gates/evaluation-feature2/inputs/candidate/native/toom8_evaluation_runner.rs:27:13:
+assertion `left == right` failed
+  left: 4
+ right: 3
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace

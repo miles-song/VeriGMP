@@ -1,0 +1,43 @@
+verification results:: 9 verified, 2 errors (partial verification with `--verify-*`)
+note: verifying module toom8_evaluation_spec
+
+note: assert_nonlinear_by has been running for 2 seconds
+      reporting errors as they are discovered (they may not be in source order)
+  --> <stage>/development/eval-spec2/inputs/candidate/native/specs/toom8_evaluation.rs:40:9
+   |
+40 | ...   assert(in...
+   |       ^^^^^^
+
+note: assert_nonlinear_by finished in 41 seconds
+  --> <stage>/development/eval-spec2/inputs/candidate/native/specs/toom8_evaluation.rs:40:9
+   |
+40 | ...   assert(in...
+   |       ^^^^^^
+
+error: assert_nonlinear_by: resource limit (rlimit) exceeded; consider rerunning with `--profile` for more details
+  --> <stage>/development/eval-spec2/inputs/candidate/native/specs/toom8_evaluation.rs:40:9
+   |
+40 | ...   assert(in...
+   |       ^^^^^^
+
+note: assert_nonlinear_by has been running for 2 seconds
+      reporting errors as they are discovered (they may not be in source order)
+  --> <stage>/development/eval-spec2/inputs/candidate/native/specs/toom8_evaluation.rs:50:9
+   |
+50 | ...   assert(in...
+   |       ^^^^^^
+
+note: assert_nonlinear_by finished in 43 seconds
+  --> <stage>/development/eval-spec2/inputs/candidate/native/specs/toom8_evaluation.rs:50:9
+   |
+50 | ...   assert(in...
+   |       ^^^^^^
+
+error: assert_nonlinear_by: resource limit (rlimit) exceeded; consider rerunning with `--profile` for more details
+  --> <stage>/development/eval-spec2/inputs/candidate/native/specs/toom8_evaluation.rs:50:9
+   |
+50 | ...   assert(in...
+   |       ^^^^^^
+
+error: aborting due to 2 previous errors
+

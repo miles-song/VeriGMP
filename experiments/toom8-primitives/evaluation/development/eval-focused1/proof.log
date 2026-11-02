@@ -1,0 +1,23 @@
+verification results:: 8 verified, 1 errors (partial verification with `--verify-*`)
+note: verifying module toom8_evaluation
+
+note: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> <stage>/development/eval-focused1/inputs/candidate/native/verified/toom8_evaluation.rs:17:1
+   |
+17 | pub f...,i64))
+   | ^^^^^...^^^^^
+
+error: possible arithmetic underflow/overflow
+  --> <stage>/development/eval-focused1/inputs/candidate/native/verified/toom8_evaluation.rs:32:12
+   |
+32 | ...p0=(x0 a...i128);
+   |       ^^^^^...^^^^^
+
+error: possible arithmetic underflow/overflow
+  --> <stage>/development/eval-focused1/inputs/candidate/native/verified/toom8_evaluation.rs:33:12
+   |
+33 | ...p1=(x1 a...i128);
+   |       ^^^^^...^^^^^
+
+error: aborting due to 2 previous errors
+

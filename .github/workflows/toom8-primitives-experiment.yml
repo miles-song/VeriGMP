@@ -22,3 +22,6 @@ jobs:
       - run: python3 experiments/toom8-primitives/gate-hardening/test_prepare_boundaries.py
       - run: python3 experiments/toom8-primitives/gate-hardening/prepare.py --feature wide-odd --output /tmp/verigmp-wide-odd-hardened
       - run: python3 experiments/toom8-primitives/gate-hardening/prepare.py --feature newton --output /tmp/verigmp-newton-hardened
+      - run: python3 experiments/toom8-primitives/evaluation/audit.py
+      - run: python3 experiments/toom8-primitives/evaluation/test_prepare_boundaries.py
+      - run: python3 experiments/toom8-primitives/evaluation/prepare.py --output /tmp/verigmp-evaluation

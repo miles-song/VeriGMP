@@ -1,0 +1,9 @@
+{
+  "verus_version": "0.2026.10.26.d17fbd0",
+  "verus_commit": "d17fbd0c58abf0d5e86825ea64b96aba72b1b31f",
+  "rust_toolchain": "1.99.1-x86_64-unknown-linux-gnu",
+  "platform": "linux-x86_64",
+  "archive": "verus-0.2026.10.26.d17fbd0-x86-linux.zip",
+  "url": "https://github.com/verus-lang/verus/releases/download/release/0.2026.10.26.d17fbd0/verus-0.2026.10.26.d17fbd0-x86-linux.zip",
+  "sha256": "361674d05f0c1b2c9c3f4d5bc56a8fb2ab9241ed0cceca27780668c292bb4940"
+}
