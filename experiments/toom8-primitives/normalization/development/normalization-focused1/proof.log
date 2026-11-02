@@ -1,0 +1,33 @@
+verification results:: 4 verified, 1 errors (partial verification with `--verify-*`)
+note: verifying module toom8_normalization
+
+note: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> <stage>/development/normalization-focused1/inputs/candidate/native/verified/toom8_normalization.rs:57:1
+   |
+57 | pub f...size)
+   | ^^^^^...^^^^^
+
+error: precondition not satisfied
+  --> <stage>/development/normalization-focused1/inputs/candidate/native/verified/toom8_normalization.rs:70:5
+   |
+70 |     toom4...hold);
+   |     ^^^^^...^^^^^
+   |
+  ::: <stage>/development/normalization-focused1/inputs/candidate/native/verified/toom4_multiply.rs:12:14
+   |
+12 | ...es a@.len()>0,a@...
+   |       ---------- failed precondition
+
+error: precondition not satisfied
+  --> <stage>/development/normalization-focused1/inputs/candidate/native/verified/toom8_normalization.rs:71:5
+   |
+71 |     toom4...hold);
+   |     ^^^^^...^^^^^
+   |
+  ::: <stage>/development/normalization-focused1/inputs/candidate/native/verified/toom4_multiply.rs:12:14
+   |
+12 | ...es a@.len()>0,a@...
+   |       ---------- failed precondition
+
+error: aborting due to 2 previous errors
+

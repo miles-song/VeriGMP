@@ -1,0 +1,54 @@
+verification results:: 5 verified, 1 errors (partial verification with `--verify-*`)
+note: verifying module toom8_normalization
+
+note: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> <stage>/feature-gates/normalization-feature1/inputs/candidate/native/verified/toom8_normalization.rs:11:1
+   |
+11 | pub f...,u64))
+   | ^^^^^...^^^^^
+
+note: assert_nonlinear_by: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> <stage>/feature-gates/normalization-feature1/inputs/candidate/native/verified/toom8_normalization.rs:43:9
+   |
+43 | ...   assert(va...
+   |       ^^^^^^
+
+note: assert_nonlinear_by: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> <stage>/feature-gates/normalization-feature1/inputs/candidate/native/verified/toom8_normalization.rs:49:9
+   |
+49 | ...   assert(va...
+   |       ^^^^^^
+
+note: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> <stage>/feature-gates/normalization-feature1/inputs/candidate/native/verified/toom8_normalization.rs:27:1
+   |
+27 | pub f...nt>>)
+   | ^^^^^...^^^^^
+
+error: postcondition not satisfied
+  --> <stage>/feature-gates/normalization-feature1/inputs/candidate/native/verified/toom8_normalization.rs:33:61
+   |
+33 |           value(final(even)@)==model::normalized_even(c,node),value...node),
+   |                                                               ^^^^^...^^^^^ failed this postcondition
+...
+48 |       proof {
+   |  ___________-
+49 | |         assert(value(odd@)==oq) by(nonlinear_arith)
+50 | |             requires (odd_divisor as int)*value(odd@)==(odd_divisor as int)*oq,odd_divisor>0;
+51 | |     }
+   | |_____- at the end of the function body
+
+note: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> <stage>/feature-gates/normalization-feature1/inputs/candidate/native/verified/toom8_normalization.rs:58:1
+   |
+58 | pub f...size)
+   | ^^^^^...^^^^^
+
+note: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> <stage>/feature-gates/normalization-feature1/inputs/candidate/native/verified/toom8_normalization.rs:80:1
+   |
+80 | pub f...size)
+   | ^^^^^...^^^^^
+
+error: aborting due to 1 previous error
+

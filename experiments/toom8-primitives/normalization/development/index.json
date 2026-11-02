@@ -1,0 +1,70 @@
+{
+  "accepted_gate": "normalization-feature1",
+  "attempts": [
+    {
+      "name": "normalization-spec1",
+      "reported_status": "error",
+      "report": "development/normalization-spec1/report.json",
+      "source_overlays": {
+        "candidate/native/specs/toom8_normalization.rs": "development/normalization-spec1/overlays/candidate/native/specs/toom8_normalization.rs",
+        "candidate/native/verified/toom8_normalization.rs": "development/normalization-spec1/overlays/candidate/native/verified/toom8_normalization.rs",
+        "check_development.py": "development/normalization-spec1/overlays/check_development.py",
+        "origin.json": "development/normalization-spec1/overlays/origin.json"
+      },
+      "status_boundary": "Historical record; accepted gate is normalization-feature1."
+    },
+    {
+      "name": "normalization-spec2",
+      "reported_status": "pass",
+      "report": "development/normalization-spec2/report.json",
+      "source_overlays": {
+        "candidate/native/verified/toom8_normalization.rs": "development/normalization-spec2/overlays/candidate/native/verified/toom8_normalization.rs",
+        "check_development.py": "development/normalization-spec2/overlays/check_development.py",
+        "origin.json": "development/normalization-spec2/overlays/origin.json"
+      },
+      "status_boundary": "Historical record; accepted gate is normalization-feature1."
+    },
+    {
+      "name": "normalization-focused1",
+      "reported_status": "error",
+      "report": "development/normalization-focused1/report.json",
+      "source_overlays": {
+        "candidate/native/verified/toom8_normalization.rs": "development/normalization-focused1/overlays/candidate/native/verified/toom8_normalization.rs",
+        "check_development.py": "development/normalization-focused1/overlays/check_development.py",
+        "origin.json": "development/normalization-focused1/overlays/origin.json"
+      },
+      "status_boundary": "Historical record; accepted gate is normalization-feature1."
+    },
+    {
+      "name": "normalization-focused2",
+      "reported_status": "error",
+      "report": "development/normalization-focused2/report.json",
+      "source_overlays": {
+        "candidate/native/verified/toom8_normalization.rs": "development/normalization-focused2/overlays/candidate/native/verified/toom8_normalization.rs",
+        "check_development.py": "development/normalization-focused2/overlays/check_development.py",
+        "origin.json": "development/normalization-focused2/overlays/origin.json"
+      },
+      "status_boundary": "Historical record; accepted gate is normalization-feature1."
+    },
+    {
+      "name": "normalization-focused3",
+      "reported_status": "pass",
+      "report": "development/normalization-focused3/report.json",
+      "source_overlays": {
+        "check_development.py": "development/normalization-focused3/overlays/check_development.py",
+        "origin.json": "development/normalization-focused3/overlays/origin.json"
+      },
+      "status_boundary": "Historical record; accepted gate is normalization-feature1."
+    },
+    {
+      "name": "normalization-codegen1",
+      "reported_status": "pass",
+      "report": "development/normalization-codegen1/report.json",
+      "source_overlays": {
+        "check_development.py": "development/normalization-codegen1/overlays/check_development.py"
+      },
+      "status_boundary": "Historical record; accepted gate is normalization-feature1."
+    }
+  ],
+  "development_boundary": "All six development attempts are retained, including algebra/precondition failures and a resource-limit failure. The latter is not accepted as semantic mutation rejection."
+}

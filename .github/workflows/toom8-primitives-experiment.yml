@@ -34,3 +34,6 @@ jobs:
       - run: python3 experiments/toom8-primitives/dyadic/audit.py
       - run: python3 experiments/toom8-primitives/dyadic/test_prepare_boundaries.py
       - run: python3 experiments/toom8-primitives/dyadic/prepare.py --output /tmp/verigmp-dyadic
+      - run: python3 experiments/toom8-primitives/normalization/audit.py
+      - run: python3 experiments/toom8-primitives/normalization/test_prepare_boundaries.py
+      - run: python3 experiments/toom8-primitives/normalization/prepare.py --output /tmp/verigmp-normalization

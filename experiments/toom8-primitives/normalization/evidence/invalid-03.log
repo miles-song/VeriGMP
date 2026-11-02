@@ -1,0 +1,4 @@
+
+thread 'main' (3925) panicked at <stage>/feature-gates/normalization-feature1/inputs/candidate/native/toom8_normalization_runner.rs:75:44:
+assertion failed: node < 6
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace

@@ -1,0 +1,96 @@
+{
+  "scope": "Borrowed-slice multiprecision arithmetic; partial library API",
+  "representation": "Little-endian base-2^64 words interpreted as nonnegative mathematical integers",
+  "modules": [
+    {
+      "files": [
+        "specs/radix.rs",
+        "specs/precision.rs",
+        "specs/product.rs",
+        "specs/fast_product.rs"
+      ],
+      "status": "model_proved",
+      "scope": "Range, precision, decomposition, congruence, Karatsuba and low-product identities"
+    },
+    {
+      "files": [
+        "verified/kernel.rs",
+        "verified/limbs.rs",
+        "verified/pow2.rs",
+        "verified/fast_words.rs"
+      ],
+      "status": "impl_refined",
+      "scope": "Scalar and slice arithmetic, carries, borrows, absolute differences and precision normalization; in-place exact borrow and canonical modular subtraction"
+    },
+    {
+      "files": [
+        "verified/multiply.rs",
+        "verified/fast_multiply.rs"
+      ],
+      "status": "impl_refined",
+      "scope": "Schoolbook, difference Karatsuba, low-product recursion and canonical modular multiplication under explicit interface preconditions"
+    },
+    {
+      "files": [
+        "specs/toom.rs",
+        "specs/toom_blocks.rs",
+        "specs/square.rs"
+      ],
+      "status": "model_proved",
+      "scope": "Three-block decomposition, five-point polynomial identities, coefficient bounds, recomposition and square symmetry"
+    },
+    {
+      "files": [
+        "verified/toom_words.rs",
+        "verified/toom_evaluate.rs",
+        "verified/toom_interpolate.rs"
+      ],
+      "status": "impl_refined",
+      "scope": "Padded arithmetic, exact division, signed evaluation, in-place interpolation and shifted modular accumulation"
+    },
+    {
+      "files": [
+        "verified/toom_multiply.rs",
+        "verified/toom_low.rs",
+        "verified/square.rs",
+        "verified/toom_square.rs",
+        "verified/square_low.rs",
+        "verified/arithmetic.rs"
+      ],
+      "status": "impl_refined",
+      "scope": "Recursive full/low Toom multiplication, dedicated recursive squares and fixed modular dispatch"
+    },
+    {
+      "files": [
+        "verified/mac4.rs"
+      ],
+      "status": "impl_refined_candidate",
+      "scope": "Four-word row unrolling with exact carry and short tail; not selected by default"
+    },
+    {
+      "files": [
+        "specs/square_base.rs"
+      ],
+      "status": "model_proved",
+      "scope": "Independent triangular cross-product/diagonal decomposition equals the mathematical square; high diagonals vanish modulo the requested limb radix"
+    },
+    {
+      "files": [
+        "verified/square_base.rs"
+      ],
+      "status": "impl_refined",
+      "scope": "Full and truncated symmetry-specialized basecase squares; checked carries and odd final limb, no scratch; default full-square leaves from 8 limbs and low-square leaves from 9 limbs",
+      "cost": "Full: n(n-1)/2 cross products plus n diagonals. Low: floor(n*n/4) retained cross products plus ceil(n/2) diagonals. Both O(n^2) word operations and O(1) extra words; analytic counts, no composed cost theorem"
+    }
+  ],
+  "resource_contract": "Karatsuba full 3n / low 4n; Toom full/low product 12n, full/low square 10n; checked actual recursive slice capacity and strict decreases",
+  "cost_status": "Fixed-threshold Toom O(n^log3(5)) word bound is analytically derived from source recursion; no checked composed cost theorem",
+  "complete_multiprecision_api": false,
+  "gmp_performance_parity_established": false,
+  "remaining": [
+    "Architecture-specific assembly",
+    "Higher Toom variants and FFT",
+    "Composed cost model",
+    "General division, inversion and higher-level integer APIs"
+  ]
+}

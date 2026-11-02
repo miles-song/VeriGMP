@@ -1,0 +1,19 @@
+{
+  "status": "candidate_for_full_gate",
+  "purpose": "Derive endpoint subtraction, exact divisibility, scale capacity and the six even/odd Newton node expressions from actual input-block products.",
+  "domain": "Full-u64 equal-length input slices with 7*k<=n<=8*k, including k=0 and empty final block; node0..5 represents p/q=1/8,1/4,1/2,1,2,4; original child threshold>=24.",
+  "execution": "Two actual endpoint products (empty endpoints handled without a nonempty multiplication call), two actual signed-point products, endpoint subtraction, exact division by powers of two and exact scaling.",
+  "shared_endpoint_interface": "with_endpoints retains proven actual endpoint values and uses two point products. A final kernel may reuse two endpoint products across all six pairs.",
+  "local_workspace": "prepare_pair proves caller scratch>=18*(k+1), split into 2*k and 2*h endpoint buffers and at least14*(k+1) child scratch. with_endpoints uses the original14*(k+1) scratch. Two2*(k+1) output slices are separate.",
+  "local_work": "Self-contained one-node composition has T(k)+T(h)+2*T(k+1)+O(k) existing child work, skipping empty endpoints. The shared-endpoint interface has2*T(k+1)+O(k). No checked machine-cost theorem or whole-kernel scratch proof is claimed.",
+  "fifteen_product_boundary": "The future kernel uses endpoints2+six paired nodes12+positive-eight1. No negative-eight product is introduced by this feature.",
+  "remaining": [
+    "Actual six-node Newton caller and seventh odd node",
+    "Full recomposition and decreasing Toom8 recursion",
+    "Whole scratch lifetime/cost proof",
+    "Independent performance acceptance"
+  ],
+  "benchmark_run": false,
+  "complete_toom8": false,
+  "production_promoted": false
+}

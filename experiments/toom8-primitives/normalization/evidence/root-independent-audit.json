@@ -1,0 +1,71 @@
+{
+  "status": "pass",
+  "report_sha256": "1a36cb9c0461ab60b09f83d5b1406f7bd0e0abca95eac2f5c8f4d37a6b423aa0",
+  "audit_source_sha256": "3ef15b1913228942860f6243ddef0787a4f36b8819f1b9cd6c2ccbb65fee63f8",
+  "source_inputs": 107,
+  "tools": 21,
+  "runtimes": 3,
+  "artifacts": 4,
+  "locked_paths": 273,
+  "verified_full_library_runner_codegen": [
+    500,
+    500,
+    500
+  ],
+  "true_scoped_mutants": {
+    "skip-low-endpoint": [
+      "5",
+      "1"
+    ],
+    "skip-high-endpoint": [
+      "5",
+      "1"
+    ],
+    "wrong-low-multiplier": [
+      "5",
+      "1"
+    ],
+    "skip-even-division": [
+      "5",
+      "1"
+    ],
+    "wrong-odd-divisor": [
+      "5",
+      "1"
+    ],
+    "skip-even-scale": [
+      "5",
+      "1"
+    ],
+    "skip-odd-scale": [
+      "5",
+      "1"
+    ],
+    "wrong-node-parameters": [
+      "5",
+      "1"
+    ],
+    "square-low-endpoint": [
+      "5",
+      "1"
+    ],
+    "erase-high-endpoint": [
+      "5",
+      "1"
+    ],
+    "swap-shared-endpoints": [
+      "5",
+      "1"
+    ],
+    "flip-dyadic-direction": [
+      "5",
+      "1"
+    ]
+  },
+  "mixed_fatal_rejections": 108,
+  "oracle_cases": 2016,
+  "invalid_commands": 12,
+  "saved_runner_replayed": true,
+  "no_new_proof_escape": true,
+  "boundary": "Actual endpoint products and paired point products derive six even/odd Newton-node values from full-word eight-block inputs. Exact endpoint removal, power-of-two division and scaling have proved capacity; k=0 and empty last blocks are covered. Local self-contained scratch 18*(k+1), shared-endpoint interface 14*(k+1). Six-node array/Newton caller, seventh odd node, full recomposition/recursion and whole-kernel workspace/performance remain open."
+}
