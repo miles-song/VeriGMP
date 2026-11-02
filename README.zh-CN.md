@@ -15,6 +15,14 @@ Precision Arithmetic Library，GNU 多精度算术库）的算法与存储策略
 测量条件见 [性能契约](native/performance-target.json)，判定方法见
 [基准说明](docs/benchmarks.md#performance-target)。
 
+每个 optimization 可以独立验收并合入 main，无需等待整个 VeriGMP 达到 GMP target。
+验收需要在声明的 workload 上相对当前 implementation 有可重复的 performance 收益，
+并通过相关 regression、combination measurements、same-source proof、correctness checks、
+independent review 和 CI。收益取决于 input shape 时，dispatch 只覆盖有测量支持的范围。
+替换 solver 的 trusted GMP backend 还需要通过全部 performance gates、第二次独立
+confirmation、semantic compatibility 和 representative solver traces。
+experiment archives 保存证据；archive 合入本身不代表 candidate 已启用。
+
 ## 计算什么
 
 一个数表示为 limb 切片；limb 是一个 64 位字，切片按小端字序排列（低位 limb 在前）。记 `B = 2^64`，切片 `a`

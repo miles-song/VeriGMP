@@ -19,6 +19,15 @@ and a confirming run; it has not been reached.
 See [the measurement contract](native/performance-target.json) and
 [its evaluation procedure](docs/benchmarks.md#performance-target).
 
+Individual optimizations can enter main before the overall GMP target is met.
+Each needs reproducible gains over the current implementation on its declared
+workloads, relevant regression and combination measurements, same-source proof
+and correctness checks, independent review and successful CI. Shape-dependent
+gains justify scoped dispatch. Replacing a consuming solver's trusted GMP backend
+requires all registered performance gates, a second independent confirmation,
+semantic compatibility and representative solver traces. Retained experiment
+archives preserve evidence without enabling their candidates in production.
+
 ## What it computes
 
 A number is a slice of limbs: little-endian 64-bit words. With `B = 2^64`, the

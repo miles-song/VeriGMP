@@ -3,9 +3,14 @@
 These archives retain candidate source, independent oracle drivers, proof logs,
 raw measurements and reproducible preparation scripts. The machine-readable
 [index](index.json) pins the seven archive commits and their independent audit.
-All candidates remain experimental. Production promotion requires the
-registered [performance target](../native/performance-target.json), including
-confirmation measurements and the consuming solver's actual dependency path.
+All candidates in these archives remain experimental. Individual optimizations
+can be enabled through scoped dispatch after reproducible gains against the
+current implementation, relevant regression and combination measurements,
+same-source proof and correctness checks, independent review and exact-commit CI.
+They need not first meet the overall GMP target. Replacing a consuming solver's
+trusted GMP backend additionally requires the complete registered
+[performance target](../native/performance-target.json), independent confirmation
+and acceptance of the solver's actual dependency path and representative traces.
 
 | Archive | Optimization mechanism | Accepted scope |
 | --- | --- | --- |

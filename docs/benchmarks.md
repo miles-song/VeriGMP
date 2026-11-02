@@ -201,6 +201,20 @@ new output belongs to the reproduction run and does not replace those reports.
 
 ## Performance target
 
+Feature acceptance and backend replacement have separate performance criteria.
+A feature can merge into main once it shows reproducible gains against the
+current implementation on declared workloads, passes relevant regression and
+combination measurements, and completes same-source proof, correctness checks,
+independent review and exact-commit CI. Define the workload and comparison before
+timing, retain all raw repetitions and reject contaminated measurements as
+confirmation. A design's expected gain alone is insufficient. If gains apply
+only to some input shapes, enable the feature only for those shapes. An
+individual feature need not first meet the overall GMP target below.
+
+The registered target governs library parity and the additional prerequisites
+for replacing a consuming solver's trusted GMP backend. Accepted incremental
+features and archived experiments do not by themselves meet that target.
+
 [performance-target.json](../native/performance-target.json) registers the
 workloads before target evaluation. Each principal workload must have a median
 time at most GMP's; every other registered key shape must be within 1.2 times GMP.

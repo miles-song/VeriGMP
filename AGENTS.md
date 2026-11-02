@@ -12,6 +12,25 @@ optimizations for a later version does not defer arithmetic work in this library
 Use miles-song <2324715854@qq.com> as both author and committer, without coauthor
 trailers, for this task's new commits.
 
+## Incremental feature acceptance
+
+Merge each independently accepted optimization into main as soon as its own
+contracts, same-source verification, independent review and exact-commit CI pass.
+An optimization needs reproducible performance gains on its declared workloads
+against the current implementation, with relevant boundary, regression and
+combination measurements. Expected gains from a design alone do not establish
+performance acceptance. Use scoped dispatch when gains depend on input shape;
+do not enable a candidate in a region where its measurements do not support it.
+Overall GMP parity is not a prerequisite for accepting an individual feature.
+
+Replacing a consuming solver's trusted GMP backend is a separate acceptance:
+meet every registered library performance gate, confirm with a second independent
+run, and pass semantic compatibility and frozen representative solver traces.
+An accepted feature or an experiment archive does not establish backend parity.
+After the accepted commit is on main and its required main CI passes, delete its
+completed local and remote feature branches while preserving unrelated work and
+retained evidence.
+
 ## Refinement and performance
 
 1. Define integer meanings and algebraic identities independently of executable
