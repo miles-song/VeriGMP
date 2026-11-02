@@ -1,0 +1,6 @@
+{
+  "status": "superseded_metadata_claim_requires_fresh_gate",
+  "preserved_report_sha256": "4f2ac0a5afb49031b2a44d689ac95fc0eb9519dbfd7aa5e47c6764d79f7392f6",
+  "reason": "wide-odd-feature6 captured origin bytes but did not parse them; shared executed_snapshot_binding overstates that one provenance action. Arithmetic, diagnostics, and source hashes remain preserved. Feature7 adds actual captured-origin parsing.",
+  "next_gate": "wide-odd-feature7"
+}

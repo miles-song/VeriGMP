@@ -1,0 +1,6 @@
+
+thread 'main' (117479) panicked at <build>/toom8-newton-stage-e22a4dd/feature-gates/newton-feature2/inputs/candidate/native/toom8_newton_runner.rs:57:94:
+assertion `left == right` failed
+  left: 7
+ right: 14
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace

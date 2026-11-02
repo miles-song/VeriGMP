@@ -1,0 +1,4 @@
+
+thread 'main' (117482) panicked at <build>/toom8-newton-stage-e22a4dd/feature-gates/newton-feature2/inputs/candidate/native/toom8_newton_runner.rs:55:91:
+called `Result::unwrap()` on an `Err` value: ParseIntError { kind: InvalidDigit }
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
