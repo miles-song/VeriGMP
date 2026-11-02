@@ -1,0 +1,31 @@
+{
+  "status": "target_not_yet_achieved",
+  "user_selected_target": "Match GMP: median time on principal workloads no greater than GMP; no registered key shape above 1.2 times GMP",
+  "accepted_at": "2026-11-01",
+  "principal_workloads": {
+    "operations": ["mul_mod", "square_mod"],
+    "limbs": [256, 512, 1024, 2048, 4096],
+    "top": 63,
+    "per_workload_median_ratio_max": 1.0
+  },
+  "key_shapes": {
+    "operations": ["mul_mod", "square_mod"],
+    "shapes": [[1,1],[1,64],[2,1],[23,63],[24,63],[25,63],[63,63],[64,63],[65,63],[127,63],[128,63],[129,63],[191,63],[192,63],[193,63],[255,63],[256,63],[257,63],[511,63],[512,63],[513,63],[1023,63],[1024,63],[1025,63],[2048,63],[4096,63]],
+    "per_shape_median_ratio_max": 1.2
+  },
+  "measurement_contract": {
+    "ratio": "VeriGMP elapsed time divided by GMP elapsed time for equal result semantics",
+    "baseline": "GMP public mpn_mul_n/mpn_sqr followed by the required low-half copy and precision mask; any alternative GMP public baseline must be recorded before tuning",
+    "controls": "Same machine, inputs, precision, compiler metadata and preallocated caller buffers; rotated or interleaved repetitions; raw samples retained",
+    "repetitions_per_shape": 7,
+    "minimum_recorded_batch_ms": 10,
+    "confirmation": "A second independent measurement run must confirm the target before backend promotion",
+    "scope": "A result applies to the measured platform and pinned builds; it is not universal GMP parity"
+  },
+  "solver_acceptance": {
+    "required": true,
+    "status": "blocked_on_representative_solver_path",
+    "policy": "Freeze representative arithmetic traces and exact expected results from the GMP-backed paper algorithm before tuning the replacement. Report per-operation and whole-workload medians, memory use and all regressions; confirm semantic equivalence before switching.",
+    "backend_switch": "The solver continues using trusted GMP until semantic and performance acceptance passes. A library-only pass does not establish solver parity."
+  }
+}

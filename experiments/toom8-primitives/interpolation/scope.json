@@ -1,0 +1,17 @@
+{
+  "status": "candidate_ready_for_frozen_gate",
+  "semantics": "All fifteen independently input-defined convolution coefficients, using actual endpoints, six signed point pairs, one positive-eight point and existing even/odd Newton routines.",
+  "domain": "Full-u64 equal-length inputs7*k<=n<=8*k including k=0 and empty eighth block; original child threshold>=24.",
+  "actual_child_products": "2 endpoints (empty skipped) +12 paired-point +1 positive-eight =15 when endpoint blocks are nonempty.",
+  "required_storage": "Thirteen2m interior coefficient buffers +2k and2h endpoint outputs +14m shared scratch <=44m, m=k+1 andh<=k. The local numerical storage inequality is checked; this is not a recursive full/low kernel workspace lifetime theorem.",
+  "analytic_work": "T_existing_full(k)+T_existing_full(h)+13*T_existing_full(k+1)+O(k), empty endpoints skipped; children remain existing forced Toom4.",
+  "remaining": [
+    "Recomposition into contiguous limb output",
+    "Actual decreasing Toom8 recursive child calls and total workspace proof",
+    "Low-product and square composition",
+    "Performance acceptance"
+  ],
+  "benchmark_run": false,
+  "complete_toom8": false,
+  "promotion": false
+}

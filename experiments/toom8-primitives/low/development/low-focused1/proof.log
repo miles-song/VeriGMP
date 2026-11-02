@@ -1,0 +1,5 @@
+verification results:: 3 verified, 0 errors (partial verification with `--verify-*`)
+note: verifying module toom8_low
+
+note: verifying module toom8_low, function toom8_low_candidate::toom8_low::low
+

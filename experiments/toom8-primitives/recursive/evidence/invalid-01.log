@@ -1,0 +1,4 @@
+
+thread 'main' (121709) panicked at <stage>/feature-gates/recursive-feature1/inputs/candidate/native/toom8_recursive_product_runner.rs:101:9:
+assertion failed: matches!(f[0],"full"|"full-alias")
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace

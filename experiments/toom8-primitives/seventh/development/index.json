@@ -1,0 +1,26 @@
+{
+  "accepted_gate": "seventh-feature1",
+  "attempts": [
+    {
+      "name": "seventh-spec1",
+      "reported_status": "pass",
+      "report": "development/seventh-spec1/report.json",
+      "source_overlays": {
+        "check_development.py": "development/seventh-spec1/overlays/check_development.py",
+        "origin.json": "development/seventh-spec1/overlays/origin.json"
+      },
+      "status_boundary": "Historical record; accepted gate is seventh-feature1."
+    },
+    {
+      "name": "seventh-focused1",
+      "reported_status": "pass",
+      "report": "development/seventh-focused1/report.json",
+      "source_overlays": {
+        "check_development.py": "development/seventh-focused1/overlays/check_development.py",
+        "origin.json": "development/seventh-focused1/overlays/origin.json"
+      },
+      "status_boundary": "Historical record; accepted gate is seventh-feature1."
+    }
+  ],
+  "development_boundary": "Both focused development attempts are retained: six mathematical proofs and three actual-function proofs, all passing."
+}

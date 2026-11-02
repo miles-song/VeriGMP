@@ -1,0 +1,23 @@
+verification results:: 1 verified, 1 errors (partial verification with `--verify-*`)
+note: verifying module toom8_producer
+
+note: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> <stage>/feature-gates/producer-feature1/inputs/candidate/native/verified/toom8_producer.rs:11:1
+   |
+11 | fn no...bool)
+   | ^^^^^...^^^^^
+
+note: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> <stage>/feature-gates/producer-feature1/inputs/candidate/native/verified/toom8_producer.rs:21:1
+   |
+21 | pub f...size)
+   | ^^^^^...^^^^^
+
+error: assertion failed
+  --> <stage>/feature-gates/producer-feature1/inputs/candidate/native/verified/toom8_producer.rs:55:16
+   |
+55 | ...rt(value...rue)));
+   |       ^^^^^...^^^^^ assertion failed
+
+error: aborting due to 1 previous error
+

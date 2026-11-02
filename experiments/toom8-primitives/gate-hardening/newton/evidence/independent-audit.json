@@ -1,0 +1,79 @@
+{
+  "status": "pass",
+  "report_sha256": "f18071b727717b547f0f738b222a6558dd6f621bb3cd1f4d5ab12baabe45834f",
+  "old_report_sha256": "7964f375cf33a1dce8ef9195fe76a4ccacfc593eeff2524b999dbefca7e0b514",
+  "checker_only_changed": [
+    "check_newton.py"
+  ],
+  "source_files": 89,
+  "tool_paths": 21,
+  "runtime_paths": 3,
+  "artifacts": 4,
+  "commands": 27,
+  "locked_paths": 232,
+  "full_positive_proof_summaries": {
+    "library.log": 425,
+    "runner-build.log": 427,
+    "codegen-build.log": 427
+  },
+  "real_semantic_mutants": {
+    "even-wrong-rhs": [
+      25,
+      1
+    ],
+    "even-wrong-power": [
+      25,
+      1
+    ],
+    "even-wrong-odd": [
+      25,
+      1
+    ],
+    "even-wrong-conversion": [
+      25,
+      1
+    ],
+    "even-wrong-recovery": [
+      25,
+      1
+    ],
+    "odd-wrong-divisor4095": [
+      25,
+      1
+    ],
+    "odd-wrong-conversion": [
+      25,
+      1
+    ],
+    "odd-wrong-recovery": [
+      25,
+      1
+    ]
+  },
+  "fatal_append_negative_fixtures": [
+    "solver returned unknown",
+    "rlimit",
+    "failed to typecheck",
+    "failed to load metadata",
+    "could not compile crate",
+    "internal compiler error",
+    "verification timed out",
+    "out of memory",
+    "segmentation fault"
+  ],
+  "captured_checker_modules_origin_execution_reviewed": true,
+  "independent_replayed_cases": 1087,
+  "invalid_replayed": 10,
+  "input_sha256": "2111988d2f19f4749e9c94965f1527c92471706ded5a29a669bc28dc3426abfc",
+  "output_sha256": "9099b48df426f6e2df7a73b2865c7ea3a06959069a3bb7f0bf61af92fc3dad2f",
+  "independent_expected_method": "Direct rational Lagrange interpolation of the supplied evaluations, followed by exact homogeneous coefficient unscaling; supplied witness is only cross-checked.",
+  "scope": "Six/seven-buffer factored Newton interpolation; not a completed Toom8 kernel",
+  "limitations": [
+    "Input generation is reused, but expected values were independently recomputed from commands.",
+    "Scoped negative proofs are accepted only with the matching successful full-library/runner baselines.",
+    "The interpolation caller still must establish its coefficient/evaluation relation; this is not an actual complete Toom8 multiplication caller.",
+    "Textual codegen inspection is neither a formal machine-code equivalence proof nor a timing result."
+  ],
+  "no_proof_compilation_or_benchmark_rerun": true,
+  "required": []
+}

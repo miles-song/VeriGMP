@@ -1,0 +1,13 @@
+verification results:: 1 verified, 1 errors (partial verification with `--verify-*`)
+note: verifying module toom8_even
+
+[rust_verify/src/verifier.rs:112:17] &note = "failed precondition"
+[rust_verify/src/verifier.rs:112:17] &sp.as_string = "std_specs/core.rs:190:9: 190:14 (#0)"
+error: precondition not satisfied
+   --> <stage>/development/even-focused1/inputs/candidate/native/verified/toom8_even.rs:122:5
+    |
+122 |     asser...k+1));
+    |     ^^^^^...^^^^^
+
+error: aborting due to 1 previous error
+

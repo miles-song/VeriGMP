@@ -1,0 +1,71 @@
+{
+  "status": "pass",
+  "report_sha256": "5e21840ffbd8563d740526759e94b82b83c4928f8ea55b8e45959fca46b54ecd",
+  "audit_source_sha256": "f2f45f479f7ba2e491cf240c18e6b5810725a0d5d40dc94d2bfaf5fa1e0cc358",
+  "source_inputs": 112,
+  "tools": 21,
+  "runtimes": 3,
+  "artifacts": 4,
+  "locked_paths": 387,
+  "verified_full_library_runner_codegen": [
+    511,
+    511,
+    511
+  ],
+  "true_scoped_mutants": {
+    "wrong-positive-point": [
+      "2",
+      "1"
+    ],
+    "negative-first-evaluation": [
+      "2",
+      "1"
+    ],
+    "square-point-product": [
+      "2",
+      "1"
+    ],
+    "skip-point-product": [
+      "2",
+      "1"
+    ],
+    "skip-low-endpoint": [
+      "2",
+      "1"
+    ],
+    "skip-high-endpoint": [
+      "2",
+      "1"
+    ],
+    "wrong-second-coefficient": [
+      "2",
+      "1"
+    ],
+    "skip-division": [
+      "2",
+      "1"
+    ],
+    "wrong-divisor": [
+      "2",
+      "1"
+    ],
+    "skip-scale": [
+      "2",
+      "1"
+    ],
+    "wrong-scale": [
+      "2",
+      "1"
+    ],
+    "swap-coefficients": [
+      "2",
+      "1"
+    ]
+  },
+  "mixed_fatal_rejections": 108,
+  "oracle_cases": 672,
+  "invalid_commands": 12,
+  "saved_runner_replayed": true,
+  "no_new_proof_escape": true,
+  "boundary": "One actual positive-eight product followed by exact known-even subtraction, division by 8 and scaling produces seventh odd node. All eight supplied even coefficient buffers independently checked against input Kronecker product in 336 caller tests; these remain explicit formal caller premises, not parser guarantees. k=0/h=0 and full-word inputs preserved. 14*(k+1) scratch excludes output and retained coefficient buffers. Actual composed interpolation caller, full Toom8 recursion/recomposition and whole-resource/performance claims remain outside this gate."
+}

@@ -1,0 +1,8 @@
+{
+  "status": "error",
+  "assembly_sha256": "9023819108c6340768e88cbc8bbbbff48c19b4f3dcadf83f60112c4f397d5894",
+  "inspector_sha256": "0ea8c2705f5ce99880bc7a8bac6a9e0378b465f4e4709db083766846c79b8ea3",
+  "reason": "Reachable panic_bounds_check remains in weighted_pair after inlining the previously verified sum_difference loop. The static check rejects this extra per-limb bounds guard; no correctness or timing failure was inferred.",
+  "source_location": "verified/toom8_pair.rs:32:29",
+  "next_candidate": "Reborrow both complete outputs with the same explicit 2*m slice length at the half_pair call; preserve numeric semantics and domain."
+}

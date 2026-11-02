@@ -1,0 +1,6 @@
+
+thread 'main' (3895) panicked at <stage>/feature-gates/dyadic-producer-feature1/inputs/candidate/native/toom8_dyadic_producer_runner.rs:73:45:
+assertion `left == right` failed
+  left: 1
+ right: 0
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace

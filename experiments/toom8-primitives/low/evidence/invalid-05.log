@@ -1,0 +1,4 @@
+
+thread 'main' (11218) panicked at <stage>/feature-gates/low-feature1/inputs/candidate/native/toom8_low_runner.rs:119:9:
+assertion failed: (1..=64).contains(&top) && threshold >= 56 && low >= 24 && split <= 2
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace

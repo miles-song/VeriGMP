@@ -1,0 +1,33 @@
+verification results:: 1 verified, 1 errors (partial verification with `--verify-*`)
+note: verifying module toom8_even
+
+note: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> <stage>/feature-gates/even-feature1/inputs/candidate/native/verified/toom8_even.rs:10:1
+   |
+10 | pub f...size)
+   | ^^^^^...^^^^^
+
+error: postcondition not satisfied
+  --> <stage>/feature-gates/even-feature1/inputs/candidate/native/verified/toom8_even.rs:40:9
+   |
+40 |           value...))[2],
+   |           ^^^^^...^^^^^ failed this postcondition
+...
+61 |       proof {
+   |  ___________-
+62 | |         input::input_bounds(a@,k as nat);input::input_bounds(b@,k as nat);
+63 | |         convolution::nonnegative_coefficients(aa,bb,radix(k as nat));
+64 | |         model::relations(c,0);
+...  |
+77 | |         model::newton_node_5(c);
+78 | |     }
+   | |_____- at the end of the function body
+
+note: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> <stage>/feature-gates/even-feature1/inputs/candidate/native/verified/toom8_even.rs:81:1
+   |
+81 | pub f...size)
+   | ^^^^^...^^^^^
+
+error: aborting due to 1 previous error
+

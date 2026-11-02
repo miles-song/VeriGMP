@@ -1,0 +1,11 @@
+{
+  "requested_model": "claude-opus-5-5",
+  "actual_model": "claude-opus-5-5",
+  "effort": "max",
+  "actual_cli_returncode": 0,
+  "elapsed_seconds": 9.007625400001416,
+  "draft_sha256": "82dcfe777f8c8ed3185b545a41385f81ff2cf899ecd85fab207c57415a5d2302",
+  "actual_output_sha256": "0b72f5f7eb4b68f212b0578235be0bf697bc0765c3b99fdf295c2601a234433d",
+  "final_readme_sha256": "4788e53d44814d86fe0caec2bf0b115790fc88f8d6599c371ac4394537448430",
+  "fact_review": "Actual fifteen-square recursion, single evaluation per point,41m<=10n workspace,549 proofs/765 cases/12 invalid/14 VC and no timing independently checked"
+}

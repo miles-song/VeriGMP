@@ -1,0 +1,12 @@
+{
+  "status": "candidate_ready_for_frozen_gate",
+  "actual_products": 1,
+  "point": "+8 only",
+  "contract": "Actual input product followed by subtraction of known even coefficients, exact division by8 and scale64^6 produces the seventh odd Newton input. Coefficient input premises remain explicit until next actual composed caller.",
+  "workspace": "14*(k+1) scratch plus separate2*(k+1) output; immutable even coefficient buffers retained.",
+  "analytic_work": "T_existing_full(k+1)+O(k), not a checked machine-cost theorem.",
+  "benchmark_run": false,
+  "complete_toom8": false,
+  "promotion": false,
+  "runner_boundary": "The ordinary parser checks shapes; its independent Python corpus supplies even coefficients consistent with the two input integers. Their numeric equality is a formal prepare_seventh caller obligation, to be discharged by the next actual composed caller; the parser does not validate that mathematical premise."
+}

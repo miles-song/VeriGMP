@@ -1,0 +1,4 @@
+
+thread 'main' (11214) panicked at <stage>/feature-gates/low-feature1/inputs/candidate/native/toom8_low_runner.rs:118:9:
+assertion failed: matches!(f[0],"mul"|"mul-alias"|"square")
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace

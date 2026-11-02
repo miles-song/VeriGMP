@@ -1,0 +1,79 @@
+{
+  "status": "pass",
+  "report_sha256": "f3c7e8b2e78deecda9f5c439a71e272a35f6ba5dd42c9d23d5b3a5e0dc9cde0e",
+  "old_report_sha256": "4f2ac0a5afb49031b2a44d689ac95fc0eb9519dbfd7aa5e47c6764d79f7392f6",
+  "checker_only_changed": [
+    "check_wide_odd.py"
+  ],
+  "source_files": 78,
+  "tool_paths": 21,
+  "runtime_paths": 3,
+  "artifacts": 4,
+  "commands": 34,
+  "locked_paths": 217,
+  "full_positive_proof_summaries": {
+    "library.log": 327,
+    "runner-build.log": 24,
+    "codegen-build.log": 24
+  },
+  "real_semantic_mutants": {
+    "inverse4095": [
+      10,
+      1
+    ],
+    "ignore-input-carry": [
+      10,
+      1
+    ],
+    "wrong-inverse-factor": [
+      10,
+      1
+    ],
+    "drop-wide-carry": [
+      10,
+      1
+    ],
+    "zero-return-carry": [
+      10,
+      1
+    ],
+    "store-original": [
+      10,
+      1
+    ],
+    "zero-loop-carry": [
+      10,
+      1
+    ],
+    "skip-family-call": [
+      10,
+      1
+    ]
+  },
+  "fatal_append_negative_fixtures": [
+    "solver returned unknown",
+    "rlimit",
+    "failed to typecheck",
+    "failed to load metadata",
+    "could not compile crate",
+    "internal compiler error",
+    "verification timed out",
+    "out of memory",
+    "segmentation fault"
+  ],
+  "captured_checker_modules_origin_execution_reviewed": true,
+  "independent_replayed_cases": 28308,
+  "invalid_replayed": 17,
+  "input_sha256": "5db1987fc229067dd2bedd29180e2db36fe384a1b83762ec01e8c1b77b2c0bd0",
+  "output_sha256": "65fce7001caa334b6336dd646a0f9714a040bedc735d449f84a79d453f89eb3d",
+  "independent_expected_method": "Whole-integer exact division; for the one-limb primitive solve the high carry modulo the odd divisor using the inverse of radix modulo d, independently of the low-word inverse formula.",
+  "scope": "Generic odd exact division and Toom8 constant inverses; not a completed Toom8 kernel",
+  "limitations": [
+    "Input generation is reused, but expected values were independently recomputed from commands.",
+    "Scoped negative proofs are accepted only with the matching successful full-library/runner baselines.",
+    "The corresponding complete Toom8 caller and its cross-module mathematical prerequisites are not proved by this isolated feature.",
+    "Textual codegen inspection is neither a formal machine-code equivalence proof nor a timing result."
+  ],
+  "no_proof_compilation_or_benchmark_rerun": true,
+  "required": []
+}

@@ -1,0 +1,26 @@
+{
+  "accepted_gate": "low-feature1",
+  "attempts": [
+    {
+      "name": "low-focused1",
+      "reported_status": "pass",
+      "report": "development/low-focused1/report.json",
+      "source_overlays": {
+        "check_development.py": "development/low-focused1/overlays/check_development.py",
+        "origin.json": "development/low-focused1/overlays/origin.json"
+      },
+      "status_boundary": "Historical record; accepted gate is low-feature1."
+    },
+    {
+      "name": "square-low-focused1",
+      "reported_status": "pass",
+      "report": "development/square-low-focused1/report.json",
+      "source_overlays": {
+        "check_development.py": "development/square-low-focused1/overlays/check_development.py",
+        "origin.json": "development/square-low-focused1/overlays/origin.json"
+      },
+      "status_boundary": "Historical record; accepted gate is low-feature1."
+    }
+  ],
+  "development_boundary": "Both focused development proofs are retained: three low-product items and four dedicated low-square items."
+}

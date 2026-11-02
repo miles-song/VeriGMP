@@ -1,0 +1,162 @@
+{
+  "attempts": [
+    {
+      "name": "eval-focused1",
+      "reported_status": "error",
+      "report": "development/eval-focused1/report.json",
+      "source_overlays": {
+        "candidate/native/specs/toom8_evaluation.rs": "development/eval-focused1/overlays/candidate/native/specs/toom8_evaluation.rs",
+        "candidate/native/verified/toom8_evaluation.rs": "development/eval-focused1/overlays/candidate/native/verified/toom8_evaluation.rs",
+        "check_development.py": "development/eval-focused1/overlays/check_development.py",
+        "origin.json": "development/eval-focused1/overlays/origin.json"
+      },
+      "status_boundary": "Historical development record; final accepted evidence is evaluation-feature3"
+    },
+    {
+      "name": "eval-focused2",
+      "reported_status": "error",
+      "report": "development/eval-focused2/report.json",
+      "source_overlays": {
+        "candidate/native/specs/toom8_evaluation.rs": "development/eval-focused2/overlays/candidate/native/specs/toom8_evaluation.rs",
+        "candidate/native/verified/toom8_evaluation.rs": "development/eval-focused2/overlays/candidate/native/verified/toom8_evaluation.rs",
+        "check_development.py": "development/eval-focused2/overlays/check_development.py",
+        "origin.json": "development/eval-focused2/overlays/origin.json"
+      },
+      "status_boundary": "Historical development record; final accepted evidence is evaluation-feature3"
+    },
+    {
+      "name": "eval-focused3",
+      "reported_status": "pass",
+      "report": "development/eval-focused3/report.json",
+      "source_overlays": {
+        "candidate/native/specs/toom8_evaluation.rs": "development/eval-focused3/overlays/candidate/native/specs/toom8_evaluation.rs",
+        "candidate/native/verified/toom8_evaluation.rs": "development/eval-focused3/overlays/candidate/native/verified/toom8_evaluation.rs",
+        "check_development.py": "development/eval-focused3/overlays/check_development.py",
+        "origin.json": "development/eval-focused3/overlays/origin.json"
+      },
+      "status_boundary": "Historical development record; final accepted evidence is evaluation-feature3"
+    },
+    {
+      "name": "eval-focused4",
+      "reported_status": "error",
+      "report": "development/eval-focused4/report.json",
+      "source_overlays": {
+        "candidate/native/specs/toom8_evaluation.rs": "development/eval-focused4/overlays/candidate/native/specs/toom8_evaluation.rs",
+        "candidate/native/verified/toom8_evaluation.rs": "development/eval-focused4/overlays/candidate/native/verified/toom8_evaluation.rs",
+        "check_development.py": "development/eval-focused4/overlays/check_development.py",
+        "origin.json": "development/eval-focused4/overlays/origin.json"
+      },
+      "status_boundary": "Historical development record; final accepted evidence is evaluation-feature3"
+    },
+    {
+      "name": "eval-focused5",
+      "reported_status": "error",
+      "report": "development/eval-focused5/report.json",
+      "source_overlays": {
+        "candidate/native/specs/toom8_evaluation.rs": "development/eval-focused5/overlays/candidate/native/specs/toom8_evaluation.rs",
+        "candidate/native/verified/toom8_evaluation.rs": "development/eval-focused5/overlays/candidate/native/verified/toom8_evaluation.rs",
+        "check_development.py": "development/eval-focused5/overlays/check_development.py",
+        "origin.json": "development/eval-focused5/overlays/origin.json"
+      },
+      "status_boundary": "Historical development record; final accepted evidence is evaluation-feature3"
+    },
+    {
+      "name": "eval-focused6",
+      "reported_status": "pass",
+      "report": "development/eval-focused6/report.json",
+      "source_overlays": {
+        "check_development.py": "development/eval-focused6/overlays/check_development.py",
+        "origin.json": "development/eval-focused6/overlays/origin.json"
+      },
+      "status_boundary": "Historical development record; final accepted evidence is evaluation-feature3"
+    },
+    {
+      "name": "eval-spec2",
+      "reported_status": "error",
+      "report": "development/eval-spec2/report.json",
+      "source_overlays": {
+        "candidate/native/specs/toom8_evaluation.rs": "development/eval-spec2/overlays/candidate/native/specs/toom8_evaluation.rs",
+        "candidate/native/verified/toom8_evaluation.rs": "development/eval-spec2/overlays/candidate/native/verified/toom8_evaluation.rs",
+        "check_development.py": "development/eval-spec2/overlays/check_development.py",
+        "origin.json": "development/eval-spec2/overlays/origin.json"
+      },
+      "status_boundary": "Historical development record; final accepted evidence is evaluation-feature3"
+    },
+    {
+      "name": "eval-spec3",
+      "reported_status": "pass",
+      "report": "development/eval-spec3/report.json",
+      "source_overlays": {
+        "candidate/native/specs/toom8_evaluation.rs": "development/eval-spec3/overlays/candidate/native/specs/toom8_evaluation.rs",
+        "candidate/native/verified/toom8_evaluation.rs": "development/eval-spec3/overlays/candidate/native/verified/toom8_evaluation.rs",
+        "check_development.py": "development/eval-spec3/overlays/check_development.py",
+        "origin.json": "development/eval-spec3/overlays/origin.json"
+      },
+      "status_boundary": "Historical development record; final accepted evidence is evaluation-feature3"
+    },
+    {
+      "name": "eval-library1",
+      "reported_status": "error",
+      "report": "development/eval-library1/report.json",
+      "source_overlays": {
+        "candidate/native/specs/toom8_evaluation.rs": "development/eval-library1/overlays/candidate/native/specs/toom8_evaluation.rs",
+        "candidate/native/verified/toom8_evaluation.rs": "development/eval-library1/overlays/candidate/native/verified/toom8_evaluation.rs",
+        "check_development.py": "development/eval-library1/overlays/check_development.py",
+        "origin.json": "development/eval-library1/overlays/origin.json"
+      },
+      "status_boundary": "Historical development record; final accepted evidence is evaluation-feature3"
+    },
+    {
+      "name": "eval-library2",
+      "reported_status": "pass",
+      "report": "development/eval-library2/report.json",
+      "source_overlays": {
+        "candidate/native/toom8_evaluation_runner.rs": "development/eval-library2/overlays/candidate/native/toom8_evaluation_runner.rs",
+        "check_development.py": "development/eval-library2/overlays/check_development.py",
+        "origin.json": "development/eval-library2/overlays/origin.json"
+      },
+      "status_boundary": "Historical development record; final accepted evidence is evaluation-feature3"
+    },
+    {
+      "name": "eval-runner1",
+      "reported_status": "pass",
+      "report": "development/eval-runner1/report.json",
+      "source_overlays": {
+        "check_development.py": "development/eval-runner1/overlays/check_development.py",
+        "origin.json": "development/eval-runner1/overlays/origin.json"
+      },
+      "status_boundary": "Historical development record; final accepted evidence is evaluation-feature3"
+    },
+    {
+      "name": "eval-codegen1",
+      "reported_status": "pass",
+      "report": "development/eval-codegen1/report.json",
+      "source_overlays": {
+        "check_development.py": "development/eval-codegen1/overlays/check_development.py",
+        "origin.json": "development/eval-codegen1/overlays/origin.json"
+      },
+      "status_boundary": "Historical development record; final accepted evidence is evaluation-feature3"
+    },
+    {
+      "name": "evaluation-feature1",
+      "reported_status": "error",
+      "report": "development/evaluation-feature1/report.json",
+      "source_overlays": {
+        "check_evaluation.py": "development/evaluation-feature1/overlays/check_evaluation.py"
+      },
+      "status_boundary": "Historical development record; final accepted evidence is evaluation-feature3"
+    },
+    {
+      "name": "evaluation-feature2",
+      "reported_status": "pass",
+      "report": "development/evaluation-feature2/report.json",
+      "source_overlays": {
+        "check_evaluation.py": "development/evaluation-feature2/overlays/check_evaluation.py"
+      },
+      "status_boundary": "Historical development record; final accepted evidence is evaluation-feature3"
+    }
+  ],
+  "accepted_gate": "evaluation-feature3",
+  "feature2_boundary": "Feature2 arithmetic proofs and saved logs are preserved; feature3 reran with captured checker/oracle/codegen/origin execution and strict mixed-fatal diagnostic rejection. The actual arithmetic source is unchanged.",
+  "feature1_boundary": "Evaluation feature1 failed on a checker codegen source filename; feature2 reran the complete gate after that filename was corrected, with unchanged arithmetic core."
+}

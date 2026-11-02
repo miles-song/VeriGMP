@@ -1,0 +1,14 @@
+verification results:: 150 verified, 0 errors
+note: assert_nonlinear_by has been running for 2 seconds
+      reporting errors as they are discovered (they may not be in source order)
+   --> <stage>/development/pair-runner2/inputs/candidate/native/verified/multiply.rs:112:9
+    |
+112 | ...   assert(to...
+    |       ^^^^^^
+
+note: assert_nonlinear_by finished in 6 seconds
+   --> <stage>/development/pair-runner2/inputs/candidate/native/verified/multiply.rs:112:9
+    |
+112 | ...   assert(to...
+    |       ^^^^^^
+

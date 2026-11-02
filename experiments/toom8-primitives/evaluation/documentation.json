@@ -1,0 +1,10 @@
+{
+  "requested_model": "claude-opus-5-5",
+  "actual_model": "claude-opus-5-5",
+  "effort": "max",
+  "draft_sha256": "fa89416f5b5279908bd2271a50d06c39b2184ca465ee936b781bd017e76e2f72",
+  "returned_readme_sha256": "031b0a777a4d0036749a5341d5536780b349fe9749e9f310ae451796523b3aaa",
+  "final_readme_sha256": "88ad9adf234ed60652fbc9a68d512a192135cd8ef4dd08b60878afd76d85f82c",
+  "status": "requested_model_completed_and_final_facts_audited",
+  "benchmark_run": false
+}

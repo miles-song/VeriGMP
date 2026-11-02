@@ -1,0 +1,8 @@
+{
+  "requested_model": "claude-opus-5-5",
+  "effort": "max",
+  "actual_model": "claude-opus-5-5",
+  "status": "completed_and_fact_checked",
+  "final_readme_sha256": "7ebcd8487dacccdcaf3e26013086d33cb9a8a06a70b0c3bbb5052d64f6f19d1f",
+  "claims_added_by_polish": false
+}

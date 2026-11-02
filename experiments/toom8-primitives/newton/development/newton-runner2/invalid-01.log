@@ -1,0 +1,4 @@
+
+thread 'main' (78471) panicked at <stage>/development/newton-runner2/inputs/candidate/native/toom8_newton_runner.rs:56:60:
+assertion failed: degree == 5 || degree == 6
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace

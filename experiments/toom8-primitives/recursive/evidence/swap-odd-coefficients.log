@@ -1,0 +1,28 @@
+verification results:: 1 verified, 1 errors (partial verification with `--verify-*`)
+note: verifying module toom8_recursive_interpolation
+
+note: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+ --> <stage>/feature-gates/recursive-feature1/inputs/candidate/native/verified/toom8_recursive_interpolation.rs:9:1
+  |
+9 | pub f...size)
+  | ^^^^^...^^^^^
+
+note: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> <stage>/feature-gates/recursive-feature1/inputs/candidate/native/verified/toom8_recursive_interpolation.rs:83:1
+   |
+83 | pub f...size)
+   | ^^^^^...^^^^^
+
+error: precondition not satisfied
+    --> <stage>/feature-gates/recursive-feature1/inputs/candidate/native/verified/toom8_recursive_interpolation.rs:81:5
+     |
+  81 |     toom8...(c)));
+     |     ^^^^^...^^^^^
+     |
+    ::: <stage>/feature-gates/recursive-feature1/inputs/candidate/native/verified/toom8_newton.rs:1730:9
+     |
+1730 | ...   value...*c[6],
+     |       -----...----- failed precondition
+
+error: aborting due to 1 previous error
+

@@ -1,0 +1,16 @@
+verification results:: 3 verified, 0 errors (partial verification with `--verify-*`)
+note: verifying module toom8_interpolation
+
+note: function body check has been running for 2 seconds
+      reporting errors as they are discovered (they may not be in source order)
+  --> <stage>/development/interpolation-focused1/inputs/candidate/native/verified/toom8_interpolation.rs:15:1
+   |
+15 | pub f...size)
+   | ^^^^^...^^^^^
+
+note: function body check finished in 2 seconds
+  --> <stage>/development/interpolation-focused1/inputs/candidate/native/verified/toom8_interpolation.rs:15:1
+   |
+15 | pub f...size)
+   | ^^^^^...^^^^^
+

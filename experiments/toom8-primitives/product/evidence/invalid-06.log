@@ -1,0 +1,5 @@
+
+thread 'main' (103922) panicked at <stage>/feature-gates/product-feature1/inputs/candidate/native/toom8_product_runner.rs:92:13:
+assertion failed: parameter.checked_mul(7).unwrap() <= n &&
+    n <= parameter.checked_mul(8).unwrap()
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace

@@ -1,0 +1,511 @@
+{
+  "status": "error",
+  "scope": "Eight-block bounded-weight signed evaluation and dyadic homogeneous callers; not a completed Toom8 kernel",
+  "source_sha256": {
+    "candidate/native/controls/fast_multiply.rs": "64ddb1d8919da86881791d88d42916fd0f2d73e14073c6a53850d337e02a6714",
+    "candidate/native/controls/gmp_abi.cpp": "433b99417b38004a1684537a644cfe9cd7e7852df8864ce12dc9d1c4dfce6ed8",
+    "candidate/native/controls/gmp_multiply.cpp": "87658c00944326f26f5fd016d0c845ca2efe7b32d2329abe190787830a39f5f4",
+    "candidate/native/controls/limbs.rs": "b7161f5897667d8d6bc96ec5ca6eddf63384efd4eb0568ecbb6c4cccf500e4da",
+    "candidate/native/controls/multiply.rs": "5a824d2201674935a97e655b6eeda0ced04c7f6ef769877255cb09a21049d824",
+    "candidate/native/controls/pow2.rs": "ba0a8a8bb404c4778ddd3c03ba254dfcca6efc28a94d293368db2e5ee2e79dac",
+    "candidate/native/fast_bench.rs": "20c4c261f1ed6d5974a7bd250cc148d900b86472206330e9ee2a44060865551f",
+    "candidate/native/fast_codegen.rs": "e68214b600c37fbf436a9d4ad0a649c000eb133e5ecf1d38948dbe5edda37283",
+    "candidate/native/fast_runner.rs": "2cca8d6653330bd3f80461f7fc2b34adf28c6e282452934e916cd5dc4b657308",
+    "candidate/native/gmp-reference.json": "e67ba09749bc761cd581218bebd6cde5f1fdf56a2711924e1ceb45d4c7e247ff",
+    "candidate/native/history-provenance.json": "195aa85724547b02db939d9561bd1304acb87a9944b4f6912156b6aafe367560",
+    "candidate/native/lib.rs": "f666ca134055d9c382da287d19cb08d6b1ca378a2dce9c263d5244660abfe20b",
+    "candidate/native/limbs_bench.rs": "937ed74d98f739b2333e1feb78c65dbefb86b5af1c051c864ef269fb6b304215",
+    "candidate/native/limbs_codegen.rs": "465962efb3dc1e0f2414295228414112e3843dbaf467a41b705e53a3255e255e",
+    "candidate/native/limbs_runner.rs": "4aced8bc95027c78bbac6690f112dcd9e0b892f521baa6e29515b65862c05c01",
+    "candidate/native/mac4_bench.rs": "79335fb39eb054704b6621803368e965892a6285bc9ab82ec687bea991bcf22f",
+    "candidate/native/multiply_bench.rs": "d28537c1ee449c452b8c0f549a3555fbf50f59a680240b371335ccb106061d12",
+    "candidate/native/multiply_codegen.rs": "3855098a24804a8cba3ff8b094b159290e0e27e13fc1a558b456aebfeddb1229",
+    "candidate/native/multiply_runner.rs": "856d5b82363f2bf9170bf15cf45f2b0b9ae713a1475f5ceed1751fcaf18c52c7",
+    "candidate/native/performance-target.json": "7e1f7c27007d65ca77979c693c0f105d2ac4686fd90e853ab86c43684f485a37",
+    "candidate/native/pow2_bench.rs": "9e4390cabef56661544491deb928ee2f7a11199d34ada5b6a185a54a45622c1c",
+    "candidate/native/pow2_codegen.rs": "2372573334ffb9778295bd775ea23302207017bb699598606f3254f3cf3d36dd",
+    "candidate/native/pow2_runner.rs": "c916b36cc11923b309aacccd8e54ae5bde951d651abb1360f05715b82706a647",
+    "candidate/native/proof-status.json": "194025f62a4731b99253011c18f6c4716d12631b0dc81efcc6ed726b0583740e",
+    "candidate/native/specs/fast_product.rs": "1d3a4f9397375741f6fcaea5bacf5977f73c56ba051893cd81a83709385b2cd7",
+    "candidate/native/specs/odd_division.rs": "2a471b8a9836d404c3b5118c924fe99d9e34816c29630766abbf627817c63aea",
+    "candidate/native/specs/precision.rs": "38ffadc6cd04602b40457711b25ec3e89de5fb0ebf92136645da93fb18d4cde0",
+    "candidate/native/specs/product.rs": "24de04dda22e2ca1262ade8328b3f164612b59188df14dbe84988b94592563ae",
+    "candidate/native/specs/radix.rs": "51bddb73e0cfcc2fda095ac5f35fe4853417c1fff858133dab56b05ba9573219",
+    "candidate/native/specs/signed_evaluation.rs": "726da6650427fa0e660e3b624d609d9bcf1bc9a7856ea1916f06c93f51994cbc",
+    "candidate/native/specs/square.rs": "3d716c2905d4f34929e3177e853196f84faef8a63c10e7e1bb7593a9e62be87e",
+    "candidate/native/specs/square_base.rs": "9436705847c6cf4c8353a324e9154767a2a8ac57b13ca13a26b523f973ea6768",
+    "candidate/native/specs/toom.rs": "ed543569ac0996a16546211241b52f5a7ae945e8fce873f5195340cf290456ff",
+    "candidate/native/specs/toom4.rs": "352ff71f3f711225dd6c98e8c89e3491d88fb8f67a614d2f36bc96e4f0f34033",
+    "candidate/native/specs/toom4_blocks.rs": "caaf8f02256bf53655a4a3d5dbf59ad7283b8ab3f524c7e872c6664eba8ea715",
+    "candidate/native/specs/toom8_evaluation.rs": "9560ab9d8a40de3a933f04872ce5ba19c3c05c8586cc6447abff14a89ccbbb3a",
+    "candidate/native/specs/toom8_newton.rs": "a04d903bd2bc9fe8562aa12092d6de67eba0d3f953a606d73462dfc6e33226ff",
+    "candidate/native/specs/toom_blocks.rs": "d799a910b67b26fbbdbdefc50bf49063f8ca39790f6d48f60a7ed1315d00df9d",
+    "candidate/native/specs/wide_odd_division.rs": "3feb744112b12d7f1708f615c2a94bfb3090deca7f3797967f558a48ef495cab",
+    "candidate/native/square_base_bench.rs": "abd4f11755f244753167bd92447412c16308876a634c9951663de8ce7494dcaa",
+    "candidate/native/toolchain.json": "a8f1ba756fd50480017e10d24c390a4b94528ab387c965d28c35cf3432c9e678",
+    "candidate/native/toom4_codegen.rs": "42fe2571e7ff0e5d35a4e7acbe014ff676170518d32f45577d4ef7eb584ec5df",
+    "candidate/native/toom4_runner.rs": "1b4b9a4a151aa17522720708acf580f6eb53c7b5ec8449982267cc926f365177",
+    "candidate/native/toom8_evaluation_codegen.rs": "24a822a0b73897888e39a265959a89df14c0f487605cd0434f3a773bca5da00c",
+    "candidate/native/toom8_evaluation_runner.rs": "ab457dfb2874f0095c339e7b6dc18e592fef217205fd1f270c55e48cadd63882",
+    "candidate/native/toom8_newton_codegen.rs": "9a7894553f028d2a21dcfd60fe1853eee0b9295e91a58b235fbee1d9fa45c61a",
+    "candidate/native/toom8_newton_runner.rs": "39d79c0a304f325c1563a660ac3b64308530b5dfa40e524c333e75c43a9a6e9e",
+    "candidate/native/toom8_newton_test_bridge.rs": "19f4f0534e871439aa4388c93bed5caa4f4137933fce5d55d7c01878ad1986b3",
+    "candidate/native/toom_bench.rs": "e0b5829fc235eeada95e987542073d3e190c0c1d10c7d48ec4f6d787f8fa1daf",
+    "candidate/native/toom_codegen.rs": "17f41d3dbc4ba891dc298c12cb86cbef8339b21dda321deff08c1801e62274f2",
+    "candidate/native/toom_words_runner.rs": "1ed994eab17583d7d0eacf580d897897d4afab5405de58d9d4779d913e783a66",
+    "candidate/native/verified/arithmetic.rs": "7c0181fed9d53f842062fd2f4e738dedf42985fee28bff53cabba4a7fc20cc54",
+    "candidate/native/verified/fast_multiply.rs": "f4c873122c592487e776d346cef950f76779f58aa285b4342333a077e20e226d",
+    "candidate/native/verified/fast_words.rs": "76c8a6e5558df51af8975ad6db606947d032c3b583a5def4da88571d48f56287",
+    "candidate/native/verified/kernel.rs": "b54e17dd245655deacae37d89071a6c5ae5c39421ba7d3ac5728346e63f77080",
+    "candidate/native/verified/limbs.rs": "913c88133f2bd46b3b4a59794eba5b8d43dfdbdac720918e375b47a52adbff28",
+    "candidate/native/verified/mac4.rs": "9cf6fd885a42e63a7cb1f697833bfa7e82d5b65a85e4351de2252a11b6afce2f",
+    "candidate/native/verified/multiply.rs": "83bfff3bb71a8c429e48551532a39fd92773b7e0b4b94b7c4b5263d59c854f9c",
+    "candidate/native/verified/odd_division.rs": "ff2b7ecc484d03e248b9f423dde531efd8f1b7fad9000c52854c6c8a32e849b1",
+    "candidate/native/verified/pow2.rs": "893234a990b3b3bf308253ce318411fb5247157cfabe2d02ce603c6c86c1dcec",
+    "candidate/native/verified/scaled_subtraction.rs": "451292f4889f824a25e14904fb5163785d5ab439303e17aa3f6179d859a3a349",
+    "candidate/native/verified/signed_evaluation.rs": "165232d5dc11f819a31c553ae0996aa5d03b36419d556530f484b4257e872541",
+    "candidate/native/verified/square.rs": "66d8baca34c6daf25b3116c22a9f9071691f882d653e6f586ea6eb64b50c3164",
+    "candidate/native/verified/square_base.rs": "d56438d15c969b475d74c431bef66dbe8c6befd67699196b096c1773c68094b3",
+    "candidate/native/verified/square_low.rs": "1e85ae150c7d5801d57f41d460de651b5ba9d5ae96c910f52b83bb602dd6ad21",
+    "candidate/native/verified/toom4_candidate.rs": "5bedfab6640c7d5b84bb4d1de95c84e2daa8a7f0f25fdb6ccf20c6f221a84cac",
+    "candidate/native/verified/toom4_evaluate.rs": "a6d15ee01d5c4996f8ce5c6f8910c2d62547509a75fe3d553ebb8fcb27bff920",
+    "candidate/native/verified/toom4_interpolate.rs": "1a61a240c3f75722be08a63e1006e2e1deff800cc2163fd569ed33038e9a34ec",
+    "candidate/native/verified/toom4_low.rs": "19e062300f1639a3c2af9b5a873f674b4f34b5efe3377bb2008133ad42b0b4a5",
+    "candidate/native/verified/toom4_multiply.rs": "e62c3b4778cf887146f30d0c7bef8a12c630291063cf967c668ba010afbd116b",
+    "candidate/native/verified/toom4_square.rs": "efaaf282edac2852829df4d5fd6439a7c18f33413b668d0857f73f9ac1e7d0a0",
+    "candidate/native/verified/toom4_square_low.rs": "d1ca0f9f60c70436d05a9fb14f631f92f7271f97613efbcdfbd1967dab7cc4df",
+    "candidate/native/verified/toom8_evaluation.rs": "4ba9f3b7b965fe0677a2887147309d434e9b3c5cdb8786d48f5e98aaa6a2b266",
+    "candidate/native/verified/toom8_newton.rs": "387694964036d1caf68a077944a9baa90a82ee113403aad3a0bb4c8a30d9154e",
+    "candidate/native/verified/toom_evaluate.rs": "80fb7c4b0db769debe3091289cfe8a71703e9e1bf7b9e26a622e4df08f164699",
+    "candidate/native/verified/toom_interpolate.rs": "dd3e97eac34fb6cf6920302eeb5cc2bc8b257a6beb7a2e952f52ccf20ae5e352",
+    "candidate/native/verified/toom_low.rs": "d73bd14a640f96cc383fcc9234452e500cf217f58e935bacc96728f4d3a96929",
+    "candidate/native/verified/toom_multiply.rs": "58830125c0e82680f11fec6aba9677c8986c8f84fdbe53e3a38dc01b24871602",
+    "candidate/native/verified/toom_square.rs": "2706c576e99df5d4b90159cd671e208e6e7a521daa4bb3624666ed97c7332826",
+    "candidate/native/verified/toom_words.rs": "04786af608e65f40447cfee7defff9f1ab624157708b56237149e588ca5c485d",
+    "candidate/native/verified/wide_odd_division.rs": "2fdc06bb5992e6b89e4d2171cc036cb5540d954bebd8fc510d6a2b18b0ea6774",
+    "candidate/native/wide_odd_codegen.rs": "fc9ef7aa95c818edcd168a2354886f10a23454f5e0b402e6e99bb01e41d71b2c",
+    "candidate/native/wide_odd_runner.rs": "3300aeb7d5438ad4d46f026f165e65f4bd4065123eef0f1d2185c1c467d872d7",
+    "check_evaluation.py": "62901495f2d5724b9d361c52e63b59b3b358f04c688350d89f13a7462e1f276e",
+    "evaluation_oracle.py": "ccafded8a99898627cf2eabd73b7aae2ac403da536f6cb3ebf042189ead9a91f",
+    "evaluation_codegen.py": "0863423408b7de1aab7476f051f113d63373a6ce3a4a0037472a78c690df2d44",
+    "origin.json": "e1a65a3df36478453df89ad262d68cc0675f94677cd1a8a41db57523ade19879"
+  },
+  "started_utc": "2026-11-02T00:42:33.751859+00:00",
+  "benchmark_run": false,
+  "production_modified": false,
+  "cpu_affinity": [
+    6,
+    7
+  ],
+  "commands": [
+    {
+      "argv": [
+        "<verus-home>/verus-x86-linux/verus",
+        "--version"
+      ],
+      "log": "toolchain.log",
+      "status": "completed",
+      "returncode": 0,
+      "elapsed_seconds": 0.18059119599638507,
+      "log_sha256": "43bbcb88d622ee4e1fb08655b4393b56725fedd6fce064101e6f9cd64fd07152"
+    },
+    {
+      "argv": [
+        "rustup",
+        "which",
+        "--toolchain",
+        "1.99.1-x86_64-unknown-linux-gnu",
+        "rustc"
+      ],
+      "log": "rustc-path.log",
+      "status": "completed",
+      "returncode": 0,
+      "elapsed_seconds": 0.08128539500467014,
+      "log_sha256": "aea0aadcfcccc7b6ad8bc33cb88e358b707146f07fe541c9bd11f4453113c7b1"
+    },
+    {
+      "argv": [
+        "<rustup-home>/toolchains/1.99.1-x86_64-unknown-linux-gnu/bin/rustc",
+        "-vV"
+      ],
+      "log": "rustc.log",
+      "status": "completed",
+      "returncode": 0,
+      "elapsed_seconds": 0.036951237998437136,
+      "log_sha256": "f22d5e4e9ced367e774ce5bc140d9e6b1235c1882fec80d011044851f3ae6369"
+    },
+    {
+      "argv": [
+        "ldd",
+        "<rustup-home>/toolchains/1.99.1-x86_64-unknown-linux-gnu/bin/rustc"
+      ],
+      "log": "rustc-linked.log",
+      "status": "completed",
+      "returncode": 0,
+      "elapsed_seconds": 0.037988178999512456,
+      "log_sha256": "e0cec33676a67de99838e2afab2571f7effee383b9c3b9bd28dd55b4528d1eb5"
+    },
+    {
+      "argv": [
+        "<verus-home>/verus-x86-linux/verus",
+        "<stage>/feature-gates/evaluation-feature1/inputs/candidate/native/lib.rs",
+        "--crate-name",
+        "evaluation_candidate",
+        "--crate-type",
+        "lib",
+        "--export",
+        "<stage>/feature-gates/evaluation-feature1/candidate.vir",
+        "--compile",
+        "-O",
+        "-o",
+        "<stage>/feature-gates/evaluation-feature1/libcandidate.rlib"
+      ],
+      "log": "library.log",
+      "status": "completed",
+      "returncode": 0,
+      "elapsed_seconds": 88.45285143899673,
+      "log_sha256": "18a71e08bdda28605fc4bfa7099c9a6e806c0c682f8d78e4140cf8badd59f019"
+    },
+    {
+      "argv": [
+        "<verus-home>/verus-x86-linux/verus",
+        "<stage>/feature-gates/evaluation-feature1/inputs/candidate/native/toom8_evaluation_runner.rs",
+        "--compile",
+        "-O",
+        "-o",
+        "<stage>/feature-gates/evaluation-feature1/oracle-runner"
+      ],
+      "log": "runner-build.log",
+      "status": "completed",
+      "returncode": 0,
+      "elapsed_seconds": 10.587846479989821,
+      "log_sha256": "2a1a92454ca50674feda3dd91b1c297520b912d21cddf2a8f5e8285a7939aebb"
+    },
+    {
+      "argv": [
+        "ldd",
+        "<stage>/feature-gates/evaluation-feature1/oracle-runner"
+      ],
+      "log": "runner-linked.log",
+      "status": "completed",
+      "returncode": 0,
+      "elapsed_seconds": 0.026849946996662766,
+      "log_sha256": "495c7bf924a33eb13af62bdba979916dc8c1c276a0d19b86f64d8e819d81bdc1"
+    },
+    {
+      "argv": [
+        "<stage>/feature-gates/evaluation-feature1/oracle-runner"
+      ],
+      "log": "oracle.log",
+      "status": "completed",
+      "returncode": 0,
+      "elapsed_seconds": 0.12183664500480518,
+      "log_sha256": "938c7670f9bd7a3818d2589bef70fc4353365c2a58bc5929d565e87969c581d8"
+    },
+    {
+      "argv": [
+        "<stage>/feature-gates/evaluation-feature1/oracle-runner"
+      ],
+      "log": "invalid-00.log",
+      "status": "completed",
+      "returncode": 101,
+      "elapsed_seconds": 0.01406182101345621,
+      "log_sha256": "4230effae85bd2187e6564f03c83f8d72b68196361f20111befbff22929d0892"
+    },
+    {
+      "argv": [
+        "<stage>/feature-gates/evaluation-feature1/oracle-runner"
+      ],
+      "log": "invalid-01.log",
+      "status": "completed",
+      "returncode": 101,
+      "elapsed_seconds": 0.014911185004166327,
+      "log_sha256": "24366035ad5744508d5dac104cd290f0d2f4810f95b259c76007a8a350faf55b"
+    },
+    {
+      "argv": [
+        "<stage>/feature-gates/evaluation-feature1/oracle-runner"
+      ],
+      "log": "invalid-02.log",
+      "status": "completed",
+      "returncode": 101,
+      "elapsed_seconds": 0.014925294002750888,
+      "log_sha256": "5ac163127a86b2c376e85264f54aa8466fa9ce1585c41c96ea6d079acc4c1cb5"
+    },
+    {
+      "argv": [
+        "<stage>/feature-gates/evaluation-feature1/oracle-runner"
+      ],
+      "log": "invalid-03.log",
+      "status": "completed",
+      "returncode": 101,
+      "elapsed_seconds": 0.013494236001861282,
+      "log_sha256": "3466947e9164f2bad5f8a5da72952bb79f505fdc6a6920908576b7a75c1aa2f2"
+    },
+    {
+      "argv": [
+        "<stage>/feature-gates/evaluation-feature1/oracle-runner"
+      ],
+      "log": "invalid-04.log",
+      "status": "completed",
+      "returncode": 101,
+      "elapsed_seconds": 0.013495843988494016,
+      "log_sha256": "cde0c69420d54fc5e27bf6de27abfb9f332bf8468cd48fd5498ff1899a306b2a"
+    },
+    {
+      "argv": [
+        "<stage>/feature-gates/evaluation-feature1/oracle-runner"
+      ],
+      "log": "invalid-05.log",
+      "status": "completed",
+      "returncode": 101,
+      "elapsed_seconds": 0.014650414988864213,
+      "log_sha256": "2b603d49aa1bb8853d71835aaa7832c60eba86a015b4da2ab6bb479bce62f55f"
+    },
+    {
+      "argv": [
+        "<stage>/feature-gates/evaluation-feature1/oracle-runner"
+      ],
+      "log": "invalid-06.log",
+      "status": "completed",
+      "returncode": 101,
+      "elapsed_seconds": 0.016908702004002407,
+      "log_sha256": "f8924672b15ae873ec6952e1c245d215c313c0d317fde6218c0d11a0231137c3"
+    },
+    {
+      "argv": [
+        "<stage>/feature-gates/evaluation-feature1/oracle-runner"
+      ],
+      "log": "invalid-07.log",
+      "status": "completed",
+      "returncode": 101,
+      "elapsed_seconds": 0.019864189001964405,
+      "log_sha256": "35e3ade4f39ccaf24cb773363ab8845ca87383b1fef14f13794ba9c4acb21caf"
+    },
+    {
+      "argv": [
+        "<stage>/feature-gates/evaluation-feature1/oracle-runner"
+      ],
+      "log": "invalid-08.log",
+      "status": "completed",
+      "returncode": 101,
+      "elapsed_seconds": 0.017324033004115336,
+      "log_sha256": "dc1ca4f676e34f7eb00f4873be2a3b809869f322d877b713608a32fa021ca3a3"
+    },
+    {
+      "argv": [
+        "<stage>/feature-gates/evaluation-feature1/oracle-runner"
+      ],
+      "log": "invalid-09.log",
+      "status": "completed",
+      "returncode": 101,
+      "elapsed_seconds": 0.014684313995530829,
+      "log_sha256": "d5a2db32ae1dfbdc4763eb6a0212bd494dc393c5835a06717cc4b814e5d28513"
+    },
+    {
+      "argv": [
+        "<stage>/feature-gates/evaluation-feature1/oracle-runner"
+      ],
+      "log": "invalid-10.log",
+      "status": "completed",
+      "returncode": 101,
+      "elapsed_seconds": 0.016492146998643875,
+      "log_sha256": "3cdbbc9eb6c7bbd26141d16172d331cbc9b4faeed53eee8c1bd841d806487fa7"
+    },
+    {
+      "argv": [
+        "<stage>/feature-gates/evaluation-feature1/oracle-runner"
+      ],
+      "log": "invalid-11.log",
+      "status": "completed",
+      "returncode": 101,
+      "elapsed_seconds": 0.016030535000027157,
+      "log_sha256": "479cc62dba46eda201f691d03c6083c1cce1f23fa6a4fe21e5f5cfe5b823350c"
+    },
+    {
+      "argv": [
+        "<stage>/feature-gates/evaluation-feature1/oracle-runner"
+      ],
+      "log": "invalid-12.log",
+      "status": "completed",
+      "returncode": 101,
+      "elapsed_seconds": 0.014965234993724152,
+      "log_sha256": "10bce8b36719f575eace917ba0994fada0030447be47d849657916712b3fb4ec"
+    },
+    {
+      "argv": [
+        "<stage>/feature-gates/evaluation-feature1/oracle-runner"
+      ],
+      "log": "invalid-13.log",
+      "status": "completed",
+      "returncode": 101,
+      "elapsed_seconds": 0.014063234004424885,
+      "log_sha256": "06d39da0cb393ed4adc7f4ffcfe8c5ea175d536d8540bb50d01d134d1089117c"
+    },
+    {
+      "argv": [
+        "<stage>/feature-gates/evaluation-feature1/oracle-runner"
+      ],
+      "log": "invalid-14.log",
+      "status": "completed",
+      "returncode": 101,
+      "elapsed_seconds": 0.013372397006605752,
+      "log_sha256": "b0d61af88496d71ba9dc68e68c8747745c41baf789145dadbca49f763dbb6536"
+    },
+    {
+      "argv": [
+        "<stage>/feature-gates/evaluation-feature1/oracle-runner"
+      ],
+      "log": "invalid-15.log",
+      "status": "completed",
+      "returncode": 101,
+      "elapsed_seconds": 0.014099673004238866,
+      "log_sha256": "c6d6c36e47139583964fc82dd5e6a6058d93dabe4d14fe46ffff817aadd653ac"
+    },
+    {
+      "argv": [
+        "<verus-home>/verus-x86-linux/verus",
+        "<stage>/feature-gates/evaluation-feature1/inputs/candidate/native/evaluation_codegen.rs",
+        "--compile",
+        "-O",
+        "--emit=asm",
+        "-o",
+        "<stage>/feature-gates/evaluation-feature1/codegen.s"
+      ],
+      "log": "codegen-build.log",
+      "status": "completed",
+      "returncode": 1,
+      "elapsed_seconds": 0.2127832259866409,
+      "log_sha256": "2f098166452e6c92bf7238f71b80b6747310ef21ce4d11bcccc94d3e1565b03b"
+    }
+  ],
+  "strict_classifier_selfcheck": "pass",
+  "toolchain": "Verus\n  Version: 0.2026.10.26.d17fbd0\n  Profile: release\n  Platform: linux_x86_64\n  Toolchain: 1.99.1-x86_64-unknown-linux-gnu (overridden by environment variable RUSTUP_TOOLCHAIN)\n\n",
+  "rustc": "rustc 1.99.1 (58cf8f9c3 2026-10-13)\nbinary: rustc\ncommit-hash: 58cf8f9c35b355199727627d07ae34a4e2846d67\ncommit-date: 2026-10-13\nhost: x86_64-unknown-linux-gnu\nrelease: 1.99.1\nLLVM version: 23.1.1\n",
+  "toolchain_file_sha256": {
+    "<cargo-home>/bin/rustup": "5be191e8c70a5007074254cb74d78dbfdd25cd5a61c27de7b8e5410122ec24f4",
+    "<rustup-home>/toolchains/1.99.1-x86_64-unknown-linux-gnu/bin/rustc": "b53b780f77f952062f8ca8a3b70aef2390b1e45ad91939be94afdc9543026853",
+    "<rustup-home>/toolchains/1.99.1-x86_64-unknown-linux-gnu/lib/libLLVM.so.23.1-rust-1.99.1-stable": "1cfbe1392a767227b88b33ab6187283e281c63f80f9b1ca9010d9cee5fdf9131",
+    "<rustup-home>/toolchains/1.99.1-x86_64-unknown-linux-gnu/lib/librustc_driver-7ed0375ae352bd75.so": "5a2cd52edba7d15f8d898b92a912638f5b73a089c7c1bfde5604ab45665602c7",
+    "<verus-home>/verus-x86-linux/libverus_builtin.rlib": "f01e88f055e7c19b1a9a6a6118648f20708347d23040ddaee6493b6a4e3f6510",
+    "<verus-home>/verus-x86-linux/libverus_builtin_macros.so": "57bf8ebf436d974a7e05efdd2341bd40c51e737bdb6dd791026165e21f64e3f0",
+    "<verus-home>/verus-x86-linux/libverus_state_machines_macros.so": "8489b80f5a493855ea658a2b2d1850d0957d3149c8240cf7e490b984049d1149",
+    "<verus-home>/verus-x86-linux/libvstd.rlib": "da07ffe583aa14ec1ba5e4aa2295cec538c2a9b59bfbbf4d60f16e20d540befd",
+    "<verus-home>/verus-x86-linux/rust_verify": "7dc66fc35b1ef434d7db3d17f4a7bc9fe1f40b896cbe18a1193820270fa462f6",
+    "<verus-home>/verus-x86-linux/verus": "1208c995c8e5244577693eba311d34bc2050c4acf984e10c4c7baf2003abff14",
+    "<verus-home>/verus-x86-linux/vstd.vir": "6bf002dd6aacba73f8cbf09a1855b6330aa4773752878d2b702a52cc4f1538e2",
+    "<verus-home>/verus-x86-linux/z3": "e583c4186a45e72411fa2cb2048401eed03f0f8e5f24694676a8f6271a50b765",
+    "/usr/bin/python3.12": "1643dacd9feaedc58f3cc581e4d22577dfe25c09b10282936186ccf0f2e61118",
+    "/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2": "1cd555ac46b7887edeaf3c42aac5408c8135e52f6b37870da2cf82d5fe14e829",
+    "/usr/lib/x86_64-linux-gnu/libc.so.6": "d8db8739a1633c972cec6a4fe0566bdcec6fd088f98723492ab0361f66238f75",
+    "/usr/lib/x86_64-linux-gnu/libdl.so.2": "850b46fd4f4478060fc106f4d1dc4aa35c969eb5c9bd98aaf64dc6cb3d6a5e32",
+    "/usr/lib/x86_64-linux-gnu/libgcc_s.so.1": "d93224d2b0dab4247598be683adca02f5cf00586f99c187579cd7e92058fb7cb",
+    "/usr/lib/x86_64-linux-gnu/libm.so.6": "1b87a1a50b496cfead2b0ad134c2ff536705c82608db240c7e8aa48d6c0e4217",
+    "/usr/lib/x86_64-linux-gnu/libpthread.so.0": "92dcea07a5b11d939c22a96131d3fbb995e0a84a4d02db7d799bf357689cd794",
+    "/usr/lib/x86_64-linux-gnu/librt.so.1": "9d1cefae4c0e4995cc35ea3195f805454b2d59a27ad15397a1096e735d341faf",
+    "/usr/lib/x86_64-linux-gnu/libz.so.1.3": "9b64150b28505a33d6bc3ecf709c279f6de97a1c184dbda65d06ee4537f6d286"
+  },
+  "library_verified": 447,
+  "runner_verified": 72,
+  "runtime_library_sha256": {
+    "/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2": "1cd555ac46b7887edeaf3c42aac5408c8135e52f6b37870da2cf82d5fe14e829",
+    "/usr/lib/x86_64-linux-gnu/libc.so.6": "d8db8739a1633c972cec6a4fe0566bdcec6fd088f98723492ab0361f66238f75",
+    "/usr/lib/x86_64-linux-gnu/libgcc_s.so.1": "d93224d2b0dab4247598be683adca02f5cf00586f99c187579cd7e92058fb7cb"
+  },
+  "oracle": {
+    "cases": 14156,
+    "counts": {
+      "scalar": 8532,
+      "weighted_arrays": 2160,
+      "dyadic_arrays": 3456,
+      "point_weights": 8
+    },
+    "input_sha256": "cd3cf49277ed6d502f1e7f7b38d3f7e476bf9afe9589b0a97c48f8aff9de6d6f",
+    "output_sha256": "938c7670f9bd7a3818d2589bef70fc4353365c2a58bc5929d565e87969c581d8",
+    "oracle_model": "Independent Python unbounded weighted sums and homogeneous dyadic polynomials"
+  },
+  "invalid": [
+    {
+      "command": "limb|4194305|0|1,1,1,1,1,1,1,1|0,0,0,0,0,0,0,0",
+      "returncode": 101,
+      "log_sha256": "4230effae85bd2187e6564f03c83f8d72b68196361f20111befbff22929d0892"
+    },
+    {
+      "command": "limb|-4194305|0|1,1,1,1,1,1,1,1|0,0,0,0,0,0,0,0",
+      "returncode": 101,
+      "log_sha256": "24366035ad5744508d5dac104cd290f0d2f4810f95b259c76007a8a350faf55b"
+    },
+    {
+      "command": "limb|0|2|1,1,1,1,1,1,1,1|0,0,0,0,0,0,0,0",
+      "returncode": 101,
+      "log_sha256": "5ac163127a86b2c376e85264f54aa8466fa9ce1585c41c96ea6d079acc4c1cb5"
+    },
+    {
+      "command": "limb|0|0|2097153,0,0,0,0,0,0,0|0,0,0,0,0,0,0,0",
+      "returncode": 101,
+      "log_sha256": "3466947e9164f2bad5f8a5da72952bb79f505fdc6a6920908576b7a75c1aa2f2"
+    },
+    {
+      "command": "limb|0|0|2097152,2097152,0,0,0,0,0,0|0,0,0,0,0,0,0,0",
+      "returncode": 101,
+      "log_sha256": "cde0c69420d54fc5e27bf6de27abfb9f332bf8468cd48fd5498ff1899a306b2a"
+    },
+    {
+      "command": "limb|0|0|1,1|0,0,0,0,0,0,0,0",
+      "returncode": 101,
+      "log_sha256": "2b603d49aa1bb8853d71835aaa7832c60eba86a015b4da2ab6bb479bce62f55f"
+    },
+    {
+      "command": "limb|0|0|1,1,1,1,1,1,1,1|1",
+      "returncode": 101,
+      "log_sha256": "f8924672b15ae873ec6952e1c245d215c313c0d317fde6218c0d11a0231137c3"
+    },
+    {
+      "command": "weights|4|0",
+      "returncode": 101,
+      "log_sha256": "35e3ade4f39ccaf24cb773363ab8845ca87383b1fef14f13794ba9c4acb21caf"
+    },
+    {
+      "command": "weights|0|2",
+      "returncode": 101,
+      "log_sha256": "dc1ca4f676e34f7eb00f4873be2a3b809869f322d877b713608a32fa021ca3a3"
+    },
+    {
+      "command": "dyadic|4|0|0|-|-|-|-|-|-|-|-",
+      "returncode": 101,
+      "log_sha256": "d5a2db32ae1dfbdc4763eb6a0212bd494dc393c5835a06717cc4b814e5d28513"
+    },
+    {
+      "command": "dyadic|0|0|2|-|-|-|-|-|-|-|-",
+      "returncode": 101,
+      "log_sha256": "3cdbbc9eb6c7bbd26141d16172d331cbc9b4faeed53eee8c1bd841d806487fa7"
+    },
+    {
+      "command": "eval|0|1,1,1,1,1,1,1,1|0|-|-|-|-|-|-|-",
+      "returncode": 101,
+      "log_sha256": "479cc62dba46eda201f691d03c6083c1cce1f23fa6a4fe21e5f5cfe5b823350c"
+    },
+    {
+      "command": "eval|0|1,1,1,1,1,1,1,1|0|0|0|0|0|0|0|0,1",
+      "returncode": 101,
+      "log_sha256": "10bce8b36719f575eace917ba0994fada0030447be47d849657916712b3fb4ec"
+    },
+    {
+      "command": "eval|0|0,0,0,0,0,0,0,0|-|-|-|-|-|-|-",
+      "returncode": 101,
+      "log_sha256": "06d39da0cb393ed4adc7f4ffcfe8c5ea175d536d8540bb50d01d134d1089117c"
+    },
+    {
+      "command": "unknown",
+      "returncode": 101,
+      "log_sha256": "b0d61af88496d71ba9dc68e68c8747745c41baf789145dadbca49f763dbb6536"
+    },
+    {
+      "command": "weights|0|0|extra",
+      "returncode": 101,
+      "log_sha256": "c6d6c36e47139583964fc82dd5e6a6058d93dabe4d14fe46ffff817aadd653ac"
+    }
+  ],
+  "error": "RuntimeError: Full compile failed: codegen-build.log",
+  "finished_utc": "2026-11-02T00:44:16.203476+00:00"
+}

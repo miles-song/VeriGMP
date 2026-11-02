@@ -1,0 +1,11 @@
+{
+  "requested_model": "claude-opus-5-5",
+  "actual_model": "claude-opus-5-5",
+  "effort": "max",
+  "actual_cli_returncode": 0,
+  "elapsed_seconds": 8.899701299989829,
+  "draft_sha256": "6eb9d119535a99d98eb514a07a919445d6c39a9f11c6f30723a28475057031af",
+  "actual_output_sha256": "0f998fd6c3ad6fc59640d96a0451bffd55421aaacd890c5d36dc47e7c057017a",
+  "final_readme_sha256": "a2d6137737148cd3a7a091ba82675f2522261374cb975771f46012c19ec3ab64",
+  "fact_review": "Counts, modular/exact distinction, coefficient caller obligations, no extra scratch, three historical attempts and unmeasured-performance boundary independently checked"
+}

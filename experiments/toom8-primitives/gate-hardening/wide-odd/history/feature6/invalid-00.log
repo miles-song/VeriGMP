@@ -1,0 +1,4 @@
+
+thread 'main' (112445) panicked at <build>/toom8-balanced-stage-e22a4dd/feature-gates/wide-odd-feature6/inputs/candidate/native/wide_odd_runner.rs:7:5:
+assertion failed: d > 0
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace

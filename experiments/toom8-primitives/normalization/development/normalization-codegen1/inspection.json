@@ -1,0 +1,57 @@
+{
+  "status": "pass",
+  "scope": "Actual endpoint products, signed point-pair production, exact normalization and child multiplication paths",
+  "no_allocator_general_division_or_element_bounds_panic": true,
+  "paths": {
+    "verified_normalization_generic": {
+      "reachable_functions": [
+        "_RNvNtCsd1Sd8jtq9I4_29toom8_normalization_candidate14toom4_evaluate6signed",
+        "_RNvNtCsd1Sd8jtq9I4_29toom8_normalization_candidate14toom4_multiply4full",
+        "_RNvNtCsd1Sd8jtq9I4_29toom8_normalization_candidate14toom8_producer14normalize_pair",
+        "_RNvNtCsd1Sd8jtq9I4_29toom8_normalization_candidate19toom8_normalization12prepare_pair",
+        "verified_normalization_generic"
+      ],
+      "external_calls": [
+        "*_RNvNtCskADBYZwJmSU_4core9panicking5panic@GOTPCREL(%rip)",
+        "*_RNvNtCskADBYZwJmSU_4core9panicking9panic_fmt@GOTPCREL(%rip)",
+        "*_RNvNtNtCskADBYZwJmSU_4core5slice5index16slice_index_fail@GOTPCREL(%rip)",
+        "*memset@GOTPCREL(%rip)"
+      ],
+      "root_body_lines": 3
+    },
+    "verified_normalization_reciprocal_eight": {
+      "reachable_functions": [
+        "_RNvNtCsd1Sd8jtq9I4_29toom8_normalization_candidate14toom4_evaluate6signed",
+        "_RNvNtCsd1Sd8jtq9I4_29toom8_normalization_candidate14toom4_multiply4full",
+        "_RNvNtCsd1Sd8jtq9I4_29toom8_normalization_candidate14toom8_producer14normalize_pair",
+        "_RNvNtCsd1Sd8jtq9I4_29toom8_normalization_candidate19toom8_normalization12prepare_pair",
+        "verified_normalization_reciprocal_eight"
+      ],
+      "external_calls": [
+        "*_RNvNtCskADBYZwJmSU_4core9panicking5panic@GOTPCREL(%rip)",
+        "*_RNvNtCskADBYZwJmSU_4core9panicking9panic_fmt@GOTPCREL(%rip)",
+        "*_RNvNtNtCskADBYZwJmSU_4core5slice5index16slice_index_fail@GOTPCREL(%rip)",
+        "*memset@GOTPCREL(%rip)"
+      ],
+      "root_body_lines": 15
+    },
+    "verified_normalization_four": {
+      "reachable_functions": [
+        "_RNvNtCsd1Sd8jtq9I4_29toom8_normalization_candidate14toom4_evaluate6signed",
+        "_RNvNtCsd1Sd8jtq9I4_29toom8_normalization_candidate14toom4_multiply4full",
+        "_RNvNtCsd1Sd8jtq9I4_29toom8_normalization_candidate14toom8_producer14normalize_pair",
+        "_RNvNtCsd1Sd8jtq9I4_29toom8_normalization_candidate19toom8_normalization12prepare_pair",
+        "verified_normalization_four"
+      ],
+      "external_calls": [
+        "*_RNvNtCskADBYZwJmSU_4core9panicking5panic@GOTPCREL(%rip)",
+        "*_RNvNtCskADBYZwJmSU_4core9panicking9panic_fmt@GOTPCREL(%rip)",
+        "*_RNvNtNtCskADBYZwJmSU_4core5slice5index16slice_index_fail@GOTPCREL(%rip)",
+        "*memset@GOTPCREL(%rip)"
+      ],
+      "root_body_lines": 15
+    }
+  },
+  "limitation": "Textual assembly inspection; no machine-code equivalence or performance claim",
+  "assembly_sha256": "468c4c781f8dde1dc18f59f89184d964a7041a78488e5ef6f5873e6a793966bb"
+}

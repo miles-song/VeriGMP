@@ -1,0 +1,4 @@
+
+thread 'main' (18936) panicked at <stage>/feature-gates/producer-feature1/inputs/candidate/native/toom8_producer_runner.rs:69:61:
+assertion failed: weights.iter().all(|w| *w <= 2097152)
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace

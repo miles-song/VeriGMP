@@ -1,0 +1,11 @@
+{
+  "requested_model": "claude-opus-5-5",
+  "actual_model": "claude-opus-5-5",
+  "effort": "max",
+  "actual_cli_returncode": 0,
+  "elapsed_seconds": 25.496683800010942,
+  "draft_sha256": "6f6a852468f6258768b10f69c3893dfb54fe91cd4e96b07fdb016b2b42185b0c",
+  "actual_output_sha256": "89543cf776f0d51fcb3d5996b954a6fb4317fdfa91abeaebb43e524824c8cd3d",
+  "final_readme_sha256": "e7c43cfbb3096e1bdc99cfe4b6a14a95a6fa086e9a48025afd60b8bb09c044a0",
+  "fact_review": "Actual implementation discharges coefficient premises; single Toom8 layer with Toom4 children, capacity bound, full domain, counts and no performance acceptance independently checked"
+}

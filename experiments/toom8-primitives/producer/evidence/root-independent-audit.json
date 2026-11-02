@@ -1,0 +1,55 @@
+{
+  "status": "pass",
+  "report_sha256": "14cfecedf26dc321af97b312db443ab0c549990440cdd0d7860d59f4957dcc55",
+  "audit_source_sha256": "8f91419cf336ed18f48ceb470ccdd313fc42faef9d9d1e5cebe4a9d78e0ab901",
+  "source_inputs": 100,
+  "tools": 21,
+  "runtimes": 3,
+  "artifacts": 4,
+  "locked_paths": 255,
+  "verified_full_library_runner_codegen": [
+    472,
+    472,
+    472
+  ],
+  "true_scoped_mutants": {
+    "wrong-positive-a": [
+      "1",
+      "1"
+    ],
+    "wrong-positive-b": [
+      "1",
+      "1"
+    ],
+    "wrong-positive-product": [
+      "1",
+      "1"
+    ],
+    "wrong-negative-product": [
+      "1",
+      "1"
+    ],
+    "ignore-product-sign": [
+      "1",
+      "1"
+    ],
+    "skip-pair-halving": [
+      "1",
+      "1"
+    ],
+    "drop-input-block": [
+      "1",
+      "1"
+    ],
+    "zero-weights": [
+      "1",
+      "1"
+    ]
+  },
+  "mixed_fatal_rejections": 72,
+  "oracle_cases": 2640,
+  "invalid_commands": 12,
+  "saved_runner_replayed": true,
+  "no_new_proof_escape": true,
+  "boundary": "Actual four evaluations and two existing verified full products establish pair magnitude/parity/capacity premises from full-word eight-block inputs. Conditional coefficient-weight model is not yet an actual complete Toom8 caller. Local 14*(k+1) scratch only; no full Toom8 schedule/complexity/benchmark claim."
+}

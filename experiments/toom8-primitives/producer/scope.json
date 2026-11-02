@@ -1,0 +1,27 @@
+{
+  "status": "candidate_ready_for_frozen_gate",
+  "purpose": "Establish signed pair preconditions from actual eight-block inputs, actual evaluations and verified products, rather than requiring numeric output properties from an unverified caller.",
+  "input_domain": "Equal-length full-u64 limb slices a and b; 7*k <= length <= 8*k, including k=0 and an empty eighth block; eight bounded nonnegative weights under the existing evaluation contract; caller-owned disjoint outputs and scratch.",
+  "output_meaning": "Even and odd diagonal weighted sums of the independent input-block product. The ghost-only convolution identity groups the same 64 input products into fifteen independently defined coefficients under an explicit multiplicative-weight premise.",
+  "execution": "Four existing signed evaluations, two existing verified full products, one simultaneous sum/difference pass, and two exact halvings. No new allocator, matrix interpolation, FFI, intrinsic or trusted proof escape.",
+  "local_workspace": "Two m-word evaluation buffers followed by at least 12*m child scratch words; m=k+1. Two separate outputs each contain 2*m words. This is a local 14*m scratch interface, not a proof of the whole Toom8 12*n/10*n schedule.",
+  "local_work": "2*T_existing_full(m)+O(k), with existing forced Toom4 children in this composition prototype. A complete recursive Toom8 kernel must replace those child calls with its own decreasing recursion and establish the complete recurrence separately.",
+  "derived_obligations": [
+    "Input blocks lie in [0,B^k).",
+    "Positive evaluation is below 2^22*B^k and dominates the magnitude of negative evaluation.",
+    "Point products have nonnegative even and odd decompositions, imply positive-product >= abs(negative-product), and have matching parity.",
+    "The sum of product magnitudes fits the actual 2*(k+1) output words."
+  ],
+  "remaining": [
+    "Fresh full immutable feature gate and independent review",
+    "Dyadic weight product identities and coefficient-level caller bridge",
+    "Actual endpoint removal/scaling and Newton preconditions",
+    "Fifteen-point recursion, recomposition and complete scratch lifetime proof",
+    "Performance acceptance under a separately approved frozen experiment"
+  ],
+  "benchmark_run": false,
+  "complete_toom8": false,
+  "production_default_changed": false,
+  "consumer_pin_changed": false,
+  "code_generation_boundary": "A private non-inlined normalization helper retains the complete existing half_pair contract; this permits LLVM to remove element bounds guards in the composed path. The constant call cost has not been timed."
+}

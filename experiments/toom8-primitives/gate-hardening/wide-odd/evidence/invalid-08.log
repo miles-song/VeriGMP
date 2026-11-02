@@ -1,0 +1,6 @@
+
+thread 'main' (132326) panicked at <build>/toom8-balanced-stage-e22a4dd/feature-gates/wide-odd-feature7/inputs/candidate/native/wide_odd_runner.rs:13:5:
+assertion `left == right` failed
+  left: 1
+ right: 0
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace

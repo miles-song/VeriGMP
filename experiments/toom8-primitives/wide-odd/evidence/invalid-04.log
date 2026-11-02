@@ -1,0 +1,6 @@
+
+thread 'main' (71156) panicked at <stage>/feature-gates/wide-odd-feature5/inputs/candidate/native/wide_odd_runner.rs:22:13:
+assertion `left == right` failed
+  left: 3
+ right: 4
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace

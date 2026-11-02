@@ -1,0 +1,15 @@
+{
+  "accepted_gate": "interpolation-feature1",
+  "attempts": [
+    {
+      "name": "interpolation-focused1",
+      "reported_status": "pass",
+      "report": "development/interpolation-focused1/report.json",
+      "source_overlays": {
+        "check_development.py": "development/interpolation-focused1/overlays/check_development.py"
+      },
+      "status_boundary": "Historical record; accepted gate is interpolation-feature1."
+    }
+  ],
+  "development_boundary": "The single focused development attempt is retained: three actual caller/storage properties passed."
+}

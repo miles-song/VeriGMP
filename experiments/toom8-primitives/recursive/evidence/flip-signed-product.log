@@ -1,0 +1,26 @@
+verification results:: 1 verified, 1 errors (partial verification with `--verify-*`)
+note: verifying module toom8_recursive_producer
+
+note: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+ --> <stage>/feature-gates/recursive-feature1/inputs/candidate/native/verified/toom8_recursive_producer.rs:9:1
+  |
+9 | fn no...bool)
+  | ^^^^^...^^^^^
+
+note: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> <stage>/feature-gates/recursive-feature1/inputs/candidate/native/verified/toom8_recursive_producer.rs:19:1
+   |
+19 | pub f...size)
+   | ^^^^^...^^^^^
+
+error: postcondition not satisfied
+  --> <stage>/feature-gates/recursive-feature1/inputs/candidate/native/verified/toom8_recursive_producer.rs:23:9
+   |
+19 | pub f...size)
+   | -----...----- at the end of the function body
+...
+23 |         value...hts@),
+   |         ^^^^^...^^^^^ failed this postcondition
+
+error: aborting due to 1 previous error
+

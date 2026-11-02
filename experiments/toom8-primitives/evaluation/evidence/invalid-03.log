@@ -1,0 +1,4 @@
+
+thread 'main' (126392) panicked at <stage>/feature-gates/evaluation-feature3/inputs/candidate/native/toom8_evaluation_runner.rs:13:51:
+assertion failed: a.iter().all(|x| *x <= 2097152)
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace

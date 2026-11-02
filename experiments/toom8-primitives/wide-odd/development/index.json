@@ -1,0 +1,82 @@
+{
+  "attempts": [
+    {
+      "name": "wide-focused1",
+      "reported_status": "failed",
+      "report": "development/wide-focused1/report.json",
+      "source_overlays": {
+        "candidate/native/lib.rs": "development/wide-focused1/overlays/candidate/native/lib.rs",
+        "candidate/native/specs/wide_odd_division.rs": "development/wide-focused1/overlays/candidate/native/specs/wide_odd_division.rs",
+        "candidate/native/verified/wide_odd_division.rs": "development/wide-focused1/overlays/candidate/native/verified/wide_odd_division.rs",
+        "development/odd_wide_proof.rs": "development/wide-focused1/overlays/development/odd_wide_proof.rs"
+      },
+      "status_boundary": "Historical development record; final accepted evidence is wide-odd-feature5"
+    },
+    {
+      "name": "wide-focused2",
+      "reported_status": "pass",
+      "report": "development/wide-focused2/report.json",
+      "source_overlays": {
+        "candidate/native/lib.rs": "development/wide-focused2/overlays/candidate/native/lib.rs",
+        "candidate/native/specs/wide_odd_division.rs": "development/wide-focused2/overlays/candidate/native/specs/wide_odd_division.rs",
+        "candidate/native/verified/wide_odd_division.rs": "development/wide-focused2/overlays/candidate/native/verified/wide_odd_division.rs",
+        "development/odd_wide_proof.rs": "development/wide-focused2/overlays/development/odd_wide_proof.rs"
+      },
+      "status_boundary": "Historical development record; final accepted evidence is wide-odd-feature5"
+    },
+    {
+      "name": "wide-focused3",
+      "reported_status": "pass",
+      "report": "development/wide-focused3/report.json",
+      "source_overlays": {
+        "development/odd_wide_proof.rs": "development/wide-focused3/overlays/development/odd_wide_proof.rs"
+      },
+      "status_boundary": "Historical development record; final accepted evidence is wide-odd-feature5"
+    },
+    {
+      "name": "wide-library1",
+      "reported_status": "pass",
+      "report": "development/wide-library1/report.json",
+      "source_overlays": {},
+      "status_boundary": "Historical development record; final accepted evidence is wide-odd-feature5"
+    },
+    {
+      "name": "wide-odd-feature1",
+      "reported_status": "error",
+      "report": "development/wide-odd-feature1/report.json",
+      "source_overlays": {
+        "check_wide_odd.py": "development/wide-odd-feature1/overlays/check_wide_odd.py"
+      },
+      "status_boundary": "Historical development record; final accepted evidence is wide-odd-feature5"
+    },
+    {
+      "name": "wide-odd-feature2",
+      "reported_status": "error",
+      "report": "development/wide-odd-feature2/report.json",
+      "source_overlays": {
+        "check_wide_odd.py": "development/wide-odd-feature2/overlays/check_wide_odd.py"
+      },
+      "status_boundary": "Historical development record; final accepted evidence is wide-odd-feature5"
+    },
+    {
+      "name": "wide-odd-feature3",
+      "reported_status": "error",
+      "report": "development/wide-odd-feature3/report.json",
+      "source_overlays": {
+        "check_wide_odd.py": "development/wide-odd-feature3/overlays/check_wide_odd.py"
+      },
+      "status_boundary": "Historical development record; final accepted evidence is wide-odd-feature5"
+    },
+    {
+      "name": "wide-odd-feature4",
+      "reported_status": "pass",
+      "report": "development/wide-odd-feature4/report.json",
+      "source_overlays": {
+        "check_wide_odd.py": "development/wide-odd-feature4/overlays/check_wide_odd.py"
+      },
+      "status_boundary": "Historical development record; final accepted evidence is wide-odd-feature5"
+    }
+  ],
+  "accepted_gate": "wide-odd-feature5",
+  "feature4_boundary": "The arithmetic checks passed, but loader binding and explicit command return-code records were completed in feature5; feature4 is not the final identity acceptance."
+}

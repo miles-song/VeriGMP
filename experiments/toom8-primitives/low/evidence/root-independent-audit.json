@@ -1,0 +1,79 @@
+{
+  "status": "pass",
+  "report_sha256": "a3d64a0cec2fdeefe1619632da7afaa3cec158df42fed162f5c90e64a37d3be7",
+  "audit_source_sha256": "25c4ea77e850ab626495456bc2129ef26fe17509ddaf7187c61a0cdd55b1f4f9",
+  "source_inputs": 144,
+  "tools": 21,
+  "runtimes": 3,
+  "artifacts": 4,
+  "locked_paths": 489,
+  "verified_full_library_runner_codegen": [
+    556,
+    556,
+    556
+  ],
+  "true_scoped_mutants": {
+    "skip-full-product": [
+      "2",
+      "1"
+    ],
+    "square-low-block-product": [
+      "2",
+      "1"
+    ],
+    "skip-first-cross": [
+      "2",
+      "1"
+    ],
+    "skip-second-cross": [
+      "2",
+      "1"
+    ],
+    "skip-mul-mask": [
+      "2",
+      "1"
+    ],
+    "square-base-low": [
+      "2",
+      "1"
+    ],
+    "skip-full-square": [
+      "3",
+      "1"
+    ],
+    "skip-square-cross": [
+      "3",
+      "1"
+    ],
+    "skip-square-mask": [
+      "3",
+      "1"
+    ],
+    "skip-symmetric-leaf": [
+      "3",
+      "1"
+    ],
+    "toom8_low-drop-add-1": [
+      "2",
+      "1"
+    ],
+    "toom8_low-drop-add-2": [
+      "2",
+      "1"
+    ],
+    "toom8_square_low-drop-add-1": [
+      "3",
+      "1"
+    ],
+    "toom8_square_low-drop-add-2": [
+      "3",
+      "1"
+    ]
+  },
+  "mixed_fatal_rejections": 126,
+  "oracle_cases": 2700,
+  "invalid_commands": 16,
+  "saved_runner_replayed": true,
+  "no_new_proof_escape": true,
+  "boundary": "Actual low modular multiplication and specialized low square over recursive full kernels, arbitrary full u64 input and all split modes; 12n/10n scratch. Independent integer modulo oracle and saved runner2700 plus16 invalid inputs. No default dispatch, benchmark, GMP parity or complete bit-cost claim."
+}

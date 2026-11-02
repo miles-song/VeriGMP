@@ -1,0 +1,71 @@
+{
+  "status": "pass",
+  "report_sha256": "e8a352e3874d5c76a87dd20c8a8b3600e28cf51b7c1dc28e56b94b465e8985d8",
+  "audit_source_sha256": "3fb54baa3114c3be8308fe0f111c461ad7343917ba52f5d7fe49395321929418",
+  "source_inputs": 115,
+  "tools": 21,
+  "runtimes": 3,
+  "artifacts": 4,
+  "locked_paths": 397,
+  "verified_full_library_runner_codegen": [
+    514,
+    514,
+    514
+  ],
+  "true_scoped_mutants": {
+    "skip-seventh-node": [
+      "2",
+      "1"
+    ],
+    "square-seventh-point": [
+      "2",
+      "1"
+    ],
+    "skip-odd-newton": [
+      "2",
+      "1"
+    ],
+    "swap-odd-nodes": [
+      "2",
+      "1"
+    ],
+    "skip-six-pairs": [
+      "2",
+      "1"
+    ],
+    "swap-even-coefficients": [
+      "2",
+      "1"
+    ],
+    "square-six-pairs": [
+      "2",
+      "1"
+    ],
+    "square-low-endpoint": [
+      "2",
+      "1"
+    ],
+    "square-high-endpoint": [
+      "2",
+      "1"
+    ],
+    "erase-low-endpoint": [
+      "2",
+      "1"
+    ],
+    "erase-high-endpoint": [
+      "2",
+      "1"
+    ],
+    "swap-shared-endpoints": [
+      "2",
+      "1"
+    ]
+  },
+  "mixed_fatal_rejections": 108,
+  "oracle_cases": 336,
+  "invalid_commands": 12,
+  "saved_runner_replayed": true,
+  "no_new_proof_escape": true,
+  "boundary": "Actual input a/b generate both endpoints, six signed pairs and positive-eight product, discharging all existing even/seventh/odd Newton mathematical premises and recovering all fifteen convolution coefficients. Independent Kronecker product plus polynomial identities checked all 336 corpus inputs; saved native runner replayed. k=0/h=0, full-word inputs and poisoned output/scratch sentinels retained. 14*(k+1) scratch excludes thirteen interior coefficient buffers and endpoints; 44*(k+1) is a checked local storage inequality, not a recursive live-space theorem. Child products remain existing Toom4; full Toom8 recomposition/recursion, cost and performance are not claimed."
+}

@@ -1,0 +1,4 @@
+
+thread 'main' (78467) panicked at <stage>/development/newton-runner2/inputs/candidate/native/toom8_newton_runner.rs:56:9:
+assertion failed: args.len() >= 2
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace

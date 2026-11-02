@@ -1,0 +1,167 @@
+verification results:: 25 verified, 1 errors (partial verification with `--verify-*`)
+note: verifying module toom8_newton
+
+note: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+ --> <build>/toom8-newton-stage-e22a4dd/feature-gates/newton-feature2/inputs/candidate/native/verified/toom8_newton.rs:8:1
+  |
+8 | fn ev...nt>>)
+  | ^^^^^...^^^^^
+
+error: assertion failed
+  --> <build>/toom8-newton-stage-e22a4dd/feature-gates/newton-feature2/inputs/candidate/native/verified/toom8_newton.rs:55:12
+   |
+55 | ...rt(value...int*q);
+   |       ^^^^^...^^^^^ assertion failed
+
+note: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+   --> <build>/toom8-newton-stage-e22a4dd/feature-gates/newton-feature2/inputs/candidate/native/verified/toom8_newton.rs:102:1
+    |
+102 | fn ev...nt>>)
+    | ^^^^^...^^^^^
+
+note: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+   --> <build>/toom8-newton-stage-e22a4dd/feature-gates/newton-feature2/inputs/candidate/native/verified/toom8_newton.rs:185:1
+    |
+185 | fn ev...nt>>)
+    | ^^^^^...^^^^^
+
+note: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+   --> <build>/toom8-newton-stage-e22a4dd/feature-gates/newton-feature2/inputs/candidate/native/verified/toom8_newton.rs:257:1
+    |
+257 | fn ev...nt>>)
+    | ^^^^^...^^^^^
+
+note: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+   --> <build>/toom8-newton-stage-e22a4dd/feature-gates/newton-feature2/inputs/candidate/native/verified/toom8_newton.rs:318:1
+    |
+318 | fn ev...nt>>)
+    | ^^^^^...^^^^^
+
+note: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+   --> <build>/toom8-newton-stage-e22a4dd/feature-gates/newton-feature2/inputs/candidate/native/verified/toom8_newton.rs:368:1
+    |
+368 | fn ev...nt>>)
+    | ^^^^^...^^^^^
+
+note: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+   --> <build>/toom8-newton-stage-e22a4dd/feature-gates/newton-feature2/inputs/candidate/native/verified/toom8_newton.rs:415:1
+    |
+415 | fn ev...nt>>)
+    | ^^^^^...^^^^^
+
+note: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+   --> <build>/toom8-newton-stage-e22a4dd/feature-gates/newton-feature2/inputs/candidate/native/verified/toom8_newton.rs:467:1
+    |
+467 | fn ev...nt>>)
+    | ^^^^^...^^^^^
+
+note: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+   --> <build>/toom8-newton-stage-e22a4dd/feature-gates/newton-feature2/inputs/candidate/native/verified/toom8_newton.rs:524:1
+    |
+524 | fn ev...nt>>)
+    | ^^^^^...^^^^^
+
+note: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+   --> <build>/toom8-newton-stage-e22a4dd/feature-gates/newton-feature2/inputs/candidate/native/verified/toom8_newton.rs:586:1
+    |
+586 | fn ev...nt>>)
+    | ^^^^^...^^^^^
+
+note: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+   --> <build>/toom8-newton-stage-e22a4dd/feature-gates/newton-feature2/inputs/candidate/native/verified/toom8_newton.rs:653:1
+    |
+653 | fn ev...nt>>)
+    | ^^^^^...^^^^^
+
+note: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+   --> <build>/toom8-newton-stage-e22a4dd/feature-gates/newton-feature2/inputs/candidate/native/verified/toom8_newton.rs:709:1
+    |
+709 | pub f...nt>>)
+    | ^^^^^...^^^^^
+
+note: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+   --> <build>/toom8-newton-stage-e22a4dd/feature-gates/newton-feature2/inputs/candidate/native/verified/toom8_newton.rs:763:1
+    |
+763 | fn od...nt>>)
+    | ^^^^^...^^^^^
+
+note: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+   --> <build>/toom8-newton-stage-e22a4dd/feature-gates/newton-feature2/inputs/candidate/native/verified/toom8_newton.rs:874:1
+    |
+874 | fn od...nt>>)
+    | ^^^^^...^^^^^
+
+note: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+   --> <build>/toom8-newton-stage-e22a4dd/feature-gates/newton-feature2/inputs/candidate/native/verified/toom8_newton.rs:974:1
+    |
+974 | fn od...nt>>)
+    | ^^^^^...^^^^^
+
+note: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+    --> <build>/toom8-newton-stage-e22a4dd/feature-gates/newton-feature2/inputs/candidate/native/verified/toom8_newton.rs:1063:1
+     |
+1063 | fn od...nt>>)
+     | ^^^^^...^^^^^
+
+note: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+    --> <build>/toom8-newton-stage-e22a4dd/feature-gates/newton-feature2/inputs/candidate/native/verified/toom8_newton.rs:1141:1
+     |
+1141 | fn od...nt>>)
+     | ^^^^^...^^^^^
+
+note: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+    --> <build>/toom8-newton-stage-e22a4dd/feature-gates/newton-feature2/inputs/candidate/native/verified/toom8_newton.rs:1208:1
+     |
+1208 | fn od...nt>>)
+     | ^^^^^...^^^^^
+
+note: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+    --> <build>/toom8-newton-stage-e22a4dd/feature-gates/newton-feature2/inputs/candidate/native/verified/toom8_newton.rs:1264:1
+     |
+1264 | fn od...nt>>)
+     | ^^^^^...^^^^^
+
+note: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+    --> <build>/toom8-newton-stage-e22a4dd/feature-gates/newton-feature2/inputs/candidate/native/verified/toom8_newton.rs:1317:1
+     |
+1317 | fn od...nt>>)
+     | ^^^^^...^^^^^
+
+note: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+    --> <build>/toom8-newton-stage-e22a4dd/feature-gates/newton-feature2/inputs/candidate/native/verified/toom8_newton.rs:1375:1
+     |
+1375 | fn od...nt>>)
+     | ^^^^^...^^^^^
+
+note: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+    --> <build>/toom8-newton-stage-e22a4dd/feature-gates/newton-feature2/inputs/candidate/native/verified/toom8_newton.rs:1438:1
+     |
+1438 | fn od...nt>>)
+     | ^^^^^...^^^^^
+
+note: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+    --> <build>/toom8-newton-stage-e22a4dd/feature-gates/newton-feature2/inputs/candidate/native/verified/toom8_newton.rs:1506:1
+     |
+1506 | fn od...nt>>)
+     | ^^^^^...^^^^^
+
+note: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+    --> <build>/toom8-newton-stage-e22a4dd/feature-gates/newton-feature2/inputs/candidate/native/verified/toom8_newton.rs:1579:1
+     |
+1579 | fn od...nt>>)
+     | ^^^^^...^^^^^
+
+note: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+    --> <build>/toom8-newton-stage-e22a4dd/feature-gates/newton-feature2/inputs/candidate/native/verified/toom8_newton.rs:1657:1
+     |
+1657 | fn od...nt>>)
+     | ^^^^^...^^^^^
+
+note: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+    --> <build>/toom8-newton-stage-e22a4dd/feature-gates/newton-feature2/inputs/candidate/native/verified/toom8_newton.rs:1722:1
+     |
+1722 | pub f...nt>>)
+     | ^^^^^...^^^^^
+
+error: aborting due to 1 previous error
+

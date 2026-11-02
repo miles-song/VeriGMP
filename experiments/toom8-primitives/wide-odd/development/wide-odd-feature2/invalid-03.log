@@ -1,0 +1,4 @@
+
+thread 'main' (14937) panicked at <stage>/feature-gates/wide-odd-feature2/inputs/candidate/native/wide_odd_runner.rs:22:57:
+assertion failed: a[2] < a[0]
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace

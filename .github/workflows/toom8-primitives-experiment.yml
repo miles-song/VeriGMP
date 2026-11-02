@@ -1,0 +1,63 @@
+name: Toom-8 arithmetic primitives archive
+on:
+  push:
+    branches: [experiments/toom8-primitives]
+  pull_request:
+    paths: [experiments/toom8-primitives/**, .github/workflows/toom8-primitives-experiment.yml]
+jobs:
+  archive:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: '3.12'
+      - run: python3 experiments/toom8-primitives/wide-odd/audit.py
+      - run: python3 experiments/toom8-primitives/wide-odd/prepare.py --output /tmp/verigmp-wide-odd
+      - run: python3 experiments/toom8-primitives/newton/audit.py
+      - run: python3 experiments/toom8-primitives/newton/prepare.py --output /tmp/verigmp-newton
+      - run: python3 experiments/toom8-primitives/gate-hardening/audit.py
+      - run: python3 experiments/toom8-primitives/gate-hardening/test_prepare_boundaries.py
+      - run: python3 experiments/toom8-primitives/gate-hardening/prepare.py --feature wide-odd --output /tmp/verigmp-wide-odd-hardened
+      - run: python3 experiments/toom8-primitives/gate-hardening/prepare.py --feature newton --output /tmp/verigmp-newton-hardened
+      - run: python3 experiments/toom8-primitives/evaluation/audit.py
+      - run: python3 experiments/toom8-primitives/evaluation/test_prepare_boundaries.py
+      - run: python3 experiments/toom8-primitives/evaluation/prepare.py --output /tmp/verigmp-evaluation
+      - run: python3 experiments/toom8-primitives/pair/audit.py
+      - run: python3 experiments/toom8-primitives/pair/test_prepare_boundaries.py
+      - run: python3 experiments/toom8-primitives/pair/prepare.py --output /tmp/verigmp-pair
+      - run: python3 experiments/toom8-primitives/producer/audit.py
+      - run: python3 experiments/toom8-primitives/producer/test_prepare_boundaries.py
+      - run: python3 experiments/toom8-primitives/producer/prepare.py --output /tmp/verigmp-producer
+      - run: python3 experiments/toom8-primitives/dyadic/audit.py
+      - run: python3 experiments/toom8-primitives/dyadic/test_prepare_boundaries.py
+      - run: python3 experiments/toom8-primitives/dyadic/prepare.py --output /tmp/verigmp-dyadic
+      - run: python3 experiments/toom8-primitives/normalization/audit.py
+      - run: python3 experiments/toom8-primitives/normalization/test_prepare_boundaries.py
+      - run: python3 experiments/toom8-primitives/normalization/prepare.py --output /tmp/verigmp-normalization
+      - run: python3 experiments/toom8-primitives/even/audit.py
+      - run: python3 experiments/toom8-primitives/even/test_prepare_boundaries.py
+      - run: python3 experiments/toom8-primitives/even/prepare.py --output /tmp/verigmp-even
+      - run: python3 experiments/toom8-primitives/seventh/audit.py
+      - run: python3 experiments/toom8-primitives/seventh/test_prepare_boundaries.py
+      - run: python3 experiments/toom8-primitives/seventh/prepare.py --output /tmp/verigmp-seventh
+      - run: python3 experiments/toom8-primitives/interpolation/audit.py
+      - run: python3 experiments/toom8-primitives/interpolation/test_prepare_boundaries.py
+      - run: python3 experiments/toom8-primitives/interpolation/prepare.py --output /tmp/verigmp-interpolation
+      - run: python3 experiments/toom8-primitives/recomposition/audit.py
+      - run: python3 experiments/toom8-primitives/recomposition/test_prepare_boundaries.py
+      - run: python3 experiments/toom8-primitives/recomposition/prepare.py --output /tmp/verigmp-recomposition
+      - run: python3 experiments/toom8-primitives/product/audit.py
+      - run: python3 experiments/toom8-primitives/product/test_prepare_boundaries.py
+      - run: python3 experiments/toom8-primitives/product/prepare.py --output /tmp/verigmp-product
+      - run: python3 experiments/toom8-primitives/recursive/audit.py
+      - run: python3 experiments/toom8-primitives/recursive/test_prepare_boundaries.py
+      - run: python3 experiments/toom8-primitives/recursive/prepare.py --output /tmp/verigmp-recursive
+      - run: python3 experiments/toom8-primitives/square/audit.py
+      - run: python3 experiments/toom8-primitives/square/test_prepare_boundaries.py
+      - run: python3 experiments/toom8-primitives/square/prepare.py --output /tmp/verigmp-square
+      - run: python3 experiments/toom8-primitives/low/audit.py
+      - run: python3 experiments/toom8-primitives/low/test_prepare_boundaries.py
+      - run: python3 experiments/toom8-primitives/low/prepare.py --output /tmp/verigmp-low

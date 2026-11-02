@@ -1,0 +1,15 @@
+{
+  "accepted_gate": "product-feature1",
+  "attempts": [
+    {
+      "name": "product-focused1",
+      "reported_status": "pass",
+      "report": "development/product-focused1/report.json",
+      "source_overlays": {
+        "check_development.py": "development/product-focused1/overlays/check_development.py"
+      },
+      "status_boundary": "Historical record; accepted gate is product-feature1."
+    }
+  ],
+  "development_boundary": "The focused development attempt is retained: three actual input-to-product and storage properties passed."
+}

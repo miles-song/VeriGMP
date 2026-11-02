@@ -1,0 +1,4 @@
+
+thread 'main' (50685) panicked at <stage>/feature-gates/seventh-feature1/inputs/candidate/native/toom8_seventh_runner.rs:80:9:
+assertion failed: f[0] == "product" || f[0] == "seventh"
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace

@@ -1,0 +1,132 @@
+{
+  "accepted_gate": "producer-feature1",
+  "attempts": [
+    {
+      "name": "convolution-spec1",
+      "reported_status": "pass",
+      "report": "development/convolution-spec1/report.json",
+      "source_overlays": {
+        "candidate/native/verified/toom8_producer.rs": "development/convolution-spec1/overlays/candidate/native/verified/toom8_producer.rs",
+        "check_development.py": "development/convolution-spec1/overlays/check_development.py",
+        "origin.json": "development/convolution-spec1/overlays/origin.json"
+      },
+      "status_boundary": "Historical record; accepted gate is producer-feature1."
+    },
+    {
+      "name": "producer-spec1",
+      "reported_status": "error",
+      "report": "development/producer-spec1/report.json",
+      "source_overlays": {
+        "candidate/native/specs/toom8_producer.rs": "development/producer-spec1/overlays/candidate/native/specs/toom8_producer.rs",
+        "candidate/native/verified/toom8_producer.rs": "development/producer-spec1/overlays/candidate/native/verified/toom8_producer.rs",
+        "check_development.py": "development/producer-spec1/overlays/check_development.py",
+        "origin.json": "development/producer-spec1/overlays/origin.json"
+      },
+      "status_boundary": "Historical record; accepted gate is producer-feature1."
+    },
+    {
+      "name": "producer-spec2",
+      "reported_status": "pass",
+      "report": "development/producer-spec2/report.json",
+      "source_overlays": {
+        "candidate/native/verified/toom8_producer.rs": "development/producer-spec2/overlays/candidate/native/verified/toom8_producer.rs",
+        "check_development.py": "development/producer-spec2/overlays/check_development.py",
+        "origin.json": "development/producer-spec2/overlays/origin.json"
+      },
+      "status_boundary": "Historical record; accepted gate is producer-feature1."
+    },
+    {
+      "name": "producer-focused1",
+      "reported_status": "pass",
+      "report": "development/producer-focused1/report.json",
+      "source_overlays": {
+        "candidate/native/verified/toom8_producer.rs": "development/producer-focused1/overlays/candidate/native/verified/toom8_producer.rs",
+        "check_development.py": "development/producer-focused1/overlays/check_development.py",
+        "origin.json": "development/producer-focused1/overlays/origin.json"
+      },
+      "status_boundary": "Historical record; accepted gate is producer-feature1."
+    },
+    {
+      "name": "producer-focused2",
+      "reported_status": "pass",
+      "report": "development/producer-focused2/report.json",
+      "source_overlays": {
+        "candidate/native/verified/toom8_producer.rs": "development/producer-focused2/overlays/candidate/native/verified/toom8_producer.rs",
+        "check_development.py": "development/producer-focused2/overlays/check_development.py"
+      },
+      "status_boundary": "Historical record; accepted gate is producer-feature1."
+    },
+    {
+      "name": "producer-library1",
+      "reported_status": "pass",
+      "report": "development/producer-library1/report.json",
+      "source_overlays": {
+        "candidate/native/verified/toom8_producer.rs": "development/producer-library1/overlays/candidate/native/verified/toom8_producer.rs",
+        "check_development.py": "development/producer-library1/overlays/check_development.py",
+        "origin.json": "development/producer-library1/overlays/origin.json"
+      },
+      "status_boundary": "Historical record; accepted gate is producer-feature1."
+    },
+    {
+      "name": "producer-runner1",
+      "reported_status": "pass",
+      "report": "development/producer-runner1/report.json",
+      "source_overlays": {
+        "candidate/native/verified/toom8_producer.rs": "development/producer-runner1/overlays/candidate/native/verified/toom8_producer.rs",
+        "check_development.py": "development/producer-runner1/overlays/check_development.py",
+        "origin.json": "development/producer-runner1/overlays/origin.json"
+      },
+      "status_boundary": "Historical record; accepted gate is producer-feature1."
+    },
+    {
+      "name": "producer-codegen1",
+      "reported_status": "pass",
+      "report": "development/producer-codegen1/report.json",
+      "source_overlays": {
+        "candidate/native/verified/toom8_producer.rs": "development/producer-codegen1/overlays/candidate/native/verified/toom8_producer.rs",
+        "check_development.py": "development/producer-codegen1/overlays/check_development.py"
+      },
+      "status_boundary": "Historical record; accepted gate is producer-feature1."
+    },
+    {
+      "name": "producer-codegen2",
+      "reported_status": "error",
+      "report": "development/producer-codegen2/report.json",
+      "source_overlays": {
+        "candidate/native/verified/toom8_producer.rs": "development/producer-codegen2/overlays/candidate/native/verified/toom8_producer.rs",
+        "check_development.py": "development/producer-codegen2/overlays/check_development.py"
+      },
+      "status_boundary": "Historical record; accepted gate is producer-feature1."
+    },
+    {
+      "name": "producer-codegen3",
+      "reported_status": "pass",
+      "report": "development/producer-codegen3/report.json",
+      "source_overlays": {
+        "candidate/native/verified/toom8_producer.rs": "development/producer-codegen3/overlays/candidate/native/verified/toom8_producer.rs",
+        "check_development.py": "development/producer-codegen3/overlays/check_development.py"
+      },
+      "status_boundary": "Historical record; accepted gate is producer-feature1."
+    },
+    {
+      "name": "producer-codegen4",
+      "reported_status": "pass",
+      "report": "development/producer-codegen4/report.json",
+      "source_overlays": {
+        "candidate/native/verified/toom8_producer.rs": "development/producer-codegen4/overlays/candidate/native/verified/toom8_producer.rs",
+        "check_development.py": "development/producer-codegen4/overlays/check_development.py"
+      },
+      "status_boundary": "Historical record; accepted gate is producer-feature1."
+    },
+    {
+      "name": "producer-codegen5",
+      "reported_status": "pass",
+      "report": "development/producer-codegen5/report.json",
+      "source_overlays": {
+        "check_development.py": "development/producer-codegen5/overlays/check_development.py"
+      },
+      "status_boundary": "Historical record; accepted gate is producer-feature1."
+    }
+  ],
+  "development_boundary": "All twelve development attempts remain visible, including failed proof and code-generation inspections. A successful proof status alone does not mean code-generation inspection passed."
+}

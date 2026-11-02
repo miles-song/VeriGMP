@@ -1,0 +1,11 @@
+{
+  "status": "development_candidate",
+  "purpose": "Actual input-to-full-product caller using fifteen-point interpolation and recomposition. Existing Toom4 children are retained.",
+  "domain": "balanced accepts full-u64 7*k<=n<=8*k including empty; full accepts positive equal lengths and outer threshold>=56, child Toom4 threshold>=24.",
+  "workspace": "balanced uses caller scratch>=44*(k+1); full uses>=12*n; arithmetic proof establishes 44*m<=12*n for n>56. This is actual slice capacity, not recursive Toom8 lifetime closure.",
+  "caller_boundary": "No supplied numeric coefficients: actual interpolation establishes every recomposition coefficient premise from input blocks.",
+  "analytic_cost": "One Toom8 split over existing Toom4 children: T4(k)+T4(h)+13*T4(k+1)+O(n). Not yet recursive Toom8 nor a checked machine-cost theorem.",
+  "benchmark_run": false,
+  "complete_recursive_toom8": false,
+  "promotion": false
+}

@@ -1,0 +1,6 @@
+{
+  "status": "pass",
+  "wrong_module_or_duplicate_negative_fixtures": 56,
+  "qualified_same_module_positive_fixtures": 14,
+  "checker_sha256": "8ea63debd7d8e76e3e7961e1bcb1b864e3bc312da43dab249a4212141ec08de1"
+}

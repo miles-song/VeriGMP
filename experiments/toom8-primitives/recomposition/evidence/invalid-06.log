@@ -1,0 +1,4 @@
+
+thread 'main' (82132) panicked at <stage>/feature-gates/recomposition-feature1/inputs/candidate/native/toom8_recomposition_runner.rs:86:48:
+assertion failed: extra <= 64
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
