@@ -1,0 +1,9 @@
+error[E0433]: cannot find `odd_division` in the crate root
+   --> <stage>/development/pair-runner1/inputs/candidate/native/verified/toom_words.rs:226:16
+    |
+226 | ...e::odd_division::d...
+    |       ^^^^^^^^^^^^ could not find `odd_division` in the crate root
+
+error: aborting due to 1 previous error
+
+For more information about this error, try `rustc --explain E0433`.

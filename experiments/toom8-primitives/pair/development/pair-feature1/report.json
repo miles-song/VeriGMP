@@ -1,0 +1,735 @@
+{
+  "status": "pass",
+  "scope": "Actual simultaneous signed sum/difference and exact parity normalization; not a completed Toom8 kernel",
+  "source_sha256": {
+    "candidate/native/controls/fast_multiply.rs": "64ddb1d8919da86881791d88d42916fd0f2d73e14073c6a53850d337e02a6714",
+    "candidate/native/controls/gmp_abi.cpp": "433b99417b38004a1684537a644cfe9cd7e7852df8864ce12dc9d1c4dfce6ed8",
+    "candidate/native/controls/gmp_multiply.cpp": "87658c00944326f26f5fd016d0c845ca2efe7b32d2329abe190787830a39f5f4",
+    "candidate/native/controls/limbs.rs": "b7161f5897667d8d6bc96ec5ca6eddf63384efd4eb0568ecbb6c4cccf500e4da",
+    "candidate/native/controls/multiply.rs": "5a824d2201674935a97e655b6eeda0ced04c7f6ef769877255cb09a21049d824",
+    "candidate/native/controls/pow2.rs": "ba0a8a8bb404c4778ddd3c03ba254dfcca6efc28a94d293368db2e5ee2e79dac",
+    "candidate/native/fast_bench.rs": "20c4c261f1ed6d5974a7bd250cc148d900b86472206330e9ee2a44060865551f",
+    "candidate/native/fast_codegen.rs": "e68214b600c37fbf436a9d4ad0a649c000eb133e5ecf1d38948dbe5edda37283",
+    "candidate/native/fast_runner.rs": "2cca8d6653330bd3f80461f7fc2b34adf28c6e282452934e916cd5dc4b657308",
+    "candidate/native/gmp-reference.json": "e67ba09749bc761cd581218bebd6cde5f1fdf56a2711924e1ceb45d4c7e247ff",
+    "candidate/native/history-provenance.json": "195aa85724547b02db939d9561bd1304acb87a9944b4f6912156b6aafe367560",
+    "candidate/native/lib.rs": "964ba6e7050ac998dea37637aec544d750715f6d1092136cf79aebfd30533896",
+    "candidate/native/limbs_bench.rs": "937ed74d98f739b2333e1feb78c65dbefb86b5af1c051c864ef269fb6b304215",
+    "candidate/native/limbs_codegen.rs": "465962efb3dc1e0f2414295228414112e3843dbaf467a41b705e53a3255e255e",
+    "candidate/native/limbs_runner.rs": "4aced8bc95027c78bbac6690f112dcd9e0b892f521baa6e29515b65862c05c01",
+    "candidate/native/mac4_bench.rs": "79335fb39eb054704b6621803368e965892a6285bc9ab82ec687bea991bcf22f",
+    "candidate/native/multiply_bench.rs": "d28537c1ee449c452b8c0f549a3555fbf50f59a680240b371335ccb106061d12",
+    "candidate/native/multiply_codegen.rs": "3855098a24804a8cba3ff8b094b159290e0e27e13fc1a558b456aebfeddb1229",
+    "candidate/native/multiply_runner.rs": "856d5b82363f2bf9170bf15cf45f2b0b9ae713a1475f5ceed1751fcaf18c52c7",
+    "candidate/native/performance-target.json": "7e1f7c27007d65ca77979c693c0f105d2ac4686fd90e853ab86c43684f485a37",
+    "candidate/native/pow2_bench.rs": "9e4390cabef56661544491deb928ee2f7a11199d34ada5b6a185a54a45622c1c",
+    "candidate/native/pow2_codegen.rs": "2372573334ffb9778295bd775ea23302207017bb699598606f3254f3cf3d36dd",
+    "candidate/native/pow2_runner.rs": "c916b36cc11923b309aacccd8e54ae5bde951d651abb1360f05715b82706a647",
+    "candidate/native/proof-status.json": "194025f62a4731b99253011c18f6c4716d12631b0dc81efcc6ed726b0583740e",
+    "candidate/native/specs/fast_product.rs": "1d3a4f9397375741f6fcaea5bacf5977f73c56ba051893cd81a83709385b2cd7",
+    "candidate/native/specs/odd_division.rs": "2a471b8a9836d404c3b5118c924fe99d9e34816c29630766abbf627817c63aea",
+    "candidate/native/specs/precision.rs": "38ffadc6cd04602b40457711b25ec3e89de5fb0ebf92136645da93fb18d4cde0",
+    "candidate/native/specs/product.rs": "24de04dda22e2ca1262ade8328b3f164612b59188df14dbe84988b94592563ae",
+    "candidate/native/specs/radix.rs": "51bddb73e0cfcc2fda095ac5f35fe4853417c1fff858133dab56b05ba9573219",
+    "candidate/native/specs/signed_evaluation.rs": "726da6650427fa0e660e3b624d609d9bcf1bc9a7856ea1916f06c93f51994cbc",
+    "candidate/native/specs/square.rs": "3d716c2905d4f34929e3177e853196f84faef8a63c10e7e1bb7593a9e62be87e",
+    "candidate/native/specs/square_base.rs": "9436705847c6cf4c8353a324e9154767a2a8ac57b13ca13a26b523f973ea6768",
+    "candidate/native/specs/toom.rs": "ed543569ac0996a16546211241b52f5a7ae945e8fce873f5195340cf290456ff",
+    "candidate/native/specs/toom4.rs": "352ff71f3f711225dd6c98e8c89e3491d88fb8f67a614d2f36bc96e4f0f34033",
+    "candidate/native/specs/toom4_blocks.rs": "caaf8f02256bf53655a4a3d5dbf59ad7283b8ab3f524c7e872c6664eba8ea715",
+    "candidate/native/specs/toom8_evaluation.rs": "9560ab9d8a40de3a933f04872ce5ba19c3c05c8586cc6447abff14a89ccbbb3a",
+    "candidate/native/specs/toom8_newton.rs": "a04d903bd2bc9fe8562aa12092d6de67eba0d3f953a606d73462dfc6e33226ff",
+    "candidate/native/specs/toom8_pair.rs": "6ce86a2757ed650117a821f7733aa1f9a4297075a76828a816fee751c426e276",
+    "candidate/native/specs/toom_blocks.rs": "d799a910b67b26fbbdbdefc50bf49063f8ca39790f6d48f60a7ed1315d00df9d",
+    "candidate/native/specs/wide_odd_division.rs": "3feb744112b12d7f1708f615c2a94bfb3090deca7f3797967f558a48ef495cab",
+    "candidate/native/square_base_bench.rs": "abd4f11755f244753167bd92447412c16308876a634c9951663de8ce7494dcaa",
+    "candidate/native/toolchain.json": "a8f1ba756fd50480017e10d24c390a4b94528ab387c965d28c35cf3432c9e678",
+    "candidate/native/toom4_codegen.rs": "42fe2571e7ff0e5d35a4e7acbe014ff676170518d32f45577d4ef7eb584ec5df",
+    "candidate/native/toom4_runner.rs": "1b4b9a4a151aa17522720708acf580f6eb53c7b5ec8449982267cc926f365177",
+    "candidate/native/toom8_evaluation_codegen.rs": "24a822a0b73897888e39a265959a89df14c0f487605cd0434f3a773bca5da00c",
+    "candidate/native/toom8_evaluation_runner.rs": "ab457dfb2874f0095c339e7b6dc18e592fef217205fd1f270c55e48cadd63882",
+    "candidate/native/toom8_newton_codegen.rs": "9a7894553f028d2a21dcfd60fe1853eee0b9295e91a58b235fbee1d9fa45c61a",
+    "candidate/native/toom8_newton_runner.rs": "39d79c0a304f325c1563a660ac3b64308530b5dfa40e524c333e75c43a9a6e9e",
+    "candidate/native/toom8_newton_test_bridge.rs": "19f4f0534e871439aa4388c93bed5caa4f4137933fce5d55d7c01878ad1986b3",
+    "candidate/native/toom8_pair_codegen.rs": "27c13d56fe42c15667e29479b3cff4226c76881f53999d7e62302603762e4d51",
+    "candidate/native/toom8_pair_runner.rs": "eb2aaa4b2a8f2f7ab5ef72ca1f054947d7ff8aa9cd11de7c8d2e3d7f07523045",
+    "candidate/native/toom_bench.rs": "e0b5829fc235eeada95e987542073d3e190c0c1d10c7d48ec4f6d787f8fa1daf",
+    "candidate/native/toom_codegen.rs": "17f41d3dbc4ba891dc298c12cb86cbef8339b21dda321deff08c1801e62274f2",
+    "candidate/native/toom_words_runner.rs": "1ed994eab17583d7d0eacf580d897897d4afab5405de58d9d4779d913e783a66",
+    "candidate/native/verified/arithmetic.rs": "7c0181fed9d53f842062fd2f4e738dedf42985fee28bff53cabba4a7fc20cc54",
+    "candidate/native/verified/fast_multiply.rs": "f4c873122c592487e776d346cef950f76779f58aa285b4342333a077e20e226d",
+    "candidate/native/verified/fast_words.rs": "76c8a6e5558df51af8975ad6db606947d032c3b583a5def4da88571d48f56287",
+    "candidate/native/verified/kernel.rs": "b54e17dd245655deacae37d89071a6c5ae5c39421ba7d3ac5728346e63f77080",
+    "candidate/native/verified/limbs.rs": "913c88133f2bd46b3b4a59794eba5b8d43dfdbdac720918e375b47a52adbff28",
+    "candidate/native/verified/mac4.rs": "9cf6fd885a42e63a7cb1f697833bfa7e82d5b65a85e4351de2252a11b6afce2f",
+    "candidate/native/verified/multiply.rs": "83bfff3bb71a8c429e48551532a39fd92773b7e0b4b94b7c4b5263d59c854f9c",
+    "candidate/native/verified/odd_division.rs": "ff2b7ecc484d03e248b9f423dde531efd8f1b7fad9000c52854c6c8a32e849b1",
+    "candidate/native/verified/pow2.rs": "893234a990b3b3bf308253ce318411fb5247157cfabe2d02ce603c6c86c1dcec",
+    "candidate/native/verified/scaled_subtraction.rs": "451292f4889f824a25e14904fb5163785d5ab439303e17aa3f6179d859a3a349",
+    "candidate/native/verified/signed_evaluation.rs": "165232d5dc11f819a31c553ae0996aa5d03b36419d556530f484b4257e872541",
+    "candidate/native/verified/square.rs": "66d8baca34c6daf25b3116c22a9f9071691f882d653e6f586ea6eb64b50c3164",
+    "candidate/native/verified/square_base.rs": "d56438d15c969b475d74c431bef66dbe8c6befd67699196b096c1773c68094b3",
+    "candidate/native/verified/square_low.rs": "1e85ae150c7d5801d57f41d460de651b5ba9d5ae96c910f52b83bb602dd6ad21",
+    "candidate/native/verified/toom4_candidate.rs": "5bedfab6640c7d5b84bb4d1de95c84e2daa8a7f0f25fdb6ccf20c6f221a84cac",
+    "candidate/native/verified/toom4_evaluate.rs": "a6d15ee01d5c4996f8ce5c6f8910c2d62547509a75fe3d553ebb8fcb27bff920",
+    "candidate/native/verified/toom4_interpolate.rs": "1a61a240c3f75722be08a63e1006e2e1deff800cc2163fd569ed33038e9a34ec",
+    "candidate/native/verified/toom4_low.rs": "19e062300f1639a3c2af9b5a873f674b4f34b5efe3377bb2008133ad42b0b4a5",
+    "candidate/native/verified/toom4_multiply.rs": "e62c3b4778cf887146f30d0c7bef8a12c630291063cf967c668ba010afbd116b",
+    "candidate/native/verified/toom4_square.rs": "efaaf282edac2852829df4d5fd6439a7c18f33413b668d0857f73f9ac1e7d0a0",
+    "candidate/native/verified/toom4_square_low.rs": "d1ca0f9f60c70436d05a9fb14f631f92f7271f97613efbcdfbd1967dab7cc4df",
+    "candidate/native/verified/toom8_evaluation.rs": "4ba9f3b7b965fe0677a2887147309d434e9b3c5cdb8786d48f5e98aaa6a2b266",
+    "candidate/native/verified/toom8_newton.rs": "387694964036d1caf68a077944a9baa90a82ee113403aad3a0bb4c8a30d9154e",
+    "candidate/native/verified/toom8_pair.rs": "79360f2089fd861ce449e8f9a670a79f978b86406607ab8a37db68947e1cf407",
+    "candidate/native/verified/toom_evaluate.rs": "80fb7c4b0db769debe3091289cfe8a71703e9e1bf7b9e26a622e4df08f164699",
+    "candidate/native/verified/toom_interpolate.rs": "dd3e97eac34fb6cf6920302eeb5cc2bc8b257a6beb7a2e952f52ccf20ae5e352",
+    "candidate/native/verified/toom_low.rs": "d73bd14a640f96cc383fcc9234452e500cf217f58e935bacc96728f4d3a96929",
+    "candidate/native/verified/toom_multiply.rs": "58830125c0e82680f11fec6aba9677c8986c8f84fdbe53e3a38dc01b24871602",
+    "candidate/native/verified/toom_square.rs": "2706c576e99df5d4b90159cd671e208e6e7a521daa4bb3624666ed97c7332826",
+    "candidate/native/verified/toom_words.rs": "04786af608e65f40447cfee7defff9f1ab624157708b56237149e588ca5c485d",
+    "candidate/native/verified/wide_odd_division.rs": "2fdc06bb5992e6b89e4d2171cc036cb5540d954bebd8fc510d6a2b18b0ea6774",
+    "candidate/native/wide_odd_codegen.rs": "fc9ef7aa95c818edcd168a2354886f10a23454f5e0b402e6e99bb01e41d71b2c",
+    "candidate/native/wide_odd_runner.rs": "3300aeb7d5438ad4d46f026f165e65f4bd4065123eef0f1d2185c1c467d872d7",
+    "check_pair.py": "82fa192a91e5120f23180185a4e8f922b4d15288ee2efc2dfd3f8c4ae2d36e10",
+    "pair_oracle.py": "a8bf4c7b5301eaef6c18e859fd71d32d3ce82e95c5d668de3ed93ecc03e3f814",
+    "pair_codegen.py": "f2441be2b3ae9afb39ecf573337c363a32d99f9bf5baed178a683831bcc55b65",
+    "origin.json": "62ef2e3ab42126fd22e83a95e31608f6c777b4da03231202b02ba105d534e610"
+  },
+  "started_utc": "2026-11-02T00:56:15.488344+00:00",
+  "benchmark_run": false,
+  "production_modified": false,
+  "cpu_affinity": [
+    6,
+    7
+  ],
+  "commands": [
+    {
+      "argv": [
+        "<verus-home>/verus-x86-linux/verus",
+        "--version"
+      ],
+      "log": "toolchain.log",
+      "status": "completed",
+      "returncode": 0,
+      "elapsed_seconds": 0.1900623870023992,
+      "log_sha256": "43bbcb88d622ee4e1fb08655b4393b56725fedd6fce064101e6f9cd64fd07152"
+    },
+    {
+      "argv": [
+        "rustup",
+        "which",
+        "--toolchain",
+        "1.99.1-x86_64-unknown-linux-gnu",
+        "rustc"
+      ],
+      "log": "rustc-path.log",
+      "status": "completed",
+      "returncode": 0,
+      "elapsed_seconds": 0.07745969601091929,
+      "log_sha256": "aea0aadcfcccc7b6ad8bc33cb88e358b707146f07fe541c9bd11f4453113c7b1"
+    },
+    {
+      "argv": [
+        "<rustup-home>/toolchains/1.99.1-x86_64-unknown-linux-gnu/bin/rustc",
+        "-vV"
+      ],
+      "log": "rustc.log",
+      "status": "completed",
+      "returncode": 0,
+      "elapsed_seconds": 0.02452147899020929,
+      "log_sha256": "f22d5e4e9ced367e774ce5bc140d9e6b1235c1882fec80d011044851f3ae6369"
+    },
+    {
+      "argv": [
+        "ldd",
+        "<rustup-home>/toolchains/1.99.1-x86_64-unknown-linux-gnu/bin/rustc"
+      ],
+      "log": "rustc-linked.log",
+      "status": "completed",
+      "returncode": 0,
+      "elapsed_seconds": 0.026296231997548603,
+      "log_sha256": "a78512c3f3c69c73e3a4cceea73333f64c7c955cea93d2fef8783af0e2d0ae9c"
+    },
+    {
+      "argv": [
+        "<verus-home>/verus-x86-linux/verus",
+        "<stage>/feature-gates/pair-feature1/inputs/candidate/native/lib.rs",
+        "--crate-name",
+        "pair_candidate",
+        "--crate-type",
+        "lib",
+        "--export",
+        "<stage>/feature-gates/pair-feature1/candidate.vir",
+        "--compile",
+        "-O",
+        "-o",
+        "<stage>/feature-gates/pair-feature1/libcandidate.rlib"
+      ],
+      "log": "library.log",
+      "status": "completed",
+      "returncode": 0,
+      "elapsed_seconds": 72.8753011880035,
+      "log_sha256": "796f8b9c6fcdfbd82f15b9af03abf651114dd77fd1a387587c21663b3827a778"
+    },
+    {
+      "argv": [
+        "<verus-home>/verus-x86-linux/verus",
+        "<stage>/feature-gates/pair-feature1/inputs/candidate/native/toom8_pair_runner.rs",
+        "--compile",
+        "-O",
+        "-o",
+        "<stage>/feature-gates/pair-feature1/oracle-runner"
+      ],
+      "log": "runner-build.log",
+      "status": "completed",
+      "returncode": 0,
+      "elapsed_seconds": 19.316427201003535,
+      "log_sha256": "e1ecb4794bb1bc94d1602b48c3199ae3d15185e79683e2a57b0cb18fee63fff7"
+    },
+    {
+      "argv": [
+        "ldd",
+        "<stage>/feature-gates/pair-feature1/oracle-runner"
+      ],
+      "log": "runner-linked.log",
+      "status": "completed",
+      "returncode": 0,
+      "elapsed_seconds": 0.022040102005121298,
+      "log_sha256": "963c53eff4b45f398b8405d25cad9e5208e8d557468a30093470d2c97bdc37e9"
+    },
+    {
+      "argv": [
+        "<stage>/feature-gates/pair-feature1/oracle-runner"
+      ],
+      "log": "oracle.log",
+      "status": "completed",
+      "returncode": 0,
+      "elapsed_seconds": 0.3721676760033006,
+      "log_sha256": "1c1b53875bf50cecae3db0a4ccc3d41bb9996e2f5eac17a11fc779b1a6f95236"
+    },
+    {
+      "argv": [
+        "<stage>/feature-gates/pair-feature1/oracle-runner"
+      ],
+      "log": "invalid-00.log",
+      "status": "completed",
+      "returncode": 101,
+      "elapsed_seconds": 0.011838170001283288,
+      "log_sha256": "ff26d1c5ccac2017e944b639305eb1c6feeba47c05939a26afdf56216de6106d"
+    },
+    {
+      "argv": [
+        "<stage>/feature-gates/pair-feature1/oracle-runner"
+      ],
+      "log": "invalid-01.log",
+      "status": "completed",
+      "returncode": 101,
+      "elapsed_seconds": 0.01094416699197609,
+      "log_sha256": "240d754e24728302775cdbcdc2f22804fbaa668e2841989ccd7c9c2e237b855f"
+    },
+    {
+      "argv": [
+        "<stage>/feature-gates/pair-feature1/oracle-runner"
+      ],
+      "log": "invalid-02.log",
+      "status": "completed",
+      "returncode": 101,
+      "elapsed_seconds": 0.010914340993622318,
+      "log_sha256": "6ff58c9e39e0b322259380fd70befe5d0e37cd4dc81e9c56d99c872eb06343fe"
+    },
+    {
+      "argv": [
+        "<stage>/feature-gates/pair-feature1/oracle-runner"
+      ],
+      "log": "invalid-03.log",
+      "status": "completed",
+      "returncode": 101,
+      "elapsed_seconds": 0.011371874003089033,
+      "log_sha256": "a6c9c5b7cb873620f7ee1a2f12051d56dc0420a74e0f5ad8f7004f52988774d8"
+    },
+    {
+      "argv": [
+        "<stage>/feature-gates/pair-feature1/oracle-runner"
+      ],
+      "log": "invalid-04.log",
+      "status": "completed",
+      "returncode": 101,
+      "elapsed_seconds": 0.011416460998589173,
+      "log_sha256": "eb24ff0905f796d9140f6945505b3749b6e394ffe6890ced69eb3ef32c59128d"
+    },
+    {
+      "argv": [
+        "<stage>/feature-gates/pair-feature1/oracle-runner"
+      ],
+      "log": "invalid-05.log",
+      "status": "completed",
+      "returncode": 101,
+      "elapsed_seconds": 0.011688328988384455,
+      "log_sha256": "213faf0b2fffdf7f51bdc2319818fc72b20621348adbe812ee95d63d83d26ceb"
+    },
+    {
+      "argv": [
+        "<stage>/feature-gates/pair-feature1/oracle-runner"
+      ],
+      "log": "invalid-06.log",
+      "status": "completed",
+      "returncode": 101,
+      "elapsed_seconds": 0.01124600600451231,
+      "log_sha256": "c5f7989bb8c79147a634c8f23b02f44e41e714ffa95b04f406e80b5237db1b8d"
+    },
+    {
+      "argv": [
+        "<stage>/feature-gates/pair-feature1/oracle-runner"
+      ],
+      "log": "invalid-07.log",
+      "status": "completed",
+      "returncode": 101,
+      "elapsed_seconds": 0.011913872003788128,
+      "log_sha256": "a31d948cde9783720f211a45b789e17aa17f8a1433dc09457b26d3a435f78474"
+    },
+    {
+      "argv": [
+        "<stage>/feature-gates/pair-feature1/oracle-runner"
+      ],
+      "log": "invalid-08.log",
+      "status": "completed",
+      "returncode": 101,
+      "elapsed_seconds": 0.01229456000146456,
+      "log_sha256": "8ec6927d52df67471913c4fd1121debe98f52e22a27b271507ad14d211b2a5eb"
+    },
+    {
+      "argv": [
+        "<stage>/feature-gates/pair-feature1/oracle-runner"
+      ],
+      "log": "invalid-09.log",
+      "status": "completed",
+      "returncode": 101,
+      "elapsed_seconds": 0.01141969399759546,
+      "log_sha256": "41afbe632f5f517edb521978b265809d5d594d2ea7a0d6bb81d9c07ba64d2ba2"
+    },
+    {
+      "argv": [
+        "<stage>/feature-gates/pair-feature1/oracle-runner"
+      ],
+      "log": "invalid-10.log",
+      "status": "completed",
+      "returncode": 101,
+      "elapsed_seconds": 0.010512695997022092,
+      "log_sha256": "64d7275317334200d7d2a446369692a7214cfd5f5c0dcf302d921002ac201de2"
+    },
+    {
+      "argv": [
+        "<stage>/feature-gates/pair-feature1/oracle-runner"
+      ],
+      "log": "invalid-11.log",
+      "status": "completed",
+      "returncode": 101,
+      "elapsed_seconds": 0.010698754005716182,
+      "log_sha256": "0642bbc2d908c98a083b048c70cb4d809745e7f28ae242fb14071f1df53be018"
+    },
+    {
+      "argv": [
+        "<verus-home>/verus-x86-linux/verus",
+        "<stage>/feature-gates/pair-feature1/inputs/candidate/native/toom8_pair_codegen.rs",
+        "--compile",
+        "-O",
+        "--emit=asm",
+        "-o",
+        "<stage>/feature-gates/pair-feature1/codegen.s"
+      ],
+      "log": "codegen-build.log",
+      "status": "completed",
+      "returncode": 0,
+      "elapsed_seconds": 17.884860063990345,
+      "log_sha256": "e1ecb4794bb1bc94d1602b48c3199ae3d15185e79683e2a57b0cb18fee63fff7"
+    },
+    {
+      "argv": [
+        "<verus-home>/verus-x86-linux/verus",
+        "<stage>/feature-gates/pair-feature1/inputs/candidate/native/toom8_pair_runner.rs",
+        "--verify-module",
+        "toom8_pair",
+        "--multiple-errors",
+        "0"
+      ],
+      "log": "ignore-sum-carry.log",
+      "status": "completed",
+      "returncode": 1,
+      "elapsed_seconds": 2.4551413699955447,
+      "log_sha256": "de02c31259bcce5907f2a80fa3bf488dcc22b6fcd6f7b2422b6fb6af48f45b83"
+    },
+    {
+      "argv": [
+        "<verus-home>/verus-x86-linux/verus",
+        "<stage>/feature-gates/pair-feature1/inputs/candidate/native/toom8_pair_runner.rs",
+        "--verify-module",
+        "toom8_pair",
+        "--multiple-errors",
+        "0"
+      ],
+      "log": "ignore-difference-borrow.log",
+      "status": "completed",
+      "returncode": 1,
+      "elapsed_seconds": 2.3840456649923,
+      "log_sha256": "aa1c126f7a8691b95ce98ebd77cca80e9ccaaf79252753055a134cedc3d991fe"
+    },
+    {
+      "argv": [
+        "<verus-home>/verus-x86-linux/verus",
+        "<stage>/feature-gates/pair-feature1/inputs/candidate/native/toom8_pair_runner.rs",
+        "--verify-module",
+        "toom8_pair",
+        "--multiple-errors",
+        "0"
+      ],
+      "log": "ignore-plus-sign.log",
+      "status": "completed",
+      "returncode": 1,
+      "elapsed_seconds": 2.388456590997521,
+      "log_sha256": "6030fadf05b9c9c3c39c20967d005b593a87c0cd4dbaa3b30d9125b0979e8206"
+    },
+    {
+      "argv": [
+        "<verus-home>/verus-x86-linux/verus",
+        "<stage>/feature-gates/pair-feature1/inputs/candidate/native/toom8_pair_runner.rs",
+        "--verify-module",
+        "toom8_pair",
+        "--multiple-errors",
+        "0"
+      ],
+      "log": "ignore-minus-sign.log",
+      "status": "completed",
+      "returncode": 1,
+      "elapsed_seconds": 2.384556919001625,
+      "log_sha256": "8dfb4b573edabf9649d84ba53ecc5a189ff8fe88fd0680534af8feebf4d7af5e"
+    },
+    {
+      "argv": [
+        "<verus-home>/verus-x86-linux/verus",
+        "<stage>/feature-gates/pair-feature1/inputs/candidate/native/toom8_pair_runner.rs",
+        "--verify-module",
+        "toom8_pair",
+        "--multiple-errors",
+        "0"
+      ],
+      "log": "zero-loop-carry.log",
+      "status": "completed",
+      "returncode": 1,
+      "elapsed_seconds": 2.4916357589972904,
+      "log_sha256": "8dfb4b573edabf9649d84ba53ecc5a189ff8fe88fd0680534af8feebf4d7af5e"
+    },
+    {
+      "argv": [
+        "<verus-home>/verus-x86-linux/verus",
+        "<stage>/feature-gates/pair-feature1/inputs/candidate/native/toom8_pair_runner.rs",
+        "--verify-module",
+        "toom8_pair",
+        "--multiple-errors",
+        "0"
+      ],
+      "log": "zero-loop-borrow.log",
+      "status": "completed",
+      "returncode": 1,
+      "elapsed_seconds": 2.412330822000513,
+      "log_sha256": "6030fadf05b9c9c3c39c20967d005b593a87c0cd4dbaa3b30d9125b0979e8206"
+    },
+    {
+      "argv": [
+        "<verus-home>/verus-x86-linux/verus",
+        "<stage>/feature-gates/pair-feature1/inputs/candidate/native/toom8_pair_runner.rs",
+        "--verify-module",
+        "toom8_pair",
+        "--multiple-errors",
+        "0"
+      ],
+      "log": "ignore-magnitude.log",
+      "status": "completed",
+      "returncode": 1,
+      "elapsed_seconds": 2.518118420994142,
+      "log_sha256": "8dfb4b573edabf9649d84ba53ecc5a189ff8fe88fd0680534af8feebf4d7af5e"
+    },
+    {
+      "argv": [
+        "<verus-home>/verus-x86-linux/verus",
+        "<stage>/feature-gates/pair-feature1/inputs/candidate/native/toom8_pair_runner.rs",
+        "--verify-module",
+        "toom8_pair",
+        "--multiple-errors",
+        "0"
+      ],
+      "log": "skip-plus-halving.log",
+      "status": "completed",
+      "returncode": 1,
+      "elapsed_seconds": 2.387380045998725,
+      "log_sha256": "0ef8fd1606e550fb2e70b7349fc984d0d868fb7a01a2c948b252567ad978635a"
+    },
+    {
+      "argv": [
+        "<verus-home>/verus-x86-linux/verus",
+        "<stage>/feature-gates/pair-feature1/inputs/candidate/native/toom8_pair_runner.rs",
+        "--verify-module",
+        "toom8_pair",
+        "--multiple-errors",
+        "0"
+      ],
+      "log": "wrong-minus-divisor.log",
+      "status": "completed",
+      "returncode": 1,
+      "elapsed_seconds": 2.357647133001592,
+      "log_sha256": "d8cef1729c36cb9d608c7bd0f8bf7556dd0049de2063041160eda12119439310"
+    },
+    {
+      "argv": [
+        "<verus-home>/verus-x86-linux/verus",
+        "<stage>/feature-gates/pair-feature1/inputs/candidate/native/toom8_pair_runner.rs",
+        "--verify-module",
+        "toom8_pair",
+        "--multiple-errors",
+        "0"
+      ],
+      "log": "ignore-half-sign.log",
+      "status": "completed",
+      "returncode": 1,
+      "elapsed_seconds": 2.304984620990581,
+      "log_sha256": "0ef8fd1606e550fb2e70b7349fc984d0d868fb7a01a2c948b252567ad978635a"
+    }
+  ],
+  "strict_classifier_selfcheck": "pass",
+  "toolchain": "Verus\n  Version: 0.2026.10.26.d17fbd0\n  Profile: release\n  Platform: linux_x86_64\n  Toolchain: 1.99.1-x86_64-unknown-linux-gnu (overridden by environment variable RUSTUP_TOOLCHAIN)\n\n",
+  "rustc": "rustc 1.99.1 (58cf8f9c3 2026-10-13)\nbinary: rustc\ncommit-hash: 58cf8f9c35b355199727627d07ae34a4e2846d67\ncommit-date: 2026-10-13\nhost: x86_64-unknown-linux-gnu\nrelease: 1.99.1\nLLVM version: 23.1.1\n",
+  "toolchain_file_sha256": {
+    "<cargo-home>/bin/rustup": "5be191e8c70a5007074254cb74d78dbfdd25cd5a61c27de7b8e5410122ec24f4",
+    "<rustup-home>/toolchains/1.99.1-x86_64-unknown-linux-gnu/bin/rustc": "b53b780f77f952062f8ca8a3b70aef2390b1e45ad91939be94afdc9543026853",
+    "<rustup-home>/toolchains/1.99.1-x86_64-unknown-linux-gnu/lib/libLLVM.so.23.1-rust-1.99.1-stable": "1cfbe1392a767227b88b33ab6187283e281c63f80f9b1ca9010d9cee5fdf9131",
+    "<rustup-home>/toolchains/1.99.1-x86_64-unknown-linux-gnu/lib/librustc_driver-7ed0375ae352bd75.so": "5a2cd52edba7d15f8d898b92a912638f5b73a089c7c1bfde5604ab45665602c7",
+    "<verus-home>/verus-x86-linux/libverus_builtin.rlib": "f01e88f055e7c19b1a9a6a6118648f20708347d23040ddaee6493b6a4e3f6510",
+    "<verus-home>/verus-x86-linux/libverus_builtin_macros.so": "57bf8ebf436d974a7e05efdd2341bd40c51e737bdb6dd791026165e21f64e3f0",
+    "<verus-home>/verus-x86-linux/libverus_state_machines_macros.so": "8489b80f5a493855ea658a2b2d1850d0957d3149c8240cf7e490b984049d1149",
+    "<verus-home>/verus-x86-linux/libvstd.rlib": "da07ffe583aa14ec1ba5e4aa2295cec538c2a9b59bfbbf4d60f16e20d540befd",
+    "<verus-home>/verus-x86-linux/rust_verify": "7dc66fc35b1ef434d7db3d17f4a7bc9fe1f40b896cbe18a1193820270fa462f6",
+    "<verus-home>/verus-x86-linux/verus": "1208c995c8e5244577693eba311d34bc2050c4acf984e10c4c7baf2003abff14",
+    "<verus-home>/verus-x86-linux/vstd.vir": "6bf002dd6aacba73f8cbf09a1855b6330aa4773752878d2b702a52cc4f1538e2",
+    "<verus-home>/verus-x86-linux/z3": "e583c4186a45e72411fa2cb2048401eed03f0f8e5f24694676a8f6271a50b765",
+    "/usr/bin/python3.12": "1643dacd9feaedc58f3cc581e4d22577dfe25c09b10282936186ccf0f2e61118",
+    "/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2": "1cd555ac46b7887edeaf3c42aac5408c8135e52f6b37870da2cf82d5fe14e829",
+    "/usr/lib/x86_64-linux-gnu/libc.so.6": "d8db8739a1633c972cec6a4fe0566bdcec6fd088f98723492ab0361f66238f75",
+    "/usr/lib/x86_64-linux-gnu/libdl.so.2": "850b46fd4f4478060fc106f4d1dc4aa35c969eb5c9bd98aaf64dc6cb3d6a5e32",
+    "/usr/lib/x86_64-linux-gnu/libgcc_s.so.1": "d93224d2b0dab4247598be683adca02f5cf00586f99c187579cd7e92058fb7cb",
+    "/usr/lib/x86_64-linux-gnu/libm.so.6": "1b87a1a50b496cfead2b0ad134c2ff536705c82608db240c7e8aa48d6c0e4217",
+    "/usr/lib/x86_64-linux-gnu/libpthread.so.0": "92dcea07a5b11d939c22a96131d3fbb995e0a84a4d02db7d799bf357689cd794",
+    "/usr/lib/x86_64-linux-gnu/librt.so.1": "9d1cefae4c0e4995cc35ea3195f805454b2d59a27ad15397a1096e735d341faf",
+    "/usr/lib/x86_64-linux-gnu/libz.so.1.3": "9b64150b28505a33d6bc3ecf709c279f6de97a1c184dbda65d06ee4537f6d286"
+  },
+  "library_verified": 454,
+  "runner_verified": 150,
+  "runtime_library_sha256": {
+    "/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2": "1cd555ac46b7887edeaf3c42aac5408c8135e52f6b37870da2cf82d5fe14e829",
+    "/usr/lib/x86_64-linux-gnu/libc.so.6": "d8db8739a1633c972cec6a4fe0566bdcec6fd088f98723492ab0361f66238f75",
+    "/usr/lib/x86_64-linux-gnu/libgcc_s.so.1": "d93224d2b0dab4247598be683adca02f5cf00586f99c187579cd7e92058fb7cb"
+  },
+  "oracle": {
+    "cases": 10918,
+    "counts": {
+      "pair": 7674,
+      "half": 3244
+    },
+    "input_sha256": "bd28cd9f48628bb51cf13d41e12405b0b1b326f628af48954aa2d115e0ee2f02",
+    "output_sha256": "1c1b53875bf50cecae3db0a4ccc3d41bb9996e2f5eac17a11fc779b1a6f95236",
+    "oracle_model": "Independent Python unbounded signed sum/difference and exact halving"
+  },
+  "invalid": [
+    {
+      "command": "",
+      "returncode": 101,
+      "log_sha256": "ff26d1c5ccac2017e944b639305eb1c6feeba47c05939a26afdf56216de6106d"
+    },
+    {
+      "command": "unknown|0|-|-",
+      "returncode": 101,
+      "log_sha256": "240d754e24728302775cdbcdc2f22804fbaa668e2841989ccd7c9c2e237b855f"
+    },
+    {
+      "command": "pair|2|-|-",
+      "returncode": 101,
+      "log_sha256": "6ff58c9e39e0b322259380fd70befe5d0e37cd4dc81e9c56d99c872eb06343fe"
+    },
+    {
+      "command": "pair|0|0|1",
+      "returncode": 101,
+      "log_sha256": "a6c9c5b7cb873620f7ee1a2f12051d56dc0420a74e0f5ad8f7004f52988774d8"
+    },
+    {
+      "command": "pair|0|18446744073709551615|1",
+      "returncode": 101,
+      "log_sha256": "eb24ff0905f796d9140f6945505b3749b6e394ffe6890ced69eb3ef32c59128d"
+    },
+    {
+      "command": "pair|0|0,1|0",
+      "returncode": 101,
+      "log_sha256": "213faf0b2fffdf7f51bdc2319818fc72b20621348adbe812ee95d63d83d26ceb"
+    },
+    {
+      "command": "pair|0|0|0,1",
+      "returncode": 101,
+      "log_sha256": "c5f7989bb8c79147a634c8f23b02f44e41e714ffa95b04f406e80b5237db1b8d"
+    },
+    {
+      "command": "half|0|1|0",
+      "returncode": 101,
+      "log_sha256": "a31d948cde9783720f211a45b789e17aa17f8a1433dc09457b26d3a435f78474"
+    },
+    {
+      "command": "half|1|2|1",
+      "returncode": 101,
+      "log_sha256": "8ec6927d52df67471913c4fd1121debe98f52e22a27b271507ad14d211b2a5eb"
+    },
+    {
+      "command": "pair|0|-|-|extra",
+      "returncode": 101,
+      "log_sha256": "41afbe632f5f517edb521978b265809d5d594d2ea7a0d6bb81d9c07ba64d2ba2"
+    },
+    {
+      "command": "pair|0|-1|0",
+      "returncode": 101,
+      "log_sha256": "64d7275317334200d7d2a446369692a7214cfd5f5c0dcf302d921002ac201de2"
+    },
+    {
+      "command": "pair|0|18446744073709551616|0",
+      "returncode": 101,
+      "log_sha256": "0642bbc2d908c98a083b048c70cb4d809745e7f28ae242fb14071f1df53be018"
+    }
+  ],
+  "codegen_verified": 150,
+  "codegen": {
+    "status": "pass",
+    "scope": "Actual simultaneous signed sum/difference and exact parity-normalization caller",
+    "no_allocator_general_division_or_element_bounds_panic": true,
+    "paths": {
+      "verified_pair_generic": {
+        "reachable_functions": [
+          "verified_pair_generic"
+        ],
+        "external_calls": [
+          "*_RNvNtCskADBYZwJmSU_4core9panicking5panic@GOTPCREL(%rip)"
+        ],
+        "root_body_lines": 65
+      },
+      "verified_pair_positive": {
+        "reachable_functions": [
+          "verified_pair_positive"
+        ],
+        "external_calls": [
+          "*_RNvNtCskADBYZwJmSU_4core9panicking5panic@GOTPCREL(%rip)"
+        ],
+        "root_body_lines": 39
+      },
+      "verified_pair_negative": {
+        "reachable_functions": [
+          "verified_pair_negative"
+        ],
+        "external_calls": [
+          "*_RNvNtCskADBYZwJmSU_4core9panicking5panic@GOTPCREL(%rip)"
+        ],
+        "root_body_lines": 39
+      },
+      "verified_pair_half": {
+        "reachable_functions": [
+          "verified_pair_half"
+        ],
+        "external_calls": [
+          "*_RNvNtCskADBYZwJmSU_4core9panicking5panic@GOTPCREL(%rip)"
+        ],
+        "root_body_lines": 130
+      }
+    },
+    "limitation": "Textual assembly inspection; no machine-code equivalence or performance claim"
+  },
+  "mutations": [
+    {
+      "name": "ignore-sum-carry",
+      "semantically_rejected": true,
+      "source_sha256": "eb5f9adef30f2d5b11dc41336f6573485ec1526ae93de9e8db113eea0cc020e0",
+      "before": "kernel::add_limb(x,y,carry)",
+      "after": "kernel::add_limb(x,y,0)",
+      "log_sha256": "de02c31259bcce5907f2a80fa3bf488dcc22b6fcd6f7b2422b6fb6af48f45b83"
+    },
+    {
+      "name": "ignore-difference-borrow",
+      "semantically_rejected": true,
+      "source_sha256": "6629ed2476bff79220fdd870dba8705e31ad7bc530c3975f0c2e5e741fb24cce",
+      "before": "kernel::sub_limb(x,y,borrow)",
+      "after": "kernel::sub_limb(x,y,0)",
+      "log_sha256": "aa1c126f7a8691b95ce98ebd77cca80e9ccaaf79252753055a134cedc3d991fe"
+    },
+    {
+      "name": "ignore-plus-sign",
+      "semantically_rejected": true,
+      "source_sha256": "089f8ecde17d53268a69326ba90a1499342a606ded280898d5d9647f4789d31d",
+      "before": "plus[i]=if negative {difference}else{sum};",
+      "after": "plus[i]=sum;",
+      "log_sha256": "6030fadf05b9c9c3c39c20967d005b593a87c0cd4dbaa3b30d9125b0979e8206"
+    },
+    {
+      "name": "ignore-minus-sign",
+      "semantically_rejected": true,
+      "source_sha256": "e2f6dc6138f3901ee2c90d6f6834efcdb423f51df7c4311caa0709c1fce7e648",
+      "before": "minus[i]=if negative {sum}else{difference};",
+      "after": "minus[i]=difference;",
+      "log_sha256": "8dfb4b573edabf9649d84ba53ecc5a189ff8fe88fd0680534af8feebf4d7af5e"
+    },
+    {
+      "name": "zero-loop-carry",
+      "semantically_rejected": true,
+      "source_sha256": "331db537070c9a1c09ab2d8cce3a95330f890bc87c028ec7a3911a78479f7dd2",
+      "before": "carry=next_sum;borrow=next_difference;i+=1;",
+      "after": "carry=0;borrow=next_difference;i+=1;",
+      "log_sha256": "8dfb4b573edabf9649d84ba53ecc5a189ff8fe88fd0680534af8feebf4d7af5e"
+    },
+    {
+      "name": "zero-loop-borrow",
+      "semantically_rejected": true,
+      "source_sha256": "f8fe79a0c956f59d794eaa52acf93fbe9fb960c77750c9b9989292c413508e25",
+      "before": "carry=next_sum;borrow=next_difference;i+=1;",
+      "after": "carry=next_sum;borrow=0;i+=1;",
+      "log_sha256": "6030fadf05b9c9c3c39c20967d005b593a87c0cd4dbaa3b30d9125b0979e8206"
+    },
+    {
+      "name": "ignore-magnitude",
+      "semantically_rejected": true,
+      "source_sha256": "9a162edd4d53f7e435f7daaf38df4feff0f60604fce201731d4a8528de62f502",
+      "before": "let x=plus[i];let y=minus[i];",
+      "after": "let x=plus[i];let y=0u64;",
+      "log_sha256": "8dfb4b573edabf9649d84ba53ecc5a189ff8fe88fd0680534af8feebf4d7af5e"
+    },
+    {
+      "name": "skip-plus-halving",
+      "semantically_rejected": true,
+      "source_sha256": "a467d95412a0d65da61b76e1297cc8a8bb0c6fcfe6b5c0e247ad8b4188e9d083",
+      "before": "toom_words::divide_exact(plus,2);",
+      "after": "toom_words::divide_exact(plus,1);",
+      "log_sha256": "0ef8fd1606e550fb2e70b7349fc984d0d868fb7a01a2c948b252567ad978635a"
+    },
+    {
+      "name": "wrong-minus-divisor",
+      "semantically_rejected": true,
+      "source_sha256": "e6b6d1c2005117da9eff169df26594700f3e66f6856bad7dffbd949518de4f31",
+      "before": "toom_words::divide_exact(minus,2);",
+      "after": "toom_words::divide_exact(minus,4);",
+      "log_sha256": "d8cef1729c36cb9d608c7bd0f8bf7556dd0049de2063041160eda12119439310"
+    },
+    {
+      "name": "ignore-half-sign",
+      "semantically_rejected": true,
+      "source_sha256": "63d91a6ff6f9eff4fed50af2c296020aeb4199fd0ebfac178efe44d5a2bdec30",
+      "before": "sum_difference(plus,minus,negative);",
+      "after": "sum_difference(plus,minus,false);",
+      "log_sha256": "0ef8fd1606e550fb2e70b7349fc984d0d868fb7a01a2c948b252567ad978635a"
+    }
+  ],
+  "artifact_sha256": {
+    "libcandidate.rlib": "0c50c59891f0d5f56f60b64c8597c87ab7dc111baa180e9b0d75ec6cbd9e8feb",
+    "candidate.vir": "6f03bc9e1223ffe1f7cf99ca8ac467a437b876335c5a13389b19cbb103010087",
+    "oracle-runner": "c7b49792211a6c9118ad2dfbd9068a7257113b8965f6aa8576d76a02a4cd5884",
+    "codegen.s": "1fad749271a4eea6329378cfc3b14c9eb2f957843bf5f532cf41c4b3e98bdce7"
+  },
+  "finished_utc": "2026-11-02T00:58:35.876559+00:00"
+}

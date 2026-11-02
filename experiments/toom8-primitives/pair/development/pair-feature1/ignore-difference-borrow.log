@@ -1,0 +1,34 @@
+verification results:: 2 verified, 1 errors (partial verification with `--verify-*`)
+note: verifying module toom8_pair
+
+note: while loop: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> <stage>/feature-gates/pair-feature1/inputs/candidate/native/verified/toom8_pair.rs:20:5
+   |
+20 |     while i<n
+   |     ^^^^^^^^^
+
+note: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> <stage>/feature-gates/pair-feature1/inputs/candidate/native/verified/toom8_pair.rs:10:1
+   |
+10 | pub f...bool)
+   | ^^^^^...^^^^^
+
+error: precondition not satisfied
+  --> <stage>/feature-gates/pair-feature1/inputs/candidate/native/verified/toom8_pair.rs:43:13
+   |
+43 | ...   scale... int);
+   |       ^^^^^...^^^^^
+   |
+  ::: <stage>/feature-gates/pair-feature1/inputs/candidate/native/specs/toom8_pair.rs:20:34
+   |
+20 | ...bp,low-b...orrow,
+   |       -----...----- failed precondition
+
+note: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> <stage>/feature-gates/pair-feature1/inputs/candidate/native/verified/toom8_pair.rs:54:1
+   |
+54 | pub f...bool)
+   | ^^^^^...^^^^^
+
+error: aborting due to 1 previous error
+

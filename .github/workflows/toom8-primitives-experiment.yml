@@ -25,3 +25,6 @@ jobs:
       - run: python3 experiments/toom8-primitives/evaluation/audit.py
       - run: python3 experiments/toom8-primitives/evaluation/test_prepare_boundaries.py
       - run: python3 experiments/toom8-primitives/evaluation/prepare.py --output /tmp/verigmp-evaluation
+      - run: python3 experiments/toom8-primitives/pair/audit.py
+      - run: python3 experiments/toom8-primitives/pair/test_prepare_boundaries.py
+      - run: python3 experiments/toom8-primitives/pair/prepare.py --output /tmp/verigmp-pair

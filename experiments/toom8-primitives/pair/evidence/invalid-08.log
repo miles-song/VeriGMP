@@ -1,0 +1,6 @@
+
+thread 'main' (105533) panicked at <stage>/feature-gates/pair-feature2/inputs/candidate/native/toom8_pair_runner.rs:24:25:
+assertion `left == right` failed
+  left: 0
+ right: 1
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace

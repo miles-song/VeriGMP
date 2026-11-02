@@ -1,0 +1,4 @@
+
+thread 'main' (89676) panicked at <stage>/feature-gates/pair-feature1/inputs/candidate/native/toom8_pair_runner.rs:22:9:
+assertion failed: a.iter().rev().cmp(b.iter().rev()) != std::cmp::Ordering::Less
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace

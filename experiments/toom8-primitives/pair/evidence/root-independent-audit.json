@@ -1,0 +1,20 @@
+{
+  "status": "pass",
+  "report_sha256": "26f3fac08d25c94a83f7dc51526903419bd9846b5c84c49ab3f249bcbcb53958",
+  "source_snapshot_files": 91,
+  "tool_paths": 21,
+  "runtime_paths": 3,
+  "artifacts": 4,
+  "commands": 31,
+  "full_library_verified": 454,
+  "runner_codegen_verified": 150,
+  "strict_VC_logs": 10,
+  "recomputed_replayed_cases": 10918,
+  "invalid_replayed": 12,
+  "current_stage_files_different_from_old_gate": [],
+  "locked_paths": 239,
+  "scope": "Same-length bounded signed pair and exact same-parity halving. No call-site Toom8 convolution prerequisite discharge, complete Toom8 proof, resource proof, machine-code proof or performance claim.",
+  "strict_fatal_append_negative_fixtures": 9,
+  "executed_helpers_bound_to_captured_bytes": true,
+  "required": []
+}
