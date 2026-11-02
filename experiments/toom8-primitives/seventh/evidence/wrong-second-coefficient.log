@@ -1,0 +1,34 @@
+verification results:: 2 verified, 1 errors (partial verification with `--verify-*`)
+note: verifying module toom8_seventh
+
+note: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> <stage>/feature-gates/seventh-feature1/inputs/candidate/native/verified/toom8_seventh.rs:11:1
+   |
+11 | pub f...size)
+   | ^^^^^...^^^^^
+
+note: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> <stage>/feature-gates/seventh-feature1/inputs/candidate/native/verified/toom8_seventh.rs:35:1
+   |
+35 | pub f...nt>>)
+   | ^^^^^...^^^^^
+
+error: precondition not satisfied
+  --> <stage>/feature-gates/seventh-feature1/inputs/candidate/native/verified/toom8_seventh.rs:51:5
+   |
+51 |     scale...6u64);
+   |     ^^^^^...^^^^^
+   |
+  ::: <stage>/feature-gates/seventh-feature1/inputs/candidate/native/verified/scaled_subtraction.rs:11:9
+   |
+11 | ...   value...rhs@),
+   |       -----...----- failed precondition
+
+note: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> <stage>/feature-gates/seventh-feature1/inputs/candidate/native/verified/toom8_seventh.rs:64:1
+   |
+64 | pub f...size)
+   | ^^^^^...^^^^^
+
+error: aborting due to 1 previous error
+

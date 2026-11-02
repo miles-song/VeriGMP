@@ -1,0 +1,813 @@
+{
+  "status": "pass",
+  "scope": "One actual positive-eight product and exact normalization establish the seventh odd node under explicit known-even-coefficient caller premises; not a complete Toom8 kernel.",
+  "source_sha256": {
+    "candidate/native/controls/fast_multiply.rs": "64ddb1d8919da86881791d88d42916fd0f2d73e14073c6a53850d337e02a6714",
+    "candidate/native/controls/gmp_abi.cpp": "433b99417b38004a1684537a644cfe9cd7e7852df8864ce12dc9d1c4dfce6ed8",
+    "candidate/native/controls/gmp_multiply.cpp": "87658c00944326f26f5fd016d0c845ca2efe7b32d2329abe190787830a39f5f4",
+    "candidate/native/controls/limbs.rs": "b7161f5897667d8d6bc96ec5ca6eddf63384efd4eb0568ecbb6c4cccf500e4da",
+    "candidate/native/controls/multiply.rs": "5a824d2201674935a97e655b6eeda0ced04c7f6ef769877255cb09a21049d824",
+    "candidate/native/controls/pow2.rs": "ba0a8a8bb404c4778ddd3c03ba254dfcca6efc28a94d293368db2e5ee2e79dac",
+    "candidate/native/fast_bench.rs": "20c4c261f1ed6d5974a7bd250cc148d900b86472206330e9ee2a44060865551f",
+    "candidate/native/fast_codegen.rs": "e68214b600c37fbf436a9d4ad0a649c000eb133e5ecf1d38948dbe5edda37283",
+    "candidate/native/fast_runner.rs": "2cca8d6653330bd3f80461f7fc2b34adf28c6e282452934e916cd5dc4b657308",
+    "candidate/native/gmp-reference.json": "e67ba09749bc761cd581218bebd6cde5f1fdf56a2711924e1ceb45d4c7e247ff",
+    "candidate/native/history-provenance.json": "195aa85724547b02db939d9561bd1304acb87a9944b4f6912156b6aafe367560",
+    "candidate/native/lib.rs": "5d51a341684b8ad62d748e66ef0f19ada4492205bd3016c8ff7cad21b1b554b9",
+    "candidate/native/limbs_bench.rs": "937ed74d98f739b2333e1feb78c65dbefb86b5af1c051c864ef269fb6b304215",
+    "candidate/native/limbs_codegen.rs": "465962efb3dc1e0f2414295228414112e3843dbaf467a41b705e53a3255e255e",
+    "candidate/native/limbs_runner.rs": "4aced8bc95027c78bbac6690f112dcd9e0b892f521baa6e29515b65862c05c01",
+    "candidate/native/mac4_bench.rs": "79335fb39eb054704b6621803368e965892a6285bc9ab82ec687bea991bcf22f",
+    "candidate/native/multiply_bench.rs": "d28537c1ee449c452b8c0f549a3555fbf50f59a680240b371335ccb106061d12",
+    "candidate/native/multiply_codegen.rs": "3855098a24804a8cba3ff8b094b159290e0e27e13fc1a558b456aebfeddb1229",
+    "candidate/native/multiply_runner.rs": "856d5b82363f2bf9170bf15cf45f2b0b9ae713a1475f5ceed1751fcaf18c52c7",
+    "candidate/native/performance-target.json": "7e1f7c27007d65ca77979c693c0f105d2ac4686fd90e853ab86c43684f485a37",
+    "candidate/native/pow2_bench.rs": "9e4390cabef56661544491deb928ee2f7a11199d34ada5b6a185a54a45622c1c",
+    "candidate/native/pow2_codegen.rs": "2372573334ffb9778295bd775ea23302207017bb699598606f3254f3cf3d36dd",
+    "candidate/native/pow2_runner.rs": "c916b36cc11923b309aacccd8e54ae5bde951d651abb1360f05715b82706a647",
+    "candidate/native/proof-status.json": "194025f62a4731b99253011c18f6c4716d12631b0dc81efcc6ed726b0583740e",
+    "candidate/native/specs/fast_product.rs": "1d3a4f9397375741f6fcaea5bacf5977f73c56ba051893cd81a83709385b2cd7",
+    "candidate/native/specs/odd_division.rs": "2a471b8a9836d404c3b5118c924fe99d9e34816c29630766abbf627817c63aea",
+    "candidate/native/specs/precision.rs": "38ffadc6cd04602b40457711b25ec3e89de5fb0ebf92136645da93fb18d4cde0",
+    "candidate/native/specs/product.rs": "24de04dda22e2ca1262ade8328b3f164612b59188df14dbe84988b94592563ae",
+    "candidate/native/specs/radix.rs": "51bddb73e0cfcc2fda095ac5f35fe4853417c1fff858133dab56b05ba9573219",
+    "candidate/native/specs/signed_evaluation.rs": "726da6650427fa0e660e3b624d609d9bcf1bc9a7856ea1916f06c93f51994cbc",
+    "candidate/native/specs/square.rs": "3d716c2905d4f34929e3177e853196f84faef8a63c10e7e1bb7593a9e62be87e",
+    "candidate/native/specs/square_base.rs": "9436705847c6cf4c8353a324e9154767a2a8ac57b13ca13a26b523f973ea6768",
+    "candidate/native/specs/toom.rs": "ed543569ac0996a16546211241b52f5a7ae945e8fce873f5195340cf290456ff",
+    "candidate/native/specs/toom4.rs": "352ff71f3f711225dd6c98e8c89e3491d88fb8f67a614d2f36bc96e4f0f34033",
+    "candidate/native/specs/toom4_blocks.rs": "caaf8f02256bf53655a4a3d5dbf59ad7283b8ab3f524c7e872c6664eba8ea715",
+    "candidate/native/specs/toom8_convolution.rs": "550af2ab33aee8972d1c06acdb80ab8713edff2bba5c56aafcecfdab6b6f427f",
+    "candidate/native/specs/toom8_dyadic_producer.rs": "0657585d0978c4e763e998b9da5b62c1838cc39f0a0ea54b5421f7dcba21a293",
+    "candidate/native/specs/toom8_evaluation.rs": "9560ab9d8a40de3a933f04872ce5ba19c3c05c8586cc6447abff14a89ccbbb3a",
+    "candidate/native/specs/toom8_newton.rs": "a04d903bd2bc9fe8562aa12092d6de67eba0d3f953a606d73462dfc6e33226ff",
+    "candidate/native/specs/toom8_normalization.rs": "15a956ec8c1ad2657092dccd59667f8dcbcad072025f03d56aa5459ba19e4f9b",
+    "candidate/native/specs/toom8_pair.rs": "6ce86a2757ed650117a821f7733aa1f9a4297075a76828a816fee751c426e276",
+    "candidate/native/specs/toom8_producer.rs": "de9db10f44f448558e7afa97e2427c1a99a08f8a1202886d26f5e2115cf9ea2f",
+    "candidate/native/specs/toom8_seventh.rs": "1477f5a6e340173b3fe92ee21a98bd3e8de3cb770b2e8df44c64bdf8fec11153",
+    "candidate/native/specs/toom_blocks.rs": "d799a910b67b26fbbdbdefc50bf49063f8ca39790f6d48f60a7ed1315d00df9d",
+    "candidate/native/specs/wide_odd_division.rs": "3feb744112b12d7f1708f615c2a94bfb3090deca7f3797967f558a48ef495cab",
+    "candidate/native/square_base_bench.rs": "abd4f11755f244753167bd92447412c16308876a634c9951663de8ce7494dcaa",
+    "candidate/native/toolchain.json": "a8f1ba756fd50480017e10d24c390a4b94528ab387c965d28c35cf3432c9e678",
+    "candidate/native/toom4_codegen.rs": "42fe2571e7ff0e5d35a4e7acbe014ff676170518d32f45577d4ef7eb584ec5df",
+    "candidate/native/toom4_runner.rs": "1b4b9a4a151aa17522720708acf580f6eb53c7b5ec8449982267cc926f365177",
+    "candidate/native/toom8_dyadic_producer_codegen.rs": "bef460d22fa0f38221c1db214e3c39a415a6562ed994a6a8d7929556cd9436af",
+    "candidate/native/toom8_dyadic_producer_runner.rs": "e7c2200001341a2aa29975d1db59192a5e3bc64c9b85ec0836edf9f591cc46a0",
+    "candidate/native/toom8_evaluation_codegen.rs": "24a822a0b73897888e39a265959a89df14c0f487605cd0434f3a773bca5da00c",
+    "candidate/native/toom8_evaluation_runner.rs": "ab457dfb2874f0095c339e7b6dc18e592fef217205fd1f270c55e48cadd63882",
+    "candidate/native/toom8_even_codegen.rs": "9e4408b4bbea8d98bd391d9a25b667ac3508512026ba3df6b534cb1246219cbf",
+    "candidate/native/toom8_even_runner.rs": "ca9f03ff6ca486b9a7595a82a6f4d41882752a1849e5405f0808a64f7b45db99",
+    "candidate/native/toom8_newton_codegen.rs": "9a7894553f028d2a21dcfd60fe1853eee0b9295e91a58b235fbee1d9fa45c61a",
+    "candidate/native/toom8_newton_runner.rs": "39d79c0a304f325c1563a660ac3b64308530b5dfa40e524c333e75c43a9a6e9e",
+    "candidate/native/toom8_newton_test_bridge.rs": "19f4f0534e871439aa4388c93bed5caa4f4137933fce5d55d7c01878ad1986b3",
+    "candidate/native/toom8_normalization_codegen.rs": "5eababf2996e2dce743786e46920c012b643df00e56fe0d000636d4ec5a4bebe",
+    "candidate/native/toom8_normalization_runner.rs": "0b9585eef4cf8d8692730b630d1da588397c3463310205401cc414f9a94d8432",
+    "candidate/native/toom8_pair_codegen.rs": "27c13d56fe42c15667e29479b3cff4226c76881f53999d7e62302603762e4d51",
+    "candidate/native/toom8_pair_runner.rs": "eb2aaa4b2a8f2f7ab5ef72ca1f054947d7ff8aa9cd11de7c8d2e3d7f07523045",
+    "candidate/native/toom8_producer_codegen.rs": "e3c5568833e88a9c317f9111c072302bdffaacdbd7f908abc98ca8a70f8d0df4",
+    "candidate/native/toom8_producer_runner.rs": "aa4a2bb0d805ea00fa9bbc18de57f322b4e89244ecd003ae2afb8cbe630c3aa9",
+    "candidate/native/toom8_seventh_codegen.rs": "2a5c03cca4fb1b5c41d32c6ce6b6039577ef4def27588c28c5359c541afb4a8e",
+    "candidate/native/toom8_seventh_runner.rs": "a54ab3ef2746e43166d32b3d7aaa113ce7e40bb46a583d3653f5ae5e2ffb0124",
+    "candidate/native/toom_bench.rs": "e0b5829fc235eeada95e987542073d3e190c0c1d10c7d48ec4f6d787f8fa1daf",
+    "candidate/native/toom_codegen.rs": "17f41d3dbc4ba891dc298c12cb86cbef8339b21dda321deff08c1801e62274f2",
+    "candidate/native/toom_words_runner.rs": "1ed994eab17583d7d0eacf580d897897d4afab5405de58d9d4779d913e783a66",
+    "candidate/native/verified/arithmetic.rs": "7c0181fed9d53f842062fd2f4e738dedf42985fee28bff53cabba4a7fc20cc54",
+    "candidate/native/verified/fast_multiply.rs": "f4c873122c592487e776d346cef950f76779f58aa285b4342333a077e20e226d",
+    "candidate/native/verified/fast_words.rs": "76c8a6e5558df51af8975ad6db606947d032c3b583a5def4da88571d48f56287",
+    "candidate/native/verified/kernel.rs": "b54e17dd245655deacae37d89071a6c5ae5c39421ba7d3ac5728346e63f77080",
+    "candidate/native/verified/limbs.rs": "913c88133f2bd46b3b4a59794eba5b8d43dfdbdac720918e375b47a52adbff28",
+    "candidate/native/verified/mac4.rs": "9cf6fd885a42e63a7cb1f697833bfa7e82d5b65a85e4351de2252a11b6afce2f",
+    "candidate/native/verified/multiply.rs": "83bfff3bb71a8c429e48551532a39fd92773b7e0b4b94b7c4b5263d59c854f9c",
+    "candidate/native/verified/odd_division.rs": "ff2b7ecc484d03e248b9f423dde531efd8f1b7fad9000c52854c6c8a32e849b1",
+    "candidate/native/verified/pow2.rs": "893234a990b3b3bf308253ce318411fb5247157cfabe2d02ce603c6c86c1dcec",
+    "candidate/native/verified/scaled_subtraction.rs": "451292f4889f824a25e14904fb5163785d5ab439303e17aa3f6179d859a3a349",
+    "candidate/native/verified/signed_evaluation.rs": "165232d5dc11f819a31c553ae0996aa5d03b36419d556530f484b4257e872541",
+    "candidate/native/verified/square.rs": "66d8baca34c6daf25b3116c22a9f9071691f882d653e6f586ea6eb64b50c3164",
+    "candidate/native/verified/square_base.rs": "d56438d15c969b475d74c431bef66dbe8c6befd67699196b096c1773c68094b3",
+    "candidate/native/verified/square_low.rs": "1e85ae150c7d5801d57f41d460de651b5ba9d5ae96c910f52b83bb602dd6ad21",
+    "candidate/native/verified/toom4_candidate.rs": "5bedfab6640c7d5b84bb4d1de95c84e2daa8a7f0f25fdb6ccf20c6f221a84cac",
+    "candidate/native/verified/toom4_evaluate.rs": "a6d15ee01d5c4996f8ce5c6f8910c2d62547509a75fe3d553ebb8fcb27bff920",
+    "candidate/native/verified/toom4_interpolate.rs": "1a61a240c3f75722be08a63e1006e2e1deff800cc2163fd569ed33038e9a34ec",
+    "candidate/native/verified/toom4_low.rs": "19e062300f1639a3c2af9b5a873f674b4f34b5efe3377bb2008133ad42b0b4a5",
+    "candidate/native/verified/toom4_multiply.rs": "e62c3b4778cf887146f30d0c7bef8a12c630291063cf967c668ba010afbd116b",
+    "candidate/native/verified/toom4_square.rs": "efaaf282edac2852829df4d5fd6439a7c18f33413b668d0857f73f9ac1e7d0a0",
+    "candidate/native/verified/toom4_square_low.rs": "d1ca0f9f60c70436d05a9fb14f631f92f7271f97613efbcdfbd1967dab7cc4df",
+    "candidate/native/verified/toom8_dyadic_producer.rs": "11107bd4da00ba9f38db42240fb322d464ab8a85e00c8853e63ff68f928e5366",
+    "candidate/native/verified/toom8_evaluation.rs": "4ba9f3b7b965fe0677a2887147309d434e9b3c5cdb8786d48f5e98aaa6a2b266",
+    "candidate/native/verified/toom8_even.rs": "48458937c66e51d9ab50528f02b59a6a5429af1d99bff518782b179605bda8ef",
+    "candidate/native/verified/toom8_newton.rs": "387694964036d1caf68a077944a9baa90a82ee113403aad3a0bb4c8a30d9154e",
+    "candidate/native/verified/toom8_normalization.rs": "5a3f6a68a69c9a6bb990c3975bc3a6b510b206732a0109219fa4d3ef10369b6b",
+    "candidate/native/verified/toom8_pair.rs": "79360f2089fd861ce449e8f9a670a79f978b86406607ab8a37db68947e1cf407",
+    "candidate/native/verified/toom8_producer.rs": "338a17bdffcc6fe627aad4d6b78249e3bfc03ca8fc3498ef57a1faf99f7a0a77",
+    "candidate/native/verified/toom8_seventh.rs": "41c92a2c412ef7e156b223d6b897f9bb44c663080fa2e0b5b314a9a8a86e38d5",
+    "candidate/native/verified/toom_evaluate.rs": "80fb7c4b0db769debe3091289cfe8a71703e9e1bf7b9e26a622e4df08f164699",
+    "candidate/native/verified/toom_interpolate.rs": "dd3e97eac34fb6cf6920302eeb5cc2bc8b257a6beb7a2e952f52ccf20ae5e352",
+    "candidate/native/verified/toom_low.rs": "d73bd14a640f96cc383fcc9234452e500cf217f58e935bacc96728f4d3a96929",
+    "candidate/native/verified/toom_multiply.rs": "58830125c0e82680f11fec6aba9677c8986c8f84fdbe53e3a38dc01b24871602",
+    "candidate/native/verified/toom_square.rs": "2706c576e99df5d4b90159cd671e208e6e7a521daa4bb3624666ed97c7332826",
+    "candidate/native/verified/toom_words.rs": "04786af608e65f40447cfee7defff9f1ab624157708b56237149e588ca5c485d",
+    "candidate/native/verified/wide_odd_division.rs": "2fdc06bb5992e6b89e4d2171cc036cb5540d954bebd8fc510d6a2b18b0ea6774",
+    "candidate/native/wide_odd_codegen.rs": "fc9ef7aa95c818edcd168a2354886f10a23454f5e0b402e6e99bb01e41d71b2c",
+    "candidate/native/wide_odd_runner.rs": "3300aeb7d5438ad4d46f026f165e65f4bd4065123eef0f1d2185c1c467d872d7",
+    "check_seventh.py": "ed59bfdc4c3e3929c744f9a8921bcd270f054949d5273443138004d859282aed",
+    "seventh_oracle.py": "5ca79428c08ebf8c04b47f8b02a0fab8287f6c8c477cbe9728a900186b9020b9",
+    "seventh_codegen.py": "e3542b6b62a29a77df1571c3283af0eec80f97d56c7cb45441a04495be8d10a8",
+    "origin.json": "24154d536b8ab372a06d6254b4a2c350c062576a8c418f601e593e8962ddf0ec",
+    "scope.json": "445e65e4596a4505721e419ac87250d272557dadd878f1a45b55f43d2537154d"
+  },
+  "started_utc": "2026-11-02T02:47:01.994898+00:00",
+  "benchmark_run": false,
+  "production_modified": false,
+  "cpu_affinity": [
+    6,
+    7
+  ],
+  "commands": [
+    {
+      "argv": [
+        "<verus-home>/verus-x86-linux/verus",
+        "--version"
+      ],
+      "log": "toolchain.log",
+      "status": "completed",
+      "returncode": 0,
+      "elapsed_seconds": 0.17056324100121856,
+      "log_sha256": "43bbcb88d622ee4e1fb08655b4393b56725fedd6fce064101e6f9cd64fd07152"
+    },
+    {
+      "argv": [
+        "rustup",
+        "which",
+        "--toolchain",
+        "1.99.1-x86_64-unknown-linux-gnu",
+        "rustc"
+      ],
+      "log": "rustc-path.log",
+      "status": "completed",
+      "returncode": 0,
+      "elapsed_seconds": 0.08918449400516693,
+      "log_sha256": "aea0aadcfcccc7b6ad8bc33cb88e358b707146f07fe541c9bd11f4453113c7b1"
+    },
+    {
+      "argv": [
+        "<rustup-home>/toolchains/1.99.1-x86_64-unknown-linux-gnu/bin/rustc",
+        "-vV"
+      ],
+      "log": "rustc.log",
+      "status": "completed",
+      "returncode": 0,
+      "elapsed_seconds": 0.0326370160037186,
+      "log_sha256": "f22d5e4e9ced367e774ce5bc140d9e6b1235c1882fec80d011044851f3ae6369"
+    },
+    {
+      "argv": [
+        "ldd",
+        "<rustup-home>/toolchains/1.99.1-x86_64-unknown-linux-gnu/bin/rustc"
+      ],
+      "log": "rustc-linked.log",
+      "status": "completed",
+      "returncode": 0,
+      "elapsed_seconds": 0.03573333100939635,
+      "log_sha256": "f2fb3d7a7bb9c7d0a766df2fe3d9c42fa97df9240bc8159471e27b84c3316114"
+    },
+    {
+      "argv": [
+        "<verus-home>/verus-x86-linux/verus",
+        "<stage>/feature-gates/seventh-feature1/inputs/candidate/native/lib.rs",
+        "--crate-name",
+        "producer_candidate",
+        "--crate-type",
+        "lib",
+        "--export",
+        "<stage>/feature-gates/seventh-feature1/candidate.vir",
+        "--compile",
+        "-O",
+        "-o",
+        "<stage>/feature-gates/seventh-feature1/libcandidate.rlib"
+      ],
+      "log": "library.log",
+      "status": "completed",
+      "returncode": 0,
+      "elapsed_seconds": 96.67823943900294,
+      "log_sha256": "75772d416ed6a673fdda056f27b12070b400b6a4f5470fcdbdb445335ff9ffa0"
+    },
+    {
+      "argv": [
+        "<verus-home>/verus-x86-linux/verus",
+        "<stage>/feature-gates/seventh-feature1/inputs/candidate/native/toom8_seventh_runner.rs",
+        "--compile",
+        "-O",
+        "-o",
+        "<stage>/feature-gates/seventh-feature1/oracle-runner"
+      ],
+      "log": "runner-build.log",
+      "status": "completed",
+      "returncode": 0,
+      "elapsed_seconds": 100.65930949000176,
+      "log_sha256": "a47089ed368877ca0dc8de708f5e302c8bf5e559975f7c990b5ddce5759f522b"
+    },
+    {
+      "argv": [
+        "ldd",
+        "<stage>/feature-gates/seventh-feature1/oracle-runner"
+      ],
+      "log": "runner-linked.log",
+      "status": "completed",
+      "returncode": 0,
+      "elapsed_seconds": 0.034079099001246504,
+      "log_sha256": "d6673841af41fff02260b84db3039ee5bf94a26a039d48c708d817519f797ff3"
+    },
+    {
+      "argv": [
+        "<stage>/feature-gates/seventh-feature1/oracle-runner"
+      ],
+      "log": "oracle.log",
+      "status": "completed",
+      "returncode": 0,
+      "elapsed_seconds": 0.061683164996793494,
+      "log_sha256": "3a6b56236535dbf570f7e59a1d159101a82d6cc5e28b5275f518b72e72be2f14"
+    },
+    {
+      "argv": [
+        "<stage>/feature-gates/seventh-feature1/oracle-runner"
+      ],
+      "log": "invalid-00.log",
+      "status": "completed",
+      "returncode": 101,
+      "elapsed_seconds": 0.0153085479978472,
+      "log_sha256": "194f97e5120bc5cb3ae5026c783c94aa482a55b0ea435943c23194d9a8f51635"
+    },
+    {
+      "argv": [
+        "<stage>/feature-gates/seventh-feature1/oracle-runner"
+      ],
+      "log": "invalid-01.log",
+      "status": "completed",
+      "returncode": 101,
+      "elapsed_seconds": 0.019503258998156525,
+      "log_sha256": "c0ea918a1dce3e7e48d05754a43b26f976c089c88da2003afee5fabe93b46cc9"
+    },
+    {
+      "argv": [
+        "<stage>/feature-gates/seventh-feature1/oracle-runner"
+      ],
+      "log": "invalid-02.log",
+      "status": "completed",
+      "returncode": 101,
+      "elapsed_seconds": 0.015241267989040352,
+      "log_sha256": "3cb2ac48595c7388c7db56e9b8a15baffb38635cc245321eb5cbd35b1d18217e"
+    },
+    {
+      "argv": [
+        "<stage>/feature-gates/seventh-feature1/oracle-runner"
+      ],
+      "log": "invalid-03.log",
+      "status": "completed",
+      "returncode": 101,
+      "elapsed_seconds": 0.014638524007750675,
+      "log_sha256": "6dc3a4de8ac1f1b48b4e8b4124abde5ef495496cbfbe3355ead7c2b41ba34fa5"
+    },
+    {
+      "argv": [
+        "<stage>/feature-gates/seventh-feature1/oracle-runner"
+      ],
+      "log": "invalid-04.log",
+      "status": "completed",
+      "returncode": 101,
+      "elapsed_seconds": 0.019841067987727,
+      "log_sha256": "1a035a3175bb415078f6f35bfa10bb3ae5b17874eefd7f7e8ad2960d6248edad"
+    },
+    {
+      "argv": [
+        "<stage>/feature-gates/seventh-feature1/oracle-runner"
+      ],
+      "log": "invalid-05.log",
+      "status": "completed",
+      "returncode": 101,
+      "elapsed_seconds": 0.018955392006319016,
+      "log_sha256": "5e7aff0ea4ac66420666bc92fb82ae1ac527286226cd3698003ce5e060cddca8"
+    },
+    {
+      "argv": [
+        "<stage>/feature-gates/seventh-feature1/oracle-runner"
+      ],
+      "log": "invalid-06.log",
+      "status": "completed",
+      "returncode": 101,
+      "elapsed_seconds": 0.020127740004681982,
+      "log_sha256": "f9d01502f7e44a60c4c74d814300ed50e0f32e27221d842518657ceac6c4e2ec"
+    },
+    {
+      "argv": [
+        "<stage>/feature-gates/seventh-feature1/oracle-runner"
+      ],
+      "log": "invalid-07.log",
+      "status": "completed",
+      "returncode": 101,
+      "elapsed_seconds": 0.0252571659948444,
+      "log_sha256": "d37143c06993185ac3a8551f4dd9b18fb3f80594cd49eefb931f0fefc2cd082d"
+    },
+    {
+      "argv": [
+        "<stage>/feature-gates/seventh-feature1/oracle-runner"
+      ],
+      "log": "invalid-08.log",
+      "status": "completed",
+      "returncode": 101,
+      "elapsed_seconds": 0.014274828005000018,
+      "log_sha256": "788adb5e9a8a258732d2a943af3e996209f7f15212bf86ad27ff334ff4836d46"
+    },
+    {
+      "argv": [
+        "<stage>/feature-gates/seventh-feature1/oracle-runner"
+      ],
+      "log": "invalid-09.log",
+      "status": "completed",
+      "returncode": 101,
+      "elapsed_seconds": 0.015058215998578817,
+      "log_sha256": "75bd195eea914ad5737aa58d2dfddc428897e60e0ba3068a14b074797d937748"
+    },
+    {
+      "argv": [
+        "<stage>/feature-gates/seventh-feature1/oracle-runner"
+      ],
+      "log": "invalid-10.log",
+      "status": "completed",
+      "returncode": 101,
+      "elapsed_seconds": 0.015364880993729457,
+      "log_sha256": "dc9bb1f93a77858e165258ac8b66fb4ea809a1b9a5b96046215828fe0bcaed24"
+    },
+    {
+      "argv": [
+        "<stage>/feature-gates/seventh-feature1/oracle-runner"
+      ],
+      "log": "invalid-11.log",
+      "status": "completed",
+      "returncode": 101,
+      "elapsed_seconds": 0.016189745991141535,
+      "log_sha256": "5c05c838144f845aa620f5061bf5279db19eb8fca60d33fff8e874c73dbd15f8"
+    },
+    {
+      "argv": [
+        "<verus-home>/verus-x86-linux/verus",
+        "<stage>/feature-gates/seventh-feature1/inputs/candidate/native/toom8_seventh_codegen.rs",
+        "--compile",
+        "-O",
+        "--emit=asm",
+        "-o",
+        "<stage>/feature-gates/seventh-feature1/codegen.s"
+      ],
+      "log": "codegen-build.log",
+      "status": "completed",
+      "returncode": 0,
+      "elapsed_seconds": 94.15779591699538,
+      "log_sha256": "18fe380f8c80a936252b740116ca389795685a0a1450e6477192d39b0d2ef9ba"
+    },
+    {
+      "argv": [
+        "<verus-home>/verus-x86-linux/verus",
+        "<stage>/feature-gates/seventh-feature1/inputs/candidate/native/toom8_seventh_runner.rs",
+        "--verify-module",
+        "toom8_seventh",
+        "--multiple-errors",
+        "0"
+      ],
+      "log": "wrong-positive-point.log",
+      "status": "completed",
+      "returncode": 1,
+      "elapsed_seconds": 10.005526958004339,
+      "log_sha256": "75157dee48b53f8af686d418ed38189865d4632dd0dec67062ecce45445d3109"
+    },
+    {
+      "argv": [
+        "<verus-home>/verus-x86-linux/verus",
+        "<stage>/feature-gates/seventh-feature1/inputs/candidate/native/toom8_seventh_runner.rs",
+        "--verify-module",
+        "toom8_seventh",
+        "--multiple-errors",
+        "0"
+      ],
+      "log": "negative-first-evaluation.log",
+      "status": "completed",
+      "returncode": 1,
+      "elapsed_seconds": 10.031998086997191,
+      "log_sha256": "2923de65d1dffa623015774b6ec8265a0fa3c001c5dc31d8fe617ea4032c60e4"
+    },
+    {
+      "argv": [
+        "<verus-home>/verus-x86-linux/verus",
+        "<stage>/feature-gates/seventh-feature1/inputs/candidate/native/toom8_seventh_runner.rs",
+        "--verify-module",
+        "toom8_seventh",
+        "--multiple-errors",
+        "0"
+      ],
+      "log": "square-point-product.log",
+      "status": "completed",
+      "returncode": 1,
+      "elapsed_seconds": 10.458368229010375,
+      "log_sha256": "2923de65d1dffa623015774b6ec8265a0fa3c001c5dc31d8fe617ea4032c60e4"
+    },
+    {
+      "argv": [
+        "<verus-home>/verus-x86-linux/verus",
+        "<stage>/feature-gates/seventh-feature1/inputs/candidate/native/toom8_seventh_runner.rs",
+        "--verify-module",
+        "toom8_seventh",
+        "--multiple-errors",
+        "0"
+      ],
+      "log": "skip-point-product.log",
+      "status": "completed",
+      "returncode": 1,
+      "elapsed_seconds": 11.01210928299406,
+      "log_sha256": "4c1736c8f4ca7e5aa39458a17a31626879bbdcfbefe412a9953a08909109c3ff"
+    },
+    {
+      "argv": [
+        "<verus-home>/verus-x86-linux/verus",
+        "<stage>/feature-gates/seventh-feature1/inputs/candidate/native/toom8_seventh_runner.rs",
+        "--verify-module",
+        "toom8_seventh",
+        "--multiple-errors",
+        "0"
+      ],
+      "log": "skip-low-endpoint.log",
+      "status": "completed",
+      "returncode": 1,
+      "elapsed_seconds": 11.921019591012737,
+      "log_sha256": "c99b79ce3b9de5a6a9218273570f330a0734eeed37b005e796e7cab245d07943"
+    },
+    {
+      "argv": [
+        "<verus-home>/verus-x86-linux/verus",
+        "<stage>/feature-gates/seventh-feature1/inputs/candidate/native/toom8_seventh_runner.rs",
+        "--verify-module",
+        "toom8_seventh",
+        "--multiple-errors",
+        "0"
+      ],
+      "log": "skip-high-endpoint.log",
+      "status": "completed",
+      "returncode": 1,
+      "elapsed_seconds": 9.756290004996117,
+      "log_sha256": "e0f8d48408499c99c3c31b4446d3230e803e91ede3e3aea2da6c0d424d0f5dc9"
+    },
+    {
+      "argv": [
+        "<verus-home>/verus-x86-linux/verus",
+        "<stage>/feature-gates/seventh-feature1/inputs/candidate/native/toom8_seventh_runner.rs",
+        "--verify-module",
+        "toom8_seventh",
+        "--multiple-errors",
+        "0"
+      ],
+      "log": "wrong-second-coefficient.log",
+      "status": "completed",
+      "returncode": 1,
+      "elapsed_seconds": 9.940664556997945,
+      "log_sha256": "9356844f1bd92eaecc3201ce8ece9ea778e6dff5c9f3db42fee412242eeb4986"
+    },
+    {
+      "argv": [
+        "<verus-home>/verus-x86-linux/verus",
+        "<stage>/feature-gates/seventh-feature1/inputs/candidate/native/toom8_seventh_runner.rs",
+        "--verify-module",
+        "toom8_seventh",
+        "--multiple-errors",
+        "0"
+      ],
+      "log": "skip-division.log",
+      "status": "completed",
+      "returncode": 1,
+      "elapsed_seconds": 10.26867366899387,
+      "log_sha256": "e0f8d48408499c99c3c31b4446d3230e803e91ede3e3aea2da6c0d424d0f5dc9"
+    },
+    {
+      "argv": [
+        "<verus-home>/verus-x86-linux/verus",
+        "<stage>/feature-gates/seventh-feature1/inputs/candidate/native/toom8_seventh_runner.rs",
+        "--verify-module",
+        "toom8_seventh",
+        "--multiple-errors",
+        "0"
+      ],
+      "log": "wrong-divisor.log",
+      "status": "completed",
+      "returncode": 1,
+      "elapsed_seconds": 10.699455994006712,
+      "log_sha256": "e0f8d48408499c99c3c31b4446d3230e803e91ede3e3aea2da6c0d424d0f5dc9"
+    },
+    {
+      "argv": [
+        "<verus-home>/verus-x86-linux/verus",
+        "<stage>/feature-gates/seventh-feature1/inputs/candidate/native/toom8_seventh_runner.rs",
+        "--verify-module",
+        "toom8_seventh",
+        "--multiple-errors",
+        "0"
+      ],
+      "log": "skip-scale.log",
+      "status": "completed",
+      "returncode": 1,
+      "elapsed_seconds": 11.149682103001396,
+      "log_sha256": "eeccbad6378cde0e35b30bdf3e798c41aa5dcc36b003d91f3e6ff35104d647e7"
+    },
+    {
+      "argv": [
+        "<verus-home>/verus-x86-linux/verus",
+        "<stage>/feature-gates/seventh-feature1/inputs/candidate/native/toom8_seventh_runner.rs",
+        "--verify-module",
+        "toom8_seventh",
+        "--multiple-errors",
+        "0"
+      ],
+      "log": "wrong-scale.log",
+      "status": "completed",
+      "returncode": 1,
+      "elapsed_seconds": 10.750366268999642,
+      "log_sha256": "eeccbad6378cde0e35b30bdf3e798c41aa5dcc36b003d91f3e6ff35104d647e7"
+    },
+    {
+      "argv": [
+        "<verus-home>/verus-x86-linux/verus",
+        "<stage>/feature-gates/seventh-feature1/inputs/candidate/native/toom8_seventh_runner.rs",
+        "--verify-module",
+        "toom8_seventh",
+        "--multiple-errors",
+        "0"
+      ],
+      "log": "swap-coefficients.log",
+      "status": "completed",
+      "returncode": 1,
+      "elapsed_seconds": 9.703848157005268,
+      "log_sha256": "6c3d3c5a3602932d823c6cbcbb0e802dd7e32734495ab668e31c745e156c5936"
+    }
+  ],
+  "appended_failure_fixtures_rejected": [
+    "solver returned unknown",
+    "rlimit",
+    "failed to typecheck",
+    "failed to load metadata",
+    "could not compile crate",
+    "internal compiler error",
+    "verification timed out",
+    "out of memory",
+    "segmentation fault"
+  ],
+  "executed_snapshot_binding": {
+    "checker": "captured bytes compiled and executed before workload setup",
+    "oracle": "captured bytes compiled and executed",
+    "codegen_inspector": "captured bytes compiled and executed",
+    "origin": "captured bytes parsed"
+  },
+  "strict_classifier_selfcheck": "pass",
+  "toolchain": "Verus\n  Version: 0.2026.10.26.d17fbd0\n  Profile: release\n  Platform: linux_x86_64\n  Toolchain: 1.99.1-x86_64-unknown-linux-gnu (overridden by environment variable RUSTUP_TOOLCHAIN)\n\n",
+  "rustc": "rustc 1.99.1 (58cf8f9c3 2026-10-13)\nbinary: rustc\ncommit-hash: 58cf8f9c35b355199727627d07ae34a4e2846d67\ncommit-date: 2026-10-13\nhost: x86_64-unknown-linux-gnu\nrelease: 1.99.1\nLLVM version: 23.1.1\n",
+  "toolchain_file_sha256": {
+    "<cargo-home>/bin/rustup": "5be191e8c70a5007074254cb74d78dbfdd25cd5a61c27de7b8e5410122ec24f4",
+    "<rustup-home>/toolchains/1.99.1-x86_64-unknown-linux-gnu/bin/rustc": "b53b780f77f952062f8ca8a3b70aef2390b1e45ad91939be94afdc9543026853",
+    "<rustup-home>/toolchains/1.99.1-x86_64-unknown-linux-gnu/lib/libLLVM.so.23.1-rust-1.99.1-stable": "1cfbe1392a767227b88b33ab6187283e281c63f80f9b1ca9010d9cee5fdf9131",
+    "<rustup-home>/toolchains/1.99.1-x86_64-unknown-linux-gnu/lib/librustc_driver-7ed0375ae352bd75.so": "5a2cd52edba7d15f8d898b92a912638f5b73a089c7c1bfde5604ab45665602c7",
+    "<verus-home>/verus-x86-linux/libverus_builtin.rlib": "f01e88f055e7c19b1a9a6a6118648f20708347d23040ddaee6493b6a4e3f6510",
+    "<verus-home>/verus-x86-linux/libverus_builtin_macros.so": "57bf8ebf436d974a7e05efdd2341bd40c51e737bdb6dd791026165e21f64e3f0",
+    "<verus-home>/verus-x86-linux/libverus_state_machines_macros.so": "8489b80f5a493855ea658a2b2d1850d0957d3149c8240cf7e490b984049d1149",
+    "<verus-home>/verus-x86-linux/libvstd.rlib": "da07ffe583aa14ec1ba5e4aa2295cec538c2a9b59bfbbf4d60f16e20d540befd",
+    "<verus-home>/verus-x86-linux/rust_verify": "7dc66fc35b1ef434d7db3d17f4a7bc9fe1f40b896cbe18a1193820270fa462f6",
+    "<verus-home>/verus-x86-linux/verus": "1208c995c8e5244577693eba311d34bc2050c4acf984e10c4c7baf2003abff14",
+    "<verus-home>/verus-x86-linux/vstd.vir": "6bf002dd6aacba73f8cbf09a1855b6330aa4773752878d2b702a52cc4f1538e2",
+    "<verus-home>/verus-x86-linux/z3": "e583c4186a45e72411fa2cb2048401eed03f0f8e5f24694676a8f6271a50b765",
+    "/usr/bin/python3.12": "1643dacd9feaedc58f3cc581e4d22577dfe25c09b10282936186ccf0f2e61118",
+    "/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2": "1cd555ac46b7887edeaf3c42aac5408c8135e52f6b37870da2cf82d5fe14e829",
+    "/usr/lib/x86_64-linux-gnu/libc.so.6": "d8db8739a1633c972cec6a4fe0566bdcec6fd088f98723492ab0361f66238f75",
+    "/usr/lib/x86_64-linux-gnu/libdl.so.2": "850b46fd4f4478060fc106f4d1dc4aa35c969eb5c9bd98aaf64dc6cb3d6a5e32",
+    "/usr/lib/x86_64-linux-gnu/libgcc_s.so.1": "d93224d2b0dab4247598be683adca02f5cf00586f99c187579cd7e92058fb7cb",
+    "/usr/lib/x86_64-linux-gnu/libm.so.6": "1b87a1a50b496cfead2b0ad134c2ff536705c82608db240c7e8aa48d6c0e4217",
+    "/usr/lib/x86_64-linux-gnu/libpthread.so.0": "92dcea07a5b11d939c22a96131d3fbb995e0a84a4d02db7d799bf357689cd794",
+    "/usr/lib/x86_64-linux-gnu/librt.so.1": "9d1cefae4c0e4995cc35ea3195f805454b2d59a27ad15397a1096e735d341faf",
+    "/usr/lib/x86_64-linux-gnu/libz.so.1.3": "9b64150b28505a33d6bc3ecf709c279f6de97a1c184dbda65d06ee4537f6d286"
+  },
+  "library_verified": 511,
+  "runner_verified": 511,
+  "runtime_library_sha256": {
+    "/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2": "1cd555ac46b7887edeaf3c42aac5408c8135e52f6b37870da2cf82d5fe14e829",
+    "/usr/lib/x86_64-linux-gnu/libc.so.6": "d8db8739a1633c972cec6a4fe0566bdcec6fd088f98723492ab0361f66238f75",
+    "/usr/lib/x86_64-linux-gnu/libgcc_s.so.1": "d93224d2b0dab4247598be683adca02f5cf00586f99c187579cd7e92058fb7cb"
+  },
+  "oracle": {
+    "cases": 672,
+    "counts": {
+      "positive_product": 336,
+      "seventh_node": 336
+    },
+    "input_sha256": "b1aaf34515259d54ffb9963489bdc8c461ac14f402ecb18bd6eb203e24787511",
+    "output_sha256": "3a6b56236535dbf570f7e59a1d159101a82d6cc5e28b5275f518b72e72be2f14",
+    "oracle_model": "Independent Python input convolution followed by positive-eight evaluation and seventh scaled odd polynomial"
+  },
+  "invalid": [
+    {
+      "command": "",
+      "returncode": 101,
+      "log_sha256": "194f97e5120bc5cb3ae5026c783c94aa482a55b0ea435943c23194d9a8f51635"
+    },
+    {
+      "command": "unknown|0|24|-|-|0",
+      "returncode": 101,
+      "log_sha256": "c0ea918a1dce3e7e48d05754a43b26f976c089c88da2003afee5fabe93b46cc9"
+    },
+    {
+      "command": "product|0|23|-|-|0",
+      "returncode": 101,
+      "log_sha256": "3cb2ac48595c7388c7db56e9b8a15baffb38635cc245321eb5cbd35b1d18217e"
+    },
+    {
+      "command": "product|-1|24|-|-|0",
+      "returncode": 101,
+      "log_sha256": "6dc3a4de8ac1f1b48b4e8b4124abde5ef495496cbfbe3355ead7c2b41ba34fa5"
+    },
+    {
+      "command": "product|0|24|1|-|0",
+      "returncode": 101,
+      "log_sha256": "1a035a3175bb415078f6f35bfa10bb3ae5b17874eefd7f7e8ad2960d6248edad"
+    },
+    {
+      "command": "product|0|24|1|1|0",
+      "returncode": 101,
+      "log_sha256": "5e7aff0ea4ac66420666bc92fb82ae1ac527286226cd3698003ce5e060cddca8"
+    },
+    {
+      "command": "product|1|24|1|1|0",
+      "returncode": 101,
+      "log_sha256": "f9d01502f7e44a60c4c74d814300ed50e0f32e27221d842518657ceac6c4e2ec"
+    },
+    {
+      "command": "product|0|24|-|-|65",
+      "returncode": 101,
+      "log_sha256": "d37143c06993185ac3a8551f4dd9b18fb3f80594cd49eefb931f0fefc2cd082d"
+    },
+    {
+      "command": "product|0|24|-|-|0|extra",
+      "returncode": 101,
+      "log_sha256": "788adb5e9a8a258732d2a943af3e996209f7f15212bf86ad27ff334ff4836d46"
+    },
+    {
+      "command": "product|0|24|18446744073709551616|-|0",
+      "returncode": 101,
+      "log_sha256": "75bd195eea914ad5737aa58d2dfddc428897e60e0ba3068a14b074797d937748"
+    },
+    {
+      "command": "seventh|0|24|-|-|0|0,0|0,0|0,0|0,0|0,0|0,0|0,0|0",
+      "returncode": 101,
+      "log_sha256": "dc9bb1f93a77858e165258ac8b66fb4ea809a1b9a5b96046215828fe0bcaed24"
+    },
+    {
+      "command": "seventh|0|24|-|-|0,0|0,0|0,0|0,0|0,0|0,0|0,0|0,0|0|extra",
+      "returncode": 101,
+      "log_sha256": "5c05c838144f845aa620f5061bf5279db19eb8fca60d33fff8e874c73dbd15f8"
+    }
+  ],
+  "codegen_verified": 511,
+  "codegen": {
+    "status": "pass",
+    "scope": "Actual single positive-eight product and seventh odd-node normalization",
+    "no_allocator_general_division_or_element_bounds_panic": true,
+    "paths": {
+      "verified_positive_eight": {
+        "reachable_functions": [
+          "_RNvNtCseRDlzby0f2f_21toom8_seventh_codegen13toom8_seventh16positive_product",
+          "_RNvNtCseRDlzby0f2f_21toom8_seventh_codegen14toom4_evaluate6signed",
+          "_RNvNtCseRDlzby0f2f_21toom8_seventh_codegen14toom4_multiply4full",
+          "verified_positive_eight"
+        ],
+        "external_calls": [
+          "*_RNvNtCskADBYZwJmSU_4core9panicking5panic@GOTPCREL(%rip)",
+          "*_RNvNtCskADBYZwJmSU_4core9panicking9panic_fmt@GOTPCREL(%rip)",
+          "*_RNvNtNtCskADBYZwJmSU_4core5slice5index16slice_index_fail@GOTPCREL(%rip)",
+          "*memset@GOTPCREL(%rip)"
+        ],
+        "root_body_lines": 3
+      },
+      "verified_seventh": {
+        "reachable_functions": [
+          "_RNvNtCseRDlzby0f2f_21toom8_seventh_codegen13toom8_seventh16positive_product",
+          "_RNvNtCseRDlzby0f2f_21toom8_seventh_codegen14toom4_evaluate6signed",
+          "_RNvNtCseRDlzby0f2f_21toom8_seventh_codegen14toom4_multiply4full",
+          "verified_seventh"
+        ],
+        "external_calls": [
+          "*_RNvNtCskADBYZwJmSU_4core9panicking5panic@GOTPCREL(%rip)",
+          "*_RNvNtCskADBYZwJmSU_4core9panicking9panic_fmt@GOTPCREL(%rip)",
+          "*_RNvNtNtCskADBYZwJmSU_4core5slice5index16slice_index_fail@GOTPCREL(%rip)",
+          "*memset@GOTPCREL(%rip)"
+        ],
+        "root_body_lines": 371
+      }
+    },
+    "limitation": "Textual assembly inspection; no machine-code equivalence or performance claim"
+  },
+  "mutations": [
+    {
+      "name": "wrong-positive-point",
+      "semantically_rejected": true,
+      "source_sha256": "d491413cd75ba7185cfcedd664bd7808ca5df94305e194c783da1876e1b05a7e",
+      "before": "let weights=toom8_evaluation::dyadic_weights(3,false);",
+      "after": "let weights=toom8_evaluation::dyadic_weights(2,false);",
+      "log_sha256": "75157dee48b53f8af686d418ed38189865d4632dd0dec67062ecce45445d3109"
+    },
+    {
+      "name": "negative-first-evaluation",
+      "semantically_rejected": true,
+      "source_sha256": "45bb573502e3b42fbeb0f704f87fbf732b7eff48479552ab6e6ce45fddcc8b39",
+      "before": "evaluate(ax,&mut work[..m],a0,a1,a2,a3,a4,a5,a6,a7,weights,false);",
+      "after": "evaluate(ax,&mut work[..m],a0,a1,a2,a3,a4,a5,a6,a7,weights,true);",
+      "log_sha256": "2923de65d1dffa623015774b6ec8265a0fa3c001c5dc31d8fe617ea4032c60e4"
+    },
+    {
+      "name": "square-point-product",
+      "semantically_rejected": true,
+      "source_sha256": "2190a07882b9e8c406f24453a7ce608359931cefbfda03fad2b3b858b9c5ebe1",
+      "before": "toom4_multiply::full(dst,ax,bx,work,threshold);",
+      "after": "toom4_multiply::full(dst,ax,ax,work,threshold);",
+      "log_sha256": "2923de65d1dffa623015774b6ec8265a0fa3c001c5dc31d8fe617ea4032c60e4"
+    },
+    {
+      "name": "skip-point-product",
+      "semantically_rejected": true,
+      "source_sha256": "d188a3aa134a31cbdcbe034faa11677daab07d60f56052bcd385e8ffa15e86d7",
+      "before": "toom4_multiply::full(dst,ax,bx,work,threshold);",
+      "after": "",
+      "log_sha256": "4c1736c8f4ca7e5aa39458a17a31626879bbdcfbefe412a9953a08909109c3ff"
+    },
+    {
+      "name": "skip-low-endpoint",
+      "semantically_rejected": true,
+      "source_sha256": "4ee8c6742de3b938223869bd95788989ec780b31a1654ffaeffd79de5c542ffe",
+      "before": "scaled_subtraction::sub_scaled_exact(dst,low,1u64);",
+      "after": "",
+      "log_sha256": "c99b79ce3b9de5a6a9218273570f330a0734eeed37b005e796e7cab245d07943"
+    },
+    {
+      "name": "skip-high-endpoint",
+      "semantically_rejected": true,
+      "source_sha256": "bea9746beaf0e33a1a800d430715a58d245e1393686dca24e872c295d43da895",
+      "before": "scaled_subtraction::sub_scaled_exact(dst,high,4398046511104u64);",
+      "after": "",
+      "log_sha256": "e0f8d48408499c99c3c31b4446d3230e803e91ede3e3aea2da6c0d424d0f5dc9"
+    },
+    {
+      "name": "wrong-second-coefficient",
+      "semantically_rejected": true,
+      "source_sha256": "cd5adf875d497b6731c46280e5cf67b82f2fcee66d908c6a1afbf3d03423f833",
+      "before": "scaled_subtraction::sub_scaled_exact(dst,e0,64u64);",
+      "after": "scaled_subtraction::sub_scaled_exact(dst,e0,4096u64);",
+      "log_sha256": "9356844f1bd92eaecc3201ce8ece9ea778e6dff5c9f3db42fee412242eeb4986"
+    },
+    {
+      "name": "skip-division",
+      "semantically_rejected": true,
+      "source_sha256": "e87efc219f8f14429839b2153cfcf90aaf49ae3402fc05c65ffc631f86be173e",
+      "before": "toom_words::divide_exact(dst,8u64);",
+      "after": "",
+      "log_sha256": "e0f8d48408499c99c3c31b4446d3230e803e91ede3e3aea2da6c0d424d0f5dc9"
+    },
+    {
+      "name": "wrong-divisor",
+      "semantically_rejected": true,
+      "source_sha256": "5082ce1f61d2c076671d31d8adb7ac05003070c3839235435bd59bac98dd09ed",
+      "before": "toom_words::divide_exact(dst,8u64);",
+      "after": "toom_words::divide_exact(dst,4u64);",
+      "log_sha256": "e0f8d48408499c99c3c31b4446d3230e803e91ede3e3aea2da6c0d424d0f5dc9"
+    },
+    {
+      "name": "skip-scale",
+      "semantically_rejected": true,
+      "source_sha256": "c0a99eee6ba3be5e0674c5b7ebb686d7f867c440bc017632acbbe4684419e474",
+      "before": "toom_words::scale_exact(dst,68719476736u64);",
+      "after": "",
+      "log_sha256": "eeccbad6378cde0e35b30bdf3e798c41aa5dcc36b003d91f3e6ff35104d647e7"
+    },
+    {
+      "name": "wrong-scale",
+      "semantically_rejected": true,
+      "source_sha256": "3984b5d4f331f7d766f7faa365a2a7becb1e9f5300f09f74ddca6573ae263515",
+      "before": "toom_words::scale_exact(dst,68719476736u64);",
+      "after": "toom_words::scale_exact(dst,1073741824u64);",
+      "log_sha256": "eeccbad6378cde0e35b30bdf3e798c41aa5dcc36b003d91f3e6ff35104d647e7"
+    },
+    {
+      "name": "swap-coefficients",
+      "semantically_rejected": true,
+      "source_sha256": "a90130bcfe13e1087d4bfae853a1f72c5aa47e4cec98fdefdf37e581eb33f961",
+      "before": "normalize(dst,low,e0,e1,e2,e3,e4,e5,high,k,Ghost(c));",
+      "after": "normalize(dst,low,e1,e0,e2,e3,e4,e5,high,k,Ghost(c));",
+      "log_sha256": "6c3d3c5a3602932d823c6cbcbb0e802dd7e32734495ab668e31c745e156c5936"
+    }
+  ],
+  "artifact_sha256": {
+    "libcandidate.rlib": "a0a3ac3cf947e0081737e7fd34c6fd2be325b1dc2d4dd8079c942cec9c77b0df",
+    "candidate.vir": "2cb6743efc0ed569d6431bca96d0310e4abfc99dd280f3cb7538d7354d6a1b98",
+    "oracle-runner": "4785569ea34567862c67046ee1a4fbdd6d4c021708d8d3a429e881e6464e8acd",
+    "codegen.s": "a7ebf289f2ae7428c1e04119b5228f4d3c4be7cab6e3cfa47e0d27f587d8a482"
+  },
+  "finished_utc": "2026-11-02T02:53:58.091459+00:00"
+}

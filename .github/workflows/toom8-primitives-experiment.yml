@@ -40,3 +40,6 @@ jobs:
       - run: python3 experiments/toom8-primitives/even/audit.py
       - run: python3 experiments/toom8-primitives/even/test_prepare_boundaries.py
       - run: python3 experiments/toom8-primitives/even/prepare.py --output /tmp/verigmp-even
+      - run: python3 experiments/toom8-primitives/seventh/audit.py
+      - run: python3 experiments/toom8-primitives/seventh/test_prepare_boundaries.py
+      - run: python3 experiments/toom8-primitives/seventh/prepare.py --output /tmp/verigmp-seventh
