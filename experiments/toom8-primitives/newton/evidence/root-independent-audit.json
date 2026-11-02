@@ -1,0 +1,47 @@
+{
+  "status": "pass",
+  "report_sha256": "7964f375cf33a1dce8ef9195fe76a4ccacfc593eeff2524b999dbefca7e0b514",
+  "sources": 89,
+  "tools": 21,
+  "runtime": {
+    "/usr/lib/x86_64-linux-gnu/libgcc_s.so.1": "d93224d2b0dab4247598be683adca02f5cf00586f99c187579cd7e92058fb7cb",
+    "/usr/lib/x86_64-linux-gnu/libc.so.6": "d8db8739a1633c972cec6a4fe0566bdcec6fd088f98723492ab0361f66238f75",
+    "/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2": "1cd555ac46b7887edeaf3c42aac5408c8135e52f6b37870da2cf82d5fe14e829"
+  },
+  "artifacts": {
+    "libcandidate.rlib": "d477eef2a47e7cf84af5aaf38d7c9b3e9bbdde76f40f377a605e5fda83330ea3",
+    "candidate.vir": "8ab9a36df1927670256dd0447367c278ccd067f278d5ec8cd4c88d5cb72df4cf",
+    "oracle-runner": "9494ff7bb28b0ae9d635d33ba3fbd03d926712a094a0819a048a2c086e8199dd",
+    "codegen.s": "ffe91c8ef1916c18033a517f7ef4b018aef0cf5a4a73bdbe6ad2fb622f224aa4"
+  },
+  "positive_proofs": [
+    425,
+    427,
+    427
+  ],
+  "strict_actual_core_mutants": 8,
+  "independent_schedule": "Actual runtime calls symbolically applied to scaled Vandermonde basis; every intermediate coefficient integral nonnegative and nonincreasing; final identity",
+  "phase_count": 24,
+  "primitive_counts": {
+    "toom_words::sub_exact": 36,
+    "toom_words::divide_exact": 36,
+    "wide_odd_division::divide_toom8_odd": 36,
+    "scaled_subtraction::sub_scaled_exact": 36
+  },
+  "per_path_primitives": {
+    "even": 60,
+    "odd": 84
+  },
+  "oracle": "Independent Fraction Gaussian-elimination inverse applied to evaluation inputs, then actual saved binary replay",
+  "cases": 1087,
+  "cases_by_degree": {
+    "5": 529,
+    "6": 558
+  },
+  "output_sha256": "9099b48df426f6e2df7a73b2865c7ea3a06959069a3bb7f0bf61af92fc3dad2f",
+  "structural_invalid_cases": 10,
+  "pre_post_identity_checked_files": 230,
+  "proof_or_compile_rerun": false,
+  "benchmark_run": false,
+  "scope": "Interpolation under nonnegative-coefficient evaluation preconditions; ordinary parser does not validate those mathematical preconditions. Future actual Toom evaluation producer must establish them. Not a completed Toom8 kernel or performance result."
+}

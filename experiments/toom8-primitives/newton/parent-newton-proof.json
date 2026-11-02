@@ -1,0 +1,28 @@
+{
+  "status": "pass",
+  "scope": "Ghost-only exact difference/conversion equations and nonnegative linear-form bounds; not executable interpolation",
+  "source_sha256": {
+    "derive_newton_spec.py": "449e64250b50abd9fdcc62cea3e0492bcb847924b598d86de10a6d517d9048a2",
+    "check_newton_spec.py": "ef2cf86bc3b4cfd6b232861223ec5b6c7b92e3598d173458985ce2386dfc2bfc",
+    "mathematics/toom8_newton_spec.rs": "afb79c43b4a700fbe59fee2ff03a492031912b6e232948c4ee44bc31be5120a9",
+    "mathematics/newton-operations.json": "d63a69453df97d539137ac77c0f79cdf14576e7519bf5a005d1b76af10e08f50"
+  },
+  "command": [
+    "<verus-home>/verus-x86-linux/verus",
+    "<parent-stage>/mathematics/newton-focused1/inputs/mathematics/toom8_newton_spec.rs",
+    "--crate-name",
+    "toom8_newton",
+    "--crate-type",
+    "lib",
+    "--compile",
+    "-O",
+    "-o",
+    "<parent-stage>/mathematics/newton-focused1/newton.rlib"
+  ],
+  "verifier_sha256": "1208c995c8e5244577693eba311d34bc2050c4acf984e10c4c7baf2003abff14",
+  "started_utc": "2026-11-01T23:54:20.227954+00:00",
+  "benchmark_run": false,
+  "verified": 72,
+  "returncode": 0,
+  "finished_utc": "2026-11-01T23:54:23.212189+00:00"
+}

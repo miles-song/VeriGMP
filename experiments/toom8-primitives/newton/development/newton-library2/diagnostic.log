@@ -1,0 +1,158 @@
+error: reveal/fuel statement is not allowed here because the function `library::toom8_newton_spec::even_state_0_0` is marked `closed` and thus its body is not visible here (note: `reveal` statements are intended for functions that are opaque, not functions that are closed)
+  --> <stage>/development/newton-library2/inputs/candidate/native/verified/toom8_newton.rs:35:9
+   |
+35 | ...   reveal(mo...
+   |       ^^^^^^
+
+error: reveal/fuel statement is not allowed here because the function `library::toom8_newton_spec::even_state_1_0` is marked `closed` and thus its body is not visible here (note: `reveal` statements are intended for functions that are opaque, not functions that are closed)
+   --> <stage>/development/newton-library2/inputs/candidate/native/verified/toom8_newton.rs:129:9
+    |
+129 | ...   reveal(mo...
+    |       ^^^^^^
+
+error: reveal/fuel statement is not allowed here because the function `library::toom8_newton_spec::even_state_2_0` is marked `closed` and thus its body is not visible here (note: `reveal` statements are intended for functions that are opaque, not functions that are closed)
+   --> <stage>/development/newton-library2/inputs/candidate/native/verified/toom8_newton.rs:212:9
+    |
+212 | ...   reveal(mo...
+    |       ^^^^^^
+
+error: reveal/fuel statement is not allowed here because the function `library::toom8_newton_spec::even_state_3_0` is marked `closed` and thus its body is not visible here (note: `reveal` statements are intended for functions that are opaque, not functions that are closed)
+   --> <stage>/development/newton-library2/inputs/candidate/native/verified/toom8_newton.rs:284:9
+    |
+284 | ...   reveal(mo...
+    |       ^^^^^^
+
+error: reveal/fuel statement is not allowed here because the function `library::toom8_newton_spec::even_state_4_0` is marked `closed` and thus its body is not visible here (note: `reveal` statements are intended for functions that are opaque, not functions that are closed)
+   --> <stage>/development/newton-library2/inputs/candidate/native/verified/toom8_newton.rs:345:9
+    |
+345 | ...   reveal(mo...
+    |       ^^^^^^
+
+error: reveal/fuel statement is not allowed here because the function `library::toom8_newton_spec::even_state_5_0` is marked `closed` and thus its body is not visible here (note: `reveal` statements are intended for functions that are opaque, not functions that are closed)
+   --> <stage>/development/newton-library2/inputs/candidate/native/verified/toom8_newton.rs:395:9
+    |
+395 | ...   reveal(mo...
+    |       ^^^^^^
+
+error: reveal/fuel statement is not allowed here because the function `library::toom8_newton_spec::even_state_6_0` is marked `closed` and thus its body is not visible here (note: `reveal` statements are intended for functions that are opaque, not functions that are closed)
+   --> <stage>/development/newton-library2/inputs/candidate/native/verified/toom8_newton.rs:442:9
+    |
+442 | ...   reveal(mo...
+    |       ^^^^^^
+
+error: reveal/fuel statement is not allowed here because the function `library::toom8_newton_spec::even_state_7_0` is marked `closed` and thus its body is not visible here (note: `reveal` statements are intended for functions that are opaque, not functions that are closed)
+   --> <stage>/development/newton-library2/inputs/candidate/native/verified/toom8_newton.rs:494:9
+    |
+494 | ...   reveal(mo...
+    |       ^^^^^^
+
+error: reveal/fuel statement is not allowed here because the function `library::toom8_newton_spec::even_state_8_0` is marked `closed` and thus its body is not visible here (note: `reveal` statements are intended for functions that are opaque, not functions that are closed)
+   --> <stage>/development/newton-library2/inputs/candidate/native/verified/toom8_newton.rs:551:9
+    |
+551 | ...   reveal(mo...
+    |       ^^^^^^
+
+error: reveal/fuel statement is not allowed here because the function `library::toom8_newton_spec::even_state_9_0` is marked `closed` and thus its body is not visible here (note: `reveal` statements are intended for functions that are opaque, not functions that are closed)
+   --> <stage>/development/newton-library2/inputs/candidate/native/verified/toom8_newton.rs:613:9
+    |
+613 | ...   reveal(mo...
+    |       ^^^^^^
+
+error: reveal/fuel statement is not allowed here because the function `library::toom8_newton_spec::even_state_10_0` is marked `closed` and thus its body is not visible here (note: `reveal` statements are intended for functions that are opaque, not functions that are closed)
+   --> <stage>/development/newton-library2/inputs/candidate/native/verified/toom8_newton.rs:680:9
+    |
+680 | ...   reveal(mo...
+    |       ^^^^^^
+
+error: reveal/fuel statement is not allowed here because the function `library::toom8_newton_spec::even_state_0_0` is marked `closed` and thus its body is not visible here (note: `reveal` statements are intended for functions that are opaque, not functions that are closed)
+   --> <stage>/development/newton-library2/inputs/candidate/native/verified/toom8_newton.rs:737:9
+    |
+737 | ...   reveal(mo...
+    |       ^^^^^^
+
+error: reveal/fuel statement is not allowed here because the function `library::toom8_newton_spec::odd_state_0_0` is marked `closed` and thus its body is not visible here (note: `reveal` statements are intended for functions that are opaque, not functions that are closed)
+   --> <stage>/development/newton-library2/inputs/candidate/native/verified/toom8_newton.rs:794:9
+    |
+794 | ...   reveal(mo...
+    |       ^^^^^^
+
+error: reveal/fuel statement is not allowed here because the function `library::toom8_newton_spec::odd_state_1_0` is marked `closed` and thus its body is not visible here (note: `reveal` statements are intended for functions that are opaque, not functions that are closed)
+   --> <stage>/development/newton-library2/inputs/candidate/native/verified/toom8_newton.rs:905:9
+    |
+905 | ...   reveal(mo...
+    |       ^^^^^^
+
+error: reveal/fuel statement is not allowed here because the function `library::toom8_newton_spec::odd_state_2_0` is marked `closed` and thus its body is not visible here (note: `reveal` statements are intended for functions that are opaque, not functions that are closed)
+    --> <stage>/development/newton-library2/inputs/candidate/native/verified/toom8_newton.rs:1005:9
+     |
+1005 | ...   reveal(mo...
+     |       ^^^^^^
+
+error: reveal/fuel statement is not allowed here because the function `library::toom8_newton_spec::odd_state_3_0` is marked `closed` and thus its body is not visible here (note: `reveal` statements are intended for functions that are opaque, not functions that are closed)
+    --> <stage>/development/newton-library2/inputs/candidate/native/verified/toom8_newton.rs:1094:9
+     |
+1094 | ...   reveal(mo...
+     |       ^^^^^^
+
+error: reveal/fuel statement is not allowed here because the function `library::toom8_newton_spec::odd_state_4_0` is marked `closed` and thus its body is not visible here (note: `reveal` statements are intended for functions that are opaque, not functions that are closed)
+    --> <stage>/development/newton-library2/inputs/candidate/native/verified/toom8_newton.rs:1172:9
+     |
+1172 | ...   reveal(mo...
+     |       ^^^^^^
+
+error: reveal/fuel statement is not allowed here because the function `library::toom8_newton_spec::odd_state_5_0` is marked `closed` and thus its body is not visible here (note: `reveal` statements are intended for functions that are opaque, not functions that are closed)
+    --> <stage>/development/newton-library2/inputs/candidate/native/verified/toom8_newton.rs:1239:9
+     |
+1239 | ...   reveal(mo...
+     |       ^^^^^^
+
+error: reveal/fuel statement is not allowed here because the function `library::toom8_newton_spec::odd_state_6_0` is marked `closed` and thus its body is not visible here (note: `reveal` statements are intended for functions that are opaque, not functions that are closed)
+    --> <stage>/development/newton-library2/inputs/candidate/native/verified/toom8_newton.rs:1295:9
+     |
+1295 | ...   reveal(mo...
+     |       ^^^^^^
+
+error: reveal/fuel statement is not allowed here because the function `library::toom8_newton_spec::odd_state_7_0` is marked `closed` and thus its body is not visible here (note: `reveal` statements are intended for functions that are opaque, not functions that are closed)
+    --> <stage>/development/newton-library2/inputs/candidate/native/verified/toom8_newton.rs:1348:9
+     |
+1348 | ...   reveal(mo...
+     |       ^^^^^^
+
+error: reveal/fuel statement is not allowed here because the function `library::toom8_newton_spec::odd_state_8_0` is marked `closed` and thus its body is not visible here (note: `reveal` statements are intended for functions that are opaque, not functions that are closed)
+    --> <stage>/development/newton-library2/inputs/candidate/native/verified/toom8_newton.rs:1406:9
+     |
+1406 | ...   reveal(mo...
+     |       ^^^^^^
+
+error: reveal/fuel statement is not allowed here because the function `library::toom8_newton_spec::odd_state_9_0` is marked `closed` and thus its body is not visible here (note: `reveal` statements are intended for functions that are opaque, not functions that are closed)
+    --> <stage>/development/newton-library2/inputs/candidate/native/verified/toom8_newton.rs:1469:9
+     |
+1469 | ...   reveal(mo...
+     |       ^^^^^^
+
+error: reveal/fuel statement is not allowed here because the function `library::toom8_newton_spec::odd_state_10_0` is marked `closed` and thus its body is not visible here (note: `reveal` statements are intended for functions that are opaque, not functions that are closed)
+    --> <stage>/development/newton-library2/inputs/candidate/native/verified/toom8_newton.rs:1537:9
+     |
+1537 | ...   reveal(mo...
+     |       ^^^^^^
+
+error: reveal/fuel statement is not allowed here because the function `library::toom8_newton_spec::odd_state_11_0` is marked `closed` and thus its body is not visible here (note: `reveal` statements are intended for functions that are opaque, not functions that are closed)
+    --> <stage>/development/newton-library2/inputs/candidate/native/verified/toom8_newton.rs:1610:9
+     |
+1610 | ...   reveal(mo...
+     |       ^^^^^^
+
+error: reveal/fuel statement is not allowed here because the function `library::toom8_newton_spec::odd_state_12_0` is marked `closed` and thus its body is not visible here (note: `reveal` statements are intended for functions that are opaque, not functions that are closed)
+    --> <stage>/development/newton-library2/inputs/candidate/native/verified/toom8_newton.rs:1688:9
+     |
+1688 | ...   reveal(mo...
+     |       ^^^^^^
+
+error: reveal/fuel statement is not allowed here because the function `library::toom8_newton_spec::odd_state_0_0` is marked `closed` and thus its body is not visible here (note: `reveal` statements are intended for functions that are opaque, not functions that are closed)
+    --> <stage>/development/newton-library2/inputs/candidate/native/verified/toom8_newton.rs:1754:9
+     |
+1754 | ...   reveal(mo...
+     |       ^^^^^^
+
+error: aborting due to 26 previous errors
+

@@ -1,0 +1,37 @@
+error[E0061]: this function takes 7 arguments but 6 arguments were supplied
+   --> <stage>/development/newton-runner1/inputs/candidate/native/toom8_newton_runner.rs:60:23
+    |
+ 60 | ...5 {toom8...:even(&mut...n+1]);}
+    |       ^^^^^...^^^^^-----...----- argument #7 of type `vstd::prelude::Ghost<vstd::seq::Seq<vstd::prelude::int>>` is missing
+    |
+note: function defined here
+   --> <stage>/development/newton-runner1/inputs/candidate/native/verified/toom8_newton.rs:709:8
+    |
+709 | ...fn even(a0:&mut[u64],a1:&mut[u64],a2:&mut[u64],a3:&mut[u64],a4:&mut[u64],a5:&mut[u64],Ghost(c):Gh...
+    |       ^^^^                                                                               --------
+help: provide the argument
+    |
+ 60 -         if degree==5 {toom8_newton::even(&mut a0[1..n+1],&mut a1[1..n+1],&mut a2[1..n+1],&mut a3[1..n+1],&mut a4[1..n+1],&mut a5[1..n+1]);}
+ 60 +         if degree==5 {toom8_newton::even(&mut a0[1..n+1], &mut a1[1..n+1], &mut a2[1..n+1], &mut a3[1..n+1], &mut a4[1..n+1], &mut a5[1..n+1], /* Ghost<Seq<int>> */);}
+    |
+
+error[E0061]: this function takes 8 arguments but 7 arguments were supplied
+    --> <stage>/development/newton-runner1/inputs/candidate/native/toom8_newton_runner.rs:61:15
+     |
+  61 | ...e {toom8...::odd(&mut...n+1]);}
+     |       ^^^^^...^^^^^-----...----- argument #8 of type `vstd::prelude::Ghost<vstd::seq::Seq<vstd::prelude::int>>` is missing
+     |
+note: function defined here
+    --> <stage>/development/newton-runner1/inputs/candidate/native/verified/toom8_newton.rs:1722:8
+     |
+1722 | ...fn odd(a0:&mut[u64],a1:&mut[u64],a2:&mut[u64],a3:&mut[u64],a4:&mut[u64],a5:&mut[u64],a6:&mut[u64],Ghost(c):Gh...
+     |       ^^^                                                                                            --------
+help: provide the argument
+     |
+  61 -         else {toom8_newton::odd(&mut a0[1..n+1],&mut a1[1..n+1],&mut a2[1..n+1],&mut a3[1..n+1],&mut a4[1..n+1],&mut a5[1..n+1],&mut a6[1..n+1]);}
+  61 +         else {toom8_newton::odd(&mut a0[1..n+1], &mut a1[1..n+1], &mut a2[1..n+1], &mut a3[1..n+1], &mut a4[1..n+1], &mut a5[1..n+1], &mut a6[1..n+1], /* Ghost<Seq<int>> */);}
+     |
+
+error: aborting due to 2 previous errors
+
+For more information about this error, try `rustc --explain E0061`.

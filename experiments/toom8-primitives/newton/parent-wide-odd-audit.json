@@ -1,0 +1,46 @@
+{
+  "status": "pass",
+  "scope": "saved source/proof evidence and independent mathematical replay; not completed Toom8 or performance acceptance",
+  "report_sha256": "fa6d57852c5bb56598c233eb4d4fef0672658d16eb1ccbc8b8165f974e44f82a",
+  "sources": 78,
+  "tools": 21,
+  "runner_runtime": {
+    "/usr/lib/x86_64-linux-gnu/libgcc_s.so.1": "d93224d2b0dab4247598be683adca02f5cf00586f99c187579cd7e92058fb7cb",
+    "/usr/lib/x86_64-linux-gnu/libc.so.6": "d8db8739a1633c972cec6a4fe0566bdcec6fd088f98723492ab0361f66238f75",
+    "/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2": "1cd555ac46b7887edeaf3c42aac5408c8135e52f6b37870da2cf82d5fe14e829"
+  },
+  "artifacts": {
+    "libcandidate.rlib": "da182b554dad4c13b74143a03f4d0a4ff01b17f882a2564d83f66f4fe7078a4e",
+    "candidate.vir": "d6b26a49a8a44c29868967deab1c00af61a92450f92bd1359f8bff80470b706b",
+    "oracle-runner": "1c792060575d5d175dcc905bb39217c54e96e268871c88b43404f9cc7cfc0e6c",
+    "codegen.s": "1c0dc8132f0492e441718916d5faaec760c98f9b9bc45af0842732d6cd5d1223"
+  },
+  "positive_proofs": [
+    327,
+    24,
+    24
+  ],
+  "strict_semantic_mutants": [
+    "inverse4095",
+    "ignore-input-carry",
+    "wrong-inverse-factor",
+    "drop-wide-carry",
+    "zero-return-carry",
+    "store-original",
+    "zero-loop-carry",
+    "skip-family-call"
+  ],
+  "oracle_counts": {
+    "limb": 16480,
+    "exact": 11024,
+    "family": 798,
+    "inverse": 6
+  },
+  "independent_output_sha256": "65fce7001caa334b6336dd646a0f9714a040bedc735d449f84a79d453f89eb3d",
+  "actual_runner_replayed": true,
+  "invalid_commands_replayed": 17,
+  "pre_post_identity_checked_files": 215,
+  "compiler_or_proofs_rerun": false,
+  "benchmark_run": false,
+  "codegen_limit": "Author textual assembly check reviewed; no machine-code equivalence claim"
+}

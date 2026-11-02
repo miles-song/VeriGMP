@@ -1,0 +1,60 @@
+{
+  "attempts": [
+    {
+      "name": "newton-library1",
+      "reported_status": "failed",
+      "report": "development/newton-library1/report.json",
+      "source_overlays": {
+        "candidate/native/specs/toom8_newton.rs": "development/newton-library1/overlays/candidate/native/specs/toom8_newton.rs",
+        "candidate/native/verified/toom8_newton.rs": "development/newton-library1/overlays/candidate/native/verified/toom8_newton.rs"
+      },
+      "status_boundary": "Historical development evidence; accepted evidence is newton-feature1"
+    },
+    {
+      "name": "newton-library2",
+      "reported_status": "failed",
+      "report": "development/newton-library2/report.json",
+      "source_overlays": {
+        "candidate/native/toom8_newton_codegen.rs": "development/newton-library2/overlays/candidate/native/toom8_newton_codegen.rs",
+        "candidate/native/toom8_newton_runner.rs": "development/newton-library2/overlays/candidate/native/toom8_newton_runner.rs",
+        "candidate/native/specs/toom8_newton.rs": "development/newton-library2/overlays/candidate/native/specs/toom8_newton.rs"
+      },
+      "status_boundary": "Historical development evidence; accepted evidence is newton-feature1"
+    },
+    {
+      "name": "newton-library3",
+      "reported_status": "pass",
+      "report": "development/newton-library3/report.json",
+      "source_overlays": {
+        "candidate/native/toom8_newton_codegen.rs": "development/newton-library3/overlays/candidate/native/toom8_newton_codegen.rs",
+        "candidate/native/toom8_newton_runner.rs": "development/newton-library3/overlays/candidate/native/toom8_newton_runner.rs"
+      },
+      "status_boundary": "Historical development evidence; accepted evidence is newton-feature1"
+    },
+    {
+      "name": "newton-runner1",
+      "reported_status": "failed",
+      "report": "development/newton-runner1/report.json",
+      "source_overlays": {
+        "candidate/native/toom8_newton_codegen.rs": "development/newton-runner1/overlays/candidate/native/toom8_newton_codegen.rs",
+        "candidate/native/toom8_newton_runner.rs": "development/newton-runner1/overlays/candidate/native/toom8_newton_runner.rs"
+      },
+      "status_boundary": "Historical development evidence; accepted evidence is newton-feature1"
+    },
+    {
+      "name": "newton-runner2",
+      "reported_status": "pass",
+      "report": "development/newton-runner2/report.json",
+      "source_overlays": {},
+      "status_boundary": "Historical development evidence; accepted evidence is newton-feature1"
+    },
+    {
+      "name": "newton-codegen1",
+      "reported_status": "pass",
+      "report": "development/newton-codegen1/report.json",
+      "source_overlays": {},
+      "status_boundary": "Historical development evidence; accepted evidence is newton-feature1"
+    }
+  ],
+  "accepted_gate": "newton-feature1"
+}

@@ -16,3 +16,5 @@ jobs:
           python-version: '3.12'
       - run: python3 experiments/toom8-primitives/wide-odd/audit.py
       - run: python3 experiments/toom8-primitives/wide-odd/prepare.py --output /tmp/verigmp-wide-odd
+      - run: python3 experiments/toom8-primitives/newton/audit.py
+      - run: python3 experiments/toom8-primitives/newton/prepare.py --output /tmp/verigmp-newton
