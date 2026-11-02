@@ -1,0 +1,4 @@
+
+thread 'main' (21410) panicked at <stage>/feature-gates/wide-odd-feature3/inputs/candidate/native/wide_odd_runner.rs:36:16:
+unknown operation
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace

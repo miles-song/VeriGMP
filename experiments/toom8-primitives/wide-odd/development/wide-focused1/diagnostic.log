@@ -1,0 +1,15 @@
+verification results:: 20 verified, 2 errors
+error: assertion failed
+  --> <stage>/development/wide-focused1/inputs/development/../candidate/native/verified/wide_odd_division.rs:84:16
+   |
+84 | ...rt(carry==0);
+   |       ^^^^^^^^ assertion failed
+
+error: assertion failed
+  --> <stage>/development/wide-focused1/inputs/development/../candidate/native/specs/wide_odd_division.rs:34:16
+   |
+34 | ...rt(y%d==0);
+   |       ^^^^^^ assertion failed
+
+error: aborting due to 2 previous errors
+
