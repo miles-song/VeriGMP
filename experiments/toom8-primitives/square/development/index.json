@@ -1,0 +1,26 @@
+{
+  "accepted_gate": "square-feature1",
+  "attempts": [
+    {
+      "name": "square-focused1",
+      "reported_status": "pass",
+      "report": "development/square-focused1/report.json",
+      "source_overlays": {
+        "check_development.py": "development/square-focused1/overlays/check_development.py",
+        "origin.json": "development/square-focused1/overlays/origin.json"
+      },
+      "status_boundary": "Historical record; accepted gate is square-feature1."
+    },
+    {
+      "name": "square-all1",
+      "reported_status": "pass",
+      "report": "development/square-all1/report.json",
+      "source_overlays": {
+        "check_development.py": "development/square-all1/overlays/check_development.py",
+        "origin.json": "development/square-all1/overlays/origin.json"
+      },
+      "status_boundary": "Historical record; accepted gate is square-feature1."
+    }
+  ],
+  "development_boundary": "Both development proofs are retained: the focused three-item square caller and full549-item library proof."
+}

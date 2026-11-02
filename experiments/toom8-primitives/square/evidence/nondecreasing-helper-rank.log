@@ -1,0 +1,17 @@
+verification results:: 0 verified, 1 errors (partial verification with `--verify-*`)
+note: verifying module toom8_square_dyadic_producer
+
+note: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+ --> <stage>/feature-gates/square-feature1/inputs/candidate/native/verified/toom8_square_dyadic_producer.rs:8:1
+  |
+8 | pub f...size)
+  | ^^^^^...^^^^^
+
+error: could not prove termination
+  --> <stage>/feature-gates/square-feature1/inputs/candidate/native/verified/toom8_square_dyadic_producer.rs:18:5
+   |
+18 |     crate...hold);
+   |     ^^^^^...^^^^^
+
+error: aborting due to 1 previous error
+

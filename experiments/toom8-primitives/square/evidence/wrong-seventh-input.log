@@ -1,0 +1,23 @@
+verification results:: 1 verified, 1 errors (partial verification with `--verify-*`)
+note: verifying module toom8_square_seventh
+
+note: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> <stage>/feature-gates/square-feature1/inputs/candidate/native/verified/toom8_square_seventh.rs:11:1
+   |
+11 | pub f...size)
+   | ^^^^^...^^^^^
+
+note: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> <stage>/feature-gates/square-feature1/inputs/candidate/native/verified/toom8_square_seventh.rs:34:1
+   |
+34 | pub f...size)
+   | ^^^^^...^^^^^
+
+error: could not prove termination
+  --> <stage>/feature-gates/square-feature1/inputs/candidate/native/verified/toom8_square_seventh.rs:31:5
+   |
+31 |     toom8...hold);
+   |     ^^^^^...^^^^^
+
+error: aborting due to 1 previous error
+

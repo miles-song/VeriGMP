@@ -1,0 +1,13 @@
+{
+  "status": "whole_library_development_proof_passed_pending_frozen_gate",
+  "purpose": "Dedicated recursive fifteen-square full kernel, one operand evaluation per point, full-u64 semantics.",
+  "difference_from_product": "Positive and negative point values are each evaluated once then squared; sign of each point square is nonnegative. It is not merely a product(a,a) wrapper.",
+  "domain": "Positive equal self input; output2n, scratch>=10n, threshold>=56. Internal balanced helpers are used only for n>56; original full-domain helpers remain unchanged.",
+  "space": "One evaluated operand m plus10m child work gives11m shared scratch; coefficient bank<=30m, thus41m<=10n for n>56, k=ceil(n/8). Actual slice-capacity obligations passed in whole-library development549/0; immutable gate pending.",
+  "termination": "Same lexicographic actual call SCC ranks, child sizes k,h,m<n. Actual termination passed in whole-library development549/0; immutable gate pending.",
+  "analytic_cost": "S(n)<=S(k)+S(h)+13S(k+1)+O(n). Fixed-arity analytic recurrence, not checked machine cost.",
+  "leaf": "Previously verified dedicated Toom4 square at fixed leaf threshold24.",
+  "benchmark_run": false,
+  "promotion": false,
+  "low_complete": false
+}

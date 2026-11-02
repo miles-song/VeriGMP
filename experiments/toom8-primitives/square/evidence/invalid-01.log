@@ -1,0 +1,6 @@
+
+thread 'main' (5385) panicked at <stage>/feature-gates/square-feature1/inputs/candidate/native/toom8_recursive_square_runner.rs:114:96:
+assertion `left == right` failed
+  left: "unknown"
+ right: "square"
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace

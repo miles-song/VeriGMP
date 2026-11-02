@@ -1,0 +1,34 @@
+verification results:: 2 verified, 1 errors (partial verification with `--verify-*`)
+note: verifying module toom8_recursive_square
+
+note: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+ --> <stage>/feature-gates/square-feature1/inputs/candidate/native/verified/toom8_recursive_square.rs:7:1
+  |
+7 | pub p...:int)
+  | ^^^^^...^^^^^
+
+note: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> <stage>/feature-gates/square-feature1/inputs/candidate/native/verified/toom8_recursive_square.rs:15:1
+   |
+15 | pub f...size)
+   | ^^^^^...^^^^^
+
+note: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> <stage>/feature-gates/square-feature1/inputs/candidate/native/verified/toom8_recursive_square.rs:46:1
+   |
+46 | pub f...size)
+   | ^^^^^...^^^^^
+
+error: precondition not satisfied
+  --> <stage>/feature-gates/square-feature1/inputs/candidate/native/verified/toom8_recursive_square.rs:59:22
+   |
+59 | ...d {toom4...h,24);re...
+   |       ^^^^^...^^^^^
+   |
+  ::: <stage>/feature-gates/square-feature1/inputs/candidate/native/verified/toom4_square.rs:12:14
+   |
+12 | ...es a@.len()>0,ol...
+   |       ---------- failed precondition
+
+error: aborting due to 1 previous error
+
