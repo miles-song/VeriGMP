@@ -12,7 +12,7 @@ import zipfile
 from pathlib import Path
 from unittest.mock import patch
 
-from fresh_evidence import audit_fresh, audit_report, digest
+from fresh_evidence import _inspect_report, audit_fresh, audit_report, digest
 from check_dyadic_recovery import m7_m8_gate, run_archive_audit
 
 
@@ -26,13 +26,14 @@ class FreshEvidenceTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls) -> None:
         with zipfile.ZipFile(BUNDLE / "evidence.zip") as archive:
-            cls.saved = {name.removeprefix("interpolation/"): archive.read(name)
-                         for name in archive.namelist() if name.startswith("interpolation/")}
+            cls.archive = {name: archive.read(name) for name in archive.namelist()}
+        cls.saved = {name.removeprefix("interpolation/"): data for name, data in cls.archive.items()
+                     if name.startswith("interpolation/")}
 
     def reject(self, changes: dict[str, bytes], message: str) -> None:
         saved = self.saved | changes
         with self.assertRaisesRegex(ValueError, message):
-            audit_report("interpolation", SCOPE, saved.__getitem__)
+            _inspect_report("interpolation", SCOPE, saved.__getitem__)
 
     def report_change(self, edit) -> dict[str, bytes]:
         report = json.loads(self.saved["verification.json"])
@@ -69,7 +70,7 @@ class FreshEvidenceTests(unittest.TestCase):
             source = scope / "candidate/native/verified/toom8_interpolation.rs"
             source.write_bytes(source.read_bytes() + b"\n")
             with self.assertRaisesRegex(ValueError, "source mismatch"):
-                audit_report("interpolation", scope, self.saved.__getitem__)
+                _inspect_report("interpolation", scope, self.saved.__getitem__)
 
     def test_unverified_compile_flag_is_rejected(self) -> None:
         def edit(report):
@@ -168,6 +169,85 @@ class FreshEvidenceTests(unittest.TestCase):
             self.assertEqual(report["status"], "fail")
             self.assertIn("fresh_execution_evidence", report["audit_failures"])
             self.assertFalse(report["promotion"])
+
+    def forged_members(self, attack: str) -> dict[str, bytes]:
+        members = dict(self.archive)
+        report = json.loads(members["interpolation/verification.json"])
+        if attack == "metadata_artifact":
+            members["interpolation/candidate.vir"] = b"not a Verus metadata file\n"
+            report["artifact_sha256"]["candidate.vir"] = digest(members["interpolation/candidate.vir"])
+        elif attack == "tool_identity":
+            verus = next(path for path in report["toolchain_file_sha256"] if path.endswith("/verus"))
+            report["toolchain_file_sha256"][verus] = "0" * 64
+        else:
+            raise ValueError(attack)
+        members["interpolation/verification.json"] = json.dumps(report, indent=2).encode()
+        return members
+
+    def write_forged_bundle(self, folder: Path, members: dict[str, bytes], manifest: dict) -> None:
+        archive = folder / "evidence.zip"
+        if members == self.archive:
+            shutil.copyfile(BUNDLE / "evidence.zip", archive)
+        else:
+            with zipfile.ZipFile(archive, "w", compression=zipfile.ZIP_DEFLATED) as saved:
+                for rel, data in members.items():
+                    saved.writestr(rel, data)
+        manifest["archive_members"] = {rel: digest(data) for rel, data in members.items()}
+        manifest["archive_sha256"] = digest(archive.read_bytes())
+        manifest["archive_bytes"] = archive.stat().st_size
+        for name in ["dyadic", "interpolation"]:
+            manifest["gates"][name]["report_sha256"] = digest(members[name + "/verification.json"])
+        (folder / "manifest.json").write_text(json.dumps(manifest, indent=2) + "\n", encoding="utf-8")
+
+    def reject_cli(self, folder: Path, args: list[str]) -> None:
+        run = subprocess.run([sys.executable, str(HERE / "check_dyadic_recovery.py"), *args], cwd=folder,
+                             capture_output=True, text=True, check=False)
+        report = json.loads(run.stdout)
+        self.assertEqual(run.returncode, 1, run.stderr)
+        self.assertEqual(report["status"], "fail")
+        self.assertFalse(report["gates"]["scoped_audit"])
+        self.assertEqual(report["fresh_execution_evidence"]["status"], "fail")
+        self.assertIn("registered execution", report["fresh_execution_evidence"]["error"])
+        self.assertFalse(report["promotion"])
+
+    def test_cli_rejects_forged_capture_source_and_platform(self) -> None:
+        manifest = json.loads((BUNDLE / "manifest.json").read_bytes())
+        manifest.update(source_commit="0" * 40, verifier_platform="forged platform")
+        with tempfile.TemporaryDirectory() as temp:
+            folder = Path(temp)
+            self.write_forged_bundle(folder, self.archive, manifest)
+            self.reject_cli(folder, ["--fresh-evidence", str(folder)])
+
+    def test_cli_rejects_fully_rehashed_fake_metadata_artifact(self) -> None:
+        with tempfile.TemporaryDirectory() as temp:
+            folder = Path(temp)
+            self.write_forged_bundle(folder, self.forged_members("metadata_artifact"),
+                                     json.loads((BUNDLE / "manifest.json").read_bytes()))
+            self.reject_cli(folder, ["--fresh-evidence", str(folder)])
+
+    def test_cli_rejects_fully_rehashed_tool_identity_drift(self) -> None:
+        with tempfile.TemporaryDirectory() as temp:
+            folder = Path(temp)
+            self.write_forged_bundle(folder, self.forged_members("tool_identity"),
+                                     json.loads((BUNDLE / "manifest.json").read_bytes()))
+            self.reject_cli(folder, ["--fresh-evidence", str(folder)])
+
+    def test_registered_report_rejects_rehashed_claim(self) -> None:
+        members = self.forged_members("tool_identity")
+        read = lambda rel: members["interpolation/" + rel]
+        with self.assertRaisesRegex(ValueError, "report differs from registered execution"):
+            audit_report("interpolation", SCOPE, read)
+
+    def test_cli_raw_mode_rejects_rehashed_metadata_and_tools(self) -> None:
+        for attack in ["metadata_artifact", "tool_identity"]:
+            with self.subTest(attack=attack), tempfile.TemporaryDirectory() as temp:
+                folder = Path(temp)
+                for rel, data in self.forged_members(attack).items():
+                    path = folder / rel
+                    path.parent.mkdir(parents=True, exist_ok=True)
+                    path.write_bytes(data)
+                self.reject_cli(folder, ["--dyadic-report", str(folder / "dyadic/verification.json"),
+                                         "--interpolation-report", str(folder / "interpolation/verification.json")])
 
 
 if __name__ == "__main__":

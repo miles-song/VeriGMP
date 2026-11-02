@@ -1,7 +1,8 @@
 """Audit the scoped dyadic-recovery consumer and its current acceptance gates.
 
-This checks source, historical archives and the raw outputs of a separately
-executed immutable Verus/Rust gate. It does not rerun the verifier or runner.
+This checks source, historical archives and the dated Verus/Rust execution
+registered in scope.json. Supplied archives and raw reports must have those
+registered identities. It does not rerun the verifier or runner.
 Audit discrepancies fail the command; missing performance and solver acceptance
 remain explicit promotion blockers after a successful scoped audit.
 """
@@ -455,9 +456,9 @@ def audit(fresh_evidence: Path = FRESH, consumer_repo: Path | None = None,
 
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--fresh-evidence", type=Path, help="Directory containing manifest.json and evidence.zip")
-    parser.add_argument("--dyadic-report", type=Path, help="Raw dyadic verification.json beside its captured inputs, logs and artifacts")
-    parser.add_argument("--interpolation-report", type=Path, help="Raw interpolation verification.json beside its captured inputs, logs and artifacts")
+    parser.add_argument("--fresh-evidence", type=Path, help="Copy of the registered manifest.json and evidence.zip")
+    parser.add_argument("--dyadic-report", type=Path, help="Registered dyadic verification.json beside its captured inputs, logs and artifacts")
+    parser.add_argument("--interpolation-report", type=Path, help="Registered interpolation verification.json beside its captured inputs, logs and artifacts")
     parser.add_argument("--consumer-repo", type=Path, help="Optionally bind the frozen status receipt to a local VeriCount checkout")
     args = parser.parse_args()
     if bool(args.dyadic_report) != bool(args.interpolation_report):

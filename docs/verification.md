@@ -202,6 +202,16 @@ toom8_normalization::with_endpoints -> toom8_dyadic_producer::dyadic_pair`
 plus seventh/Newton odd. Codegen inspection is textual optimized assembly
 audit; length/slice guards remain.
 
+Dyadic recovery and interpolation primitives were verified with Verus from
+source commit `5cfde6a630591080c330ac09177977c539bd3a55` on linux_x86_64 via
+WSL. The two dated verification runs are registered in
+`experiments/toom8-primitives/dyadic-recovery/scope.json` with pinned source
+commit, verifier platform, archive SHA-256/size, and report hashes binding
+original tool identity, logs, and artifacts. The audit wrapper in that
+directory validates archive integrity and report provenance against the
+registered hashes but does not execute Verus or establish performance
+acceptance.
+
 The feature is pending independent review. It does not modify production
 dispatch or establish complete recursive Toom-8 implementation. The frozen
 VeriCount consumer receipt at commit `8ba9253` reports M7 status `spec_only`

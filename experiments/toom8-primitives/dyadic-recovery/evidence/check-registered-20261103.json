@@ -1,0 +1,219 @@
+{
+  "status": "registered_execution_audit_pass_pending_independent_acceptance",
+  "recorded_utc": "2026-11-02T18:05:35.983959+00:00",
+  "wrapper_source_base_commit": "a5f5dba0c480be41d5737aac54d1ab13b138aa84",
+  "feature_base_commit": "5cfde6a630591080c330ac09177977c539bd3a55",
+  "preceding_receipt": "evidence/check-fresh-20261103.json",
+  "preceding_receipt_sha256": "779cc831929052231ed96eb2253b236dda21e7e1b8f6d09f084286cda9bfa691",
+  "evidence_audit_contract": "registered_execution_archive_only",
+  "fresh_execution_source_commit": "5cfde6a630591080c330ac09177977c539bd3a55",
+  "fresh_manifest_sha256": "eb800f348f6217a541a5f6c6739da62d3aad79a62810941e3bae9459e56f752f",
+  "fresh_archive_sha256": "89e2fe8be6f21afd58b0ad0e73852183487a837a670d21c6da600233f7b774c4",
+  "fresh_report_sha256": {
+    "dyadic": "59b7a321b4ccc813fe03a39b40d779310b26240c11f088942606ba6e4ab2db3d",
+    "interpolation": "2c8effe52e66597198d8ca2aad70f2ad1595f9bc16894a579bc0b81b03b061d2"
+  },
+  "positive_checks": [
+    {
+      "report": "audit-default.json",
+      "command": [
+        "python",
+        "experiments/toom8-primitives/dyadic-recovery/check_dyadic_recovery.py"
+      ],
+      "returncode": 0,
+      "sha256": "4c3aec5b237a4d118704ba9c7ffd7f88f864809c8cdef1aa5d7580857ea3ae89",
+      "status": "scoped_progress",
+      "gates": {
+        "consumer_status_binding": true,
+        "fresh_runner_evidence": true,
+        "fresh_verus_evidence": true,
+        "historical_archive_integrity": true,
+        "independent_review_for_promotion": false,
+        "m7_m8_solver_consumer": false,
+        "performance": false,
+        "promotion": false,
+        "runner_reexecuted_in_this_audit": false,
+        "scoped_audit": true,
+        "semantic_mapping": true,
+        "static_proof_erasure": true,
+        "verification_rerun_in_this_audit": false
+      }
+    },
+    {
+      "report": "audit-relocated-archive.json",
+      "command": [
+        "python",
+        "experiments/toom8-primitives/dyadic-recovery/check_dyadic_recovery.py",
+        "--fresh-evidence",
+        "build\\dyadic-registered-audit-20261103\\relocated-bundle"
+      ],
+      "returncode": 0,
+      "sha256": "4c3aec5b237a4d118704ba9c7ffd7f88f864809c8cdef1aa5d7580857ea3ae89",
+      "status": "scoped_progress",
+      "gates": {
+        "consumer_status_binding": true,
+        "fresh_runner_evidence": true,
+        "fresh_verus_evidence": true,
+        "historical_archive_integrity": true,
+        "independent_review_for_promotion": false,
+        "m7_m8_solver_consumer": false,
+        "performance": false,
+        "promotion": false,
+        "runner_reexecuted_in_this_audit": false,
+        "scoped_audit": true,
+        "semantic_mapping": true,
+        "static_proof_erasure": true,
+        "verification_rerun_in_this_audit": false
+      }
+    },
+    {
+      "report": "audit-live-consumer.json",
+      "command": [
+        "python",
+        "experiments/toom8-primitives/dyadic-recovery/check_dyadic_recovery.py",
+        "--consumer-repo",
+        "../VeriCount"
+      ],
+      "returncode": 0,
+      "sha256": "898cca4030221ffad8cff11a497ab825837e1b2916298e6521cf2b4a76a9bbf4",
+      "status": "scoped_progress",
+      "gates": {
+        "consumer_status_binding": true,
+        "fresh_runner_evidence": true,
+        "fresh_verus_evidence": true,
+        "historical_archive_integrity": true,
+        "independent_review_for_promotion": false,
+        "m7_m8_solver_consumer": false,
+        "performance": false,
+        "promotion": false,
+        "runner_reexecuted_in_this_audit": false,
+        "scoped_audit": true,
+        "semantic_mapping": true,
+        "static_proof_erasure": true,
+        "verification_rerun_in_this_audit": false
+      }
+    },
+    {
+      "report": "audit-raw-reports.json",
+      "command": [
+        "python",
+        "experiments/toom8-primitives/dyadic-recovery/check_dyadic_recovery.py",
+        "--dyadic-report",
+        "experiments/toom8-primitives/dyadic/feature-gates/root-fresh-20261103a/verification.json",
+        "--interpolation-report",
+        "experiments/toom8-primitives/interpolation/feature-gates/root-fresh-20261103a/verification.json"
+      ],
+      "returncode": 0,
+      "sha256": "0af9c6b6d635ea7740bcb0bd2785b1ef258b2fc215597b8b744fc731654399da",
+      "status": "scoped_progress",
+      "gates": {
+        "consumer_status_binding": true,
+        "fresh_runner_evidence": true,
+        "fresh_verus_evidence": true,
+        "historical_archive_integrity": true,
+        "independent_review_for_promotion": false,
+        "m7_m8_solver_consumer": false,
+        "performance": false,
+        "promotion": false,
+        "runner_reexecuted_in_this_audit": false,
+        "scoped_audit": true,
+        "semantic_mapping": true,
+        "static_proof_erasure": true,
+        "verification_rerun_in_this_audit": false
+      }
+    }
+  ],
+  "original_forged_bundle_replays": [
+    {
+      "name": "forged-capture-metadata",
+      "returncode": 1,
+      "status": "fail",
+      "fresh": {
+        "error": "ValueError: capture source/platform differs from registered execution",
+        "status": "fail"
+      },
+      "promotion": false,
+      "report_sha256": "39c069cc3170e6b6364523b65e4976b3f614e55f15f17796bd43f978dfd7320f"
+    },
+    {
+      "name": "rehashed-fake-vir",
+      "returncode": 1,
+      "status": "fail",
+      "fresh": {
+        "error": "ValueError: manifest differs from registered execution",
+        "status": "fail"
+      },
+      "promotion": false,
+      "report_sha256": "1952f069099f4951e75a41bb63c2143a87064feb2c3810f4ae318f545febe879"
+    },
+    {
+      "name": "rehashed-tool-identity",
+      "returncode": 1,
+      "status": "fail",
+      "fresh": {
+        "error": "ValueError: manifest differs from registered execution",
+        "status": "fail"
+      },
+      "promotion": false,
+      "report_sha256": "1952f069099f4951e75a41bb63c2143a87064feb2c3810f4ae318f545febe879"
+    }
+  ],
+  "original_probe_preservation_record": "registered-audit-20261103/original-probes-replay.json",
+  "regression_tests": {
+    "command": [
+      "python",
+      "experiments/toom8-primitives/dyadic-recovery/test_fresh_evidence.py"
+    ],
+    "tests": 19,
+    "returncode": 0,
+    "log": "registered-audit-20261103/regression-tests.txt",
+    "sha256": "d82e42c33d398bdf8d3013fe2be8b2684ff16c1e6f4bf46666bb69c292645de6"
+  },
+  "python": "3.14.7",
+  "proof_rerun": false,
+  "runner_reexecuted": false,
+  "benchmark_run": false,
+  "independent_acceptance": false,
+  "solver_consumer_accepted": false,
+  "backend_promotion": false,
+  "indexed_file_sha256": {
+    ".github/workflows/toom8-primitives-experiment.yml": "77b2b475c95b8b2f24b0b33c038f6f965b9fdb313a6a2c02a37aad5139045252",
+    "README.md": "0ddc8e156da5b63077497145a42475970cfdc6f4da83093268d190de20e30c0f",
+    "docs/verification.md": "66453926acb547164c6b0f4fbc5a023245ff7ecfd6a261ff45b507e957425e4b",
+    "experiments/toom8-primitives/dyadic-recovery/README.md": "1cc38b0b8652c5230e4a614e1c9d6a912b4862d5cc56e88bc4d1ac5d4cb454b4",
+    "experiments/toom8-primitives/dyadic-recovery/check_dyadic_recovery.py": "8bf39edd5ec4e271bce00179d344b238a8c89ee6fc2650142eb27a59d30fd69f",
+    "experiments/toom8-primitives/dyadic-recovery/evidence/check-fresh-20261103.json": "779cc831929052231ed96eb2253b236dda21e7e1b8f6d09f084286cda9bfa691",
+    "experiments/toom8-primitives/dyadic-recovery/evidence/fresh-20261103/audit-default.json": "d2393ccb991ade72c18c37458395e19250ea6d6b85e40696e4b907bc57ef5f7c",
+    "experiments/toom8-primitives/dyadic-recovery/evidence/fresh-20261103/audit-live-consumer.json": "642a87b9b79a5ec324fc1f1b8a54ff150729d62d31df033b18674e2eccf0e498",
+    "experiments/toom8-primitives/dyadic-recovery/evidence/fresh-20261103/audit-raw-reports.json": "5f6766ce7b419ecddf569bddb07d24f9fb88c714def561fd6c467a80c70d8ada",
+    "experiments/toom8-primitives/dyadic-recovery/evidence/fresh-20261103/consumer-VeriCount.json": "86fd4245fed6084e781c6a87cb36ef6d63e316504874e39c74ff85c53cc42622",
+    "experiments/toom8-primitives/dyadic-recovery/evidence/fresh-20261103/evidence.zip": "89e2fe8be6f21afd58b0ad0e73852183487a837a670d21c6da600233f7b774c4",
+    "experiments/toom8-primitives/dyadic-recovery/evidence/fresh-20261103/manifest.json": "eb800f348f6217a541a5f6c6739da62d3aad79a62810941e3bae9459e56f752f",
+    "experiments/toom8-primitives/dyadic-recovery/evidence/fresh-20261103/regression-tests.txt": "22f6f57a09fb0905843b573c3e8b184020e15fc3ec43e75511d15f9f77c9859f",
+    "experiments/toom8-primitives/dyadic-recovery/evidence/registered-audit-20261103/audit-default.json": "4c3aec5b237a4d118704ba9c7ffd7f88f864809c8cdef1aa5d7580857ea3ae89",
+    "experiments/toom8-primitives/dyadic-recovery/evidence/registered-audit-20261103/audit-live-consumer.json": "898cca4030221ffad8cff11a497ab825837e1b2916298e6521cf2b4a76a9bbf4",
+    "experiments/toom8-primitives/dyadic-recovery/evidence/registered-audit-20261103/audit-raw-reports.json": "0af9c6b6d635ea7740bcb0bd2785b1ef258b2fc215597b8b744fc731654399da",
+    "experiments/toom8-primitives/dyadic-recovery/evidence/registered-audit-20261103/audit-relocated-archive.json": "4c3aec5b237a4d118704ba9c7ffd7f88f864809c8cdef1aa5d7580857ea3ae89",
+    "experiments/toom8-primitives/dyadic-recovery/evidence/registered-audit-20261103/forged-capture-metadata-fixed.stdout.json": "39c069cc3170e6b6364523b65e4976b3f614e55f15f17796bd43f978dfd7320f",
+    "experiments/toom8-primitives/dyadic-recovery/evidence/registered-audit-20261103/original-probes-replay.json": "7e4fa2f62e6f7875ef385cae2691c99da5a903aa67df9c7930f9cb62f9801108",
+    "experiments/toom8-primitives/dyadic-recovery/evidence/registered-audit-20261103/regression-tests.txt": "d82e42c33d398bdf8d3013fe2be8b2684ff16c1e6f4bf46666bb69c292645de6",
+    "experiments/toom8-primitives/dyadic-recovery/evidence/registered-audit-20261103/rehashed-fake-vir-fixed.stdout.json": "1952f069099f4951e75a41bb63c2143a87064feb2c3810f4ae318f545febe879",
+    "experiments/toom8-primitives/dyadic-recovery/evidence/registered-audit-20261103/rehashed-tool-identity-fixed.stdout.json": "1952f069099f4951e75a41bb63c2143a87064feb2c3810f4ae318f545febe879",
+    "experiments/toom8-primitives/dyadic-recovery/fresh_evidence.py": "a2047f347ff82ed3288abf88debbd9117b0b860154a99a7f63f1e367e921e757",
+    "experiments/toom8-primitives/dyadic-recovery/scope.json": "efb3f64c298c3600647d57c2e72703347d35b16dc63076243a040bcc5d046d75",
+    "experiments/toom8-primitives/dyadic-recovery/test_fresh_evidence.py": "f6d05c1e55e68a0d641d33401d935316e1b8d38272eacd1a2d19df003863715e"
+  },
+  "unchanged_prior_evidence_sha256": {
+    "experiments/toom8-primitives/dyadic-recovery/evidence/fresh-20261103/regression-tests.txt": "22f6f57a09fb0905843b573c3e8b184020e15fc3ec43e75511d15f9f77c9859f",
+    "experiments/toom8-primitives/dyadic-recovery/evidence/fresh-20261103/audit-raw-reports.json": "5f6766ce7b419ecddf569bddb07d24f9fb88c714def561fd6c467a80c70d8ada",
+    "experiments/toom8-primitives/dyadic-recovery/evidence/fresh-20261103/audit-live-consumer.json": "642a87b9b79a5ec324fc1f1b8a54ff150729d62d31df033b18674e2eccf0e498",
+    "experiments/toom8-primitives/dyadic-recovery/evidence/fresh-20261103/manifest.json": "eb800f348f6217a541a5f6c6739da62d3aad79a62810941e3bae9459e56f752f",
+    "experiments/toom8-primitives/dyadic-recovery/evidence/check-fresh-20261103.json": "779cc831929052231ed96eb2253b236dda21e7e1b8f6d09f084286cda9bfa691",
+    "experiments/toom8-primitives/dyadic-recovery/evidence/fresh-20261103/consumer-VeriCount.json": "86fd4245fed6084e781c6a87cb36ef6d63e316504874e39c74ff85c53cc42622",
+    "experiments/toom8-primitives/dyadic-recovery/evidence/fresh-20261103/audit-default.json": "d2393ccb991ade72c18c37458395e19250ea6d6b85e40696e4b907bc57ef5f7c",
+    "experiments/toom8-primitives/dyadic-recovery/evidence/fresh-20261103/evidence.zip": "89e2fe8be6f21afd58b0ad0e73852183487a837a670d21c6da600233f7b774c4",
+    "experiments/toom8-primitives/dyadic-recovery/evidence/check-20261103.json": "8d55748e5fe9c4435729c08f01ce342ede2006f3229d7ff0913e5b43520f1c9b"
+  },
+  "source_identity": "Checks ran on the bytes recorded in indexed_file_sha256; wrapper_source_base_commit identifies their parent checkout, not a claim that uncommitted checker changes were already in that commit",
+  "index_binding_scope": "Every current feature blob from feature_base_commit, including retained prior receipts and archives; this new receipt is anchored by its enclosing Git commit"
+}

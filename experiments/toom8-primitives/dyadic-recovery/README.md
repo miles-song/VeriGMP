@@ -40,6 +40,28 @@ The command exits 0 when all source, archive, fresh evidence, and consumer
 observation checks pass, indicating successful scoped evidence consistency
 audit. Discrepancies exit 1. Exit 0 is not backend promotion acceptance.
 
+This wrapper audits two dated Verus verification runs registered in
+`experiments/toom8-primitives/dyadic-recovery/scope.json`: dyadic recovery
+and interpolation primitives from source commit
+`5cfde6a630591080c330ac09177977c539bd3a55`, verified on linux_x86_64 via WSL.
+The scope registration is version-controlled and reviewed with the code.
+Default bundle mode and `--fresh-evidence` validate that the copied archive
+matches the registered original manifest bytes, source commit, verifier
+platform, archive SHA-256/size, and the two registered report hashes. Report
+hashes bind the original source, tool identities, logs, and artifacts. The
+wrapper checks captured and current source bytes, raw logs and compiled
+artifacts, and does not reread installed tool binaries. `--dyadic-report` and
+`--interpolation-report` accept relocated copies of those exact two registered
+raw reports with original inputs, logs, and artifacts intact. They do not
+accept self-described new verification runs, and pair tool and runtime
+identities must agree. Recomputing replacement hashes does not create
+verification provenance; a new dated run requires real pinned-tool verification
+and independent review of an updated scope registration. This wrapper does not
+execute Verus or gate binaries, contains no arithmetic timing evidence, and cannot
+establish solver integration or backend promotion. Independent acceptance of
+the scoped feature is still pending; overall GMP parity is a separate gate, not
+a prerequisite for an independently accepted scoped feature.
+
 The default wrapper reads the frozen VeriCount source and status receipt
 recorded at commit `8ba9253946783ce84c00f6218f9cd538e8bb8ef2` on 2026-11-03.
 It records file SHA-256 for `native/proof-status.json`, `native/arithmetic.rs`,
@@ -63,10 +85,10 @@ backend authority fields, gitlink, and reference scan still match. The output
 records actual and receipt HEADs and proof-status hashes separately.
 Supply `--dyadic-report /path/to/dyadic/verification.json`
 and `--interpolation-report /path/to/interpolation/verification.json` to audit
-raw gate reports; each supplied report directory must contain inputs, logs,
+copies of the registered raw gate reports; each supplied report directory must contain inputs, logs,
 candidate.vir, libcandidate.rlib, oracle-runner, and codegen.s alongside the
-report. Supply `--fresh-evidence /path/to/folder` to audit a bundle with
-manifest.json and evidence.zip.
+report. Supply `--fresh-evidence /path/to/folder` to audit a copy of the registered bundle
+with manifest.json and evidence.zip.
 
 The 2026-11-03 run is recorded in
 [`evidence/check-20261103.json`](evidence/check-20261103.json). It ran against

@@ -1,0 +1,53 @@
+{
+  "rejected": [
+    {
+      "name": "forged-capture-metadata",
+      "returncode": 1,
+      "status": "fail",
+      "fresh": {
+        "error": "ValueError: capture source/platform differs from registered execution",
+        "status": "fail"
+      },
+      "promotion": false,
+      "report_sha256": "39c069cc3170e6b6364523b65e4976b3f614e55f15f17796bd43f978dfd7320f"
+    },
+    {
+      "name": "rehashed-fake-vir",
+      "returncode": 1,
+      "status": "fail",
+      "fresh": {
+        "error": "ValueError: manifest differs from registered execution",
+        "status": "fail"
+      },
+      "promotion": false,
+      "report_sha256": "1952f069099f4951e75a41bb63c2143a87064feb2c3810f4ae318f545febe879"
+    },
+    {
+      "name": "rehashed-tool-identity",
+      "returncode": 1,
+      "status": "fail",
+      "fresh": {
+        "error": "ValueError: manifest differs from registered execution",
+        "status": "fail"
+      },
+      "promotion": false,
+      "report_sha256": "1952f069099f4951e75a41bb63c2143a87064feb2c3810f4ae318f545febe879"
+    }
+  ],
+  "unchanged_original_probe_file_sha256": {
+    "build/root-independent-dyadic-astra-20261103/independent_probe.py": "2b148f0ab3e91dfa53c7cdc3ff95048bd02e874d558b2406ef3832c03f77b2cf",
+    "build/root-independent-dyadic-astra-20261103/independent-probe-results.json": "e08d221b4b53d3a1db6b4537fd2da2dd908604e105ab829f4a6678e66bdb5214",
+    "build/root-independent-dyadic-astra-20261103/forged-capture-metadata/manifest.json": "a6258991cd183361cb3bcb85cc5dbb2c681fb68bb500a649544d2b82a7ffaf8d",
+    "build/root-independent-dyadic-astra-20261103/forged-capture-metadata/evidence.zip": "89e2fe8be6f21afd58b0ad0e73852183487a837a670d21c6da600233f7b774c4",
+    "build/root-independent-dyadic-astra-20261103/forged-capture-metadata/audit.stdout.json": "e951016bfa79c21bea30f4f997828d6ad2af1510d518aede18bd6daed5adfca7",
+    "build/root-independent-dyadic-astra-20261103/forged-capture-metadata/audit.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "build/root-independent-dyadic-astra-20261103/rehashed-fake-vir/manifest.json": "906c518505a55cbb26792347cf60eb889f0cd1f292a6070ca2a86bffc9ae933f",
+    "build/root-independent-dyadic-astra-20261103/rehashed-fake-vir/evidence.zip": "a165ef20a0faf12183b0eeaa3ccde685d3d95e042dc1303a6cd670cb04701b30",
+    "build/root-independent-dyadic-astra-20261103/rehashed-fake-vir/audit.stdout.json": "85ec5f410e87af9fa70661a4ffd377065baa5350ff16878346adf19660d1526c",
+    "build/root-independent-dyadic-astra-20261103/rehashed-fake-vir/audit.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "build/root-independent-dyadic-astra-20261103/rehashed-tool-identity/manifest.json": "7bb76f092d44292e79788e13e3801b83bdaaf19e2bcd729100f5774168047a13",
+    "build/root-independent-dyadic-astra-20261103/rehashed-tool-identity/evidence.zip": "2a0b1e93fc8dd85db2ab8be76f306891074d34bf22c0f6057e29b7f7004fc68b",
+    "build/root-independent-dyadic-astra-20261103/rehashed-tool-identity/audit.stdout.json": "baba5a0cbcfd8e0045145a2c14842bc671dde9e98db6d9847a9594197db90ba1",
+    "build/root-independent-dyadic-astra-20261103/rehashed-tool-identity/audit.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

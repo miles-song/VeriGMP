@@ -55,5 +55,10 @@
     "2": "Invalid command-line arguments"
   },
   "fresh_verus_evidence": true,
-  "fresh_runner_evidence": true
+  "fresh_runner_evidence": true,
+  "evidence_audit_contract": "registered_execution_archive_only",
+  "fresh_manifest_sha256": "eb800f348f6217a541a5f6c6739da62d3aad79a62810941e3bae9459e56f752f",
+  "fresh_verifier_platform": "linux_x86_64 via WSL",
+  "fresh_archive_bytes": 6818712,
+  "new_execution_registration": "New dated executions require an actual pinned verification run and independent review of scope registration; self-described replacement hashes are not accepted"
 }

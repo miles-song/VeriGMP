@@ -1,9 +1,10 @@
-"""Validate the scoped fresh gate's recorded execution, without rerunning Verus."""
+"""Audit the registered execution archive; never authenticate new proof claims."""
 
 from __future__ import annotations
 
 import ast
 import hashlib
+import io
 import json
 import re
 import types
@@ -12,6 +13,7 @@ from pathlib import Path, PurePosixPath
 from typing import Callable
 
 
+REGISTRATION = Path(__file__).with_name("scope.json")
 SCOPES = {
     "dyadic": (478, 2688, 102, "dyadic_producer"),
     "interpolation": (514, 336, 115, "interpolation"),
@@ -42,17 +44,29 @@ def relative(name: str) -> str:
 
 def directory_reader(root: Path) -> Callable[[str], bytes]:
     root = root.resolve()
+    captured = {}
 
     def read(name: str) -> bytes:
         path = (root / relative(name)).resolve()
         require(path.is_relative_to(root), f"evidence path escapes directory: {name}")
-        return path.read_bytes()
+        if name not in captured:
+            captured[name] = path.read_bytes()
+        return captured[name]
 
     return read
 
 
 def audit_report(name: str, scope: Path, read: Callable[[str], bytes]) -> dict:
-    """Bind a raw report to current inputs, logs, commands and compiled outputs."""
+    """Authenticate registered report bytes before inspecting their evidence."""
+    registration = json.loads(REGISTRATION.read_bytes())
+    report_bytes = read("verification.json")
+    require(digest(report_bytes) == registration["fresh_report_sha256"][name],
+            f"{name}: report differs from registered execution")
+    return _inspect_report(name, scope, lambda rel: report_bytes if rel == "verification.json" else read(rel))
+
+
+def _inspect_report(name: str, scope: Path, read: Callable[[str], bytes]) -> dict:
+    """Check consistency only; audit_report supplies the provenance boundary."""
     verified, cases, source_count, stem = SCOPES[name]
     report_bytes = read("verification.json")
     report = json.loads(report_bytes)
@@ -197,28 +211,42 @@ def audit_report(name: str, scope: Path, read: Callable[[str], bytes]) -> dict:
     return {"status": "pass", "report_sha256": digest(report_bytes), "source_inputs": len(sources),
             "verified_items_per_entry": verified, "oracle_cases": cases, "invalid_commands": 12,
             "semantic_mutants": len(mutants), "tool_files": len(tools), "runtime_libraries": len(runtime),
+            "tool_identity_sha256": digest(json.dumps(tools, sort_keys=True).encode()),
+            "runtime_identity_sha256": digest(json.dumps(runtime, sort_keys=True).encode()),
             "toolchain": report["toolchain"], "rustc": report["rustc"], "artifact_sha256": artifacts,
             "started_utc": report["started_utc"], "finished_utc": report["finished_utc"],
             "codegen": report["codegen"], "current_installed_tool_bytes_checked": False}
 
 
 def audit_fresh(repo: Path, bundle: Path, reports: dict[str, Path] | None = None) -> dict:
-    identity = {}
+    registration = json.loads(REGISTRATION.read_bytes())
+    require(registration["evidence_audit_contract"] == "registered_execution_archive_only"
+            and set(registration["fresh_report_sha256"]) == set(SCOPES), "unsupported evidence registration")
+    identity = {"capture_source_commit": registration["fresh_capture_source_commit"],
+                "verifier_platform": registration["fresh_verifier_platform"]}
     if reports is not None:
         require(set(reports) == set(SCOPES), "both raw execution reports are required")
         gates = {name: audit_report(name, repo / "experiments/toom8-primitives" / name,
                                    directory_reader(path.parent)) for name, path in reports.items()}
-        mode = "supplied raw execution reports"
+        mode = "registered raw execution reports"
     else:
-        manifest = json.loads((bundle / "manifest.json").read_bytes())
+        manifest_bytes = (bundle / "manifest.json").read_bytes()
+        manifest = json.loads(manifest_bytes)
         require(manifest["status"] == "fresh_scoped_verification_pass_pending_independent_review"
                 and all(manifest[key] is False for key in ["benchmark_run", "whole_toom8_kernel_accepted",
                                                           "solver_consumer_accepted", "backend_promotion"]),
                 "fresh receipt exceeds the recorded acceptance scope")
+        require(manifest["source_commit"] == registration["fresh_capture_source_commit"]
+                and manifest["verifier_platform"] == registration["fresh_verifier_platform"],
+                "capture source/platform differs from registered execution")
+        require(digest(manifest_bytes) == registration["fresh_manifest_sha256"],
+                "manifest differs from registered execution")
         archive = bundle / "evidence.zip"
-        require(digest(archive.read_bytes()) == manifest["archive_sha256"]
-                and archive.stat().st_size == manifest["archive_bytes"], "fresh archive hash/size mismatch")
-        with zipfile.ZipFile(archive) as saved:
+        archive_bytes = archive.read_bytes()
+        require(digest(archive_bytes) == manifest["archive_sha256"] == registration["fresh_archive_sha256"]
+                and len(archive_bytes) == manifest["archive_bytes"] == registration["fresh_archive_bytes"],
+                "fresh archive hash/size differs from registered execution")
+        with zipfile.ZipFile(io.BytesIO(archive_bytes)) as saved:
             members = manifest["archive_members"]
             require(len(saved.namelist()) == len(set(saved.namelist())) and set(saved.namelist()) == set(members),
                     "fresh archive member set differs")
@@ -235,12 +263,13 @@ def audit_fresh(repo: Path, bundle: Path, reports: dict[str, Path] | None = None
                 "started_utc": result["started_utc"], "finished_utc": result["finished_utc"],
             }
             require(expected_receipt == manifest["gates"][name], f"{name}: receipt report mismatch")
-        require(set(manifest["gates"]) == set(SCOPES)
-                and re.fullmatch(r"[0-9a-f]{40}", manifest["source_commit"]), "fresh receipt source identity missing")
-        identity = {"capture_source_commit": manifest["source_commit"], "archive_sha256": manifest["archive_sha256"],
-                    "archive_bytes": manifest["archive_bytes"], "verifier_platform": manifest["verifier_platform"]}
-        mode = "frozen fresh execution archive"
-    return {"status": "pass", "mode": mode, **identity, "gates": gates, "verification_rerun": False,
+        require(set(manifest["gates"]) == set(SCOPES), "fresh receipt gate set differs")
+        identity.update(archive_sha256=registration["fresh_archive_sha256"], archive_bytes=len(archive_bytes))
+        mode = "registered frozen execution archive"
+    for key in ["tool_identity_sha256", "runtime_identity_sha256"]:
+        require(gates["dyadic"][key] == gates["interpolation"][key], f"registered pair {key} differs")
+    return {"status": "pass", "mode": mode, "contract": registration["evidence_audit_contract"],
+            **identity, "gates": gates, "pair_tool_runtime_identity_equal": True, "verification_rerun": False,
             "runner_reexecuted": False, "independent_acceptance": False,
             "tool_identity_scope": "Recorded hashes and version/linkage logs; current installed tool binaries are not reread",
             "codegen_scope": "Textual optimized assembly inspection; length/slice guards remain; no timing or machine-code equivalence claim"}
