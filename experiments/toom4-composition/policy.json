@@ -1,0 +1,48 @@
+{
+  "status": "preregistered_before_fresh_measurement",
+  "base_commit": "d58f7d26cfb96b7c943cd006f869d528e8407dd0",
+  "arithmetic_equivalent_baseline": "e22a4dd00a28681fd27d68e2a78fa304cf17563e",
+  "dispatch": {
+    "toom4_min_limbs": 1024,
+    "product": [256, 128, 2],
+    "square": [256, 64, 1],
+    "below_cutoff": "Current production arithmetic, including current low-square leaves",
+    "odd_scope": "Only Toom-4 interpolation divisions by 3, 9 and 15; shared Toom-3 divide_exact is unchanged"
+  },
+  "modes": ["baseline", "entry", "odd", "fusion", "signed", "odd_signed", "fusion_signed", "gmp"],
+  "features": {
+    "entry": [],
+    "odd": ["odd"],
+    "fusion": ["odd", "fusion"],
+    "signed": ["odd", "fusion", "signed"],
+    "odd_signed": ["odd", "signed"],
+    "fusion_signed": ["fusion", "signed"]
+  },
+  "exploration": {
+    "runs": 1,
+    "shapes": [[256,63],[512,63],[513,63],[767,63],[768,63],[769,63],[1023,63],[1024,63],[1025,63],[1027,63],[1279,63],[1280,63],[1281,63],[1535,63],[1536,63],[1537,63],[2047,63],[2048,63],[2049,63],[3071,63],[3072,63],[3073,63],[4095,63],[4096,63],[4097,63]],
+    "selection": "Select only among the six registered combinations at the fixed cutoff 1024. A combination must improve each affected principal workload by at least 3 percent and every affected exploration shape by at least 1 percent versus baseline. Among eligible combinations, choose the least-feature combination within 2 percent geometric-mean elapsed time of the fastest eligible combination. Ties use the registered mode order. If none qualify, archive without default promotion. Exploration is not confirmation."
+  },
+  "confirmation": {
+    "runs": 2,
+    "shapes": "All registered key shapes plus all exploration shapes, deduplicated; both operations; exact immutable selected arithmetic source",
+    "acceptance": "Both runs must improve each affected principal workload by at least 3 percent, every affected measured shape by at least 1 percent, and the affected-shape geometric mean by at least 5 percent versus baseline. Below cutoff, report every observed regression and require no repeatable regression above 5 percent. Any failed condition prevents promotion. No tuning or result-based rerun after selection."
+  },
+  "measurement": {
+    "repetitions": 7,
+    "minimum_recorded_batch_ns": 10000000,
+    "calibration_goal_ns": 20000000,
+    "cpu": 0,
+    "order": "Mode order rotates by repetition within each shape and operation",
+    "allocation": "Same full-u64 operands; preallocated output and exact 12n product / 10n square scratch reused by every mode; black_box inputs and outputs; public GMP full then low copy and top mask",
+    "quiet": "Root-coordinated heavy-job stop, Windows process CPU probe and WSL process CPU probe before measurement; retain before/after metadata and all raw records",
+    "no_result_based_discard_or_retry": true
+  },
+  "scope": {
+    "complete_api": false,
+    "gmp_parity_claim": false,
+    "consumer_switch": false,
+    "proof": "Same-source full Verus verification and optimized compilation; imported vir/rlib pairs bound to those sources; Python integer oracles, actual semantic VC failures, default and forced paths, exact capacities/canaries and generated-code checks before confirmation",
+    "cost": "Full Toom-4 analytic majorant 7 T(ceil(n/4)+1)+O(n); no checked composed bit-cost or machine-cost theorem; scratch contracts remain 12n and 10n"
+  }
+}
