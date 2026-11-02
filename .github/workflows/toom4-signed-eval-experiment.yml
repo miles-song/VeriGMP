@@ -1,7 +1,7 @@
 name: Toom-4 signed evaluation experiment archive
 on:
   push:
-    branches: [experiments/toom4-signed-eval]
+    branches: [experiments/toom4-signed-eval, 'main', 'acceptance/experiment-archives-main']
   pull_request:
     paths: [experiments/toom4-signed-eval/**, .github/workflows/toom4-signed-eval-experiment.yml]
 jobs:

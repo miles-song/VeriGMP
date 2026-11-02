@@ -1,0 +1,350 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-02",
+  "acceptance_scope": "historical experimental archives only",
+  "production_base_commit": "8398731b6c043b6d1aa3010c6066e4ac45c22a1d",
+  "experiment_baseline_commit": "e22a4dd00a28681fd27d68e2a78fa304cf17563e",
+  "production_source_diff_empty": true,
+  "production_promotion_approved": false,
+  "registered_gmp_target_status": "not_met",
+  "fresh_verus_proof_claimed_by_this_archive_audit": false,
+  "fresh_benchmark_claimed_by_this_archive_audit": false,
+  "independent_audit": {
+    "status": "pass",
+    "report_sha256": "c5ab6b59a2ccc6e6d89cee2111c66b59688a86e5884d677265c10352958deea6",
+    "script_sha256": "6619e376b8eecd9bb3472b24911fe310288defb43f1e7ea24e10be9011cbb10e",
+    "checks": 36,
+    "bundle": "acceptance-20261102/independent-audit.zip",
+    "bundle_sha256": "34344826185edd5532d51f96d8b05c98d231fcdfc5adbb2cac1d9ef9ad54f31d",
+    "bundle_bytes": 219778
+  },
+  "merge_requirements": [
+    "independent review of the immutable integration tree",
+    "all archive workflows and the production verification workflow pass at the exact integration tip",
+    "fast-forward main, verify main CI, then delete completed local and remote branches"
+  ],
+  "archives": [
+    {
+      "unit": "scaled-subtraction",
+      "accepted_archive_tip": "57d651a6be739dc43044f8c1cccc2681ebdfd37b",
+      "archive_files": 192,
+      "workflow": ".github/workflows/scaled-experiments.yml",
+      "audit_checks": [
+        {
+          "script": "experiments/scaled-subtraction/audit.py",
+          "script_sha256": "a973deb4fdfbc13f3fd813f4a3f019efd179101d5133296536cba7e10db621eb",
+          "log": "scaled-audit.py.log",
+          "log_sha256": "61b3e38b0a9a6b7da5fbf3061a683296d4558f07250058bb4ede4b780bb45bd4",
+          "returncode": 0
+        }
+      ],
+      "tracked_source_manifest_sha256": "32bb1c6736603b4ed8428b72a35b8e80ea1e4517685fedd8ecd1a68ee75271ca",
+      "production_promotion_approved": false
+    },
+    {
+      "unit": "toom4",
+      "accepted_archive_tip": "1e78a6d8edd9c38d87f9578a23dbb1ac49f2c0e1",
+      "archive_files": 163,
+      "workflow": ".github/workflows/toom4-experiment.yml",
+      "audit_checks": [
+        {
+          "script": "experiments/toom4/audit.py",
+          "script_sha256": "5a0a89ce4a0a7b9fafbff156b654cb38e5f95fdf9bdee143456a3fc7d9bd5d7e",
+          "log": "toom4-audit.py.log",
+          "log_sha256": "c6d35824cdd4b8ecf1630d447f07e7db89edfbc0da3e161ebc61cd427845b216",
+          "returncode": 0
+        }
+      ],
+      "tracked_source_manifest_sha256": "0ada2140e811419f5a3f88e8793006ac41f77c3d752f6648114ab007b63e85df",
+      "production_promotion_approved": false
+    },
+    {
+      "unit": "toom4-entry",
+      "accepted_archive_tip": "3361734df5489e0f4bb316bdff71d02bb7fc6f3a",
+      "archive_files": 189,
+      "workflow": ".github/workflows/toom4-entry-experiment.yml",
+      "audit_checks": [
+        {
+          "script": "experiments/toom4-entry/audit.py",
+          "script_sha256": "a19fcc277d228073c105cd300cba155956d7da5668064c5f4c496699e52e624f",
+          "log": "entry-audit.py.log",
+          "log_sha256": "1a6710a8a032d098d05e5f9204466e458ea2612a67f69b20ea2a127b08c87b2a",
+          "returncode": 0
+        }
+      ],
+      "tracked_source_manifest_sha256": "7496cfecd5f1bb24208ee3f83df0e1e269e2fdc8c0052458a9d94142dd62f40f",
+      "production_promotion_approved": false
+    },
+    {
+      "unit": "odd-division",
+      "accepted_archive_tip": "6d4d967d69d1c1928f0394b1c2c3a348bd99537c",
+      "archive_files": 282,
+      "workflow": ".github/workflows/odd-division-experiment.yml",
+      "audit_checks": [
+        {
+          "script": "experiments/odd-division/audit.py",
+          "script_sha256": "0b0e8be298af1505bde166dc92787284921ba9c3fa37766ff3068d9493138194",
+          "log": "odd-audit.py.log",
+          "log_sha256": "75d8cd3c527da24316fda05587b5d7a535433c47bc1777612484f7fd23a53304",
+          "returncode": 0
+        }
+      ],
+      "tracked_source_manifest_sha256": "f5eb12aea2610f26a74862263d2401d2cca64ac54e6a28b92117222ef6fed283",
+      "production_promotion_approved": false
+    },
+    {
+      "unit": "toom4-fusion",
+      "accepted_archive_tip": "6a6cd3509ec42013513eb9793fdae948726722aa",
+      "archive_files": 232,
+      "workflow": ".github/workflows/toom4-fusion-experiment.yml",
+      "audit_checks": [
+        {
+          "script": "experiments/toom4-fusion/audit.py",
+          "script_sha256": "0257dbf25c41b1a5ca131e7282e86164e1e9714b58b15073e843cfd132a79c0b",
+          "log": "fusion-audit.py.log",
+          "log_sha256": "35d9bc31e0140bcd4354a19173a121c1f07b2c30ab2c11cd8177deac1728a9da",
+          "returncode": 0
+        }
+      ],
+      "tracked_source_manifest_sha256": "4f5afbd31852e94f7c8a23092bbfa72b5258f956441c11a8d98e0e892301a084",
+      "production_promotion_approved": false
+    },
+    {
+      "unit": "toom4-signed-eval",
+      "accepted_archive_tip": "deadada9bc306bf3d550a91470ce5ea59884fcb2",
+      "archive_files": 256,
+      "workflow": ".github/workflows/toom4-signed-eval-experiment.yml",
+      "audit_checks": [
+        {
+          "script": "experiments/toom4-signed-eval/audit.py",
+          "script_sha256": "189d20c74b50891b630dad7850c7656e67108179c11a1e1551845c8c9cf175ae",
+          "log": "signed-audit.py.log",
+          "log_sha256": "fedc7e5272c51940a6a2c551da5ba23f7b3469380f6e1fa981b379a7a4423998",
+          "returncode": 0
+        }
+      ],
+      "tracked_source_manifest_sha256": "914f3c608156da18a25e03d14bb3893efabfd3c045f6fb7eb8dec48e358c611d",
+      "production_promotion_approved": false
+    },
+    {
+      "unit": "toom8-primitives",
+      "accepted_archive_tip": "d9f78251606719c375efb76ba8c7e5301e46d95d",
+      "archive_files": 2940,
+      "workflow": ".github/workflows/toom8-primitives-experiment.yml",
+      "audit_checks": [
+        {
+          "script": "experiments/toom8-primitives/dyadic/audit.py",
+          "script_sha256": "62d6e850008899d18e9b54e1189b371e60b95fcfbf97a0bec1055e66d3a2ea5d",
+          "log": "toom8-dyadic-audit.py.log",
+          "log_sha256": "369e87c1be74b12737c92a14ef8c2cd9a970f55cf28c1f13bee7cb0986ea4c19",
+          "returncode": 0
+        },
+        {
+          "script": "experiments/toom8-primitives/evaluation/audit.py",
+          "script_sha256": "424e3aa8ae5055f573b8a3b4f11e0975796f5a85b15f8ff0a61956bcc916d360",
+          "log": "toom8-evaluation-audit.py.log",
+          "log_sha256": "3518b0be51748b1db6e4d4f82e8231e2e856ecc73c2757416556a35f4ad41e0b",
+          "returncode": 0
+        },
+        {
+          "script": "experiments/toom8-primitives/even/audit.py",
+          "script_sha256": "29df0d56500da5902b7c4164a101b190c27ca57cc2091094f23638cc731cc59e",
+          "log": "toom8-even-audit.py.log",
+          "log_sha256": "b10c81409bbe89771ea680c0b7c52128acae73b1051266ddf24c911e9b9e3325",
+          "returncode": 0
+        },
+        {
+          "script": "experiments/toom8-primitives/gate-hardening/audit.py",
+          "script_sha256": "512f87b65127fb7563047f239f5487a6bb3cb0efa64228b5a50561d1e494cbbd",
+          "log": "toom8-gate-hardening-audit.py.log",
+          "log_sha256": "d304f7e1f92e5e840c723850dc46efd2461e16d008e49a66e20882dac9281726",
+          "returncode": 0
+        },
+        {
+          "script": "experiments/toom8-primitives/interpolation/audit.py",
+          "script_sha256": "15b7d3b5c1e226467e4febe2ea2d89824db6a635251f8050625edf90c9e41b42",
+          "log": "toom8-interpolation-audit.py.log",
+          "log_sha256": "aa5509de6086c20288318a3b8cf4a38f2ddfe628ee166fdd169a27d53ad32c60",
+          "returncode": 0
+        },
+        {
+          "script": "experiments/toom8-primitives/low/audit.py",
+          "script_sha256": "dab4deaee3c5d2d82a738f5f43474fb2529ec327be4e7a2b303c0ab6f5d9a4b4",
+          "log": "toom8-low-audit.py.log",
+          "log_sha256": "17209d9d1332850c33b1727548eabaee8b5b0950332ad1a1b0f4f23322c58f3e",
+          "returncode": 0
+        },
+        {
+          "script": "experiments/toom8-primitives/newton/audit.py",
+          "script_sha256": "1a7114ad8651e42d1373bdf023b6abb3733f7153c8a910e56705c195b80225d6",
+          "log": "toom8-newton-audit.py.log",
+          "log_sha256": "85b998a48172ca4f8438c15ed535a9d4a3e5c2063f7595b7736679c38b64702b",
+          "returncode": 0
+        },
+        {
+          "script": "experiments/toom8-primitives/normalization/audit.py",
+          "script_sha256": "d327b8f02767446524a421cb60f84049e8097b2e18babfda0f91edfc17bef6a3",
+          "log": "toom8-normalization-audit.py.log",
+          "log_sha256": "63f135c491f4f885d89a9ae77c31daeb34cd3029c3bbd3c4fdf1007ca7ca9127",
+          "returncode": 0
+        },
+        {
+          "script": "experiments/toom8-primitives/pair/audit.py",
+          "script_sha256": "d4d97a2bb7753a9fa962a0a1317655b6d4046538404ad86cc8784814db5156ed",
+          "log": "toom8-pair-audit.py.log",
+          "log_sha256": "1e4caeac79c547e25bf08b991a30ba61109c917955c37193afa98c5011c0aaed",
+          "returncode": 0
+        },
+        {
+          "script": "experiments/toom8-primitives/producer/audit.py",
+          "script_sha256": "bbf68a96e96c87b80258476e4226b5029b1d9719284f6b423c542495df73909f",
+          "log": "toom8-producer-audit.py.log",
+          "log_sha256": "d9ea021981d4cf93389fd14d37a671a12c63438202f3756730f3cf56e8f39343",
+          "returncode": 0
+        },
+        {
+          "script": "experiments/toom8-primitives/product/audit.py",
+          "script_sha256": "54a7c82d5d2513a6c4c4766d216e9506d087f34f2cad927d3d6136a05e6bd03c",
+          "log": "toom8-product-audit.py.log",
+          "log_sha256": "d2d4240acc683f2df234fa0793d4a3c656c99659a7aa63d81278bc0027fd7528",
+          "returncode": 0
+        },
+        {
+          "script": "experiments/toom8-primitives/recomposition/audit.py",
+          "script_sha256": "b919aa47ca810a8ce34360e574dc3ebab261dc9943e2ecfec7e05308a62d5b45",
+          "log": "toom8-recomposition-audit.py.log",
+          "log_sha256": "e6c8020019edc887121de77ebce5da67ff41c7d8e68259b7e0666410f942774c",
+          "returncode": 0
+        },
+        {
+          "script": "experiments/toom8-primitives/recursive/audit.py",
+          "script_sha256": "f552d126269faa5d35c23649320ff303b801f8d65fc92b116ee91e75c8d49e44",
+          "log": "toom8-recursive-audit.py.log",
+          "log_sha256": "263db18507f36740921801b44f663f683304221e7ed5172384dfc695844c9cc3",
+          "returncode": 0
+        },
+        {
+          "script": "experiments/toom8-primitives/seventh/audit.py",
+          "script_sha256": "d521c24889922495f0325518dc5f764ea4ba7805a6931592c3688cd296d4bb78",
+          "log": "toom8-seventh-audit.py.log",
+          "log_sha256": "56692996c57da241db0c397efe5d21d8694c9fdaeb344dfc399d16cbd497f207",
+          "returncode": 0
+        },
+        {
+          "script": "experiments/toom8-primitives/square/audit.py",
+          "script_sha256": "98e871f20f28103a28e402a5a21323a7889d16e1e385f3b5d7a8551c7ba328e1",
+          "log": "toom8-square-audit.py.log",
+          "log_sha256": "f3831e53a8d15755fbca700110cc1f6d14708f2ac105d91bd3b5be91c1300a2f",
+          "returncode": 0
+        },
+        {
+          "script": "experiments/toom8-primitives/wide-odd/audit.py",
+          "script_sha256": "0648aa61a43cdf5c1ad1fc11f709970af3d6e32f69ba6afd27a95e26e06489ae",
+          "log": "toom8-wide-odd-audit.py.log",
+          "log_sha256": "6d914174aa0571f9f8f9928047e31c80cfe9948e65ce498f96986c73cfa956ed",
+          "returncode": 0
+        },
+        {
+          "script": "experiments/toom8-primitives/dyadic/test_prepare_boundaries.py",
+          "script_sha256": "8248ff2875ce415150797cca2f37b9129d570c36e7e686649911233c8f26245b",
+          "log": "toom8-dyadic-test_prepare_boundaries.py.log",
+          "log_sha256": "e577957ee049ecfc4ad383fcf4dde941dc0c6139d4c07f3c3f99e848e1aa8888",
+          "returncode": 0
+        },
+        {
+          "script": "experiments/toom8-primitives/evaluation/test_prepare_boundaries.py",
+          "script_sha256": "ceade00382536c8befd961805c41372d3c75dff1ae6f5c7e48f222a79c7ddef2",
+          "log": "toom8-evaluation-test_prepare_boundaries.py.log",
+          "log_sha256": "eb279e304cd41dc33011fa6a7ab15543d6a462323e25cd7a3d0dac007d7a1504",
+          "returncode": 0
+        },
+        {
+          "script": "experiments/toom8-primitives/even/test_prepare_boundaries.py",
+          "script_sha256": "7f75d37ebbb36c0ee6b6edec835165663d7caa1db8040b7119bdefe5cdd2cca4",
+          "log": "toom8-even-test_prepare_boundaries.py.log",
+          "log_sha256": "af7936be9201dd97aa635183126faed5d271617d9d8848dfdc10ea529b80e66d",
+          "returncode": 0
+        },
+        {
+          "script": "experiments/toom8-primitives/gate-hardening/test_prepare_boundaries.py",
+          "script_sha256": "da22ca5b4addf3690003e91a9c0ed502f3e565d094b58daac6eb823bafbaba7b",
+          "log": "toom8-gate-hardening-test_prepare_boundaries.py.log",
+          "log_sha256": "988aa189f465bb1ca5d43af6914181063f0c9fd7128a8a2eb982aa8d4006747d",
+          "returncode": 0
+        },
+        {
+          "script": "experiments/toom8-primitives/interpolation/test_prepare_boundaries.py",
+          "script_sha256": "7f75d37ebbb36c0ee6b6edec835165663d7caa1db8040b7119bdefe5cdd2cca4",
+          "log": "toom8-interpolation-test_prepare_boundaries.py.log",
+          "log_sha256": "d6376dfbbb401ec9b81fb5cb999c84293a44fa389876a8e92df921a7bdac832a",
+          "returncode": 0
+        },
+        {
+          "script": "experiments/toom8-primitives/low/test_prepare_boundaries.py",
+          "script_sha256": "7f75d37ebbb36c0ee6b6edec835165663d7caa1db8040b7119bdefe5cdd2cca4",
+          "log": "toom8-low-test_prepare_boundaries.py.log",
+          "log_sha256": "100f8e1da2021dcb5e3144f217bbdae9396ae800981b55855dece1052db46c9b",
+          "returncode": 0
+        },
+        {
+          "script": "experiments/toom8-primitives/normalization/test_prepare_boundaries.py",
+          "script_sha256": "7f75d37ebbb36c0ee6b6edec835165663d7caa1db8040b7119bdefe5cdd2cca4",
+          "log": "toom8-normalization-test_prepare_boundaries.py.log",
+          "log_sha256": "f99ef2e226e49361ee378cbb6dc5bbe1d06496a79075bb957323cf4f31ee5ffe",
+          "returncode": 0
+        },
+        {
+          "script": "experiments/toom8-primitives/pair/test_prepare_boundaries.py",
+          "script_sha256": "1c1993c28add0c4fcb661300d926809aaf99302b76d417f44b98a1af4cdfdc39",
+          "log": "toom8-pair-test_prepare_boundaries.py.log",
+          "log_sha256": "af04abb21be80353fbc46f947582057eafab3a15c26fe21ab4d725200443c99b",
+          "returncode": 0
+        },
+        {
+          "script": "experiments/toom8-primitives/producer/test_prepare_boundaries.py",
+          "script_sha256": "6b3211b3f157f0eb44d39aaee919b6efbd7aca43d422dcf02894696c16ee9734",
+          "log": "toom8-producer-test_prepare_boundaries.py.log",
+          "log_sha256": "3ee9aaba35aa3ebd02c74976c9ba22c3dd05cecad90fe9824c47d2952010a18b",
+          "returncode": 0
+        },
+        {
+          "script": "experiments/toom8-primitives/product/test_prepare_boundaries.py",
+          "script_sha256": "7f75d37ebbb36c0ee6b6edec835165663d7caa1db8040b7119bdefe5cdd2cca4",
+          "log": "toom8-product-test_prepare_boundaries.py.log",
+          "log_sha256": "c1d1953594c04e0cc5eb4fb178e753de6aee96ca9e23c90ee801f8def7f336e9",
+          "returncode": 0
+        },
+        {
+          "script": "experiments/toom8-primitives/recomposition/test_prepare_boundaries.py",
+          "script_sha256": "7f75d37ebbb36c0ee6b6edec835165663d7caa1db8040b7119bdefe5cdd2cca4",
+          "log": "toom8-recomposition-test_prepare_boundaries.py.log",
+          "log_sha256": "778e2d57c8fa1fb5c2601d8ae9188177b5de7c30b789242aa4e42bbd8e2b831b",
+          "returncode": 0
+        },
+        {
+          "script": "experiments/toom8-primitives/recursive/test_prepare_boundaries.py",
+          "script_sha256": "7f75d37ebbb36c0ee6b6edec835165663d7caa1db8040b7119bdefe5cdd2cca4",
+          "log": "toom8-recursive-test_prepare_boundaries.py.log",
+          "log_sha256": "1872d309a74d13d0791c9aad448336fd7358f783ae37675a70984583759cf390",
+          "returncode": 0
+        },
+        {
+          "script": "experiments/toom8-primitives/seventh/test_prepare_boundaries.py",
+          "script_sha256": "7f75d37ebbb36c0ee6b6edec835165663d7caa1db8040b7119bdefe5cdd2cca4",
+          "log": "toom8-seventh-test_prepare_boundaries.py.log",
+          "log_sha256": "8cc9026ab2cb1541f81dea31f386d3b54db151b6e66a5107104ec4144d94825a",
+          "returncode": 0
+        },
+        {
+          "script": "experiments/toom8-primitives/square/test_prepare_boundaries.py",
+          "script_sha256": "7f75d37ebbb36c0ee6b6edec835165663d7caa1db8040b7119bdefe5cdd2cca4",
+          "log": "toom8-square-test_prepare_boundaries.py.log",
+          "log_sha256": "5b55d1fafaf09a708a66b87b03b00e3b334ead4f6370fafff3c00dc7c47e7019",
+          "returncode": 0
+        }
+      ],
+      "tracked_source_manifest_sha256": "98980c732e3d6b5d6f9a30358cba76a4f82ca9f4719b539ed42ccd15f211f335",
+      "production_promotion_approved": false
+    }
+  ]
+}

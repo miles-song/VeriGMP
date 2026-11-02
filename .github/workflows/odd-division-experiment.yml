@@ -1,7 +1,7 @@
 name: Odd exact division experiment archive
 on:
   push:
-    branches: [experiments/odd-division]
+    branches: [experiments/odd-division, 'main', 'acceptance/experiment-archives-main']
   pull_request:
     paths: [experiments/odd-division/**, .github/workflows/odd-division-experiment.yml]
 jobs:

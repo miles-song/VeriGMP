@@ -1,7 +1,7 @@
 name: Scaled subtraction experiment archive
 on:
   push:
-    branches: ['experiments/scaled-subtraction']
+    branches: ['experiments/scaled-subtraction', 'main', 'acceptance/experiment-archives-main']
   pull_request:
     paths: ['experiments/scaled-subtraction/**', '.github/workflows/scaled-experiments.yml']
   workflow_dispatch:
