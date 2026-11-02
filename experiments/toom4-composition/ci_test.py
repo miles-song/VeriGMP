@@ -138,5 +138,44 @@ class FailureLogTests(unittest.TestCase):
             self.assertIn('failed child output', (root / 'child.log').read_text())
 
 
+class StdlibSelectTests(unittest.TestCase):
+    def test_fresh_import_and_posix_selector_from_experiment_directory(self):
+        program = r'''
+from pathlib import Path
+import inspect
+import json
+import select
+import selectors
+import socket
+import sys
+import types
+
+assert inspect.isbuiltin(select.select), 'Experiment code shadows stdlib select.select'
+origin = getattr(select, '__file__', None)
+assert origin is None or not Path(origin).resolve().is_relative_to(Path.cwd().resolve())
+# Execute the installed stdlib's POSIX branch on Windows as well as Linux.
+posix = types.ModuleType('composition_posix_selectors')
+original_platform = sys.platform
+try:
+    sys.platform = 'linux'
+    exec(compile(Path(selectors.__file__).read_text(encoding='utf-8'),
+        selectors.__file__, 'exec'), posix.__dict__)
+finally:
+    sys.platform = original_platform
+reader, writer = socket.socketpair()
+with reader, writer, posix.SelectSelector() as selector:
+    selector.register(reader, posix.EVENT_READ, 'ready')
+    writer.sendall(b'x')
+    events = selector.select(timeout=1)
+    assert len(events) == 1 and events[0][0].data == 'ready'
+    assert events[0][1] == posix.EVENT_READ and reader.recv(1) == b'x'
+print(json.dumps({'select_origin': origin, 'posix_selector': 'pass'}))
+'''
+        result = subprocess.run([sys.executable, '-c', program],
+            cwd=Path(__file__).resolve().parent, text=True, capture_output=True, timeout=10)
+        self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+        self.assertEqual(json.loads(result.stdout)['posix_selector'], 'pass')
+
+
 if __name__ == '__main__':
     unittest.main()

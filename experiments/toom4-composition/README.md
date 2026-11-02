@@ -44,7 +44,7 @@ Measurement requires WSL with Windows host PowerShell interop for CPU coordinati
 
 ```bash
 python3 build/toom4-composition/measure.py exploration --tag exploration1 --quiet-window 'coordination-reference'
-python3 build/toom4-composition/select.py
+python3 build/toom4-composition/select_candidate.py
 ```
 
 If selected, run the complete selected-source gate and confirmation:
