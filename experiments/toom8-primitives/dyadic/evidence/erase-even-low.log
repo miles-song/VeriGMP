@@ -1,0 +1,24 @@
+verification results:: 0 verified, 1 errors (partial verification with `--verify-*`)
+note: verifying module toom8_dyadic_producer
+
+note: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+ --> <stage>/feature-gates/dyadic-producer-feature1/inputs/candidate/native/verified/toom8_dyadic_producer.rs:9:1
+  |
+9 | pub f...size)
+  | ^^^^^...^^^^^
+
+error: postcondition not satisfied
+  --> <stage>/feature-gates/dyadic-producer-feature1/inputs/candidate/native/verified/toom8_dyadic_producer.rs:13:9
+   |
+13 |           value...cal)),
+   |           ^^^^^...^^^^^ failed this postcondition
+...
+18 |       proof {
+   |  ___________-
+19 | |         model::selected_weights_are_multiplicative(weights@,exponent,reciprocal);
+20 | |         convolution::products_to_coefficients(input::blocks(a@,k as nat),input::blocks(b@,k as nat),weights@,model::product_weights(exponent,reciprocal));
+21 | |     }
+   | |_____- at the end of the function body
+
+error: aborting due to 1 previous error
+

@@ -1,0 +1,55 @@
+{
+  "status": "pass",
+  "report_sha256": "6a90dbd1a2212e53f8f07c53081a4aaf5eaab9e49c62e6c4954448ca6de874a4",
+  "audit_source_sha256": "e892b0f2d032d68a6d6062b776b610b948a872654f78ba9a106ed4827ddb6467",
+  "source_inputs": 102,
+  "tools": 21,
+  "runtimes": 3,
+  "artifacts": 4,
+  "locked_paths": 259,
+  "verified_full_library_runner_codegen": [
+    478,
+    478,
+    478
+  ],
+  "true_scoped_mutants": {
+    "force-unit-point": [
+      "0",
+      "1"
+    ],
+    "ignore-reciprocal": [
+      "0",
+      "1"
+    ],
+    "flip-reciprocal": [
+      "0",
+      "1"
+    ],
+    "replace-product-by-square": [
+      "0",
+      "1"
+    ],
+    "swap-even-odd": [
+      "0",
+      "1"
+    ],
+    "zero-weights": [
+      "0",
+      "1"
+    ],
+    "erase-even-low": [
+      "0",
+      "1"
+    ],
+    "erase-odd-low": [
+      "0",
+      "1"
+    ]
+  },
+  "mixed_fatal_rejections": 72,
+  "oracle_cases": 2688,
+  "invalid_commands": 12,
+  "saved_runner_replayed": true,
+  "no_new_proof_escape": true,
+  "boundary": "Actual four evaluations and two existing verified full products establish pair magnitude/parity/capacity premises from full-word eight-block inputs. Actual dyadic selector discharges coefficient multiplicativity and connects to independent fifteen-term convolution. This is not a complete Toom8 caller. Local 14*(k+1) scratch only; no full Toom8 schedule/complexity/benchmark claim."
+}

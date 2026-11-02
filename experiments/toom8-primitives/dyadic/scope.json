@@ -1,0 +1,18 @@
+{
+  "status": "candidate_for_full_gate",
+  "purpose": "Establish the homogeneous coefficient interpretation from actual selected weights and actual input-block multiplication.",
+  "domain": "Full-u64 equal-length inputs with 7*k <= n <= 8*k, including k=0; exponent in 0..3 and either reciprocal direction; original producer output/scratch/threshold domain.",
+  "output": "Even and odd homogeneous sums of the independently defined fifteen input convolution coefficients.",
+  "local_workspace": "14*(k+1) caller scratch and two separate 2*(k+1) outputs, unchanged from parent producer.",
+  "local_work": "2*T_existing_forced_Toom4(k+1)+O(k); ghost power identities erase, runtime weights select fixed constants.",
+  "remaining": [
+    "Endpoint removal and exact scaling",
+    "Newton producer premises and actual interpolation caller",
+    "Whole-kernel recomposition and recursion",
+    "Complete scratch lifetime and worst-case cost proof",
+    "Independent performance acceptance"
+  ],
+  "benchmark_run": false,
+  "complete_toom8": false,
+  "production_promoted": false
+}

@@ -1,0 +1,26 @@
+{
+  "accepted_gate": "dyadic-producer-feature1",
+  "attempts": [
+    {
+      "name": "dyadic-spec1",
+      "reported_status": "pass",
+      "report": "development/dyadic-spec1/report.json",
+      "source_overlays": {
+        "check_development.py": "development/dyadic-spec1/overlays/check_development.py",
+        "origin.json": "development/dyadic-spec1/overlays/origin.json"
+      },
+      "status_boundary": "Historical record; accepted gate is dyadic-producer-feature1."
+    },
+    {
+      "name": "dyadic-focused1",
+      "reported_status": "pass",
+      "report": "development/dyadic-focused1/report.json",
+      "source_overlays": {
+        "check_development.py": "development/dyadic-focused1/overlays/check_development.py",
+        "origin.json": "development/dyadic-focused1/overlays/origin.json"
+      },
+      "status_boundary": "Historical record; accepted gate is dyadic-producer-feature1."
+    }
+  ],
+  "development_boundary": "Both focused development attempts are retained; the accepted full gate verifies and compiles the entire bound arithmetic snapshot."
+}
