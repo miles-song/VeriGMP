@@ -260,11 +260,3 @@ its reachable code-equivalent identity is `bf28217`, recorded in
 [history-provenance.json](../native/history-provenance.json). The frozen cutoff9
 candidate and the current gate contents are identified separately above.
 Verification items are not counts of public functions.
-
-## Canonical low-square acceptance
-
-The complete arithmetic source at `e22a4dd00a28681fd27d68e2a78fa304cf17563e` passed a fresh local gate and [matching remote CI](https://github.com/miles-song/VeriGMP/actions/runs/41331997725). Both reports verify the complete 234-item library before the targeted negative checks. The accepted scope includes 11,292 independent integer oracle cases, 1,440 direct low-square cases, 12 malformed inputs and 21 semantic mutants, including five for the truncated-square kernel.
-
-[Canonical evidence](data/2026-11-02-low-square-canonical/manifest.json) preserves the original GitHub artifact, API identities and a separate fresh local archive with its compiled library and Verus metadata. `python3 docs/data/2026-11-02-low-square-canonical/check.py` audits the fixed CI artifact against all 107 source inputs and the frozen cutoff9 core hashes. This command audits preserved evidence; it does not execute a new proof or benchmark. The fresh local run records a clean exact-e22 source snapshot and has no CI invocation identity.
-
-The performance target remains unmet, and replacing a consumer's GMP backend is not accepted. The frozen two-run cutoff9 comparison remains the optimization performance evidence; fresh local timings overlapped independent Verus jobs and do not establish an isolated speed comparison. Full solver refinement, checked whole-algorithm bit cost and solver-trace acceptance remain outside this library result.
