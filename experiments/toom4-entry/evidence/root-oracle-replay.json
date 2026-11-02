@@ -1,0 +1,10 @@
+{
+  "status": "pass",
+  "report_sha256": "418176c2a050449108589f07fb84691a48482dc36ea8b6cd17782d6af170b013",
+  "oracle_binary_sha256": "6f926bfa430ed0d2d31dcb448815de39e79ab02607edf331b8e490835aa9bca8",
+  "replayed_cases": 25062,
+  "invalid_cases": 8,
+  "input_sha256": "cf27a7c38819cb108429fcae59642a694a1eb1bc218f501c4354d43d5d3ee0e5",
+  "output_sha256": "aedb666718e0ea14deec7c8fb0e1bb1e4d9f80f69b41c41a61b06ccbbb4bb56e",
+  "benchmark_run": false
+}

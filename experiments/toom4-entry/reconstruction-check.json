@@ -1,0 +1,24 @@
+{
+  "status": "exact_source_reconstructed",
+  "baseline_commit": "e22a4dd00a28681fd27d68e2a78fa304cf17563e",
+  "source_files": 222,
+  "historical_original_gate_sha256": "418176c2a050449108589f07fb84691a48482dc36ea8b6cd17782d6af170b013",
+  "fresh_verification_status": "not_run",
+  "fresh_benchmark_status": "not_run",
+  "windows_preparation": {
+    "status": "exact_source_reconstructed",
+    "baseline_commit": "e22a4dd00a28681fd27d68e2a78fa304cf17563e",
+    "source_files": 222,
+    "historical_original_gate_sha256": "418176c2a050449108589f07fb84691a48482dc36ea8b6cd17782d6af170b013",
+    "fresh_verification_status": "not_run",
+    "fresh_benchmark_status": "not_run"
+  },
+  "fresh_linux_clone_preparation": {
+    "status": "exact_source_reconstructed",
+    "baseline_commit": "e22a4dd00a28681fd27d68e2a78fa304cf17563e",
+    "source_files": 222,
+    "historical_original_gate_sha256": "418176c2a050449108589f07fb84691a48482dc36ea8b6cd17782d6af170b013",
+    "fresh_verification_status": "not_run",
+    "fresh_benchmark_status": "not_run"
+  }
+}

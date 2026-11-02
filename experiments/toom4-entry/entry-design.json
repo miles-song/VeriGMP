@@ -1,0 +1,42 @@
+{
+  "status": "candidate_design_not_acceptance",
+  "production_default_changed": false,
+  "previous_experiment_commit": "1e78a6d8edd9c38d87f9578a23dbb1ac49f2c0e1",
+  "independent_semantics": {
+    "product": "value(dst) = value(a) * value(b) modulo 2^(64*(n-1)+top)",
+    "square": "value(dst) = value(a)^2 modulo 2^(64*(n-1)+top)",
+    "domain": "n > 0; equal input and output lengths; top in 1..64; 12n product scratch or 10n square scratch",
+    "alias": "Read-only inputs may alias; Rust mutable-slice exclusivity excludes overlap with output and scratch",
+    "capacity": "No new allocation or workspace; all original slice and carry contracts remain",
+    "proof_boundary": "Actual entry functions and both square helpers must verify over the full stated input domain; no new trusted body or narrowed helper contract"
+  },
+  "changes": [
+    "Below 512 limbs the product entry calls the original fast_multiply::mul_mod directly, avoiding an arithmetic-entry trampoline with a repeated size decision",
+    "The small square body is inlined; the large square body is out of line with the same exact modular-square contract",
+    "All recursive kernels, arithmetic thresholds, split modes and precision rules remain byte-identical to the previous Toom-4 candidate"
+  ],
+  "cost_scope": {
+    "analytic_recurrence_changed": false,
+    "checked_machine_cost_theorem": false,
+    "codegen_requirement": "Inspect reachable paths in the new matched benchmark, including saved registers, local frames, extra calls and size decisions",
+    "performance_claim": "None until two new complete fixed-policy matrices are measured and independently reviewed",
+    "linear_pass_fusion": "Not part of this candidate; primitive-call inventory alone is not a bottleneck measurement"
+  },
+  "measurement_policy": {
+    "modes": [
+      "e22 actual dispatch",
+      "previous forced Toom-4",
+      "entry candidate",
+      "GMP full then copy and mask"
+    ],
+    "shape_groups": 52,
+    "repetitions_per_mode": 7,
+    "records_per_run": 1456,
+    "runs": 2,
+    "minimum_actual_record_ns": 10000000,
+    "order": "Four modes rotate by repetition; identical inputs and semantics, allocation outside timing",
+    "no_result_based_retries": true,
+    "retention": "Retain both full matrices, failed windows and every regression"
+  },
+  "control_source_boundary": "Previous source uses the exact archived algorithm plus the same explicit ghost-only add_shifted proof stabilization applied to the entry candidate; see proof-context.json and proof-context.patch. No executable statement or domain is changed."
+}

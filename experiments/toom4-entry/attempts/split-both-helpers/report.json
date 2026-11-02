@@ -1,0 +1,7 @@
+{
+  "status": "rejected_by_preliminary_codegen",
+  "verification_items": 275,
+  "benchmark_run": false,
+  "observation": "The standalone verified_square wrapper pushes 8 bytes and calls square_small instead of a tail jump; square_small retains the 72-byte saved-register/local frame seen in the prior standalone root. This is not evidence about an unbuilt matched benchmark.",
+  "source_sha256": "36942c6741b38cb1a854da08f742d7c14b5ccb21c88581cb819fa346c86f9b10"
+}

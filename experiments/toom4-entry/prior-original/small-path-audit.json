@@ -1,0 +1,1785 @@
+{
+  "status": "read_only_analysis",
+  "binary_sha256": "b2fe4c39f5a08c6280a0c58439ae84f29ec4c5c6c102dab92298c464f0042ae4",
+  "verification_sha256": "c23734e7081ff80af3bda3f5d7bcd7a5ad85ed0d2128bffbe57ee6302ecd9442",
+  "normalization": "Remove instruction addresses, crate prefixes, local branch labels and RIP-relative addresses; resolve GOT calls through ELF relocations. Panic/data reference addresses normalize to data, not an assertion of equal data bytes. int3 alignment fill excluded; comparisons with and without nop padding both reported.",
+  "normalization_is_not_a_formal_equivalence_proof": true,
+  "functions": {
+    "arithmetic::square_mod": {
+      "baseline_address": "0x23490",
+      "candidate_address": "0x1fe20",
+      "baseline_address_mod64": 16,
+      "candidate_address_mod64": 32,
+      "normalized_identical": false,
+      "normalized_identical_without_nop_padding": false,
+      "instruction_counts": [
+        37,
+        55
+      ],
+      "calls": {
+        "baseline": [
+          "core::panicking::panic",
+          "crate::square_low::low"
+        ],
+        "candidate": [
+          "core::panicking::panic",
+          "crate::square_low::low",
+          "crate::toom4_square_low::low"
+        ]
+      },
+      "diff_path": "<prior-stage>/evidence/small-path-arithmetic-square_mod.diff",
+      "diff_sha256": "86a63100cd750a5873cb882f87c63f4f8276572260c1d630823e7c8bcbf662d1"
+    },
+    "arithmetic::mul_mod": {
+      "baseline_address": "0x23530",
+      "candidate_address": "0x1b9b0",
+      "baseline_address_mod64": 48,
+      "candidate_address_mod64": 48,
+      "normalized_identical": true,
+      "normalized_identical_without_nop_padding": true,
+      "instruction_counts": [
+        61,
+        61
+      ],
+      "calls": {
+        "baseline": [
+          "core::panicking::panic",
+          "crate::fast_multiply::low",
+          "crate::toom_low::low"
+        ],
+        "candidate": [
+          "core::panicking::panic",
+          "crate::fast_multiply::low",
+          "crate::toom_low::low"
+        ]
+      },
+      "diff_path": "<prior-stage>/evidence/small-path-arithmetic-mul_mod.diff",
+      "diff_sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+    },
+    "square_low::low": {
+      "baseline_address": "0x23ac0",
+      "candidate_address": "0x1bf40",
+      "baseline_address_mod64": 0,
+      "candidate_address_mod64": 0,
+      "normalized_identical": true,
+      "normalized_identical_without_nop_padding": true,
+      "instruction_counts": [
+        343,
+        343
+      ],
+      "calls": {
+        "baseline": [
+          "core::panicking::panic",
+          "core::panicking::panic_fmt",
+          "core::slice::index::slice_index_fail",
+          "crate::square_base::low",
+          "crate::toom_low::low",
+          "crate::toom_square::full",
+          "memcpy@GLIBC_2.14"
+        ],
+        "candidate": [
+          "core::panicking::panic",
+          "core::panicking::panic_fmt",
+          "core::slice::index::slice_index_fail",
+          "crate::square_base::low",
+          "crate::toom_low::low",
+          "crate::toom_square::full",
+          "memcpy@GLIBC_2.14"
+        ]
+      },
+      "diff_path": "<prior-stage>/evidence/small-path-square_low-low.diff",
+      "diff_sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+    },
+    "toom_square::full": {
+      "baseline_address": "0x243e0",
+      "candidate_address": "0x1c860",
+      "baseline_address_mod64": 32,
+      "candidate_address_mod64": 32,
+      "normalized_identical": true,
+      "normalized_identical_without_nop_padding": true,
+      "instruction_counts": [
+        577,
+        577
+      ],
+      "calls": {
+        "baseline": [
+          "core::panicking::panic",
+          "core::panicking::panic_fmt",
+          "core::slice::index::slice_index_fail",
+          "crate::square::full",
+          "crate::toom_evaluate::negative",
+          "crate::toom_interpolate::interpolate",
+          "crate::toom_square::full",
+          "memset@GLIBC_2.2.5"
+        ],
+        "candidate": [
+          "core::panicking::panic",
+          "core::panicking::panic_fmt",
+          "core::slice::index::slice_index_fail",
+          "crate::square::full",
+          "crate::toom_evaluate::negative",
+          "crate::toom_interpolate::interpolate",
+          "crate::toom_square::full",
+          "memset@GLIBC_2.2.5"
+        ]
+      },
+      "diff_path": "<prior-stage>/evidence/small-path-toom_square-full.diff",
+      "diff_sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+    },
+    "square::full": {
+      "baseline_address": "0x26c80",
+      "candidate_address": "0x22710",
+      "baseline_address_mod64": 0,
+      "candidate_address_mod64": 16,
+      "normalized_identical": true,
+      "normalized_identical_without_nop_padding": true,
+      "instruction_counts": [
+        206,
+        206
+      ],
+      "calls": {
+        "baseline": [
+          "core::panicking::panic",
+          "core::panicking::panic_fmt",
+          "core::slice::index::slice_index_fail",
+          "crate::fast_multiply::base_full",
+          "crate::fast_words::abs_difference",
+          "crate::fast_words::combine_cross",
+          "crate::square::full",
+          "crate::square_base::full"
+        ],
+        "candidate": [
+          "core::panicking::panic",
+          "core::panicking::panic_fmt",
+          "core::slice::index::slice_index_fail",
+          "crate::fast_multiply::base_full",
+          "crate::fast_words::abs_difference",
+          "crate::fast_words::combine_cross",
+          "crate::square::full",
+          "crate::square_base::full"
+        ]
+      },
+      "diff_path": "<prior-stage>/evidence/small-path-square-full.diff",
+      "diff_sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+    },
+    "square_base::full": {
+      "baseline_address": "0x24230",
+      "candidate_address": "0x1c6b0",
+      "baseline_address_mod64": 48,
+      "candidate_address_mod64": 48,
+      "normalized_identical": true,
+      "normalized_identical_without_nop_padding": true,
+      "instruction_counts": [
+        115,
+        115
+      ],
+      "calls": {
+        "baseline": [
+          "core::panicking::panic",
+          "memset@GLIBC_2.2.5"
+        ],
+        "candidate": [
+          "core::panicking::panic",
+          "memset@GLIBC_2.2.5"
+        ]
+      },
+      "diff_path": "<prior-stage>/evidence/small-path-square_base-full.diff",
+      "diff_sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+    },
+    "square_base::low": {
+      "baseline_address": "0x24010",
+      "candidate_address": "0x1c490",
+      "baseline_address_mod64": 16,
+      "candidate_address_mod64": 16,
+      "normalized_identical": true,
+      "normalized_identical_without_nop_padding": true,
+      "instruction_counts": [
+        150,
+        150
+      ],
+      "calls": {
+        "baseline": [
+          "core::panicking::panic",
+          "core::panicking::panic_bounds_check",
+          "memset@GLIBC_2.2.5"
+        ],
+        "candidate": [
+          "core::panicking::panic",
+          "core::panicking::panic_bounds_check",
+          "memset@GLIBC_2.2.5"
+        ]
+      },
+      "diff_path": "<prior-stage>/evidence/small-path-square_base-low.diff",
+      "diff_sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+    },
+    "toom_low::low": {
+      "baseline_address": "0x26fa0",
+      "candidate_address": "0x22a30",
+      "baseline_address_mod64": 32,
+      "candidate_address_mod64": 48,
+      "normalized_identical": true,
+      "normalized_identical_without_nop_padding": true,
+      "instruction_counts": [
+        339,
+        339
+      ],
+      "calls": {
+        "baseline": [
+          "core::panicking::panic",
+          "core::panicking::panic_fmt",
+          "core::slice::index::slice_index_fail",
+          "crate::toom_low::low",
+          "crate::toom_multiply::full",
+          "memcpy@GLIBC_2.14"
+        ],
+        "candidate": [
+          "core::panicking::panic",
+          "core::panicking::panic_fmt",
+          "core::slice::index::slice_index_fail",
+          "crate::toom_low::low",
+          "crate::toom_multiply::full",
+          "memcpy@GLIBC_2.14"
+        ]
+      },
+      "diff_path": "<prior-stage>/evidence/small-path-toom_low-low.diff",
+      "diff_sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+    },
+    "toom_multiply::full": {
+      "baseline_address": "0x25ba0",
+      "candidate_address": "0x1e590",
+      "baseline_address_mod64": 32,
+      "candidate_address_mod64": 16,
+      "normalized_identical": true,
+      "normalized_identical_without_nop_padding": true,
+      "instruction_counts": [
+        678,
+        678
+      ],
+      "calls": {
+        "baseline": [
+          "core::panicking::panic",
+          "core::panicking::panic_fmt",
+          "core::slice::index::slice_index_fail",
+          "crate::fast_multiply::full",
+          "crate::toom_evaluate::negative",
+          "crate::toom_interpolate::interpolate",
+          "crate::toom_multiply::full",
+          "memset@GLIBC_2.2.5"
+        ],
+        "candidate": [
+          "core::panicking::panic",
+          "core::panicking::panic_fmt",
+          "core::slice::index::slice_index_fail",
+          "crate::fast_multiply::full",
+          "crate::toom_evaluate::negative",
+          "crate::toom_interpolate::interpolate",
+          "crate::toom_multiply::full",
+          "memset@GLIBC_2.2.5"
+        ]
+      },
+      "diff_path": "<prior-stage>/evidence/small-path-toom_multiply-full.diff",
+      "diff_sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+    },
+    "fast_multiply::full": {
+      "baseline_address": "0x25200",
+      "candidate_address": "0x1ddb0",
+      "baseline_address_mod64": 0,
+      "candidate_address_mod64": 48,
+      "normalized_identical": true,
+      "normalized_identical_without_nop_padding": true,
+      "instruction_counts": [
+        227,
+        227
+      ],
+      "calls": {
+        "baseline": [
+          "core::panicking::panic",
+          "core::slice::index::slice_index_fail",
+          "crate::fast_multiply::base_full",
+          "crate::fast_multiply::full",
+          "crate::fast_words::abs_difference",
+          "crate::fast_words::combine_cross"
+        ],
+        "candidate": [
+          "core::panicking::panic",
+          "core::slice::index::slice_index_fail",
+          "crate::fast_multiply::base_full",
+          "crate::fast_multiply::full",
+          "crate::fast_words::abs_difference",
+          "crate::fast_words::combine_cross"
+        ]
+      },
+      "diff_path": "<prior-stage>/evidence/small-path-fast_multiply-full.diff",
+      "diff_sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+    },
+    "fast_multiply::low": {
+      "baseline_address": "0x24ce0",
+      "candidate_address": "0x1d890",
+      "baseline_address_mod64": 32,
+      "candidate_address_mod64": 16,
+      "normalized_identical": true,
+      "normalized_identical_without_nop_padding": true,
+      "instruction_counts": [
+        323,
+        323
+      ],
+      "calls": {
+        "baseline": [
+          "core::panicking::panic",
+          "core::panicking::panic_fmt",
+          "core::slice::index::slice_index_fail",
+          "crate::fast_multiply::full",
+          "crate::fast_multiply::low",
+          "memcpy@GLIBC_2.14"
+        ],
+        "candidate": [
+          "core::panicking::panic",
+          "core::panicking::panic_fmt",
+          "core::slice::index::slice_index_fail",
+          "crate::fast_multiply::full",
+          "crate::fast_multiply::low",
+          "memcpy@GLIBC_2.14"
+        ]
+      },
+      "diff_path": "<prior-stage>/evidence/small-path-fast_multiply-low.diff",
+      "diff_sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+    },
+    "fast_multiply::base_full": {
+      "baseline_address": "0x25750",
+      "candidate_address": "0x1e140",
+      "baseline_address_mod64": 16,
+      "candidate_address_mod64": 0,
+      "normalized_identical": true,
+      "normalized_identical_without_nop_padding": true,
+      "instruction_counts": [
+        126,
+        126
+      ],
+      "calls": {
+        "baseline": [
+          "core::panicking::panic"
+        ],
+        "candidate": [
+          "core::panicking::panic"
+        ]
+      },
+      "diff_path": "<prior-stage>/evidence/small-path-fast_multiply-base_full.diff",
+      "diff_sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+    },
+    "fast_words::combine_cross": {
+      "baseline_address": "0x23620",
+      "candidate_address": "0x1baa0",
+      "baseline_address_mod64": 32,
+      "candidate_address_mod64": 32,
+      "normalized_identical": true,
+      "normalized_identical_without_nop_padding": true,
+      "instruction_counts": [
+        161,
+        161
+      ],
+      "calls": {
+        "baseline": [
+          "core::panicking::panic"
+        ],
+        "candidate": [
+          "core::panicking::panic"
+        ]
+      },
+      "diff_path": "<prior-stage>/evidence/small-path-fast_words-combine_cross.diff",
+      "diff_sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+    },
+    "fast_words::abs_difference": {
+      "baseline_address": "0x23870",
+      "candidate_address": "0x1bcf0",
+      "baseline_address_mod64": 48,
+      "candidate_address_mod64": 48,
+      "normalized_identical": true,
+      "normalized_identical_without_nop_padding": true,
+      "instruction_counts": [
+        162,
+        162
+      ],
+      "calls": {
+        "baseline": [
+          "core::panicking::panic"
+        ],
+        "candidate": [
+          "core::panicking::panic"
+        ]
+      },
+      "diff_path": "<prior-stage>/evidence/small-path-fast_words-abs_difference.diff",
+      "diff_sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+    }
+  },
+  "benchmark_records": {
+    "default1": {
+      "256": {
+        "top": 63,
+        "mode_order": [
+          0,
+          1,
+          2,
+          1,
+          2,
+          0,
+          2,
+          0,
+          1,
+          0,
+          1,
+          2,
+          1,
+          2,
+          0,
+          2,
+          0,
+          1,
+          0,
+          1,
+          2
+        ],
+        "baseline_candidate_iteration_counts_equal": true,
+        "iterations_by_mode": {
+          "0": [
+            1024,
+            1024,
+            1024,
+            1024,
+            1024,
+            1024,
+            1024
+          ],
+          "1": [
+            1024,
+            1024,
+            1024,
+            1024,
+            1024,
+            1024,
+            1024
+          ],
+          "2": [
+            2048,
+            2048,
+            2048,
+            2048,
+            2048,
+            2048,
+            2048
+          ]
+        },
+        "same_iteration_counts_per_mode": false,
+        "records": [
+          {
+            "operation": "1",
+            "limbs": "256",
+            "top": "63",
+            "mode": "0",
+            "repetition": "0",
+            "iterations": "1024",
+            "ns": "12145284"
+          },
+          {
+            "operation": "1",
+            "limbs": "256",
+            "top": "63",
+            "mode": "1",
+            "repetition": "0",
+            "iterations": "1024",
+            "ns": "12652479"
+          },
+          {
+            "operation": "1",
+            "limbs": "256",
+            "top": "63",
+            "mode": "2",
+            "repetition": "0",
+            "iterations": "2048",
+            "ns": "18589231"
+          },
+          {
+            "operation": "1",
+            "limbs": "256",
+            "top": "63",
+            "mode": "1",
+            "repetition": "1",
+            "iterations": "1024",
+            "ns": "12572143"
+          },
+          {
+            "operation": "1",
+            "limbs": "256",
+            "top": "63",
+            "mode": "2",
+            "repetition": "1",
+            "iterations": "2048",
+            "ns": "18496951"
+          },
+          {
+            "operation": "1",
+            "limbs": "256",
+            "top": "63",
+            "mode": "0",
+            "repetition": "1",
+            "iterations": "1024",
+            "ns": "12157684"
+          },
+          {
+            "operation": "1",
+            "limbs": "256",
+            "top": "63",
+            "mode": "2",
+            "repetition": "2",
+            "iterations": "2048",
+            "ns": "18374284"
+          },
+          {
+            "operation": "1",
+            "limbs": "256",
+            "top": "63",
+            "mode": "0",
+            "repetition": "2",
+            "iterations": "1024",
+            "ns": "12594568"
+          },
+          {
+            "operation": "1",
+            "limbs": "256",
+            "top": "63",
+            "mode": "1",
+            "repetition": "2",
+            "iterations": "1024",
+            "ns": "12397867"
+          },
+          {
+            "operation": "1",
+            "limbs": "256",
+            "top": "63",
+            "mode": "0",
+            "repetition": "3",
+            "iterations": "1024",
+            "ns": "12482424"
+          },
+          {
+            "operation": "1",
+            "limbs": "256",
+            "top": "63",
+            "mode": "1",
+            "repetition": "3",
+            "iterations": "1024",
+            "ns": "12720376"
+          },
+          {
+            "operation": "1",
+            "limbs": "256",
+            "top": "63",
+            "mode": "2",
+            "repetition": "3",
+            "iterations": "2048",
+            "ns": "18416669"
+          },
+          {
+            "operation": "1",
+            "limbs": "256",
+            "top": "63",
+            "mode": "1",
+            "repetition": "4",
+            "iterations": "1024",
+            "ns": "12431904"
+          },
+          {
+            "operation": "1",
+            "limbs": "256",
+            "top": "63",
+            "mode": "2",
+            "repetition": "4",
+            "iterations": "2048",
+            "ns": "18892639"
+          },
+          {
+            "operation": "1",
+            "limbs": "256",
+            "top": "63",
+            "mode": "0",
+            "repetition": "4",
+            "iterations": "1024",
+            "ns": "12552384"
+          },
+          {
+            "operation": "1",
+            "limbs": "256",
+            "top": "63",
+            "mode": "2",
+            "repetition": "5",
+            "iterations": "2048",
+            "ns": "18153510"
+          },
+          {
+            "operation": "1",
+            "limbs": "256",
+            "top": "63",
+            "mode": "0",
+            "repetition": "5",
+            "iterations": "1024",
+            "ns": "11695077"
+          },
+          {
+            "operation": "1",
+            "limbs": "256",
+            "top": "63",
+            "mode": "1",
+            "repetition": "5",
+            "iterations": "1024",
+            "ns": "11722200"
+          },
+          {
+            "operation": "1",
+            "limbs": "256",
+            "top": "63",
+            "mode": "0",
+            "repetition": "6",
+            "iterations": "1024",
+            "ns": "11327213"
+          },
+          {
+            "operation": "1",
+            "limbs": "256",
+            "top": "63",
+            "mode": "1",
+            "repetition": "6",
+            "iterations": "1024",
+            "ns": "11838090"
+          },
+          {
+            "operation": "1",
+            "limbs": "256",
+            "top": "63",
+            "mode": "2",
+            "repetition": "6",
+            "iterations": "2048",
+            "ns": "17729709"
+          }
+        ]
+      },
+      "257": {
+        "top": 63,
+        "mode_order": [
+          0,
+          1,
+          2,
+          1,
+          2,
+          0,
+          2,
+          0,
+          1,
+          0,
+          1,
+          2,
+          1,
+          2,
+          0,
+          2,
+          0,
+          1,
+          0,
+          1,
+          2
+        ],
+        "baseline_candidate_iteration_counts_equal": true,
+        "iterations_by_mode": {
+          "0": [
+            1024,
+            1024,
+            1024,
+            1024,
+            1024,
+            1024,
+            1024
+          ],
+          "1": [
+            1024,
+            1024,
+            1024,
+            1024,
+            1024,
+            1024,
+            1024
+          ],
+          "2": [
+            2048,
+            2048,
+            2048,
+            2048,
+            2048,
+            2048,
+            2048
+          ]
+        },
+        "same_iteration_counts_per_mode": false,
+        "records": [
+          {
+            "operation": "1",
+            "limbs": "257",
+            "top": "63",
+            "mode": "0",
+            "repetition": "0",
+            "iterations": "1024",
+            "ns": "11776845"
+          },
+          {
+            "operation": "1",
+            "limbs": "257",
+            "top": "63",
+            "mode": "1",
+            "repetition": "0",
+            "iterations": "1024",
+            "ns": "11308990"
+          },
+          {
+            "operation": "1",
+            "limbs": "257",
+            "top": "63",
+            "mode": "2",
+            "repetition": "0",
+            "iterations": "2048",
+            "ns": "17301243"
+          },
+          {
+            "operation": "1",
+            "limbs": "257",
+            "top": "63",
+            "mode": "1",
+            "repetition": "1",
+            "iterations": "1024",
+            "ns": "11736913"
+          },
+          {
+            "operation": "1",
+            "limbs": "257",
+            "top": "63",
+            "mode": "2",
+            "repetition": "1",
+            "iterations": "2048",
+            "ns": "16541461"
+          },
+          {
+            "operation": "1",
+            "limbs": "257",
+            "top": "63",
+            "mode": "0",
+            "repetition": "1",
+            "iterations": "1024",
+            "ns": "11164023"
+          },
+          {
+            "operation": "1",
+            "limbs": "257",
+            "top": "63",
+            "mode": "2",
+            "repetition": "2",
+            "iterations": "2048",
+            "ns": "16356368"
+          },
+          {
+            "operation": "1",
+            "limbs": "257",
+            "top": "63",
+            "mode": "0",
+            "repetition": "2",
+            "iterations": "1024",
+            "ns": "11268124"
+          },
+          {
+            "operation": "1",
+            "limbs": "257",
+            "top": "63",
+            "mode": "1",
+            "repetition": "2",
+            "iterations": "1024",
+            "ns": "11508659"
+          },
+          {
+            "operation": "1",
+            "limbs": "257",
+            "top": "63",
+            "mode": "0",
+            "repetition": "3",
+            "iterations": "1024",
+            "ns": "11566820"
+          },
+          {
+            "operation": "1",
+            "limbs": "257",
+            "top": "63",
+            "mode": "1",
+            "repetition": "3",
+            "iterations": "1024",
+            "ns": "12338858"
+          },
+          {
+            "operation": "1",
+            "limbs": "257",
+            "top": "63",
+            "mode": "2",
+            "repetition": "3",
+            "iterations": "2048",
+            "ns": "17430754"
+          },
+          {
+            "operation": "1",
+            "limbs": "257",
+            "top": "63",
+            "mode": "1",
+            "repetition": "4",
+            "iterations": "1024",
+            "ns": "11804658"
+          },
+          {
+            "operation": "1",
+            "limbs": "257",
+            "top": "63",
+            "mode": "2",
+            "repetition": "4",
+            "iterations": "2048",
+            "ns": "17604602"
+          },
+          {
+            "operation": "1",
+            "limbs": "257",
+            "top": "63",
+            "mode": "0",
+            "repetition": "4",
+            "iterations": "1024",
+            "ns": "12100299"
+          },
+          {
+            "operation": "1",
+            "limbs": "257",
+            "top": "63",
+            "mode": "2",
+            "repetition": "5",
+            "iterations": "2048",
+            "ns": "17118724"
+          },
+          {
+            "operation": "1",
+            "limbs": "257",
+            "top": "63",
+            "mode": "0",
+            "repetition": "5",
+            "iterations": "1024",
+            "ns": "11307698"
+          },
+          {
+            "operation": "1",
+            "limbs": "257",
+            "top": "63",
+            "mode": "1",
+            "repetition": "5",
+            "iterations": "1024",
+            "ns": "11400071"
+          },
+          {
+            "operation": "1",
+            "limbs": "257",
+            "top": "63",
+            "mode": "0",
+            "repetition": "6",
+            "iterations": "1024",
+            "ns": "11592908"
+          },
+          {
+            "operation": "1",
+            "limbs": "257",
+            "top": "63",
+            "mode": "1",
+            "repetition": "6",
+            "iterations": "1024",
+            "ns": "11792231"
+          },
+          {
+            "operation": "1",
+            "limbs": "257",
+            "top": "63",
+            "mode": "2",
+            "repetition": "6",
+            "iterations": "2048",
+            "ns": "17725776"
+          }
+        ]
+      }
+    },
+    "default2": {
+      "256": {
+        "top": 63,
+        "mode_order": [
+          0,
+          1,
+          2,
+          1,
+          2,
+          0,
+          2,
+          0,
+          1,
+          0,
+          1,
+          2,
+          1,
+          2,
+          0,
+          2,
+          0,
+          1,
+          0,
+          1,
+          2
+        ],
+        "baseline_candidate_iteration_counts_equal": true,
+        "iterations_by_mode": {
+          "0": [
+            1024,
+            1024,
+            1024,
+            1024,
+            1024,
+            1024,
+            1024
+          ],
+          "1": [
+            1024,
+            1024,
+            1024,
+            1024,
+            1024,
+            1024,
+            1024
+          ],
+          "2": [
+            2048,
+            2048,
+            2048,
+            2048,
+            2048,
+            2048,
+            2048
+          ]
+        },
+        "same_iteration_counts_per_mode": false,
+        "records": [
+          {
+            "operation": "1",
+            "limbs": "256",
+            "top": "63",
+            "mode": "0",
+            "repetition": "0",
+            "iterations": "1024",
+            "ns": "12042871"
+          },
+          {
+            "operation": "1",
+            "limbs": "256",
+            "top": "63",
+            "mode": "1",
+            "repetition": "0",
+            "iterations": "1024",
+            "ns": "12136932"
+          },
+          {
+            "operation": "1",
+            "limbs": "256",
+            "top": "63",
+            "mode": "2",
+            "repetition": "0",
+            "iterations": "2048",
+            "ns": "18190825"
+          },
+          {
+            "operation": "1",
+            "limbs": "256",
+            "top": "63",
+            "mode": "1",
+            "repetition": "1",
+            "iterations": "1024",
+            "ns": "12521390"
+          },
+          {
+            "operation": "1",
+            "limbs": "256",
+            "top": "63",
+            "mode": "2",
+            "repetition": "1",
+            "iterations": "2048",
+            "ns": "18645845"
+          },
+          {
+            "operation": "1",
+            "limbs": "256",
+            "top": "63",
+            "mode": "0",
+            "repetition": "1",
+            "iterations": "1024",
+            "ns": "11837308"
+          },
+          {
+            "operation": "1",
+            "limbs": "256",
+            "top": "63",
+            "mode": "2",
+            "repetition": "2",
+            "iterations": "2048",
+            "ns": "17990266"
+          },
+          {
+            "operation": "1",
+            "limbs": "256",
+            "top": "63",
+            "mode": "0",
+            "repetition": "2",
+            "iterations": "1024",
+            "ns": "12128746"
+          },
+          {
+            "operation": "1",
+            "limbs": "256",
+            "top": "63",
+            "mode": "1",
+            "repetition": "2",
+            "iterations": "1024",
+            "ns": "12455507"
+          },
+          {
+            "operation": "1",
+            "limbs": "256",
+            "top": "63",
+            "mode": "0",
+            "repetition": "3",
+            "iterations": "1024",
+            "ns": "12468961"
+          },
+          {
+            "operation": "1",
+            "limbs": "256",
+            "top": "63",
+            "mode": "1",
+            "repetition": "3",
+            "iterations": "1024",
+            "ns": "12468710"
+          },
+          {
+            "operation": "1",
+            "limbs": "256",
+            "top": "63",
+            "mode": "2",
+            "repetition": "3",
+            "iterations": "2048",
+            "ns": "17753083"
+          },
+          {
+            "operation": "1",
+            "limbs": "256",
+            "top": "63",
+            "mode": "1",
+            "repetition": "4",
+            "iterations": "1024",
+            "ns": "12152898"
+          },
+          {
+            "operation": "1",
+            "limbs": "256",
+            "top": "63",
+            "mode": "2",
+            "repetition": "4",
+            "iterations": "2048",
+            "ns": "17747570"
+          },
+          {
+            "operation": "1",
+            "limbs": "256",
+            "top": "63",
+            "mode": "0",
+            "repetition": "4",
+            "iterations": "1024",
+            "ns": "12135965"
+          },
+          {
+            "operation": "1",
+            "limbs": "256",
+            "top": "63",
+            "mode": "2",
+            "repetition": "5",
+            "iterations": "2048",
+            "ns": "17957889"
+          },
+          {
+            "operation": "1",
+            "limbs": "256",
+            "top": "63",
+            "mode": "0",
+            "repetition": "5",
+            "iterations": "1024",
+            "ns": "12384309"
+          },
+          {
+            "operation": "1",
+            "limbs": "256",
+            "top": "63",
+            "mode": "1",
+            "repetition": "5",
+            "iterations": "1024",
+            "ns": "12143216"
+          },
+          {
+            "operation": "1",
+            "limbs": "256",
+            "top": "63",
+            "mode": "0",
+            "repetition": "6",
+            "iterations": "1024",
+            "ns": "12113449"
+          },
+          {
+            "operation": "1",
+            "limbs": "256",
+            "top": "63",
+            "mode": "1",
+            "repetition": "6",
+            "iterations": "1024",
+            "ns": "12343070"
+          },
+          {
+            "operation": "1",
+            "limbs": "256",
+            "top": "63",
+            "mode": "2",
+            "repetition": "6",
+            "iterations": "2048",
+            "ns": "18013590"
+          }
+        ]
+      },
+      "257": {
+        "top": 63,
+        "mode_order": [
+          0,
+          1,
+          2,
+          1,
+          2,
+          0,
+          2,
+          0,
+          1,
+          0,
+          1,
+          2,
+          1,
+          2,
+          0,
+          2,
+          0,
+          1,
+          0,
+          1,
+          2
+        ],
+        "baseline_candidate_iteration_counts_equal": true,
+        "iterations_by_mode": {
+          "0": [
+            1024,
+            1024,
+            1024,
+            1024,
+            1024,
+            1024,
+            1024
+          ],
+          "1": [
+            1024,
+            1024,
+            1024,
+            1024,
+            1024,
+            1024,
+            1024
+          ],
+          "2": [
+            2048,
+            2048,
+            2048,
+            2048,
+            2048,
+            2048,
+            2048
+          ]
+        },
+        "same_iteration_counts_per_mode": false,
+        "records": [
+          {
+            "operation": "1",
+            "limbs": "257",
+            "top": "63",
+            "mode": "0",
+            "repetition": "0",
+            "iterations": "1024",
+            "ns": "11238493"
+          },
+          {
+            "operation": "1",
+            "limbs": "257",
+            "top": "63",
+            "mode": "1",
+            "repetition": "0",
+            "iterations": "1024",
+            "ns": "11631874"
+          },
+          {
+            "operation": "1",
+            "limbs": "257",
+            "top": "63",
+            "mode": "2",
+            "repetition": "0",
+            "iterations": "2048",
+            "ns": "16516979"
+          },
+          {
+            "operation": "1",
+            "limbs": "257",
+            "top": "63",
+            "mode": "1",
+            "repetition": "1",
+            "iterations": "1024",
+            "ns": "11221551"
+          },
+          {
+            "operation": "1",
+            "limbs": "257",
+            "top": "63",
+            "mode": "2",
+            "repetition": "1",
+            "iterations": "2048",
+            "ns": "16869419"
+          },
+          {
+            "operation": "1",
+            "limbs": "257",
+            "top": "63",
+            "mode": "0",
+            "repetition": "1",
+            "iterations": "1024",
+            "ns": "10988928"
+          },
+          {
+            "operation": "1",
+            "limbs": "257",
+            "top": "63",
+            "mode": "2",
+            "repetition": "2",
+            "iterations": "2048",
+            "ns": "16767825"
+          },
+          {
+            "operation": "1",
+            "limbs": "257",
+            "top": "63",
+            "mode": "0",
+            "repetition": "2",
+            "iterations": "1024",
+            "ns": "11580752"
+          },
+          {
+            "operation": "1",
+            "limbs": "257",
+            "top": "63",
+            "mode": "1",
+            "repetition": "2",
+            "iterations": "1024",
+            "ns": "11712942"
+          },
+          {
+            "operation": "1",
+            "limbs": "257",
+            "top": "63",
+            "mode": "0",
+            "repetition": "3",
+            "iterations": "1024",
+            "ns": "11525787"
+          },
+          {
+            "operation": "1",
+            "limbs": "257",
+            "top": "63",
+            "mode": "1",
+            "repetition": "3",
+            "iterations": "1024",
+            "ns": "11501506"
+          },
+          {
+            "operation": "1",
+            "limbs": "257",
+            "top": "63",
+            "mode": "2",
+            "repetition": "3",
+            "iterations": "2048",
+            "ns": "16693427"
+          },
+          {
+            "operation": "1",
+            "limbs": "257",
+            "top": "63",
+            "mode": "1",
+            "repetition": "4",
+            "iterations": "1024",
+            "ns": "11213768"
+          },
+          {
+            "operation": "1",
+            "limbs": "257",
+            "top": "63",
+            "mode": "2",
+            "repetition": "4",
+            "iterations": "2048",
+            "ns": "17273339"
+          },
+          {
+            "operation": "1",
+            "limbs": "257",
+            "top": "63",
+            "mode": "0",
+            "repetition": "4",
+            "iterations": "1024",
+            "ns": "11621052"
+          },
+          {
+            "operation": "1",
+            "limbs": "257",
+            "top": "63",
+            "mode": "2",
+            "repetition": "5",
+            "iterations": "2048",
+            "ns": "17298764"
+          },
+          {
+            "operation": "1",
+            "limbs": "257",
+            "top": "63",
+            "mode": "0",
+            "repetition": "5",
+            "iterations": "1024",
+            "ns": "11224828"
+          },
+          {
+            "operation": "1",
+            "limbs": "257",
+            "top": "63",
+            "mode": "1",
+            "repetition": "5",
+            "iterations": "1024",
+            "ns": "11491055"
+          },
+          {
+            "operation": "1",
+            "limbs": "257",
+            "top": "63",
+            "mode": "0",
+            "repetition": "6",
+            "iterations": "1024",
+            "ns": "11013903"
+          },
+          {
+            "operation": "1",
+            "limbs": "257",
+            "top": "63",
+            "mode": "1",
+            "repetition": "6",
+            "iterations": "1024",
+            "ns": "11387127"
+          },
+          {
+            "operation": "1",
+            "limbs": "257",
+            "top": "63",
+            "mode": "2",
+            "repetition": "6",
+            "iterations": "2048",
+            "ns": "17013982"
+          }
+        ]
+      }
+    }
+  },
+  "valid_small_traces": {
+    "toom_square::full": {
+      "same_instructions_ignoring_relocation_and_branch_addresses": true,
+      "scope": "Successful entry checks and length<=threshold branch; recursive callee treated as a call, separately compared by function",
+      "traces": {
+        "baseline": [
+          "push %rbp",
+          "push %r15",
+          "push %r14",
+          "push %r13",
+          "push %r12",
+          "push %rbx",
+          "sub $0x58,%rsp",
+          "test %rcx,%rcx",
+          "je @valid_guard_not_taken",
+          "lea (%rcx,%rcx,1),%rax",
+          "cmp %rax,%rsi",
+          "jne @valid_guard_not_taken",
+          "lea (%rax,%rax,4),%rax",
+          "cmp %rax,%r9",
+          "jb @valid_guard_not_taken",
+          "mov 0x90(%rsp),%r10",
+          "cmp $0x17,%r10",
+          "jbe @valid_guard_not_taken",
+          "mov %rdx,%r12",
+          "mov %rdi,%rbx",
+          "cmp %r10,%rcx",
+          "jbe @small_branch_taken",
+          "sub $0x8,%rsp",
+          "mov %rbx,%rdi",
+          "mov %r12,%rdx",
+          "push $0x18",
+          "call *@crate::square::full",
+          "add $0x68,%rsp",
+          "jmp @epilogue",
+          "pop %rbx",
+          "pop %r12",
+          "pop %r13",
+          "pop %r14",
+          "pop %r15",
+          "pop %rbp",
+          "ret"
+        ],
+        "candidate": [
+          "push %rbp",
+          "push %r15",
+          "push %r14",
+          "push %r13",
+          "push %r12",
+          "push %rbx",
+          "sub $0x58,%rsp",
+          "test %rcx,%rcx",
+          "je @valid_guard_not_taken",
+          "lea (%rcx,%rcx,1),%rax",
+          "cmp %rax,%rsi",
+          "jne @valid_guard_not_taken",
+          "lea (%rax,%rax,4),%rax",
+          "cmp %rax,%r9",
+          "jb @valid_guard_not_taken",
+          "mov 0x90(%rsp),%r10",
+          "cmp $0x17,%r10",
+          "jbe @valid_guard_not_taken",
+          "mov %rdx,%r12",
+          "mov %rdi,%rbx",
+          "cmp %r10,%rcx",
+          "jbe @small_branch_taken",
+          "sub $0x8,%rsp",
+          "mov %rbx,%rdi",
+          "mov %r12,%rdx",
+          "push $0x18",
+          "call *@crate::square::full",
+          "add $0x68,%rsp",
+          "jmp @epilogue",
+          "pop %rbx",
+          "pop %r12",
+          "pop %r13",
+          "pop %r14",
+          "pop %r15",
+          "pop %rbp",
+          "ret"
+        ]
+      }
+    },
+    "toom_multiply::full": {
+      "same_instructions_ignoring_relocation_and_branch_addresses": true,
+      "scope": "Successful entry checks and length<=threshold branch; recursive callee treated as a call, separately compared by function",
+      "traces": {
+        "baseline": [
+          "push %rbp",
+          "push %r15",
+          "push %r14",
+          "push %r13",
+          "push %r12",
+          "push %rbx",
+          "sub $0x58,%rsp",
+          "test %rcx,%rcx",
+          "je @valid_guard_not_taken",
+          "cmp %r9,%rcx",
+          "jne @valid_guard_not_taken",
+          "lea (%rcx,%rcx,1),%rax",
+          "cmp %rax,%rsi",
+          "jne @valid_guard_not_taken",
+          "mov 0x98(%rsp),%r10",
+          "lea 0x0(,%rcx,4),%rax",
+          "lea (%rax,%rax,2),%rax",
+          "cmp %rax,%r10",
+          "jb @valid_guard_not_taken",
+          "mov 0xa0(%rsp),%r15",
+          "cmp $0x17,%r15",
+          "jbe @valid_guard_not_taken",
+          "mov %r8,%r14",
+          "mov %rdx,%rbp",
+          "mov %rdi,%rbx",
+          "mov 0x90(%rsp),%r11",
+          "cmp %r15,%rcx",
+          "jbe @small_branch_taken",
+          "sub $0x8,%rsp",
+          "mov %rbx,%rdi",
+          "mov %rbp,%rdx",
+          "mov %r14,%r8",
+          "mov %rcx,%r9",
+          "push $0x18",
+          "push %r10",
+          "push %r11",
+          "call *@crate::fast_multiply::full",
+          "add $0x78,%rsp",
+          "jmp @epilogue",
+          "pop %rbx",
+          "pop %r12",
+          "pop %r13",
+          "pop %r14",
+          "pop %r15",
+          "pop %rbp",
+          "ret"
+        ],
+        "candidate": [
+          "push %rbp",
+          "push %r15",
+          "push %r14",
+          "push %r13",
+          "push %r12",
+          "push %rbx",
+          "sub $0x58,%rsp",
+          "test %rcx,%rcx",
+          "je @valid_guard_not_taken",
+          "cmp %r9,%rcx",
+          "jne @valid_guard_not_taken",
+          "lea (%rcx,%rcx,1),%rax",
+          "cmp %rax,%rsi",
+          "jne @valid_guard_not_taken",
+          "mov 0x98(%rsp),%r10",
+          "lea 0x0(,%rcx,4),%rax",
+          "lea (%rax,%rax,2),%rax",
+          "cmp %rax,%r10",
+          "jb @valid_guard_not_taken",
+          "mov 0xa0(%rsp),%r15",
+          "cmp $0x17,%r15",
+          "jbe @valid_guard_not_taken",
+          "mov %r8,%r14",
+          "mov %rdx,%rbp",
+          "mov %rdi,%rbx",
+          "mov 0x90(%rsp),%r11",
+          "cmp %r15,%rcx",
+          "jbe @small_branch_taken",
+          "sub $0x8,%rsp",
+          "mov %rbx,%rdi",
+          "mov %rbp,%rdx",
+          "mov %r14,%r8",
+          "mov %rcx,%r9",
+          "push $0x18",
+          "push %r10",
+          "push %r11",
+          "call *@crate::fast_multiply::full",
+          "add $0x78,%rsp",
+          "jmp @epilogue",
+          "pop %rbx",
+          "pop %r12",
+          "pop %r13",
+          "pop %r14",
+          "pop %r15",
+          "pop %rbp",
+          "ret"
+        ]
+      }
+    }
+  },
+  "static_square_paths": {
+    "256": {
+      "h": 78,
+      "k": 178,
+      "threshold": 192,
+      "primary_full_square_uses_toom_interpolation": false,
+      "cross_low_length": 78,
+      "cross_full_length": 55
+    },
+    "257": {
+      "h": 78,
+      "k": 179,
+      "threshold": 192,
+      "primary_full_square_uses_toom_interpolation": false,
+      "cross_low_length": 78,
+      "cross_full_length": 55
+    }
+  },
+  "confirmed_difference": {
+    "square_entry": "The candidate Toom4 wrapper contains an additional length>=512 branch before selecting the original square_low function; the old arithmetic::square_mod is inlined into this wrapper. Both wrappers push the same three saved registers and reserve the same 32 outgoing-argument bytes on the successful small path.",
+    "product_entry": "Below 512 limbs, the Toom4 wrapper pushes three registers, tests length, restores them and tail-jumps to candidate::arithmetic::mul_mod. The latter still contains the original length branch. This is an additional wrapper path relative to the baseline call.",
+    "caller_workspace": "No change: product requires 12n scratch limbs; square requires 10n.",
+    "causality": "The wrapper instruction differences are observed, so these paths are not instruction-identical. This static audit does not establish the cause or magnitude of any slowdown, and cannot assign the residual difference to noise."
+  },
+  "wrapper_product_normalized_instructions": [
+    "push %r15",
+    "push %r14",
+    "push %rbx",
+    "cmp $0x200,%rcx",
+    "jae @instruction_9",
+    "pop %rbx",
+    "pop %r14",
+    "pop %r15",
+    "jmp *@crate::arithmetic::mul_mod",
+    "mov 0x30(%rsp),%ebx",
+    "lea -0x1(%rbx),%eax",
+    "cmp $0x40,%eax",
+    "jae @instruction_37",
+    "sub $0x8,%rsp",
+    "mov %rdi,%r15",
+    "mov %rsi,%r14",
+    "push $0x2",
+    "push $0x80",
+    "push $0x100",
+    "push 0x48(%rsp)",
+    "push 0x48(%rsp)",
+    "call *@crate::toom4_low::low",
+    "add $0x30,%rsp",
+    "test %r14,%r14",
+    "je @instruction_41",
+    "mov $0xffffffffffffffff,%rax",
+    "mov $0xffffffffffffffff,%rdx",
+    "mov %ebx,%ecx",
+    "shl %cl,%rdx",
+    "cmp $0x40,%ebx",
+    "not %rdx",
+    "cmove %rax,%rdx",
+    "and %rdx,-0x8(%r15,%r14,8)",
+    "pop %rbx",
+    "pop %r14",
+    "pop %r15",
+    "ret",
+    "lea @data,%rdi",
+    "lea @data,%rdx",
+    "mov $0x27,%esi",
+    "call *@core::panicking::panic",
+    "lea @data,%rdi",
+    "lea @data,%rdx",
+    "mov $0x1f,%esi",
+    "call *@core::panicking::panic"
+  ],
+  "regressions_in_both_runs": [
+    {
+      "operation": "mul_mod",
+      "limbs": 1,
+      "top": 1,
+      "candidate_over_baseline": [
+        1.0311483757674926,
+        1.0213766906189183
+      ]
+    },
+    {
+      "operation": "mul_mod",
+      "limbs": 1,
+      "top": 64,
+      "candidate_over_baseline": [
+        1.032531101542243,
+        1.0020745598795768
+      ]
+    },
+    {
+      "operation": "mul_mod",
+      "limbs": 2,
+      "top": 1,
+      "candidate_over_baseline": [
+        1.0118818070432574,
+        1.0194234876936674
+      ]
+    },
+    {
+      "operation": "mul_mod",
+      "limbs": 65,
+      "top": 63,
+      "candidate_over_baseline": [
+        1.0026373173031589,
+        1.0001137466148573
+      ]
+    },
+    {
+      "operation": "mul_mod",
+      "limbs": 127,
+      "top": 63,
+      "candidate_over_baseline": [
+        1.013271411995128,
+        1.0331533843651108
+      ]
+    },
+    {
+      "operation": "mul_mod",
+      "limbs": 257,
+      "top": 63,
+      "candidate_over_baseline": [
+        1.0105558484764587,
+        1.0044115727639111
+      ]
+    },
+    {
+      "operation": "mul_mod",
+      "limbs": 511,
+      "top": 63,
+      "candidate_over_baseline": [
+        1.025719330653952,
+        1.011513169557122
+      ]
+    },
+    {
+      "operation": "square_mod",
+      "limbs": 63,
+      "top": 63,
+      "candidate_over_baseline": [
+        1.0326329259814486,
+        1.0121734145530052
+      ]
+    },
+    {
+      "operation": "square_mod",
+      "limbs": 65,
+      "top": 63,
+      "candidate_over_baseline": [
+        1.0192770212132123,
+        1.014360000472704
+      ]
+    },
+    {
+      "operation": "square_mod",
+      "limbs": 256,
+      "top": 63,
+      "candidate_over_baseline": [
+        1.022555282733126,
+        1.017670746835658
+      ]
+    },
+    {
+      "operation": "square_mod",
+      "limbs": 257,
+      "top": 63,
+      "candidate_over_baseline": [
+        1.0147052517459423,
+        1.022472941879307
+      ]
+    },
+    {
+      "operation": "square_mod",
+      "limbs": 511,
+      "top": 63,
+      "candidate_over_baseline": [
+        1.0083182183446218,
+        1.0032195708667424
+      ]
+    }
+  ],
+  "input_policy": {
+    "driver_sha256": "00f11590c1bb5968d0289d1d4b79972dc67cc419d3b8ffdbb75c436d4dc9920d",
+    "same_input": "The same immutable a/b vectors created once per shape are supplied to all modes; square uses a; seed is 16438731 xor limbs.",
+    "same_buffers": "All modes reuse the same preallocated out and scratch vectors; allocation and GMP correctness comparison occur outside timing.",
+    "batch_policy": "Same batch function and 10ms retry rule for all modes; per-mode calibrated iteration counts are intentionally allowed to differ; medians use ns/iteration."
+  }
+}

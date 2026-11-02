@@ -1,0 +1,66 @@
+note: assert_nonlinear_by has been running for 2 seconds
+      reporting errors as they are discovered (they may not be in source order)
+   --> <stage>/candidate/native/verified/multiply.rs:112:9
+    |
+112 | ...   assert(to...
+    |       ^^^^^^
+
+note: assert_nonlinear_by finished in 5 seconds
+   --> <stage>/candidate/native/verified/multiply.rs:112:9
+    |
+112 | ...   assert(to...
+    |       ^^^^^^
+
+note: function body check has been running for 2 seconds
+      reporting errors as they are discovered (they may not be in source order)
+  --> <stage>/candidate/native/verified/toom4_multiply.rs:11:1
+   |
+11 | pub f...size)
+   | ^^^^^...^^^^^
+
+note: function body check finished in 3 seconds
+  --> <stage>/candidate/native/verified/toom4_multiply.rs:11:1
+   |
+11 | pub f...size)
+   | ^^^^^...^^^^^
+
+note: function body check has been running for 2 seconds
+      reporting errors as they are discovered (they may not be in source order)
+  --> <stage>/candidate/native/verified/toom4_square.rs:11:1
+   |
+11 | pub f...size)
+   | ^^^^^...^^^^^
+
+note: function body check finished in 3 seconds
+  --> <stage>/candidate/native/verified/toom4_square.rs:11:1
+   |
+11 | pub f...size)
+   | ^^^^^...^^^^^
+
+note: function body check has been running for 2 seconds
+      reporting errors as they are discovered (they may not be in source order)
+  --> <stage>/candidate/native/verified/toom_multiply.rs:12:1
+   |
+12 | pub f...size)
+   | ^^^^^...^^^^^
+
+note: function body check finished in 4 seconds
+  --> <stage>/candidate/native/verified/toom_multiply.rs:12:1
+   |
+12 | pub f...size)
+   | ^^^^^...^^^^^
+
+note: function body check has been running for 2 seconds
+      reporting errors as they are discovered (they may not be in source order)
+  --> <stage>/candidate/native/verified/toom_square.rs:12:1
+   |
+12 | pub f...size)
+   | ^^^^^...^^^^^
+
+note: function body check finished in 4 seconds
+  --> <stage>/candidate/native/verified/toom_square.rs:12:1
+   |
+12 | pub f...size)
+   | ^^^^^...^^^^^
+
+verification results:: 275 verified, 0 errors
