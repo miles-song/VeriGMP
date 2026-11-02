@@ -1,0 +1,35 @@
+{
+  "accepted_gate": "recomposition-feature1",
+  "attempts": [
+    {
+      "name": "recomposition-spec1",
+      "reported_status": "error",
+      "report": "development/recomposition-spec1/report.json",
+      "source_overlays": {
+        "candidate/native/verified/toom8_recomposition.rs": "development/recomposition-spec1/overlays/candidate/native/verified/toom8_recomposition.rs",
+        "check_development.py": "development/recomposition-spec1/overlays/check_development.py",
+        "origin.json": "development/recomposition-spec1/overlays/origin.json"
+      },
+      "status_boundary": "Historical record; accepted gate is recomposition-feature1."
+    },
+    {
+      "name": "recomposition-spec2",
+      "reported_status": "pass",
+      "report": "development/recomposition-spec2/report.json",
+      "source_overlays": {
+        "check_development.py": "development/recomposition-spec2/overlays/check_development.py"
+      },
+      "status_boundary": "Historical record; accepted gate is recomposition-feature1."
+    },
+    {
+      "name": "recomposition-focused1",
+      "reported_status": "pass",
+      "report": "development/recomposition-focused1/report.json",
+      "source_overlays": {
+        "check_development.py": "development/recomposition-focused1/overlays/check_development.py"
+      },
+      "status_boundary": "Historical record; accepted gate is recomposition-feature1."
+    }
+  ],
+  "development_boundary": "All three development attempts are retained: an initial nat/int type error, the corrected six-item mathematical specification, and the passing two-item actual recomposition module."
+}

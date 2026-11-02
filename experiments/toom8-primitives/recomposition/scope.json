@@ -1,0 +1,12 @@
+{
+  "status": "development_candidate",
+  "purpose": "Arbitrary-radix input representation, independent convolution identity and actual fifteen shifted additions recover the exact full product from coefficient buffers.",
+  "caller_boundary": "assemble_exact requires fifteen input-defined coefficients; the next full composition must obtain them from the actual interpolation module.",
+  "domain": "Full-u64 equal-length inputs7*k<=n<=8*k including empty input; contiguous output2*n words.",
+  "space": "No additional scratch for recomposition beyond caller-owned coefficient buffers and output.",
+  "analytic_work": "Fifteen existing shifted additions: O(n) for this fixed arity, not a checked machine-cost theorem.",
+  "benchmark_run": false,
+  "complete_recursive_toom8": false,
+  "promotion": false,
+  "runner_boundary": "Ordinary harness validates structural shapes; Python independently supplies all fifteen true input-convolution coefficients. Numeric coefficient correctness is an explicit formal caller obligation, not a runtime parser check."
+}

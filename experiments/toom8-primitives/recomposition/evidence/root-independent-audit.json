@@ -1,0 +1,71 @@
+{
+  "status": "pass",
+  "report_sha256": "4cec8d3c44e9d05718020e42d8746615303e94581c7c93115913776357ecb079",
+  "audit_source_sha256": "dfb0afc1990a32c24d83f4640b25067443dd4341de0a51e7a77596e971145b0a",
+  "source_inputs": 119,
+  "tools": 21,
+  "runtimes": 3,
+  "artifacts": 4,
+  "locked_paths": 408,
+  "verified_full_library_runner_codegen": [
+    522,
+    522,
+    522
+  ],
+  "true_scoped_mutants": {
+    "skip-clear": [
+      "1",
+      "1"
+    ],
+    "skip-coefficient-zero": [
+      "1",
+      "1"
+    ],
+    "skip-coefficient-seven": [
+      "1",
+      "1"
+    ],
+    "skip-coefficient-fourteen": [
+      "1",
+      "1"
+    ],
+    "wrong-shift-one": [
+      "1",
+      "1"
+    ],
+    "wrong-shift-fourteen": [
+      "1",
+      "1"
+    ],
+    "replace-six-by-eight": [
+      "1",
+      "1"
+    ],
+    "replace-eight-by-six": [
+      "1",
+      "1"
+    ],
+    "skip-coefficient-four": [
+      "1",
+      "1"
+    ],
+    "swap-endpoint-coefficients": [
+      "1",
+      "1"
+    ],
+    "skip-recomposition": [
+      "1",
+      "1"
+    ],
+    "wrong-shift-ten": [
+      "1",
+      "1"
+    ]
+  },
+  "mixed_fatal_rejections": 108,
+  "oracle_cases": 464,
+  "invalid_commands": 12,
+  "saved_runner_replayed": true,
+  "no_new_proof_escape": true,
+  "boundary": "Actual fifteen shifted additions compute the coefficient sum modulo output radix. Independent arbitrary-radix input decomposition and convolution identity plus the strict product capacity bound give exact whole-input product. assemble_exact retains fifteen input-defined coefficient premises; all 6960 supplied coefficient buffers were independently checked using integer Kronecker multiplication, while full-byte integer products supplied expected outputs. 464 saved-runner replays and 12 invalid harness inputs passed. k=0/h=0, trimmed or padded coefficients and untouched output tail are covered. Actual interpolation-to-recomposition caller, recursive Toom8, total workspace/bit-cost and performance remain outside this gate."
+}

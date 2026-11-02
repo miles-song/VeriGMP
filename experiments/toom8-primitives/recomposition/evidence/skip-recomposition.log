@@ -1,0 +1,30 @@
+verification results:: 1 verified, 1 errors (partial verification with `--verify-*`)
+note: verifying module toom8_recomposition
+
+note: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> <stage>/feature-gates/recomposition-feature1/inputs/candidate/native/verified/toom8_recomposition.rs:10:1
+   |
+10 | pub f...nt>>)
+   | ^^^^^...^^^^^
+
+note: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> <stage>/feature-gates/recomposition-feature1/inputs/candidate/native/verified/toom8_recomposition.rs:66:1
+   |
+66 | pub f...size)
+   | ^^^^^...^^^^^
+
+error: postcondition not satisfied
+  --> <stage>/feature-gates/recomposition-feature1/inputs/candidate/native/verified/toom8_recomposition.rs:83:48
+   |
+83 |       ensures final(dst)@.len()==old(dst)@.len(),value...e(b@),
+   |                                                  ^^^^^...^^^^^ failed this postcondition
+84 | / {
+85 | |     let ghost c=convolution::coefficients(input::blocks(a@,k as nat),input::blocks(b@,k a...
+86 | |
+87 | |     proof {
+...  |
+91 | | }
+   | |_- at the end of the function body
+
+error: aborting due to 1 previous error
+
