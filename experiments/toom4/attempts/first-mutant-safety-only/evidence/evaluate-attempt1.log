@@ -1,0 +1,9 @@
+note: verifying module toom4_evaluate
+
+note: assert_nonlinear_by has been running for 2 seconds
+      reporting errors as they are discovered (they may not be in source order)
+  --> <stage>/candidate/native/verified/toom4_evaluate.rs:52:13
+   |
+52 | ...   assert(pr...
+   |       ^^^^^^
+

@@ -1,0 +1,22 @@
+note: verifying module toom4
+
+note: verifying module toom4_blocks
+
+note: verifying module toom4_interpolate
+
+note: verifying module toom4_multiply, function lib::toom4_multiply::full
+
+note: function body check has been running for 2 seconds
+      reporting errors as they are discovered (they may not be in source order)
+  --> <stage>/candidate/native/verified/toom4_multiply.rs:11:1
+   |
+11 | pub f...size)
+   | ^^^^^...^^^^^
+
+note: function body check finished in 3 seconds
+  --> <stage>/candidate/native/verified/toom4_multiply.rs:11:1
+   |
+11 | pub f...size)
+   | ^^^^^...^^^^^
+
+verification results:: 25 verified, 0 errors (partial verification with `--verify-*`)

@@ -1,0 +1,14 @@
+note: verifying module toom4_evaluate
+
+error: postcondition not satisfied
+  --> <stage>/candidate/native/verified/toom4_evaluate.rs:22:9
+   |
+22 | ...   value...(a3@),
+   |       ^^^^^...^^^^^ failed this postcondition
+...
+80 | ...roof {equa...@));}
+   |         -----...----- at the end of the function body
+
+verification results:: 4 verified, 1 errors (partial verification with `--verify-*`)
+error: aborting due to 1 previous error
+

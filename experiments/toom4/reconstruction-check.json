@@ -1,0 +1,8 @@
+{
+  "status": "exact_source_reconstructed",
+  "baseline_commit": "e22a4dd00a28681fd27d68e2a78fa304cf17563e",
+  "source_files": 145,
+  "historical_original_gate_sha256": "c23734e7081ff80af3bda3f5d7bcd7a5ad85ed0d2128bffbe57ee6302ecd9442",
+  "fresh_verification_status": "not_run",
+  "fresh_benchmark_status": "not_run"
+}

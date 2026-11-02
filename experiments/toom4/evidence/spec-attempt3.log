@@ -1,0 +1,37 @@
+error: assertion failed
+  --> <stage>/candidate/native/specs/toom4.rs:55:12
+   |
+55 | ...rt(eval(...ne(c)) b...
+   |       ^^^^^...^^^^^ assertion failed
+
+error: assertion failed
+  --> <stage>/candidate/native/specs/toom4.rs:56:12
+   |
+56 | ...rt(eval(...ve(c)) b...
+   |       ^^^^^...^^^^^ assertion failed
+
+error: assertion failed
+  --> <stage>/candidate/native/specs/toom4.rs:57:12
+   |
+57 | ...rt(eval(...wo(c)) b...
+   |       ^^^^^...^^^^^ assertion failed
+
+error: assertion failed
+  --> <stage>/candidate/native/specs/toom4.rs:58:12
+   |
+58 | ...rt(half(...lf(c)) b...
+   |       ^^^^^...^^^^^ assertion failed
+
+error: assertion failed
+  --> <stage>/candidate/native/specs/toom4.rs:59:12
+   |
+59 | ...rt(negat...lf(c)) b...
+   |       ^^^^^...^^^^^ assertion failed
+
+note: assert_nonlinear_by has been running for 2 seconds
+      reporting errors as they are discovered (they may not be in source order)
+  --> <stage>/candidate/native/specs/toom4.rs:66:5
+   |
+66 |     assert(ev...
+   |     ^^^^^^
+

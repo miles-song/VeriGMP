@@ -1,0 +1,97 @@
+{
+  "baseline_commit": "e22a4dd00a28681fd27d68e2a78fa304cf17563e",
+  "decision": "Verified experimental Toom-4; not accepted for production default dispatch",
+  "production_files_changed": false,
+  "registered_gmp_target_status": "target_not_met",
+  "publication_policy": "Source and raw CSV bytes are exact. Historical report and log host paths are replaced by logical placeholders; original and published digests are recorded. Binaries are not distributed.",
+  "library_proof_items": 273,
+  "baseline_library_proof_items": 234,
+  "oracle_cases": 25062,
+  "new_oracle_cases": 13770,
+  "semantic_mutants": 18,
+  "invalid_commands": 6,
+  "changed_source_paths": [
+    {
+      "path": "native/lib.rs",
+      "baseline_sha256": "eae4fa2b755108dc29890ba0ae137f2478099a99ae6655eaf1f257c9cf5c4a00",
+      "candidate_sha256": "c8f6a7a11f1534360fb127b0535f9b508d76ea8dfd2e98ac3797021c673c822e"
+    },
+    {
+      "path": "native/toom4_codegen.rs",
+      "baseline_sha256": null,
+      "candidate_sha256": "4c9bdca0b3de40177c214e3676666307b79f3ab22295806bb4c0201f8a2194ff"
+    },
+    {
+      "path": "native/toom4_runner.rs",
+      "baseline_sha256": null,
+      "candidate_sha256": "7e0519ac1472c49d367af8e8fdc33d6cec78e1dee4f7f237517c22a66548cff4"
+    },
+    {
+      "path": "native/specs/toom4.rs",
+      "baseline_sha256": null,
+      "candidate_sha256": "352ff71f3f711225dd6c98e8c89e3491d88fb8f67a614d2f36bc96e4f0f34033"
+    },
+    {
+      "path": "native/specs/toom4_blocks.rs",
+      "baseline_sha256": null,
+      "candidate_sha256": "caaf8f02256bf53655a4a3d5dbf59ad7283b8ab3f524c7e872c6664eba8ea715"
+    },
+    {
+      "path": "native/verified/toom4_candidate.rs",
+      "baseline_sha256": null,
+      "candidate_sha256": "45db6de3f446083bee61d6b6bdd267829033080e1346fe285a7756ac5761b2a1"
+    },
+    {
+      "path": "native/verified/toom4_evaluate.rs",
+      "baseline_sha256": null,
+      "candidate_sha256": "150f2454b5a63318d174a2aa84c32e8dbcc851b77f65b437e16019115483a16e"
+    },
+    {
+      "path": "native/verified/toom4_interpolate.rs",
+      "baseline_sha256": null,
+      "candidate_sha256": "a54f4bb20ac3a5ff86159255245b4529eca4905e08338f164375a4470813a602"
+    },
+    {
+      "path": "native/verified/toom4_low.rs",
+      "baseline_sha256": null,
+      "candidate_sha256": "19e062300f1639a3c2af9b5a873f674b4f34b5efe3377bb2008133ad42b0b4a5"
+    },
+    {
+      "path": "native/verified/toom4_multiply.rs",
+      "baseline_sha256": null,
+      "candidate_sha256": "e62c3b4778cf887146f30d0c7bef8a12c630291063cf967c668ba010afbd116b"
+    },
+    {
+      "path": "native/verified/toom4_square.rs",
+      "baseline_sha256": null,
+      "candidate_sha256": "efaaf282edac2852829df4d5fd6439a7c18f33413b668d0857f73f9ac1e7d0a0"
+    },
+    {
+      "path": "native/verified/toom4_square_low.rs",
+      "baseline_sha256": null,
+      "candidate_sha256": "d1ca0f9f60c70436d05a9fb14f631f92f7271f97613efbcdfbd1967dab7cc4df"
+    }
+  ],
+  "source_patch_sha256": "ac6fb3f2a7561333cfd6ab4e6c0ff66c9a3c7fc69ef9b7d050eb8419970728f4",
+  "source_snapshot_files": 145,
+  "runs": {
+    "default1": {
+      "samples": 1092,
+      "minimum_recorded_ns": 10011254,
+      "regressions_vs_baseline": 20,
+      "key_gmp_failures": 34,
+      "primary_gmp_failures": 10,
+      "raw_sha256": "c6373ca94069e029c04dc78aca589f017e15a124ea7435724aafe26c8877731a",
+      "performance_status": "target_not_met"
+    },
+    "default2": {
+      "samples": 1092,
+      "minimum_recorded_ns": 10035058,
+      "regressions_vs_baseline": 23,
+      "key_gmp_failures": 35,
+      "primary_gmp_failures": 10,
+      "raw_sha256": "cf70c02da99c0878f74def7a141892d1f308602e36ec96e7701bb3c3617aadb4",
+      "performance_status": "target_not_met"
+    }
+  }
+}

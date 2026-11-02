@@ -1,0 +1,27 @@
+{
+  "status": "error",
+  "scope": "development probe only",
+  "mutations": [
+    {
+      "name": "drop_evaluation_carry",
+      "semantically_rejected": true,
+      "original_source_sha256": "150f2454b5a63318d174a2aa84c32e8dbcc851b77f65b437e16019115483a16e"
+    },
+    {
+      "name": "wrong_fourth_evaluation_limb",
+      "semantically_rejected": true,
+      "original_source_sha256": "150f2454b5a63318d174a2aa84c32e8dbcc851b77f65b437e16019115483a16e"
+    },
+    {
+      "name": "drop_evaluation_high_word",
+      "semantically_rejected": true,
+      "original_source_sha256": "150f2454b5a63318d174a2aa84c32e8dbcc851b77f65b437e16019115483a16e"
+    },
+    {
+      "name": "reverse_signed_comparison",
+      "semantically_rejected": false,
+      "original_source_sha256": "150f2454b5a63318d174a2aa84c32e8dbcc851b77f65b437e16019115483a16e"
+    }
+  ],
+  "error": "Not a clean semantic rejection: reverse_signed_comparison"
+}

@@ -1,0 +1,16 @@
+error: postcondition not satisfied
+   --> <stage>/candidate/native/specs/toom4.rs:107:13
+    |
+105 | pub p...:int)
+    | -----...----- at the end of the function body
+106 |     requires a.len()==4,b.len()==4,
+107 |     ensures eval(...b),r),
+    |             ^^^^^...^^^^^ failed this postcondition
+
+note: assert_nonlinear_by has been running for 2 seconds
+      reporting errors as they are discovered (they may not be in source order)
+  --> <stage>/candidate/native/specs/toom4.rs:97:5
+   |
+97 |     assert((8...
+   |     ^^^^^^
+

@@ -1,0 +1,51 @@
+--- baseline::arithmetic::square_mod
++++ candidate::toom4_candidate::square_mod
+@@ -1,20 +1,34 @@
+ push %r15
+ push %r14
+ push %rbx
++mov %rsi,%rbx
++mov %rdi,%r14
+ mov 0x20(%rsp),%r15d
+ lea -0x1(%r15),%eax
++cmp $0x200,%rcx
++jae @instruction_19
+ cmp $0x40,%eax
+-jae @instruction_29
+-mov %rsi,%rbx
+-mov %rdi,%r14
++jae @instruction_43
+ sub $0x8,%rsp
++mov %r14,%rdi
++mov %rbx,%rsi
+ push $0x1
+ push $0x40
+ push $0xc0
+ call *@crate::square_low::low
++jmp @instruction_28
++cmp $0x40,%eax
++jae @instruction_47
++sub $0x8,%rsp
++mov %r14,%rdi
++mov %rbx,%rsi
++push $0x1
++push $0x40
++push $0x100
++call *@crate::toom4_square_low::low
+ add $0x20,%rsp
+ test %rbx,%rbx
+-je @instruction_33
++je @instruction_51
+ mov $0xffffffffffffffff,%rax
+ mov $0xffffffffffffffff,%rdx
+ mov %r15d,%ecx
+@@ -33,5 +47,9 @@
+ call *@core::panicking::panic
+ lea @data,%rdi
+ lea @data,%rdx
++mov $0x27,%esi
++call *@core::panicking::panic
++lea @data,%rdi
++lea @data,%rdx
+ mov $0x1f,%esi
+ call *@core::panicking::panic

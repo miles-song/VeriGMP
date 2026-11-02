@@ -1,0 +1,28 @@
+note: verifying module toom4
+
+note: verifying module toom4_interpolate
+
+note: verifying module toom4_multiply, function lib::toom4_multiply::full
+
+note: function body check has been running for 2 seconds
+      reporting errors as they are discovered (they may not be in source order)
+  --> <stage>/candidate/native/verified/toom4_multiply.rs:11:1
+   |
+11 | pub f...size)
+   | ^^^^^...^^^^^
+
+note: function body check finished in 17 seconds
+  --> <stage>/candidate/native/verified/toom4_multiply.rs:11:1
+   |
+11 | pub f...size)
+   | ^^^^^...^^^^^
+
+error: function body check: resource limit (rlimit) exceeded; consider rerunning with `--profile` for more details
+  --> <stage>/candidate/native/verified/toom4_multiply.rs:11:1
+   |
+11 | pub f...size)
+   | ^^^^^...^^^^^
+
+verification results:: 17 verified, 1 errors (partial verification with `--verify-*`)
+error: aborting due to 1 previous error
+
