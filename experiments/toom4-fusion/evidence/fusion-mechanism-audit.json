@@ -1,0 +1,746 @@
+{
+  "status": "read_only_static_inventory",
+  "binary_sha256": "dcc3e4f1210eac9f02035428697a82e5f9a2cf83574319fa83547d43975df7ae",
+  "verification_sha256": "c249402c4f09867268b5db58b437636275c2b34a224f3593c4d11876a874ba7a",
+  "disassembly_sha256": "682e3cf8cb5c79835fdecc824748c76de306426482d68e8cfd41fa1223e1e871",
+  "script_sha256": "52768c8db619ccdb3ae8d1b9cb784f1714b0fc2ee041e04a0d5186c6c1a8af35",
+  "modes": {
+    "previous": {
+      "instruction_count_excluding_int3": 1284,
+      "instruction_count_excluding_alignment": 1242,
+      "backward_branches": [
+        {
+          "address": "0x2abf7",
+          "opcode": "jne",
+          "target": "2abb0"
+        },
+        {
+          "address": "0x2ac64",
+          "opcode": "jne",
+          "target": "2ac30"
+        },
+        {
+          "address": "0x2accc",
+          "opcode": "jne",
+          "target": "2aca0"
+        },
+        {
+          "address": "0x2ad41",
+          "opcode": "jb",
+          "target": "2ad10"
+        },
+        {
+          "address": "0x2ad45",
+          "opcode": "jmp",
+          "target": "2ad14"
+        },
+        {
+          "address": "0x2ada4",
+          "opcode": "jne",
+          "target": "2ad60"
+        },
+        {
+          "address": "0x2ae04",
+          "opcode": "jne",
+          "target": "2add0"
+        },
+        {
+          "address": "0x2ae6b",
+          "opcode": "jne",
+          "target": "2ae40"
+        },
+        {
+          "address": "0x2ae8f",
+          "opcode": "jne",
+          "target": "2ae28"
+        },
+        {
+          "address": "0x2aed9",
+          "opcode": "jb",
+          "target": "2aeb0"
+        },
+        {
+          "address": "0x2aedd",
+          "opcode": "jmp",
+          "target": "2aeb5"
+        },
+        {
+          "address": "0x2af1b",
+          "opcode": "jne",
+          "target": "2aef0"
+        },
+        {
+          "address": "0x2af6d",
+          "opcode": "jb",
+          "target": "2af40"
+        },
+        {
+          "address": "0x2af71",
+          "opcode": "jmp",
+          "target": "2af49"
+        },
+        {
+          "address": "0x2afb0",
+          "opcode": "jb",
+          "target": "2af80"
+        },
+        {
+          "address": "0x2afb4",
+          "opcode": "jmp",
+          "target": "2af8c"
+        },
+        {
+          "address": "0x2b003",
+          "opcode": "jb",
+          "target": "2afd0"
+        },
+        {
+          "address": "0x2b01d",
+          "opcode": "jb",
+          "target": "2afd0"
+        },
+        {
+          "address": "0x2b02c",
+          "opcode": "jne",
+          "target": "2afe7"
+        },
+        {
+          "address": "0x2b046",
+          "opcode": "jae",
+          "target": "2b03d"
+        },
+        {
+          "address": "0x2b0ac",
+          "opcode": "jne",
+          "target": "2b070"
+        },
+        {
+          "address": "0x2b11a",
+          "opcode": "jb",
+          "target": "2b0f0"
+        },
+        {
+          "address": "0x2b11e",
+          "opcode": "jmp",
+          "target": "2b0f4"
+        },
+        {
+          "address": "0x2b162",
+          "opcode": "jb",
+          "target": "2b130"
+        },
+        {
+          "address": "0x2b166",
+          "opcode": "jmp",
+          "target": "2b13c"
+        },
+        {
+          "address": "0x2b1ab",
+          "opcode": "jne",
+          "target": "2b180"
+        },
+        {
+          "address": "0x2b1fa",
+          "opcode": "jb",
+          "target": "2b1d0"
+        },
+        {
+          "address": "0x2b1fe",
+          "opcode": "jmp",
+          "target": "2b1d4"
+        },
+        {
+          "address": "0x2b27b",
+          "opcode": "jne",
+          "target": "2b230"
+        },
+        {
+          "address": "0x2b2f9",
+          "opcode": "jb",
+          "target": "2b2d0"
+        },
+        {
+          "address": "0x2b2fd",
+          "opcode": "jmp",
+          "target": "2b2d5"
+        },
+        {
+          "address": "0x2b33d",
+          "opcode": "jb",
+          "target": "2b310"
+        },
+        {
+          "address": "0x2b341",
+          "opcode": "jmp",
+          "target": "2b319"
+        },
+        {
+          "address": "0x2b38a",
+          "opcode": "jb",
+          "target": "2b360"
+        },
+        {
+          "address": "0x2b39d",
+          "opcode": "jb",
+          "target": "2b360"
+        },
+        {
+          "address": "0x2b3ac",
+          "opcode": "jne",
+          "target": "2b372"
+        },
+        {
+          "address": "0x2b3c6",
+          "opcode": "jae",
+          "target": "2b3bd"
+        },
+        {
+          "address": "0x2b41c",
+          "opcode": "jne",
+          "target": "2b3e0"
+        },
+        {
+          "address": "0x2b478",
+          "opcode": "jb",
+          "target": "2b450"
+        },
+        {
+          "address": "0x2b47c",
+          "opcode": "jmp",
+          "target": "2b454"
+        },
+        {
+          "address": "0x2b4b9",
+          "opcode": "jb",
+          "target": "2b490"
+        },
+        {
+          "address": "0x2b4cd",
+          "opcode": "jb",
+          "target": "2b490"
+        },
+        {
+          "address": "0x2b4dc",
+          "opcode": "jne",
+          "target": "2b4a2"
+        },
+        {
+          "address": "0x2b4f6",
+          "opcode": "jae",
+          "target": "2b4ed"
+        },
+        {
+          "address": "0x2b54c",
+          "opcode": "jne",
+          "target": "2b510"
+        },
+        {
+          "address": "0x2b5a8",
+          "opcode": "jb",
+          "target": "2b580"
+        },
+        {
+          "address": "0x2b5ac",
+          "opcode": "jmp",
+          "target": "2b584"
+        },
+        {
+          "address": "0x2b5f9",
+          "opcode": "jb",
+          "target": "2b5c0"
+        },
+        {
+          "address": "0x2b60d",
+          "opcode": "jb",
+          "target": "2b5c0"
+        },
+        {
+          "address": "0x2b61c",
+          "opcode": "jne",
+          "target": "2b5da"
+        },
+        {
+          "address": "0x2b636",
+          "opcode": "jae",
+          "target": "2b62d"
+        },
+        {
+          "address": "0x2b69c",
+          "opcode": "jne",
+          "target": "2b660"
+        },
+        {
+          "address": "0x2b6e8",
+          "opcode": "jb",
+          "target": "2b6c0"
+        },
+        {
+          "address": "0x2b6ec",
+          "opcode": "jmp",
+          "target": "2b6c4"
+        },
+        {
+          "address": "0x2b73b",
+          "opcode": "jne",
+          "target": "2b710"
+        },
+        {
+          "address": "0x2b78a",
+          "opcode": "jb",
+          "target": "2b760"
+        },
+        {
+          "address": "0x2b79d",
+          "opcode": "jb",
+          "target": "2b760"
+        },
+        {
+          "address": "0x2b7ac",
+          "opcode": "jne",
+          "target": "2b772"
+        },
+        {
+          "address": "0x2b7d0",
+          "opcode": "jne",
+          "target": "2b750"
+        },
+        {
+          "address": "0x2b7db",
+          "opcode": "jae",
+          "target": "2b7bd"
+        },
+        {
+          "address": "0x2b836",
+          "opcode": "jne",
+          "target": "2b800"
+        },
+        {
+          "address": "0x2b898",
+          "opcode": "jb",
+          "target": "2b870"
+        },
+        {
+          "address": "0x2b89c",
+          "opcode": "jmp",
+          "target": "2b874"
+        },
+        {
+          "address": "0x2b8d8",
+          "opcode": "jb",
+          "target": "2b8b0"
+        },
+        {
+          "address": "0x2b8dc",
+          "opcode": "jmp",
+          "target": "2b8b4"
+        },
+        {
+          "address": "0x2b949",
+          "opcode": "jne",
+          "target": "2b900"
+        },
+        {
+          "address": "0x2b9a9",
+          "opcode": "jb",
+          "target": "2b980"
+        },
+        {
+          "address": "0x2b9ad",
+          "opcode": "jmp",
+          "target": "2b985"
+        },
+        {
+          "address": "0x2b9f9",
+          "opcode": "jb",
+          "target": "2b9d0"
+        },
+        {
+          "address": "0x2ba0d",
+          "opcode": "jb",
+          "target": "2b9d0"
+        },
+        {
+          "address": "0x2ba1c",
+          "opcode": "jne",
+          "target": "2b9e2"
+        },
+        {
+          "address": "0x2ba36",
+          "opcode": "jae",
+          "target": "2ba2d"
+        },
+        {
+          "address": "0x2ba96",
+          "opcode": "jne",
+          "target": "2ba60"
+        },
+        {
+          "address": "0x2bae8",
+          "opcode": "jb",
+          "target": "2bac0"
+        },
+        {
+          "address": "0x2baec",
+          "opcode": "jmp",
+          "target": "2bac4"
+        },
+        {
+          "address": "0x2bb6b",
+          "opcode": "jne",
+          "target": "2bb20"
+        },
+        {
+          "address": "0x2bbca",
+          "opcode": "jb",
+          "target": "2bba0"
+        },
+        {
+          "address": "0x2bbce",
+          "opcode": "jmp",
+          "target": "2bba4"
+        },
+        {
+          "address": "0x2bc05",
+          "opcode": "je",
+          "target": "2ab86"
+        },
+        {
+          "address": "0x2bc0e",
+          "opcode": "jb",
+          "target": "2bbe0"
+        },
+        {
+          "address": "0x2bc12",
+          "opcode": "jmp",
+          "target": "2bbe4"
+        }
+      ],
+      "multiply_instruction_count": 19,
+      "source_selected_operations": {
+        "sign_combination": 2,
+        "divide_exact": 8,
+        "sub_exact": 18,
+        "copy_pad": 6,
+        "scale_exact": 6,
+        "sub_scaled_exact": 0
+      },
+      "source_selected_total": 40
+    },
+    "candidate": {
+      "instruction_count_excluding_int3": 955,
+      "instruction_count_excluding_alignment": 923,
+      "backward_branches": [
+        {
+          "address": "0x234c7",
+          "opcode": "jne",
+          "target": "23480"
+        },
+        {
+          "address": "0x23534",
+          "opcode": "jne",
+          "target": "23500"
+        },
+        {
+          "address": "0x2359c",
+          "opcode": "jne",
+          "target": "23570"
+        },
+        {
+          "address": "0x235fc",
+          "opcode": "jb",
+          "target": "235d0"
+        },
+        {
+          "address": "0x23600",
+          "opcode": "jmp",
+          "target": "235d4"
+        },
+        {
+          "address": "0x23662",
+          "opcode": "jne",
+          "target": "23620"
+        },
+        {
+          "address": "0x236b2",
+          "opcode": "jne",
+          "target": "23680"
+        },
+        {
+          "address": "0x2370b",
+          "opcode": "jne",
+          "target": "236e0"
+        },
+        {
+          "address": "0x23728",
+          "opcode": "jne",
+          "target": "236d4"
+        },
+        {
+          "address": "0x23768",
+          "opcode": "jb",
+          "target": "23740"
+        },
+        {
+          "address": "0x2376c",
+          "opcode": "jmp",
+          "target": "23744"
+        },
+        {
+          "address": "0x237ab",
+          "opcode": "jne",
+          "target": "23780"
+        },
+        {
+          "address": "0x237fd",
+          "opcode": "jb",
+          "target": "237d0"
+        },
+        {
+          "address": "0x23801",
+          "opcode": "jmp",
+          "target": "237d9"
+        },
+        {
+          "address": "0x23839",
+          "opcode": "jb",
+          "target": "23810"
+        },
+        {
+          "address": "0x2383d",
+          "opcode": "jmp",
+          "target": "23815"
+        },
+        {
+          "address": "0x23888",
+          "opcode": "jb",
+          "target": "23850"
+        },
+        {
+          "address": "0x2388c",
+          "opcode": "jmp",
+          "target": "23859"
+        },
+        {
+          "address": "0x238c9",
+          "opcode": "jb",
+          "target": "238a0"
+        },
+        {
+          "address": "0x238cd",
+          "opcode": "jmp",
+          "target": "238a5"
+        },
+        {
+          "address": "0x2390b",
+          "opcode": "jne",
+          "target": "238e0"
+        },
+        {
+          "address": "0x23958",
+          "opcode": "jb",
+          "target": "23930"
+        },
+        {
+          "address": "0x2395c",
+          "opcode": "jmp",
+          "target": "23934"
+        },
+        {
+          "address": "0x239d9",
+          "opcode": "jne",
+          "target": "23990"
+        },
+        {
+          "address": "0x23a58",
+          "opcode": "jb",
+          "target": "23a30"
+        },
+        {
+          "address": "0x23a5c",
+          "opcode": "jmp",
+          "target": "23a34"
+        },
+        {
+          "address": "0x23a9f",
+          "opcode": "jb",
+          "target": "23a70"
+        },
+        {
+          "address": "0x23aa3",
+          "opcode": "jmp",
+          "target": "23a79"
+        },
+        {
+          "address": "0x23ad7",
+          "opcode": "jne",
+          "target": "23ab0"
+        },
+        {
+          "address": "0x23b07",
+          "opcode": "jne",
+          "target": "23ae0"
+        },
+        {
+          "address": "0x23b4b",
+          "opcode": "jb",
+          "target": "23b10"
+        },
+        {
+          "address": "0x23b4f",
+          "opcode": "jmp",
+          "target": "23b1c"
+        },
+        {
+          "address": "0x23b9b",
+          "opcode": "jne",
+          "target": "23b70"
+        },
+        {
+          "address": "0x23beb",
+          "opcode": "jb",
+          "target": "23bc0"
+        },
+        {
+          "address": "0x23bfe",
+          "opcode": "jb",
+          "target": "23bc0"
+        },
+        {
+          "address": "0x23c0d",
+          "opcode": "jne",
+          "target": "23bd2"
+        },
+        {
+          "address": "0x23c31",
+          "opcode": "jne",
+          "target": "23bb0"
+        },
+        {
+          "address": "0x23c3c",
+          "opcode": "jae",
+          "target": "23c1e"
+        },
+        {
+          "address": "0x23c98",
+          "opcode": "jne",
+          "target": "23c60"
+        },
+        {
+          "address": "0x23cfa",
+          "opcode": "jb",
+          "target": "23cd0"
+        },
+        {
+          "address": "0x23cfe",
+          "opcode": "jmp",
+          "target": "23cd4"
+        },
+        {
+          "address": "0x23d3a",
+          "opcode": "jb",
+          "target": "23d10"
+        },
+        {
+          "address": "0x23d3e",
+          "opcode": "jmp",
+          "target": "23d14"
+        },
+        {
+          "address": "0x23dbb",
+          "opcode": "jne",
+          "target": "23d70"
+        },
+        {
+          "address": "0x23e29",
+          "opcode": "jb",
+          "target": "23e00"
+        },
+        {
+          "address": "0x23e2d",
+          "opcode": "jmp",
+          "target": "23e05"
+        },
+        {
+          "address": "0x23e6a",
+          "opcode": "jb",
+          "target": "23e40"
+        },
+        {
+          "address": "0x23e7d",
+          "opcode": "jb",
+          "target": "23e40"
+        },
+        {
+          "address": "0x23e8c",
+          "opcode": "jne",
+          "target": "23e52"
+        },
+        {
+          "address": "0x23ea6",
+          "opcode": "jae",
+          "target": "23e9d"
+        },
+        {
+          "address": "0x23f06",
+          "opcode": "jne",
+          "target": "23ed0"
+        },
+        {
+          "address": "0x23f58",
+          "opcode": "jb",
+          "target": "23f30"
+        },
+        {
+          "address": "0x23f5c",
+          "opcode": "jmp",
+          "target": "23f34"
+        },
+        {
+          "address": "0x23fce",
+          "opcode": "jne",
+          "target": "23f80"
+        },
+        {
+          "address": "0x2402a",
+          "opcode": "jb",
+          "target": "24000"
+        },
+        {
+          "address": "0x2402e",
+          "opcode": "jmp",
+          "target": "24004"
+        },
+        {
+          "address": "0x24066",
+          "opcode": "je",
+          "target": "23456"
+        },
+        {
+          "address": "0x2406f",
+          "opcode": "jb",
+          "target": "24040"
+        },
+        {
+          "address": "0x24073",
+          "opcode": "jmp",
+          "target": "24045"
+        }
+      ],
+      "multiply_instruction_count": 19,
+      "source_selected_operations": {
+        "sign_combination": 2,
+        "divide_exact": 8,
+        "sub_exact": 14,
+        "copy_pad": 2,
+        "scale_exact": 2,
+        "sub_scaled_exact": 4
+      },
+      "source_selected_total": 32
+    }
+  },
+  "entry_normalized_equal": {
+    "mul_mod": true,
+    "square_large": true
+  },
+  "scope_limit": "Static instructions, backward branches and source primitive visits are distinct counts. They do not prove timing equivalence, memory bottlenecks, execution frequencies or runtime improvement."
+}

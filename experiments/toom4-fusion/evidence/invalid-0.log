@@ -1,0 +1,4 @@
+
+thread 'main' (5653) panicked at <stage>/candidate/native/verified/toom4_multiply.rs:21:5:
+assertion failed: dst.len() == 2 * a.len() && scratch.len() >= 12 * a.len() && threshold >= 24
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace

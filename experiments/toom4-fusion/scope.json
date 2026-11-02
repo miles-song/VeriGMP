@@ -1,0 +1,69 @@
+{
+  "status": "candidate_scope_not_an_acceptance_record",
+  "production_default_changed": false,
+  "module_domains": {
+    "full_product": "equal nonempty inputs, 2n output limbs, caller scratch >=12n, fixed or caller-selected threshold >=24",
+    "full_square": "nonempty input, 2n output limbs, caller scratch >=10n, threshold >=24",
+    "weighted_evaluation": "three equal blocks plus a no-longer-than-first fourth block; each weight <=8 and total weights <=15; k+1 output limbs",
+    "interpolation": "seven independently input-defined nonnegative coefficients and 128 times their sum below output radix; exact odd divisors 3,9,15",
+    "low_product_and_square": "same precision and split conventions as existing verified low kernels"
+  },
+  "resource_evidence": "Actual recursive bodies include the disjoint caller-scratch layout and slice length obligations; acceptance requires the matching full verification report",
+  "asymptotic_scope": {
+    "domain": "limb count n, fixed cutoff independent of n",
+    "exponent": "log_4(7)",
+    "checked_cost_theorem": false,
+    "relation_to_sat_variable_count": "No claim about whole SAT solver complexity is made by this arithmetic experiment",
+    "actual_full_call_structure": "T_full(k)+T_full(h)+5T_full(m)+O(n), k=ceil(n/4), h=n-3k, m=k+1",
+    "full_upper_bound": "T_full(n)<=2T_full(k)+5T_full(m)+O(n)<=7T_full(m)+O(n), using a monotone worst-case envelope",
+    "dedicated_square_full": "Same seven-call structure with T_square_full",
+    "low_product": "T_low(n)<=T_full(k)+2T_low(h)+O(n)",
+    "low_square": "T_square_low(n)<=T_square_full(k)+T_low_product(h)+O(n)"
+  },
+  "independent_oracle_cases": 35555,
+  "new_semantic_mutants": 40,
+  "new_invalid_commands": 30,
+  "performance_claim": "No performance acceptance follows from this scope; separate fixed-source measurements are required",
+  "entry_candidate_scope": {
+    "independent_meaning": "Input integer product or square modulo the requested power of two, unchanged from the arithmetic contract",
+    "product_change": "Direct call to the original small-product kernel; preserve the single existing size decision",
+    "square_change": "Separate complete small and large square contracts; inline the small body and selecting wrapper, keep the large body out of line",
+    "alias_and_capacity": "Safe mutable slice exclusivity, full input/precision domains, 12n product scratch and 10n square scratch unchanged",
+    "cost_boundary": "The mathematical recurrence is unchanged. Codegen inspection must establish dispatch/frame effects; runtime improvement is unclaimed before new complete measurements."
+  },
+  "odd_division_scope": {
+    "independent_meaning": "A=d*Q with unchanged limb length; low-to-high scalar identity d*q+c=x+B*next, 0<=next<d, B=2^64",
+    "direct_domain": "d in {3,9,15}; every u64 input word, every incoming carry 0<=c<d; exact arrays including empty; no truncation or narrowing of word range",
+    "existing_api_domain": "divide_exact preserves every positive u64 divisor and exact-input precondition; other divisors retain the original high-to-low division body",
+    "final_carry": "An independently stated modular inverse of B modulo d cancels B^n; exactness and carry<d establish final carry=0",
+    "runtime_storage": "In place, constant machine-word temporary state, same caller workspace and Toom policy; proof/spec sequence values erase",
+    "cost_scope": "Analytic O(n) word operations and O(1) runtime auxiliary storage for the odd loop; no verified machine-cost theorem; unchanged Toom recurrence",
+    "excluded_changes": [
+      "threshold changes",
+      "default promotion",
+      "consumer gitlink changes"
+    ],
+    "standalone_entrypoint_compatibility": [
+      "mac4_bench.rs",
+      "square_base_bench.rs",
+      "toom_codegen.rs",
+      "toom_words_runner.rs",
+      "toom_bench.rs"
+    ]
+  },
+  "parent_control_performance": "Odd-division candidate was target_not_met in both complete runs; frozen experimental control only",
+  "fusion_scope": {
+    "independent_meaning": "value(final(dst))=value(old(dst))-word*value(rhs)",
+    "domain": "Every u64 word including zero/MAX; empty dst/RHS; rhs length <= dst length; mathematical product <= input destination; safe exclusive mutable dst",
+    "carry_obligation": "Combined carry<=word; high==word implies low product==0 and subtraction borrow==0; no narrowing of full-u64 domain",
+    "composition": "Exactly pmh-=64*z0, p2-=4*c2, p2-=16*c4, p2-=64*z6; all old interpolation outputs retained including scratch=c3 and p2=3c3",
+    "workspace": "No allocation and no new scratch; original 12n/10n capacities retained, scratch not removed",
+    "cost_boundary": "Four groups of three source passes become four single passes; analytic O(n) helper and unchanged Toom recurrence, not a checked machine-cost theorem or speed result",
+    "excluded_changes": [
+      "Toom-3 paths",
+      "threshold tuning",
+      "default promotion",
+      "consumer dependency changes"
+    ]
+  }
+}

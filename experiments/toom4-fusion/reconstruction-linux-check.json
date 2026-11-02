@@ -1,0 +1,10 @@
+{
+  "status": "pass",
+  "scope": "Independent Linux clone of baseline plus exact public archive bytes; source preparation and archive audit only",
+  "baseline_commit": "e22a4dd00a28681fd27d68e2a78fa304cf17563e",
+  "archive_files": 231,
+  "source_files": 230,
+  "fresh_verification_status": "not_run",
+  "fresh_benchmark_status": "not_run",
+  "measurement_receipt_sha256": "9d65657902cadc76e3abf68b8ca4da71e638b1b4c391a481607f6e4047f466e1"
+}

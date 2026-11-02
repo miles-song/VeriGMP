@@ -1,0 +1,161 @@
+{
+  "status": "ready_not_measured",
+  "benchmark_run": false,
+  "verification_sha256": "c249402c4f09867268b5db58b437636275c2b34a224f3593c4d11876a874ba7a",
+  "local_final_audit_sha256": "4419054e59f0edee840e21416e29b3ed48216e3f3bc868c1c073973ae90f8300",
+  "matched_binary_audit_sha256": "8b9068eab32b32acd237d94c2310a75f0c355b8a797eefdb110f21c0dd8c1c3b",
+  "source_manifest_sha256": "437eed355be77824a5af98adead97125b476ae9062be24077532c2e0cb2c7551",
+  "libraries": {
+    "baseline": {
+      "verified": 234,
+      "rlib_sha256": "430f188dc0e04d5147fb02cac001906b04d9e585124901c34b74782a4c29f05c",
+      "vir_sha256": "4caf4d6dce697a8dd94f3ad42f42f46ea4e3ebac0f2c2c8c1738e7bc0869c140"
+    },
+    "previous": {
+      "verified": 289,
+      "rlib_sha256": "4a0bef3aca269c32fdfd66e779cec146c3312ded8c478106fe2c908895be13d6",
+      "vir_sha256": "7d5c02f31437269dcf9a69dc5ceadedd2b85a4ec64210e1287c3945a4c46e67e"
+    },
+    "candidate": {
+      "verified": 298,
+      "rlib_sha256": "5eaadd28bb966b022c96ac83a0c29b2771a5e30c22ab44ae70bc77320c7e005a",
+      "vir_sha256": "b2da8e000b03728015e4f2374021483a4fde1730a7d03d87f3b73e7243c23576"
+    }
+  },
+  "benchmark_source_sha256": "652f3c3d6440d3b3b6eba36f00e8115374ed0cc84b6aadc2ccd91e4c8e31a2c6",
+  "benchmark_binary_sha256": "dcc3e4f1210eac9f02035428697a82e5f9a2cf83574319fa83547d43975df7ae",
+  "controller_sha256": "2b37e639b8e6ea36d283e616c7e05e5c7fe05f62cc26b3325ea5dc6e4fc3a045",
+  "measurement_script_sha256": "440f470f453ac722c6fb6f2015bbdecf050926b9f90a0bc0e982aeed2205c034",
+  "fixed_runs": [
+    "default1",
+    "default2"
+  ],
+  "operations": [
+    "mul_mod",
+    "square_mod"
+  ],
+  "shapes": [
+    [
+      1,
+      1
+    ],
+    [
+      1,
+      64
+    ],
+    [
+      2,
+      1
+    ],
+    [
+      23,
+      63
+    ],
+    [
+      24,
+      63
+    ],
+    [
+      25,
+      63
+    ],
+    [
+      63,
+      63
+    ],
+    [
+      64,
+      63
+    ],
+    [
+      65,
+      63
+    ],
+    [
+      127,
+      63
+    ],
+    [
+      128,
+      63
+    ],
+    [
+      129,
+      63
+    ],
+    [
+      191,
+      63
+    ],
+    [
+      192,
+      63
+    ],
+    [
+      193,
+      63
+    ],
+    [
+      255,
+      63
+    ],
+    [
+      256,
+      63
+    ],
+    [
+      257,
+      63
+    ],
+    [
+      511,
+      63
+    ],
+    [
+      512,
+      63
+    ],
+    [
+      513,
+      63
+    ],
+    [
+      1023,
+      63
+    ],
+    [
+      1024,
+      63
+    ],
+    [
+      1025,
+      63
+    ],
+    [
+      2048,
+      63
+    ],
+    [
+      4096,
+      63
+    ]
+  ],
+  "groups_per_run": 52,
+  "modes_per_group": 4,
+  "repetitions": 7,
+  "minimum_recorded_batch_ns": 10000000,
+  "mode_order": "(j+repetition)%4 for j=0..3",
+  "expected_wall_seconds": [
+    90,
+    110
+  ],
+  "mode_identities": {
+    "0": "e22 canonical production source",
+    "1": "frozen odd-division experimental candidate source",
+    "2": "same source plus four-group Toom-4 interpolation fusion",
+    "3": "GMP full then copy low words and top mask"
+  },
+  "window_policy": "Explicit coordinated CPU0 window; existing settle and quiet preflight; two complete independent runs, no result-dependent retry or sample selection; retain all negative outcomes",
+  "parent_control_performance": "target_not_met",
+  "performance_acceptance": "not_evaluated"
+}

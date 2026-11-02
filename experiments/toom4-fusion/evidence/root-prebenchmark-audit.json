@@ -1,0 +1,108 @@
+{
+  "status": "pass",
+  "verification_sha256": "c249402c4f09867268b5db58b437636275c2b34a224f3593c4d11876a874ba7a",
+  "script_sha256": "9cb713efd117c60a91c8d4595ebf9d0a7139ef3703a10b6ee588a6f50c507225",
+  "source_files": 230,
+  "tools": 21,
+  "runtime_libraries": 3,
+  "artifacts": 9,
+  "compiled_pairs": 3,
+  "positive_logs": {
+    "baseline-library.log": {
+      "verified": 234,
+      "sha256": "c91c76bf7003ac779f6dbbbfb4f94e4a113677b69369a67f45e19adb6603b480"
+    },
+    "previous-library.log": {
+      "verified": 289,
+      "sha256": "dc2a1e0a4810bad98ed0f5897e6120a700913428df8010e8824bb7e3c5fc2be7"
+    },
+    "candidate-library.log": {
+      "verified": 298,
+      "sha256": "59c46e638aaa4b8a6c5b7eeef31bbf694e721a7e838346ea4a195c545fac2686"
+    },
+    "runner-build.log": {
+      "verified": 298,
+      "sha256": "32f2a20603c042f297422b40c17c374d43e3e327ec157c10b67cf85b80de01d4"
+    },
+    "codegen.log": {
+      "verified": 298,
+      "sha256": "cfc479d10eced0017e95076050a0372546524a8be2ef38368eaac7efc6394524"
+    },
+    "legacy-mac4_bench.rs.log": {
+      "verified": 244,
+      "sha256": "19e4973d5a5590c1f481a218109835e8748d412c642c3f45e1586a4c634e9201"
+    },
+    "legacy-square_base_bench.rs.log": {
+      "verified": 248,
+      "sha256": "437d7b6be3247515eb140de49f0c3534f50363d4c93baba2c3dea773bc0ddf03"
+    },
+    "legacy-toom_codegen.rs.log": {
+      "verified": 248,
+      "sha256": "f119014ae378fb7066d9af844e662f617e988bf17fdb08bbdb2eac3995b9bb7e"
+    },
+    "legacy-toom_words_runner.rs.log": {
+      "verified": 248,
+      "sha256": "b081a4b6cf00628837bb74f57c81f8a6e43e9013647ac4adbab3032c3dd65699"
+    },
+    "legacy-toom_bench.rs.log": {
+      "verified": 248,
+      "sha256": "b081a4b6cf00628837bb74f57c81f8a6e43e9013647ac4adbab3032c3dd65699"
+    }
+  },
+  "strict_raw_semantic_diagnostics": {
+    "drop_evaluation_carry": "eb6dea10ff6eef6d16aadb4c7027b733071f8c24be52dce206d05166323ca2fb",
+    "wrong_fourth_evaluation_limb": "3668ff21c19b5b11cad39a3b376adcb963ef32f0388540d94a4579f9242c3136",
+    "drop_evaluation_high_word": "ded905104c838dd072a2b898db995cd96802c97ef7e70bb0c5dd6dbc2f7bb331",
+    "reverse_signed_comparison": "7a9767046c16591e73017a672fc699498a3608729f7abbe86c98138378c064fd",
+    "wrong_cubic_elimination_factor": "b78abb046e07addadb2d58002537685b74d7866e38ecfc6b040f6688209dc00b",
+    "wrong_cubic_exact_divisor": "e39adc3c17b5a31fe86f97801b85647c39de6771fd38dbe71ca280fd171321a3",
+    "wrong_linear_exact_divisor": "1aa93efd7c47ccfbb6fb6fcc242292428050e5eff72665a344dba46b6b8686ca",
+    "wrong_half_even_divisor": "f64fdce01f80302d49b07de3353e2cbdc758f3a68f800ba4ddfc140befa4206e",
+    "omit_fifth_coefficient_subtraction": "c53f8a7d073957df612e37b7fd5197b893c76f2c77004f3d8595f95c61570cab",
+    "wrong_high_coefficient_offset": "8998593debb1daf6b77816519fa135071bdcf0d71f8f60384a5781b909d1f06b",
+    "wrong_negative_half_sign": "a257b25b4e3d0bcff54d17e3f89a40ef9325534570422a1a7596ec1423bdbc80",
+    "wrong_high_product_operand": "d156e41417a843e5bdd5fca411145a3dce4bff21372c7434c2f7af5359d9c498",
+    "wrong_positive_two_evaluation": "e4b1e593d971a9e29fd66f29c30f0e5d27bf7814239c19e4c35665a18d690083",
+    "omit_toom4_base_product": "d809c0f48c8b427490951ad53ee48e86085004c4be0931dc213f770c116dbbe0",
+    "omit_negative_point_square": "e0528369cf0ddadbfab2650b1fbf10704ecbd995ad3ee328c813afce5a92c4ff",
+    "omit_toom4_base_square": "d555d1b2e409000f120250022d0ebbf275e97f487f678cdb93e477a0cbc754c1",
+    "wrong_low_product_operand": "935e3b4726d79daaa821589fd0376f809989eee2167f5086fe0e1f6e292cb620",
+    "omit_second_cross_square_term": "7b0b64e299d86d6bc96ed6163aa34c5da9587b1b9643496ddc428aa94608b488",
+    "wrong_small_product_operand": "e28329e402d3854de54b8ed91d247788b55a6b40535140f9d2e5d87f0fb49de6",
+    "omit_small_square_normalization": "ab1c22dff3eb52850e7dd79d7e5b5d7b149d728b3ab36ed788b9640d1002f6f3",
+    "odd_wrong_borrow_direction": "93803f131cd1a2e4712c77ed151e39a4286646a76aec9ef03790b106d7c116c6",
+    "odd_omit_inverse_product": "14fc9df0f7859dd868556a260e62e6704fbcf6eccfc6c9554bba5de0cb9d3aef",
+    "odd_drop_wide_incoming_carry": "ac9e0d22a0473d409f588f769797256af78f0cc492d796a3a0bda891bccfb4ee",
+    "odd_wrong_outgoing_carry": "8a903c82ecaa1fd920618953c6223c7d5ee24c068330cbcbecf56495b426bdfc",
+    "odd_write_original_word": "7c955e828bd8a5f2b89cc70a0bcec71a59d80f2d2fc99fdec06ce53642aae924",
+    "odd_drop_loop_carry": "69d0d7e8078ed52d3be9a6bc50c8c65760de0c12148b8280262a656362eb3820",
+    "odd_wrong_inverse3": "0bdf645629c780e42db5d525b5f9d147f9ab65a563789ad10c7d45511cbba2af",
+    "odd_wrong_inverse9": "0bdf645629c780e42db5d525b5f9d147f9ab65a563789ad10c7d45511cbba2af",
+    "odd_wrong_inverse15": "0bdf645629c780e42db5d525b5f9d147f9ab65a563789ad10c7d45511cbba2af",
+    "odd_admit_even_divisor": "7c8b39d823f748cc7a0d4069aa8437e5f4c44dad52229cd53e2dbff06261e194",
+    "fusion_drop_incoming_carry": "d34443766ecca402dfd9d2b6a14189bba4bedbf50142d6f301fffcaa4aa96d0f",
+    "fusion_reverse_subtraction": "62f5f1fd8d084d9cea82942d36263d850ac9a87948b8fb16562abd233833bb2a",
+    "fusion_drop_borrow": "bf16b58c6b6830ef19801ba751b306fb723675e6ea9c903198c03df367994979",
+    "fusion_write_product": "7cec72d91f4e7a023a8f75def0bdfff3235348346d1dff7b2d4673d336b2c5e6",
+    "fusion_drop_loop_carry": "188d60fcc9c20a46a225c1ac6ece23195c5feb95fe74ab4165563173c3d625f4",
+    "fusion_wrong_zero_padding": "6d0723c3f67c312410823a4bc3e4a3df1b8a5402e831b9afa52393fed3570a10",
+    "fusion_wrong_half_constant": "7937793c9646e204b3b3ae1276822d8f79b6c98d047a0c33997ee270796403ea",
+    "fusion_wrong_quadratic_constant": "21c157afee7a1383d208ce62662fe9124b1f3657c15499a4ec8350357acea8ee",
+    "fusion_wrong_quartic_constant": "21c157afee7a1383d208ce62662fe9124b1f3657c15499a4ec8350357acea8ee",
+    "fusion_wrong_sixth_constant": "21c157afee7a1383d208ce62662fe9124b1f3657c15499a4ec8350357acea8ee"
+  },
+  "fusion_independent_integer_cases": 5655,
+  "actual_runner_replayed": true,
+  "replay_input_sha256": "ddf757ba37bd454203fd7f3bf38b7f4d244fcb4c279282e5331f28418b58b4fd",
+  "replay_output_sha256": "c40c3ef5a863e418eaf7e7e886a3280d437c82b625269c394918108a91055fa5",
+  "changed_candidate_files": [
+    "native/lib.rs",
+    "native/toom4_codegen.rs",
+    "native/toom4_runner.rs",
+    "native/verified/scaled_subtraction.rs",
+    "native/verified/toom4_interpolate.rs"
+  ],
+  "benchmark_run": false,
+  "approved_for_controlled_measurement": true,
+  "limits": "No complete arithmetic cost or machine equivalence proof. Raw negative diagnostics audited; process exit statuses are recorded only by the original acceptance classifier. Performance not measured."
+}

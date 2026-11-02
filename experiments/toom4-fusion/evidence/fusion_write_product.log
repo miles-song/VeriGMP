@@ -1,0 +1,65 @@
+verification results:: 8 verified, 1 errors (partial verification with `--verify-*`)
+note: verifying module scaled_subtraction
+
+note: assert_nonlinear_by: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> <stage>/candidate/native/verified/scaled_subtraction.rs:31:13
+   |
+31 | ...   assert((p...
+   |       ^^^^^^
+
+note: assert_nonlinear_by: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> <stage>/candidate/native/verified/scaled_subtraction.rs:34:13
+   |
+34 | ...   assert(hi...
+   |       ^^^^^^
+
+note: assert_nonlinear_by: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> <stage>/candidate/native/verified/scaled_subtraction.rs:37:17
+   |
+37 | ...   assert(pr...
+   |       ^^^^^^
+
+note: assert_nonlinear_by: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> <stage>/candidate/native/verified/scaled_subtraction.rs:39:17
+   |
+39 | ...   assert(bo...
+   |       ^^^^^^
+
+note: assert_nonlinear_by: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> <stage>/candidate/native/verified/scaled_subtraction.rs:48:13
+   |
+48 | ...   assert(pr...
+   |       ^^^^^^
+
+note: while loop: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> <stage>/candidate/native/verified/scaled_subtraction.rs:18:5
+   |
+18 |     while...len()
+   |     ^^^^^...^^^^^
+
+note: assert_nonlinear_by: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> <stage>/candidate/native/verified/scaled_subtraction.rs:64:9
+   |
+64 | ...   assert(ca...
+   |       ^^^^^^
+
+note: assert_nonlinear_by: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> <stage>/candidate/native/verified/scaled_subtraction.rs:69:9
+   |
+69 | ...   assert(va...
+   |       ^^^^^^
+
+note: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+ --> <stage>/candidate/native/verified/scaled_subtraction.rs:9:1
+  |
+9 | pub f...:u64)
+  | ^^^^^...^^^^^
+
+error: requires not satisfied
+  --> <stage>/candidate/native/verified/scaled_subtraction.rs:52:21
+   |
+52 | ...   prefi... nat),
+   |       ^^^^^...^^^^^
+
+error: aborting due to 1 previous error
+

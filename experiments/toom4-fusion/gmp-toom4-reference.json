@@ -1,0 +1,54 @@
+{
+  "archive_sha256": "a3c2b80201b89e68616f4ad30bc66aee4927c3ce50e33929ca819d5c43538898",
+  "sources": {
+    "mpn/generic/toom44_mul.c": {
+      "sha256": "2c776fb2c5fbb96829101c115f671a855fb8c5870ee3031ed1e7064a914ce10b",
+      "reference_source_lines": 239,
+      "division_calls": []
+    },
+    "mpn/generic/toom4_sqr.c": {
+      "sha256": "afd11a75bc2dfc72fdc95e10caff6b79b16167a51fe8f710638d341463a10745",
+      "reference_source_lines": 164,
+      "division_calls": []
+    },
+    "mpn/generic/toom_interpolate_7pts.c": {
+      "sha256": "ba3629df67eef51f30d4128f3ef118d834de6c0842c40097268f8302abd485a8",
+      "reference_source_lines": 274,
+      "division_calls": [
+        "mpn_divexact_1",
+        "mpn_divexact_by15",
+        "mpn_divexact_by3",
+        "mpn_divexact_by9",
+        "mpn_divexact_byN",
+        "mpn_pi1_bdiv_q_1"
+      ]
+    },
+    "mpn/generic/mul_fft.c": {
+      "sha256": "c1aa6ad5544be3694d50076c4937b30affdcd73c7c9d9b7cb11b5690cb3f5518",
+      "reference_source_lines": 1105,
+      "division_calls": [
+        "mpn_fft_div_2exp_modF"
+      ]
+    },
+    "doc/gmp.texi": {
+      "sha256": "affc59d578fe92a592b702336d782aa16fbb1a67edbf0f84b4c2e75d4ebe5e69",
+      "reference_source_lines": 11073,
+      "division_calls": [
+        "mpn_bdiv_dbm1",
+        "mpn_bdivmod",
+        "mpn_divexact_1",
+        "mpn_divexact_by3",
+        "mpn_divexact_by3c",
+        "mpn_divmod",
+        "mpn_divmod_1",
+        "mpn_divrem",
+        "mpn_divrem_1",
+        "mpn_sec_div_qr",
+        "mpn_sec_div_qr_itch",
+        "mpn_sec_div_r",
+        "mpn_sec_div_r_itch",
+        "mpn_tdiv_qr"
+      ]
+    }
+  }
+}
