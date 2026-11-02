@@ -1,7 +1,7 @@
 name: Toom-8 arithmetic primitives archive
 on:
   push:
-    branches: [experiments/toom8-primitives, 'main', 'acceptance/experiment-archives-main']
+    branches: [experiments/toom8-primitives, 'main', 'acceptance/experiment-archives-main', 'feature/dyadic-recovery-lemmas']
   pull_request:
     paths: [experiments/toom8-primitives/**, .github/workflows/toom8-primitives-experiment.yml]
 jobs:
@@ -44,6 +44,8 @@ jobs:
       - run: python3 experiments/toom8-primitives/seventh/test_prepare_boundaries.py
       - run: python3 experiments/toom8-primitives/seventh/prepare.py --output /tmp/verigmp-seventh
       - run: python3 experiments/toom8-primitives/interpolation/audit.py
+      - run: python3 experiments/toom8-primitives/dyadic-recovery/check_dyadic_recovery.py
+      - run: python3 experiments/toom8-primitives/dyadic-recovery/test_fresh_evidence.py
       - run: python3 experiments/toom8-primitives/interpolation/test_prepare_boundaries.py
       - run: python3 experiments/toom8-primitives/interpolation/prepare.py --output /tmp/verigmp-interpolation
       - run: python3 experiments/toom8-primitives/recomposition/audit.py

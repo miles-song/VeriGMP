@@ -155,6 +155,13 @@ Not yet implemented: architecture-specific assembly, higher Toom variants and FF
 composed cost model, and general division, inversion or higher-level integer APIs.
 The exact claimed scope is recorded in [native/proof-status.json](native/proof-status.json).
 
+The [Toom-8 dyadic recovery archive](experiments/toom8-primitives/dyadic-recovery/)
+retains fresh verification of experimental dyadic and interpolation candidates:
+478 and 514 items per entry (library, runner build and codegen build), with
+fifteen coefficient outputs. This slice awaits independent acceptance and leaves
+production dispatch unchanged; it does not establish a complete recursive
+Toom-8 implementation.
+
 ## Documentation
 
 - [docs/usage.md](docs/usage.md): installation, API contracts, scratch sizing and

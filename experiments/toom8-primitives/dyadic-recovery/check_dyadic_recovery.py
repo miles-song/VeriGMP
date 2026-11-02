@@ -1,30 +1,30 @@
 """Audit the scoped dyadic-recovery consumer and its current acceptance gates.
 
-This is a source/evidence audit. It intentionally does not present the saved
-Verus logs or assembly as a fresh proof or benchmark. The script checks the
-actual generic exports and call chain, replays the coefficient-to-buffer layout
-with an independent integer implementation, and records the gates that still
-block promotion to a production or solver backend.
+This checks source, historical archives and the raw outputs of a separately
+executed immutable Verus/Rust gate. It does not rerun the verifier or runner.
+Audit discrepancies fail the command; missing performance and solver acceptance
+remain explicit promotion blockers after a successful scoped audit.
 """
 
 from __future__ import annotations
 
+import argparse
 import importlib.util
 import json
 import re
-import shutil
 import subprocess
 import sys
 from pathlib import Path
 from typing import Any
+
+from fresh_evidence import audit_fresh, digest, relative, require
 
 
 HERE = Path(__file__).resolve().parent
 REPO = HERE.parents[2]
 INTERPOLATION = REPO / "experiments" / "toom8-primitives" / "interpolation"
 DYADIC = REPO / "experiments" / "toom8-primitives" / "dyadic"
-SAT_REPO = REPO.parent / "sat-counting-lab-src"
-SAT_STATUS = SAT_REPO / "native" / "proof-status.json"
+FRESH = HERE / "evidence" / "fresh-20261103"
 
 U64_BITS = 64
 BASE = 1 << U64_BITS
@@ -80,6 +80,9 @@ def run_archive_audit(path: Path) -> dict[str, Any]:
     if completed.returncode == 0:
         try:
             result["report"] = last_json(completed.stdout)
+            if result["report"].get("status") != "pass":
+                result["status"] = "fail"
+                result["error"] = "archive audit did not report pass"
         except RuntimeError as exc:
             result["status"] = "fail"
             result["error"] = str(exc)
@@ -304,54 +307,62 @@ def independent_mapping_gate() -> dict[str, Any]:
     }
 
 
-def m7_m8_gate() -> dict[str, Any]:
-    if not SAT_STATUS.exists():
-        return {"status": "blocked", "error": f"missing {SAT_STATUS}"}
-    status = load_json(SAT_STATUS)
-    modules = {module.get("id"): module for module in status.get("modules", [])}
-    m7 = modules.get("M7", {})
-    m8 = modules.get("M8", {})
-    rust_hits: list[str] = []
-    if SAT_REPO.exists():
-        for path in (SAT_REPO / "native").rglob("*.rs"):
-            text = read(path).lower()
-            if "toom8" in text or "dyadic_pair" in text or "dyadic recovery" in text:
-                rust_hits.append(str(path.relative_to(SAT_REPO)))
-    expected = m7.get("status") == "spec_only" and m8.get("status") == "conditional_composition"
-    return {
-        "status": "pass" if expected else "fail",
-        "m7": {"status": m7.get("status"), "remaining": m7.get("remaining")},
-        "m8": {"status": m8.get("status"), "remaining": m8.get("remaining")},
-        "sat_rust_consumer_hits": rust_hits,
-        "actual_solver_consumer": bool(rust_hits),
-        "promotion_effect": "M7/M8 remain outside this arithmetic archive; no solver pin is changed",
-    }
+def m7_m8_gate(consumer_repo: Path | None) -> dict[str, Any]:
+    scope = load_json(HERE / "scope.json")
+    receipt_bytes = (HERE / relative(scope["consumer_receipt"])).read_bytes()
+    require(digest(receipt_bytes) == scope["consumer_receipt_sha256"], "consumer receipt hash mismatch")
+    receipt = json.loads(receipt_bytes)
+    head = receipt["head"]
+    status_hash = receipt["file_sha256"]["native/proof-status.json"]
+    require(receipt["repository"] == "VeriCount" and receipt["solver_consumer_accepted"] is False
+            and receipt["compiled_dependency_checked"] is False, "wrong consumer receipt scope")
+    if consumer_repo is not None:
+        consumer_repo = consumer_repo.resolve()
 
+        def git(*args: str, cwd: Path = consumer_repo) -> str:
+            return subprocess.check_output(["git", *args], cwd=cwd, text=True, stderr=subprocess.PIPE).strip()
 
-def toolchain_gate() -> dict[str, Any]:
-    native = {name: shutil.which(name) for name in ("rustc", "cargo", "verus")}
-    wsl = shutil.which("wsl")
-    wsl_tools: dict[str, str | None] = {}
-    if wsl:
-        for name in ("rustc", "cargo", "verus"):
-            try:
-                result = subprocess.run(
-                    [wsl, "bash", "-lc", f"command -v {name}"],
-                    capture_output=True,
-                    text=True,
-                    timeout=10,
-                    check=False,
-                )
-                wsl_tools[name] = result.stdout.strip() or None
-            except (OSError, subprocess.TimeoutExpired):
-                wsl_tools[name] = None
-    available = {name: bool(path) for name, path in native.items()}
+        head = git("rev-parse", "HEAD")
+        for rel, wanted in receipt["file_sha256"].items():
+            if rel != "native/proof-status.json":
+                require(digest((consumer_repo / relative(rel)).read_bytes()) == wanted, f"VeriCount source mismatch: {rel}")
+        status_bytes = (consumer_repo / "native/proof-status.json").read_bytes()
+        status_hash = digest(status_bytes)
+        status = json.loads(status_bytes)
+        modules = {m["id"]: {"status": m["status"], "remaining": m["remaining"]}
+                   for m in status["modules"] if m["id"] in ("M7", "M8")}
+        authority = {key: status["trusted_backend"][key] for key in receipt["trusted_backend_authority"]}
+        require(modules == receipt["modules"] and status["arithmetic_dependency"] == receipt["arithmetic_dependency"]
+                and authority == receipt["trusted_backend_authority"], "VeriCount M7/M8 or backend authority differs")
+        gitlink = git("ls-tree", "HEAD", "third_party/VeriGMP").split()
+        require(len(gitlink) == 4 and gitlink[:2] == ["160000", "commit"]
+                and gitlink[2] == receipt["verigmp_gitlink"], "VeriCount gitlink mismatch")
+        require(git("rev-parse", "HEAD", cwd=consumer_repo / "third_party/VeriGMP") == receipt["verigmp_gitlink"],
+                "VeriCount submodule worktree differs from gitlink")
+        matches = []
+        scan = receipt["candidate_reference_scan"]
+        for root in scan["roots"]:
+            for path in (consumer_repo / relative(root)).rglob("*.rs"):
+                if re.search(scan["pattern"], read(path), re.I):
+                    matches.append(path.relative_to(consumer_repo).as_posix())
+        require(sorted(matches) == scan["rust_matches"], "VeriCount candidate-reference scan differs")
     return {
-        "native": native,
-        "wsl": wsl_tools,
-        "fresh_verus_run": False,
-        "fresh_rust_runner_run": False,
-        "fresh_toolchain_available": all(available.values()) or all(bool(wsl_tools.get(name)) for name in available),
+        "status": "pass",
+        "mode": "live source/status binding" if consumer_repo else "frozen source/status receipt",
+        "receipt": "evidence/fresh-20261103/consumer-VeriCount.json",
+        "repository": receipt["repository"],
+        "head": head,
+        "receipt_head": receipt["head"],
+        "proof_status_sha256": status_hash,
+        "receipt_proof_status_sha256": receipt["file_sha256"]["native/proof-status.json"],
+        "verigmp_gitlink": receipt["verigmp_gitlink"],
+        "m7": receipt["modules"]["M7"],
+        "m8": receipt["modules"]["M8"],
+        "trusted_backend": receipt["trusted_backend"],
+        "candidate_rust_reference_matches": receipt["candidate_reference_scan"]["rust_matches"],
+        "compiled_dependency_checked": False,
+        "actual_solver_consumer": False,
+        "promotion_effect": "Source/status observation only; no solver consumer acceptance or pin change",
     }
 
 
@@ -365,7 +376,7 @@ def performance_gate() -> dict[str, Any]:
         "gmp_performance_parity_established": target.get("gmp_performance_parity_established", False),
         "solver_acceptance": target.get("solver_acceptance", {}),
         "historical_docs_confirm_unmet_target": "The target remains unmet." in benchmarks,
-        "reason": "No local rustc/cargo/verus toolchain and no fresh GMP comparison run are available in this checkout.",
+        "reason": "No performance measurements for this dyadic/interpolation slice; the registered library target remains unmet and solver trace acceptance is separate.",
     }
 
 
@@ -382,55 +393,85 @@ def git_identity() -> dict[str, Any]:
     return {"branch": branch, "head": commit}
 
 
-def audit() -> dict[str, Any]:
-    source = source_gate()
-    erasure = erasure_gate()
-    mapping = independent_mapping_gate()
-    m7_m8 = m7_m8_gate()
-    tools = toolchain_gate()
-    performance = performance_gate()
+def audit(fresh_evidence: Path = FRESH, consumer_repo: Path | None = None,
+          reports: dict[str, Path] | None = None) -> dict[str, Any]:
+    def checked(operation: Any) -> dict[str, Any]:
+        try:
+            return operation()
+        except Exception as exc:
+            return {"status": "fail", "error": f"{type(exc).__name__}: {exc}"}
+
+    source = checked(source_gate)
+    erasure = checked(erasure_gate)
+    mapping = checked(independent_mapping_gate)
+    m7_m8 = checked(lambda: m7_m8_gate(consumer_repo))
+    fresh = checked(lambda: audit_fresh(REPO, fresh_evidence, reports))
+    performance = checked(performance_gate)
     archives = {
         "interpolation": run_archive_audit(INTERPOLATION / "audit.py"),
         "dyadic": run_archive_audit(DYADIC / "audit.py"),
     }
-    blockers = [
-        "Fresh Verus/Rust verification and compiled runner execution were not available in the local Windows/WSL environment.",
-        "No fresh GMP benchmark was run; the registered performance target remains unmet.",
-        "The SAT consumer has no dyadic-recovery pin; M7 is spec_only and M8 is conditional_composition.",
-    ]
-    if tools["fresh_toolchain_available"]:
-        blockers[0] = "This audit does not invoke a fresh Verus/Rust run; run the pinned gate separately before promotion."
+    audit_checks = {"source_consumer": source, "saved_erasure": erasure, "independent_mapping": mapping,
+                    "consumer_status_binding": m7_m8, "fresh_execution_evidence": fresh, **archives}
+    if performance["status"] == "fail":
+        audit_checks["performance_status_read"] = performance
+    failures = [name for name, result in audit_checks.items() if result["status"] != "pass"]
+    scoped_pass = not failures
     return {
-        "status": "scoped_progress",
-        "scope": "Generic dyadic proof exports, actual interpolation consumer, static erasure and independent coefficient-layout evidence",
+        "status": "scoped_progress" if scoped_pass else "fail",
+        "scope": "Generic dyadic proof exports, actual interpolation candidate, same-source fresh execution evidence and independent coefficient layout",
         "identity": git_identity(),
+        "audit_failures": failures,
         "archive_audits": archives,
         "source_consumer": source,
         "proof_erasure": erasure,
         "independent_mapping": mapping,
         "m7_m8_contract": m7_m8,
-        "toolchain": tools,
+        "fresh_execution_evidence": fresh,
         "performance": performance,
         "gates": {
+            "scoped_audit": scoped_pass,
             "semantic_mapping": mapping["status"] == "pass" and source["status"] == "pass",
             "static_proof_erasure": erasure["status"] == "pass",
             "historical_archive_integrity": all(item.get("status") == "pass" for item in archives.values()),
-            "fresh_verus": False,
-            "fresh_runner": False,
+            "fresh_verus_evidence": fresh["status"] == "pass",
+            "fresh_runner_evidence": fresh["status"] == "pass",
+            "consumer_status_binding": m7_m8["status"] == "pass",
+            "verification_rerun_in_this_audit": False,
+            "runner_reexecuted_in_this_audit": False,
             "performance": False,
             "independent_review_for_promotion": False,
             "m7_m8_solver_consumer": False,
             "promotion": False,
         },
-        "blockers": blockers,
+        "blockers": [
+            "Independent acceptance of this scoped feature is pending; the retained fresh gates were root-executed.",
+            "No performance measurements for this slice; overall GMP parity and the registered performance target remain unestablished.",
+            "No accepted dyadic solver consumer; VeriCount M7 is spec_only and M8 is conditional_composition in the frozen receipt.",
+        ],
         "promotion": False,
     }
 
 
 def main() -> int:
-    report = audit()
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--fresh-evidence", type=Path, help="Directory containing manifest.json and evidence.zip")
+    parser.add_argument("--dyadic-report", type=Path, help="Raw dyadic verification.json beside its captured inputs, logs and artifacts")
+    parser.add_argument("--interpolation-report", type=Path, help="Raw interpolation verification.json beside its captured inputs, logs and artifacts")
+    parser.add_argument("--consumer-repo", type=Path, help="Optionally bind the frozen status receipt to a local VeriCount checkout")
+    args = parser.parse_args()
+    if bool(args.dyadic_report) != bool(args.interpolation_report):
+        parser.error("supply both --dyadic-report and --interpolation-report")
+    if args.dyadic_report and args.fresh_evidence:
+        parser.error("choose either a fresh archive or the pair of raw reports")
+    reports = None
+    if args.dyadic_report:
+        if args.dyadic_report.name != "verification.json" or args.interpolation_report.name != "verification.json":
+            parser.error("raw reports must be named verification.json")
+        reports = {"dyadic": args.dyadic_report, "interpolation": args.interpolation_report}
+    report = audit(args.fresh_evidence or FRESH, args.consumer_repo, reports)
     print(json.dumps(report, indent=2, sort_keys=True))
-    return 0
+    return 0 if report["gates"]["scoped_audit"] else 1
 
 
 if __name__ == "__main__":

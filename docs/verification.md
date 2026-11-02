@@ -186,6 +186,30 @@ runner verification; the remaining mutations check the complete runner imports.
 | `omit_odd_diagonal` | Odd-length low square omits its final diagonal |
 | `drop_odd_output` | Odd-length low square overwrites its final output word with zero |
 
+## Toom-8 dyadic recovery (experiments)
+
+The repository contains experimental Toom-8 dyadic recovery and interpolation
+lemmas in `experiments/toom8-primitives/dyadic-recovery/`. Fresh verification
+at source commit `5cfde6a` on linux_x86_64 via WSL verified three entries
+(library, runner build, codegen build) for dyadic with 478 items per entry
+across 102 source inputs, producing 2688 oracle cases, and three entries for
+interpolation with 514 items per entry across 115 source inputs, producing
+336 oracle cases. The scoped audit confirms generic proof exports,
+coefficient-to-buffer mapping for fifteen recovered coefficients (low endpoint,
+six even, seven odd, high endpoint), and static erasure for the caller path
+`toom8_interpolation::interpolate -> toom8_even::with_endpoints ->
+toom8_normalization::with_endpoints -> toom8_dyadic_producer::dyadic_pair`
+plus seventh/Newton odd. Codegen inspection is textual optimized assembly
+audit; length/slice guards remain.
+
+The feature is pending independent review. It does not modify production
+dispatch or establish complete recursive Toom-8 implementation. The frozen
+VeriCount consumer receipt at commit `8ba9253` reports M7 status `spec_only`
+and M8 status `conditional_composition` with no dyadic reference in native
+modules. Solver consumer acceptance is blocked. See
+[`experiments/toom8-primitives/dyadic-recovery/README.md`](../experiments/toom8-primitives/dyadic-recovery/README.md)
+for scoped audit details.
+
 ## Inspecting the generated code
 
 The proof covers source-level Rust semantics. To check that the optimized default

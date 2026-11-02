@@ -1,0 +1,56 @@
+{
+  "repository": "VeriCount",
+  "captured_utc": "2026-11-03",
+  "head": "8ba9253946783ce84c00f6218f9cd538e8bb8ef2",
+  "file_sha256": {
+    "native/proof-status.json": "95ad007d1f9bdef9ffc33bc43ccdc638d998ebb9e6236d21da6ac36d8abcf2d3",
+    "native/arithmetic.rs": "5d1788826303b0666b0d401bea4689ff3dee8eb55b694e73af3a64e37c578a0e",
+    "native/trusted/gmp_backend.rs": "7d874e6c22d792c4c8ab3c2f8e2c617e94ec06c7f8115e2887599b762d8edf9d",
+    "native/integer_backend.rs": "97276c2d155ed9a19a0c86d87dd5bd6850e76e78372dcc1fb8087b2fc52392d1",
+    ".gitmodules": "5bafe5a2a24409b4dd8c90d42273e3a6fae35c6bfbbd6925d0f669a6c9e37d6c"
+  },
+  "verigmp_gitlink": "c083839dc07f9b0cffea1a52cd6810d817105355",
+  "modules": {
+    "M7": {
+      "status": "spec_only",
+      "remaining": "Integrality/precision/recovery model and native refinement"
+    },
+    "M8": {
+      "status": "conditional_composition",
+      "remaining": "Instantiate Problem/value functions with concrete network semantics; compose the accepted guarded exhaustive leaf with the whole constructor and actual M4-M7 modules; prove the recursive threshold certificate, child shrinkage, local decomposition, same-combiner execution and executable termination. The generic composition theorem remains conditional."
+    }
+  },
+  "trusted_backend": "GMP through native/trusted/gmp_backend.rs",
+  "arithmetic_dependency": {
+    "consumer": "native/arithmetic.rs",
+    "scope": "Arithmetic dependency integration; not a completed native SAT solver",
+    "path": "third_party/VeriGMP",
+    "pin": "Git submodule gitlink",
+    "functions": [
+      "multiply",
+      "square"
+    ]
+  },
+  "candidate_reference_scan": {
+    "roots": [
+      "native",
+      "refinement"
+    ],
+    "pattern": "toom8|dyadic_pair|dyadic.recovery",
+    "rust_matches": []
+  },
+  "solver_consumer_accepted": false,
+  "compiled_dependency_checked": false,
+  "scope": "Frozen source/status observation; no solver build or dependency promotion acceptance",
+  "trusted_backend_authority": {
+    "backend": "GMP through native/trusted/gmp_backend.rs",
+    "facade": "native/integer_backend.rs",
+    "current_application_ring": "native/trusted/coefficient_ring.rs",
+    "future_adapter": "VeriGMP must implement project integer semantics; it is not a drop-in GMP ABI replacement",
+    "assumptions_discharged": false,
+    "trusted": [
+      "GMP exact arithmetic and memory lifecycle",
+      "Rust GMP FFI adapter"
+    ]
+  }
+}

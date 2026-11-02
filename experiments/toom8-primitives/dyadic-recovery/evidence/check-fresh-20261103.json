@@ -1,0 +1,131 @@
+{
+  "status": "scoped_audit_pass_pending_independent_acceptance",
+  "recorded_utc": "2026-11-02T17:43:14.658671+00:00",
+  "wrapper_source_base_commit": "5cfde6a630591080c330ac09177977c539bd3a55",
+  "source_identity": "Exact staged blob SHA-256 values, recorded after these checks; no assertion that an uncommitted wrapper was already part of its base commit",
+  "fresh_execution_source_commit": "5cfde6a630591080c330ac09177977c539bd3a55",
+  "checks": [
+    {
+      "report": "audit-default.json",
+      "command": [
+        "python",
+        "experiments/toom8-primitives/dyadic-recovery/check_dyadic_recovery.py"
+      ],
+      "returncode": 0,
+      "sha256": "d2393ccb991ade72c18c37458395e19250ea6d6b85e40696e4b907bc57ef5f7c",
+      "status": "scoped_progress",
+      "gates": {
+        "consumer_status_binding": true,
+        "fresh_runner_evidence": true,
+        "fresh_verus_evidence": true,
+        "historical_archive_integrity": true,
+        "independent_review_for_promotion": false,
+        "m7_m8_solver_consumer": false,
+        "performance": false,
+        "promotion": false,
+        "runner_reexecuted_in_this_audit": false,
+        "scoped_audit": true,
+        "semantic_mapping": true,
+        "static_proof_erasure": true,
+        "verification_rerun_in_this_audit": false
+      }
+    },
+    {
+      "report": "audit-live-consumer.json",
+      "command": [
+        "python",
+        "experiments/toom8-primitives/dyadic-recovery/check_dyadic_recovery.py",
+        "--consumer-repo",
+        "../VeriCount"
+      ],
+      "returncode": 0,
+      "sha256": "642a87b9b79a5ec324fc1f1b8a54ff150729d62d31df033b18674e2eccf0e498",
+      "status": "scoped_progress",
+      "gates": {
+        "consumer_status_binding": true,
+        "fresh_runner_evidence": true,
+        "fresh_verus_evidence": true,
+        "historical_archive_integrity": true,
+        "independent_review_for_promotion": false,
+        "m7_m8_solver_consumer": false,
+        "performance": false,
+        "promotion": false,
+        "runner_reexecuted_in_this_audit": false,
+        "scoped_audit": true,
+        "semantic_mapping": true,
+        "static_proof_erasure": true,
+        "verification_rerun_in_this_audit": false
+      }
+    },
+    {
+      "report": "audit-raw-reports.json",
+      "command": [
+        "python",
+        "experiments/toom8-primitives/dyadic-recovery/check_dyadic_recovery.py",
+        "--dyadic-report",
+        "experiments/toom8-primitives/dyadic/feature-gates/root-fresh-20261103a/verification.json",
+        "--interpolation-report",
+        "experiments/toom8-primitives/interpolation/feature-gates/root-fresh-20261103a/verification.json"
+      ],
+      "returncode": 0,
+      "sha256": "5f6766ce7b419ecddf569bddb07d24f9fb88c714def561fd6c467a80c70d8ada",
+      "status": "scoped_progress",
+      "gates": {
+        "consumer_status_binding": true,
+        "fresh_runner_evidence": true,
+        "fresh_verus_evidence": true,
+        "historical_archive_integrity": true,
+        "independent_review_for_promotion": false,
+        "m7_m8_solver_consumer": false,
+        "performance": false,
+        "promotion": false,
+        "runner_reexecuted_in_this_audit": false,
+        "scoped_audit": true,
+        "semantic_mapping": true,
+        "static_proof_erasure": true,
+        "verification_rerun_in_this_audit": false
+      }
+    }
+  ],
+  "regression_tests": {
+    "command": [
+      "python",
+      "experiments/toom8-primitives/dyadic-recovery/test_fresh_evidence.py"
+    ],
+    "returncode": 0,
+    "tests": 14,
+    "log": "regression-tests.txt",
+    "sha256": "22f6f57a09fb0905843b573c3e8b184020e15fc3ec43e75511d15f9f77c9859f"
+  },
+  "python": "3.14.7",
+  "proof_rerun": false,
+  "runner_reexecuted": false,
+  "benchmark_run": false,
+  "independent_acceptance": false,
+  "solver_consumer_accepted": false,
+  "backend_promotion": false,
+  "fresh_report_sha256": {
+    "dyadic": "59b7a321b4ccc813fe03a39b40d779310b26240c11f088942606ba6e4ab2db3d",
+    "interpolation": "2c8effe52e66597198d8ca2aad70f2ad1595f9bc16894a579bc0b81b03b061d2"
+  },
+  "fresh_archive_sha256": "89e2fe8be6f21afd58b0ad0e73852183487a837a670d21c6da600233f7b774c4",
+  "historical_receipt_sha256": "8d55748e5fe9c4435729c08f01ce342ede2006f3229d7ff0913e5b43520f1c9b",
+  "indexed_file_sha256": {
+    ".github/workflows/toom8-primitives-experiment.yml": "77b2b475c95b8b2f24b0b33c038f6f965b9fdb313a6a2c02a37aad5139045252",
+    "README.md": "0ddc8e156da5b63077497145a42475970cfdc6f4da83093268d190de20e30c0f",
+    "docs/verification.md": "ceb864187a6cb4371b301edf06736eca3697255ed158c75cde1620eb96fc3cd6",
+    "experiments/toom8-primitives/dyadic-recovery/README.md": "73741a3f09fbbc4c1ad313340d4c541c3f2d560dead46e7834fa2ed854cb1081",
+    "experiments/toom8-primitives/dyadic-recovery/check_dyadic_recovery.py": "f25fa4ba254bc2d60dce6f4088d89bab8f9fcc5677a677db411b7c9af16b0370",
+    "experiments/toom8-primitives/dyadic-recovery/evidence/fresh-20261103/audit-default.json": "d2393ccb991ade72c18c37458395e19250ea6d6b85e40696e4b907bc57ef5f7c",
+    "experiments/toom8-primitives/dyadic-recovery/evidence/fresh-20261103/audit-live-consumer.json": "642a87b9b79a5ec324fc1f1b8a54ff150729d62d31df033b18674e2eccf0e498",
+    "experiments/toom8-primitives/dyadic-recovery/evidence/fresh-20261103/audit-raw-reports.json": "5f6766ce7b419ecddf569bddb07d24f9fb88c714def561fd6c467a80c70d8ada",
+    "experiments/toom8-primitives/dyadic-recovery/evidence/fresh-20261103/consumer-VeriCount.json": "86fd4245fed6084e781c6a87cb36ef6d63e316504874e39c74ff85c53cc42622",
+    "experiments/toom8-primitives/dyadic-recovery/evidence/fresh-20261103/evidence.zip": "89e2fe8be6f21afd58b0ad0e73852183487a837a670d21c6da600233f7b774c4",
+    "experiments/toom8-primitives/dyadic-recovery/evidence/fresh-20261103/manifest.json": "eb800f348f6217a541a5f6c6739da62d3aad79a62810941e3bae9459e56f752f",
+    "experiments/toom8-primitives/dyadic-recovery/evidence/fresh-20261103/regression-tests.txt": "22f6f57a09fb0905843b573c3e8b184020e15fc3ec43e75511d15f9f77c9859f",
+    "experiments/toom8-primitives/dyadic-recovery/fresh_evidence.py": "ba14cd81c223e3184caaa81791375619f063e291af379a1002137a174e5d8d7b",
+    "experiments/toom8-primitives/dyadic-recovery/scope.json": "47cdbf1747b21d90a696766d51ba5f3b5c35f22fb929a9930e68c01a1fc14fbd",
+    "experiments/toom8-primitives/dyadic-recovery/test_fresh_evidence.py": "157116a40b86a58a155e5511088c3a42d0a7d66c1ef365999311316df2f2991f"
+  },
+  "index_binding_scope": "Every other changed file staged before this receipt; the receipt itself is anchored by its enclosing Git commit"
+}

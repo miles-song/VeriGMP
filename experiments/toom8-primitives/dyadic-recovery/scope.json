@@ -1,6 +1,6 @@
 {
-  "status": "scoped_progress_blocked",
-  "scope": "Generic dyadic proof exports, actual interpolation consumer, static proof erasure, and independent coefficient-layout evidence",
+  "status": "scoped_fresh_execution_evidence_pending_independent_review",
+  "scope": "Generic dyadic proof exports, actual interpolation candidate, source-bound fresh execution evidence, textual proof-erasure inspection and independent coefficient-layout evidence",
   "source_candidate": "experiments/toom8-primitives/interpolation/candidate",
   "actual_consumer": "candidate/native/verified/toom8_interpolation.rs::interpolate",
   "generic_exports": [
@@ -21,8 +21,6 @@
     "verified_interpolation_24",
     "verified_interpolation_48"
   ],
-  "fresh_verus": false,
-  "fresh_runner": false,
   "benchmark_run": false,
   "gmp_performance_parity_established": false,
   "m7_status": "spec_only",
@@ -30,8 +28,32 @@
   "solver_consumer_pinned": false,
   "promotion": false,
   "blockers": [
-    "No fresh Verus/Rust proof or compiled runner execution in the local environment",
-    "No fresh GMP benchmark and the registered performance target remains unmet",
-    "SAT M7/M8 are not an accepted concrete consumer path for this arithmetic experiment"
-  ]
+    "Independent acceptance of the root-executed scoped evidence is pending",
+    "No feature timing or GMP comparison for this primitive slice; the full registered performance target and independent confirmation are separate",
+    "No accepted concrete solver consumer for this dyadic/interpolation candidate; no backend promotion"
+  ],
+  "verification_rerun_in_audit": false,
+  "runner_reexecuted_in_audit": false,
+  "fresh_evidence": "evidence/fresh-20261103/manifest.json",
+  "fresh_capture_source_commit": "5cfde6a630591080c330ac09177977c539bd3a55",
+  "fresh_archive_sha256": "89e2fe8be6f21afd58b0ad0e73852183487a837a670d21c6da600233f7b774c4",
+  "fresh_report_sha256": {
+    "dyadic": "59b7a321b4ccc813fe03a39b40d779310b26240c11f088942606ba6e4ab2db3d",
+    "interpolation": "2c8effe52e66597198d8ca2aad70f2ad1595f9bc16894a579bc0b81b03b061d2"
+  },
+  "consumer_repository": "VeriCount",
+  "consumer_receipt": "evidence/fresh-20261103/consumer-VeriCount.json",
+  "consumer_receipt_sha256": "86fd4245fed6084e781c6a87cb36ef6d63e316504874e39c74ff85c53cc42622",
+  "consumer_receipt_head": "8ba9253946783ce84c00f6218f9cd538e8bb8ef2",
+  "compiled_solver_dependency_checked": false,
+  "independent_acceptance": false,
+  "tool_identity_scope": "21 tool-file and 3 runtime-library recorded hashes per gate with version/linkage logs; current installed bytes are not reread by this audit",
+  "proof_erasure_scope": "Textual optimized reachable-path inspection; length/slice guards and memset remain; no machine-code equivalence or performance claim",
+  "audit_exit_codes": {
+    "0": "All requested scoped consistency checks pass; backend promotion remains false",
+    "1": "At least one source/evidence/consumer observation audit discrepancy",
+    "2": "Invalid command-line arguments"
+  },
+  "fresh_verus_evidence": true,
+  "fresh_runner_evidence": true
 }

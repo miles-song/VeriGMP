@@ -1,0 +1,402 @@
+{
+  "archive_audits": {
+    "dyadic": {
+      "command": [
+        "C:\\Users\\23247\\AppData\\Local\\Programs\\Python\\Python314\\python.exe",
+        "E:\\3sat\\VeriGMP-dyadic-recovery\\experiments\\toom8-primitives\\dyadic\\audit.py"
+      ],
+      "report": {
+        "benchmark_run": false,
+        "complete_toom8": false,
+        "historical_attempts": 2,
+        "integer_cases": 2688,
+        "invalid_commands": 12,
+        "mapped_files": 147,
+        "mixed_fatal_rejections": 72,
+        "performance_accepted": false,
+        "positive_counts": [
+          478,
+          478,
+          478
+        ],
+        "production_promoted": false,
+        "scope": "Saved source/hash/log/independent-integer/codegen audit; no fresh proof or compiled runner execution",
+        "semantic_mutants": 8,
+        "sources": 102,
+        "status": "pass"
+      },
+      "returncode": 0,
+      "status": "pass"
+    },
+    "interpolation": {
+      "command": [
+        "C:\\Users\\23247\\AppData\\Local\\Programs\\Python\\Python314\\python.exe",
+        "E:\\3sat\\VeriGMP-dyadic-recovery\\experiments\\toom8-primitives\\interpolation\\audit.py"
+      ],
+      "report": {
+        "benchmark_run": false,
+        "complete_toom8": false,
+        "historical_attempts": 1,
+        "integer_cases": 336,
+        "invalid_commands": 12,
+        "mapped_files": 153,
+        "mixed_fatal_rejections": 108,
+        "performance_accepted": false,
+        "positive_counts": [
+          514,
+          514,
+          514
+        ],
+        "production_promoted": false,
+        "scope": "Saved source/hash/log/independent-integer/codegen audit; no fresh proof or compiled runner execution",
+        "semantic_mutants": 12,
+        "sources": 115,
+        "status": "pass"
+      },
+      "returncode": 0,
+      "status": "pass"
+    }
+  },
+  "audit_failures": [],
+  "blockers": [
+    "Independent acceptance of this scoped feature is pending; the retained fresh gates were root-executed.",
+    "No performance measurements for this slice; overall GMP parity and the registered performance target remain unestablished.",
+    "No accepted dyadic solver consumer; VeriCount M7 is spec_only and M8 is conditional_composition in the frozen receipt."
+  ],
+  "fresh_execution_evidence": {
+    "codegen_scope": "Textual optimized assembly inspection; length/slice guards remain; no timing or machine-code equivalence claim",
+    "gates": {
+      "dyadic": {
+        "artifact_sha256": {
+          "candidate.vir": "47e891398c30c6732c55b3f857cfdbd0f16cf0028f6873b1e0ed521bc798737e",
+          "codegen.s": "3a9cc1c07713d8ab6a75734be939ffc2b6d80e4d452dad380af04dc50d41a6c9",
+          "libcandidate.rlib": "25f8094e5a0764737ab619554e2be5cfc843979174ca5b01124f385a5804697f",
+          "oracle-runner": "98933c39ec60571d563f0583fbe6193330b60ec03967018c84b6d9b7fe8a94fe"
+        },
+        "codegen": {
+          "limitation": "Textual assembly inspection; no machine-code equivalence or performance claim",
+          "no_allocator_general_division_or_element_bounds_panic": true,
+          "paths": {
+            "verified_dyadic_eight": {
+              "external_calls": [
+                "*_RNvNtCskADBYZwJmSU_4core9panicking5panic@GOTPCREL(%rip)",
+                "*_RNvNtCskADBYZwJmSU_4core9panicking9panic_fmt@GOTPCREL(%rip)",
+                "*_RNvNtNtCskADBYZwJmSU_4core5slice5index16slice_index_fail@GOTPCREL(%rip)",
+                "*memset@GOTPCREL(%rip)"
+              ],
+              "reachable_functions": [
+                "_RNvNtCs2pcjkYfRhz2_29toom8_dyadic_producer_codegen14toom4_evaluate6signed",
+                "_RNvNtCs2pcjkYfRhz2_29toom8_dyadic_producer_codegen14toom4_multiply4full",
+                "_RNvNtCs2pcjkYfRhz2_29toom8_dyadic_producer_codegen14toom8_producer13weighted_pair",
+                "_RNvNtCs2pcjkYfRhz2_29toom8_dyadic_producer_codegen14toom8_producer14normalize_pair",
+                "verified_dyadic_eight"
+              ],
+              "root_body_lines": 24
+            },
+            "verified_dyadic_generic": {
+              "external_calls": [
+                "*_RNvNtCskADBYZwJmSU_4core9panicking5panic@GOTPCREL(%rip)",
+                "*_RNvNtCskADBYZwJmSU_4core9panicking9panic_fmt@GOTPCREL(%rip)",
+                "*_RNvNtNtCskADBYZwJmSU_4core5slice5index16slice_index_fail@GOTPCREL(%rip)",
+                "*memset@GOTPCREL(%rip)"
+              ],
+              "reachable_functions": [
+                "_RNvNtCs2pcjkYfRhz2_29toom8_dyadic_producer_codegen14toom4_evaluate6signed",
+                "_RNvNtCs2pcjkYfRhz2_29toom8_dyadic_producer_codegen14toom4_multiply4full",
+                "_RNvNtCs2pcjkYfRhz2_29toom8_dyadic_producer_codegen14toom8_producer13weighted_pair",
+                "_RNvNtCs2pcjkYfRhz2_29toom8_dyadic_producer_codegen14toom8_producer14normalize_pair",
+                "verified_dyadic_generic"
+              ],
+              "root_body_lines": 133
+            },
+            "verified_dyadic_reciprocal_eight": {
+              "external_calls": [
+                "*_RNvNtCskADBYZwJmSU_4core9panicking5panic@GOTPCREL(%rip)",
+                "*_RNvNtCskADBYZwJmSU_4core9panicking9panic_fmt@GOTPCREL(%rip)",
+                "*_RNvNtNtCskADBYZwJmSU_4core5slice5index16slice_index_fail@GOTPCREL(%rip)",
+                "*memset@GOTPCREL(%rip)"
+              ],
+              "reachable_functions": [
+                "_RNvNtCs2pcjkYfRhz2_29toom8_dyadic_producer_codegen14toom4_evaluate6signed",
+                "_RNvNtCs2pcjkYfRhz2_29toom8_dyadic_producer_codegen14toom4_multiply4full",
+                "_RNvNtCs2pcjkYfRhz2_29toom8_dyadic_producer_codegen14toom8_producer13weighted_pair",
+                "_RNvNtCs2pcjkYfRhz2_29toom8_dyadic_producer_codegen14toom8_producer14normalize_pair",
+                "verified_dyadic_reciprocal_eight"
+              ],
+              "root_body_lines": 24
+            }
+          },
+          "scope": "Actual homogeneous dyadic selection, eight-block producer and child multiplication paths",
+          "status": "pass"
+        },
+        "current_installed_tool_bytes_checked": false,
+        "finished_utc": "2026-11-02T17:08:57.548639+00:00",
+        "invalid_commands": 12,
+        "oracle_cases": 2688,
+        "report_sha256": "59b7a321b4ccc813fe03a39b40d779310b26240c11f088942606ba6e4ab2db3d",
+        "runtime_libraries": 3,
+        "rustc": "rustc 1.99.1 (58cf8f9c3 2026-10-13)\nbinary: rustc\ncommit-hash: 58cf8f9c35b355199727627d07ae34a4e2846d67\ncommit-date: 2026-10-13\nhost: x86_64-unknown-linux-gnu\nrelease: 1.99.1\nLLVM version: 23.1.1\n",
+        "semantic_mutants": 8,
+        "source_inputs": 102,
+        "started_utc": "2026-11-02T17:06:51.433161+00:00",
+        "status": "pass",
+        "tool_files": 21,
+        "toolchain": "Verus\n  Version: 0.2026.10.26.d17fbd0\n  Profile: release\n  Platform: linux_x86_64\n  Toolchain: 1.99.1-x86_64-unknown-linux-gnu (overridden by environment variable RUSTUP_TOOLCHAIN)\n\n",
+        "verified_items_per_entry": 478
+      },
+      "interpolation": {
+        "artifact_sha256": {
+          "candidate.vir": "5d50871331fb3adc36f6be6fccc17867d2260f61e1ad59b07f69bd5871031f5c",
+          "codegen.s": "daad004e075ff661027ccee5c4ab9757f11fd085b3f589e4f36482e263fbf06e",
+          "libcandidate.rlib": "5ff5a8edd3a3531ae939c198fc495c120a8e0af5967d100aecbe3b63ea9841e7",
+          "oracle-runner": "6140eb10b5a74cb1b0e6b4095f982a9795463f19e3556e2275b533462cd1b6b5"
+        },
+        "codegen": {
+          "limitation": "Textual assembly inspection; no machine-code equivalence or performance claim",
+          "no_allocator_general_division_or_element_bounds_panic": true,
+          "paths": {
+            "verified_interpolation_24": {
+              "external_calls": [
+                "*_RNvNtCskADBYZwJmSU_4core9panicking5panic@GOTPCREL(%rip)",
+                "*_RNvNtCskADBYZwJmSU_4core9panicking9panic_fmt@GOTPCREL(%rip)",
+                "*_RNvNtNtCskADBYZwJmSU_4core5slice5index16slice_index_fail@GOTPCREL(%rip)",
+                "*memset@GOTPCREL(%rip)"
+              ],
+              "reachable_functions": [
+                "_RNvNtCse2mtgF4XwmH_27toom8_interpolation_codegen10fast_words14abs_difference",
+                "_RNvNtCse2mtgF4XwmH_27toom8_interpolation_codegen13fast_multiply4full",
+                "_RNvNtCse2mtgF4XwmH_27toom8_interpolation_codegen14toom4_evaluate6signed",
+                "_RNvNtCse2mtgF4XwmH_27toom8_interpolation_codegen14toom4_multiply4full",
+                "_RNvNtCse2mtgF4XwmH_27toom8_interpolation_codegen14toom8_producer13weighted_pair",
+                "_RNvNtCse2mtgF4XwmH_27toom8_interpolation_codegen14toom8_producer14normalize_pair",
+                "_RNvNtCse2mtgF4XwmH_27toom8_interpolation_codegen19toom8_interpolation11interpolate",
+                "verified_interpolation_24"
+              ],
+              "root_body_lines": 41
+            },
+            "verified_interpolation_48": {
+              "external_calls": [
+                "*_RNvNtCskADBYZwJmSU_4core9panicking5panic@GOTPCREL(%rip)",
+                "*_RNvNtCskADBYZwJmSU_4core9panicking9panic_fmt@GOTPCREL(%rip)",
+                "*_RNvNtNtCskADBYZwJmSU_4core5slice5index16slice_index_fail@GOTPCREL(%rip)",
+                "*memset@GOTPCREL(%rip)"
+              ],
+              "reachable_functions": [
+                "_RNvNtCse2mtgF4XwmH_27toom8_interpolation_codegen10fast_words14abs_difference",
+                "_RNvNtCse2mtgF4XwmH_27toom8_interpolation_codegen13fast_multiply4full",
+                "_RNvNtCse2mtgF4XwmH_27toom8_interpolation_codegen14toom4_evaluate6signed",
+                "_RNvNtCse2mtgF4XwmH_27toom8_interpolation_codegen14toom4_multiply4full",
+                "_RNvNtCse2mtgF4XwmH_27toom8_interpolation_codegen14toom8_producer13weighted_pair",
+                "_RNvNtCse2mtgF4XwmH_27toom8_interpolation_codegen14toom8_producer14normalize_pair",
+                "_RNvNtCse2mtgF4XwmH_27toom8_interpolation_codegen19toom8_interpolation11interpolate",
+                "verified_interpolation_48"
+              ],
+              "root_body_lines": 41
+            }
+          },
+          "scope": "Actual fifteen-product interpolation, including even and odd Newton consumers and child kernels",
+          "status": "pass"
+        },
+        "current_installed_tool_bytes_checked": false,
+        "finished_utc": "2026-11-02T17:12:51.616261+00:00",
+        "invalid_commands": 12,
+        "oracle_cases": 336,
+        "report_sha256": "2c8effe52e66597198d8ca2aad70f2ad1595f9bc16894a579bc0b81b03b061d2",
+        "runtime_libraries": 3,
+        "rustc": "rustc 1.99.1 (58cf8f9c3 2026-10-13)\nbinary: rustc\ncommit-hash: 58cf8f9c35b355199727627d07ae34a4e2846d67\ncommit-date: 2026-10-13\nhost: x86_64-unknown-linux-gnu\nrelease: 1.99.1\nLLVM version: 23.1.1\n",
+        "semantic_mutants": 12,
+        "source_inputs": 115,
+        "started_utc": "2026-11-02T17:09:33.454515+00:00",
+        "status": "pass",
+        "tool_files": 21,
+        "toolchain": "Verus\n  Version: 0.2026.10.26.d17fbd0\n  Profile: release\n  Platform: linux_x86_64\n  Toolchain: 1.99.1-x86_64-unknown-linux-gnu (overridden by environment variable RUSTUP_TOOLCHAIN)\n\n",
+        "verified_items_per_entry": 514
+      }
+    },
+    "independent_acceptance": false,
+    "mode": "supplied raw execution reports",
+    "runner_reexecuted": false,
+    "status": "pass",
+    "tool_identity_scope": "Recorded hashes and version/linkage logs; current installed tool binaries are not reread",
+    "verification_rerun": false
+  },
+  "gates": {
+    "consumer_status_binding": true,
+    "fresh_runner_evidence": true,
+    "fresh_verus_evidence": true,
+    "historical_archive_integrity": true,
+    "independent_review_for_promotion": false,
+    "m7_m8_solver_consumer": false,
+    "performance": false,
+    "promotion": false,
+    "runner_reexecuted_in_this_audit": false,
+    "scoped_audit": true,
+    "semantic_mapping": true,
+    "static_proof_erasure": true,
+    "verification_rerun_in_this_audit": false
+  },
+  "identity": {
+    "branch": "feature/dyadic-recovery-lemmas",
+    "head": "5cfde6a630591080c330ac09177977c539bd3a55"
+  },
+  "independent_mapping": {
+    "cases": 336,
+    "counts": {
+      "fifteen_coefficients": 336
+    },
+    "independent_from_runner": true,
+    "independent_from_verus": true,
+    "layout": "low, six even coefficients, seven odd coefficients, high",
+    "status": "pass"
+  },
+  "m7_m8_contract": {
+    "actual_solver_consumer": false,
+    "candidate_rust_reference_matches": [],
+    "compiled_dependency_checked": false,
+    "head": "8ba9253946783ce84c00f6218f9cd538e8bb8ef2",
+    "m7": {
+      "remaining": "Integrality/precision/recovery model and native refinement",
+      "status": "spec_only"
+    },
+    "m8": {
+      "remaining": "Instantiate Problem/value functions with concrete network semantics; compose the accepted guarded exhaustive leaf with the whole constructor and actual M4-M7 modules; prove the recursive threshold certificate, child shrinkage, local decomposition, same-combiner execution and executable termination. The generic composition theorem remains conditional.",
+      "status": "conditional_composition"
+    },
+    "mode": "frozen source/status receipt",
+    "promotion_effect": "Source/status observation only; no solver consumer acceptance or pin change",
+    "proof_status_sha256": "95ad007d1f9bdef9ffc33bc43ccdc638d998ebb9e6236d21da6ac36d8abcf2d3",
+    "receipt": "evidence/fresh-20261103/consumer-VeriCount.json",
+    "receipt_head": "8ba9253946783ce84c00f6218f9cd538e8bb8ef2",
+    "receipt_proof_status_sha256": "95ad007d1f9bdef9ffc33bc43ccdc638d998ebb9e6236d21da6ac36d8abcf2d3",
+    "repository": "VeriCount",
+    "status": "pass",
+    "trusted_backend": "GMP through native/trusted/gmp_backend.rs",
+    "verigmp_gitlink": "c083839dc07f9b0cffea1a52cd6810d817105355"
+  },
+  "performance": {
+    "benchmark_run": false,
+    "gmp_performance_parity_established": false,
+    "historical_docs_confirm_unmet_target": true,
+    "reason": "No performance measurements for this dyadic/interpolation slice; the registered library target remains unmet and solver trace acceptance is separate.",
+    "solver_acceptance": {
+      "backend_switch": "The solver continues using trusted GMP until semantic and performance acceptance passes. A library-only pass does not establish solver parity.",
+      "policy": "Freeze representative arithmetic traces and exact expected results from the GMP-backed paper algorithm before tuning the replacement. Report per-operation and whole-workload medians, memory use and all regressions; confirm semantic equivalence before switching.",
+      "required": true,
+      "status": "blocked_on_representative_solver_path"
+    },
+    "status": "blocked",
+    "target_status": "target_not_yet_achieved"
+  },
+  "promotion": false,
+  "proof_erasure": {
+    "error": null,
+    "fresh_compilation": false,
+    "limitation": "The saved assembly is not a fresh Verus/Rust compilation and is not a machine-code equivalence proof.",
+    "mode": "saved optimized assembly inspection",
+    "proof_symbol_hits": {
+      "toom8_convolution": [],
+      "toom8_dyadic_producer_spec": [],
+      "toom8_newton_spec": [],
+      "toom8_normalization_spec": []
+    },
+    "reachable_code_inspection": {
+      "limitation": "Textual assembly inspection; no machine-code equivalence or performance claim",
+      "no_allocator_general_division_or_element_bounds_panic": true,
+      "paths": {
+        "verified_interpolation_24": {
+          "external_calls": [
+            "*_RNvNtCskADBYZwJmSU_4core9panicking5panic@GOTPCREL(%rip)",
+            "*_RNvNtCskADBYZwJmSU_4core9panicking9panic_fmt@GOTPCREL(%rip)",
+            "*_RNvNtNtCskADBYZwJmSU_4core5slice5index16slice_index_fail@GOTPCREL(%rip)",
+            "*memset@GOTPCREL(%rip)"
+          ],
+          "reachable_functions": [
+            "_RNvNtCse2mtgF4XwmH_27toom8_interpolation_codegen10fast_words14abs_difference",
+            "_RNvNtCse2mtgF4XwmH_27toom8_interpolation_codegen13fast_multiply4full",
+            "_RNvNtCse2mtgF4XwmH_27toom8_interpolation_codegen14toom4_evaluate6signed",
+            "_RNvNtCse2mtgF4XwmH_27toom8_interpolation_codegen14toom4_multiply4full",
+            "_RNvNtCse2mtgF4XwmH_27toom8_interpolation_codegen14toom8_producer13weighted_pair",
+            "_RNvNtCse2mtgF4XwmH_27toom8_interpolation_codegen14toom8_producer14normalize_pair",
+            "_RNvNtCse2mtgF4XwmH_27toom8_interpolation_codegen19toom8_interpolation11interpolate",
+            "verified_interpolation_24"
+          ],
+          "root_body_lines": 41
+        },
+        "verified_interpolation_48": {
+          "external_calls": [
+            "*_RNvNtCskADBYZwJmSU_4core9panicking5panic@GOTPCREL(%rip)",
+            "*_RNvNtCskADBYZwJmSU_4core9panicking9panic_fmt@GOTPCREL(%rip)",
+            "*_RNvNtNtCskADBYZwJmSU_4core5slice5index16slice_index_fail@GOTPCREL(%rip)",
+            "*memset@GOTPCREL(%rip)"
+          ],
+          "reachable_functions": [
+            "_RNvNtCse2mtgF4XwmH_27toom8_interpolation_codegen10fast_words14abs_difference",
+            "_RNvNtCse2mtgF4XwmH_27toom8_interpolation_codegen13fast_multiply4full",
+            "_RNvNtCse2mtgF4XwmH_27toom8_interpolation_codegen14toom4_evaluate6signed",
+            "_RNvNtCse2mtgF4XwmH_27toom8_interpolation_codegen14toom4_multiply4full",
+            "_RNvNtCse2mtgF4XwmH_27toom8_interpolation_codegen14toom8_producer13weighted_pair",
+            "_RNvNtCse2mtgF4XwmH_27toom8_interpolation_codegen14toom8_producer14normalize_pair",
+            "_RNvNtCse2mtgF4XwmH_27toom8_interpolation_codegen19toom8_interpolation11interpolate",
+            "verified_interpolation_48"
+          ],
+          "root_body_lines": 41
+        }
+      },
+      "scope": "Actual fifteen-product interpolation, including even and odd Newton consumers and child kernels",
+      "status": "pass"
+    },
+    "roots_present": true,
+    "static_proof_symbols_absent": true,
+    "status": "pass"
+  },
+  "scope": "Generic dyadic proof exports, actual interpolation candidate, same-source fresh execution evidence and independent coefficient layout",
+  "source_consumer": {
+    "call_chain": {
+      "calls": [
+        "toom4_multiply::full",
+        "with_endpoints("
+      ],
+      "dyadic_pair_to_normalization": true,
+      "endpoint_calls": [
+        "toom8_even::with_endpoints",
+        "toom8_seventh::prepare_seventh",
+        "toom8_newton::odd"
+      ],
+      "endpoint_ordered": true,
+      "endpoint_positions": [
+        3665,
+        3767,
+        4833
+      ],
+      "even_normalization_before_newton": true,
+      "first_positions": [
+        3910,
+        4055
+      ],
+      "interpolate_ordered": true
+    },
+    "generic_exports": {
+      "toom8_convolution": true,
+      "toom8_dyadic_producer": true,
+      "toom8_dyadic_producer_spec": true,
+      "toom8_even": true,
+      "toom8_interpolation": true,
+      "toom8_newton": true,
+      "toom8_newton_spec": true,
+      "toom8_normalization": true,
+      "toom8_normalization_spec": true,
+      "toom8_seventh": true,
+      "toom8_seventh_spec": true
+    },
+    "runtime_consumers": {
+      "dyadic_pair_inline": true,
+      "dyadic_pair_is_runtime_fn": true,
+      "interpolate_is_runtime_fn": true,
+      "newton_even_runtime_fn": true,
+      "newton_odd_runtime_fn": true
+    },
+    "source_scope": "saved interpolation candidate; no production module is modified",
+    "status": "pass"
+  },
+  "status": "scoped_progress"
+}
