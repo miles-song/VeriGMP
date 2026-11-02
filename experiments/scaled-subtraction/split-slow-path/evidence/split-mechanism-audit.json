@@ -1,0 +1,109 @@
+{
+  "status": "generated_control_flow_checked",
+  "benchmark_binary_sha256": "a7ae5401d406b2689486a4eaf68d00a0f2f403ad7f857c4b19dc1ad98b17e799",
+  "verification_report_sha256": "71b21dbd57161b07a2e89d2dfe3843bf0503a014a27adf36e1b8b34c8bc8f861",
+  "disassembly_sha256": "42c6e82c861ba93c02179264675001aa5220b584a93f6a6db00d0f237bc9352d",
+  "relocation_sha256": "4a808ff8a0f5c74ac3f21aee89366b8e2b43d22cef113eee66f7383b1fd470f0",
+  "static_inspection_not_a_new_formal_cost_theorem": true,
+  "dispatch": {
+    "baseline": {
+      "full_square_call_sites": [
+        {
+          "target": "baseline::toom_square::full",
+          "surrounding_instructions": [
+            "   1f466:\tsub    %r13,%rbx",
+            "   1f469:\tlea    (%rbx,%rbx,1),%rbp",
+            "   1f46d:\tmov    %r10,%r9",
+            "   1f470:\tsub    %rbp,%r9",
+            "   1f473:\tjb     1f695 <baseline::square_low::low+0x515>",
+            "   1f479:\tmov    %r8,0x18(%rsp)",
+            "   1f47e:\tmov    %rsi,0x20(%rsp)",
+            "   1f483:\tmov    %r10,0x28(%rsp)",
+            "   1f488:\tlea    (%r12,%rbp,8),%r8",
+            "   1f48c:\tsub    $0x8,%rsp",
+            "   1f490:\tmov    %r12,%rdi",
+            "   1f493:\tmov    %rbp,%rsi",
+            "   1f496:\tmov    %r15,%rdx",
+            "   1f499:\tmov    %rbx,%rcx",
+            "   1f49c:\tpush   %r11",
+            "   1f49e:\tmov    %r11,0x20(%rsp)",
+            "   1f4a3:\tcall   *0x43537(%rip)        # 629e0 <_DYNAMIC+0x418>",
+            "   1f4a9:\tadd    $0x10,%rsp",
+            "   1f4ad:\tcmp    %rbp,%r14",
+            "   1f4b0:\tja     1f6ae <baseline::square_low::low+0x52e>",
+            "   1f4b6:\tmov    %r14,0x8(%rsp)"
+          ]
+        }
+      ],
+      "entry_stack_reservation": "1f18a:\tsub    $0x38,%rsp"
+    },
+    "candidate": {
+      "full_square_call_sites": [
+        {
+          "target": "candidate::toom_square::full_toom",
+          "surrounding_instructions": [
+            "   1b4fa:\tadd    %rbp,%rax",
+            "   1b4fd:\tcmp    %rax,%r9",
+            "   1b500:\tjb     1b72c <candidate::square_low::low+0x53c>",
+            "   1b506:\tmov    %r8,0x10(%rsp)",
+            "   1b50b:\tmov    %rsi,0x18(%rsp)",
+            "   1b510:\tmov    %r10,0x28(%rsp)",
+            "   1b515:\tlea    (%r12,%rbp,8),%r8",
+            "   1b519:\tcmp    %r11,%rbx",
+            "   1b51c:\tmov    %r11,0x20(%rsp)",
+            "   1b521:\tjbe    1b53d <candidate::square_low::low+0x34d>",
+            "   1b523:\tsub    $0x8,%rsp",
+            "   1b527:\tmov    %r12,%rdi",
+            "   1b52a:\tmov    %rbp,%rsi",
+            "   1b52d:\tmov    %r15,%rdx",
+            "   1b530:\tmov    %rbx,%rcx",
+            "   1b533:\tpush   %r11",
+            "   1b535:\tcall   *0x47435(%rip)        # 62970 <_DYNAMIC+0x3a8>",
+            "   1b53b:\tjmp    1b555 <candidate::square_low::low+0x365>",
+            "   1b53d:\tsub    $0x8,%rsp",
+            "   1b541:\tmov    %r12,%rdi",
+            "   1b544:\tmov    %rbp,%rsi"
+          ]
+        },
+        {
+          "target": "candidate::square::full",
+          "surrounding_instructions": [
+            "   1b51c:\tmov    %r11,0x20(%rsp)",
+            "   1b521:\tjbe    1b53d <candidate::square_low::low+0x34d>",
+            "   1b523:\tsub    $0x8,%rsp",
+            "   1b527:\tmov    %r12,%rdi",
+            "   1b52a:\tmov    %rbp,%rsi",
+            "   1b52d:\tmov    %r15,%rdx",
+            "   1b530:\tmov    %rbx,%rcx",
+            "   1b533:\tpush   %r11",
+            "   1b535:\tcall   *0x47435(%rip)        # 62970 <_DYNAMIC+0x3a8>",
+            "   1b53b:\tjmp    1b555 <candidate::square_low::low+0x365>",
+            "   1b53d:\tsub    $0x8,%rsp",
+            "   1b541:\tmov    %r12,%rdi",
+            "   1b544:\tmov    %rbp,%rsi",
+            "   1b547:\tmov    %r15,%rdx",
+            "   1b54a:\tmov    %rbx,%rcx",
+            "   1b54d:\tpush   $0x18",
+            "   1b54f:\tcall   *0x47423(%rip)        # 62978 <_DYNAMIC+0x3b0>",
+            "   1b555:\tadd    $0x10,%rsp",
+            "   1b559:\tcmp    %rbp,%r14",
+            "   1b55c:\tja     1b790 <candidate::square_low::low+0x5a0>",
+            "   1b562:\tmov    %r14,0x8(%rsp)"
+          ]
+        }
+      ],
+      "entry_stack_reservation": "1b1fa:\tsub    $0x38,%rsp"
+    }
+  },
+  "n256_n257": {
+    "k_values": [
+      178,
+      179
+    ],
+    "threshold": 192,
+    "inspected_path": "The inlined wrapper compares k with threshold in square_low::low and branches directly to square::full for k<=192. The full_toom stack frame is not entered on these valid inputs.",
+    "slow_path_stack_reservation_bytes": 136,
+    "caller_owned_workspace": "Unchanged 10*n limbs; this is not a claim of a reduced public scratch API or globally reduced peak stack.",
+    "performance_conclusion": "None until the separate declared complete benchmark runs; all earlier negative observations remain retained."
+  }
+}

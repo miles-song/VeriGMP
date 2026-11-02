@@ -1,0 +1,573 @@
+{
+  "status": "pass",
+  "scope": "isolated scaled-subtraction interpolation candidate; runtime observations on declared hardware",
+  "started_utc": "2026-11-01T18:27:04.390494+00:00",
+  "platform": "Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+  "cpu": 0,
+  "cpu_model": "AMD Ryzen 7 7745HX with Radeon Graphics",
+  "verified_library_identities": {
+    "baseline": {
+      "verified": 234,
+      "rlib_sha256": "d4c246b32dbdbef3b65a7ab584bdb2ff239b307be1a16bd44507ae1ac5b3f6b6",
+      "vir_sha256": "85d8f7bf40f04352019fce439aa679d37afc708558822d849000f73b8c07dc86"
+    },
+    "candidate": {
+      "verified": 240,
+      "rlib_sha256": "e3a57f01fa1592075db257163cdc9808be942bcbf21581072bfe4ff5cab039c4",
+      "vir_sha256": "4cb9b2571fa700c24ddd33e2021923be62abfcb16ea40fa2621e022b813fcca9"
+    }
+  },
+  "tool_version": "Verus\n  Version: 0.2026.10.26.d17fbd0\n  Profile: release\n  Platform: linux_x86_64\n  Toolchain: 1.99.1-x86_64-unknown-linux-gnu (overridden by environment variable RUSTUP_TOOLCHAIN)\n\n",
+  "tool_sha256": {
+    "verus": "1208c995c8e5244577693eba311d34bc2050c4acf984e10c4c7baf2003abff14",
+    "rust_verify": "7dc66fc35b1ef434d7db3d17f4a7bc9fe1f40b896cbe18a1193820270fa462f6",
+    "z3": "e583c4186a45e72411fa2cb2048401eed03f0f8e5f24694676a8f6271a50b765",
+    "vstd.vir": "6bf002dd6aacba73f8cbf09a1855b6330aa4773752878d2b702a52cc4f1538e2",
+    "libvstd.rlib": "da07ffe583aa14ec1ba5e4aa2295cec538c2a9b59bfbbf4d60f16e20d540befd"
+  },
+  "flags": [
+    "-O"
+  ],
+  "benchmark_binary_sha256": "14f62e8cb25a60e61d3e376341db9096ab48158a3c854e06838eb974750e85a1",
+  "benchmark_source_sha256": "3ab87996faf02869cfd8695e8358d5dac35e884740c8eaba2d31320e66d34c7f",
+  "linked_library_sha256": {
+    "/lib/x86_64-linux-gnu/libgmp.so.10": "0ccdfb6d6f5c039465f6d002cf7e4c072d48ac6a2cffc8dd6c748dec31592804",
+    "/lib/x86_64-linux-gnu/libgcc_s.so.1": "d93224d2b0dab4247598be683adca02f5cf00586f99c187579cd7e92058fb7cb",
+    "/lib/x86_64-linux-gnu/libc.so.6": "d8db8739a1633c972cec6a4fe0566bdcec6fd088f98723492ab0361f66238f75"
+  },
+  "mode_names": {
+    "0": "baseline_actual_dispatch",
+    "1": "candidate_actual_dispatch",
+    "2": "gmp_full_then_copy_and_mask"
+  },
+  "precision_policy": "same top bits and result words for every mode",
+  "seed": 16438731,
+  "repetitions": 7,
+  "minimum_actual_batch_ns": 10000000,
+  "sample_policy": "mode order rotates by repetition; sub-10ms batches are retried after doubling that mode count; allocation outside timing; every recorded result equals GMP",
+  "measurements": [
+    {
+      "operation": 0,
+      "limbs": 1,
+      "top": 1,
+      "baseline_ns": 13.691502571105957,
+      "candidate_ns": 12.899293899536133,
+      "gmp_ns": 14.696645736694336,
+      "candidate_over_baseline": 0.942138661008495,
+      "candidate_over_gmp": 0.8777032617265444
+    },
+    {
+      "operation": 0,
+      "limbs": 1,
+      "top": 64,
+      "baseline_ns": 12.465362548828125,
+      "candidate_ns": 12.372811317443848,
+      "gmp_ns": 13.520023345947266,
+      "candidate_over_baseline": 0.9925753277514597,
+      "candidate_over_gmp": 0.9151471858332771
+    },
+    {
+      "operation": 0,
+      "limbs": 2,
+      "top": 1,
+      "baseline_ns": 15.074019432067871,
+      "candidate_ns": 15.877301216125488,
+      "gmp_ns": 21.512409210205078,
+      "candidate_over_baseline": 1.0532891567294087,
+      "candidate_over_gmp": 0.7380531423041915
+    },
+    {
+      "operation": 0,
+      "limbs": 23,
+      "top": 63,
+      "baseline_ns": 245.32029724121094,
+      "candidate_ns": 246.72476196289062,
+      "gmp_ns": 321.37786865234375,
+      "candidate_over_baseline": 1.0057250245392404,
+      "candidate_over_gmp": 0.7677092482985801
+    },
+    {
+      "operation": 0,
+      "limbs": 24,
+      "top": 63,
+      "baseline_ns": 275.8606262207031,
+      "candidate_ns": 273.3767395019531,
+      "gmp_ns": 357.14495849609375,
+      "candidate_over_baseline": 0.9909958635533482,
+      "candidate_over_gmp": 0.7654503668569723
+    },
+    {
+      "operation": 0,
+      "limbs": 25,
+      "top": 63,
+      "baseline_ns": 253.48133850097656,
+      "candidate_ns": 254.17474365234375,
+      "gmp_ns": 335.5023498535156,
+      "candidate_over_baseline": 1.0027355274177887,
+      "candidate_over_gmp": 0.7575945258306522
+    },
+    {
+      "operation": 0,
+      "limbs": 63,
+      "top": 63,
+      "baseline_ns": 1562.1663818359375,
+      "candidate_ns": 1585.994140625,
+      "gmp_ns": 1331.5291748046875,
+      "candidate_over_baseline": 1.0152530223836074,
+      "candidate_over_gmp": 1.1911073152848026
+    },
+    {
+      "operation": 0,
+      "limbs": 64,
+      "top": 63,
+      "baseline_ns": 1707.6971435546875,
+      "candidate_ns": 1662.6910400390625,
+      "gmp_ns": 1409.388671875,
+      "candidate_over_baseline": 0.9736451491498418,
+      "candidate_over_gmp": 1.179724992274188
+    },
+    {
+      "operation": 0,
+      "limbs": 65,
+      "top": 63,
+      "baseline_ns": 1844.66015625,
+      "candidate_ns": 1838.373779296875,
+      "gmp_ns": 1578.3419189453125,
+      "candidate_over_baseline": 0.9965921218974532,
+      "candidate_over_gmp": 1.1647500185037993
+    },
+    {
+      "operation": 0,
+      "limbs": 127,
+      "top": 63,
+      "baseline_ns": 5485.431640625,
+      "candidate_ns": 5504.86572265625,
+      "gmp_ns": 4583.08056640625,
+      "candidate_over_baseline": 1.0035428537450584,
+      "candidate_over_gmp": 1.2011278533933352
+    },
+    {
+      "operation": 0,
+      "limbs": 128,
+      "top": 63,
+      "baseline_ns": 6517.068359375,
+      "candidate_ns": 6660.0126953125,
+      "gmp_ns": 5526.81787109375,
+      "candidate_over_baseline": 1.0219338401954723,
+      "candidate_over_gmp": 1.2050356734470231
+    },
+    {
+      "operation": 0,
+      "limbs": 129,
+      "top": 63,
+      "baseline_ns": 5872.498046875,
+      "candidate_ns": 5792.0361328125,
+      "gmp_ns": 4737.257080078125,
+      "candidate_over_baseline": 0.9862985200811915,
+      "candidate_over_gmp": 1.2226560718374566
+    },
+    {
+      "operation": 0,
+      "limbs": 191,
+      "top": 63,
+      "baseline_ns": 10651.8564453125,
+      "candidate_ns": 10774.4521484375,
+      "gmp_ns": 7820.7294921875,
+      "candidate_over_baseline": 1.0115093273885558,
+      "candidate_over_gmp": 1.3776786627386377
+    },
+    {
+      "operation": 0,
+      "limbs": 192,
+      "top": 63,
+      "baseline_ns": 11725.619140625,
+      "candidate_ns": 11593.5068359375,
+      "gmp_ns": 8386.8076171875,
+      "candidate_over_baseline": 0.9887330209941939,
+      "candidate_over_gmp": 1.3823503966131705
+    },
+    {
+      "operation": 0,
+      "limbs": 193,
+      "top": 63,
+      "baseline_ns": 10776.9111328125,
+      "candidate_ns": 10770.2236328125,
+      "gmp_ns": 7890.8037109375,
+      "candidate_over_baseline": 0.9993794604114681,
+      "candidate_over_gmp": 1.3649083195269216
+    },
+    {
+      "operation": 0,
+      "limbs": 255,
+      "top": 63,
+      "baseline_ns": 19518.986328125,
+      "candidate_ns": 19295.212890625,
+      "gmp_ns": 13314.74609375,
+      "candidate_over_baseline": 0.9885356015041845,
+      "candidate_over_gmp": 1.4491611597221712
+    },
+    {
+      "operation": 0,
+      "limbs": 256,
+      "top": 63,
+      "baseline_ns": 17097.9951171875,
+      "candidate_ns": 17396.7724609375,
+      "gmp_ns": 11995.9853515625,
+      "candidate_over_baseline": 1.0174744080637652,
+      "candidate_over_gmp": 1.4502162140996226
+    },
+    {
+      "operation": 0,
+      "limbs": 257,
+      "top": 63,
+      "baseline_ns": 17901.81640625,
+      "candidate_ns": 18229.70703125,
+      "gmp_ns": 12525.0263671875,
+      "candidate_over_baseline": 1.0183160533858187,
+      "candidate_over_gmp": 1.455462567249149
+    },
+    {
+      "operation": 0,
+      "limbs": 511,
+      "top": 63,
+      "baseline_ns": 55478.48046875,
+      "candidate_ns": 55846.5625,
+      "gmp_ns": 33078.75,
+      "candidate_over_baseline": 1.0066346811978264,
+      "candidate_over_gmp": 1.6882911990326115
+    },
+    {
+      "operation": 0,
+      "limbs": 512,
+      "top": 63,
+      "baseline_ns": 60280.1953125,
+      "candidate_ns": 59939.71875,
+      "gmp_ns": 34501.279296875,
+      "candidate_over_baseline": 0.9943517674298346,
+      "candidate_over_gmp": 1.7373187305384679
+    },
+    {
+      "operation": 0,
+      "limbs": 513,
+      "top": 63,
+      "baseline_ns": 57096.390625,
+      "candidate_ns": 56252.6171875,
+      "gmp_ns": 33273.802734375,
+      "candidate_over_baseline": 0.9852219478628383,
+      "candidate_over_gmp": 1.6905977845864217
+    },
+    {
+      "operation": 0,
+      "limbs": 1023,
+      "top": 63,
+      "baseline_ns": 175395.234375,
+      "candidate_ns": 171863.265625,
+      "gmp_ns": 93349.09375,
+      "candidate_over_baseline": 0.9798628009330712,
+      "candidate_over_gmp": 1.841081243758727
+    },
+    {
+      "operation": 0,
+      "limbs": 1024,
+      "top": 63,
+      "baseline_ns": 166076.390625,
+      "candidate_ns": 168157.328125,
+      "gmp_ns": 89575.03125,
+      "candidate_over_baseline": 1.0125300019597532,
+      "candidate_over_gmp": 1.8772790338825587
+    },
+    {
+      "operation": 0,
+      "limbs": 1025,
+      "top": 63,
+      "baseline_ns": 182354.4375,
+      "candidate_ns": 176077.359375,
+      "gmp_ns": 99174.9765625,
+      "candidate_over_baseline": 0.9655775959660976,
+      "candidate_over_gmp": 1.7754212350535437
+    },
+    {
+      "operation": 0,
+      "limbs": 2048,
+      "top": 63,
+      "baseline_ns": 478242.03125,
+      "candidate_ns": 485517.3125,
+      "gmp_ns": 229853.234375,
+      "candidate_over_baseline": 1.015212550914825,
+      "candidate_over_gmp": 2.112292715045681
+    },
+    {
+      "operation": 0,
+      "limbs": 4096,
+      "top": 63,
+      "baseline_ns": 1476073.625,
+      "candidate_ns": 1409404.375,
+      "gmp_ns": 635642.84375,
+      "candidate_over_baseline": 0.9548333844119734,
+      "candidate_over_gmp": 2.21728977028226
+    },
+    {
+      "operation": 1,
+      "limbs": 1,
+      "top": 1,
+      "baseline_ns": 11.76402759552002,
+      "candidate_ns": 11.71469783782959,
+      "gmp_ns": 12.292569160461426,
+      "candidate_over_baseline": 0.995806728835861,
+      "candidate_over_gmp": 0.9529901914653824
+    },
+    {
+      "operation": 1,
+      "limbs": 1,
+      "top": 64,
+      "baseline_ns": 11.59293270111084,
+      "candidate_ns": 11.68530559539795,
+      "gmp_ns": 12.182806015014648,
+      "candidate_over_baseline": 1.0079680350665934,
+      "candidate_over_gmp": 0.9591637247606539
+    },
+    {
+      "operation": 1,
+      "limbs": 2,
+      "top": 1,
+      "baseline_ns": 13.882098197937012,
+      "candidate_ns": 14.123953819274902,
+      "gmp_ns": 19.093174934387207,
+      "candidate_over_baseline": 1.0174221229305116,
+      "candidate_over_gmp": 0.7397383550829656
+    },
+    {
+      "operation": 1,
+      "limbs": 23,
+      "top": 63,
+      "baseline_ns": 158.50943756103516,
+      "candidate_ns": 160.5861053466797,
+      "gmp_ns": 178.09799194335938,
+      "candidate_over_baseline": 1.0131012248708844,
+      "candidate_over_gmp": 0.9016727454049622
+    },
+    {
+      "operation": 1,
+      "limbs": 24,
+      "top": 63,
+      "baseline_ns": 168.0669403076172,
+      "candidate_ns": 174.20892333984375,
+      "gmp_ns": 188.5303497314453,
+      "candidate_over_baseline": 1.0365448613569375,
+      "candidate_over_gmp": 0.924036493795286
+    },
+    {
+      "operation": 1,
+      "limbs": 25,
+      "top": 63,
+      "baseline_ns": 160.17526245117188,
+      "candidate_ns": 161.98495483398438,
+      "gmp_ns": 181.72080993652344,
+      "candidate_over_baseline": 1.0112982014520762,
+      "candidate_over_gmp": 0.8913946338372971
+    },
+    {
+      "operation": 1,
+      "limbs": 63,
+      "top": 63,
+      "baseline_ns": 892.8260498046875,
+      "candidate_ns": 913.913330078125,
+      "gmp_ns": 1011.12841796875,
+      "candidate_over_baseline": 1.0236185764047212,
+      "candidate_over_gmp": 0.9038548554634437
+    },
+    {
+      "operation": 1,
+      "limbs": 64,
+      "top": 63,
+      "baseline_ns": 891.9425659179688,
+      "candidate_ns": 908.2041015625,
+      "gmp_ns": 1001.66455078125,
+      "candidate_over_baseline": 1.0182315950218108,
+      "candidate_over_gmp": 0.9066948619217328
+    },
+    {
+      "operation": 1,
+      "limbs": 65,
+      "top": 63,
+      "baseline_ns": 1148.5703735351562,
+      "candidate_ns": 1181.7537841796875,
+      "gmp_ns": 1130.8729858398438,
+      "candidate_over_baseline": 1.0288910557064055,
+      "candidate_over_gmp": 1.0449924960423889
+    },
+    {
+      "operation": 1,
+      "limbs": 127,
+      "top": 63,
+      "baseline_ns": 3363.88525390625,
+      "candidate_ns": 3317.623291015625,
+      "gmp_ns": 2825.374267578125,
+      "candidate_over_baseline": 0.9862474610758782,
+      "candidate_over_gmp": 1.1742243599675202
+    },
+    {
+      "operation": 1,
+      "limbs": 128,
+      "top": 63,
+      "baseline_ns": 3712.15966796875,
+      "candidate_ns": 3757.0517578125,
+      "gmp_ns": 3110.509033203125,
+      "candidate_over_baseline": 1.0120932540243655,
+      "candidate_over_gmp": 1.2078575299759156
+    },
+    {
+      "operation": 1,
+      "limbs": 129,
+      "top": 63,
+      "baseline_ns": 3441.614990234375,
+      "candidate_ns": 3434.931884765625,
+      "gmp_ns": 2802.060546875,
+      "candidate_over_baseline": 0.9980581484309798,
+      "candidate_over_gmp": 1.2258592658165204
+    },
+    {
+      "operation": 1,
+      "limbs": 191,
+      "top": 63,
+      "baseline_ns": 7499.7939453125,
+      "candidate_ns": 7351.447265625,
+      "gmp_ns": 6155.990234375,
+      "candidate_over_baseline": 0.9802198992706701,
+      "candidate_over_gmp": 1.1941941078097522
+    },
+    {
+      "operation": 1,
+      "limbs": 192,
+      "top": 63,
+      "baseline_ns": 7061.55859375,
+      "candidate_ns": 7042.98779296875,
+      "gmp_ns": 5747.02490234375,
+      "candidate_over_baseline": 0.9973701555351128,
+      "candidate_over_gmp": 1.225501526902464
+    },
+    {
+      "operation": 1,
+      "limbs": 193,
+      "top": 63,
+      "baseline_ns": 7209.1689453125,
+      "candidate_ns": 7219.77392578125,
+      "gmp_ns": 6009.0,
+      "candidate_over_baseline": 1.001471040635779,
+      "candidate_over_gmp": 1.2014934141756115
+    },
+    {
+      "operation": 1,
+      "limbs": 255,
+      "top": 63,
+      "baseline_ns": 11573.5830078125,
+      "candidate_ns": 11542.447265625,
+      "gmp_ns": 8685.6640625,
+      "candidate_over_baseline": 0.9973097577330648,
+      "candidate_over_gmp": 1.3289078627227877
+    },
+    {
+      "operation": 1,
+      "limbs": 256,
+      "top": 63,
+      "baseline_ns": 10683.2900390625,
+      "candidate_ns": 10825.064453125,
+      "gmp_ns": 8105.34765625,
+      "candidate_over_baseline": 1.0132706697603562,
+      "candidate_over_gmp": 1.335545976831461
+    },
+    {
+      "operation": 1,
+      "limbs": 257,
+      "top": 63,
+      "baseline_ns": 11173.4326171875,
+      "candidate_ns": 11110.2802734375,
+      "gmp_ns": 8488.57470703125,
+      "candidate_over_baseline": 0.9943479908177137,
+      "candidate_over_gmp": 1.3088510918369654
+    },
+    {
+      "operation": 1,
+      "limbs": 511,
+      "top": 63,
+      "baseline_ns": 37344.90625,
+      "candidate_ns": 37436.306640625,
+      "gmp_ns": 26064.775390625,
+      "candidate_over_baseline": 1.0024474660617202,
+      "candidate_over_gmp": 1.4362796563399554
+    },
+    {
+      "operation": 1,
+      "limbs": 512,
+      "top": 63,
+      "baseline_ns": 35221.017578125,
+      "candidate_ns": 35300.216796875,
+      "gmp_ns": 24162.271484375,
+      "candidate_over_baseline": 1.0022486351671789,
+      "candidate_over_gmp": 1.4609643310937288
+    },
+    {
+      "operation": 1,
+      "limbs": 513,
+      "top": 63,
+      "baseline_ns": 37792.103515625,
+      "candidate_ns": 38074.583984375,
+      "gmp_ns": 26297.1328125,
+      "candidate_over_baseline": 1.0074745897283333,
+      "candidate_over_gmp": 1.4478606567434127
+    },
+    {
+      "operation": 1,
+      "limbs": 1023,
+      "top": 63,
+      "baseline_ns": 106782.796875,
+      "candidate_ns": 105238.046875,
+      "gmp_ns": 60236.71484375,
+      "candidate_over_baseline": 0.985533718490177,
+      "candidate_over_gmp": 1.7470748055895884
+    },
+    {
+      "operation": 1,
+      "limbs": 1024,
+      "top": 63,
+      "baseline_ns": 108350.1328125,
+      "candidate_ns": 105231.34375,
+      "gmp_ns": 60900.0859375,
+      "candidate_over_baseline": 0.9712156415359724,
+      "candidate_over_gmp": 1.727934240651087
+    },
+    {
+      "operation": 1,
+      "limbs": 1025,
+      "top": 63,
+      "baseline_ns": 107621.0078125,
+      "candidate_ns": 106308.8671875,
+      "gmp_ns": 61466.3125,
+      "candidate_over_baseline": 0.987807764936693,
+      "candidate_over_gmp": 1.7295468503580722
+    },
+    {
+      "operation": 1,
+      "limbs": 2048,
+      "top": 63,
+      "baseline_ns": 309976.1875,
+      "candidate_ns": 305163.09375,
+      "gmp_ns": 166511.921875,
+      "candidate_over_baseline": 0.9844726984068736,
+      "candidate_over_gmp": 1.832680148746857
+    },
+    {
+      "operation": 1,
+      "limbs": 4096,
+      "top": 63,
+      "baseline_ns": 930848.25,
+      "candidate_ns": 936558.1875,
+      "gmp_ns": 429560.78125,
+      "candidate_over_baseline": 1.0061341228282914,
+      "candidate_over_gmp": 2.180269308512438
+    }
+  ],
+  "raw_sha256": "d5ffa229493dca31d0ce0f634c34a22a7e574b056c2dcc95a0f766069c38852b",
+  "samples": 1092,
+  "minimum_observed_batch_ns": 10020984
+}

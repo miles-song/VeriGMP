@@ -1,0 +1,144 @@
+--- a/native/toom_words_runner.rs
++++ b/native/toom_words_runner.rs
+@@ -28,7 +28,15 @@
+     for line in io::stdin().lock().lines(){
+         let line=line.unwrap();let mut fields=line.split_whitespace();
+         let op=fields.next().unwrap();let args:Vec<u64>=fields.map(|s|s.parse().unwrap()).collect();
+-        let out=if op=="divide"{
++        let out=if op=="subscaled"{
++            assert!(args.len()>=3);let word=args[0];let n=usize::try_from(args[1]).unwrap();let m=usize::try_from(args[2]).unwrap();
++            assert_eq!(args.len(),3+n+m);let mut out=vec![u64::MAX;n+2];out[1..n+1].copy_from_slice(&args[3..3+n]);
++            let mut rhs=vec![u64::MAX;m+2];rhs[1..m+1].copy_from_slice(&args[3+n..]);
++            toom_words::sub_scaled_exact(&mut out[1..n+1],&rhs[1..m+1],word);
++            assert_eq!((out[0],out[n+1]),(u64::MAX,u64::MAX));
++            assert_eq!((rhs[0],rhs[m+1]),(u64::MAX,u64::MAX));assert_eq!(&rhs[1..m+1],&args[3+n..]);
++            out[1..n+1].to_vec()
++        }else if op=="divide"{
+             let mut out=args[1..].to_vec();let rem=toom_words::divide_word(&mut out,args[0]);out.push(rem);out
+         }else if op=="squarebaselow"{
+             assert!(!args.is_empty());let n=args.len();let mut out=vec![u64::MAX;n+2];
+--- a/native/verified/toom_interpolate.rs
++++ b/native/verified/toom_interpolate.rs
+@@ -30,14 +30,12 @@
+     assert(value(p1@)==c[1]+c[3]);
+     toom_words::sub_exact(pm,z0);toom_words::sub_exact(pm,z4);
+     assert(value(pm@)==c[2]);
+-    toom_words::copy_pad(scratch,z4);toom_words::scale_exact(scratch,16);
+-    toom_words::sub_exact(p2,z0);toom_words::sub_exact(p2,scratch);
++    toom_words::sub_exact(p2,z0);toom_words::sub_scaled_exact(p2,z4,16);
+     assert(value(p2@)==2*(c[1]+2*c[2]+4*c[3]));
+     proof {lemma_mod_multiples_basic(c[1]+2*c[2]+4*c[3],2);}
+     toom_words::divide_exact(p2,2);
+     toom_words::sub_exact(p2,p1);
+-    toom_words::copy_pad(scratch,pm);toom_words::scale_exact(scratch,2);
+-    toom_words::sub_exact(p2,scratch);
++    toom_words::sub_scaled_exact(p2,pm,2);
+     assert(value(p2@)==3*c[3]);
+     proof {lemma_mod_multiples_basic(c[3],3);}
+     toom_words::divide_exact(p2,3);
+--- a/native/verified/toom_words.rs
++++ b/native/verified/toom_words.rs
+@@ -6,6 +6,13 @@
+ use crate::fast_product::*;
+ use crate::{fast_words,multiply};
+ verus! {
++
++proof fn vanish_radix_multiple(a:int,b:int,n:nat)
++    ensures (radix(n)*a+b)%radix(n)==b%radix(n),
++{
++    radix_positive(n);
++    lemma_mod_multiples_vanish(a,b,radix(n));
++}
+ 
+ pub fn zero(dst:&mut[u64])
+     ensures final(dst)@.len()==old(dst)@.len(),value(final(dst)@)==0,
+@@ -69,6 +76,74 @@
+         borrow=next;i+=1;
+     }
+     borrow
++}
++
++/// Subtract a scaled nonnegative integer in one pass, without a product buffer.
++#[inline(always)]
++pub fn sub_scaled_exact(dst:&mut[u64],rhs:&[u64],word:u64)
++    requires old(dst)@.len()>=rhs@.len(),
++        value(old(dst)@)>=(word as int)*value(rhs@),
++    ensures final(dst)@.len()==old(dst)@.len(),
++        value(final(dst)@)==value(old(dst)@)-(word as int)*value(rhs@),
++{
++    assert!(dst.len()>=rhs.len());
++    let ghost original=dst@;
++    let mut i=0usize;let mut carry=0u64;
++    while i<dst.len()
++        invariant i<=dst@.len(),dst@.len()==original.len(),dst@.len()>=rhs@.len(),carry<=word,
++            value(original)>=(word as int)*value(rhs@),
++            forall|j:int| i<=j<dst@.len() ==> #[trigger] dst@[j]==original[j],
++            prefix(dst@,i as nat)-radix(i as nat)*(carry as int)
++                ==prefix(original,i as nat)-(word as int)*extended(rhs@,i as nat),
++        decreases dst.len()-i,
++    {
++        let x=dst[i];let y=if i<rhs.len(){rhs[i]}else{0};
++        let ghost before=dst@;let ghost incoming=carry;
++        let (product,high)=multiply::mac(word,y,0,carry);
++        let (low,borrow)=fast_words::sub_word(x,product,0);
++        proof {
++            assert((product as int)+base()*(high as int)<=base()*(word as int)) by(nonlinear_arith)
++                requires (product as int)+base()*(high as int)==(word as int)*(y as int)+(incoming as int),
++                    incoming<=word,word>=0,y<base();
++            assert(high<=word) by(nonlinear_arith)
++                requires (product as int)+base()*(high as int)<=base()*(word as int),product>=0,base()>0;
++            if high==word {
++                assert(product==0) by(nonlinear_arith)
++                    requires (product as int)+base()*(high as int)<=base()*(word as int),high==word,product>=0;
++                assert(borrow==0) by(nonlinear_arith)
++                    requires (low as int)-base()*(borrow as int)==(x as int)-(product as int),
++                        product==0,low<base(),x>=0,borrow>=0,base()>0;
++            }
++            assert((high as int)+(borrow as int)<=word);
++        }
++        let next=high+borrow;dst[i]=low;
++        proof {
++            equal_prefix(dst@,before,i as nat);extended_step(rhs@,i as nat);
++            assert(prefix(dst@,(i+1) as nat)-radix((i+1) as nat)*(next as int)
++                ==prefix(original,(i+1) as nat)-(word as int)*extended(rhs@,(i+1) as nat)) by(nonlinear_arith)
++                requires prefix(before,i as nat)-radix(i as nat)*(incoming as int)
++                        ==prefix(original,i as nat)-(word as int)*extended(rhs@,i as nat),
++                    prefix(dst@,(i+1) as nat)==prefix(before,i as nat)+(low as int)*radix(i as nat),
++                    prefix(original,(i+1) as nat)==prefix(original,i as nat)+(x as int)*radix(i as nat),
++                    extended(rhs@,(i+1) as nat)==extended(rhs@,i as nat)+(y as int)*radix(i as nat),
++                    (product as int)+base()*(high as int)==(word as int)*(y as int)+(incoming as int),
++                    (low as int)-base()*(borrow as int)==(x as int)-(product as int),
++                    next==(high as int)+(borrow as int),radix((i+1) as nat)==base()*radix(i as nat);
++        }
++        carry=next;
++        i+=1;
++    }
++    proof {
++        prefix_range(dst@,dst@.len());radix_positive(dst@.len());
++        assert(carry==0) by(nonlinear_arith)
++            requires value(dst@)-radix(dst@.len())*(carry as int)
++                    ==value(original)-(word as int)*value(rhs@),
++                value(original)>=(word as int)*value(rhs@),value(dst@)<radix(dst@.len()),
++                radix(dst@.len())>0,carry>=0;
++        assert(value(dst@)==value(original)-(word as int)*value(rhs@)) by(nonlinear_arith)
++            requires value(dst@)-radix(dst@.len())*(carry as int)
++                    ==value(original)-(word as int)*value(rhs@),carry==0;
++    }
+ }
+ 
+ pub fn scale(dst:&mut[u64],word:u64)->(out:u64)
+@@ -261,9 +336,8 @@
+                 ==value(original)+radix(offset as nat)*delta+radix(dst@.len())*tail(rhs@,length as nat)) by(nonlinear_arith)
+                 requires value(rhs@)==delta+radix(length as nat)*tail(rhs@,length as nat),
+                     radix(dst@.len())==radix(offset as nat)*radix(length as nat);
+-            assert(radix(dst@.len())>0) by {radix_positive(dst@.len());}
+-            lemma_mod_multiples_vanish(tail(rhs@,length as nat),value(original)+radix(offset as nat)*delta,radix(dst@.len()));
+-        }
+-    }
+-}
+-}
++            vanish_radix_multiple(tail(rhs@,length as nat),value(original)+radix(offset as nat)*delta,dst@.len());
++        }
++    }
++}
++}

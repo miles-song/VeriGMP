@@ -1,0 +1,85 @@
+{
+  "baseline_commit": "e22a4dd00a28681fd27d68e2a78fa304cf17563e",
+  "decision": "All three candidates are experimental; none promoted to main or default dispatch",
+  "registered_gmp_target_status": "target_not_met",
+  "production_files_changed": false,
+  "publication_policy": "Raw CSV, executable/proof source and original test scripts retain exact bytes. Host paths in historical reports/logs are replaced by logical placeholders. Every original and published SHA is recorded. Omitted binary/large oracle artifacts remain identified by digest and can be regenerated; their original bytes are not distributed.",
+  "variants": {
+    "double-carry": {
+      "library_proof_items": 240,
+      "oracle_cases": 20652,
+      "semantic_mutants": 7,
+      "changed_source_paths": [
+        "native/toom_words_runner.rs",
+        "native/verified/toom_interpolate.rs",
+        "native/verified/toom_words.rs"
+      ],
+      "source_patch_sha256": "29b7c96fc1d7d24d7b65c2eede23eb7b2c42e1775461ab782525dd41ba7625b4",
+      "historical_gate_original_sha256": "deb1e44d113fca8b7c592d19f69faaf0e0d0e160782cd58686b9c4890509babd",
+      "regressions_vs_baseline": {
+        "default1": 18,
+        "default2": 27
+      },
+      "primary_gmp_failures": {
+        "default1": 10,
+        "default2": 10
+      },
+      "key_gmp_failures": {
+        "default1": 32,
+        "default2": 32
+      },
+      "registered_gmp_target_status": "target_not_met"
+    },
+    "single-carry": {
+      "library_proof_items": 244,
+      "oracle_cases": 20702,
+      "semantic_mutants": 7,
+      "changed_source_paths": [
+        "native/toom_words_runner.rs",
+        "native/verified/toom_interpolate.rs",
+        "native/verified/toom_words.rs"
+      ],
+      "source_patch_sha256": "956f8fd89ae50ae0165ad50b14f18b2286d97c4ea7260c3f3ac3d00bae6488b4",
+      "historical_gate_original_sha256": "0e13f3ed9bb544a36dde1eca3ffa703ef30f069006915e3c59cacbc60975b15e",
+      "regressions_vs_baseline": {
+        "default1": 17,
+        "default2": 22
+      },
+      "primary_gmp_failures": {
+        "default1": 10,
+        "default2": 10
+      },
+      "key_gmp_failures": {
+        "default1": 34,
+        "default2": 33
+      },
+      "registered_gmp_target_status": "target_not_met"
+    },
+    "split-slow-path": {
+      "library_proof_items": 245,
+      "oracle_cases": 20702,
+      "semantic_mutants": 9,
+      "changed_source_paths": [
+        "native/toom_words_runner.rs",
+        "native/verified/toom_interpolate.rs",
+        "native/verified/toom_square.rs",
+        "native/verified/toom_words.rs"
+      ],
+      "source_patch_sha256": "f5c707d121738f9bab88279163a3fb0108ff070f680cc6b06f9e06d33296222b",
+      "historical_gate_original_sha256": "71b21dbd57161b07a2e89d2dfe3843bf0503a014a27adf36e1b8b34c8bc8f861",
+      "regressions_vs_baseline": {
+        "default1": 21,
+        "default2": 22
+      },
+      "primary_gmp_failures": {
+        "default1": 10,
+        "default2": 10
+      },
+      "key_gmp_failures": {
+        "default1": 35,
+        "default2": 33
+      },
+      "registered_gmp_target_status": "target_not_met"
+    }
+  }
+}

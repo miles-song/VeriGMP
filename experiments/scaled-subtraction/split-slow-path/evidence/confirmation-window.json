@@ -1,0 +1,29 @@
+{
+  "status": "pass",
+  "benchmark_started": true,
+  "policy": "Exactly two predeclared default runs; no result-based retry",
+  "tags": [
+    "default1",
+    "default2"
+  ],
+  "cpu": 0,
+  "startup_settle_seconds": 10,
+  "idle_probe_seconds": 1,
+  "max_other_process_cpu_percent": 10,
+  "measurement_controller_sha256": "5d97ce0ac037e16820ca6150c3be4944729e954f99300e28f788ddcccd04ba66",
+  "boot_id": "a1b93b4f-7eac-43af-930e-ed83d0b76cc4",
+  "started_utc": "2026-11-01T18:57:15.749132+00:00",
+  "preflight_process_cpu": [],
+  "bindings": {
+    "default1": {
+      "sha256": "34c28f6400a96e95951a018f42948069b1e4fc230a1c2fa4732f248efe2de409",
+      "raw_sha256": "7e601837cfebbcf4fa7c8ff45b325c0049c1b730129176c0d6e362edbea6f238"
+    },
+    "default2": {
+      "sha256": "26dc99b0df93284592f4c19e4c984ca21373da26efb7351ea68154db0f2788a0",
+      "raw_sha256": "f9755aead6233092d9d98bf13f8013cf9e393ce7b8baaf21778248b25c153358"
+    }
+  },
+  "finished_utc": "2026-11-01T18:58:17.322145+00:00",
+  "scope": "Same continuous WSL session, same pinned artifacts and two complete default-dispatch runs"
+}

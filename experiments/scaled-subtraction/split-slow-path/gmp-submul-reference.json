@@ -1,0 +1,7 @@
+{
+  "archive": "gmp-6.3.0.tar.xz",
+  "archive_sha256": "a3c2b80201b89e68616f4ad30bc66aee4927c3ce50e33929ca819d5c43538898",
+  "path": "mpn/generic/submul_1.c",
+  "sha256": "1646899f67ccbd7d5f465dc879178dc4e4711924ae74cd631542a1bc3c780874",
+  "relationship": "Arithmetic reference inspected after the independent Rust implementation and proof were authored; no source copied"
+}
