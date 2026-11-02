@@ -1,0 +1,6 @@
+
+thread 'main' (66979) panicked at <stage>/feature-gates/interpolation-feature1/inputs/candidate/native/toom8_interpolation_runner.rs:83:45:
+assertion `left == right` failed
+  left: 1
+ right: 0
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace

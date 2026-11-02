@@ -1,0 +1,823 @@
+{
+  "status": "pass",
+  "scope": "Actual endpoints, six signed pairs and one positive-eight point establish all even/odd Newton premises and recover fifteen input convolution coefficients; no complete recursive Toom8 kernel.",
+  "source_sha256": {
+    "candidate/native/controls/fast_multiply.rs": "64ddb1d8919da86881791d88d42916fd0f2d73e14073c6a53850d337e02a6714",
+    "candidate/native/controls/gmp_abi.cpp": "433b99417b38004a1684537a644cfe9cd7e7852df8864ce12dc9d1c4dfce6ed8",
+    "candidate/native/controls/gmp_multiply.cpp": "87658c00944326f26f5fd016d0c845ca2efe7b32d2329abe190787830a39f5f4",
+    "candidate/native/controls/limbs.rs": "b7161f5897667d8d6bc96ec5ca6eddf63384efd4eb0568ecbb6c4cccf500e4da",
+    "candidate/native/controls/multiply.rs": "5a824d2201674935a97e655b6eeda0ced04c7f6ef769877255cb09a21049d824",
+    "candidate/native/controls/pow2.rs": "ba0a8a8bb404c4778ddd3c03ba254dfcca6efc28a94d293368db2e5ee2e79dac",
+    "candidate/native/fast_bench.rs": "20c4c261f1ed6d5974a7bd250cc148d900b86472206330e9ee2a44060865551f",
+    "candidate/native/fast_codegen.rs": "e68214b600c37fbf436a9d4ad0a649c000eb133e5ecf1d38948dbe5edda37283",
+    "candidate/native/fast_runner.rs": "2cca8d6653330bd3f80461f7fc2b34adf28c6e282452934e916cd5dc4b657308",
+    "candidate/native/gmp-reference.json": "e67ba09749bc761cd581218bebd6cde5f1fdf56a2711924e1ceb45d4c7e247ff",
+    "candidate/native/history-provenance.json": "195aa85724547b02db939d9561bd1304acb87a9944b4f6912156b6aafe367560",
+    "candidate/native/lib.rs": "1b637623a589e8f9f44a374afc515f0d48418f2c0d41e4e6d77566cf6cbd64bb",
+    "candidate/native/limbs_bench.rs": "937ed74d98f739b2333e1feb78c65dbefb86b5af1c051c864ef269fb6b304215",
+    "candidate/native/limbs_codegen.rs": "465962efb3dc1e0f2414295228414112e3843dbaf467a41b705e53a3255e255e",
+    "candidate/native/limbs_runner.rs": "4aced8bc95027c78bbac6690f112dcd9e0b892f521baa6e29515b65862c05c01",
+    "candidate/native/mac4_bench.rs": "79335fb39eb054704b6621803368e965892a6285bc9ab82ec687bea991bcf22f",
+    "candidate/native/multiply_bench.rs": "d28537c1ee449c452b8c0f549a3555fbf50f59a680240b371335ccb106061d12",
+    "candidate/native/multiply_codegen.rs": "3855098a24804a8cba3ff8b094b159290e0e27e13fc1a558b456aebfeddb1229",
+    "candidate/native/multiply_runner.rs": "856d5b82363f2bf9170bf15cf45f2b0b9ae713a1475f5ceed1751fcaf18c52c7",
+    "candidate/native/performance-target.json": "7e1f7c27007d65ca77979c693c0f105d2ac4686fd90e853ab86c43684f485a37",
+    "candidate/native/pow2_bench.rs": "9e4390cabef56661544491deb928ee2f7a11199d34ada5b6a185a54a45622c1c",
+    "candidate/native/pow2_codegen.rs": "2372573334ffb9778295bd775ea23302207017bb699598606f3254f3cf3d36dd",
+    "candidate/native/pow2_runner.rs": "c916b36cc11923b309aacccd8e54ae5bde951d651abb1360f05715b82706a647",
+    "candidate/native/proof-status.json": "194025f62a4731b99253011c18f6c4716d12631b0dc81efcc6ed726b0583740e",
+    "candidate/native/specs/fast_product.rs": "1d3a4f9397375741f6fcaea5bacf5977f73c56ba051893cd81a83709385b2cd7",
+    "candidate/native/specs/odd_division.rs": "2a471b8a9836d404c3b5118c924fe99d9e34816c29630766abbf627817c63aea",
+    "candidate/native/specs/precision.rs": "38ffadc6cd04602b40457711b25ec3e89de5fb0ebf92136645da93fb18d4cde0",
+    "candidate/native/specs/product.rs": "24de04dda22e2ca1262ade8328b3f164612b59188df14dbe84988b94592563ae",
+    "candidate/native/specs/radix.rs": "51bddb73e0cfcc2fda095ac5f35fe4853417c1fff858133dab56b05ba9573219",
+    "candidate/native/specs/signed_evaluation.rs": "726da6650427fa0e660e3b624d609d9bcf1bc9a7856ea1916f06c93f51994cbc",
+    "candidate/native/specs/square.rs": "3d716c2905d4f34929e3177e853196f84faef8a63c10e7e1bb7593a9e62be87e",
+    "candidate/native/specs/square_base.rs": "9436705847c6cf4c8353a324e9154767a2a8ac57b13ca13a26b523f973ea6768",
+    "candidate/native/specs/toom.rs": "ed543569ac0996a16546211241b52f5a7ae945e8fce873f5195340cf290456ff",
+    "candidate/native/specs/toom4.rs": "352ff71f3f711225dd6c98e8c89e3491d88fb8f67a614d2f36bc96e4f0f34033",
+    "candidate/native/specs/toom4_blocks.rs": "caaf8f02256bf53655a4a3d5dbf59ad7283b8ab3f524c7e872c6664eba8ea715",
+    "candidate/native/specs/toom8_convolution.rs": "550af2ab33aee8972d1c06acdb80ab8713edff2bba5c56aafcecfdab6b6f427f",
+    "candidate/native/specs/toom8_dyadic_producer.rs": "0657585d0978c4e763e998b9da5b62c1838cc39f0a0ea54b5421f7dcba21a293",
+    "candidate/native/specs/toom8_evaluation.rs": "9560ab9d8a40de3a933f04872ce5ba19c3c05c8586cc6447abff14a89ccbbb3a",
+    "candidate/native/specs/toom8_newton.rs": "a04d903bd2bc9fe8562aa12092d6de67eba0d3f953a606d73462dfc6e33226ff",
+    "candidate/native/specs/toom8_normalization.rs": "15a956ec8c1ad2657092dccd59667f8dcbcad072025f03d56aa5459ba19e4f9b",
+    "candidate/native/specs/toom8_pair.rs": "6ce86a2757ed650117a821f7733aa1f9a4297075a76828a816fee751c426e276",
+    "candidate/native/specs/toom8_producer.rs": "de9db10f44f448558e7afa97e2427c1a99a08f8a1202886d26f5e2115cf9ea2f",
+    "candidate/native/specs/toom8_seventh.rs": "1477f5a6e340173b3fe92ee21a98bd3e8de3cb770b2e8df44c64bdf8fec11153",
+    "candidate/native/specs/toom_blocks.rs": "d799a910b67b26fbbdbdefc50bf49063f8ca39790f6d48f60a7ed1315d00df9d",
+    "candidate/native/specs/wide_odd_division.rs": "3feb744112b12d7f1708f615c2a94bfb3090deca7f3797967f558a48ef495cab",
+    "candidate/native/square_base_bench.rs": "abd4f11755f244753167bd92447412c16308876a634c9951663de8ce7494dcaa",
+    "candidate/native/toolchain.json": "a8f1ba756fd50480017e10d24c390a4b94528ab387c965d28c35cf3432c9e678",
+    "candidate/native/toom4_codegen.rs": "42fe2571e7ff0e5d35a4e7acbe014ff676170518d32f45577d4ef7eb584ec5df",
+    "candidate/native/toom4_runner.rs": "1b4b9a4a151aa17522720708acf580f6eb53c7b5ec8449982267cc926f365177",
+    "candidate/native/toom8_dyadic_producer_codegen.rs": "bef460d22fa0f38221c1db214e3c39a415a6562ed994a6a8d7929556cd9436af",
+    "candidate/native/toom8_dyadic_producer_runner.rs": "e7c2200001341a2aa29975d1db59192a5e3bc64c9b85ec0836edf9f591cc46a0",
+    "candidate/native/toom8_evaluation_codegen.rs": "24a822a0b73897888e39a265959a89df14c0f487605cd0434f3a773bca5da00c",
+    "candidate/native/toom8_evaluation_runner.rs": "ab457dfb2874f0095c339e7b6dc18e592fef217205fd1f270c55e48cadd63882",
+    "candidate/native/toom8_even_codegen.rs": "9e4408b4bbea8d98bd391d9a25b667ac3508512026ba3df6b534cb1246219cbf",
+    "candidate/native/toom8_even_runner.rs": "ca9f03ff6ca486b9a7595a82a6f4d41882752a1849e5405f0808a64f7b45db99",
+    "candidate/native/toom8_interpolation_codegen.rs": "10af9b594c9e8c7369ebfaf0c86b65e4f3d78b18581a2cf0af7c4237bd4eebfe",
+    "candidate/native/toom8_interpolation_runner.rs": "004aa1db5fb12d8e868de83eb60e6fdab47fae2307f1f55e2ff472f8112b8272",
+    "candidate/native/toom8_newton_codegen.rs": "9a7894553f028d2a21dcfd60fe1853eee0b9295e91a58b235fbee1d9fa45c61a",
+    "candidate/native/toom8_newton_runner.rs": "39d79c0a304f325c1563a660ac3b64308530b5dfa40e524c333e75c43a9a6e9e",
+    "candidate/native/toom8_newton_test_bridge.rs": "19f4f0534e871439aa4388c93bed5caa4f4137933fce5d55d7c01878ad1986b3",
+    "candidate/native/toom8_normalization_codegen.rs": "5eababf2996e2dce743786e46920c012b643df00e56fe0d000636d4ec5a4bebe",
+    "candidate/native/toom8_normalization_runner.rs": "0b9585eef4cf8d8692730b630d1da588397c3463310205401cc414f9a94d8432",
+    "candidate/native/toom8_pair_codegen.rs": "27c13d56fe42c15667e29479b3cff4226c76881f53999d7e62302603762e4d51",
+    "candidate/native/toom8_pair_runner.rs": "eb2aaa4b2a8f2f7ab5ef72ca1f054947d7ff8aa9cd11de7c8d2e3d7f07523045",
+    "candidate/native/toom8_producer_codegen.rs": "e3c5568833e88a9c317f9111c072302bdffaacdbd7f908abc98ca8a70f8d0df4",
+    "candidate/native/toom8_producer_runner.rs": "aa4a2bb0d805ea00fa9bbc18de57f322b4e89244ecd003ae2afb8cbe630c3aa9",
+    "candidate/native/toom8_seventh_codegen.rs": "2a5c03cca4fb1b5c41d32c6ce6b6039577ef4def27588c28c5359c541afb4a8e",
+    "candidate/native/toom8_seventh_runner.rs": "a54ab3ef2746e43166d32b3d7aaa113ce7e40bb46a583d3653f5ae5e2ffb0124",
+    "candidate/native/toom_bench.rs": "e0b5829fc235eeada95e987542073d3e190c0c1d10c7d48ec4f6d787f8fa1daf",
+    "candidate/native/toom_codegen.rs": "17f41d3dbc4ba891dc298c12cb86cbef8339b21dda321deff08c1801e62274f2",
+    "candidate/native/toom_words_runner.rs": "1ed994eab17583d7d0eacf580d897897d4afab5405de58d9d4779d913e783a66",
+    "candidate/native/verified/arithmetic.rs": "7c0181fed9d53f842062fd2f4e738dedf42985fee28bff53cabba4a7fc20cc54",
+    "candidate/native/verified/fast_multiply.rs": "f4c873122c592487e776d346cef950f76779f58aa285b4342333a077e20e226d",
+    "candidate/native/verified/fast_words.rs": "76c8a6e5558df51af8975ad6db606947d032c3b583a5def4da88571d48f56287",
+    "candidate/native/verified/kernel.rs": "b54e17dd245655deacae37d89071a6c5ae5c39421ba7d3ac5728346e63f77080",
+    "candidate/native/verified/limbs.rs": "913c88133f2bd46b3b4a59794eba5b8d43dfdbdac720918e375b47a52adbff28",
+    "candidate/native/verified/mac4.rs": "9cf6fd885a42e63a7cb1f697833bfa7e82d5b65a85e4351de2252a11b6afce2f",
+    "candidate/native/verified/multiply.rs": "83bfff3bb71a8c429e48551532a39fd92773b7e0b4b94b7c4b5263d59c854f9c",
+    "candidate/native/verified/odd_division.rs": "ff2b7ecc484d03e248b9f423dde531efd8f1b7fad9000c52854c6c8a32e849b1",
+    "candidate/native/verified/pow2.rs": "893234a990b3b3bf308253ce318411fb5247157cfabe2d02ce603c6c86c1dcec",
+    "candidate/native/verified/scaled_subtraction.rs": "451292f4889f824a25e14904fb5163785d5ab439303e17aa3f6179d859a3a349",
+    "candidate/native/verified/signed_evaluation.rs": "165232d5dc11f819a31c553ae0996aa5d03b36419d556530f484b4257e872541",
+    "candidate/native/verified/square.rs": "66d8baca34c6daf25b3116c22a9f9071691f882d653e6f586ea6eb64b50c3164",
+    "candidate/native/verified/square_base.rs": "d56438d15c969b475d74c431bef66dbe8c6befd67699196b096c1773c68094b3",
+    "candidate/native/verified/square_low.rs": "1e85ae150c7d5801d57f41d460de651b5ba9d5ae96c910f52b83bb602dd6ad21",
+    "candidate/native/verified/toom4_candidate.rs": "5bedfab6640c7d5b84bb4d1de95c84e2daa8a7f0f25fdb6ccf20c6f221a84cac",
+    "candidate/native/verified/toom4_evaluate.rs": "a6d15ee01d5c4996f8ce5c6f8910c2d62547509a75fe3d553ebb8fcb27bff920",
+    "candidate/native/verified/toom4_interpolate.rs": "1a61a240c3f75722be08a63e1006e2e1deff800cc2163fd569ed33038e9a34ec",
+    "candidate/native/verified/toom4_low.rs": "19e062300f1639a3c2af9b5a873f674b4f34b5efe3377bb2008133ad42b0b4a5",
+    "candidate/native/verified/toom4_multiply.rs": "e62c3b4778cf887146f30d0c7bef8a12c630291063cf967c668ba010afbd116b",
+    "candidate/native/verified/toom4_square.rs": "efaaf282edac2852829df4d5fd6439a7c18f33413b668d0857f73f9ac1e7d0a0",
+    "candidate/native/verified/toom4_square_low.rs": "d1ca0f9f60c70436d05a9fb14f631f92f7271f97613efbcdfbd1967dab7cc4df",
+    "candidate/native/verified/toom8_dyadic_producer.rs": "11107bd4da00ba9f38db42240fb322d464ab8a85e00c8853e63ff68f928e5366",
+    "candidate/native/verified/toom8_evaluation.rs": "4ba9f3b7b965fe0677a2887147309d434e9b3c5cdb8786d48f5e98aaa6a2b266",
+    "candidate/native/verified/toom8_even.rs": "48458937c66e51d9ab50528f02b59a6a5429af1d99bff518782b179605bda8ef",
+    "candidate/native/verified/toom8_interpolation.rs": "e4af3ceb1012f99d279a7356d2f1afc65ae77174dd8593b25445f6f8ae332593",
+    "candidate/native/verified/toom8_newton.rs": "387694964036d1caf68a077944a9baa90a82ee113403aad3a0bb4c8a30d9154e",
+    "candidate/native/verified/toom8_normalization.rs": "5a3f6a68a69c9a6bb990c3975bc3a6b510b206732a0109219fa4d3ef10369b6b",
+    "candidate/native/verified/toom8_pair.rs": "79360f2089fd861ce449e8f9a670a79f978b86406607ab8a37db68947e1cf407",
+    "candidate/native/verified/toom8_producer.rs": "338a17bdffcc6fe627aad4d6b78249e3bfc03ca8fc3498ef57a1faf99f7a0a77",
+    "candidate/native/verified/toom8_seventh.rs": "41c92a2c412ef7e156b223d6b897f9bb44c663080fa2e0b5b314a9a8a86e38d5",
+    "candidate/native/verified/toom_evaluate.rs": "80fb7c4b0db769debe3091289cfe8a71703e9e1bf7b9e26a622e4df08f164699",
+    "candidate/native/verified/toom_interpolate.rs": "dd3e97eac34fb6cf6920302eeb5cc2bc8b257a6beb7a2e952f52ccf20ae5e352",
+    "candidate/native/verified/toom_low.rs": "d73bd14a640f96cc383fcc9234452e500cf217f58e935bacc96728f4d3a96929",
+    "candidate/native/verified/toom_multiply.rs": "58830125c0e82680f11fec6aba9677c8986c8f84fdbe53e3a38dc01b24871602",
+    "candidate/native/verified/toom_square.rs": "2706c576e99df5d4b90159cd671e208e6e7a521daa4bb3624666ed97c7332826",
+    "candidate/native/verified/toom_words.rs": "04786af608e65f40447cfee7defff9f1ab624157708b56237149e588ca5c485d",
+    "candidate/native/verified/wide_odd_division.rs": "2fdc06bb5992e6b89e4d2171cc036cb5540d954bebd8fc510d6a2b18b0ea6774",
+    "candidate/native/wide_odd_codegen.rs": "fc9ef7aa95c818edcd168a2354886f10a23454f5e0b402e6e99bb01e41d71b2c",
+    "candidate/native/wide_odd_runner.rs": "3300aeb7d5438ad4d46f026f165e65f4bd4065123eef0f1d2185c1c467d872d7",
+    "check_interpolation.py": "8926906edcbd6c6a0510a4d8dca341e8304b6688e2b9509ad7fef9a4ff1d8bed",
+    "interpolation_oracle.py": "48e570b26f778adb4bd5fd6dadc607e41a075bee75fb0e16c9637858a3da48f4",
+    "interpolation_codegen.py": "8f751f7f1bc65d1c731d2ab326d1081052494eb7d9bd39bc94ecfb9fbab905cd",
+    "origin.json": "7762dac21d13ff00cfb96ff17ae0ec8b8551a016e3af717073a8e7ad6db56928",
+    "scope.json": "2296f64d13090d3ea66d2afb97653429a5f76b2c2c3921af8ac313ee893195c7"
+  },
+  "started_utc": "2026-11-02T02:55:52.562008+00:00",
+  "benchmark_run": false,
+  "production_modified": false,
+  "cpu_affinity": [
+    6,
+    7
+  ],
+  "commands": [
+    {
+      "argv": [
+        "<verus-home>/verus-x86-linux/verus",
+        "--version"
+      ],
+      "log": "toolchain.log",
+      "status": "completed",
+      "returncode": 0,
+      "elapsed_seconds": 0.19092664199706633,
+      "log_sha256": "43bbcb88d622ee4e1fb08655b4393b56725fedd6fce064101e6f9cd64fd07152"
+    },
+    {
+      "argv": [
+        "rustup",
+        "which",
+        "--toolchain",
+        "1.99.1-x86_64-unknown-linux-gnu",
+        "rustc"
+      ],
+      "log": "rustc-path.log",
+      "status": "completed",
+      "returncode": 0,
+      "elapsed_seconds": 0.0876383739960147,
+      "log_sha256": "aea0aadcfcccc7b6ad8bc33cb88e358b707146f07fe541c9bd11f4453113c7b1"
+    },
+    {
+      "argv": [
+        "<rustup-home>/toolchains/1.99.1-x86_64-unknown-linux-gnu/bin/rustc",
+        "-vV"
+      ],
+      "log": "rustc.log",
+      "status": "completed",
+      "returncode": 0,
+      "elapsed_seconds": 0.04042642000422347,
+      "log_sha256": "f22d5e4e9ced367e774ce5bc140d9e6b1235c1882fec80d011044851f3ae6369"
+    },
+    {
+      "argv": [
+        "ldd",
+        "<rustup-home>/toolchains/1.99.1-x86_64-unknown-linux-gnu/bin/rustc"
+      ],
+      "log": "rustc-linked.log",
+      "status": "completed",
+      "returncode": 0,
+      "elapsed_seconds": 0.04224972600059118,
+      "log_sha256": "7836878d68882a72779c52acd67faf18c6c2aff5e9f7b22f7ab244000ce7a93e"
+    },
+    {
+      "argv": [
+        "<verus-home>/verus-x86-linux/verus",
+        "<stage>/feature-gates/interpolation-feature1/inputs/candidate/native/lib.rs",
+        "--crate-name",
+        "producer_candidate",
+        "--crate-type",
+        "lib",
+        "--export",
+        "<stage>/feature-gates/interpolation-feature1/candidate.vir",
+        "--compile",
+        "-O",
+        "-o",
+        "<stage>/feature-gates/interpolation-feature1/libcandidate.rlib"
+      ],
+      "log": "library.log",
+      "status": "completed",
+      "returncode": 0,
+      "elapsed_seconds": 99.91079284899752,
+      "log_sha256": "1b80c61c6499aa4f177b02e68a3e75f645fbc70069b2f7937bfc471c80f9ed35"
+    },
+    {
+      "argv": [
+        "<verus-home>/verus-x86-linux/verus",
+        "<stage>/feature-gates/interpolation-feature1/inputs/candidate/native/toom8_interpolation_runner.rs",
+        "--compile",
+        "-O",
+        "-o",
+        "<stage>/feature-gates/interpolation-feature1/oracle-runner"
+      ],
+      "log": "runner-build.log",
+      "status": "completed",
+      "returncode": 0,
+      "elapsed_seconds": 100.0737169609929,
+      "log_sha256": "b765ccdc57a44ec21b0cf98a7b6b12ab9bfed2d902c77714521e1fdb206fa258"
+    },
+    {
+      "argv": [
+        "ldd",
+        "<stage>/feature-gates/interpolation-feature1/oracle-runner"
+      ],
+      "log": "runner-linked.log",
+      "status": "completed",
+      "returncode": 0,
+      "elapsed_seconds": 0.02534605999244377,
+      "log_sha256": "dd6137f4977ff255e840153981ca6a13674e44a7fffa749ebdb05d8a80d70613"
+    },
+    {
+      "argv": [
+        "<stage>/feature-gates/interpolation-feature1/oracle-runner"
+      ],
+      "log": "oracle.log",
+      "status": "completed",
+      "returncode": 0,
+      "elapsed_seconds": 0.15633874300692696,
+      "log_sha256": "52ea046c16563fb5fbde1885ebc3091f0499c8b9844de2bb2714d1720d733faa"
+    },
+    {
+      "argv": [
+        "<stage>/feature-gates/interpolation-feature1/oracle-runner"
+      ],
+      "log": "invalid-00.log",
+      "status": "completed",
+      "returncode": 101,
+      "elapsed_seconds": 0.012882833994808607,
+      "log_sha256": "2932a4d8526c12fb48de3432d325607f213e1ad3501014177ecea3301d40ddca"
+    },
+    {
+      "argv": [
+        "<stage>/feature-gates/interpolation-feature1/oracle-runner"
+      ],
+      "log": "invalid-01.log",
+      "status": "completed",
+      "returncode": 101,
+      "elapsed_seconds": 0.012477465003030375,
+      "log_sha256": "816cbe72a8db4ea26ecc2d1962b61c585a963700715d3100e6f11a62a83fe397"
+    },
+    {
+      "argv": [
+        "<stage>/feature-gates/interpolation-feature1/oracle-runner"
+      ],
+      "log": "invalid-02.log",
+      "status": "completed",
+      "returncode": 101,
+      "elapsed_seconds": 0.011922071003937162,
+      "log_sha256": "4c3426f14314e49aca1389b8206cfb25b742a01a6c3fa3ea13c798de737ba0a8"
+    },
+    {
+      "argv": [
+        "<stage>/feature-gates/interpolation-feature1/oracle-runner"
+      ],
+      "log": "invalid-03.log",
+      "status": "completed",
+      "returncode": 101,
+      "elapsed_seconds": 0.012685363995842636,
+      "log_sha256": "5bcf2c16c6986ce9e77bee8e5161f8e67a9578e9703be315a70707875047fcdc"
+    },
+    {
+      "argv": [
+        "<stage>/feature-gates/interpolation-feature1/oracle-runner"
+      ],
+      "log": "invalid-04.log",
+      "status": "completed",
+      "returncode": 101,
+      "elapsed_seconds": 0.012322335998760536,
+      "log_sha256": "eaa5114adde9898798d718d0fb48b617ec13f4be03088188e97786e3e1e97679"
+    },
+    {
+      "argv": [
+        "<stage>/feature-gates/interpolation-feature1/oracle-runner"
+      ],
+      "log": "invalid-05.log",
+      "status": "completed",
+      "returncode": 101,
+      "elapsed_seconds": 0.0126742199936416,
+      "log_sha256": "f6582ba2ffbdca5202a3c0464050fbddf4cfb1216be299947360eb66876d4b25"
+    },
+    {
+      "argv": [
+        "<stage>/feature-gates/interpolation-feature1/oracle-runner"
+      ],
+      "log": "invalid-06.log",
+      "status": "completed",
+      "returncode": 101,
+      "elapsed_seconds": 0.012210243003210053,
+      "log_sha256": "9c92d0511c542a853775c63f434b1a64532334e832b1926f9c7dca754636d7d0"
+    },
+    {
+      "argv": [
+        "<stage>/feature-gates/interpolation-feature1/oracle-runner"
+      ],
+      "log": "invalid-07.log",
+      "status": "completed",
+      "returncode": 101,
+      "elapsed_seconds": 0.014339651010232046,
+      "log_sha256": "b9c824d707e147223344b7cd23a7565983ed2315673bf2a4cbfe8e5679f3c2a9"
+    },
+    {
+      "argv": [
+        "<stage>/feature-gates/interpolation-feature1/oracle-runner"
+      ],
+      "log": "invalid-08.log",
+      "status": "completed",
+      "returncode": 101,
+      "elapsed_seconds": 0.013912189999246038,
+      "log_sha256": "73bfe9a75ecdf5674b055a2f48f68422f35b15a5fa6ab6e30b51a620a77c5d67"
+    },
+    {
+      "argv": [
+        "<stage>/feature-gates/interpolation-feature1/oracle-runner"
+      ],
+      "log": "invalid-09.log",
+      "status": "completed",
+      "returncode": 101,
+      "elapsed_seconds": 0.013630414992803708,
+      "log_sha256": "a0ed122afbed17bb34626d5af28a4374ab0e4e5be03e238edb7abd55d0a355ce"
+    },
+    {
+      "argv": [
+        "<stage>/feature-gates/interpolation-feature1/oracle-runner"
+      ],
+      "log": "invalid-10.log",
+      "status": "completed",
+      "returncode": 101,
+      "elapsed_seconds": 0.013355072995182127,
+      "log_sha256": "ec985f6e2d797b32b37bac4962301c830ea70142602fff2ff7513aefc392299b"
+    },
+    {
+      "argv": [
+        "<stage>/feature-gates/interpolation-feature1/oracle-runner"
+      ],
+      "log": "invalid-11.log",
+      "status": "completed",
+      "returncode": 101,
+      "elapsed_seconds": 0.012677519000135362,
+      "log_sha256": "abd4b28dc15cbd832dcb83097cd522037ce6a08b1efcac6a9663958aa153e170"
+    },
+    {
+      "argv": [
+        "<verus-home>/verus-x86-linux/verus",
+        "<stage>/feature-gates/interpolation-feature1/inputs/candidate/native/toom8_interpolation_codegen.rs",
+        "--compile",
+        "-O",
+        "--emit=asm",
+        "-o",
+        "<stage>/feature-gates/interpolation-feature1/codegen.s"
+      ],
+      "log": "codegen-build.log",
+      "status": "completed",
+      "returncode": 0,
+      "elapsed_seconds": 100.8579225220019,
+      "log_sha256": "1b80c61c6499aa4f177b02e68a3e75f645fbc70069b2f7937bfc471c80f9ed35"
+    },
+    {
+      "argv": [
+        "<verus-home>/verus-x86-linux/verus",
+        "<stage>/feature-gates/interpolation-feature1/inputs/candidate/native/toom8_interpolation_runner.rs",
+        "--verify-module",
+        "toom8_interpolation",
+        "--multiple-errors",
+        "0"
+      ],
+      "log": "skip-seventh-node.log",
+      "status": "completed",
+      "returncode": 1,
+      "elapsed_seconds": 11.095899359992472,
+      "log_sha256": "ec53632025c000133fbd93415c9ad783f1831c7afee540aedd9e48f4ec91a6f3"
+    },
+    {
+      "argv": [
+        "<verus-home>/verus-x86-linux/verus",
+        "<stage>/feature-gates/interpolation-feature1/inputs/candidate/native/toom8_interpolation_runner.rs",
+        "--verify-module",
+        "toom8_interpolation",
+        "--multiple-errors",
+        "0"
+      ],
+      "log": "square-seventh-point.log",
+      "status": "completed",
+      "returncode": 1,
+      "elapsed_seconds": 9.1884193970036,
+      "log_sha256": "a5edca6d7af97399287ee948b45f6c69aaf3da9947064afbbc286d8fc1cef2d5"
+    },
+    {
+      "argv": [
+        "<verus-home>/verus-x86-linux/verus",
+        "<stage>/feature-gates/interpolation-feature1/inputs/candidate/native/toom8_interpolation_runner.rs",
+        "--verify-module",
+        "toom8_interpolation",
+        "--multiple-errors",
+        "0"
+      ],
+      "log": "skip-odd-newton.log",
+      "status": "completed",
+      "returncode": 1,
+      "elapsed_seconds": 9.873990505002439,
+      "log_sha256": "ac7b23cbe7cd38eed7a2e1dfbfdff659e7727b9c504f70aa3c2593b23d40e4eb"
+    },
+    {
+      "argv": [
+        "<verus-home>/verus-x86-linux/verus",
+        "<stage>/feature-gates/interpolation-feature1/inputs/candidate/native/toom8_interpolation_runner.rs",
+        "--verify-module",
+        "toom8_interpolation",
+        "--multiple-errors",
+        "0"
+      ],
+      "log": "swap-odd-nodes.log",
+      "status": "completed",
+      "returncode": 1,
+      "elapsed_seconds": 10.393720214997302,
+      "log_sha256": "0434718ee0b7f4c81a0ebbfd245573ee0648ffb881a5bb165a7f519a4cd6267e"
+    },
+    {
+      "argv": [
+        "<verus-home>/verus-x86-linux/verus",
+        "<stage>/feature-gates/interpolation-feature1/inputs/candidate/native/toom8_interpolation_runner.rs",
+        "--verify-module",
+        "toom8_interpolation",
+        "--multiple-errors",
+        "0"
+      ],
+      "log": "skip-six-pairs.log",
+      "status": "completed",
+      "returncode": 1,
+      "elapsed_seconds": 9.094529933005106,
+      "log_sha256": "b7f9ee640caf2fad20475d39bd7efcbd235f62843c6dd175d5670068f9d5bb96"
+    },
+    {
+      "argv": [
+        "<verus-home>/verus-x86-linux/verus",
+        "<stage>/feature-gates/interpolation-feature1/inputs/candidate/native/toom8_interpolation_runner.rs",
+        "--verify-module",
+        "toom8_interpolation",
+        "--multiple-errors",
+        "0"
+      ],
+      "log": "swap-even-coefficients.log",
+      "status": "completed",
+      "returncode": 1,
+      "elapsed_seconds": 9.69997698199586,
+      "log_sha256": "b7f9ee640caf2fad20475d39bd7efcbd235f62843c6dd175d5670068f9d5bb96"
+    },
+    {
+      "argv": [
+        "<verus-home>/verus-x86-linux/verus",
+        "<stage>/feature-gates/interpolation-feature1/inputs/candidate/native/toom8_interpolation_runner.rs",
+        "--verify-module",
+        "toom8_interpolation",
+        "--multiple-errors",
+        "0"
+      ],
+      "log": "square-six-pairs.log",
+      "status": "completed",
+      "returncode": 1,
+      "elapsed_seconds": 10.053533558995696,
+      "log_sha256": "b7f9ee640caf2fad20475d39bd7efcbd235f62843c6dd175d5670068f9d5bb96"
+    },
+    {
+      "argv": [
+        "<verus-home>/verus-x86-linux/verus",
+        "<stage>/feature-gates/interpolation-feature1/inputs/candidate/native/toom8_interpolation_runner.rs",
+        "--verify-module",
+        "toom8_interpolation",
+        "--multiple-errors",
+        "0"
+      ],
+      "log": "square-low-endpoint.log",
+      "status": "completed",
+      "returncode": 1,
+      "elapsed_seconds": 11.919975327997236,
+      "log_sha256": "0eb5c79c94a32bd013699a339055f73582d511a3d269f34cc187938ca5f19c09"
+    },
+    {
+      "argv": [
+        "<verus-home>/verus-x86-linux/verus",
+        "<stage>/feature-gates/interpolation-feature1/inputs/candidate/native/toom8_interpolation_runner.rs",
+        "--verify-module",
+        "toom8_interpolation",
+        "--multiple-errors",
+        "0"
+      ],
+      "log": "square-high-endpoint.log",
+      "status": "completed",
+      "returncode": 1,
+      "elapsed_seconds": 12.009100718001719,
+      "log_sha256": "a61c9afd5c4b3a2aff70e66ed945eb877efa9368438709861e439af834541f7f"
+    },
+    {
+      "argv": [
+        "<verus-home>/verus-x86-linux/verus",
+        "<stage>/feature-gates/interpolation-feature1/inputs/candidate/native/toom8_interpolation_runner.rs",
+        "--verify-module",
+        "toom8_interpolation",
+        "--multiple-errors",
+        "0"
+      ],
+      "log": "erase-low-endpoint.log",
+      "status": "completed",
+      "returncode": 1,
+      "elapsed_seconds": 11.027273155996227,
+      "log_sha256": "0eb5c79c94a32bd013699a339055f73582d511a3d269f34cc187938ca5f19c09"
+    },
+    {
+      "argv": [
+        "<verus-home>/verus-x86-linux/verus",
+        "<stage>/feature-gates/interpolation-feature1/inputs/candidate/native/toom8_interpolation_runner.rs",
+        "--verify-module",
+        "toom8_interpolation",
+        "--multiple-errors",
+        "0"
+      ],
+      "log": "erase-high-endpoint.log",
+      "status": "completed",
+      "returncode": 1,
+      "elapsed_seconds": 15.6678657559969,
+      "log_sha256": "43273beb7cd9b5e7493321416486f1d8a0a9fd310105f0a2bec311178aab3207"
+    },
+    {
+      "argv": [
+        "<verus-home>/verus-x86-linux/verus",
+        "<stage>/feature-gates/interpolation-feature1/inputs/candidate/native/toom8_interpolation_runner.rs",
+        "--verify-module",
+        "toom8_interpolation",
+        "--multiple-errors",
+        "0"
+      ],
+      "log": "swap-shared-endpoints.log",
+      "status": "completed",
+      "returncode": 1,
+      "elapsed_seconds": 13.645101866000914,
+      "log_sha256": "cca00a8c664696b966dc2cfc752223252dc87cebf413fdc437c9d540ba6e2307"
+    }
+  ],
+  "appended_failure_fixtures_rejected": [
+    "solver returned unknown",
+    "rlimit",
+    "failed to typecheck",
+    "failed to load metadata",
+    "could not compile crate",
+    "internal compiler error",
+    "verification timed out",
+    "out of memory",
+    "segmentation fault"
+  ],
+  "executed_snapshot_binding": {
+    "checker": "captured bytes compiled and executed before workload setup",
+    "oracle": "captured bytes compiled and executed",
+    "codegen_inspector": "captured bytes compiled and executed",
+    "origin": "captured bytes parsed"
+  },
+  "strict_classifier_selfcheck": "pass",
+  "toolchain": "Verus\n  Version: 0.2026.10.26.d17fbd0\n  Profile: release\n  Platform: linux_x86_64\n  Toolchain: 1.99.1-x86_64-unknown-linux-gnu (overridden by environment variable RUSTUP_TOOLCHAIN)\n\n",
+  "rustc": "rustc 1.99.1 (58cf8f9c3 2026-10-13)\nbinary: rustc\ncommit-hash: 58cf8f9c35b355199727627d07ae34a4e2846d67\ncommit-date: 2026-10-13\nhost: x86_64-unknown-linux-gnu\nrelease: 1.99.1\nLLVM version: 23.1.1\n",
+  "toolchain_file_sha256": {
+    "<cargo-home>/bin/rustup": "5be191e8c70a5007074254cb74d78dbfdd25cd5a61c27de7b8e5410122ec24f4",
+    "<rustup-home>/toolchains/1.99.1-x86_64-unknown-linux-gnu/bin/rustc": "b53b780f77f952062f8ca8a3b70aef2390b1e45ad91939be94afdc9543026853",
+    "<rustup-home>/toolchains/1.99.1-x86_64-unknown-linux-gnu/lib/libLLVM.so.23.1-rust-1.99.1-stable": "1cfbe1392a767227b88b33ab6187283e281c63f80f9b1ca9010d9cee5fdf9131",
+    "<rustup-home>/toolchains/1.99.1-x86_64-unknown-linux-gnu/lib/librustc_driver-7ed0375ae352bd75.so": "5a2cd52edba7d15f8d898b92a912638f5b73a089c7c1bfde5604ab45665602c7",
+    "<verus-home>/verus-x86-linux/libverus_builtin.rlib": "f01e88f055e7c19b1a9a6a6118648f20708347d23040ddaee6493b6a4e3f6510",
+    "<verus-home>/verus-x86-linux/libverus_builtin_macros.so": "57bf8ebf436d974a7e05efdd2341bd40c51e737bdb6dd791026165e21f64e3f0",
+    "<verus-home>/verus-x86-linux/libverus_state_machines_macros.so": "8489b80f5a493855ea658a2b2d1850d0957d3149c8240cf7e490b984049d1149",
+    "<verus-home>/verus-x86-linux/libvstd.rlib": "da07ffe583aa14ec1ba5e4aa2295cec538c2a9b59bfbbf4d60f16e20d540befd",
+    "<verus-home>/verus-x86-linux/rust_verify": "7dc66fc35b1ef434d7db3d17f4a7bc9fe1f40b896cbe18a1193820270fa462f6",
+    "<verus-home>/verus-x86-linux/verus": "1208c995c8e5244577693eba311d34bc2050c4acf984e10c4c7baf2003abff14",
+    "<verus-home>/verus-x86-linux/vstd.vir": "6bf002dd6aacba73f8cbf09a1855b6330aa4773752878d2b702a52cc4f1538e2",
+    "<verus-home>/verus-x86-linux/z3": "e583c4186a45e72411fa2cb2048401eed03f0f8e5f24694676a8f6271a50b765",
+    "/usr/bin/python3.12": "1643dacd9feaedc58f3cc581e4d22577dfe25c09b10282936186ccf0f2e61118",
+    "/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2": "1cd555ac46b7887edeaf3c42aac5408c8135e52f6b37870da2cf82d5fe14e829",
+    "/usr/lib/x86_64-linux-gnu/libc.so.6": "d8db8739a1633c972cec6a4fe0566bdcec6fd088f98723492ab0361f66238f75",
+    "/usr/lib/x86_64-linux-gnu/libdl.so.2": "850b46fd4f4478060fc106f4d1dc4aa35c969eb5c9bd98aaf64dc6cb3d6a5e32",
+    "/usr/lib/x86_64-linux-gnu/libgcc_s.so.1": "d93224d2b0dab4247598be683adca02f5cf00586f99c187579cd7e92058fb7cb",
+    "/usr/lib/x86_64-linux-gnu/libm.so.6": "1b87a1a50b496cfead2b0ad134c2ff536705c82608db240c7e8aa48d6c0e4217",
+    "/usr/lib/x86_64-linux-gnu/libpthread.so.0": "92dcea07a5b11d939c22a96131d3fbb995e0a84a4d02db7d799bf357689cd794",
+    "/usr/lib/x86_64-linux-gnu/librt.so.1": "9d1cefae4c0e4995cc35ea3195f805454b2d59a27ad15397a1096e735d341faf",
+    "/usr/lib/x86_64-linux-gnu/libz.so.1.3": "9b64150b28505a33d6bc3ecf709c279f6de97a1c184dbda65d06ee4537f6d286"
+  },
+  "library_verified": 514,
+  "runner_verified": 514,
+  "runtime_library_sha256": {
+    "/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2": "1cd555ac46b7887edeaf3c42aac5408c8135e52f6b37870da2cf82d5fe14e829",
+    "/usr/lib/x86_64-linux-gnu/libc.so.6": "d8db8739a1633c972cec6a4fe0566bdcec6fd088f98723492ab0361f66238f75",
+    "/usr/lib/x86_64-linux-gnu/libgcc_s.so.1": "d93224d2b0dab4247598be683adca02f5cf00586f99c187579cd7e92058fb7cb"
+  },
+  "oracle": {
+    "cases": 336,
+    "counts": {
+      "fifteen_coefficients": 336
+    },
+    "input_sha256": "e2b2d47e7b3e7fbf3f64876ba2e8df7b9deb73a863f7f81d341d9dd6a67b514b",
+    "output_sha256": "52ea046c16563fb5fbde1885ebc3091f0499c8b9844de2bb2714d1720d733faa",
+    "oracle_model": "Independent Python fifteen-coefficient input convolution, with endpoint widths and all thirteen interior outputs checked"
+  },
+  "invalid": [
+    {
+      "command": "",
+      "returncode": 101,
+      "log_sha256": "2932a4d8526c12fb48de3432d325607f213e1ad3501014177ecea3301d40ddca"
+    },
+    {
+      "command": "unknown|0|24|-|-|0",
+      "returncode": 101,
+      "log_sha256": "816cbe72a8db4ea26ecc2d1962b61c585a963700715d3100e6f11a62a83fe397"
+    },
+    {
+      "command": "interpolate|0|23|-|-|0",
+      "returncode": 101,
+      "log_sha256": "4c3426f14314e49aca1389b8206cfb25b742a01a6c3fa3ea13c798de737ba0a8"
+    },
+    {
+      "command": "interpolate|-1|24|-|-|0",
+      "returncode": 101,
+      "log_sha256": "5bcf2c16c6986ce9e77bee8e5161f8e67a9578e9703be315a70707875047fcdc"
+    },
+    {
+      "command": "interpolate|0|-1|-|-|0",
+      "returncode": 101,
+      "log_sha256": "eaa5114adde9898798d718d0fb48b617ec13f4be03088188e97786e3e1e97679"
+    },
+    {
+      "command": "interpolate|0|24|1|-|0",
+      "returncode": 101,
+      "log_sha256": "f6582ba2ffbdca5202a3c0464050fbddf4cfb1216be299947360eb66876d4b25"
+    },
+    {
+      "command": "interpolate|0|24|1|1|0",
+      "returncode": 101,
+      "log_sha256": "9c92d0511c542a853775c63f434b1a64532334e832b1926f9c7dca754636d7d0"
+    },
+    {
+      "command": "interpolate|1|24|1|1|0",
+      "returncode": 101,
+      "log_sha256": "b9c824d707e147223344b7cd23a7565983ed2315673bf2a4cbfe8e5679f3c2a9"
+    },
+    {
+      "command": "interpolate|0|24|-|-|65",
+      "returncode": 101,
+      "log_sha256": "73bfe9a75ecdf5674b055a2f48f68422f35b15a5fa6ab6e30b51a620a77c5d67"
+    },
+    {
+      "command": "interpolate|0|24|-|-|0|extra",
+      "returncode": 101,
+      "log_sha256": "a0ed122afbed17bb34626d5af28a4374ab0e4e5be03e238edb7abd55d0a355ce"
+    },
+    {
+      "command": "interpolate|0|24|18446744073709551616|-|0",
+      "returncode": 101,
+      "log_sha256": "ec985f6e2d797b32b37bac4962301c830ea70142602fff2ff7513aefc392299b"
+    },
+    {
+      "command": "interpolate|0|24|-1|-|0",
+      "returncode": 101,
+      "log_sha256": "abd4b28dc15cbd832dcb83097cd522037ce6a08b1efcac6a9663958aa153e170"
+    }
+  ],
+  "codegen_verified": 514,
+  "codegen": {
+    "status": "pass",
+    "scope": "Actual fifteen-product interpolation, including even and odd Newton consumers and child kernels",
+    "no_allocator_general_division_or_element_bounds_panic": true,
+    "paths": {
+      "verified_interpolation_24": {
+        "reachable_functions": [
+          "_RNvNtCse2mtgF4XwmH_27toom8_interpolation_codegen10fast_words14abs_difference",
+          "_RNvNtCse2mtgF4XwmH_27toom8_interpolation_codegen13fast_multiply4full",
+          "_RNvNtCse2mtgF4XwmH_27toom8_interpolation_codegen14toom4_evaluate6signed",
+          "_RNvNtCse2mtgF4XwmH_27toom8_interpolation_codegen14toom4_multiply4full",
+          "_RNvNtCse2mtgF4XwmH_27toom8_interpolation_codegen14toom8_producer13weighted_pair",
+          "_RNvNtCse2mtgF4XwmH_27toom8_interpolation_codegen14toom8_producer14normalize_pair",
+          "_RNvNtCse2mtgF4XwmH_27toom8_interpolation_codegen19toom8_interpolation11interpolate",
+          "verified_interpolation_24"
+        ],
+        "external_calls": [
+          "*_RNvNtCskADBYZwJmSU_4core9panicking5panic@GOTPCREL(%rip)",
+          "*_RNvNtCskADBYZwJmSU_4core9panicking9panic_fmt@GOTPCREL(%rip)",
+          "*_RNvNtNtCskADBYZwJmSU_4core5slice5index16slice_index_fail@GOTPCREL(%rip)",
+          "*memset@GOTPCREL(%rip)"
+        ],
+        "root_body_lines": 41
+      },
+      "verified_interpolation_48": {
+        "reachable_functions": [
+          "_RNvNtCse2mtgF4XwmH_27toom8_interpolation_codegen10fast_words14abs_difference",
+          "_RNvNtCse2mtgF4XwmH_27toom8_interpolation_codegen13fast_multiply4full",
+          "_RNvNtCse2mtgF4XwmH_27toom8_interpolation_codegen14toom4_evaluate6signed",
+          "_RNvNtCse2mtgF4XwmH_27toom8_interpolation_codegen14toom4_multiply4full",
+          "_RNvNtCse2mtgF4XwmH_27toom8_interpolation_codegen14toom8_producer13weighted_pair",
+          "_RNvNtCse2mtgF4XwmH_27toom8_interpolation_codegen14toom8_producer14normalize_pair",
+          "_RNvNtCse2mtgF4XwmH_27toom8_interpolation_codegen19toom8_interpolation11interpolate",
+          "verified_interpolation_48"
+        ],
+        "external_calls": [
+          "*_RNvNtCskADBYZwJmSU_4core9panicking5panic@GOTPCREL(%rip)",
+          "*_RNvNtCskADBYZwJmSU_4core9panicking9panic_fmt@GOTPCREL(%rip)",
+          "*_RNvNtNtCskADBYZwJmSU_4core5slice5index16slice_index_fail@GOTPCREL(%rip)",
+          "*memset@GOTPCREL(%rip)"
+        ],
+        "root_body_lines": 41
+      }
+    },
+    "limitation": "Textual assembly inspection; no machine-code equivalence or performance claim"
+  },
+  "mutations": [
+    {
+      "name": "skip-seventh-node",
+      "semantically_rejected": true,
+      "source_sha256": "0303fa9f61832f9f5d860f947fe77e4774c6db127207b1087230ec1dd38128d9",
+      "before": "    toom8_seventh::prepare_seventh(o6,a,b,low,e0,e1,e2,e3,e4,e5,high,k,scratch,threshold);",
+      "after": "",
+      "log_sha256": "ec53632025c000133fbd93415c9ad783f1831c7afee540aedd9e48f4ec91a6f3"
+    },
+    {
+      "name": "square-seventh-point",
+      "semantically_rejected": true,
+      "source_sha256": "48378aee12fc3009de244585ab3037eff55b1ed709bb46e63f7ca850be3f7b35",
+      "before": "    toom8_seventh::prepare_seventh(o6,a,b,low,e0,e1,e2,e3,e4,e5,high,k,scratch,threshold);",
+      "after": "    toom8_seventh::prepare_seventh(o6,a,a,low,e0,e1,e2,e3,e4,e5,high,k,scratch,threshold);",
+      "log_sha256": "a5edca6d7af97399287ee948b45f6c69aaf3da9947064afbbc286d8fc1cef2d5"
+    },
+    {
+      "name": "skip-odd-newton",
+      "semantically_rejected": true,
+      "source_sha256": "dd79eb91b50c294b43d7ffdb46b4767a168312781e62c528405260b76fac4d81",
+      "before": "    toom8_newton::odd(o0,o1,o2,o3,o4,o5,o6,Ghost(model::odd_coefficients(c)));",
+      "after": "",
+      "log_sha256": "ac7b23cbe7cd38eed7a2e1dfbfdff659e7727b9c504f70aa3c2593b23d40e4eb"
+    },
+    {
+      "name": "swap-odd-nodes",
+      "semantically_rejected": true,
+      "source_sha256": "58b955fc1315ac5b9b9d16406aa7ffb048a0db1a9bd78c25a2cd56830217542c",
+      "before": "    toom8_newton::odd(o0,o1,o2,o3,o4,o5,o6,Ghost(model::odd_coefficients(c)));",
+      "after": "    toom8_newton::odd(o1,o0,o2,o3,o4,o5,o6,Ghost(model::odd_coefficients(c)));",
+      "log_sha256": "0434718ee0b7f4c81a0ebbfd245573ee0648ffb881a5bb165a7f519a4cd6267e"
+    },
+    {
+      "name": "skip-six-pairs",
+      "semantically_rejected": true,
+      "source_sha256": "47dc20678829bd208c3b220212bbff6a87b321f6c2abb893c372ef79bef21acf",
+      "before": "    toom8_even::with_endpoints(e0,e1,e2,e3,e4,e5,o0,o1,o2,o3,o4,o5,a,b,low,high,k,scratch,threshold);",
+      "after": "",
+      "log_sha256": "b7f9ee640caf2fad20475d39bd7efcbd235f62843c6dd175d5670068f9d5bb96"
+    },
+    {
+      "name": "swap-even-coefficients",
+      "semantically_rejected": true,
+      "source_sha256": "d90f36a3f07f6d9685954775b7192b4cf509d8cef15fc56dad11d145f0f43d3c",
+      "before": "    toom8_even::with_endpoints(e0,e1,e2,e3,e4,e5,o0,o1,o2,o3,o4,o5,a,b,low,high,k,scratch,threshold);",
+      "after": "    toom8_even::with_endpoints(e1,e0,e2,e3,e4,e5,o0,o1,o2,o3,o4,o5,a,b,low,high,k,scratch,threshold);",
+      "log_sha256": "b7f9ee640caf2fad20475d39bd7efcbd235f62843c6dd175d5670068f9d5bb96"
+    },
+    {
+      "name": "square-six-pairs",
+      "semantically_rejected": true,
+      "source_sha256": "934728532641f43f04cec830afcd7b18039035fa1ce44a77c3f1853efcc3c093",
+      "before": "    toom8_even::with_endpoints(e0,e1,e2,e3,e4,e5,o0,o1,o2,o3,o4,o5,a,b,low,high,k,scratch,threshold);",
+      "after": "    toom8_even::with_endpoints(e0,e1,e2,e3,e4,e5,o0,o1,o2,o3,o4,o5,a,a,low,high,k,scratch,threshold);",
+      "log_sha256": "b7f9ee640caf2fad20475d39bd7efcbd235f62843c6dd175d5670068f9d5bb96"
+    },
+    {
+      "name": "square-low-endpoint",
+      "semantically_rejected": true,
+      "source_sha256": "ac2738a315ffe9a6e3a8bb3cc23718d71ff1cac8193fa84d5d11b9b95df1bc43",
+      "before": "toom4_multiply::full(low,&a[..k],&b[..k],scratch,threshold);",
+      "after": "toom4_multiply::full(low,&a[..k],&a[..k],scratch,threshold);",
+      "log_sha256": "0eb5c79c94a32bd013699a339055f73582d511a3d269f34cc187938ca5f19c09"
+    },
+    {
+      "name": "square-high-endpoint",
+      "semantically_rejected": true,
+      "source_sha256": "4f1dedcac10047caabfd02001c9131150f63937ee30cab3d32023ba8362127c3",
+      "before": "toom4_multiply::full(high,&a[7*k..],&b[7*k..],scratch,threshold);",
+      "after": "toom4_multiply::full(high,&a[7*k..],&a[7*k..],scratch,threshold);",
+      "log_sha256": "a61c9afd5c4b3a2aff70e66ed945eb877efa9368438709861e439af834541f7f"
+    },
+    {
+      "name": "erase-low-endpoint",
+      "semantically_rejected": true,
+      "source_sha256": "b913e1e4f7d6826af8b27fe7eca34b6325444974a1c92e270847de505d325fa3",
+      "before": "toom4_multiply::full(low,&a[..k],&b[..k],scratch,threshold);",
+      "after": "crate::toom_words::zero(low);",
+      "log_sha256": "0eb5c79c94a32bd013699a339055f73582d511a3d269f34cc187938ca5f19c09"
+    },
+    {
+      "name": "erase-high-endpoint",
+      "semantically_rejected": true,
+      "source_sha256": "dab0d660e9ceb099922d5ddfd97e145cfd37a73c0ae37d1d44ba7b168ab8159e",
+      "before": "toom4_multiply::full(high,&a[7*k..],&b[7*k..],scratch,threshold);",
+      "after": "crate::toom_words::zero(high);",
+      "log_sha256": "43273beb7cd9b5e7493321416486f1d8a0a9fd310105f0a2bec311178aab3207"
+    },
+    {
+      "name": "swap-shared-endpoints",
+      "semantically_rejected": true,
+      "source_sha256": "a0852d6e6c095979003ae860a2a1ad7570b7e8cabc8e9e2c589424b2e1c92e93",
+      "before": "o4,o5,o6,a,b,low,high,k,scratch,threshold);",
+      "after": "o4,o5,o6,a,b,high,low,k,scratch,threshold);",
+      "log_sha256": "cca00a8c664696b966dc2cfc752223252dc87cebf413fdc437c9d540ba6e2307"
+    }
+  ],
+  "artifact_sha256": {
+    "libcandidate.rlib": "ff4770883735014f3bcf680dc85b284cfedb9781e551fda549f0454405baa595",
+    "candidate.vir": "02bd43abc3147ce75a96dfc457048e5247fd039032d9f05d32f39dd82f21a1f0",
+    "oracle-runner": "846f2a007a1aed9b2ad87251cf95367a7935db676c9f79341a51b834359f0782",
+    "codegen.s": "d51d6c6130faaa9a34936c9452c35cef640e7605742677622645d2b2849260f7"
+  },
+  "finished_utc": "2026-11-02T03:03:05.146699+00:00"
+}

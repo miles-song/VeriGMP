@@ -1,0 +1,45 @@
+verification results:: 2 verified, 1 errors (partial verification with `--verify-*`)
+note: verifying module toom8_interpolation
+
+note: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> <stage>/feature-gates/interpolation-feature1/inputs/candidate/native/verified/toom8_interpolation.rs:10:1
+   |
+10 | pub p...:nat)
+   | ^^^^^...^^^^^
+
+note: function body check has been running for 2 seconds
+      reporting errors as they are discovered (they may not be in source order)
+  --> <stage>/feature-gates/interpolation-feature1/inputs/candidate/native/verified/toom8_interpolation.rs:15:1
+   |
+15 | pub f...size)
+   | ^^^^^...^^^^^
+
+note: function body check finished in 2 seconds
+  --> <stage>/feature-gates/interpolation-feature1/inputs/candidate/native/verified/toom8_interpolation.rs:15:1
+   |
+15 | pub f...size)
+   | ^^^^^...^^^^^
+
+note: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> <stage>/feature-gates/interpolation-feature1/inputs/candidate/native/verified/toom8_interpolation.rs:15:1
+   |
+15 | pub f...size)
+   | ^^^^^...^^^^^
+
+note: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> <stage>/feature-gates/interpolation-feature1/inputs/candidate/native/verified/toom8_interpolation.rs:87:1
+   |
+87 | pub f...size)
+   | ^^^^^...^^^^^
+
+error: precondition not satisfied
+   --> <stage>/feature-gates/interpolation-feature1/inputs/candidate/native/verified/toom8_interpolation.rs:154:5
+    |
+ 32 |         value...int)),
+    |         -----...----- failed precondition
+...
+154 |     with_...hold);
+    |     ^^^^^...^^^^^
+
+error: aborting due to 1 previous error
+
