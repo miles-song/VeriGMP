@@ -1,0 +1,13 @@
+{
+  "status": "actual_whole_library_proof_passed_pending_frozen_gate",
+  "purpose": "Actual fifteen-child recursive Toom8 full multiplication using proven evaluators, exact interpolation and recomposition.",
+  "api": "full: positive equal full-u64 inputs, output2n, scratch>=12n, threshold>=56. Existing standalone helpers retain their original unrestricted domains unchanged.",
+  "internal_domain": "Recursive helper variants require input n>56 and threshold>=56, established by full; balanced preserves 7k<=n<=8k.",
+  "termination": "Actual SCC decreases lexicographic (input limb count, finite helper rank); each multiplication child k,h,m=k+1<n. Whole-library development proof passed537/0; frozen compilation/oracle/mutation/codegen acceptance remains pending.",
+  "scratch": "Coefficient slots26m+2k+2h<=30m; evaluation and reusable12m child workspace14m;44m<=12n proved for ceil(n/8),n>56. Actual recursive slice capacity and lifetime obligations passed in the whole-library development proof; final immutable acceptance remains pending.",
+  "leaf": "Existing verified forcedToom4 at fixed child threshold24 when n<=outer threshold.",
+  "analytic_cost": "T(n)<=T(k)+T(h)+13T(k+1)+O(n)<=15T(k+1)+O(n), fixed arity and threshold; analytic, not checked machine-cost instrumentation.",
+  "benchmark_run": false,
+  "promotion": false,
+  "low_square_complete": false
+}

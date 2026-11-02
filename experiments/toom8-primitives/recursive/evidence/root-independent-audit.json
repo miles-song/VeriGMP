@@ -1,0 +1,79 @@
+{
+  "status": "pass",
+  "report_sha256": "d959d9ace556f1a4d19a9866549acca658c20d042d64af82ebe642996a28f266",
+  "audit_source_sha256": "7907a02c6adf96f77e8040e3b8b41128836ed5c39883fbcd2037a831b4cdf534",
+  "source_inputs": 131,
+  "tools": 21,
+  "runtimes": 3,
+  "artifacts": 4,
+  "locked_paths": 441,
+  "verified_full_library_runner_codegen": [
+    537,
+    537,
+    537
+  ],
+  "true_scoped_mutants": {
+    "skip-recursive-composition": [
+      "2",
+      "1"
+    ],
+    "square-leaf": [
+      "2",
+      "1"
+    ],
+    "skip-leaf": [
+      "2",
+      "1"
+    ],
+    "square-positive-child": [
+      "1",
+      "1"
+    ],
+    "skip-negative-child": [
+      "1",
+      "1"
+    ],
+    "flip-signed-product": [
+      "1",
+      "1"
+    ],
+    "drop-reciprocal-direction": [
+      "0",
+      "1"
+    ],
+    "wrong-dyadic-exponent": [
+      "0",
+      "1"
+    ],
+    "skip-sixth-pair": [
+      "0",
+      "1"
+    ],
+    "square-seventh-child": [
+      "1",
+      "1"
+    ],
+    "skip-seventh-node": [
+      "1",
+      "1"
+    ],
+    "swap-odd-coefficients": [
+      "1",
+      "1"
+    ],
+    "swap-product-endpoints": [
+      "2",
+      "1"
+    ],
+    "nondecreasing-helper-rank": [
+      "0",
+      "1"
+    ]
+  },
+  "mixed_fatal_rejections": 126,
+  "oracle_cases": 612,
+  "invalid_commands": 12,
+  "saved_runner_replayed": true,
+  "no_new_proof_escape": true,
+  "boundary": "Actual fifteen-child recursive Toom8 full multiplication: lexicographic input length/helper rank decreases and borrowed caller scratch capacity 12n are checked in complete library proof; all interpolation/recomposition numeric premises discharged. Positive equal full-u64 input lengths and threshold>=56; unchanged standalone nonrecursive helper domains retained. 612 saved-runner products independently recomputed, including 306 shared immutable inputs and predicted 0..3 active recursive levels, plus 12 malformed harness commands. 14 genuine scoped semantic failures include one explicit termination VC, with 126 appended fatal combinations rejected. No low/square, default promotion, timing result, measured GMP parity, complete machine-cost theorem or SAT complexity claim."
+}

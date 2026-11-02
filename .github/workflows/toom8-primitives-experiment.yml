@@ -52,3 +52,6 @@ jobs:
       - run: python3 experiments/toom8-primitives/product/audit.py
       - run: python3 experiments/toom8-primitives/product/test_prepare_boundaries.py
       - run: python3 experiments/toom8-primitives/product/prepare.py --output /tmp/verigmp-product
+      - run: python3 experiments/toom8-primitives/recursive/audit.py
+      - run: python3 experiments/toom8-primitives/recursive/test_prepare_boundaries.py
+      - run: python3 experiments/toom8-primitives/recursive/prepare.py --output /tmp/verigmp-recursive

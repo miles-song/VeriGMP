@@ -1,0 +1,37 @@
+{
+  "accepted_gate": "recursive-feature1",
+  "attempts": [
+    {
+      "name": "recursive-focused1",
+      "reported_status": "pass",
+      "report": "development/recursive-focused1/report.json",
+      "source_overlays": {
+        "check_development.py": "development/recursive-focused1/overlays/check_development.py",
+        "origin.json": "development/recursive-focused1/overlays/origin.json"
+      },
+      "status_boundary": "Historical record; accepted gate is recursive-feature1."
+    },
+    {
+      "name": "recursive-all1",
+      "reported_status": "pass",
+      "report": "development/recursive-all1/report.json",
+      "source_overlays": {
+        "check_development.py": "development/recursive-all1/overlays/check_development.py",
+        "origin.json": "development/recursive-all1/overlays/origin.json"
+      },
+      "status_boundary": "Historical record; accepted gate is recursive-feature1."
+    },
+    {
+      "name": "recursive-termination-negative1",
+      "reported_status": "diagnostic_recorded",
+      "report": "development/recursive-termination-negative1/report.json",
+      "source_overlays": {
+        "check_negative_development.py": "development/recursive-termination-negative1/overlays/check_negative_development.py",
+        "origin.json": "development/recursive-termination-negative1/overlays/origin.json",
+        "candidate/native/verified/toom8_recursive_producer.rs": "development/recursive-termination-negative1/overlays/candidate/native/verified/toom8_recursive_producer.rs"
+      },
+      "status_boundary": "Historical record; accepted gate is recursive-feature1."
+    }
+  ],
+  "development_boundary": "All three development records are retained: the focused caller proof, full library proof and one deliberately invalid mutual-recursion rank rejected by a real termination verification condition."
+}
