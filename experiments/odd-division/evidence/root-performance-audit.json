@@ -1,0 +1,57 @@
+{
+  "status": "pass",
+  "scope": "Independent complete raw matrix and identity audit, not performance acceptance",
+  "runs": [
+    {
+      "tag": "default1",
+      "raw_sha256": "a42535df62ba249e8901248349d98378a0843347c1b54f688143a8e76ed7e577",
+      "samples": 1456,
+      "groups": 52,
+      "minimum_ns": 10013802,
+      "principal_failed": 10,
+      "key_failed": 31,
+      "baseline_regressions": 19,
+      "previous_regressions": 23,
+      "largest_shape": {
+        "mul_mod": [
+          0.9252662794325401,
+          0.9793346989181788,
+          2.093458189962706
+        ],
+        "square_mod": [
+          0.8821994837641228,
+          0.9845018807694075,
+          1.842080373685207
+        ]
+      }
+    },
+    {
+      "tag": "default2",
+      "raw_sha256": "bab30a9bef61985d6ca4bb22cd63f3146dd3423609e455225cfc638071d1718b",
+      "samples": 1456,
+      "groups": 52,
+      "minimum_ns": 10005129,
+      "principal_failed": 10,
+      "key_failed": 34,
+      "baseline_regressions": 17,
+      "previous_regressions": 22,
+      "largest_shape": {
+        "mul_mod": [
+          0.9174380823948862,
+          0.9836824883094849,
+          2.0920838422487598
+        ],
+        "square_mod": [
+          0.8810228094144184,
+          0.9668117716527225,
+          1.8388242724649146
+        ]
+      }
+    }
+  ],
+  "consistent_regressions_vs_e22": 9,
+  "consistent_regressions_vs_previous": 13,
+  "performance_target_met": false,
+  "solver_trace_acceptance": false,
+  "benchmark_rerun": false
+}

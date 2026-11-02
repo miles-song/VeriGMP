@@ -1,0 +1,4 @@
+
+thread 'main' (21512) panicked at <stage>/candidate/native/toom4_runner.rs:50:59:
+assertion failed: divisor > 0
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace

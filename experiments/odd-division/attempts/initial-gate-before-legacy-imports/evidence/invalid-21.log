@@ -1,0 +1,4 @@
+
+thread 'main' (21515) panicked at <stage>/candidate/native/toom4_runner.rs:50:13:
+assertion failed: !args.is_empty()
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace

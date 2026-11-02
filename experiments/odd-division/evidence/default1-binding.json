@@ -1,0 +1,11 @@
+{
+  "status": "pass",
+  "verification_report_sha256": "5971d07bc01d3d58f283c72ade9001413085caf72b23f072a45338385112f199",
+  "measurement_script_sha256": "75726a0fa50a903dabe5562380157f0f600511c23fb3b988b7100c4dc4ada774",
+  "measurement_binding_script_sha256": "90ebb657d419b680ff54d38ee14617958a2a96b5e4520ae504478102d2434b9a",
+  "measurements_sha256": "a119bf4b7a6e5e3db961189c1a7b86de4fcdb723a49985fdbd20a0e49e384004",
+  "raw_sha256": "a42535df62ba249e8901248349d98378a0843347c1b54f688143a8e76ed7e577",
+  "source_tool_artifact_checks_before_after": true,
+  "samples": 1456,
+  "minimum_observed_batch_ns": 10013802
+}

@@ -1,0 +1,19 @@
+note: verifying module odd_division
+
+error: assertion failed
+  --> <stage>/candidate/native/verified/odd_division.rs:30:16
+   |
+30 | ...rt(wide ...tiple) b...
+   |       ^^^^^...^^^^^ assertion failed
+
+error: assertion failed
+  --> <stage>/candidate/native/verified/odd_division.rs:84:16
+   |
+84 | ...rt(radix...nt)*q) b...
+   |       ^^^^^...^^^^^ assertion failed
+
+note: verifying module odd_division_spec
+
+verification results:: 11 verified, 2 errors (partial verification with `--verify-*`)
+error: aborting due to 2 previous errors
+

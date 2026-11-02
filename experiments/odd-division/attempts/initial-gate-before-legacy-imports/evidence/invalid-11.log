@@ -1,0 +1,4 @@
+
+thread 'main' (21505) panicked at <stage>/candidate/native/toom4_runner.rs:46:13:
+assertion failed: matches!(divisor,3|9|15) && carry < divisor
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace

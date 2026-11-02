@@ -1,0 +1,68 @@
+{
+  "status": "pass",
+  "scope": "Fresh final logs, all 225 source files, frozen independent-review copy, tools, runtime libraries and artifacts agree",
+  "verification_sha256": "5971d07bc01d3d58f283c72ade9001413085caf72b23f072a45338385112f199",
+  "review_manifest_sha256": "9431be70f6cd6185fff87f4de2e1552f4768f1afb72413de0f5761ad9cec67b4",
+  "source_files": 225,
+  "tools": 21,
+  "runtime_libraries": 3,
+  "artifacts": 9,
+  "libraries": {
+    "baseline": {
+      "verified": 234,
+      "rlib_sha256": "e5211b0a05945867935fdcfcf034330312a03551ad2d15a7adbedd70fe46dfb7",
+      "vir_sha256": "eb9dbc7d6b52df8570f69d03716d83b013a461aa7f895e7d0438883f72bce134"
+    },
+    "previous": {
+      "verified": 276,
+      "rlib_sha256": "5328b74037f025461e36ed07543288d5fb8eeba815e351c3a8366cd3747bbc3b",
+      "vir_sha256": "db7e107c92ec5e331a5a14e543946e9873d62e436d7a707b26f1b2a63bc96fff"
+    },
+    "candidate": {
+      "verified": 289,
+      "rlib_sha256": "86fa34934418a278b4384b3ada3e222190f4fadf742ab1677a39dcf36a9f9f08",
+      "vir_sha256": "944b5abe1be41ff920a6ea180fe7802aabf0c93226fe8165dca99212b47a901b"
+    }
+  },
+  "legacy_entrypoints": {
+    "mac4_bench.rs": {
+      "verified": 244,
+      "binary_sha256": "a3a604def5b2b68b0a8f02b3b2d5e05fe4fb64c96e1a58f8bd6e83c00e3a3679",
+      "executed": false,
+      "scope": "Existing standalone entry imports and whole crate verification/optimized compile; no benchmark execution"
+    },
+    "square_base_bench.rs": {
+      "verified": 248,
+      "binary_sha256": "89e3c1496ff1ea092b2c0bde6dfa7423f7a1ef649f5056162789d0380000ba4d",
+      "executed": false,
+      "scope": "Existing standalone entry imports and whole crate verification/optimized compile; no benchmark execution"
+    },
+    "toom_codegen.rs": {
+      "verified": 248,
+      "binary_sha256": "53d38cabd2cba31d17c6a57609718e4e3b8b626d87260a72be443c6a2c9e2ddd",
+      "executed": false,
+      "scope": "Existing standalone entry imports and whole crate verification/optimized compile; no benchmark execution"
+    },
+    "toom_words_runner.rs": {
+      "verified": 248,
+      "binary_sha256": "39935fa17703978fd42f9a0634f86c527f820e3e0aa622cc81d633c568450a80",
+      "executed": false,
+      "scope": "Existing standalone entry imports and whole crate verification/optimized compile; no benchmark execution"
+    },
+    "toom_bench.rs": {
+      "verified": 248,
+      "binary_sha256": "d2447f3706239ebf551c8acb0072a8657e70709445135450e483991f2be1119e",
+      "executed": false,
+      "scope": "Existing standalone entry imports and whole crate verification/optimized compile; no benchmark execution"
+    }
+  },
+  "oracle_cases": 29900,
+  "semantic_mutants": 30,
+  "invalid_inputs": 22,
+  "benchmark_source_sha256": "652f3c3d6440d3b3b6eba36f00e8115374ed0cc84b6aadc2ccd91e4c8e31a2c6",
+  "benchmark_binary_sha256": "92532b8d04fc9c1ff67a996df378976371a4df880cfe99386b8df5cfcaf4d19e",
+  "prior_trial_rlib_and_oracle_bytes_unchanged": true,
+  "metadata_pairs_freshly_bound": true,
+  "benchmark_run": false,
+  "audit_script_sha256": "664a39359757e833b7253ffdb05341205faddd3d1f203a733275e01e0983f2bf"
+}
