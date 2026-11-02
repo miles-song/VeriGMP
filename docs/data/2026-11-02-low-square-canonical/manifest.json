@@ -1,0 +1,44 @@
+{
+  "status": "pass",
+  "scope": "Canonical low-square verification and evidence integrity; GMP parity remains unmet",
+  "accepted_code_commit": "e22a4dd00a28681fd27d68e2a78fa304cf17563e",
+  "historical_ci_run": 41331997725,
+  "fresh_local_git": {
+    "head": "e22a4dd00a28681fd27d68e2a78fa304cf17563e",
+    "tracked_status": "",
+    "invoking_ci_commit": null
+  },
+  "fresh_library": {
+    "verified_items": 234,
+    "files": {
+      "libverigmp.rlib": "06d6e9d6548a4cc0343cf4b2d11f84d4f963dda607f53e778b1be80ec1a8653a",
+      "verigmp.vir": "4e6de64155aa7d579b3752f82536fb0d47e428452d99abe5540cfb16ea8b9a42"
+    }
+  },
+  "source_files": 107,
+  "oracle": {
+    "cases": 11292,
+    "seed": 20261101,
+    "max_limbs": 4097,
+    "binary_sha256": "7f87985068e03a43c8ee0e733c985359a4f31d22df45f8ad0c893f90d5bbbfff",
+    "direct_low_square_seed": 20261103,
+    "direct_low_square_cases": 1440,
+    "input_sha256": "fc6a8f97ceaecd82fb11a523a3b699813e9e7f541d8e00227303493b00c2a315",
+    "output_sha256": "d2c98546338613da025aedccfc799551975b0cd8d8ec845800a5c3f8398033a9",
+    "coverage": "Default and forced recursion, three low splits, n mod 3, signed/zero evaluations, full MAX carry chains, all top bits, immutable input alias, nonzero storage, exact scratch and surrounding canaries, row tails including empty, quotient/remainder, direct symmetric low squares including odd/even lengths and cutoff 8/9"
+  },
+  "invalid_commands_rejected": 12,
+  "semantic_mutants": 21,
+  "backend_replacement_accepted": false,
+  "performance_target_met": false,
+  "fresh_local_report_sha256": "131f03c5aca754ca05e5b0fab235682b038e7ef80a918b4f326a1dc6963ba6d6",
+  "artifact_sha256": {
+    ".gitattributes": "705fd4d6451a31d36b3df7de96f83f30ac976c9b4a6d1e51671d8e2f33e2d0da",
+    "check.py": "b7065a75d74e74b3c3267e42c2c44f596974569770e99611b382f6af5bef57df",
+    "fresh-local-e22.zip": "fba2bfac308b21b1ea5e36fa0970040a6a72274714b60ab88eed77c5f56ab9b3",
+    "github-artifact.json": "4e841a1d5734e9369ca3962bd87e2d31bb78efe52e9759df32956b18ead8ef93",
+    "github-artifact.zip": "58861fd92d0966ce059d51bf75dc1b87622846dad8c822f75b4aa295bf5c23f3",
+    "github-run.json": "a1b2905152e4fa1d0230800968e2031938266a78c2f78e24e4e585514414d024"
+  },
+  "fresh_environment_limitation": "Concurrent independent Verus acceptance jobs; fresh timing is an observation, not isolated performance comparison. Frozen repeated cutoff9 runs remain the optimization evidence."
+}
