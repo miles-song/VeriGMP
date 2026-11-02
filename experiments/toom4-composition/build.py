@@ -17,7 +17,8 @@ def build(stage):
         prepared = check_prepared(stage)
         policy = json.loads((stage / 'policy.json').read_text())
         report['source_sha256'] = {name: files for name, files in prepared['variants'].items()}
-        report['infrastructure_sha256'] = {p.name: sha(p) for p in stage.iterdir() if p.is_file()}
+        report['infrastructure_sha256'] = prepared['infrastructure_sha256']
+        report['preparation_sha256'] = sha(stage / 'preparation.json')
         verifier, toolchain = bind_tools(stage, out)
         report['toolchain'] = toolchain
         rows = default_cases(policy)
@@ -34,20 +35,30 @@ def build(stage):
             count = verified([verifier, root / 'native/lib.rs', '--crate-name', name,
                 '--crate-type', 'lib', '--export', vir, '--compile', '-O', '-o', lib],
                 directory / 'library.log', root)
+            if count <= 0:
+                raise RuntimeError('No positive library proof items: ' + name)
             report['libraries'][name] = {'verified_items': count, 'rlib': sha(lib), 'vir': sha(vir)}
             runner = directory / 'default-runner'
             verified([verifier, stage / 'default_runner.rs', '--import', 'experiment=' + str(vir),
                 '--extern', 'experiment=' + str(lib), '--compile', '-O', '-o', runner],
                 directory / 'runner-build.log', root)
+            runner_hash = sha(runner)
             result = checked([runner], directory / 'default-oracle.log', root, input=data)
             if result.stdout.splitlines() != answers:
                 raise RuntimeError('Default integer oracle mismatch: ' + name)
-            report['default_oracles'][name] = {'cases': len(rows), 'runner_sha256': sha(runner),
+            if sha(runner) != runner_hash:
+                raise RuntimeError('Default runner changed during execution: ' + name)
+            report['default_oracles'][name] = {'cases': len(rows), 'runner_sha256': runner_hash,
                 'coverage': 'Actual arithmetic entries, top=1..64 on registered boundary/principal sizes, full-u64 edge/random operands, read-only alias, exact 12n/10n scratch and output/scratch canaries'}
             write(out / 'build.json', report)
         check_prepared(stage)
         check_hashes(report['infrastructure_sha256'], stage)
         check_hashes(toolchain['sha256'])
+        for name, library in report['libraries'].items():
+            check_hashes({str(out / name / ('lib' + name + '.rlib')): library['rlib'],
+                str(out / name / (name + '.vir')): library['vir']})
+        if sha(stage / 'preparation.json') != report['preparation_sha256']:
+            raise RuntimeError('Preparation manifest changed')
         report.update(status='pass', finished_utc=now())
     except Exception as error:
         report.update(status='error', error=f'{type(error).__name__}: {error}', finished_utc=now())

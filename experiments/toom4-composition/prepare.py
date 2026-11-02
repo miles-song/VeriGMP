@@ -15,6 +15,11 @@ def sha(data):
 
 def policy_arithmetic(base, cutoff):
     text = base.decode().replace('\r\n', '\n')
+    for expected in ['use crate::{fast_multiply,toom_low,square_low,pow2};',
+            'else { toom_low::modular(dst,a,b,scratch,top,192,128,2); }',
+            '    square_low::low(dst,a,scratch,192,64,1);']:
+        if text.count(expected) != 1:
+            raise ValueError('Unexpected pinned production entry: ' + expected)
     text = text.replace('use crate::{fast_multiply,toom_low,square_low,pow2};',
         'use crate::{fast_multiply,toom_low,square_low,toom4_low,toom4_square_low,pow2};')
     text = text.replace('else { toom_low::modular(dst,a,b,scratch,top,192,128,2); }',
@@ -102,9 +107,12 @@ def prepare(output):
             path.write_bytes(raw)
         manifest['variants'][name] = {p: sha(raw) for p, raw in data.items()}
     manifest['archive_input_sha256'] = sources
+    infrastructure = {}
     for path in HERE.glob('*'):
         if path.is_file():
             (output / path.name).write_bytes(path.read_bytes())
+            infrastructure[path.name] = sha(path.read_bytes())
+    manifest['infrastructure_sha256'] = infrastructure
     (output / 'preparation.json').write_text(json.dumps(manifest, indent=2) + '\n')
     print(json.dumps({'status': manifest['status'], 'variants': list(manifest['variants']),
         'output': str(output)}, indent=2))

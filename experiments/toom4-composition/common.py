@@ -77,6 +77,7 @@ def check_prepared(stage):
         for name, files in prepared['variants'].items() for relative, h in files.items()})
     if sha(stage / 'policy.json') != prepared['policy_sha256']:
         raise RuntimeError('Changed preregistered policy')
+    check_hashes(prepared['infrastructure_sha256'], stage)
     return prepared
 
 
@@ -92,7 +93,7 @@ def default_cases(policy):
             if n < 512 else [maximum, rng.getrandbits(64 * n)])
         tops = range(1, 65) if n in [1,2,9,64,256,1023,1024,1025] else [1,32,63,64]
         for i, a in enumerate(patterns):
-            b = patterns[(i + 2) % len(patterns)]
+            b = patterns[(i + (2 if len(patterns) > 2 else 1)) % len(patterns)]
             wa = [(a >> (64 * j)) & ((1 << 64) - 1) for j in range(n)]
             wb = [(b >> (64 * j)) & ((1 << 64) - 1) for j in range(n)]
             for top in tops:
