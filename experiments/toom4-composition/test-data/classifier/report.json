@@ -1,0 +1,63 @@
+{
+  "common_sha256": "7956096c2e218176f752ff88f29dc882f722af6932da8cf56abd325ebc22ff52",
+  "scope": "root offline prereview counterexamples only, no acceptance or native execution",
+  "cases": [
+    {
+      "id": "canonical_failure",
+      "expected": true,
+      "actual": true,
+      "stdout": "error: assertion failed\nverification results:: 0 verified, 1 errors\n",
+      "stderr": ""
+    },
+    {
+      "id": "out_of_memory",
+      "expected": false,
+      "actual": true,
+      "stdout": "error: assertion failed\nverification results:: 0 verified, 1 errors\nOut of memory\n",
+      "stderr": ""
+    },
+    {
+      "id": "oom",
+      "expected": false,
+      "actual": true,
+      "stdout": "error: assertion failed\nverification results:: 0 verified, 1 errors\nOOM\n",
+      "stderr": ""
+    },
+    {
+      "id": "summary_junk",
+      "expected": false,
+      "actual": true,
+      "stdout": "error: assertion failed\nverification results:: 0 verified, 1 errors INVALID_TRAILER\n",
+      "stderr": ""
+    },
+    {
+      "id": "empty_error",
+      "expected": false,
+      "actual": true,
+      "stdout": "error: assertion failed\nerror:\nverification results:: 0 verified, 1 errors\n",
+      "stderr": ""
+    },
+    {
+      "id": "fatal_error",
+      "expected": false,
+      "actual": true,
+      "stdout": "error: assertion failed\nfatal error: solver process failed\nverification results:: 0 verified, 1 errors\n",
+      "stderr": ""
+    },
+    {
+      "id": "unknown_solver",
+      "expected": false,
+      "actual": true,
+      "stdout": "error: assertion failed\nverification results:: 0 verified, 1 errors\nZ3: unknown\n",
+      "stderr": ""
+    }
+  ],
+  "false_acceptance_ids": [
+    "out_of_memory",
+    "oom",
+    "summary_junk",
+    "empty_error",
+    "fatal_error",
+    "unknown_solver"
+  ]
+}

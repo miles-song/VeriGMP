@@ -1,0 +1,95 @@
+{
+  "production_code_not_modified": true,
+  "frozen_common_sha256": "89806912eaf39c54fb8dccf980ca5a96f07891b41c5ad784f5dae27f648f67dc",
+  "counterexamples": 7,
+  "cases": [
+    {
+      "case": "valid_semantic_example",
+      "returncode": 1,
+      "stdout": "verification results:: 4 verified, 1 errors (partial verification with `--verify-*`)\nerror: invariant not satisfied at end of loop body\nerror: aborting due to 1 previous error\n",
+      "stderr": "",
+      "existing_classifier_accepts": true,
+      "safe_new_design_expected": true
+    },
+    {
+      "case": "signal_with_stale_summary",
+      "returncode": -9,
+      "stdout": "verification results:: 4 verified, 1 errors (partial verification with `--verify-*`)\nerror: invariant not satisfied at end of loop body\nerror: aborting due to 1 previous error\n",
+      "stderr": "",
+      "existing_classifier_accepts": true,
+      "safe_new_design_expected": false
+    },
+    {
+      "case": "unrelated_positive_exit",
+      "returncode": 137,
+      "stdout": "verification results:: 4 verified, 1 errors (partial verification with `--verify-*`)\nerror: invariant not satisfied at end of loop body\nerror: aborting due to 1 previous error\n",
+      "stderr": "",
+      "existing_classifier_accepts": true,
+      "safe_new_design_expected": false
+    },
+    {
+      "case": "duplicate_summary",
+      "returncode": 1,
+      "stdout": "verification results:: 4 verified, 1 errors (partial verification with `--verify-*`)\nerror: invariant not satisfied at end of loop body\nerror: aborting due to 1 previous error\nverification results:: 4 verified, 1 errors (partial verification with `--verify-*`)\nerror: invariant not satisfied at end of loop body\nerror: aborting due to 1 previous error\n",
+      "stderr": "",
+      "existing_classifier_accepts": true,
+      "safe_new_design_expected": false
+    },
+    {
+      "case": "extra_unknown_error",
+      "returncode": 1,
+      "stdout": "verification results:: 4 verified, 1 errors (partial verification with `--verify-*`)\nerror: invariant not satisfied at end of loop body\nerror: aborting due to 1 previous error\nerror: arbitrary infrastructure failure\n",
+      "stderr": "",
+      "existing_classifier_accepts": true,
+      "safe_new_design_expected": false
+    },
+    {
+      "case": "oom_after_semantic_error",
+      "returncode": 1,
+      "stdout": "verification results:: 4 verified, 1 errors (partial verification with `--verify-*`)\nerror: invariant not satisfied at end of loop body\nerror: aborting due to 1 previous error\nfatal error: out of memory\n",
+      "stderr": "",
+      "existing_classifier_accepts": true,
+      "safe_new_design_expected": false
+    },
+    {
+      "case": "embedded_non_heading_phrase",
+      "returncode": 1,
+      "stdout": "verification results:: 0 verified, 1 errors\nerror: unrelated problem; diagnostic includes assertion failed as quoted text\n",
+      "stderr": "",
+      "existing_classifier_accepts": true,
+      "safe_new_design_expected": false
+    },
+    {
+      "case": "noncanonical_summary_prefix",
+      "returncode": 1,
+      "stdout": "example quotation: verification results:: 4 verified, 1 errors (partial verification with `--verify-*`)\nerror: invariant not satisfied at end of loop body\nerror: aborting due to 1 previous error\n",
+      "stderr": "",
+      "existing_classifier_accepts": true,
+      "safe_new_design_expected": false
+    },
+    {
+      "case": "typed_rust_error",
+      "returncode": 1,
+      "stdout": "verification results:: 4 verified, 1 errors (partial verification with `--verify-*`)\nerror: invariant not satisfied at end of loop body\nerror: aborting due to 1 previous error\nerror[E0308]: mismatched types\n",
+      "stderr": "",
+      "existing_classifier_accepts": false,
+      "safe_new_design_expected": false
+    },
+    {
+      "case": "explicit_timeout",
+      "returncode": 1,
+      "stdout": "verification results:: 4 verified, 1 errors (partial verification with `--verify-*`)\nerror: invariant not satisfied at end of loop body\nerror: aborting due to 1 previous error\ntimeout\n",
+      "stderr": "",
+      "existing_classifier_accepts": false,
+      "safe_new_design_expected": false
+    },
+    {
+      "case": "zero_exit_semantic_error",
+      "returncode": 0,
+      "stdout": "verification results:: 4 verified, 1 errors (partial verification with `--verify-*`)\nerror: invariant not satisfied at end of loop body\nerror: aborting due to 1 previous error\n",
+      "stderr": "",
+      "existing_classifier_accepts": false,
+      "safe_new_design_expected": false
+    }
+  ]
+}

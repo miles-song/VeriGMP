@@ -1,1 +1,2 @@
 * text=auto eol=lf
+experiments/toom4-composition/test-data/classifier/*.json -text

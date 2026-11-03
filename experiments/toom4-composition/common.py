@@ -8,6 +8,37 @@ import re
 import shutil
 import subprocess
 import sys
+import unicodedata
+
+
+_STRICT_SUMMARY = re.compile(
+    r'^verification results:: (?:0|[1-9][0-9]*) verified, [1-9][0-9]* errors'
+    r'(?: \(partial verification with `--verify-\*`\))?$')
+_STRICT_SUMMARY_MENTION = re.compile(r'\bverification\s+results?\b', re.I)
+_STRICT_SEMANTIC_HEADINGS = frozenset({
+    'error: requires not satisfied',
+    'error: precondition not satisfied',
+    'error: postcondition not satisfied',
+    'error: invariant not satisfied before loop',
+    'error: invariant not satisfied at end of loop body',
+    'error: assertion failed',
+})
+_STRICT_ABORT = re.compile(
+    r'^error: aborting due to (?:1 previous error|(?:[2-9]|[1-9][0-9]+) previous errors)$')
+_STRICT_CONTROL = re.compile(
+    r'out of memory|\boom\b|resource limit|solver returned unknown|\bunknown\b|'
+    r'partial verification|timed? out|\btimeout\b|unexpected token|could not compile|'
+    r'failed to (?:load|execute)|panicked at|\bpanic\b|segmentation fault|'
+    r'internal compiler error|compiler (?:error|panic|crash)|rustc(?::? error)|'
+    r'failed to compile|\bfatal\b|access violation|unhandled exception|'
+    r'killed by signal|\bsignal\b|\bsig(?:kill|term|abrt|segv|bus|fpe|ill|[0-9]+)\b|'
+    r'memory allocation of [0-9]+ bytes failed|cannot allocate memory|'
+    r'allocation fail(?:ed|ure)|bad_alloc|outofmemory|\brlimit\b|'
+    r'abnormal (?:exit|termination)|\bprocess failed\b', re.I)
+_STRICT_SEMANTIC_PHRASES = (
+    'requires not satisfied', 'precondition not satisfied',
+    'postcondition not satisfied', 'invariant not satisfied', 'assertion failed')
+_STRICT_ASSERTION_SOURCE = re.compile(r'^ {2,}\|.*\^.* assertion failed$')
 
 
 def sha(path):
@@ -46,10 +77,49 @@ def verified(command, log, cwd):
 
 
 def strict_mutant(result):
-    text = result.stdout + result.stderr
-    return bool(result.returncode and re.search(r'verification results:: \d+ verified, [1-9]\d* errors', text)
-        and re.search(r'requires not satisfied|precondition not satisfied|invariant not satisfied|postcondition not satisfied|assertion failed', text)
-        and not re.search(r'error\[E\d+\]|solver returned unknown|resource limit|timed out|timeout|unexpected token|could not compile|failed to load|panicked at|segmentation fault|internal compiler error', text, re.I))
+    if type(result.returncode) is not int or result.returncode != 1:
+        return False
+
+    streams = []
+    for stream in (result.stdout, result.stderr):
+        if not isinstance(stream, str):
+            return False
+        if any(unicodedata.category(char) == 'Cc' and char not in '\r\n'
+                for char in stream):
+            return False
+        normalized = stream.replace('\r\n', '\n')
+        if '\r' in normalized:
+            return False
+        streams.append(normalized.split('\n'))
+
+    summaries = 0
+    semantic = 0
+    aborts = 0
+    for lines in streams:
+        for line in lines:
+            if not line:
+                continue
+            if _STRICT_SUMMARY.fullmatch(line):
+                summaries += 1
+                continue
+            if _STRICT_SUMMARY_MENTION.search(line):
+                return False
+            if 'error:' in line.casefold() or line.lstrip().casefold().startswith('error'):
+                if line in _STRICT_SEMANTIC_HEADINGS:
+                    semantic += 1
+                elif _STRICT_ABORT.fullmatch(line):
+                    aborts += 1
+                else:
+                    return False
+                continue
+            if _STRICT_CONTROL.search(line):
+                return False
+            lower = line.casefold()
+            if any(phrase in lower for phrase in _STRICT_SEMANTIC_PHRASES):
+                if not _STRICT_ASSERTION_SOURCE.fullmatch(line):
+                    return False
+
+    return summaries == 1 and semantic > 0 and aborts <= 1
 
 
 def bind_tools(stage, out):
@@ -96,6 +166,7 @@ def check_prepared(stage):
     if sha(stage / 'policy.json') != prepared['policy_sha256']:
         raise RuntimeError('Changed preregistered policy')
     check_hashes(prepared['infrastructure_sha256'], stage)
+    check_hashes(prepared.get('correctness_inputs_sha256', {}), stage)
     return prepared
 
 

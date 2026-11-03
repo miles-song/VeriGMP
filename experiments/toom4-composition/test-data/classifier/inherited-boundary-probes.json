@@ -1,0 +1,75 @@
+{
+  "scope": "Unchanged inherited ASTRA-TOOM4-DESIGN-001 boundary probe; no fix outside task003",
+  "probe_source_sha256": "6c9d7338aa8ba77c5d8c7fef3df14f032d5390a44e4d39d41fc3b8f4d7fdb5ca",
+  "common_sha256": "7956096c2e218176f752ff88f29dc882f722af6932da8cf56abd325ebc22ff52",
+  "cases": [
+    {
+      "case": "valid_semantic_example",
+      "expected": true,
+      "current_result": true,
+      "matches_expected": true
+    },
+    {
+      "case": "signal_with_stale_summary",
+      "expected": false,
+      "current_result": false,
+      "matches_expected": true
+    },
+    {
+      "case": "unrelated_positive_exit",
+      "expected": false,
+      "current_result": false,
+      "matches_expected": true
+    },
+    {
+      "case": "duplicate_summary",
+      "expected": false,
+      "current_result": false,
+      "matches_expected": true
+    },
+    {
+      "case": "extra_unknown_error",
+      "expected": false,
+      "current_result": false,
+      "matches_expected": true
+    },
+    {
+      "case": "oom_after_semantic_error",
+      "expected": false,
+      "current_result": true,
+      "matches_expected": false
+    },
+    {
+      "case": "embedded_non_heading_phrase",
+      "expected": false,
+      "current_result": false,
+      "matches_expected": true
+    },
+    {
+      "case": "noncanonical_summary_prefix",
+      "expected": false,
+      "current_result": false,
+      "matches_expected": true
+    },
+    {
+      "case": "typed_rust_error",
+      "expected": false,
+      "current_result": false,
+      "matches_expected": true
+    },
+    {
+      "case": "explicit_timeout",
+      "expected": false,
+      "current_result": false,
+      "matches_expected": true
+    },
+    {
+      "case": "zero_exit_semantic_error",
+      "expected": false,
+      "current_result": false,
+      "matches_expected": true
+    }
+  ],
+  "all_requirements_implemented_claim": false,
+  "failures": 1
+}

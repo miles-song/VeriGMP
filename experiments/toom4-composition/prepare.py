@@ -4,6 +4,7 @@ import argparse
 import hashlib
 import json
 import subprocess
+from correctness import prepare_inputs
 
 HERE = Path(__file__).resolve().parent
 REPO = HERE.parents[1]
@@ -113,6 +114,9 @@ def prepare(output):
             (output / path.name).write_bytes(path.read_bytes())
             infrastructure[path.name] = sha(path.read_bytes())
     manifest['infrastructure_sha256'] = infrastructure
+    manifest['correctness_inputs_sha256'], correctness_archives = prepare_inputs(
+        output, policy, manifest['variants'], REPO / 'experiments/toom4-signed-eval')
+    manifest['archive_input_sha256'].update(correctness_archives)
     (output / 'preparation.json').write_text(json.dumps(manifest, indent=2) + '\n')
     print(json.dumps({'status': manifest['status'], 'variants': list(manifest['variants']),
         'output': str(output)}, indent=2))
