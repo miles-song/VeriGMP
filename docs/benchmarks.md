@@ -158,6 +158,9 @@ its analytic multiplication count is `k(k+1)/2 + h(h+1)/2` for
 `k = ceil(n/2)`, `h = floor(n/2)`. The frozen 2026-11-01 data predates this low
 square change, so it does not measure that implementation. The registered suite
 includes the `24, 25, 26` and `63, 64, 65` limb boundary shapes.
+The later scoped results, full per-shape comparison, raw evidence hashes and
+limits for this dispatch are recorded in
+[low-square-25-64-acceptance.md](low-square-25-64-acceptance.md).
 
 ## Performance target
 
