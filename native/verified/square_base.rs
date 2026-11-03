@@ -226,19 +226,21 @@ pub fn low(dst:&mut[u64],a:&[u64])
         i+=1;
     }
     let ghost cross=dst@;
-    let mut j=0usize;let mut position=0usize;let mut carry=0u64;
+    let mut j=0usize;let mut carry=0u64;
     proof{lemma_fundamental_div_mod(n as int,2);lemma_mod_division_less_than_divisor(n as int,2);}
-    while position<n-1
-        invariant a@.len()==n,dst@.len()==n,cross.len()==n,n>0,j<=n/2,position==2*j,position<=n,carry<=2,
+    while 2*j+1<n
+        invariant a@.len()==n,dst@.len()==n,cross.len()==n,n>0,j<=n/2,carry<=2,
             value(cross)+radix(n as nat)*overflow==triangle(a@,n as nat),
             forall|k:int| 2*j<=k<n ==> #[trigger] dst@[k]==cross[k],
             prefix(dst@,(2*j) as nat)+radix((2*j) as nat)*(carry as int)
                 ==2*prefix(cross,(2*j) as nat)+diagonal(a@,j as nat),
-        decreases n-position,
+        decreases n/2-j,
     {
         let ghost before=dst@;let ghost incoming=carry;
-        let (low,high,next)=double_diagonal(dst[position],dst[position+1],a[position/2],carry);
-        dst[position]=low;dst[position+1]=high;
+        let position=2*j;
+        let pair=&mut dst[position..position+2];
+        let (low,high,next)=double_diagonal(pair[0],pair[1],a[j],carry);
+        pair[0]=low;pair[1]=high;
         proof {
             reveal_with_fuel(prefix,2);equal_prefix(before,dst@,(2*j) as nat);
             assert(prefix(dst@,(2*j+2) as nat)+radix((2*j+2) as nat)*(next as int)
@@ -251,7 +253,7 @@ pub fn low(dst:&mut[u64],a:&[u64])
                     diagonal(a@,(j+1) as nat)==diagonal(a@,j as nat)+(a@[j as int] as int)*(a@[j as int] as int)*radix((2*j) as nat),
                     radix((2*j+1) as nat)==base()*radix((2*j) as nat),radix((2*j+2) as nat)==base()*radix((2*j+1) as nat);
         }
-        carry=next;position+=2;j+=1;
+        carry=next;j+=1;
     }
     assert(j==n/2);
     let ghost mut high_words=carry as int;
@@ -279,7 +281,7 @@ pub fn low(dst:&mut[u64],a:&[u64])
         prefix_range(dst@,n as nat);radix_positive(n as nat);
         square_identity(a@,n as nat);diagonal_drop_high(a@,j as nat,n as nat,n as nat);
         assert(2*triangle(a@,n as nat)+diagonal(a@,j as nat)
-            ==m*(high_words+2*overflow)+value(dst@)) by(nonlinear_arith)
+            ==(high_words+2*overflow)*m+value(dst@)) by(nonlinear_arith)
             requires value(cross)+m*overflow==triangle(a@,n as nat),
                 value(dst@)+m*high_words==2*value(cross)+diagonal(a@,j as nat);
         lemma_fundamental_div_mod_converse(2*triangle(a@,n as nat)+diagonal(a@,j as nat),m,high_words+2*overflow,value(dst@));
