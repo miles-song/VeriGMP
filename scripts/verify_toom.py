@@ -241,8 +241,8 @@ def check_toom(snapshot,verifier,env,output):
         if any(digest(Path(p))!=h for p,h in (binary_hashes|library_hashes).items()):raise RuntimeError('Measured code changed')
         cpuinfo=Path('/proc/cpuinfo').read_text()
         arithmetic_source=(snapshot/'native/verified/arithmetic.rs').read_text()
-        low_square_policy=('Specialized leaf selected for top-level square sizes 25 through 64; generic or original recursive dispatch otherwise.'
-            if 'low_with_policy' in arithmetic_source else 'Low-square basecase remains generic.')
+        low_square_policy=('Direct specialized low-square leaf selected only for top-level square sizes 25 through 64; original generic low path otherwise.'
+            if 'square_low::base_low_square' in arithmetic_source else 'Original generic low-square path selected.')
         report['benchmark']={'flags':['-O'],'platform':platform.platform(),'cpu_model':next(x.split(':',1)[1].strip() for x in cpuinfo.splitlines() if x.startswith('model name')),
             'raw_csv_sha256':benchmark_csv_sha256,'minimum_recorded_batch_ms':10,
             'pinned_cpu':cpu,'seed':BENCH_SEED,'repetitions':7,'calibration_target_ms':10,'mode_names':MODES,

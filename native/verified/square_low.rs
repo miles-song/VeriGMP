@@ -9,8 +9,8 @@ verus! {
 
 #[verifier::spinoff_prover]
 #[verifier::rlimit(20)]
-fn base_low_square(dst:&mut[u64],a:&[u64],scratch:&mut[u64])
-    requires a@.len()>0,a.len()<=usize::MAX/10,old(dst)@.len()==a@.len(),
+pub fn base_low_square(dst:&mut[u64],a:&[u64],scratch:&mut[u64])
+    requires a@.len()>=25,a@.len()<=64,a.len()<=usize::MAX/10,old(dst)@.len()==a@.len(),
         old(scratch)@.len()>=10*a@.len(),
     ensures final(dst)@.len()==old(dst)@.len(),final(scratch)@.len()==old(scratch)@.len(),
         value(final(dst)@)==(value(a@)*value(a@))%radix(a@.len()),
@@ -77,17 +77,6 @@ fn base_low_square(dst:&mut[u64],a:&[u64],scratch:&mut[u64])
 }
 
 pub fn low(dst:&mut[u64],a:&[u64],scratch:&mut[u64],threshold:usize,low_limit:usize,split_mode:u32)
-    requires a@.len()>0,old(dst)@.len()==a@.len(),old(scratch)@.len()>=10*a@.len(),
-        threshold>=24,low_limit>=24,split_mode<=2,
-    ensures final(dst)@.len()==old(dst)@.len(),final(scratch)@.len()==old(scratch)@.len(),
-        value(final(dst)@)==(value(a@)*value(a@))%radix(a@.len()),
-{
-    low_with_policy(dst,a,scratch,threshold,low_limit,split_mode,true);
-}
-
-#[verifier::spinoff_prover]
-#[verifier::rlimit(20)]
-pub fn low_with_policy(dst:&mut[u64],a:&[u64],scratch:&mut[u64],threshold:usize,low_limit:usize,split_mode:u32,use_specialized_leaf:bool)
     requires a@.len()>0,old(dst)@.len()==a@.len(),
         old(scratch)@.len()>=10*a@.len(),threshold>=24,low_limit>=24,split_mode<=2,
     ensures final(dst)@.len()==old(dst)@.len(),final(scratch)@.len()==old(scratch)@.len(),
@@ -100,11 +89,7 @@ pub fn low_with_policy(dst:&mut[u64],a:&[u64],scratch:&mut[u64],threshold:usize,
     assert!(a.len()>0 && a.len()==b.len());assert!(a.len()<=usize::MAX/10);
     assert!(dst.len()==a.len() && scratch.len()>=10*a.len());assert!(threshold>=24 && low_limit>=24 && split_mode<=2);
     let n=a.len();
-    if n<=low_limit {
-        if use_specialized_leaf && n>=25 && n<=64 {base_low_square(dst,a,scratch);}
-        else {fast_multiply::base_low(dst,a,a);}
-        return;
-    }
+    if n<=low_limit {fast_multiply::base_low(dst,a,b);return;}
     // Quotient-first form avoids overflowing 11*n.
     let h=if split_mode==2 {(n/40)*9+((n%40)*9)/40}else if split_mode==1 {(n/36)*11+((n%36)*11)/36}else{n/2};
     proof {
