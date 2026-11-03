@@ -273,7 +273,8 @@ class FailureLogTests(unittest.TestCase):
             if args[:2] == ('ls-files', '--'):
                 return ''
             raise AssertionError(args)
-        with patch('ci.git', side_effect=git), self.assertRaisesRegex(RuntimeError, 'not tracked'):
+        with patch.dict(os.environ, {'GITHUB_SHA': 'synthetic-commit'}), \
+                patch('ci.git', side_effect=git), self.assertRaisesRegex(RuntimeError, 'not tracked'):
             checkout_identity()
 
     def test_stale_running_correctness_report_cannot_finalize_ci_inventory(self):
