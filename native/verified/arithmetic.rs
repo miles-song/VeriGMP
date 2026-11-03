@@ -38,7 +38,8 @@ pub fn square_mod(dst:&mut[u64],a:&[u64],scratch:&mut[u64],top:u32)
         0<=value(final(dst)@)<modulus(a@.len(),top as nat),
 {
     assert!(1<=top && top<=64);
-    square_low::low(dst,a,scratch,192,64,1);
+    let use_specialized_leaf=a.len()>=25 && a.len()<=64;
+    square_low::low_with_policy(dst,a,scratch,192,64,1,use_specialized_leaf);
     pow2::normalize_top(dst,top);
     proof {
         modulus_properties(a@.len(),top as nat);lemma_pow2_pos((64-top) as nat);

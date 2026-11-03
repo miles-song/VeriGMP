@@ -234,8 +234,18 @@ computes each cross product once, then combines twice the triangular sum with th
 diagonal squares. Its independent model proves that this is the exact square.
 The kernel performs `n(n-1)/2 + n` word multiplications, uses `O(1)` extra words,
 and adds no scratch requirement. The operation count is an analytic count, not a
-composed machine-checked cost theorem. Smaller full-square leaves and the low-square
-entry up to 64 limbs use generic multiplication.
+composed machine-checked cost theorem. Smaller full-square leaves use generic
+multiplication. For the default low-square leaf, only a top-level input with
+`25 <= n <= 64` enables symmetry specialization; smaller inputs and larger
+inputs keep the original dispatch. For the specialized case, let `k = ceil(n/2)`
+and `h = floor(n/2)`. The implementation squares the low `k` limbs with
+`square_base::full`, computes the low `h` limbs of the high-by-low cross product
+once, and adds it twice at offset `k`. The upper-block square is a multiple of
+`B^n` and is omitted. This reuses the verified full-square and low-product
+contracts, and the suffix congruence composes the two additions with
+`low_identity`. The source-level word-multiplication count is
+`k(k+1)/2 + h(h+1)/2`, versus `n(n+1)/2` for the generic low product. This is an
+analytic count, not a composed cost theorem.
 
 ## Public dispatch
 
@@ -243,9 +253,10 @@ entry up to 64 limbs use generic multiplication.
 `toom_low::modular` with Toom threshold 192, low threshold 128 and short ratio
 9/40 otherwise. `arithmetic::square_mod` always uses `square_low::low` with Toom
 threshold 192, low threshold 64 and ratio 11/36, then normalizes the top limb.
-These thresholds act inside the recursion, not on the top-level input: up to 64
-limbs the low square calls the generic basecase product directly, and 192 limits
-the full low-block square. At `n = 193`, for example, the short block is 58 limbs
+The low-square specialization is selected only for top-level `n` from 25 through
+64 limbs; other lengths retain the original generic or recursive path. The
+thresholds also act inside the recursion, and 192 limits the full low-block
+square. At `n = 193`, for example, the short block is 58 limbs
 and the 135-limb full block is still squared by Karatsuba. The original
 `fast_multiply::mul_mod` API keeps its own Karatsuba policy and its `4n`
 low-product workspace (`3n` for full products).

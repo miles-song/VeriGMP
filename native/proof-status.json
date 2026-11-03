@@ -58,7 +58,8 @@
         "verified/arithmetic.rs"
       ],
       "status": "impl_refined",
-      "scope": "Recursive full/low Toom multiplication, dedicated recursive squares and fixed modular dispatch"
+      "scope": "Recursive full/low Toom multiplication, dedicated recursive squares, a symmetry-specialized low-square basecase selected for top-level sizes 25 through 64 and fixed modular dispatch",
+      "low_square_base_word_multiplications": "For 25 <= n <= 64, k = ceil(n/2) and h = floor(n/2): k(k+1)/2 + h(h+1)/2, versus n(n+1)/2 for the generic low product; analytic count, not a composed cost theorem"
     },
     {
       "files": [
@@ -91,7 +92,6 @@
     "Architecture-specific assembly",
     "Higher Toom variants and FFT",
     "Composed cost model",
-    "General division, inversion and higher-level integer APIs",
-    "Truncated symmetry-specialized low-square leaf"
+    "General division, inversion and higher-level integer APIs"
   ]
 }

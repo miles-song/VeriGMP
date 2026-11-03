@@ -42,12 +42,20 @@ Behind those two functions are schoolbook multiplication, difference-form
 Karatsuba, five-point Toom-3, dedicated recursive squaring and truncated
 low-product recursion. Products below 512 limbs take the original Karatsuba
 path and larger products take the Toom-3 path. Squares always take the dedicated
-low-square recursion. Up to 64 limbs it calls the generic basecase product;
-above that it squares a low block of `n - floor(11n/36)` limbs in full, with
-Toom-3 when that block exceeds 192 limbs and Karatsuba squaring otherwise.
+low-square recursion. For top-level square inputs from 25 through 64 limbs, it
+uses a symmetry-specialized low-square basecase. Smaller inputs and inputs above
+64 limbs retain the original dispatch: schoolbook low multiplication for the
+former, and a full square of a low block of `n - floor(11n/36)` limbs for the
+latter. That block uses Toom-3 when it exceeds 192 limbs and Karatsuba squaring
+otherwise.
 Full-square leaves of at least eight limbs use a proved triangular symmetric kernel;
-smaller leaves and the low-square entry up to 64 limbs retain generic multiplication.
-These thresholds are a fixed, measured policy, not a claim of optimality.
+smaller full-square leaves retain generic multiplication. For the low-square base
+case from 25 through 64 limbs, split `a` into `a0` (the low `ceil(n/2)` limbs) and `a1`.
+The kernel computes `a0^2` and one low `a0*a1` product, then adds that cross
+product twice at the split offset. Its analytic word-multiplication count is
+`k(k+1)/2 + h(h+1)/2`, where `k = ceil(n/2)` and `h = floor(n/2)`, versus
+`n(n+1)/2` for the generic low product. These counts are not a composed cost
+theorem, and the fixed thresholds are not a claim of optimality.
 
 ## Quick start
 
@@ -135,9 +143,9 @@ the measured sizes from 1,023 to 4,096 limbs they are faster, by 19% at 4,096.
 The frozen benchmark commit used generic multiplication at full-square leaves;
 the current implementation uses a proved triangular kernel from eight limbs.
 
-Not yet implemented: architecture-specific assembly, a symmetry-specialized
-truncated low-square leaf, Toom-4 and higher, FFT multiplication, and general division,
-inversion or higher-level integer APIs. The exact claimed scope is recorded in
+Not yet implemented: architecture-specific assembly, Toom-4 and higher, FFT
+multiplication, and general division, inversion or higher-level integer APIs.
+The exact claimed scope is recorded in
 [native/proof-status.json](native/proof-status.json).
 
 ## Documentation

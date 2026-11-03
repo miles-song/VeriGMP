@@ -150,9 +150,14 @@ GMP's `mpn_sqr` baseline.
 
 The published benchmark data used generic multiplication at full-square leaves.
 The current verified implementation uses a proved triangular full-square kernel
-from eight limbs (no extra scratch, `n(n-1)/2 + n` multiplications analytic count),
-while the low-square basecase entry up to 64 limbs continues to use generic
-multiplication. That newer implementation is not measured in the frozen table.
+from eight limbs (no extra scratch, `n(n-1)/2 + n` multiplications analytic count)
+and a symmetry-specialized low-square basecase selected for top-level squares of
+25 through 64 limbs. Other default sizes retain the original low-square dispatch.
+The kernel computes a half-width full square plus one low cross product added twice;
+its analytic multiplication count is `k(k+1)/2 + h(h+1)/2` for
+`k = ceil(n/2)`, `h = floor(n/2)`. The frozen 2026-11-01 data predates this low
+square change, so it does not measure that implementation. The registered suite
+includes the `24, 25, 26` and `63, 64, 65` limb boundary shapes.
 
 ## Performance target
 

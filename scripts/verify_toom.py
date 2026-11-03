@@ -15,7 +15,7 @@ from verify_multiply import integer, words, MAX
 
 SEED = 20261101
 BENCH_SEED = 16438731
-SHAPES = [(1,1),(1,64),(2,1),*((n,63) for n in (23,24,25,63,64,65,127,128,129,
+SHAPES = [(1,1),(1,64),(2,1),*((n,63) for n in (23,24,25,26,63,64,65,127,128,129,
     191,192,193,255,256,257,511,512,513,1023,1024,1025,2048,4096))]
 MODES = {0:'previous_karatsuba',1:'low_9_40',2:'low_11_36',3:'full_then_truncate',
          4:'gmp_full_then_truncate',5:'default'}
@@ -173,12 +173,16 @@ def check_toom(snapshot,verifier,env,output):
             ('square.rs','wrong_difference_sign','let negative=neg_a!=neg_b;','let negative=neg_a==neg_b;',1),
             ('toom_square.rs','negative_square_product','let negative=na!=nb;','let negative=na;',1),
             ('square_low.rs','missing_double_cross','let ghost c2=value(temp@);\n    let _carry=limbs::add_assign(&mut dst[k..],temp);','let ghost c2=value(temp@);',1),
+            ('square_low.rs','wrong_low_square_cross','let ghost c2=value(cross@);','let ghost c2=0;',1),
             ('mac4.rs','drop_carry','carry = high;','carry = 0;',5),
             ('mac4.rs','omit_tail','while j < dst.len()','while dst.len() - j > 1',1),
             ('arithmetic.rs','wrong_default_precision','scratch,top,192,128,2','scratch,64,192,128,2',1),
         ]
         for file,name,before,after,count in mutations:
             source=snapshot/'native/verified'/file;original=source.read_bytes();text=original.decode().replace('\r\n','\n')
+            if name=='wrong_low_square_cross' and text.count(before)==0:
+                report['mutations'].append({'name':name,'applicability':'candidate helper is absent from this baseline'})
+                continue
             if text.count(before)!=count:raise RuntimeError(f'Mutant anchor mismatch: {name}: {text.count(before)}')
             try:
                 source.write_text(text.replace(before,after,1))
@@ -236,6 +240,9 @@ def check_toom(snapshot,verifier,env,output):
             report['square_base_measurements'].append({'limbs':n,'mode':m,'ns_median':statistics.median(int(r['ns'])/int(r['iterations']) for r in group)})
         if any(digest(Path(p))!=h for p,h in (binary_hashes|library_hashes).items()):raise RuntimeError('Measured code changed')
         cpuinfo=Path('/proc/cpuinfo').read_text()
+        arithmetic_source=(snapshot/'native/verified/arithmetic.rs').read_text()
+        low_square_policy=('Specialized leaf selected for top-level square sizes 25 through 64; generic or original recursive dispatch otherwise.'
+            if 'low_with_policy' in arithmetic_source else 'Low-square basecase remains generic.')
         report['benchmark']={'flags':['-O'],'platform':platform.platform(),'cpu_model':next(x.split(':',1)[1].strip() for x in cpuinfo.splitlines() if x.startswith('model name')),
             'raw_csv_sha256':benchmark_csv_sha256,'minimum_recorded_batch_ms':10,
             'pinned_cpu':cpu,'seed':BENCH_SEED,'repetitions':7,'calibration_target_ms':10,'mode_names':MODES,
@@ -246,7 +253,7 @@ def check_toom(snapshot,verifier,env,output):
             'mac4_workload':'Same initial destination and common iteration count across modes; destination reset outside timing and final states compared.',
             'mac4_default':False,'mac4_policy':'Kept as verified candidate; no consistent win over original carry loop in local measurements.',
             'square_base_modes':{0:'previous_generic_full',1:'symmetric_full',2:'gmp_sqr'},
-            'square_base_policy':'Full-square leaves use the symmetric kernel from 8 limbs; below 8 retain generic multiplication. Low-square leaf remains generic.'}
+            'square_base_policy':'Full-square leaves use the symmetric kernel from 8 limbs; below 8 retain generic multiplication. '+low_square_policy}
         report['cost']={'toom_full':'T(n)=2T(at most ceil(n/3))+3T(ceil(n/3)+1)+O(n)',
             'low':'L(n)=T(n-h)+2L(h)+O(n), h=floor(9n/40) or floor(11n/36) or floor(n/2)',
             'square':'Dedicated five-point squares; low square computes one cross multiplication and adds it twice',

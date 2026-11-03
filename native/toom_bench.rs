@@ -51,7 +51,7 @@ fn batch(square:bool,mode:u32,out:&mut[u64],a:&[u64],b:&[u64],scratch:&mut[u64],
 fn main(){
     let args:Vec<String>=std::env::args().collect();let seed:u64=args[1].parse().unwrap();let tuning=args.get(2).map(|s|s=="tune").unwrap_or(false);
     let shapes:Vec<(usize,u32)>=if tuning{vec![(128,63),(256,63),(512,63),(1024,63),(2048,63),(4096,63)]}
-        else{vec![(1,1),(1,64),(2,1),(23,63),(24,63),(25,63),(63,63),(64,63),(65,63),(127,63),(128,63),(129,63),
+        else{vec![(1,1),(1,64),(2,1),(23,63),(24,63),(25,63),(26,63),(63,63),(64,63),(65,63),(127,63),(128,63),(129,63),
             (191,63),(192,63),(193,63),(255,63),(256,63),(257,63),(511,63),(512,63),(513,63),(1023,63),(1024,63),(1025,63),(2048,63),(4096,63)]};
     let thresholds=if tuning{vec![96,192,384]}else{vec![192]};let lows=if tuning{vec![64,128]}else{vec![128]};
     println!("square,limbs,top,threshold,low_limit,mode,repetition,iterations,ns");

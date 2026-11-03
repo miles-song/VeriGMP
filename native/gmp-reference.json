@@ -25,13 +25,13 @@
     "Dedicated recursive squares with one evaluation per point and one low cross multiplication",
     "Caller-owned linear scratch with sequential reuse; zero and infinity use unpadded blocks",
     "9/40 short-block candidate for the Toom cost regime",
-    "Triangular basecase square with each cross product once, then fused doubling and diagonal addition; independent Rust implementation/proof"
+    "Triangular basecase square with each cross product once, then fused doubling and diagonal addition; independent Rust implementation/proof",
+    "Symmetry-specialized truncated low-square leaf using one low half-width square and one cross product added twice; independently implemented and refined to the low-square contract"
   ],
   "not_yet_implemented": [
     "Architecture-specific addmul assembly",
     "Toom-4 and higher",
-    "FFT",
-    "Truncated symmetry-specialized low-square leaf"
+    "FFT"
   ],
   "evaluated_candidates": [
     "Four-word row unrolling is proved and measured, but disabled in default dispatch because it lacks a consistent speedup"
