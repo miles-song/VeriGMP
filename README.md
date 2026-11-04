@@ -157,6 +157,8 @@ The exact claimed scope is recorded in
 - [docs/verification.md](docs/verification.md): what is proved, what is tested and
   what is trusted.
 - [docs/benchmarks.md](docs/benchmarks.md): measurement method and published data.
+- [docs/ci-local-ephemeral.md](docs/ci-local-ephemeral.md): the manual local runner
+  route for the full arithmetic CI gate.
 - [CONTRIBUTING.md](CONTRIBUTING.md): how to change a module without weakening its
   evidence.
 
