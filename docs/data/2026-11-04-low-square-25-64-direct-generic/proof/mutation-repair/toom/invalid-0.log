@@ -1,0 +1,4 @@
+
+thread 'main' (4543) panicked at /tmp/verigmp-leaf-mutation-2lc2cspe/native/verified/fast_multiply.rs:240:5:
+assertion failed: 1 <= top && top <= 64
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace

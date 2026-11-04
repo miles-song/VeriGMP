@@ -1,0 +1,4 @@
+
+thread 'main' (4549) panicked at /tmp/verigmp-leaf-mutation-2lc2cspe/native/verified/square.rs:22:63:
+assertion failed: threshold >= 8
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace

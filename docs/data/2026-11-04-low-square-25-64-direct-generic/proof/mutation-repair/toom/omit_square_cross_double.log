@@ -1,0 +1,1361 @@
+verification results:: 224 verified, 1 errors
+note: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/specs/radix.rs:10:1
+   |
+10 | pub o...> int
+   | ^^^^^...^^^^^
+
+note: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/specs/radix.rs:16:1
+   |
+16 | pub o...> int
+   | ^^^^^...^^^^^
+
+note: assert_nonlinear_by: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/specs/radix.rs:33:9
+   |
+33 | ...   assert(ba...
+   |       ^^^^^^
+
+note: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/specs/radix.rs:27:1
+   |
+27 | pub p... nat)
+   | ^^^^^...^^^^^
+
+note: assert_nonlinear_by: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/specs/radix.rs:46:9
+   |
+46 | ...   assert(0 ...
+   |       ^^^^^^
+
+note: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/specs/radix.rs:38:1
+   |
+38 | pub p... nat)
+   | ^^^^^...^^^^^
+
+note: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/specs/radix.rs:57:1
+   |
+57 | pub p... nat)
+   | ^^^^^...^^^^^
+
+note: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/specs/radix.rs:67:1
+   |
+67 | pub p... nat)
+   | ^^^^^...^^^^^
+
+note: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+ --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/verified/arithmetic.rs:9:1
+  |
+9 | pub f...size>)
+  | ^^^^^...^^^^^
+
+note: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/verified/arithmetic.rs:16:1
+   |
+16 | pub f...size>)
+   | ^^^^^...^^^^^
+
+note: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/verified/arithmetic.rs:23:1
+   |
+23 | pub f...:u32)
+   | ^^^^^...^^^^^
+
+note: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/verified/arithmetic.rs:34:1
+   |
+34 | pub f...:u32)
+   | ^^^^^...^^^^^
+
+note: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/verified/fast_multiply.rs:13:1
+   |
+13 | pub f...size>)
+   | ^^^^^...^^^^^
+
+note: assert_nonlinear_by: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/verified/fast_multiply.rs:39:9
+   |
+39 | ...   assert(pr...
+   |       ^^^^^^
+
+note: assert_nonlinear_by: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/verified/fast_multiply.rs:59:13
+   |
+59 | ...   assert(pr...
+   |       ^^^^^^
+
+note: assert_nonlinear_by: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/verified/fast_multiply.rs:67:13
+   |
+67 | ...   assert(pr...
+   |       ^^^^^^
+
+note: while loop: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/verified/fast_multiply.rs:45:5
+   |
+45 |     while i<n
+   |     ^^^^^^^^^
+
+note: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/verified/fast_multiply.rs:22:1
+   |
+22 | pub f...u64])
+   | ^^^^^...^^^^^
+
+note: assert_nonlinear_by: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+   --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/verified/fast_multiply.rs:158:9
+    |
+158 | ...   assert((a...
+    |       ^^^^^^
+
+note: assert_nonlinear_by: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+   --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/verified/fast_multiply.rs:174:13
+    |
+174 | ...   assert(pr...
+    |       ^^^^^^
+
+note: while loop: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+   --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/verified/fast_multiply.rs:164:5
+    |
+164 |     while i<n
+    |     ^^^^^^^^^
+
+note: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+   --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/verified/fast_multiply.rs:149:1
+    |
+149 | pub f...u64])
+    | ^^^^^...^^^^^
+
+note: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+   --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/verified/fast_multiply.rs:233:1
+    |
+233 | pub f...bool)
+    | ^^^^^...^^^^^
+
+note: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+   --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/verified/fast_multiply.rs:250:1
+    |
+250 | pub f...:u32)
+    | ^^^^^...^^^^^
+
+note: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/specs/fast_product.rs:18:1
+   |
+18 | pub p... nat)
+   | ^^^^^...^^^^^
+
+note: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/specs/fast_product.rs:22:1
+   |
+22 | pub p... nat)
+   | ^^^^^...^^^^^
+
+note: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/specs/fast_product.rs:31:1
+   |
+31 | pub p...:nat)
+   | ^^^^^...^^^^^
+
+note: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/specs/fast_product.rs:39:1
+   |
+39 | pub p... nat)
+   | ^^^^^...^^^^^
+
+note: assert_nonlinear_by: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/specs/fast_product.rs:61:5
+   |
+61 |     assert(va...
+   |     ^^^^^^
+
+note: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/specs/fast_product.rs:48:1
+   |
+48 | pub p... int)
+   | ^^^^^...^^^^^
+
+note: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/specs/fast_product.rs:71:1
+   |
+71 | pub p...:int)
+   | ^^^^^...^^^^^
+
+note: assert_nonlinear_by: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+   --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/specs/fast_product.rs:104:5
+    |
+104 |     assert(a1...
+    |     ^^^^^^
+
+note: assert_nonlinear_by: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+   --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/specs/fast_product.rs:110:5
+    |
+110 |     assert(q=...
+    |     ^^^^^^
+
+note: assert_nonlinear_by: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+   --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/specs/fast_product.rs:113:5
+    |
+113 |     assert(va...
+    |     ^^^^^^
+
+note: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/specs/fast_product.rs:87:1
+   |
+87 | pub p...:int)
+   | ^^^^^...^^^^^
+
+note: assert_nonlinear_by: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+   --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/specs/fast_product.rs:126:5
+    |
+126 |     assert(va...
+    |     ^^^^^^
+
+note: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+   --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/specs/fast_product.rs:121:1
+    |
+121 | pub p...:nat)
+    | ^^^^^...^^^^^
+
+note: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+   --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/specs/fast_product.rs:131:1
+    |
+131 | pub p...:int)
+    | ^^^^^...^^^^^
+
+note: while loop: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/verified/fast_words.rs:17:5
+   |
+17 |     while...len()
+   |     ^^^^^...^^^^^
+
+note: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/verified/fast_words.rs:11:1
+   |
+11 | pub f...u64])
+   | ^^^^^...^^^^^
+
+note: assert_nonlinear_by: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/verified/fast_words.rs:46:17
+   |
+46 | ...   assert(va...
+   |       ^^^^^^
+
+note: assert_nonlinear_by: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/verified/fast_words.rs:55:21
+   |
+55 | ...   assert(ra...
+   |       ^^^^^^
+
+note: assert_nonlinear_by: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/verified/fast_words.rs:59:17
+   |
+59 | ...   assert((v...
+   |       ^^^^^^
+
+note: while loop: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/verified/fast_words.rs:32:5
+   |
+32 |     while i>0
+   |     ^^^^^^^^^
+
+note: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/verified/fast_words.rs:26:1
+   |
+26 | pub f...:bool)
+   | ^^^^^...^^^^^
+
+note: assert_nonlinear_by: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/verified/fast_words.rs:96:13
+   |
+96 | ...   assert(pr...
+   |       ^^^^^^
+
+note: while loop: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/verified/fast_words.rs:82:5
+   |
+82 |     while...ommon
+   |     ^^^^^...^^^^^
+
+note: assert_nonlinear_by: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+   --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/verified/fast_words.rs:121:13
+    |
+121 | ...   assert(pr...
+    |       ^^^^^^
+
+note: while loop: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+   --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/verified/fast_words.rs:107:5
+    |
+107 |     while...len()
+    |     ^^^^^...^^^^^
+
+note: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/verified/fast_words.rs:73:1
+   |
+73 | pub f...t:u64)
+   | ^^^^^...^^^^^
+
+note: assert_nonlinear_by: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+   --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/verified/fast_words.rs:146:9
+    |
+146 | ...   assert(bo...
+    |       ^^^^^^
+
+note: assert_nonlinear_by: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+   --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/verified/fast_words.rs:151:9
+    |
+151 | ...   assert(va...
+    |       ^^^^^^
+
+note: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+   --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/verified/fast_words.rs:135:1
+    |
+135 | pub f...:bool)
+    | ^^^^^...^^^^^
+
+note: assert_nonlinear_by: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+   --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/verified/fast_words.rs:182:13
+    |
+182 | ...   assert(pr...
+    |       ^^^^^^
+
+note: while loop: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+   --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/verified/fast_words.rs:170:5
+    |
+170 |     while...ry!=0
+    |     ^^^^^...^^^^^
+
+note: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+   --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/verified/fast_words.rs:161:1
+    |
+161 | pub f...t:u64)
+    | ^^^^^...^^^^^
+
+note: assert_nonlinear_by: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+   --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/verified/fast_words.rs:211:9
+    |
+211 | ...   assert(va...
+    |       ^^^^^^
+
+note: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+   --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/verified/fast_words.rs:197:1
+    |
+197 | pub f...t:u64)
+    | ^^^^^...^^^^^
+
+note: assert_nonlinear_by: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+   --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/verified/fast_words.rs:241:13
+    |
+241 | ...   assert(pr...
+    |       ^^^^^^
+
+note: while loop: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+   --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/verified/fast_words.rs:230:5
+    |
+230 |     while...len()
+    |     ^^^^^...^^^^^
+
+note: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+   --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/verified/fast_words.rs:222:1
+    |
+222 | pub f...t:u64)
+    | ^^^^^...^^^^^
+
+note: assert_nonlinear_by: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+   --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/verified/fast_words.rs:274:13
+    |
+274 | ...   assert(pr...
+    |       ^^^^^^
+
+note: while loop: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+   --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/verified/fast_words.rs:264:5
+    |
+264 |     while...len()
+    |     ^^^^^...^^^^^
+
+note: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+   --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/verified/fast_words.rs:257:1
+    |
+257 | pub f...t:u64)
+    | ^^^^^...^^^^^
+
+note: assert_nonlinear_by: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+   --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/verified/fast_words.rs:300:17
+    |
+300 | ...   assert(va...
+    |       ^^^^^^
+
+note: assert_nonlinear_by: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+   --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/verified/fast_words.rs:310:9
+    |
+310 | ...   assert(va...
+    |       ^^^^^^
+
+note: assert_nonlinear_by: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+   --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/verified/fast_words.rs:318:9
+    |
+318 | ...   assert(0<...
+    |       ^^^^^^
+
+note: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+   --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/verified/fast_words.rs:288:1
+    |
+288 | pub f...h:u64)
+    | ^^^^^...^^^^^
+
+note: assert_nonlinear_by: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+   --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/verified/fast_words.rs:343:9
+    |
+343 | ...   assert(to...
+    |       ^^^^^^
+
+note: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+   --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/verified/fast_words.rs:328:1
+    |
+328 | pub f...:u64)
+    | ^^^^^...^^^^^
+
+note: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+ --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/verified/kernel.rs:7:1
+  |
+7 | pub f...: u64)
+  | ^^^^^...^^^^^
+
+note: assert_nonlinear_by: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/verified/kernel.rs:23:5
+   |
+23 |     assert((a...
+   |     ^^^^^^
+
+note: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/verified/kernel.rs:17:1
+   |
+17 | pub f...: u64)
+   | ^^^^^...^^^^^
+
+note: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/verified/kernel.rs:29:1
+   |
+29 | pub f... u64))
+   | ^^^^^...^^^^^
+
+note: assert_nonlinear_by: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/verified/kernel.rs:51:9
+   |
+51 | ...   assert((l...
+   |       ^^^^^^
+
+note: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/verified/kernel.rs:42:1
+   |
+42 | pub f...,u64))
+   | ^^^^^...^^^^^
+
+note: assert_nonlinear_by: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/verified/limbs.rs:42:13
+   |
+42 | ...   assert(pr...
+   |       ^^^^^^
+
+note: while loop: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/verified/limbs.rs:24:5
+   |
+24 |     while...len()
+   |     ^^^^^...^^^^^
+
+note: assert_nonlinear_by: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/verified/limbs.rs:64:9
+   |
+64 | ...   assert(va...
+   |       ^^^^^^
+
+note: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/verified/limbs.rs:10:1
+   |
+10 | pub f...: u64)
+   | ^^^^^...^^^^^
+
+note: assert_nonlinear_by: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/verified/limbs.rs:94:13
+   |
+94 | ...   assert(pr...
+   |       ^^^^^^
+
+note: while loop: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/verified/limbs.rs:84:5
+   |
+84 |     while...len()
+   |     ^^^^^...^^^^^
+
+note: assert_nonlinear_by: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+   --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/verified/limbs.rs:107:9
+    |
+107 | ...   assert(va...
+    |       ^^^^^^
+
+note: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/verified/limbs.rs:75:1
+   |
+75 | pub f...w:u64)
+   | ^^^^^...^^^^^
+
+note: assert_nonlinear_by: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/verified/mac4.rs:42:17
+   |
+42 | ...   assert((w...
+   |       ^^^^^^
+
+note: assert_nonlinear_by: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/verified/mac4.rs:64:17
+   |
+64 | ...   assert((w...
+   |       ^^^^^^
+
+note: assert_nonlinear_by: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/verified/mac4.rs:86:17
+   |
+86 | ...   assert((w...
+   |       ^^^^^^
+
+note: assert_nonlinear_by: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+   --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/verified/mac4.rs:108:17
+    |
+108 | ...   assert((w...
+    |       ^^^^^^
+
+note: while loop: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/verified/mac4.rs:20:5
+   |
+20 |     while j<limit
+   |     ^^^^^^^^^^^^^
+
+note: assert_nonlinear_by: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+   --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/verified/mac4.rs:138:13
+    |
+138 | ...   assert((w...
+    |       ^^^^^^
+
+note: while loop: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+   --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/verified/mac4.rs:119:5
+    |
+119 |     while...len()
+    |     ^^^^^...^^^^^
+
+note: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+ --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/verified/mac4.rs:7:1
+  |
+7 | pub f...: u64)
+  | ^^^^^...^^^^^
+
+note: assert_nonlinear_by: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/verified/multiply.rs:19:5
+   |
+19 |     assert((a...
+   |     ^^^^^^
+
+note: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/verified/multiply.rs:14:1
+   |
+14 | pub f... u64))
+   | ^^^^^...^^^^^
+
+note: assert_nonlinear_by: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/verified/multiply.rs:59:13
+   |
+59 | ...   assert((w...
+   |       ^^^^^^
+
+note: while loop: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/verified/multiply.rs:40:5
+   |
+40 |     while...len()
+   |     ^^^^^...^^^^^
+
+note: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/verified/multiply.rs:28:1
+   |
+28 | pub f...: u64)
+   | ^^^^^...^^^^^
+
+note: assert_nonlinear_by: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/verified/multiply.rs:97:9
+   |
+97 | ...   assert(va...
+   |       ^^^^^^
+
+note: assert_nonlinear_by: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+   --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/verified/multiply.rs:103:9
+    |
+103 | ...   assert(va...
+    |       ^^^^^^
+
+note: assert_nonlinear_by: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+   --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/verified/multiply.rs:112:9
+    |
+112 | ...   assert(to...
+    |       ^^^^^^
+
+note: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/verified/multiply.rs:74:1
+   |
+74 | pub f...size)
+   | ^^^^^...^^^^^
+
+note: while loop: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+   --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/verified/multiply.rs:135:5
+    |
+135 |     while z < n
+    |     ^^^^^^^^^^^
+
+note: assert_nonlinear_by: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+   --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/verified/multiply.rs:161:13
+    |
+161 | ...   assert(pr...
+    |       ^^^^^^
+
+note: assert_nonlinear_by: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+   --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/verified/multiply.rs:168:13
+    |
+168 | ...   assert(2 ...
+    |       ^^^^^^
+
+note: while loop: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+   --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/verified/multiply.rs:147:5
+    |
+147 |     while i < n
+    |     ^^^^^^^^^^^
+
+note: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+   --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/verified/multiply.rs:125:1
+    |
+125 | pub f...u64])
+    | ^^^^^...^^^^^
+
+note: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+   --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/verified/multiply.rs:178:1
+    |
+178 | pub f... u32)
+    | ^^^^^...^^^^^
+
+note: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/verified/pow2.rs:14:1
+   |
+14 | pub f... u32))
+   | ^^^^^...^^^^^
+
+note: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/verified/pow2.rs:30:1
+   |
+30 | pub f...: u64)
+   | ^^^^^...^^^^^
+
+note: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/verified/pow2.rs:54:1
+   |
+54 | pub f... u32)
+   | ^^^^^...^^^^^
+
+note: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/verified/pow2.rs:69:1
+   |
+69 | pub f... u32)
+   | ^^^^^...^^^^^
+
+note: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/verified/pow2.rs:89:1
+   |
+89 | pub f...:u32)
+   | ^^^^^...^^^^^
+
+note: assert_nonlinear_by: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/specs/precision.rs:38:5
+   |
+38 |     assert(mo...
+   |     ^^^^^^
+
+note: assert_nonlinear_by: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/specs/precision.rs:41:5
+   |
+41 |     assert(ra...
+   |     ^^^^^^
+
+note: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/specs/precision.rs:22:1
+   |
+22 | pub p... nat)
+   | ^^^^^...^^^^^
+
+note: assert_nonlinear_by: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/specs/precision.rs:70:5
+   |
+70 |     assert(0 ...
+   |     ^^^^^^
+
+note: assert_nonlinear_by: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/specs/precision.rs:76:5
+   |
+76 |     assert(va...
+   |     ^^^^^^
+
+note: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/specs/precision.rs:50:1
+   |
+50 | pub p... nat)
+   | ^^^^^...^^^^^
+
+note: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+ --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/specs/product.rs:7:1
+  |
+7 | pub o...> int
+  | ^^^^^...^^^^^
+
+note: assert_nonlinear_by: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/specs/product.rs:23:9
+   |
+23 | ...   assert(va...
+   |       ^^^^^^
+
+note: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/specs/product.rs:16:1
+   |
+16 | pub p... nat)
+   | ^^^^^...^^^^^
+
+note: assert_nonlinear_by: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/specs/product.rs:39:9
+   |
+39 | ...   assert(ra...
+   |       ^^^^^^
+
+note: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/specs/product.rs:33:1
+   |
+33 | pub p... nat)
+   | ^^^^^...^^^^^
+
+note: assert_nonlinear_by: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/specs/product.rs:57:9
+   |
+57 | ...   assert(pr...
+   |       ^^^^^^
+
+note: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/specs/product.rs:47:1
+   |
+47 | pub p... nat)
+   | ^^^^^...^^^^^
+
+note: assert_nonlinear_by: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/specs/product.rs:82:5
+   |
+82 |     assert((d...
+   |     ^^^^^^
+
+note: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/specs/product.rs:73:1
+   |
+73 | / pub proof fn mac_prefix_step(dp: int, op: int, bp: int, place: int, scal...
+74 | |     word: int, digit: int, old: int, carry: int, low: int, high: int)
+   | |_____________________________________________________________________^
+
+note: assert_nonlinear_by: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/verified/square_base.rs:17:5
+   |
+17 |     assert((a...
+   |     ^^^^^^
+
+note: assert_nonlinear_by: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/verified/square_base.rs:29:9
+   |
+29 | ...   assert((l...
+   |       ^^^^^^
+
+note: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/verified/square_base.rs:11:1
+   |
+11 | fn do...,u64))
+   | ^^^^^...^^^^^
+
+error: requires not satisfied
+  --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/verified/square_base.rs:33:17
+   |
+33 | ...   low a... int),
+   |       ^^^^^...^^^^^
+
+note: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+ --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/specs/square_base.rs:6:1
+  |
+6 | pub o...->int
+  | ^^^^^...^^^^^
+
+note: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/specs/square_base.rs:14:1
+   |
+14 | pub o...->int
+   | ^^^^^...^^^^^
+
+note: assert_nonlinear_by: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/specs/square_base.rs:31:9
+   |
+31 | ...   assert(pr...
+   |       ^^^^^^
+
+note: assert_nonlinear_by: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/specs/square_base.rs:37:9
+   |
+37 | ...   assert(tr...
+   |       ^^^^^^
+
+note: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/specs/square_base.rs:22:1
+   |
+22 | pub p...:nat)
+   | ^^^^^...^^^^^
+
+note: assert_nonlinear_by: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+   --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/verified/square_low.rs:126:9
+    |
+126 | ...   assert(z0...
+    |       ^^^^^^
+
+note: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/verified/square_low.rs:79:1
+   |
+79 | pub f...:u32)
+   | ^^^^^...^^^^^
+
+note: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+ --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/specs/square.rs:4:1
+  |
+4 | pub p...:int)
+  | ^^^^^...^^^^^
+
+note: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/specs/square.rs:11:1
+   |
+11 | pub p...bool)
+   | ^^^^^...^^^^^
+
+note: assert_nonlinear_by: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/specs/square.rs:21:5
+   |
+21 |     assert(x*...
+   |     ^^^^^^
+
+note: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/specs/square.rs:17:1
+   |
+17 | pub p...:int)
+   | ^^^^^...^^^^^
+
+note: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/specs/square.rs:26:1
+   |
+26 | pub p...:int)
+   | ^^^^^...^^^^^
+
+note: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/specs/toom.rs:10:1
+   |
+10 | pub p...:int)
+   | ^^^^^...^^^^^
+
+note: assert_nonlinear_by: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/specs/toom.rs:22:5
+   |
+22 |     assert(0<...
+   |     ^^^^^^
+
+note: assert_nonlinear_by: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/specs/toom.rs:24:5
+   |
+24 |     assert(0<...
+   |     ^^^^^^
+
+note: assert_nonlinear_by: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/specs/toom.rs:26:5
+   |
+26 |     assert(0<...
+   |     ^^^^^^
+
+note: assert_nonlinear_by: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/specs/toom.rs:28:5
+   |
+28 |     assert(0<...
+   |     ^^^^^^
+
+note: assert_nonlinear_by: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/specs/toom.rs:30:5
+   |
+30 |     assert(2*...
+   |     ^^^^^^
+
+note: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/specs/toom.rs:16:1
+   |
+16 | pub p...:int)
+   | ^^^^^...^^^^^
+
+note: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/specs/toom.rs:62:1
+   |
+62 | pub p...:int)
+   | ^^^^^...^^^^^
+
+note: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/specs/toom.rs:75:1
+   |
+75 | pub p...:int)
+   | ^^^^^...^^^^^
+
+note: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/specs/toom.rs:85:1
+   |
+85 | pub p...:int)
+   | ^^^^^...^^^^^
+
+note: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/specs/toom.rs:33:1
+   |
+33 | pub p...:int)
+   | ^^^^^...^^^^^
+
+note: assert_nonlinear_by: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/specs/toom_blocks.rs:18:5
+   |
+18 |     assert(ra...
+   |     ^^^^^^
+
+note: assert_nonlinear_by: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/specs/toom_blocks.rs:21:5
+   |
+21 |     assert(va...
+   |     ^^^^^^
+
+note: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+ --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/specs/toom_blocks.rs:9:1
+  |
+9 | pub p...:nat)
+  | ^^^^^...^^^^^
+
+note: assert_nonlinear_by: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/specs/toom_blocks.rs:36:5
+   |
+36 |     assert(64...
+   |     ^^^^^^
+
+note: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/specs/toom_blocks.rs:28:1
+   |
+28 | pub p...int>)
+   | ^^^^^...^^^^^
+
+note: assert_nonlinear_by: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/verified/toom_evaluate.rs:18:12
+   |
+18 | ...f {assert((x...
+   |       ^^^^^^
+
+note: assert_nonlinear_by: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/verified/toom_evaluate.rs:30:13
+   |
+30 | ...   assert(0<...
+   |       ^^^^^^
+
+note: assert_nonlinear_by: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/verified/toom_evaluate.rs:38:13
+   |
+38 | ...   assert(ne...
+   |       ^^^^^^
+
+note: assert_nonlinear_by: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/verified/toom_evaluate.rs:46:13
+   |
+46 | ...   assert(pr...
+   |       ^^^^^^
+
+note: while loop: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/verified/toom_evaluate.rs:20:5
+   |
+20 |     while i<k
+   |     ^^^^^^^^^
+
+note: assert_nonlinear_by: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/verified/toom_evaluate.rs:63:9
+   |
+63 | ...   assert(va...
+   |       ^^^^^^
+
+note: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/verified/toom_evaluate.rs:10:1
+   |
+10 | pub f...:u64)
+   | ^^^^^...^^^^^
+
+note: assert_nonlinear_by: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/verified/toom_evaluate.rs:85:9
+   |
+85 | ...   assert(va...
+   |       ^^^^^^
+
+note: assert_nonlinear_by: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/verified/toom_evaluate.rs:88:9
+   |
+88 | ...   assert(va...
+   |       ^^^^^^
+
+note: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/verified/toom_evaluate.rs:71:1
+   |
+71 | pub f...:bool)
+   | ^^^^^...^^^^^
+
+note: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+ --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/verified/toom_interpolate.rs:7:1
+  |
+7 | / pub fn interpolate(p1:&mut[u64],pm:&mut[u64],p2:&m...
+8 | |     scratch:&mut[u64],Ghost(c):Ghost<Seq<int>>)
+  | |_______________________________________________^
+
+note: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/verified/toom_low.rs:63:1
+   |
+63 | pub f...:u32)
+   | ^^^^^...^^^^^
+
+note: while loop: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/verified/toom_words.rs:14:5
+   |
+14 |     while...len()
+   |     ^^^^^...^^^^^
+
+note: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/verified/toom_words.rs:10:1
+   |
+10 | pub f...u64])
+   | ^^^^^...^^^^^
+
+note: while loop: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/verified/toom_words.rs:30:5
+   |
+30 |     while...len()
+   |     ^^^^^...^^^^^
+
+note: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/verified/toom_words.rs:24:1
+   |
+24 | pub f...u64])
+   | ^^^^^...^^^^^
+
+note: assert_nonlinear_by: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/verified/toom_words.rs:60:13
+   |
+60 | ...   assert(pr...
+   |       ^^^^^^
+
+note: while loop: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/verified/toom_words.rs:49:5
+   |
+49 |     while...len()
+   |     ^^^^^...^^^^^
+
+note: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/verified/toom_words.rs:42:1
+   |
+42 | pub f...t:u64)
+   | ^^^^^...^^^^^
+
+note: assert_nonlinear_by: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/verified/toom_words.rs:89:13
+   |
+89 | ...   assert(pr...
+   |       ^^^^^^
+
+note: while loop: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/verified/toom_words.rs:79:5
+   |
+79 |     while...len()
+   |     ^^^^^...^^^^^
+
+note: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/verified/toom_words.rs:74:1
+   |
+74 | pub f...t:u64)
+   | ^^^^^...^^^^^
+
+note: assert_nonlinear_by: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+   --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/verified/toom_words.rs:120:13
+    |
+120 | ...   assert(pr...
+    |       ^^^^^^
+
+note: while loop: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+   --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/verified/toom_words.rs:109:5
+    |
+109 |     while...len()
+    |     ^^^^^...^^^^^
+
+note: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+   --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/verified/toom_words.rs:102:1
+    |
+102 | pub f...t:u64)
+    | ^^^^^...^^^^^
+
+note: assert_nonlinear_by: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+   --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/verified/toom_words.rs:159:13
+    |
+159 | ...   assert(q<...
+    |       ^^^^^^
+
+note: assert_nonlinear_by: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+   --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/verified/toom_words.rs:166:13
+    |
+166 | ...   assert(va...
+    |       ^^^^^^
+
+note: while loop: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+   --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/verified/toom_words.rs:144:5
+    |
+144 |     while i>0
+    |     ^^^^^^^^^
+
+note: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+   --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/verified/toom_words.rs:136:1
+    |
+136 | pub f...r:u64)
+    | ^^^^^...^^^^^
+
+note: assert_nonlinear_by: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+   --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/verified/toom_words.rs:189:9
+    |
+189 | ...   assert(ca...
+    |       ^^^^^^
+
+note: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+   --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/verified/toom_words.rs:181:1
+    |
+181 | pub f...u64])
+    | ^^^^^...^^^^^
+
+note: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+   --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/verified/toom_words.rs:195:1
+    |
+195 | pub f...u64])
+    | ^^^^^...^^^^^
+
+note: assert_nonlinear_by: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+   --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/verified/toom_words.rs:214:9
+    |
+214 | ...   assert(ca...
+    |       ^^^^^^
+
+note: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+   --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/verified/toom_words.rs:206:1
+    |
+206 | pub f...:u64)
+    | ^^^^^...^^^^^
+
+note: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+   --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/verified/toom_words.rs:221:1
+    |
+221 | pub f...:u64)
+    | ^^^^^...^^^^^
+
+note: assert_nonlinear_by: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+   --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/verified/toom_words.rs:256:13
+    |
+256 | ...   assert(va...
+    |       ^^^^^^
+
+note: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+   --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/verified/toom_words.rs:231:1
+    |
+231 | pub f...size)
+    | ^^^^^...^^^^^
+
+note: assert_nonlinear_by: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+   --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/verified/fast_multiply.rs:111:9
+    |
+111 | ...   assert((i...
+    |       ^^^^^^
+
+note: assert_nonlinear_by: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+   --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/verified/fast_multiply.rs:119:9
+    |
+119 | ...   assert(ra...
+    |       ^^^^^^
+
+note: assert_nonlinear_by: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+   --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/verified/fast_multiply.rs:121:9
+    |
+121 | ...   assert(0<...
+    |       ^^^^^^
+
+note: assert_nonlinear_by: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+   --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/verified/fast_multiply.rs:124:9
+    |
+124 | ...   assert(a0...
+    |       ^^^^^^
+
+note: assert_nonlinear_by: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+   --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/verified/fast_multiply.rs:135:9
+    |
+135 | ...   assert(va...
+    |       ^^^^^^
+
+note: assert_nonlinear_by: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+   --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/verified/fast_multiply.rs:143:9
+    |
+143 | ...   assert(0<...
+    |       ^^^^^^
+
+note: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/verified/fast_multiply.rs:80:1
+   |
+80 | pub f...size)
+   | ^^^^^...^^^^^
+
+note: assert_nonlinear_by: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+   --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/verified/fast_multiply.rs:229:9
+    |
+229 | ...   assert(z0...
+    |       ^^^^^^
+
+note: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+   --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/verified/fast_multiply.rs:185:1
+    |
+185 | pub f...bool)
+    | ^^^^^...^^^^^
+
+note: assert_nonlinear_by: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/verified/square.rs:51:9
+   |
+51 | ...   assert(ra...
+   |       ^^^^^^
+
+note: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/verified/square.rs:11:1
+   |
+11 | pub f...size)
+   | ^^^^^...^^^^^
+
+note: while loop: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/verified/square_base.rs:52:5
+   |
+52 |     while...len()
+   |     ^^^^^...^^^^^
+
+note: assert_nonlinear_by: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/verified/square_base.rs:83:13
+   |
+83 | ...   assert(va...
+   |       ^^^^^^
+
+note: assert_nonlinear_by: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/verified/square_base.rs:94:13
+   |
+94 | ...   assert(va...
+   |       ^^^^^^
+
+note: while loop: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/verified/square_base.rs:63:5
+   |
+63 |     while i<n
+   |     ^^^^^^^^^
+
+note: assert_nonlinear_by: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+   --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/verified/square_base.rs:117:13
+    |
+117 | ...   assert(pr...
+    |       ^^^^^^
+
+note: while loop: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+   --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/verified/square_base.rs:103:5
+    |
+103 |     while j<n
+    |     ^^^^^^^^^
+
+note: assert_nonlinear_by: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+   --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/verified/square_base.rs:138:9
+    |
+138 | ...   assert(ca...
+    |       ^^^^^^
+
+note: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/verified/square_base.rs:43:1
+   |
+43 | pub f...u64])
+   | ^^^^^...^^^^^
+
+note: assert_nonlinear_by: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/verified/square_low.rs:49:13
+   |
+49 | ...   assert(c1...
+   |       ^^^^^^
+
+note: assert_nonlinear_by: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/verified/square_low.rs:55:13
+   |
+55 | ...   assert(c2...
+   |       ^^^^^^
+
+note: assert_nonlinear_by: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/verified/square_low.rs:63:9
+   |
+63 | ...   assert(va...
+   |       ^^^^^^
+
+note: assert_nonlinear_by: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/verified/square_low.rs:72:9
+   |
+72 | ...   assert(z0...
+   |       ^^^^^^
+
+note: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/verified/square_low.rs:12:1
+   |
+12 | pub f...u64])
+   | ^^^^^...^^^^^
+
+note: assert_nonlinear_by: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/verified/toom_low.rs:59:9
+   |
+59 | ...   assert(z0...
+   |       ^^^^^^
+
+note: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/verified/toom_low.rs:13:1
+   |
+13 | pub f...:u32)
+   | ^^^^^...^^^^^
+
+note: assert_nonlinear_by: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/verified/toom_multiply.rs:59:9
+   |
+59 | ...   assert((i...
+   |       ^^^^^^
+
+note: assert_nonlinear_by: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/verified/toom_multiply.rs:98:9
+   |
+98 | ...   assert(0<...
+   |       ^^^^^^
+
+note: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/verified/toom_multiply.rs:12:1
+   |
+12 | pub f...size)
+   | ^^^^^...^^^^^
+
+note: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> /tmp/verigmp-leaf-mutation-2lc2cspe/native/verified/toom_square.rs:12:1
+   |
+12 | pub f...size)
+   | ^^^^^...^^^^^
+
+error: aborting due to 1 previous error
+

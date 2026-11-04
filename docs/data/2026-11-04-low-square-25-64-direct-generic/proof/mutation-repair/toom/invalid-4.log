@@ -1,0 +1,4 @@
+
+thread 'main' (4547) panicked at /tmp/verigmp-leaf-mutation-2lc2cspe/native/verified/toom_low.rs:23:62:
+assertion failed: threshold >= 24 && low_limit >= 24 && split_mode <= 2
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace

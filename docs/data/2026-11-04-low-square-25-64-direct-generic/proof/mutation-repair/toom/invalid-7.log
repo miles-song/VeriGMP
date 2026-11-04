@@ -1,0 +1,4 @@
+
+thread 'main' (4550) panicked at /tmp/verigmp-leaf-mutation-2lc2cspe/native/verified/fast_multiply.rs:195:5:
+assertion failed: dst.len() == a.len() && scratch.len() >= 4 * a.len()
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace

@@ -1,0 +1,154 @@
+{
+  "comparison_count": 54,
+  "principal_limbs": [
+    256,
+    512,
+    1024,
+    2048,
+    4096
+  ],
+  "new_failures": [
+    {
+      "operation": "mul_mod",
+      "limbs": 127,
+      "top": 63,
+      "principal": false,
+      "limit": 1.2,
+      "baseline": {
+        "default_ns": 5160.855712890625,
+        "gmp_ns": 4453.138671875,
+        "ratio": 1.1589254440885488,
+        "passes": true
+      },
+      "candidate": {
+        "default_ns": 5322.549560546875,
+        "gmp_ns": 4426.6304931640625,
+        "ratio": 1.2023930094834792,
+        "passes": false
+      },
+      "candidate_vs_baseline_delta_percent": 3.1330821214857085
+    },
+    {
+      "operation": "square_mod",
+      "limbs": 128,
+      "top": 63,
+      "principal": false,
+      "limit": 1.2,
+      "baseline": {
+        "default_ns": 3293.765869140625,
+        "gmp_ns": 2757.0771484375,
+        "ratio": 1.194658579288316,
+        "passes": true
+      },
+      "candidate": {
+        "default_ns": 3483.876953125,
+        "gmp_ns": 2829.31494140625,
+        "ratio": 1.231350000008629,
+        "passes": false
+      },
+      "candidate_vs_baseline_delta_percent": 5.771845709056933
+    }
+  ],
+  "new_passes": [
+    {
+      "operation": "square_mod",
+      "limbs": 25,
+      "top": 63,
+      "principal": false,
+      "limit": 1.2,
+      "baseline": {
+        "default_ns": 267.7377243041992,
+        "gmp_ns": 199.05859375,
+        "ratio": 1.34501967114494,
+        "passes": false
+      },
+      "candidate": {
+        "default_ns": 202.7101593017578,
+        "gmp_ns": 202.09461975097656,
+        "ratio": 1.0030457988022627,
+        "passes": true
+      },
+      "candidate_vs_baseline_delta_percent": -24.287785806589646
+    },
+    {
+      "operation": "square_mod",
+      "limbs": 26,
+      "top": 63,
+      "principal": false,
+      "limit": 1.2,
+      "baseline": {
+        "default_ns": 295.19876861572266,
+        "gmp_ns": 214.55877685546875,
+        "ratio": 1.3758410303325632,
+        "passes": false
+      },
+      "candidate": {
+        "default_ns": 212.14342498779297,
+        "gmp_ns": 236.94197845458984,
+        "ratio": 0.8953391305814999,
+        "passes": true
+      },
+      "candidate_vs_baseline_delta_percent": -28.135396369504384
+    },
+    {
+      "operation": "square_mod",
+      "limbs": 63,
+      "top": 63,
+      "principal": false,
+      "limit": 1.2,
+      "baseline": {
+        "default_ns": 1601.0678100585938,
+        "gmp_ns": 966.8819580078125,
+        "ratio": 1.6559082489836436,
+        "passes": false
+      },
+      "candidate": {
+        "default_ns": 907.0529174804688,
+        "gmp_ns": 985.4932250976562,
+        "ratio": 0.9204050260118078,
+        "passes": true
+      },
+      "candidate_vs_baseline_delta_percent": -43.34700180829483
+    },
+    {
+      "operation": "square_mod",
+      "limbs": 64,
+      "top": 63,
+      "principal": false,
+      "limit": 1.2,
+      "baseline": {
+        "default_ns": 1628.5150146484375,
+        "gmp_ns": 983.1878662109375,
+        "ratio": 1.6563619940963028,
+        "passes": false
+      },
+      "candidate": {
+        "default_ns": 920.9024047851562,
+        "gmp_ns": 996.3861694335938,
+        "ratio": 0.9242424604394629,
+        "passes": true
+      },
+      "candidate_vs_baseline_delta_percent": -43.4514022590108
+    },
+    {
+      "operation": "square_mod",
+      "limbs": 192,
+      "top": 63,
+      "principal": false,
+      "limit": 1.2,
+      "baseline": {
+        "default_ns": 6965.4384765625,
+        "gmp_ns": 5479.91943359375,
+        "ratio": 1.2710841027811501,
+        "passes": false
+      },
+      "candidate": {
+        "default_ns": 7006.24462890625,
+        "gmp_ns": 5853.131591796875,
+        "ratio": 1.197007878436469,
+        "passes": true
+      },
+      "candidate_vs_baseline_delta_percent": 0.5858375245299419
+    }
+  ]
+}

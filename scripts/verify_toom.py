@@ -124,7 +124,7 @@ def summarize(text,tuning=False):
     return result
 
 
-def check_toom(snapshot,verifier,env,output):
+def check_toom(snapshot,verifier,env,output,*,measure=True):
     output.mkdir(parents=True,exist_ok=True);target=output/'verification.json'
     report={'status':'running','scope':'Toom-3, dedicated recursive squaring, fixed production dispatch, MAC4 candidate'}
     target.write_text(json.dumps(report)+'\n')
@@ -174,28 +174,38 @@ def check_toom(snapshot,verifier,env,output):
             ('toom_square.rs','negative_square_product','let negative=na!=nb;','let negative=na;',1),
             ('square_low.rs','missing_double_cross','let ghost c2=value(temp@);\n    let _carry=limbs::add_assign(&mut dst[k..],temp);','let ghost c2=value(temp@);',1),
             ('square_low.rs','wrong_low_square_cross','let ghost c2=value(cross@);','let ghost c2=0;',1),
+            ('square_low.rs','omit_leaf_second_cross_add','let ghost c2=value(cross@);\n    let _carry=limbs::add_assign(&mut dst[k..],cross);','let ghost c2=value(cross@);',1),
             ('mac4.rs','drop_carry','carry = high;','carry = 0;',5),
             ('mac4.rs','omit_tail','while j < dst.len()','while dst.len() - j > 1',1),
             ('arithmetic.rs','wrong_default_precision','scratch,top,192,128,2','scratch,64,192,128,2',1),
         ]
         for file,name,before,after,count in mutations:
             source=snapshot/'native/verified'/file;original=source.read_bytes();text=original.decode().replace('\r\n','\n')
-            if name=='wrong_low_square_cross' and text.count(before)==0:
+            if name in ('wrong_low_square_cross','omit_leaf_second_cross_add') and text.count(before)==0:
                 report['mutations'].append({'name':name,'applicability':'candidate helper is absent from this baseline'})
                 continue
             if text.count(before)!=count:raise RuntimeError(f'Mutant anchor mismatch: {name}: {text.count(before)}')
             try:
-                source.write_text(text.replace(before,after,1))
+                mutant=output/'mutants'/name/file;mutant.parent.mkdir(parents=True,exist_ok=True)
+                mutant.write_text(text.replace(before,after,1),encoding='utf-8')
+                source.write_bytes(mutant.read_bytes())
                 r,log=run([verifier,snapshot/'native/toom_words_runner.rs','--multiple-errors','0'],name+'.log')
                 detected=bool(r.returncode and re.search(r'verification results:: \d+ verified, [1-9]\d* errors',log)
                     and any(x in log for x in ('postcondition not satisfied','assertion failed','invariant not satisfied','requires not satisfied','precondition not satisfied'))
                     and not any(x in log.lower() for x in ('resource limit','timed out','unexpected token')))
-                report['mutations'].append({'name':name,'rejected_by_semantic_proof':detected,'diagnostics':'first semantic error per function'})
+                report['mutations'].append({'name':name,'rejected_by_semantic_proof':detected,
+                    'diagnostics':'first semantic error per function','source':f'native/verified/{file}',
+                    'before':before,'after':after,'original_sha256_lf':hashlib.sha256(text.encode()).hexdigest(),
+                    'mutant_source':mutant.relative_to(output).as_posix(),'mutant_sha256_lf':digest(mutant),
+                    'raw_log':name+'.log','raw_log_sha256':digest(output/(name+'.log')),'verifier_exit':r.returncode})
                 if not detected:raise RuntimeError(f'Mutant not rejected semantically: {name}')
             finally:source.write_bytes(original)
         asm=snapshot/'toom-codegen.s';compile('native/toom_codegen.rs',asm,'codegen.log','--emit=asm')
         report['codegen']=dict(reachable_code(asm.read_text()),assembly_sha256=digest(asm))
         (output/'toom-codegen.s').write_bytes(asm.read_bytes())
+        if not measure:
+            report.update(status='pass',measurement='Not run: targeted proof, oracle, mutation and code-generation gate only')
+            return report
         abi=snapshot/'toom-gmp-abi';r,_=run(['c++','-std=c++17',snapshot/'native/controls/gmp_abi.cpp','-lgmp','-o',abi],'gmp-abi-build.log')
         if r.returncode:raise RuntimeError('GMP ABI build failed')
         r,identity=run([abi],'gmp-abi.log')

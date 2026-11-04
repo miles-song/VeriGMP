@@ -1,0 +1,4 @@
+
+thread 'main' (4551) panicked at /tmp/verigmp-leaf-mutation-2lc2cspe/native/verified/toom_words.rs:141:5:
+assertion failed: divisor > 0
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace

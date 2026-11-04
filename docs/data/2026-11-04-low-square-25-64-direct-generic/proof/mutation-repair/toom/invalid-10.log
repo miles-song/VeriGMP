@@ -1,0 +1,4 @@
+
+thread 'main' (4553) panicked at /tmp/verigmp-leaf-mutation-2lc2cspe/native/toom_words_runner.rs:34:13:
+assertion failed: !args.is_empty()
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
