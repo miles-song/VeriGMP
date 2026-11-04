@@ -1,0 +1,53 @@
+{
+  "baseline_commit": "96ca54d94ee24013cd64c66fb0a7eac4ef42f4cc",
+  "source_snapshot": "git archive of pinned generic fallback baseline",
+  "verified_items_including_imports": 220,
+  "oracle_cases": 9852,
+  "oracle_max_limbs": 4097,
+  "oracle_input_sha256": "7d86cf02dd9a56c73cbed7374af1f2299e7726d4396bf8766504403fa916b10f",
+  "oracle_output_sha256": "d3604028cd76c9fe31322d1ca69731cbf7ea729fd482083775b409a77baefcbf",
+  "runner_sha256": "a7c092c9efce4d0d455932c84c1edfd90cfac50236b5772177c5245b65c56cbb",
+  "codegen_sha256": "cb48e2af649dff0eea03d29b3832330b63b8e8e3f0579417cfbe3c7d913e5100",
+  "codegen": {
+    "reachable_functions": [
+      "_RNvNtCsbDILi4yaNOE_12toom_codegen10fast_words13combine_cross",
+      "_RNvNtCsbDILi4yaNOE_12toom_codegen10fast_words14abs_difference",
+      "_RNvNtCsbDILi4yaNOE_12toom_codegen11toom_square4full",
+      "_RNvNtCsbDILi4yaNOE_12toom_codegen13fast_multiply3low",
+      "_RNvNtCsbDILi4yaNOE_12toom_codegen13fast_multiply4full",
+      "_RNvNtCsbDILi4yaNOE_12toom_codegen13toom_evaluate8negative",
+      "_RNvNtCsbDILi4yaNOE_12toom_codegen13toom_multiply4full",
+      "_RNvNtCsbDILi4yaNOE_12toom_codegen16toom_interpolate11interpolate",
+      "_RNvNtCsbDILi4yaNOE_12toom_codegen6square4full",
+      "_RNvNtCsbDILi4yaNOE_12toom_codegen8toom_low3low",
+      "verified_product",
+      "verified_square"
+    ],
+    "external_calls": [
+      "*_RNvNtCskADBYZwJmSU_4core9panicking5panic@GOTPCREL(%rip)",
+      "*_RNvNtCskADBYZwJmSU_4core9panicking9panic_fmt@GOTPCREL(%rip)",
+      "*_RNvNtNtCskADBYZwJmSU_4core5slice5index16slice_index_fail@GOTPCREL(%rip)",
+      "*memcpy@GOTPCREL(%rip)",
+      "*memset@GOTPCREL(%rip)"
+    ],
+    "element_bounds_check_functions": [],
+    "no_allocator_general_division_element_bounds_panic": true,
+    "scope": "Actual fixed product/square dispatch; arbitrary-divisor API excluded from division-free claim",
+    "retained_checks": "Entry assertions and slice-region checks; required copying and zero fill retained",
+    "mac4_candidate": {
+      "reachable_functions": [
+        "verified_mac4"
+      ],
+      "external_calls": [
+        "*_RNvNtCskADBYZwJmSU_4core9panicking18panic_bounds_check@GOTPCREL(%rip)",
+        "*_RNvNtCskADBYZwJmSU_4core9panicking5panic@GOTPCREL(%rip)"
+      ],
+      "element_bounds_check_functions": [
+        "verified_mac4"
+      ],
+      "selected_by_default": false,
+      "limitation": "Experimental unrolling retains per-element checks on this compiler; measured separately"
+    }
+  },
+  "status": "pass"
+}
