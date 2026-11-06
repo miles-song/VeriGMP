@@ -3,19 +3,66 @@ on:
   push:
   pull_request:
   workflow_dispatch:
+    inputs:
+      runner_kind:
+        description: Runner for this manual run
+        type: choice
+        required: true
+        default: github-hosted
+        options:
+          - github-hosted
+          - local-ephemeral
 permissions:
   contents: read
 jobs:
   verus:
-    runs-on: ubuntu-24.04
-    timeout-minutes: 25
+    runs-on: ${{ github.event_name == 'workflow_dispatch' && inputs.runner_kind == 'local-ephemeral' && fromJSON('["self-hosted","Linux","X64","verigmp-ephemeral"]') || 'ubuntu-24.04' }}
+    timeout-minutes: ${{ github.event_name == 'workflow_dispatch' && inputs.runner_kind == 'local-ephemeral' && 120 || 25 }}
+    env:
+      CARGO_HOME: ${{ github.workspace }}/deps/cargo
+      RUSTUP_HOME: ${{ github.workspace }}/deps/rustup
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
       - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
         with:
           python-version: '3.12'
-      - run: rustup toolchain install 1.99.1 --profile minimal
-      - run: sudo apt-get update && sudo apt-get install -y g++ libgmp-dev
+      - name: Install hosted system prerequisites
+        if: github.event_name != 'workflow_dispatch' || inputs.runner_kind != 'local-ephemeral'
+        run: sudo apt-get update && sudo apt-get install -y g++ libgmp-dev
+      - name: Validate local system prerequisites
+        if: github.event_name == 'workflow_dispatch' && inputs.runner_kind == 'local-ephemeral'
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [[ "$(uname -s)" != Linux || "$(uname -m)" != x86_64 ]]; then
+            echo '::error::The local runner must be x86_64 Linux.'
+            exit 1
+          fi
+          for tool in rustup c++ ldd; do
+            if ! command -v "$tool" >/dev/null 2>&1; then
+              echo "::error::Missing local prerequisite: $tool. Install it before starting the runner."
+              exit 1
+            fi
+          done
+          probe_dir="$(mktemp -d "$RUNNER_TEMP/verigmp-gmp.XXXXXX")"
+          trap 'rm -f -- "$probe_dir/gmp-abi"; rmdir -- "$probe_dir"' EXIT
+          if ! c++ -std=c++17 native/controls/gmp_abi.cpp -lgmp -o "$probe_dir/gmp-abi"; then
+            echo '::error::The local runner needs a working C++17 compiler, GMP development headers and libgmp.'
+            exit 1
+          fi
+          if ! "$probe_dir/gmp-abi"; then
+            echo '::error::The local GMP ABI probe could not run.'
+            exit 1
+          fi
+      - name: Install and inspect pinned Rust in the workspace
+        shell: bash
+        run: |
+          set -euo pipefail
+          toolchain="$(python3 -c 'import json; print(json.load(open("native/toolchain.json"))["rust_toolchain"])')"
+          rustup toolchain install "$toolchain" --profile minimal
+          rustup run "$toolchain" rustc -vV
       - uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830
         with:
           path: deps/verus-download
