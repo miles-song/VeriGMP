@@ -15,7 +15,11 @@ trailers, for this task's new commits.
 ## Incremental feature acceptance
 
 Merge each independently accepted optimization into main as soon as its own
-contracts, same-source verification, independent review and exact-commit CI pass.
+local correctness/oracle, boundary and semantic-mutation gates, relevant
+performance evidence and independent Astra Max review pass. GitHub CI is
+supplemental evidence and does not block development or merge. Formal obligations
+may be verified in batches against fixed source commits; retain accurate pending
+status until they pass, and bind every proof claim to its actual source snapshot.
 An optimization needs reproducible performance gains on its declared workloads
 against the current implementation, with relevant boundary, regression and
 combination measurements. Expected gains from a design alone do not establish
@@ -27,9 +31,9 @@ Replacing a consuming solver's trusted GMP backend is a separate acceptance:
 meet every registered library performance gate, confirm with a second independent
 run, and pass semantic compatibility and frozen representative solver traces.
 An accepted feature or an experiment archive does not establish backend parity.
-After the accepted commit is on main and its required main CI passes, delete its
+After the accepted commit is on main and its remote SHA is confirmed, delete its
 completed local and remote feature branches while preserving unrelated work and
-retained evidence.
+retained evidence. Do not wait for CI to clean accepted branch refs.
 
 ## Refinement and performance
 
@@ -54,9 +58,11 @@ retained evidence.
 7. Test default dispatch as well as parameterized alternatives. Match inputs,
    output semantics, allocation boundaries and compiler information in controls;
    retain raw repeated observations. Do not claim universal GMP parity.
-8. Before pushing, obtain independent review, verify one immutable input snapshot,
-   record actual source/tool identities and check remote CI. Never force push.
-   Incremental backup and publication of this repository are user-authorized.
+8. Before merging, obtain independent Astra Max review and record local gates
+   against immutable source/tool identities. Check remote CI as supplemental
+   evidence when available; its result does not block reviewed local acceptance.
+   Never force push. Incremental feature backup and publication of this repository
+   are user-authorized. Pending formal obligations remain visibly pending.
 9. Consumers must pin verified commits. Check their actual compiled dependency,
    gitlink, source bytes and tool identity; a directory entry alone is not an
    integration test.

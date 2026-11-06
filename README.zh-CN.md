@@ -18,7 +18,9 @@ Precision Arithmetic Library，GNU 多精度算术库）的算法与存储策略
 每个 optimization 可以独立验收并合入 main，无需等待整个 VeriGMP 达到 GMP target。
 验收需要在声明的 workload 上相对当前 implementation 有可重复的 performance 收益，
 并通过相关 regression、combination measurements、same-source proof、correctness checks、
-independent review 和 CI。收益取决于 input shape 时，dispatch 只覆盖有测量支持的范围。
+independent Astra Max review。CI 是 supplemental evidence，不阻塞开发或 merge；
+formal obligations 可按固定 source commit 分批验证，通过前准确保留 pending status。
+收益取决于 input shape 时，dispatch 只覆盖有测量支持的范围。
 替换 solver 的 trusted GMP backend 还需要通过全部 performance gates、第二次独立
 confirmation、semantic compatibility 和 representative solver traces。
 experiment archives 保存证据；archive 合入本身不代表 candidate 已启用。
@@ -115,8 +117,9 @@ flowchart TD
 [冻结的低位平方候选证据](docs/data/2026-11-02-low-square-cutoff9/metadata.json)
 报告 234 个库验证项、0 个错误。11,292 个独立整数 oracle 用例中包含 1,440 个直接
 低位平方用例，最大输入为 4,097 个 limb。当前 Toom／平方验收流程检查这些用例、
-12 类无效输入和 21 个语义变异。发布验收还要求完整的 `verify.py` 固定快照与对应
-远端 CI 通过；隔离候选证据不能替代这些检查。验证项数量不等于公开函数数量，
+12 类无效输入和 21 个语义变异。完整 library proof claim 需要完整的 fixed-source
+`verify.py` gate，isolated candidate report 不能建立该 claim。Incremental merge
+由 local feature gates 与 independent review 决定，CI 为 supplemental evidence。验证项数量不等于公开函数数量，
 详细范围与历史结果见 [docs/verification.md](docs/verification.md)。
 
 证明覆盖的是功能 refinement：在所述前置条件下，输出具有所述整数值。终止性和

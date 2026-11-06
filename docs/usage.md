@@ -213,7 +213,9 @@ commit identity `ab5eaf670865a4438301b6dce6b4e5175c4a6c22`; the code-equivalence
 mapping is recorded in [history-provenance.json](../native/history-provenance.json).
 This baseline predates the documentation examples, the proved full-square leaf
 and modular subtraction. For those features, pin a later commit whose own
-`verify.py` run and remote CI pass, and build its matching library/metadata pair.
+accepted local source gate and independent review cover the consumed API, and
+build its matching verified library/metadata pair. A complete-library claim needs
+the complete `verify.py` snapshot; CI is supplemental.
 
 Build the dependency into a directory your project owns:
 

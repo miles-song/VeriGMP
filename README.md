@@ -22,8 +22,10 @@ See [the measurement contract](native/performance-target.json) and
 Individual optimizations can enter main before the overall GMP target is met.
 Each needs reproducible gains over the current implementation on its declared
 workloads, relevant regression and combination measurements, same-source proof
-and correctness checks, independent review and successful CI. Shape-dependent
-gains justify scoped dispatch. Replacing a consuming solver's trusted GMP backend
+and correctness checks, and independent Astra Max review. CI is supplemental
+evidence and does not block development or merge. Formal obligations may run in
+fixed-source batches with pending status disclosed. Shape-dependent gains justify
+scoped dispatch. Replacing a consuming solver's trusted GMP backend
 requires all registered performance gates, a second independent confirmation,
 semantic compatibility and representative solver traces. Retained experiment
 archives preserve evidence without enabling their candidates in production.
@@ -132,9 +134,10 @@ The [frozen low-square candidate](docs/data/2026-11-02-low-square-cutoff9/metada
 reports 234 library verification items and no errors. Its 11,292 independent
 integer oracle cases include 1,440 direct low-square cases and cover inputs up
 to 4,097 limbs. The current Toom/square acceptance gate checks those cases,
-12 invalid-input controls and 21 semantic mutations. Release acceptance requires
-the complete `verify.py` snapshot and matching remote CI; isolated candidate
-evidence does not replace those gates. Verification items are not counts of
+12 invalid-input controls and 21 semantic mutations. A complete-library proof
+claim requires the complete fixed-source `verify.py` gate; an isolated candidate
+report does not establish that claim. Local feature gates and independent review
+govern incremental merge acceptance; CI is supplemental. Verification items are not counts of
 public functions. Detailed scope and historical results are in
 [docs/verification.md](docs/verification.md).
 

@@ -20,9 +20,11 @@ The current Toom/square gate checks those 11,292 cases, including 1,440 direct
 low-square cases, plus 12 invalid-input controls and 21 semantic mutations.
 The precision layer retains 33 items, 27,193 integer cases, 11 invalid-input
 controls and seven mutations. Five precision-layer API controls have matching
-normalized instructions, including modular subtraction. Release acceptance
-requires the complete `verify.py` snapshot and matching remote CI; the frozen
-isolated candidate report is separate evidence.
+normalized instructions, including modular subtraction. A complete-library proof
+claim requires the complete fixed-source `verify.py` gate; the frozen isolated
+candidate report is separate evidence. Local feature gates and independent Astra
+Max review govern incremental merge acceptance. CI is supplemental, and fixed-source
+formal batches retain pending status until they pass.
 
 The subtraction chain is `kernel::sub_limb` → `limbs::sub_assign` →
 `pow2::sub_mod_assign`. Its contracts cover exact borrow identities and the

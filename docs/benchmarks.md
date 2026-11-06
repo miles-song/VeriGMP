@@ -177,8 +177,9 @@ square takes 45–47% less time. These are measured samples, not every integer s
 Registered principal workloads (256, 512, 1024, 2048, 4096 limbs at top 63) remain
 unsatisfactory at the target. At 4096 limbs, products take 2.330 and 2.359 times GMP
 in the two runs; squares take 2.173 and 2.141 times GMP. The performance target is
-not met. Release acceptance separately requires the complete fixed-snapshot
-verification and matching remote CI; frozen isolated measurements do not replace them.
+not met. A complete-library proof claim separately requires complete fixed-source
+verification; frozen isolated measurements do not establish it. Local feature
+acceptance requires independent review; CI is supplemental.
 
 The isolation and measurements serve as same-source evidence that the new kernel
 computes correctly (verified oracle cases and mutation detection) and improves the
@@ -204,8 +205,11 @@ new output belongs to the reproduction run and does not replace those reports.
 Feature acceptance and backend replacement have separate performance criteria.
 A feature can merge into main once it shows reproducible gains against the
 current implementation on declared workloads, passes relevant regression and
-combination measurements, and completes same-source proof, correctness checks,
-independent review and exact-commit CI. Define the workload and comparison before
+combination measurements, and passes the necessary local correctness/oracle and
+mutation gates plus independent Astra Max review. Bind proof claims to same-source
+verification; formal obligations may be batched on fixed commits and remain pending
+until proved. CI is supplemental and does not block development or merge. Define
+the workload and comparison before
 timing, retain all raw repetitions and reject contaminated measurements as
 confirmation. A design's expected gain alone is insufficient. If gains apply
 only to some input shapes, enable the feature only for those shapes. An
