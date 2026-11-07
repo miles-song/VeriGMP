@@ -90,13 +90,17 @@ invariant. For non-word-aligned p, canonical input chunks have zero unused top
 bits, so no runtime mask or precision change is needed. Slot padding does not
 change creation precision.
 
-This source candidate has not yet passed same-source Verus refinement, optimized
-release compilation, runtime oracle, semantic-mutation or code-generation
-checks. Its proof status is not `impl_refined` and it is not accepted as a
-performance optimization. It does not include product composition or alter
-arithmetic dispatch. The mathematical Seq and finite sums do not authorize
-materializing polynomial objects or repeated whole-integer shifts in a hot
-path. No FFI or arithmetic trust boundary is introduced by this module.
+The pinned same-source Verus/Rust gate now passes the functional refinement and
+runtime checks for this candidate: the library build verified 348 items, the
+independent integer oracle covered 208 valid and 18 error-preservation cases,
+the borrow-overlap fixture was rejected by Rust, and three scoped semantic
+mutants were rejected by complete logical VCs. The candidate is recorded as
+`impl_refined`; optimized code-generation comparison, checked cost bounds and
+independent Astra acceptance remain pending. It does not include product
+composition or alter arithmetic dispatch, and is not a performance claim.
+The mathematical Seq and finite sums do not authorize materializing polynomial
+objects or repeated whole-integer shifts in a hot path. No FFI or arithmetic
+trust boundary is introduced by this module.
 
 For retained lengths A and C, coefficient width p, slot width w and output order
 D, the candidate's source loops copy A+C coefficient chunks and zero at most

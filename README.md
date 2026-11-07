@@ -17,8 +17,9 @@ For clients building exact polynomial arithmetic, the
 guard-bit and no-carry extraction theorems, including the interpretation of
 contiguous limb slots. It is an erased mathematical interface; executable
 packing and extraction have an experimental borrowed-slice implementation whose
-same-source refinement and runtime acceptance are still pending; polynomial
-multiplication and arithmetic dispatch are unchanged.
+same-source functional refinement and runtime-oracle checks pass for the narrow
+candidate; independent acceptance, optimized-codegen and cost checks remain
+pending. Polynomial multiplication and arithmetic dispatch are unchanged.
 
 The registered performance target is a median time no greater than GMP on the
 principal workloads, with no registered key shape above 1.2 times GMP. The target
