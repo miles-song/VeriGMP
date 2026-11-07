@@ -5,8 +5,8 @@ MUTATIONS = (
     (
         "write-nonzero-padding",
         "pub fn pack_coefficients(",
-        "crate::toom_words::zero(\n            &mut dst[destination_pos + layout.coefficient_limbs..destination_pos + slot_limbs],\n        );",
-        "crate::toom_words::zero(&mut []);",
+        "crate::toom_words::copy_pad(\n            &mut dst[destination_pos..destination_pos + slot_limbs],\n            &src[source_pos..source_pos + layout.coefficient_limbs],\n        );",
+        "crate::toom_words::copy_pad(&mut [], &[]);",
     ),
     (
         "extract-guard-instead-of-coefficient",

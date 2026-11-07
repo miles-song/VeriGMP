@@ -26,16 +26,23 @@ pub fn copy_pad(dst:&mut[u64],src:&[u64])
     ensures final(dst)@.len()==old(dst)@.len(),value(final(dst)@)==value(src@),
 {
     assert!(dst.len()>=src.len());
-    let mut i=0usize;
-    while i<dst.len()
-        invariant i<=dst@.len(),dst@.len()>=src@.len(),dst@.len()==old(dst)@.len(),
-            prefix(dst@,i as nat)==extended(src@,i as nat),
-        decreases dst.len()-i,
-    {
-        let x=if i<src.len(){src[i]}else{0};
-        let ghost before=dst@;dst[i]=x;
-        proof {equal_prefix(dst@,before,i as nat);extended_step(src@,i as nat);}
-        i+=1;
+    let original = dst@;
+    let copied = src.len();
+    fast_words::copy_words(&mut dst[..copied], src);
+    zero(&mut dst[copied..]);
+    proof {
+        assert(dst@.len() == original.len());
+        assert(dst@.subrange(0, copied as int) =~= src@);
+        assert(dst@.subrange(copied as int, dst@.len() as int) =~= Seq::new(
+            (dst@.len() - copied) as int, |_i: int| 0u64,
+        ));
+        assert(value(dst@.subrange(copied as int, dst@.len() as int)) == 0);
+        crate::product::subrange_value(dst@, 0, copied as nat);
+        crate::product::subrange_value(dst@, copied as nat, (dst@.len() - copied) as nat);
+        assert(prefix(dst@, copied as nat) == value(src@));
+        assert(value(dst@) == prefix(dst@, copied as nat)
+            + radix(copied as nat) * value(dst@.subrange(copied as int, dst@.len() as int)));
+        assert(value(dst@) == value(src@));
     }
 }
 
