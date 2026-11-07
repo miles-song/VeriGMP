@@ -72,21 +72,41 @@ retain defensive panic stubs for spec/proof names; these are not executable
 implementations of the mathematics. This is a focused model gate, not the
 complete-library performance/acceptance gate.
 
-Executable refinement remains open: linear limb packing and extraction with
-caller-owned buffers, checked initialized lengths and capacity, preservation on
-errors, permitted input/output aliasing, arbitrary machine-representable
-precision and composition with an exact integer product. The mathematical
-Seq and finite sums do not authorize materializing polynomial objects or
-repeated whole-integer shifts in a hot path. No FFI or arithmetic trust boundary
-is introduced by this module.
+`verified/packed_layout.rs` contains an experimental borrowed-slice candidate.
+`checked_layout` keeps coefficient precision p separate from the aligned slot
+width, obtains the coefficient limb count from the existing precision helper,
+and checks both `count * coefficient_limbs` and `count * slot_limbs` before
+returning exact buffer lengths. `pack_coefficients` copies compact coefficient
+limbs into caller-owned slots and explicitly zeros guard/padding limbs.
+`extract_coefficients` copies only the coefficient limbs from caller-owned
+slots. Both validate exact slice lengths before their first write and preserve
+the destination on every returned error. Rust's safe mutable/shared slice
+borrows exclude input/output overlap at the call boundary.
 
-For a future implementation with retained lengths A and C, coefficient width p,
-slot width w and output order D, packing operands and scanning requested slots
-can use O((A+C+D)*w) bit work and O((A+C)*w) operand storage; an integer product
-adds its multiplication cost and product storage. With
-`w=O(p+log L+64)`, this is a candidate construction cost under an explicit
-multiplication-cost model. These are analytic design budgets, not checked
-operation counts, a composed bit-cost/space theorem or measured performance.
-Small-precision, sparse and ordinary-convolution crossovers require measurement.
-No benchmark, solver theorem, native-GMP parity or backend replacement follows
-from this model.
+Canonical p-bit coefficient chunks and canonical p-bit packed slots with zero
+guard/padding limbs are explicit Verus domain preconditions. The runtime does
+not scan those values; the caller must already maintain the representation
+invariant. For non-word-aligned p, canonical input chunks have zero unused top
+bits, so no runtime mask or precision change is needed. Slot padding does not
+change creation precision.
+
+This source candidate has not yet passed same-source Verus refinement, optimized
+release compilation, runtime oracle, semantic-mutation or code-generation
+checks. Its proof status is not `impl_refined` and it is not accepted as a
+performance optimization. It does not include product composition or alter
+arithmetic dispatch. The mathematical Seq and finite sums do not authorize
+materializing polynomial objects or repeated whole-integer shifts in a hot
+path. No FFI or arithmetic trust boundary is introduced by this module.
+
+For retained lengths A and C, coefficient width p, slot width w and output order
+D, the candidate's source loops copy A+C coefficient chunks and zero at most
+(A+C)*(w-ceil(p/64)) padding words; extraction copies at most D*ceil(p/64)
+words. These are direct source-level operation counts, not checked ghost-cost
+theorems. Operand and packed-result storage is caller-owned and proportional to
+the supplied slice lengths; the functions allocate no heap storage. A product
+routine would add its multiplication cost and product buffer. With
+`w=O(p+log L+64)`, this is an analytic construction budget under an explicit
+multiplication-cost model, not a composed bit-cost/space theorem or measured
+performance. Small-precision, sparse and ordinary-convolution crossovers require
+measurement. No benchmark, solver theorem, native-GMP parity or backend
+replacement follows from this model.

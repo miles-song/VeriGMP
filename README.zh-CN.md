@@ -12,7 +12,8 @@ Precision Arithmetic Library，GNU 多精度算术库）的算法与存储策略
 
 [packed convolution 数学模型](docs/packed-convolution.md) 为精确多项式算术提供
 有限卷积、guard bits 与无进位提取定理，并连接连续 limb slot 的整数解释。
-这些规格和证明在编译时擦除；可执行 packing、提取和多项式乘法仍待实现与验证。
+packing 和提取已有实验性的借用切片实现，但同源 refinement 与运行时验收仍待完成；
+多项式乘法和算术 dispatch 未改变。
 
 已登记的性能目标是：主要负载的中位耗时不超过 GMP，全部关键尺寸不超过 GMP
 的 1.2 倍。比较须采用相同结果语义、相同编译器工具链和相同源代码构建，并由第二次独立运行确认；当前尚未达到目标。

@@ -9,7 +9,7 @@
       "status": "model_proved",
       "scope": "Independent finite convolution/product identity for arbitrary signed integer coefficients; exact shorter-input coefficient bound, guard sufficiency, no-carry extraction, canonical power-of-two residues, input truncation/empty cases and contiguous limb-slot interpretation",
       "validation": "Focused experiments/packed-convolution/verify.py gate binds the actual committed source, pinned tools, optimized model export, imported independent-oracle fixtures and semantic mutants; it does not assert complete-library acceptance",
-      "cost": "Specifications and proofs erase; linear limb packing/extraction, product composition, machine-capacity/error contracts, bit work and peak-space refinement remain pending. No runtime implementation or performance claim."
+      "cost": "Specifications and proofs erase. A separate checked borrowed-slice packing/extraction candidate is present in verified/packed_layout.rs, but its same-source Verus refinement, optimized codegen, runtime oracle, semantic mutants, bit-work and peak-space evidence are pending. No product composition, dispatch change or performance claim."
     },
     {
       "files": [
@@ -96,8 +96,18 @@
   "cost_status": "Fixed-threshold Toom O(n^log3(5)) word bound is analytically derived from source recursion; no checked composed cost theorem",
   "complete_multiprecision_api": false,
   "gmp_performance_parity_established": false,
+  "unverified_candidates": [
+    {
+      "files": [
+        "verified/packed_layout.rs"
+      ],
+      "scope": "Checked borrowed-slice coefficient packing/extraction candidate; precision and slot width are distinct; metadata/length errors precede writes; canonical coefficient and slot conditions are explicit refinement-domain preconditions",
+      "validation": "Not yet run against the pinned Verus/Rust toolchain; do not claim impl_refined",
+      "cost": "Source performs no allocation. Pack copies each compact coefficient limb once and zeros each guard/padding limb once; extraction copies each coefficient limb once and reads no guard padding. Exact checked operation counters, compiled codegen and peak-space evidence remain pending."
+    }
+  ],
   "remaining": [
-    "Efficient executable packed-convolution packing/extraction and product composition, with capacity/ownership refinement and resource evidence",
+    "Same-source refinement and acceptance of the packed-layout candidate, plus exact integer product composition",
     "Architecture-specific assembly",
     "Higher Toom variants and FFT",
     "Composed cost model",

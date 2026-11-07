@@ -16,7 +16,9 @@ For clients building exact polynomial arithmetic, the
 [packed-convolution model](docs/packed-convolution.md) supplies finite convolution,
 guard-bit and no-carry extraction theorems, including the interpretation of
 contiguous limb slots. It is an erased mathematical interface; executable
-packing, extraction and polynomial multiplication remain future work.
+packing and extraction have an experimental borrowed-slice implementation whose
+same-source refinement and runtime acceptance are still pending; polynomial
+multiplication and arithmetic dispatch are unchanged.
 
 The registered performance target is a median time no greater than GMP on the
 principal workloads, with no registered key shape above 1.2 times GMP. The target
