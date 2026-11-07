@@ -114,6 +114,14 @@ pub proof fn zero_prefix(words: Seq<u64>, n: nat)
     }
 }
 
+pub proof fn slot_word_index_bound(words_len: nat, count: nat, slot: nat, i: nat, j: nat)
+    requires words_len >= count * slot, i < count, j < slot,
+    ensures i * slot + j < words_len,
+{
+    assert(i * slot + j < count * slot) by(nonlinear_arith)
+        requires i < count, j < slot, slot >= 1;
+}
+
 /// Prove a padded slot has the value of its compact coefficient chunk.
 pub proof fn padded_slot_value(
     packed: Seq<u64>, source: Seq<u64>, packed_start: nat, source_start: nat,
@@ -127,7 +135,7 @@ pub proof fn padded_slot_value(
             ==> #[trigger] packed[packed_start as int + j]
                 == source[source_start as int + j],
         forall|j: int| coefficient_words as int <= j < slot_words as int
-            ==> packed.get(packed_start as int + j) == Some(0u64),
+            ==> #[trigger] packed[packed_start as int + j] == 0,
     ensures
         value(packed.subrange(packed_start as int,
             (packed_start + slot_words) as int))
@@ -150,19 +158,18 @@ pub proof fn padded_slot_value(
     }
     assert forall|j: int| 0 <= j < padding_words as int
         implies #[trigger] dst_pad[j] == 0 by {
-        let index = packed_start as int + coefficient_words as int + j;
-        assert(index < packed.len());
-        assert(packed.get(index) == Some(packed[index]));
-        assert(packed[index] == 0);
+        assert(dst_pad[j] == packed[
+            packed_start as int + coefficient_words as int + j
+        ]);
     }
     equal_prefix(dst_low, src_coefficient, coefficient_words);
     zero_prefix(dst_pad, padding_words);
     crate::product::subrange_value(dst_slot, 0, coefficient_words);
     crate::product::subrange_value(dst_slot, coefficient_words, padding_words);
     assert(value(dst_low) == value(src_coefficient));
-    assert(dst_slot.subrange(0, dst_slot.len()) == dst_slot);
+    assert(dst_slot.subrange(0, dst_slot.len() as int) == dst_slot);
     assert(dst_slot.subrange(0, coefficient_words as int) == dst_low);
-    assert(dst_slot.subrange(coefficient_words as int, dst_slot.len()) == dst_pad);
+    assert(dst_slot.subrange(coefficient_words as int, dst_slot.len() as int) == dst_pad);
     assert(value(dst_slot) == prefix(dst_slot, slot_words));
     assert(value(dst_low) == prefix(dst_low, coefficient_words));
     assert(value(dst_pad) == prefix(dst_pad, padding_words));
@@ -197,7 +204,7 @@ pub open spec fn canonical_packed_slots(src: Seq<u64>, count: nat, p: nat, slot:
         )
         && forall|i: int, j: int| 0 <= i < count as int
             && coefficient_limbs(p) as int <= j < slot as int
-            ==> src.get(i * slot as int + j) == Some(0u64)
+            ==> #[trigger] src[i * slot as int + j] == 0
 }
 
 pub open spec fn slots_equal(
@@ -309,7 +316,7 @@ pub fn pack_coefficients(
                     )
                     && forall|i: int, j: int| 0 <= i < count as int
                         && coefficient_limbs(precision_bits as nat) as int <= j < slot_limbs as int
-                        ==> final(dst)@.get(i * slot_limbs as int + j) == Some(0u64),
+                        ==> #[trigger] final(dst)@[i * slot_limbs as int + j] == 0,
             Err(error) =>
                 pack_error_matches(
                     error,
@@ -359,7 +366,7 @@ pub fn pack_coefficients(
                     )[i],
             forall|i: int, j: int| 0 <= i < coefficient as int
                 && layout.coefficient_limbs as int <= j < slot_limbs as int
-                ==> dst@.get(i * slot_limbs as int + j) == Some(0u64),
+                ==> #[trigger] dst@[i * slot_limbs as int + j] == 0,
         decreases count - coefficient,
     {
         assert(source_pos + layout.coefficient_limbs <= src.len());
@@ -379,7 +386,7 @@ pub fn pack_coefficients(
                     * (slot_limbs - layout.coefficient_limbs) as nat
                     + (pad - layout.coefficient_limbs) as nat,
                 forall|k: int| layout.coefficient_limbs as int <= k < pad as int
-                    ==> dst@.get(destination_pos as int + k) == Some(0u64),
+                    ==> #[trigger] dst@[destination_pos as int + k] == 0,
                 forall|k: int| pad as int <= k < slot_limbs as int
                     ==> #[trigger] dst@[destination_pos as int + k]
                         == old(dst)@[destination_pos as int + k],
