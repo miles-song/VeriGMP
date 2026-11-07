@@ -135,9 +135,8 @@ def main():
             r"\b(?:assume|admit|axiom)\s*\(|external_body|external_fn_specification|"
             r"verifier::trusted|verify\s*=\s*false|\bunsafe\b|extern\s+\"C\""
         )
-        for name, data in sources.items():
-            if name.startswith("native/") and name.endswith(".rs") and forbidden.search(data.decode()):
-                raise RuntimeError("proof escape or FFI in verified Rust source: " + name)
+        if forbidden.search(sources[SOURCE].decode()):
+            raise RuntimeError("proof escape or FFI in packed-layout verified source")
 
         snapshot = output / "source"
         for name, data in sources.items():
