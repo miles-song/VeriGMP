@@ -201,9 +201,9 @@ pub open spec fn canonical_packed_slots(src: Seq<u64>, count: nat, p: nat, slot:
             packed_convolution::slots(src, slot, count),
             pow(2, p),
         )
-        && forall|i: int, j: int| 0 <= i < count as int
+        && forall|i: int, j: int| 0 <= #[trigger] i < count as int
             && coefficient_limbs(p) as int <= j < slot as int
-            ==> src[i * slot as int + j] == 0
+            ==> src[#[trigger] (i * slot as int + j)] == 0
 }
 
 pub open spec fn slots_equal(
