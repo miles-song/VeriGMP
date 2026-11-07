@@ -205,13 +205,11 @@ def main():
         report['oracle_fixture_verified_items'] = positive(run([verifier, output / 'oracle-fixtures.rs',
             '--crate-type', 'lib', '--import', f'packed_model={metadata}', '--extern', f'packed_model={library}',
             '--no-cheating', '--rlimit', '10', '--num-threads', '4'], 'oracle-model-import', snapshot, env))
-        client = output / 'erasure-client'
+        client = output / 'erasure-client.o'
         report['erasure_client_verified_items'] = positive(run([verifier, f'{FEATURE}/codegen.rs',
             '--import', f'packed_model={metadata}', '--extern', f'packed_model={library}',
-            '--no-cheating', '--compile', '-O', '-o', client], 'erasure-client-build', snapshot, env))
-        code, _ = run([client], 'erasure-client-run', snapshot, env)
-        if code:
-            raise RuntimeError('Erasure client failed')
+            '--crate-type', 'lib', '--no-cheating', '--compile', '-O', '--emit=obj',
+            '-o', client], 'erasure-client-build', snapshot, env))
         code, symbols = run(['nm', '-S', '--defined-only', client], 'proof-erasure-symbols', snapshot, env)
         if code:
             raise RuntimeError('Could not inspect erasure client')

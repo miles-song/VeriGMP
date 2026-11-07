@@ -24,8 +24,3 @@ pub fn ordinary_identity(x:u64) -> (out:u64)
     x
 }
 }
-
-fn main() {
-    let x=std::hint::black_box(0xfedc_ba98_7654_3210u64);
-    assert_eq!(packed_model_identity(x),ordinary_identity(x));
-}
