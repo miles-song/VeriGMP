@@ -414,7 +414,7 @@ pub fn pack_coefficients(
     proof {
         assert(copied_words == count as nat * layout.coefficient_limbs as nat);
         assert forall|i: int| 0 <= i < count as int
-            implies packed_convolution::slots(dst@, slot_limbs as nat, count as nat)[i]
+            implies #[trigger] packed_convolution::slots(dst@, slot_limbs as nat, count as nat)[i]
                 == packed_convolution::slots(
                     src@, layout.coefficient_limbs as nat, count as nat,
                 )[i] by {
@@ -424,7 +424,7 @@ pub fn pack_coefficients(
             ));
         }
         assert forall|i: int| 0 <= i < count as int
-            implies 0 <= packed_convolution::slots(
+            implies #[trigger] packed_convolution::slots(
                 dst@, slot_limbs as nat, count as nat,
             )[i] < pow(2, precision_bits as nat) by {
             reveal(packed_convolution::canonical);
