@@ -342,7 +342,7 @@ pub fn pack_coefficients(
                         src@, layout.coefficient_limbs as nat, count as nat,
                     )[i],
             forall|i: int| 0 <= i < coefficient as int
-                ==> value(dst@.subrange(
+                ==> #[trigger] value(dst@.subrange(
                     i * slot_limbs as int + layout.coefficient_limbs as int,
                     (i + 1) * slot_limbs as int,
                 )) == 0,
