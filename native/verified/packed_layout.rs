@@ -8,7 +8,7 @@ use crate::radix::*;
 verus! {
 
 pub open spec fn coefficient_limbs(p: nat) -> nat {
-    if p == 0 { 0 } else { (p - 1) / 64 + 1 }
+    if p == 0 { 0 } else { ((p - 1) as nat) / 64 + 1 }
 }
 
 pub struct PackedLayout {
@@ -170,13 +170,15 @@ pub proof fn padded_slot_value(
         assert(src_coefficient[j] == source[source_start as int + j]);
     }
     equal_prefix(dst_low, src_coefficient, coefficient_words);
-    zero_prefix(dst_pad, slot_words - coefficient_words);
-    crate::product::subrange_value(dst_slot, coefficient_words, slot_words - coefficient_words);
+    zero_prefix(dst_pad, (slot_words - coefficient_words) as nat);
+    crate::product::subrange_value(
+        dst_slot, coefficient_words, (slot_words - coefficient_words) as nat,
+    );
     assert(value(dst_low) == value(src_coefficient));
     assert(value(dst_slot) == prefix(dst_slot, slot_words));
     assert(value(dst_low) == prefix(dst_slot, coefficient_words));
     assert(value(dst_pad) == prefix(dst_slot.subrange(coefficient_words as int,
-        slot_words as int), slot_words - coefficient_words));
+        slot_words as int), (slot_words - coefficient_words) as nat));
     assert(value(dst_slot) == value(dst_low)
         + radix(coefficient_words) * value(dst_pad)) by(nonlinear_arith);
     assert(value(dst_pad) == 0);
