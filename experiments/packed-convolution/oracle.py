@@ -107,4 +107,3 @@ def check(output):
     return dict(canonical_cases=count, signed_identity_cases=signed_cases,
                 model_fixture_count=len(fixtures), undersized_radix_counterexample=True,
                 seed='0x4b524f4e', runtime_implementation_tested=False)
-
