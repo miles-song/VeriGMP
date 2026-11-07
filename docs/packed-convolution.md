@@ -64,8 +64,13 @@ model with optimization, exports its library and proof metadata, verifies
 Python-generated exact fixtures against that export, runs independent Python
 integer checks and requires logical rejection of four semantic mutations.
 Timeouts, parse failures and verifier resource limits do not count as rejection.
-The optimized focused library must contain no executable/data symbols. This is
-a focused model gate, not the complete-library performance/acceptance gate.
+The gate compiles an imported client containing ghost finite sums and theorem
+calls and checks its actual optimized body against an ordinary identity control:
+both must contain the same move/return instructions. No coefficient object,
+traversal or proof call survives in that body. An exported Verus library can
+retain defensive panic stubs for spec/proof names; these are not executable
+implementations of the mathematics. This is a focused model gate, not the
+complete-library performance/acceptance gate.
 
 Executable refinement remains open: linear limb packing and extraction with
 caller-owned buffers, checked initialized lengths and capacity, preservation on

@@ -22,7 +22,7 @@ SOURCES = ['AGENTS.md', '.gitattributes', 'LICENSE', 'native/toolchain.json',
            'native/proof-status.json', 'native/lib.rs', 'native/specs/radix.rs',
            'native/specs/product.rs', MODEL, 'README.md', 'README.zh-CN.md',
            'docs/packed-convolution.md', *[f'{FEATURE}/{name}' for name in
-           ('model.rs', 'oracle.py', 'mutations.py', 'verify.py')]]
+           ('model.rs', 'codegen.rs', 'oracle.py', 'mutations.py', 'verify.py')]]
 POSITIVE = re.compile(r'^verification results:: ([1-9][0-9]*) verified, 0 errors$', re.M)
 NEGATIVE = re.compile(r'^verification results:: [0-9]+ verified, [1-9][0-9]* errors$', re.M)
 FAULT = re.compile(r'(?i)resource limit|rlimit.*exceeded|timed out|panic|unexpected token|could not compile|solver.*unknown')
@@ -205,10 +205,31 @@ def main():
         report['oracle_fixture_verified_items'] = positive(run([verifier, output / 'oracle-fixtures.rs',
             '--crate-type', 'lib', '--import', f'packed_model={metadata}', '--extern', f'packed_model={library}',
             '--no-cheating', '--rlimit', '10', '--num-threads', '4'], 'oracle-model-import', snapshot, env))
-        code, symbols = run(['nm', '--defined-only', library], 'proof-erasure-symbols', snapshot, env)
-        if code or re.search(r'^\S+\s+[TtDdBbRr]\s+', symbols, re.M):
-            raise RuntimeError('Expected an erased model without executable or data symbols')
-        report['erasure_check'] = 'no executable/data symbols in the focused optimized model library'
+        client = output / 'erasure-client'
+        report['erasure_client_verified_items'] = positive(run([verifier, f'{FEATURE}/codegen.rs',
+            '--import', f'packed_model={metadata}', '--extern', f'packed_model={library}',
+            '--no-cheating', '--compile', '-O', '-o', client], 'erasure-client-build', snapshot, env))
+        code, _ = run([client], 'erasure-client-run', snapshot, env)
+        if code:
+            raise RuntimeError('Erasure client failed')
+        code, symbols = run(['nm', '-S', '--defined-only', client], 'proof-erasure-symbols', snapshot, env)
+        if code:
+            raise RuntimeError('Could not inspect erasure client')
+        bodies = []
+        for name in ('packed_model_identity', 'ordinary_identity'):
+            match = re.search(r'^([0-9a-f]+) ([0-9a-f]+) [Tt] ' + name + r'$', symbols, re.M)
+            if not match:
+                raise RuntimeError('Missing erasure client symbol: ' + name)
+            start, size = (int(value, 16) for value in match.groups())
+            code, assembly = run(['objdump', '-d', f'--start-address={start}',
+                f'--stop-address={start+size}', client], 'erasure-' + name, snapshot, env)
+            instructions = re.findall(r'^\s*[0-9a-f]+:\s+(?:[0-9a-f]{2}\s+)+(.+)$', assembly, re.M)
+            if code or not instructions or any(i.split()[0] not in ('mov', 'ret') for i in instructions):
+                raise RuntimeError('Proof calls retained unexpected work in the client: ' + name)
+            bodies.append(instructions)
+        if bodies[0] != bodies[1]:
+            raise RuntimeError('Proof client differs from the ordinary identity control')
+        report['erasure_check'] = 'proof-bearing identity has the same mov/ret body as its ordinary control'
         for name, (before, after) in MUTATIONS.items():
             original = sources[MODEL].decode()
             if original.count(before) != 1:
