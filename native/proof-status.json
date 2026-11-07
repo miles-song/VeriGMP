@@ -9,7 +9,7 @@
       "status": "model_proved",
       "scope": "Independent finite convolution/product identity for arbitrary signed integer coefficients; exact shorter-input coefficient bound, guard sufficiency, no-carry extraction, canonical power-of-two residues, input truncation/empty cases and contiguous limb-slot interpretation",
       "validation": "Focused experiments/packed-convolution/verify.py gate binds the actual committed source, pinned tools, optimized model export, imported independent-oracle fixtures and semantic mutants; it does not assert complete-library acceptance",
-      "cost": "Specifications and proofs erase. The separate borrowed-slice packing/extraction implementation is functionally refined under explicit canonical coefficient and slot preconditions, with pinned same-source runtime and semantic-mutation evidence. Optimized codegen comparison, checked bit/space cost accounting, independent review and product composition remain pending; no dispatch change or performance claim."
+      "cost": "Specifications and proofs erase. The separate borrowed-slice packing/extraction implementation is functionally refined under explicit canonical coefficient and slot preconditions, with pinned same-source runtime and semantic-mutation evidence. Erased loop counters prove exact copied, written and zeroed word totals; optimized codegen comparison, formal bit/peak-space accounting, independent review and product composition remain pending. No dispatch change or performance claim."
     },
     {
       "files": [
@@ -18,7 +18,7 @@
       "status": "impl_refined",
       "scope": "Checked borrowed-slice coefficient packing and extraction; precision and aligned slot width are distinct; checked metadata/length errors precede writes; canonical coefficient and slot conditions are explicit refinement-domain preconditions",
       "validation": "Pinned same-source gate at commit ae86c9e995304afb16a59eab83184fa5ea258aa6: Verus 0.2026.10.26.d17fbd0 with Rust 1.99.1 verified 348 library items; the runtime oracle passed 208 valid and 18 error-preservation cases; the borrow-overlap fixture rejected with E0502; three scoped semantic mutants were rejected by complete logical VCs",
-      "cost": "Source performs no allocation. Pack copies each compact coefficient limb once and zeros each guard/padding limb once; extraction copies each coefficient limb once and reads no guard padding. Optimized codegen comparison, checked ghost operation counters, formal bit/peak-space bounds and independent Astra acceptance remain pending. No product composition, dispatch change or performance claim."
+      "cost": "Source performs no allocation. Erased loop counters prove exact pack word totals: count*coefficient_limbs copied, count*slot_limbs written and count*(slot_limbs-coefficient_limbs) zeroed. Extraction copies count*coefficient_limbs words and reads no guard padding. Optimized codegen comparison, formal bit/peak-space bounds and independent Astra acceptance remain pending. No product composition, dispatch change or performance claim."
     },
     {
       "files": [

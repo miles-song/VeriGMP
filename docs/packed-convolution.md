@@ -105,9 +105,10 @@ trust boundary is introduced by this module.
 For retained lengths A and C, coefficient width p, slot width w and output order
 D, the candidate's source loops copy A+C coefficient chunks and zero at most
 (A+C)*(w-ceil(p/64)) padding words; extraction copies at most D*ceil(p/64)
-words. These are direct source-level operation counts, not checked ghost-cost
-theorems. Operand and packed-result storage is caller-owned and proportional to
-the supplied slice lengths; the functions allocate no heap storage. A product
+words. Erased loop counters prove exact copied, written and zeroed word totals;
+they are not a bit-cost or peak-live-space theorem. Operand and packed-result
+storage is caller-owned and proportional to the supplied slice lengths; the
+functions allocate no heap storage. A product
 routine would add its multiplication cost and product buffer. With
 `w=O(p+log L+64)`, this is an analytic construction budget under an explicit
 multiplication-cost model, not a composed bit-cost/space theorem or measured
