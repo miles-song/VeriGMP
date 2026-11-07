@@ -222,7 +222,8 @@ def main():
             match = re.search(r'^([0-9a-f]+) ([0-9a-f]+) [Tt] ' + name + r'$', symbols, re.M)
             if not match:
                 raise RuntimeError('Missing erasure client symbol: ' + name)
-            code, assembly = run(['objdump', '-d', f'--disassemble={name}', client],
+            code, assembly = run(['objdump', '-d', f'--section=.text.{name}',
+                f'--disassemble={name}', client],
                 'erasure-' + name, snapshot, env)
             section_names = re.findall(r'^Disassembly of section ([^:]+):$', assembly, re.M)
             symbol_names = re.findall(r'^\s*[0-9a-f]+ <([^>]+)>:$', assembly, re.M)
