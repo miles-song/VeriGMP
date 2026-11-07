@@ -70,7 +70,7 @@ pub fn checked_layout(count: usize, precision_bits: usize, slot_limbs: usize)
                 && layout.packed_words as int <= usize::MAX as int,
         Err(PackedLayoutError::InvalidPrecision) => precision_bits == 0,
         Err(PackedLayoutError::SlotTooNarrow) =>
-            precision_bits > 0 && slot_limbs as nat < coefficient_limbs(precision_bits as nat),
+            precision_bits > 0 && (slot_limbs as nat) < coefficient_limbs(precision_bits as nat),
         Err(PackedLayoutError::LengthOverflow) =>
             precision_bits > 0
                 && slot_limbs as nat >= coefficient_limbs(precision_bits as nat)
