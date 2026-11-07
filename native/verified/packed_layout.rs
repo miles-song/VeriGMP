@@ -181,8 +181,10 @@ pub open spec fn canonical_packed_slots(src: Seq<u64>, count: nat, p: nat, slot:
             pow(2, p),
         )
         && forall|i: int| 0 <= i < count as int
-            ==> value(src.subrange(i * slot as int + coefficient_limbs(p) as int,
-                (i + 1) * slot as int)) == 0
+            ==> #[trigger] value(src.subrange(
+                i * slot as int + coefficient_limbs(p) as int,
+                (i + 1) * slot as int,
+            )) == 0
 }
 
 pub open spec fn slots_equal(
