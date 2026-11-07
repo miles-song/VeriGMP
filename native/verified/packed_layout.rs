@@ -100,34 +100,6 @@ pub fn checked_layout(count: usize, precision_bits: usize, slot_limbs: usize)
     Ok(PackedLayout { coefficient_limbs, source_words, packed_words })
 }
 
-pub proof fn slot_word_index_bound(words_len: nat, count: nat, slot: nat, i: nat, j: nat)
-    requires words_len >= count * slot, i < count, j < slot,
-    ensures i * slot + j < words_len,
-{
-    assert(i * slot + j < count * slot) by(nonlinear_arith)
-        requires i < count, j < slot, slot >= 1;
-}
-
-/// Prove a padded slot has the value of its compact coefficient chunk.
-pub proof fn padded_slot_value(
-    packed: Seq<u64>, source: Seq<u64>, packed_start: nat, source_start: nat,
-    coefficient_words: nat, slot_words: nat,
-)
-    requires
-        coefficient_words <= slot_words,
-        packed_start + slot_words <= packed.len(),
-        source_start + coefficient_words <= source.len(),
-        value(packed.subrange(packed_start as int,
-            (packed_start + slot_words) as int))
-            == value(source.subrange(source_start as int,
-                (source_start + coefficient_words) as int)),
-    ensures
-        value(packed.subrange(packed_start as int,
-            (packed_start + slot_words) as int))
-            == value(source.subrange(source_start as int,
-                (source_start + coefficient_words) as int)),
-{}
-
 pub open spec fn compact_coefficients(src: Seq<u64>, count: nat, p: nat) -> bool {
     p > 0
         && count * coefficient_limbs(p) == src.len()
@@ -288,6 +260,7 @@ pub fn pack_coefficients(
     assert!(src.len() == layout.source_words && dst.len() == layout.packed_words);
     assert!(layout.coefficient_limbs > 0 && slot_limbs > 0);
     assert(slot_limbs >= layout.coefficient_limbs);
+    assert(compact_coefficients(src@, count as nat, precision_bits as nat));
     let mut source_pos = 0usize;
     let mut destination_pos = 0usize;
     let mut coefficient = 0usize;
@@ -317,22 +290,19 @@ pub fn pack_coefficients(
         assert(destination_pos + slot_limbs <= dst.len()) by(nonlinear_arith)
             requires destination_pos == coefficient * slot_limbs,
                 coefficient < count, dst.len() == count * slot_limbs;
-        crate::toom_words::copy_pad(
-            &mut dst[destination_pos..destination_pos + slot_limbs],
-            &src[source_pos..source_pos + layout.coefficient_limbs],
-        );
+        let dst_slot = &mut dst[destination_pos..destination_pos + slot_limbs];
+        let src_coefficient = &src[source_pos..source_pos + layout.coefficient_limbs];
+        assert(dst_slot.len() == slot_limbs);
+        assert(src_coefficient.len() == layout.coefficient_limbs);
+        assert(dst_slot.len() >= src_coefficient.len());
+        crate::toom_words::copy_pad(dst_slot, src_coefficient);
         proof { copied_words = copied_words + layout.coefficient_limbs as nat; }
         proof {
-            assert(value(dst@.subrange(destination_pos as int,
-                (destination_pos + slot_limbs) as int))
-                == value(src@.subrange(source_pos as int,
-                    (source_pos + layout.coefficient_limbs) as int))) by {
-                assert(dst@.subrange(destination_pos as int,
-                    (destination_pos + slot_limbs) as int).len() == slot_limbs as int);
-                assert(src@.subrange(source_pos as int,
-                    (source_pos + layout.coefficient_limbs) as int).len()
-                    == layout.coefficient_limbs as int);
-            }
+            assert(value(dst_slot@) == value(src_coefficient@));
+            assert(dst@.subrange(destination_pos as int,
+                (destination_pos + slot_limbs) as int) == dst_slot@);
+            assert(src@.subrange(source_pos as int,
+                (source_pos + layout.coefficient_limbs) as int) == src_coefficient@);
             crate::radix::prefix_range(
                 dst@.subrange(destination_pos as int,
                     (destination_pos + slot_limbs) as int), slot_limbs as nat,
@@ -377,15 +347,16 @@ pub fn pack_coefficients(
             ));
         }
         assert forall|i: int| 0 <= i < count as int
-            implies #[trigger] packed_convolution::slots(
+            implies 0 <= #[trigger] packed_convolution::slots(
                 dst@, slot_limbs as nat, count as nat,
             )[i] < pow(2, precision_bits as nat) by {
+            assert(packed_convolution::slots(
+                dst@, slot_limbs as nat, count as nat,
+            )[i] == packed_convolution::slots(
+                src@, layout.coefficient_limbs as nat, count as nat,
+            )[i]);
+            reveal(compact_coefficients);
             reveal(packed_convolution::canonical);
-            assert(packed_convolution::canonical(
-                packed_convolution::slots(
-                    src@, layout.coefficient_limbs as nat, count as nat,
-                ), pow(2, precision_bits as nat),
-            ));
         }
         assert(canonical_packed_slots(
             dst@, count as nat, precision_bits as nat, slot_limbs as nat,
@@ -454,6 +425,7 @@ pub fn extract_coefficients(
     assert(canonical_packed_slots(
         src@, count as nat, precision_bits as nat, slot_limbs as nat,
     ));
+    assert(count as int * slot_limbs as int <= usize::MAX as int);
     let mut source_pos = 0usize;
     let mut destination_pos = 0usize;
     let mut coefficient = 0usize;
@@ -468,6 +440,9 @@ pub fn extract_coefficients(
             src@.len() == layout.packed_words as int,
             dst@.len() == layout.source_words as int,
             copied_words == coefficient as nat * layout.coefficient_limbs as nat,
+            canonical_packed_slots(
+                src@, count as nat, precision_bits as nat, slot_limbs as nat,
+            ),
             layout.packed_words == count * slot_limbs,
             layout.source_words == count * layout.coefficient_limbs,
             forall|i: int| 0 <= i < coefficient as int
@@ -477,9 +452,13 @@ pub fn extract_coefficients(
                     )[i],
         decreases count - coefficient,
     {
-        assert(source_pos + layout.coefficient_limbs <= src.len()) by(nonlinear_arith)
+        assert(source_pos + slot_limbs <= src.len()) by(nonlinear_arith)
             requires source_pos == coefficient * slot_limbs,
                 coefficient < count, src.len() == count * slot_limbs;
+        assert(source_pos + layout.coefficient_limbs <= src.len())
+            by(nonlinear_arith)
+            requires source_pos + slot_limbs <= src.len(),
+                layout.coefficient_limbs <= slot_limbs;
         assert(destination_pos + layout.coefficient_limbs <= dst.len()) by(nonlinear_arith)
             requires destination_pos == coefficient * layout.coefficient_limbs,
                 coefficient < count, dst.len() == count * layout.coefficient_limbs;
