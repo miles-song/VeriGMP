@@ -90,13 +90,18 @@ invariant. For non-word-aligned p, canonical input chunks have zero unused top
 bits, so no runtime mask or precision change is needed. Slot padding does not
 change creation precision.
 
-The pinned same-source Verus/Rust gate now passes the functional refinement and
-runtime checks for this candidate: the library build verified 348 items, the
-independent integer oracle covered 208 valid and 18 error-preservation cases,
-the borrow-overlap fixture was rejected by Rust, and three scoped semantic
-mutants were rejected by complete logical VCs. The candidate is recorded as
-`impl_refined`; optimized code-generation comparison, checked cost bounds and
-independent Astra acceptance remain pending. It does not include product
+The pinned same-source Verus/Rust gate `layout-gate-20261108-r60` passes the
+functional refinement and runtime checks for the source tree at commit
+`45df242b56aeaf14ca907369a6c934fc5e78296d`: the library build verified 350
+items, the independent integer oracle covered 208 valid and 18
+error-preservation cases, the borrow-overlap fixture was rejected by Rust, and
+three scoped semantic mutants were rejected by complete logical VCs. The
+candidate is recorded as `impl_refined`. A pinned optimized release-code
+comparison confirms the ghost operation counters add no instructions. The pack
+body has 140 instructions and 469 bytes, and extraction has 101 instructions
+and 318 bytes, byte-identical before and after those counters were added.
+Formal bit/peak-space bounds and independent Astra acceptance remain pending.
+It does not include product
 composition or alter arithmetic dispatch, and is not a performance claim.
 The mathematical Seq and finite sums do not authorize materializing polynomial
 objects or repeated whole-integer shifts in a hot path. No FFI or arithmetic

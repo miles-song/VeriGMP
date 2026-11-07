@@ -18,7 +18,8 @@ guard-bit and no-carry extraction theorems, including the interpretation of
 contiguous limb slots. It is an erased mathematical interface; executable
 packing and extraction have an experimental borrowed-slice implementation whose
 same-source functional refinement and runtime-oracle checks pass for the narrow
-candidate; independent acceptance, optimized-codegen and cost checks remain
+candidate. An optimized release-code comparison confirms the ghost operation
+counters add no instructions; independent acceptance and cost checks remain
 pending. Polynomial multiplication and arithmetic dispatch are unchanged.
 
 The registered performance target is a median time no greater than GMP on the
