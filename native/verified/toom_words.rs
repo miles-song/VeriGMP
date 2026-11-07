@@ -34,7 +34,7 @@ pub fn copy_pad(dst:&mut[u64],src:&[u64])
         assert(dst@.len() == original.len());
         assert(dst@.subrange(0, copied as int) =~= src@);
         assert(dst@.subrange(copied as int, dst@.len() as int) =~= Seq::new(
-            (dst@.len() - copied) as int, |_i: int| 0u64,
+            (dst@.len() - copied) as nat, |_i: int| 0u64,
         ));
         assert(value(dst@.subrange(copied as int, dst@.len() as int)) == 0);
         crate::product::subrange_value(dst@, 0, copied as nat);
