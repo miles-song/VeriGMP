@@ -150,9 +150,10 @@ pub proof fn padded_slot_value(
         packed_start + slot_words <= packed.len(),
         source_start + coefficient_words <= source.len(),
         forall|j: int| 0 <= j < coefficient_words as int
-            ==> packed[packed_start as int + j] == source[source_start as int + j],
+            ==> #[trigger] packed[packed_start as int + j]
+                == source[source_start as int + j],
         forall|j: int| coefficient_words as int <= j < slot_words as int
-            ==> packed[packed_start as int + j] == 0,
+            ==> #[trigger] packed[packed_start as int + j] == 0,
     ensures
         value(packed.subrange(packed_start as int,
             (packed_start + slot_words) as int))
