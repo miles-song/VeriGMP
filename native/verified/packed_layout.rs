@@ -286,6 +286,7 @@ pub fn pack_coefficients(
     }
 
     assert!(src.len() == layout.source_words && dst.len() == layout.packed_words);
+    assert!(layout.coefficient_limbs > 0 && slot_limbs > 0);
     let mut source_pos = 0usize;
     let mut destination_pos = 0usize;
     let mut coefficient = 0usize;
@@ -309,8 +310,12 @@ pub fn pack_coefficients(
                     )[i],
         decreases count - coefficient,
     {
-        assert(source_pos + layout.coefficient_limbs <= src.len());
-        assert(destination_pos + layout.coefficient_limbs <= dst.len());
+        assert(source_pos + layout.coefficient_limbs <= src.len()) by(nonlinear_arith)
+            requires source_pos == coefficient * layout.coefficient_limbs,
+                coefficient < count, src.len() == count * layout.coefficient_limbs;
+        assert(destination_pos + slot_limbs <= dst.len()) by(nonlinear_arith)
+            requires destination_pos == coefficient * slot_limbs,
+                coefficient < count, dst.len() == count * slot_limbs;
         crate::toom_words::copy_pad(
             &mut dst[destination_pos..destination_pos + slot_limbs],
             &src[source_pos..source_pos + layout.coefficient_limbs],
@@ -320,7 +325,13 @@ pub fn pack_coefficients(
             assert(value(dst@.subrange(destination_pos as int,
                 (destination_pos + slot_limbs) as int))
                 == value(src@.subrange(source_pos as int,
-                    (source_pos + layout.coefficient_limbs) as int)));
+                    (source_pos + layout.coefficient_limbs) as int))) by {
+                assert(dst@.subrange(destination_pos as int,
+                    (destination_pos + slot_limbs) as int).len() == slot_limbs as int);
+                assert(src@.subrange(source_pos as int,
+                    (source_pos + layout.coefficient_limbs) as int).len()
+                    == layout.coefficient_limbs as int);
+            }
             slot_entry(
                 dst@, slot_limbs as nat, count as nat, coefficient as nat,
             );
@@ -429,6 +440,7 @@ pub fn extract_coefficients(
     }
 
     assert!(src.len() == layout.packed_words && dst.len() == layout.source_words);
+    assert!(layout.coefficient_limbs > 0 && slot_limbs > 0);
     let mut source_pos = 0usize;
     let mut destination_pos = 0usize;
     let mut coefficient = 0usize;
@@ -452,8 +464,12 @@ pub fn extract_coefficients(
                     )[i],
         decreases count - coefficient,
     {
-        assert(source_pos + layout.coefficient_limbs <= src.len());
-        assert(destination_pos + layout.coefficient_limbs <= dst.len());
+        assert(source_pos + layout.coefficient_limbs <= src.len()) by(nonlinear_arith)
+            requires source_pos == coefficient * slot_limbs,
+                coefficient < count, src.len() == count * slot_limbs;
+        assert(destination_pos + layout.coefficient_limbs <= dst.len()) by(nonlinear_arith)
+            requires destination_pos == coefficient * layout.coefficient_limbs,
+                coefficient < count, dst.len() == count * layout.coefficient_limbs;
         crate::fast_words::copy_words(
             &mut dst[destination_pos..destination_pos + layout.coefficient_limbs],
             &src[source_pos..source_pos + layout.coefficient_limbs],
