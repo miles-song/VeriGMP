@@ -6,6 +6,7 @@ use packed_model::packed_convolution::*;
 verus! {
 #[inline(never)]
 #[unsafe(no_mangle)]
+#[unsafe(link_section = ".text.packed_model_identity")]
 pub fn packed_model_identity(x:u64) -> (out:u64)
     ensures out==x,
 {
@@ -18,6 +19,7 @@ pub fn packed_model_identity(x:u64) -> (out:u64)
 
 #[inline(never)]
 #[unsafe(no_mangle)]
+#[unsafe(link_section = ".text.ordinary_identity")]
 pub fn ordinary_identity(x:u64) -> (out:u64)
     ensures out==x,
 {

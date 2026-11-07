@@ -217,19 +217,25 @@ def main():
         if code:
             raise RuntimeError('Could not inspect erasure client')
         bodies = []
+        disassemblies = []
         for name in ('packed_model_identity', 'ordinary_identity'):
             match = re.search(r'^([0-9a-f]+) ([0-9a-f]+) [Tt] ' + name + r'$', symbols, re.M)
             if not match:
                 raise RuntimeError('Missing erasure client symbol: ' + name)
-            start, size = (int(value, 16) for value in match.groups())
-            code, assembly = run(['objdump', '-d', f'--start-address={start}',
-                f'--stop-address={start+size}', client], 'erasure-' + name, snapshot, env)
+            code, assembly = run(['objdump', '-d', f'--disassemble={name}', client],
+                'erasure-' + name, snapshot, env)
+            section_names = re.findall(r'^Disassembly of section ([^:]+):$', assembly, re.M)
+            symbol_names = re.findall(r'^\s*[0-9a-f]+ <([^>]+)>:$', assembly, re.M)
             instructions = re.findall(r'^\s*[0-9a-f]+:\s+(?:[0-9a-f]{2}\s+)+(.+)$', assembly, re.M)
-            if code or not instructions or any(i.split()[0] not in ('mov', 'ret') for i in instructions):
-                raise RuntimeError('Proof calls retained unexpected work in the client: ' + name)
+            if (code or section_names != [f'.text.{name}'] or symbol_names != [name]
+                    or not instructions or any(i.split()[0] not in ('mov', 'ret') for i in instructions)):
+                raise RuntimeError('Symbol-targeted disassembly was not exact or retained unexpected work: ' + name)
             bodies.append(instructions)
+            disassemblies.append(dict(symbol=name, section=section_names[0], labels=symbol_names,
+                                      instructions=len(instructions)))
         if bodies[0] != bodies[1]:
             raise RuntimeError('Proof client differs from the ordinary identity control')
+        report['erasure_disassemblies'] = disassemblies
         report['erasure_check'] = 'proof-bearing identity has the same mov/ret body as its ordinary control'
         for name, (before, after) in MUTATIONS.items():
             original = sources[MODEL].decode()
