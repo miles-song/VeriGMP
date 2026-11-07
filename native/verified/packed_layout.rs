@@ -389,7 +389,7 @@ pub fn pack_coefficients(
                 == coefficient as nat * layout.coefficient_limbs as nat
                     + layout.coefficient_limbs as nat) by(nonlinear_arith);
             assert forall|i: int| 0 <= i < (coefficient + 1) as int
-                implies value(dst@.subrange(
+                implies #[trigger] value(dst@.subrange(
                     i * slot_limbs as int + layout.coefficient_limbs as int,
                     (i + 1) * slot_limbs as int,
                 )) == 0 by {
