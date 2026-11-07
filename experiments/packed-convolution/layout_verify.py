@@ -205,7 +205,8 @@ def main():
                            "-o", output / "alias-negative"]
         code, text, out_sha, err_sha = run(command, "alias-negative", output, env, output)
         diagnostics = re.findall(r"(?m)^error\[([^\]]+)\]: (.*)$", text)
-        if code != 1 or len(diagnostics) != 1 or diagnostics[0][0] != "E0502" or FATAL.search(text):
+        alias_clean = re.sub(r"(?m)^error\[E0502\]:.*$", "", text, count=1)
+        if code != 1 or len(diagnostics) != 1 or diagnostics[0][0] != "E0502" or FATAL.search(alias_clean):
             raise RuntimeError("alias-overlap fixture was not rejected uniquely by the borrow checker")
         report["alias_negative"] = dict(status="pass", diagnostic=diagnostics[0][0],
                                          stdout_sha256=out_sha, stderr_sha256=err_sha)
