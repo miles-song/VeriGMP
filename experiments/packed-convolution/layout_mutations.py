@@ -11,8 +11,8 @@ MUTATIONS = (
     (
         "extract-guard-instead-of-coefficient",
         "pub fn extract_coefficients(",
-        "&src[source_pos..source_pos + layout.coefficient_limbs],",
-        "&src[source_pos + (slot_limbs - layout.coefficient_limbs)..source_pos + slot_limbs],",
+        "let src_coefficient = &src[source_pos..source_pos + layout.coefficient_limbs];",
+        "let src_coefficient = &src[source_pos + (slot_limbs - layout.coefficient_limbs)..source_pos + slot_limbs];",
     ),
     (
         "wrong-precision-error",
