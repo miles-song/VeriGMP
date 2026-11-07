@@ -215,7 +215,7 @@ pub open spec fn slots_equal(
     count * left_slot <= left.len()
         && count * right_slot <= right.len()
         && forall|i: int| 0 <= i < count as int
-            ==> packed_convolution::slots(left, left_slot, count)[i]
+            ==> #[trigger] packed_convolution::slots(left, left_slot, count)[i]
                 == packed_convolution::slots(right, right_slot, count)[i]
 }
 
@@ -360,13 +360,13 @@ pub fn pack_coefficients(
             layout.source_words == count * layout.coefficient_limbs,
             layout.packed_words == count * slot_limbs,
             forall|i: int| 0 <= i < coefficient as int
-                ==> packed_convolution::slots(dst@, slot_limbs as nat, count as nat)[i]
+                ==> #[trigger] packed_convolution::slots(dst@, slot_limbs as nat, count as nat)[i]
                     == packed_convolution::slots(
                         src@, layout.coefficient_limbs as nat, count as nat,
                     )[i],
             forall|i: int, j: int| 0 <= i < coefficient as int
                 && layout.coefficient_limbs as int <= j < slot_limbs as int
-                ==> dst@[i * slot_limbs as int + j] == 0,
+                ==> #[trigger] dst@[i * slot_limbs as int + j] == 0,
         decreases count - coefficient,
     {
         assert(source_pos + layout.coefficient_limbs <= src.len());
@@ -385,9 +385,9 @@ pub fn pack_coefficients(
                     * (slot_limbs - layout.coefficient_limbs) as nat
                     + (pad - layout.coefficient_limbs) as nat,
                 forall|k: int| layout.coefficient_limbs as int <= k < pad as int
-                    ==> dst@[destination_pos as int + k] == 0,
+                    ==> #[trigger] dst@[destination_pos as int + k] == 0,
                 forall|k: int| pad as int <= k < slot_limbs as int
-                    ==> dst@[destination_pos as int + k]
+                    ==> #[trigger] dst@[destination_pos as int + k]
                         == old(dst)@[destination_pos as int + k],
             decreases slot_limbs - pad,
         {
@@ -397,10 +397,11 @@ pub fn pack_coefficients(
         }
         proof {
             assert forall|k: int| 0 <= k < layout.coefficient_limbs as int
-                implies dst@[destination_pos as int + k] == src@[source_pos as int + k] by {}
+                implies #[trigger] dst@[destination_pos as int + k]
+                    == src@[source_pos as int + k] by {}
             assert forall|k: int|
                 layout.coefficient_limbs as int <= k < slot_limbs as int
-                implies dst@[destination_pos as int + k] == 0 by {}
+                implies #[trigger] dst@[destination_pos as int + k] == 0 by {}
             padded_slot_value(
                 dst@, src@, destination_pos as nat, source_pos as nat,
                 layout.coefficient_limbs as nat, slot_limbs as nat,
@@ -509,7 +510,7 @@ pub fn extract_coefficients(
             layout.packed_words == count * slot_limbs,
             layout.source_words == count * layout.coefficient_limbs,
             forall|i: int| 0 <= i < coefficient as int
-                ==> packed_convolution::slots(src@, slot_limbs as nat, count as nat)[i]
+                ==> #[trigger] packed_convolution::slots(src@, slot_limbs as nat, count as nat)[i]
                     == packed_convolution::slots(
                         dst@, layout.coefficient_limbs as nat, count as nat,
                     )[i],
@@ -524,10 +525,11 @@ pub fn extract_coefficients(
         proof { copied_words = copied_words + layout.coefficient_limbs as nat; }
         proof {
             assert forall|k: int| 0 <= k < layout.coefficient_limbs as int
-                implies dst@[destination_pos as int + k] == src@[source_pos as int + k] by {}
+                implies #[trigger] dst@[destination_pos as int + k]
+                    == src@[source_pos as int + k] by {}
             assert forall|k: int|
                 layout.coefficient_limbs as int <= k < slot_limbs as int
-                implies src@[source_pos as int + k] == 0 by {
+                implies #[trigger] src@[source_pos as int + k] == 0 by {
                 assert(src@[source_pos as int + k]
                     == src@[coefficient as int * slot_limbs as int + k]);
             }
