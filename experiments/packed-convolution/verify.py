@@ -37,18 +37,31 @@ def file_sha(path):
         return hashlib.file_digest(stream, 'sha256').hexdigest()
 
 
-def git(*args):
+def git_adapter():
     command = ['git', '-C', str(ROOT)]
     pointer = (ROOT / '.git').read_text() if (ROOT / '.git').is_file() else ''
     match = re.fullmatch(r'gitdir: ([A-Za-z]):[/\\](.+)\s*', pointer.strip())
     if platform.system() == 'Linux' and match:
+        windows_git = Path('/mnt/c/Program Files/Git/cmd/git.exe')
+        mounted_root = re.fullmatch(r'/mnt/([a-z])/(.+)', str(ROOT))
+        if windows_git.is_file() and mounted_root:
+            windows_root = mounted_root[1].upper() + ':/' + mounted_root[2]
+            return [str(windows_git), '-C', windows_root]
         gitdir = Path('/mnt') / match[1].lower() / match[2].replace('\\', '/')
         command += [f'--git-dir={gitdir}', f'--work-tree={ROOT}']
-    return subprocess.run(command + list(args), check=True, capture_output=True, timeout=30).stdout
+    return command
+
+
+def git(*args):
+    return subprocess.run(git_adapter() + list(args), check=True, capture_output=True, timeout=60).stdout
 
 
 def identity(sources):
-    if Path(git('rev-parse', '--show-toplevel').decode().strip()).resolve() != ROOT:
+    top = git('rev-parse', '--show-toplevel').decode().strip()
+    windows_top = re.fullmatch(r'([A-Za-z]):[/\\](.+)', top)
+    if platform.system() == 'Linux' and windows_top:
+        top = '/mnt/' + windows_top[1].lower() + '/' + windows_top[2].replace('\\', '/')
+    if Path(top).resolve() != ROOT:
         raise RuntimeError('Git identity does not resolve to this actual worktree')
     if git('status', '--porcelain', '--untracked-files=all').strip():
         raise RuntimeError('Commit all feature inputs before acceptance')
@@ -57,7 +70,8 @@ def identity(sources):
         if git('show', f'{head}:{name}') != data or (ROOT / name).read_bytes() != data:
             raise RuntimeError('HEAD/source mismatch: ' + name)
     return dict(head=head, branch=git('branch', '--show-current').decode().strip(),
-                root=str(ROOT), source_sha256={n: sha(d) for n, d in sources.items()})
+                root=str(ROOT), git_command=git_adapter(),
+                source_sha256={n: sha(d) for n, d in sources.items()})
 
 
 def live_group(group):

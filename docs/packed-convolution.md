@@ -55,9 +55,11 @@ python3 experiments/packed-convolution/verify.py \
   --deps-root /path/to/pinned/deps --output /fresh/persistent/evidence
 ```
 
-It requires a clean committed worktree, translates an actual Windows Git
-worktree pointer when running in WSL, checks source bytes against HEAD, and
-records source and tool hashes. It verifies and compiles the same focused
+It requires a clean committed worktree and uses the installed Windows Git for a
+Windows-managed worktree when available under WSL; otherwise it translates the
+actual Git worktree pointer for Linux Git. It verifies the resolved worktree
+root and checks source bytes against HEAD, and records source and tool hashes.
+It verifies and compiles the same focused
 model with optimization, exports its library and proof metadata, verifies
 Python-generated exact fixtures against that export, runs independent Python
 integer checks and requires logical rejection of four semantic mutations.
