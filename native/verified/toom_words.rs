@@ -26,7 +26,7 @@ pub fn copy_pad(dst:&mut[u64],src:&[u64])
     ensures final(dst)@.len()==old(dst)@.len(),value(final(dst)@)==value(src@),
 {
     assert!(dst.len()>=src.len());
-    let original = dst@;
+    let ghost original = dst@;
     let copied = src.len();
     fast_words::copy_words(&mut dst[..copied], src);
     zero(&mut dst[copied..]);
