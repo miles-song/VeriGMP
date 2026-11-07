@@ -287,6 +287,7 @@ pub fn pack_coefficients(
 
     assert!(src.len() == layout.source_words && dst.len() == layout.packed_words);
     assert!(layout.coefficient_limbs > 0 && slot_limbs > 0);
+    assert(slot_limbs >= layout.coefficient_limbs);
     let mut source_pos = 0usize;
     let mut destination_pos = 0usize;
     let mut coefficient = 0usize;
@@ -332,6 +333,15 @@ pub fn pack_coefficients(
                     (source_pos + layout.coefficient_limbs) as int).len()
                     == layout.coefficient_limbs as int);
             }
+            crate::radix::prefix_range(
+                dst@.subrange(destination_pos as int,
+                    (destination_pos + slot_limbs) as int), slot_limbs as nat,
+            );
+            crate::radix::prefix_range(
+                src@.subrange(source_pos as int,
+                    (source_pos + layout.coefficient_limbs) as int),
+                layout.coefficient_limbs as nat,
+            );
             slot_entry(
                 dst@, slot_limbs as nat, count as nat, coefficient as nat,
             );
@@ -441,6 +451,9 @@ pub fn extract_coefficients(
 
     assert!(src.len() == layout.packed_words && dst.len() == layout.source_words);
     assert!(layout.coefficient_limbs > 0 && slot_limbs > 0);
+    assert(canonical_packed_slots(
+        src@, count as nat, precision_bits as nat, slot_limbs as nat,
+    ));
     let mut source_pos = 0usize;
     let mut destination_pos = 0usize;
     let mut coefficient = 0usize;
