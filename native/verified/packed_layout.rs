@@ -382,6 +382,9 @@ pub fn pack_coefficients(
     let mut destination_pos = 0usize;
     let mut coefficient = 0usize;
     let ghost mut copied_words: nat = 0;
+    let ghost mut written_words: nat = 0;
+    let ghost mut zeroed_words: nat = 0;
+    let ghost padding_words = (slot_limbs - layout.coefficient_limbs) as nat;
     while coefficient < count
         invariant
             coefficient <= count,
@@ -392,6 +395,8 @@ pub fn pack_coefficients(
             src@.len() == layout.source_words as int,
             dst@.len() == layout.packed_words as int,
             copied_words == coefficient as nat * layout.coefficient_limbs as nat,
+            written_words == coefficient as nat * slot_limbs as nat,
+            zeroed_words == coefficient as nat * padding_words,
             layout.source_words == count * layout.coefficient_limbs,
             layout.packed_words == count * slot_limbs,
             slot_limbs >= layout.coefficient_limbs,
@@ -419,7 +424,11 @@ pub fn pack_coefficients(
                 src_coefficient.len() == layout.coefficient_limbs,
                 slot_limbs >= layout.coefficient_limbs;
         crate::toom_words::copy_pad(dst_slot, src_coefficient);
-        proof { copied_words = copied_words + layout.coefficient_limbs as nat; }
+        proof {
+            copied_words = copied_words + layout.coefficient_limbs as nat;
+            written_words = written_words + slot_limbs as nat;
+            zeroed_words = zeroed_words + padding_words;
+        }
         proof {
             assert(destination_pos as int == coefficient as int * slot_limbs as int)
                 by(nonlinear_arith)
@@ -573,9 +582,20 @@ pub fn pack_coefficients(
             assert(copied_words
                 == coefficient as nat * layout.coefficient_limbs as nat
                     + layout.coefficient_limbs as nat);
+            assert(written_words
+                == coefficient as nat * slot_limbs as nat + slot_limbs as nat);
+            assert(zeroed_words
+                == coefficient as nat
+                    * padding_words + padding_words);
+            assert((coefficient as nat + 1) * padding_words
+                == coefficient as nat * padding_words + padding_words)
+                by(nonlinear_arith);
             assert((coefficient as nat + 1) * layout.coefficient_limbs as nat
                 == coefficient as nat * layout.coefficient_limbs as nat
                     + layout.coefficient_limbs as nat) by(nonlinear_arith);
+            assert((coefficient as nat + 1) * slot_limbs as nat
+                == coefficient as nat * slot_limbs as nat + slot_limbs as nat)
+                by(nonlinear_arith);
         }
         source_pos += layout.coefficient_limbs;
         destination_pos += slot_limbs;
@@ -583,6 +603,8 @@ pub fn pack_coefficients(
     }
     proof {
         assert(copied_words == count as nat * layout.coefficient_limbs as nat);
+        assert(written_words == count as nat * slot_limbs as nat);
+        assert(zeroed_words == count as nat * padding_words);
         assert forall|i: int| 0 <= i < count as int
             implies #[trigger] packed_convolution::slots(dst@, slot_limbs as nat, count as nat)[i]
                 == packed_convolution::slots(
@@ -692,6 +714,7 @@ pub fn extract_coefficients(
     let mut destination_pos = 0usize;
     let mut coefficient = 0usize;
     let ghost mut copied_words: nat = 0;
+    let ghost mut written_words: nat = 0;
     while coefficient < count
         invariant
             coefficient <= count,
@@ -702,6 +725,7 @@ pub fn extract_coefficients(
             src@.len() == layout.packed_words as int,
             dst@.len() == layout.source_words as int,
             copied_words == coefficient as nat * layout.coefficient_limbs as nat,
+            written_words == coefficient as nat * layout.coefficient_limbs as nat,
             canonical_packed_slots(
                 src@, count as nat, precision_bits as nat, slot_limbs as nat,
             ),
@@ -733,7 +757,10 @@ pub fn extract_coefficients(
             &mut dst[destination_pos..destination_pos + layout.coefficient_limbs],
             src_coefficient,
         );
-        proof { copied_words = copied_words + layout.coefficient_limbs as nat; }
+        proof {
+            copied_words = copied_words + layout.coefficient_limbs as nat;
+            written_words = written_words + layout.coefficient_limbs as nat;
+        }
         proof {
             assert(source_pos as int == coefficient as int * slot_limbs as int)
                 by(nonlinear_arith)
@@ -916,6 +943,9 @@ pub fn extract_coefficients(
             assert(copied_words
                 == coefficient as nat * layout.coefficient_limbs as nat
                     + layout.coefficient_limbs as nat);
+            assert(written_words
+                == coefficient as nat * layout.coefficient_limbs as nat
+                    + layout.coefficient_limbs as nat);
             assert((coefficient as nat + 1) * layout.coefficient_limbs as nat
                 == coefficient as nat * layout.coefficient_limbs as nat
                     + layout.coefficient_limbs as nat) by(nonlinear_arith);
@@ -924,7 +954,10 @@ pub fn extract_coefficients(
         destination_pos += layout.coefficient_limbs;
         coefficient += 1;
     }
-    proof { assert(copied_words == count as nat * layout.coefficient_limbs as nat); }
+    proof {
+        assert(copied_words == count as nat * layout.coefficient_limbs as nat);
+        assert(written_words == count as nat * layout.coefficient_limbs as nat);
+    }
     Ok(())
 }
 
