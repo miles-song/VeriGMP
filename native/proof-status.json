@@ -4,6 +4,15 @@
   "modules": [
     {
       "files": [
+        "specs/packed_convolution.rs"
+      ],
+      "status": "model_proved",
+      "scope": "Independent finite convolution/product identity for arbitrary signed integer coefficients; exact shorter-input coefficient bound, guard sufficiency, no-carry extraction, canonical power-of-two residues, input truncation/empty cases and contiguous limb-slot interpretation",
+      "validation": "Focused experiments/packed-convolution/verify.py gate binds the actual committed source, pinned tools, optimized model export, imported independent-oracle fixtures and semantic mutants; it does not assert complete-library acceptance",
+      "cost": "Specifications and proofs erase; linear limb packing/extraction, product composition, machine-capacity/error contracts, bit work and peak-space refinement remain pending. No runtime implementation or performance claim."
+    },
+    {
+      "files": [
         "specs/radix.rs",
         "specs/precision.rs",
         "specs/product.rs",
@@ -88,6 +97,7 @@
   "complete_multiprecision_api": false,
   "gmp_performance_parity_established": false,
   "remaining": [
+    "Efficient executable packed-convolution packing/extraction and product composition, with capacity/ownership refinement and resource evidence",
     "Architecture-specific assembly",
     "Higher Toom variants and FFT",
     "Composed cost model",

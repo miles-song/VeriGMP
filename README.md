@@ -12,6 +12,12 @@ measures the result against GMP and against its own earlier code.
 The library is experimental and deliberately narrow. It does not verify GMP, does
 not offer a GMP-compatible API and does not claim performance parity with GMP.
 
+For clients building exact polynomial arithmetic, the
+[packed-convolution model](docs/packed-convolution.md) supplies finite convolution,
+guard-bit and no-carry extraction theorems, including the interpretation of
+contiguous limb slots. It is an erased mathematical interface; executable
+packing, extraction and polynomial multiplication remain future work.
+
 The registered performance target is a median time no greater than GMP on the
 principal workloads, with no registered key shape above 1.2 times GMP. The target
 requires matching result semantics, the same compiler toolchain and linked builds,
