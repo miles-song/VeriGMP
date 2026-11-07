@@ -89,40 +89,14 @@ pub fn checked_layout(count: usize, precision_bits: usize, slot_limbs: usize)
     if slot_limbs < coefficient_limbs {
         return Err(PackedLayoutError::SlotTooNarrow);
     }
-    if count > usize::MAX / coefficient_limbs || count > usize::MAX / slot_limbs {
-        proof {
-            if count > usize::MAX / coefficient_limbs {
-                lemma_fundamental_div_mod(usize::MAX as int, coefficient_limbs as int);
-                assert(count as int * coefficient_limbs as int > usize::MAX as int)
-                    by(nonlinear_arith)
-                    requires
-                        coefficient_limbs > 0,
-                        count > usize::MAX / coefficient_limbs,
-                        usize::MAX as int
-                            == (usize::MAX as int / coefficient_limbs as int)
-                                * coefficient_limbs as int
-                                + (usize::MAX as int % coefficient_limbs as int);
-            }
-            if count > usize::MAX / slot_limbs {
-                lemma_fundamental_div_mod(usize::MAX as int, slot_limbs as int);
-                assert(count as int * slot_limbs as int > usize::MAX as int)
-                    by(nonlinear_arith)
-                    requires
-                        slot_limbs > 0,
-                        count > usize::MAX / slot_limbs,
-                        usize::MAX as int
-                            == (usize::MAX as int / slot_limbs as int) * slot_limbs as int
-                                + (usize::MAX as int % slot_limbs as int);
-            }
-        }
-        return Err(PackedLayoutError::LengthOverflow);
-    }
-    let source_words = count * coefficient_limbs;
-    let packed_words = count * slot_limbs;
-    proof {
-        assert(source_words as int == count as int * coefficient_limbs as int);
-        assert(packed_words as int == count as int * slot_limbs as int);
-    }
+    let source_words = match count.checked_mul(coefficient_limbs) {
+        Some(words) => words,
+        None => return Err(PackedLayoutError::LengthOverflow),
+    };
+    let packed_words = match count.checked_mul(slot_limbs) {
+        Some(words) => words,
+        None => return Err(PackedLayoutError::LengthOverflow),
+    };
     Ok(PackedLayout { coefficient_limbs, source_words, packed_words })
 }
 
@@ -153,7 +127,7 @@ pub proof fn padded_slot_value(
             ==> #[trigger] packed[packed_start as int + j]
                 == source[source_start as int + j],
         forall|j: int| coefficient_words as int <= j < slot_words as int
-            ==> #[trigger] packed[packed_start as int + j] == 0,
+            ==> packed.get(packed_start as int + j) == Some(0u64),
     ensures
         value(packed.subrange(packed_start as int,
             (packed_start + slot_words) as int))
@@ -165,23 +139,42 @@ pub proof fn padded_slot_value(
         (source_start + coefficient_words) as int);
     let dst_low = dst_slot.subrange(0, coefficient_words as int);
     let dst_pad = dst_slot.subrange(coefficient_words as int, slot_words as int);
+    let padding_words = (slot_words - coefficient_words) as nat;
+    assert(dst_slot.len() == slot_words as int);
+    assert(dst_low.len() == coefficient_words as int);
+    assert(dst_pad.len() == padding_words as int);
     assert forall|j: int| 0 <= j < coefficient_words as int
         implies dst_low[j] == src_coefficient[j] by {
         assert(dst_low[j] == packed[packed_start as int + j]);
         assert(src_coefficient[j] == source[source_start as int + j]);
     }
+    assert forall|j: int| 0 <= j < padding_words as int
+        implies #[trigger] dst_pad[j] == 0 by {
+        let index = packed_start as int + coefficient_words as int + j;
+        assert(index < packed.len());
+        assert(packed.get(index) == Some(packed[index]));
+        assert(packed[index] == 0);
+    }
     equal_prefix(dst_low, src_coefficient, coefficient_words);
-    zero_prefix(dst_pad, (slot_words - coefficient_words) as nat);
-    crate::product::subrange_value(
-        dst_slot, coefficient_words, (slot_words - coefficient_words) as nat,
-    );
+    zero_prefix(dst_pad, padding_words);
+    crate::product::subrange_value(dst_slot, 0, coefficient_words);
+    crate::product::subrange_value(dst_slot, coefficient_words, padding_words);
     assert(value(dst_low) == value(src_coefficient));
+    assert(dst_slot.subrange(0, dst_slot.len()) == dst_slot);
+    assert(dst_slot.subrange(0, coefficient_words as int) == dst_low);
+    assert(dst_slot.subrange(coefficient_words as int, dst_slot.len()) == dst_pad);
     assert(value(dst_slot) == prefix(dst_slot, slot_words));
+    assert(value(dst_low) == prefix(dst_low, coefficient_words));
+    assert(value(dst_pad) == prefix(dst_pad, padding_words));
+    assert(prefix(dst_slot, coefficient_words)
+        == prefix(dst_slot, 0) + radix(0) * value(dst_low)) by(nonlinear_arith);
+    assert(prefix(dst_slot, 0) == 0 && radix(0) == 1);
     assert(value(dst_low) == prefix(dst_slot, coefficient_words));
-    assert(value(dst_pad) == prefix(dst_slot.subrange(coefficient_words as int,
-        slot_words as int), (slot_words - coefficient_words) as nat));
+    assert(prefix(dst_slot, slot_words)
+        == prefix(dst_slot, coefficient_words)
+            + radix(coefficient_words) * value(dst_pad)) by(nonlinear_arith);
     assert(value(dst_slot) == value(dst_low)
-        + radix(coefficient_words) * value(dst_pad)) by(nonlinear_arith);
+        + radix(coefficient_words) * value(dst_pad));
     assert(value(dst_pad) == 0);
 }
 
@@ -204,7 +197,7 @@ pub open spec fn canonical_packed_slots(src: Seq<u64>, count: nat, p: nat, slot:
         )
         && forall|i: int, j: int| 0 <= i < count as int
             && coefficient_limbs(p) as int <= j < slot as int
-            ==> #[trigger] src[i * slot as int + j] == 0
+            ==> src.get(i * slot as int + j) == Some(0u64)
 }
 
 pub open spec fn slots_equal(
@@ -316,7 +309,7 @@ pub fn pack_coefficients(
                     )
                     && forall|i: int, j: int| 0 <= i < count as int
                         && coefficient_limbs(precision_bits as nat) as int <= j < slot_limbs as int
-                        ==> #[trigger] final(dst)@[i * slot_limbs as int + j] == 0,
+                        ==> final(dst)@.get(i * slot_limbs as int + j) == Some(0u64),
             Err(error) =>
                 pack_error_matches(
                     error,
@@ -366,7 +359,7 @@ pub fn pack_coefficients(
                     )[i],
             forall|i: int, j: int| 0 <= i < coefficient as int
                 && layout.coefficient_limbs as int <= j < slot_limbs as int
-                ==> #[trigger] dst@[i * slot_limbs as int + j] == 0,
+                ==> dst@.get(i * slot_limbs as int + j) == Some(0u64),
         decreases count - coefficient,
     {
         assert(source_pos + layout.coefficient_limbs <= src.len());
@@ -381,16 +374,18 @@ pub fn pack_coefficients(
             invariant
                 layout.coefficient_limbs <= pad <= slot_limbs,
                 destination_pos == coefficient * slot_limbs,
+                destination_pos + pad <= dst.len(),
                 zeroed_words == coefficient as nat
                     * (slot_limbs - layout.coefficient_limbs) as nat
                     + (pad - layout.coefficient_limbs) as nat,
                 forall|k: int| layout.coefficient_limbs as int <= k < pad as int
-                    ==> #[trigger] dst@[destination_pos as int + k] == 0,
+                    ==> dst@.get(destination_pos as int + k) == Some(0u64),
                 forall|k: int| pad as int <= k < slot_limbs as int
                     ==> #[trigger] dst@[destination_pos as int + k]
                         == old(dst)@[destination_pos as int + k],
             decreases slot_limbs - pad,
         {
+            assert(destination_pos + pad < dst.len());
             dst[destination_pos + pad] = 0;
             pad += 1;
             proof { zeroed_words = zeroed_words + 1; }
@@ -430,6 +425,7 @@ pub fn pack_coefficients(
         coefficient += 1;
     }
     proof {
+        reveal(canonical_packed_slots);
         assert(copied_words == count as nat * layout.coefficient_limbs as nat);
         assert(zeroed_words
             == count as nat * (slot_limbs - layout.coefficient_limbs) as nat);
