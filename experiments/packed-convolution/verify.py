@@ -152,6 +152,9 @@ def main():
         for name in (MODEL, f'{FEATURE}/model.rs'):
             if re.search(forbidden, sources[name].decode()):
                 raise RuntimeError('Unapproved proof escape/core FFI: ' + name)
+        for name, (before, _) in MUTATIONS.items():
+            if sources[MODEL].decode().count(before) != 1:
+                raise RuntimeError('Mutation anchor is not unique: ' + name)
         assert '#[path="specs/packed_convolution.rs"] pub mod packed_convolution;' in sources['native/lib.rs'].decode()
         status = json.loads(sources['native/proof-status.json'])
         entry = [m for m in status['modules'] if m['files'] == ['specs/packed_convolution.rs']]
