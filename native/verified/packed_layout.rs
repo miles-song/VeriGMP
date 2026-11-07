@@ -42,17 +42,17 @@ pub proof fn precision_layout_interpretation(bits: usize, limbs: usize, top: u32
             crate::precision::bit_precision(limbs as nat, top as nat) == bits as nat,
             limbs > 0,
             1 <= top <= 64;
-    assert((top - 1) as int < 64);
+    assert(((top - 1) as int) < 64);
     assert(((bits - 1) as int) / 64 == (limbs - 1) as int)
         by(nonlinear_arith)
         requires
             (bits - 1) as int == 64 * ((limbs - 1) as int) + (top - 1) as int,
-            0 <= (top - 1) as int < 64;
+            0 <= ((top - 1) as int) < 64;
     assert(((bits - 1) as int) % 64 == (top - 1) as int)
         by(nonlinear_arith)
         requires
             (bits - 1) as int == 64 * ((limbs - 1) as int) + (top - 1) as int,
-            0 <= (top - 1) as int < 64;
+            0 <= ((top - 1) as int) < 64;
 }
 
 /// Validate precision and checked buffer sizes before either conversion writes.
