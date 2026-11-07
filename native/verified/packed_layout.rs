@@ -316,7 +316,7 @@ pub fn pack_coefficients(
                     )
                     && forall|i: int, j: int| 0 <= i < count as int
                         && coefficient_limbs(precision_bits as nat) as int <= j < slot_limbs as int
-                        ==> final(dst)@[i * slot_limbs as int + j] == 0,
+                        ==> #[trigger] final(dst)@[i * slot_limbs as int + j] == 0,
             Err(error) =>
                 pack_error_matches(
                     error,
