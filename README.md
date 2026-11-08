@@ -19,6 +19,10 @@ contiguous limb slots. It is an erased mathematical interface; executable
 packing and extraction use borrowed slices and caller-owned buffers, with
 coefficient precision kept separate from aligned slot width. Their contracts
 preserve canonical coefficient values and destinations on checked errors.
+An [exact composition witness](docs/packed-product-composition.md) connects those
+actual calls and `toom_multiply::full` to independently defined convolution for
+equal-length canonical inputs at arbitrary limb precision, including the final
+zero coefficient. Its mathematical sequences and proofs erase from the client.
 The [consumer comparison](experiments/packed-convolution/consumer-measurement-20261108/RESULTS.md)
 documents workload-dependent tradeoffs; the APIs do not select a polynomial
 multiplication strategy automatically. Composed formal bit/space bounds remain open.

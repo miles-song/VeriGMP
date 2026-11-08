@@ -14,7 +14,11 @@ Precision Arithmetic Library，GNU 多精度算术库）的算法与存储策略
 有限卷积、guard bits 与无进位提取定理，并连接连续 limb slot 的整数解释。
 packing 与 extraction 使用 borrowed slices 和 caller-owned buffers，区分 coefficient
 precision 与 aligned slot width；contract 覆盖 canonical values 与 checked errors 的
-destination preservation。[consumer comparison](experiments/packed-convolution/consumer-measurement-20261108/RESULTS.md)
+destination preservation。
+[exact composition witness](docs/packed-product-composition.md) 将这些实际调用与
+`toom_multiply::full` 连接到独立定义的卷积，覆盖等长 canonical 输入、任意 limb
+precision 以及最后的零系数；数学 Seq 与证明会从 client 的优化代码中擦除。
+[consumer comparison](experiments/packed-convolution/consumer-measurement-20261108/RESULTS.md)
 记录不同 workload 的 tradeoff，API 不会自动选择 polynomial multiplication strategy。
 完整 formal bit/space bounds 仍未闭合。
 

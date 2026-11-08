@@ -88,8 +88,9 @@ Canonical p-bit coefficient chunks and canonical p-bit packed slots with zero
 guard/padding limbs are explicit Verus domain preconditions. The runtime does
 not scan those values; the caller must already maintain the representation
 invariant. For non-word-aligned p, canonical input chunks have zero unused top
-bits, so no runtime mask or precision change is needed. Slot padding does not
-change creation precision.
+bits, so no runtime mask or precision change is needed. Slot padding preserves
+the supplied integer representatives. Tensor creation provenance and its
+precision/lift/reduction connection belong to the consuming application.
 
 The pinned same-source Verus/Rust gate at measured source
 `d82d63147cfd45939a6a34765872295dca83a3fa` passes the functional refinement and
@@ -109,7 +110,10 @@ binds full object-section bytes to the pinned sources and libraries: pack SHA-25
 `84df6810c854bd5dd0fe25d5a7d38abed7d18ab11176932ef2135216672953f6`
 and extract SHA-256
 `45155a3921293655560a5c6a32a36c461ca92731112f696aea64492c9e26104c`.
-Formal bit/peak-space bounds and a composed product-refinement theorem remain open.
+The [exact packed-product composition](packed-product-composition.md) now connects
+the actual APIs and Toom product to finite convolution for equal-length canonical
+inputs at arbitrary limb precision. Unequal/truncated consumer composition and
+formal bit/peak-space bounds remain open.
 The mathematical Seq and finite sums do not authorize materializing polynomial
 objects or repeated whole-integer shifts in a hot path. No FFI or arithmetic
 trust boundary is introduced by this module.
@@ -125,8 +129,9 @@ receive cross-path checks against an exact bounded u128 schoolbook control.
 This control is a benchmark implementation, not an existing production baseline.
 Packing gains depend on shape; guard-word transitions produce material
 regressions against that direct control. These results enable neither an
-automatic dispatcher nor a high-performance claim for unmeasured shapes, a
-formal product-composition theorem, solver speedup or GMP parity.
+automatic dispatcher nor a high-performance claim for unmeasured shapes,
+solver speedup or GMP parity. The separate composition proof has its own
+source-bound functional acceptance procedure.
 
 For retained lengths A and C, coefficient width p, slot width w and output order
 D, the candidate's source loops copy A+C coefficient chunks and zero at most
