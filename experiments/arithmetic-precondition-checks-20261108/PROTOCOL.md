@@ -8,6 +8,9 @@ the same three-product recursion under the same verified preconditions. Its
 length/capacity/threshold facts are proved in ghost code. The arithmetic identity,
 scratch layout, base_full, leaf threshold, low-product policies, Toom and square
 implementations and all checked-error functions remain unchanged.
+The public entry still calls base_full directly when n<=threshold; only a
+recursive-sized input enters the private worker. The worker keeps the same
+leaf condition for its three recursive children.
 
 The independent mathematical meaning is the existing little-endian integer
 interpretation and `value(dst)=value(a)*value(b)`. Every private recursive call
@@ -24,6 +27,10 @@ evidence may establish unchanged baseline source identity, but before/after
 code-generation comparisons use exactly matching compiler/codegen flags.
 An ordinary Rust control with the same calls is compared by complete symbol
 bytes and normalized relocations, including all recursion and panic paths.
+Its external helper calls can inline differently from the actual intra-crate
+calls; any such difference is recorded instead of claiming whole-worker byte
+identity. The public entry is required to match the ordinary control exactly
+after normalizing relocation targets.
 No truncated disassembly or instruction-prefix count is evidence.
 
 Before timing, the modified full native library must pass a fresh pinned
@@ -62,7 +69,9 @@ timed samples; `black_box` protects runtime inputs and outputs.
 No timing may start until root grants the coordinated quiet benchmark window;
 concurrent M0/M6 proofs currently make this a semantic/static-only stage.
 A smaller worker or fewer entry branches is not a speed result. Promotion
-requires repeated gains on the declared workloads without material registered
-regressions and independent final review; otherwise the candidate remains an
+requires a candidate/baseline geometric mean <=0.97 over all registered forced
+full-product sizes n>24, and every registered cell median <=1.05 of baseline,
+in each of the two independent runs. All 86 cell ratios are retained, including
+unchanged square controls; failure of either criterion leaves the candidate an
 experiment/no-go. Universal GMP parity, solver performance, composed bit-cost
 and peak-space theorems are not established by this local change.

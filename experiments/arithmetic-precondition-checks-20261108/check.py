@@ -54,7 +54,8 @@ def main():
         head=git("rev-parse","HEAD").decode().strip()
         names=[p.relative_to(ROOT).as_posix() for p in (ROOT/"native").rglob("*.rs")]
         names += [p.relative_to(ROOT).as_posix() for p in FEATURE.iterdir() if p.suffix in (".rs",".py",".md")]
-        names += ["AGENTS.md","native/toolchain.json","native/performance-target.json","native/proof-status.json"]
+        names += ["AGENTS.md","native/toolchain.json","native/performance-target.json","native/proof-status.json",
+            "native/controls/gmp_abi.cpp"]
         sources={name:(ROOT/name).read_bytes() for name in sorted(set(names))}
         for name,data in sources.items():
             if git("show",head+":"+name)!=data:raise RuntimeError("HEAD byte mismatch: "+name)

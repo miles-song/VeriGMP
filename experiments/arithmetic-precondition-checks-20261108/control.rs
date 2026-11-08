@@ -4,6 +4,7 @@ use verigmp::{fast_multiply,fast_words as words};
 pub fn full(dst:&mut[u64],a:&[u64],b:&[u64],scratch:&mut[u64],threshold:usize) {
     assert!(a.len()>0 && a.len()==b.len());assert!(a.len()<=usize::MAX/3);
     assert!(dst.len()==2*a.len() && scratch.len()>=3*a.len());assert!(threshold>=8);
+    if a.len()<=threshold {fast_multiply::base_full(dst,a,b);return;}
     full_inner(dst,a,b,scratch,threshold);
 }
 

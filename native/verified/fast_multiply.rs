@@ -88,6 +88,7 @@ pub fn full(dst:&mut[u64],a:&[u64],b:&[u64],scratch:&mut[u64],threshold:usize)
     proof {lemma_fundamental_div_mod(usize::MAX as int,3);lemma_mod_division_less_than_divisor(usize::MAX as int,3);}
     assert!(a.len()>0 && a.len()==b.len());assert!(a.len()<=usize::MAX/3);
     assert!(dst.len()==2*a.len() && scratch.len()>=3*a.len());assert!(threshold>=8);
+    if a.len()<=threshold {base_full(dst,a,b);return;}
     full_inner(dst,a,b,scratch,threshold);
 }
 
