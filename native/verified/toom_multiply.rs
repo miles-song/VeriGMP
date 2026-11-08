@@ -47,7 +47,24 @@ pub fn full(dst:&mut[u64],a:&[u64],b:&[u64],scratch:&mut[u64],threshold:usize)
     let na=toom_evaluate::negative(ax,a0,a1,a2);let nb=toom_evaluate::negative(bx,b0,b1,b2);
     let negative=na!=nb;
     let ghost av=value(ax@);let ghost bv=value(bx@);
-    full(pm,ax,bx,work,threshold);
+    if k==threshold && ax[k]==0 && bx[k]==0 {
+        proof {
+            equal_prefix(ax@,ax@.subrange(0,k as int),k as nat);
+            equal_prefix(bx@,bx@.subrange(0,k as int),k as nat);
+            assert(value(ax@)==value(ax@.subrange(0,k as int)));
+            assert(value(bx@)==value(bx@.subrange(0,k as int)));
+        }
+        full(&mut pm[..2*k],&ax[..k],&bx[..k],work,threshold);
+        let ghost short_product=pm@;
+        toom_words::zero(&mut pm[2*k..]);
+        proof {
+            split(pm@,(2*k) as nat);
+            equal_prefix(pm@,short_product,(2*k) as nat);
+            assert(value(pm@)==av*bv);
+        }
+    } else {
+        full(pm,ax,bx,work,threshold);
+    }
     toom_evaluate::positive(ax,a0,a1,a2,2);toom_evaluate::positive(bx,b0,b1,b2,2);
     full(p2,ax,bx,work,threshold);
     let ghost c=seq![value(a0@)*value(b0@),toom::c1(value(a0@),value(a1@),value(b0@),value(b1@)),

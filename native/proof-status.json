@@ -101,8 +101,9 @@
         "verified/square_low.rs",
         "verified/arithmetic.rs"
       ],
-      "status": "impl_refined",
-      "scope": "Recursive full/low Toom multiplication, dedicated recursive squares and fixed modular dispatch"
+      "status": "impl_refinement_pending_candidate",
+      "scope": "Recursive full/low Toom multiplication, dedicated recursive squares and fixed modular dispatch",
+      "validation": "The public baseline was verified. This experimental branch changes the Toom -1 point product; full same-source verification, independent oracle, mutations, codegen and performance acceptance are pending."
     },
     {
       "files": [
