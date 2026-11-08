@@ -1,0 +1,16 @@
+{
+  "status": "metadata-and-restoration-preflight-pass",
+  "baseline": "de9ca4562c0c9c7d34f1a6a65cbaf48e48c7e1f9",
+  "native_files": 57,
+  "native_all_hashes_match": true,
+  "review_verdict": "VALID NEGATIVE EVIDENCE / NO-GO PROMOTION",
+  "review_report_sha256": "66e24fc5271103691001d1d7992691f0ece0a6fd1b489462f58190aecfa9480c",
+  "review_evidence_zip_sha256": "ec3acdc47d1da237e65ff3a6c83c81404d8b44e83997de4f1f45f22a41f38d45",
+  "markdown_files_checked": [
+    "experiments/acceptance/arithmetic-precondition-checks-20261108/RESULTS.md",
+    "experiments/acceptance/arithmetic-precondition-checks-20261108/CHECKER_USAGE.md",
+    "docs/benchmarks.md",
+    "docs/verification.md"
+  ],
+  "privacy_check": "package-builder performs credential-marker and selected-environment-key checks"
+}

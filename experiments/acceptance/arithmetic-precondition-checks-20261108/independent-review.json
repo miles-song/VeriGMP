@@ -1,0 +1,93 @@
+{
+  "verdict": "VALID NEGATIVE EVIDENCE / NO-GO PROMOTION",
+  "evidence_integrity_acceptance": true,
+  "performance_acceptance": false,
+  "native_promotion_accepted": false,
+  "baseline": "de9ca4562c0c9c7d34f1a6a65cbaf48e48c7e1f9",
+  "reviewed_tip": "905edec767a9e5eeee838e083cad93e027d73c51",
+  "reviewed_tree": "1d0c3f0a8fd014a180358500f589c342c33207b3",
+  "native_source": "b31fbce898054f6db668277f8a4da88f94c95aa2",
+  "frozen_inputs": {
+    "protocol/PROTOCOL.md": "3c176e1b665aeae085c52094a68f6a6bfed5f1d77ed99deaa0ae55dc3d6e8d3e",
+    "protocol/measure.py": "137d3b5607954f1fd3670220f73cd299d4f16bacb068a5a0981a30127137bcfa",
+    "bench-build/bench-build.json": "fd8f8e808c15a4be076aaeca94c74aa9a385914d7581e600361a5742178b2af2",
+    "static-prereview/review.json": "19ef4add03bde341c463b3d9bc57dbaa0ddf86d2d184769f06b86de4bf9c3a4f",
+    "host-plan/timing_host.ps1": "8eabe0ee004dc3f58c1ac01dc6f9bceff770e2da944d4ae2ee2d47549241c9fb"
+  },
+  "prior_review_sha256": "19ef4add03bde341c463b3d9bc57dbaa0ddf86d2d184769f06b86de4bf9c3a4f",
+  "prior_review_archive_sha256": "d03ae3caca9534b4b8c226aa5f5784bbd4fb73b8aee6659d6e3a1629e08f14df",
+  "host_receipt_sha256": "2def54e14764b44e26468c24493dce690c862ca48c7518b9374b415ecef34ceb",
+  "runs": [
+    {
+      "run": 1,
+      "run_id": "precondition-cpu8-20261108-run-1",
+      "report_sha256": "bc35dfae8cc77e7219445654ac301b47a2a5ae87f49a7358da9b912e05b80c33",
+      "raw_sha256": "dec9baae10cdb43f79723d7f052809ebb1600769715989faccbfa26ffddb9173",
+      "processes": 2064,
+      "accepted_samples": 1806,
+      "accepted_min_ns": 18567032,
+      "forced_recursive_geomean": 0.9997460919631549,
+      "geomean_gate_pass": false,
+      "maximum_candidate_over_baseline": 1.0554729047100921,
+      "regression_gate_pass": false,
+      "promotion_accepted": false,
+      "gmp_principal_failures": 10,
+      "gmp_key_shape_failures": 34
+    },
+    {
+      "run": 2,
+      "run_id": "precondition-cpu8-20261108-run-2",
+      "report_sha256": "b187ef52a3583283faa802cbcc0c7cbc692fa83c328a63a11a414ff6733f7272",
+      "raw_sha256": "bed7bbca0c3f2d2f51a163ae9c6c1ac60bc10fb042c4d1c75d76846918ef7152",
+      "processes": 2064,
+      "accepted_samples": 1806,
+      "accepted_min_ns": 18613079,
+      "forced_recursive_geomean": 1.0028851442261115,
+      "geomean_gate_pass": false,
+      "maximum_candidate_over_baseline": 1.0455882132295198,
+      "regression_gate_pass": true,
+      "promotion_accepted": false,
+      "gmp_principal_failures": 10,
+      "gmp_key_shape_failures": 32
+    }
+  ],
+  "regression_counts_above_one": [
+    44,
+    43
+  ],
+  "regression_counts_above_1_05": [
+    1,
+    0
+  ],
+  "findings": [
+    {
+      "priority": 1,
+      "scope": "native promotion",
+      "finding": "Both independent runs fail the frozen <=0.97 recursive geometric-mean gate."
+    },
+    {
+      "priority": 1,
+      "scope": "native promotion",
+      "finding": "Run 1 forced full n=191, top=64 exceeds the frozen 1.05 per-cell ratio ceiling."
+    }
+  ],
+  "evidence_only_package_review": "Separate exact-package/native-restoration addendum required; no uninspected package accepted.",
+  "benchmark_executed_by_reviewer": false,
+  "calibration_executed_by_reviewer": false,
+  "processes_changed_by_reviewer": false,
+  "source_files_changed_by_reviewer": [],
+  "reviewer_commit": null,
+  "merge_or_push": false,
+  "evidence": {
+    "audit-output/all-cells.csv": "75b53c63f43c64b78788039556bca5c10570a186e3b8c6df739d5aabb7d110a5",
+    "audit-output/all-cells.json": "98ec543f3b2ad14d48983eef2f083aea91ff1c5f0d3da5671e15ead211c1b232",
+    "audit-output/audit.json": "76f3ac30dc3a21c6a21e01a0ef22f08f5cdf15f3dced8e8c3dc5ca5ca289aaca",
+    "audit-output/independent-expected-results.json": "ffe6f0c328df084aac972f3829677ea1a6fcad3f45d98be0fc1ffe5848be0e7c",
+    "audit-output/sample-selection.csv": "aea2b7aeb3990e603d8b0ad985c694dccdefa3c99262eb71808167ba242147aa",
+    "collect_inputs.py": "655b520210c959884de001b6221fe3968c9d9ed28cfa812e176e5931062e0678",
+    "input-provenance.json": "bd340f68ba6a5e9eb12e559baba62ec9889dfcf2d9299c6c1591aaca0d1b77fb",
+    "inputs/static-prereview/REVIEW.md": "bcbdd8e5f538bc430e13989ab7b7aa52a4e448e02a872f005654136d08607b10",
+    "replay_audit.py": "6d60590518230c3dfe5b77a700000e31dcd408fe8c6a5735f1122814a1e8f765",
+    "REVIEW.md": "6a416b5dc338c06ed8a4af5264929fa67328f249313dadd2744986788d17fd3b"
+  }
+}

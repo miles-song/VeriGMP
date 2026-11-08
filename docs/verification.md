@@ -83,17 +83,6 @@ At no layer is the expected answer defined from the code's own output. A caller
 relies only on the callee's contract, so changing a callee's body cannot silently
 change what a caller has proved, as long as the callee still verifies.
 
-`fast_multiply::full` retains its public pre-write assertions and direct leaf
-call. Its private recursive worker has the same exact-product, length, scratch
-and threshold contract, with local proof facts in place of repeated entry
-assertions. Rust slice safety checks remain. The
-[feature receipt](../experiments/arithmetic-precondition-checks-20261108/RECEIPT.md)
-binds the fresh 359-item full-library proof, exact integer/GMP cases, semantic
-mutants and complete release symbols. The ordinary public entry has identical
-bytes and normalized relocations; helper inlining differs inside the worker,
-so no whole-worker byte-identity claim is made. Performance acceptance and
-independent review are pending; this result does not establish a speedup.
-
 ## Termination and capacity
 
 Every loop and recursive function has a `decreases` measure, and Verus checks
@@ -307,3 +296,11 @@ its reachable code-equivalent identity is `bf28217`, recorded in
 [history-provenance.json](../native/history-provenance.json). The frozen cutoff9
 candidate and the current gate contents are identified separately above.
 Verification items are not counts of public functions.
+
+An isolated checked-recursion candidate passed its source-bound 359-item proof,
+but failed the predeclared performance gates in both independent runs. Its
+production source was rejected and restored exactly to the baseline; the
+current production proof/status does not inherit the candidate's 359-item count.
+The evidence-only result, full raw runs, source restoration hashes and offline
+checker are in
+[the no-go experiment package](../experiments/acceptance/arithmetic-precondition-checks-20261108/RESULTS.md).
