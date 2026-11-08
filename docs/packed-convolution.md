@@ -102,8 +102,13 @@ has SHA-256 `4317e976b385ad430f6279bafbfafae0f8ab23b6d66a64ec4fb3e375102e7091`.
 Independent review accepted the narrow API contracts and independently replayed
 the gate from the measurement package. A pinned optimized release-code
 comparison confirms the ghost operation counters add no instructions. The pack
-body has 140 instructions and 469 bytes, and extraction has 101 instructions
-and 318 bytes, byte-identical before and after those counters were added.
+body has 140 instructions and 487 bytes, and extraction has 101 instructions
+and 324 bytes, byte-identical before and after those counters were added. The
+[complete-symbol audit](../experiments/packed-convolution/consumer-measurement-20261108/evidence/codegen-body-audit.json)
+binds full object-section bytes to the pinned sources and libraries: pack SHA-256
+`84df6810c854bd5dd0fe25d5a7d38abed7d18ab11176932ef2135216672953f6`
+and extract SHA-256
+`45155a3921293655560a5c6a32a36c461ca92731112f696aea64492c9e26104c`.
 Formal bit/peak-space bounds and a composed product-refinement theorem remain open.
 The mathematical Seq and finite sums do not authorize materializing polynomial
 objects or repeated whole-integer shifts in a hot path. No FFI or arithmetic
