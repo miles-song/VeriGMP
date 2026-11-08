@@ -40,3 +40,5 @@
 ## Archive identities
 
 `raw-window.zip` contains 50 members and 6,502,406 uncompressed bytes; its SHA-256 is `371f96298ec7e60f9332ca71c99378a7e35c552947664f8406ad16ee8986bfea`. `astra-evidence.zip` contains 16 members and 127,498 uncompressed bytes; its SHA-256 is `b730b11df4837e9a301f15859dba245017b315ee587f70d48dd072b200e63e8c`. `manifest.json` records every member byte count and SHA-256. Run `check_evidence.py` for an offline replay of the archive, raw counts, gate recomputation, identity bindings, and evidence-only git scope.
+
+The recorded checker receipt is `validation.json` (SHA-256 `496cedb04ed7dd970a1aa99567daee3183f0fbdbd1e923dedf246abdc2c30431`). It records checker `PASS`, the base commit/tree, archive and manifest hashes, and the fact that no production changes or performance acceptance are claimed.

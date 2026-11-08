@@ -1,0 +1,22 @@
+{
+  "astra_evidence_sha256": "b730b11df4837e9a301f15859dba245017b315ee587f70d48dd072b200e63e8c",
+  "base_commit": "4654d48bc4ff10d9617e426e57520d0712c23e1f",
+  "base_tree": "c5b6ed77b88c196c8190c880a5b4ec6f68b490b6",
+  "checked_at_utc": "2026-11-08T19:38:44Z",
+  "checked_counts": {
+    "astra_members": 16,
+    "cells_per_run": 86,
+    "raw_members": 50,
+    "raw_records_per_run": 6192,
+    "runs": 2
+  },
+  "checker_sha256": "85693000c140e0e340b64b0daf5b96d3576d5a99cd61aa1c68937fbbf82bd883",
+  "command": "python check_evidence.py",
+  "manifest_sha256": "8d4b07b69e84bc25edba89a48c873514c9ba6b8333bf5565ea2b3f0f641190e2",
+  "performance_acceptance": "not claimed",
+  "production_changes": "none",
+  "raw_window_sha256": "371f96298ec7e60f9332ca71c99378a7e35c552947664f8406ad16ee8986bfea",
+  "schema": "verigmp-exact-by3-negative-evidence-check-v1",
+  "scope": "evidence-only",
+  "status": "PASS"
+}
