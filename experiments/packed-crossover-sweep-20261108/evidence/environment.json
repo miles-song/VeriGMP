@@ -1,0 +1,29 @@
+{
+  "recorded_at_utc": "2026-11-08T03:04:28.1928572Z",
+  "reviewed_base": "fe9081f1a1d4075f74a46cdd66d97145d065c5ad",
+  "measured_source": "83c4c52f52b40c8adac2cbda6ed4f0768d0f99a0",
+  "wsl": {
+    "python_version": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]",
+    "python_executable": "/usr/bin/python3.12",
+    "python_sha256": "1643dacd9feaedc58f3cc581e4d22577dfe25c09b10282936186ccf0f2e61118",
+    "platform": "Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+    "cpu0_thread_siblings": "0-1"
+  },
+  "windows_power_scheme": "电源方案 GUID: 7c24408c-494e-4fdd-83fd-e0aac9cbf483  (CS2 Gaming (Plugged In))",
+  "coordination": "Parent coordinator confirmed Android emulator paused and CPUs 0-1 reserved before controlled discovery-a launch. Measured processes pin to CPU 0; other proof/build work is coordinated on CPUs 2-15.",
+  "initial_attempt": "train-a was terminated before environment coordination completed and is excluded from every analysis.",
+  "emulator_observations": {
+    "pre_run": {
+      "observation": "virtual device is stopped / OK",
+      "source": "parent coordinator ADB observation before controlled discovery-a"
+    },
+    "post_timing": {
+      "at_utc": "2026-11-08T03:26:42Z",
+      "start_response": "KO: virtual device already running",
+      "immediate_status_response": "virtual device is running / OK",
+      "source": "parent coordinator ADB observation"
+    },
+    "continuous_suspension_monitored": false,
+    "guaranteed_emulator_free_measurement": false
+  }
+}

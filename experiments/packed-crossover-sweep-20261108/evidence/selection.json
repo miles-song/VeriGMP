@@ -1,0 +1,59 @@
+{
+  "status": "selection_frozen",
+  "reviewed_base_commit": "fe9081f1a1d4075f74a46cdd66d97145d065c5ad",
+  "measured_source_commit": "83c4c52f52b40c8adac2cbda6ed4f0768d0f99a0",
+  "protocol_sha256": "1a09aee1fbc18c2d0719693becb35a3de0f2b59194c3bad69d5b0d8ce86d38e2",
+  "source_file_sha256": {
+    "experiments/packed-crossover-sweep-20261108/PROTOCOL.md": "1a09aee1fbc18c2d0719693becb35a3de0f2b59194c3bad69d5b0d8ce86d38e2",
+    "experiments/packed-crossover-sweep-20261108/crossover_bench.rs": "7473bf25db3c3b211c77c7ef115a4af14cd9fa2204864d02f369cdeb2cc9a537",
+    "experiments/packed-crossover-sweep-20261108/run_sweep.py": "b3c0552066590afe5d1d31e75c17154c960c2a6538e07255c14a168b670ab2bd",
+    "experiments/packed-crossover-sweep-20261108/analyze.py": "8469eab95bd2608d4b18229241078a510c3e2dab3a1b958b60e34bc96f0a779e",
+    "native/toolchain.json": "a8f1ba756fd50480017e10d24c390a4b94528ab387c965d28c35cf3432c9e678",
+    "native/verified/packed_layout.rs": "fb8073712aa5681ef6f4f9dbb3aff85884955539d809e2e0131bc1b84d2626c8",
+    "native/verified/toom_multiply.rs": "58830125c0e82680f11fec6aba9677c8986c8f84fdbe53e3a38dc01b24871602",
+    "native/verified/toom_words.rs": "221e6592c48904135aef8cce941675fe067b8d2b9253bd507293363a3ab104d7",
+    "native/verified/toom_evaluate.rs": "80fb7c4b0db769debe3091289cfe8a71703e9e1bf7b9e26a622e4df08f164699",
+    "native/verified/toom_interpolate.rs": "dd3e97eac34fb6cf6920302eeb5cc2bc8b257a6beb7a2e952f52ccf20ae5e352",
+    "native/verified/fast_multiply.rs": "c2d1b96fea047f720ac09e3a3c043eec22abc19d6ac72266cc32380a76e03b82",
+    "native/verified/fast_words.rs": "f07e442ee9a3a00f07affeb4ac537e97d82a6fc60a49cd43a54dde58e2d301e6",
+    "native/verified/multiply.rs": "90b8d0ae56d80b92a7a470c94390bf8020a8f791872892932005a1311307b752",
+    "native/verified/kernel.rs": "53837b72617ee200e30cfd3af155ce7ca156c0684ee1d29688b78504bfb65569",
+    "native/specs/toom.rs": "ed543569ac0996a16546211241b52f5a7ae945e8fce873f5195340cf290456ff",
+    "native/specs/toom_blocks.rs": "d799a910b67b26fbbdbdefc50bf49063f8ca39790f6d48f60a7ed1315d00df9d",
+    "native/specs/radix.rs": "51bddb73e0cfcc2fda095ac5f35fe4853417c1fff858133dab56b05ba9573219",
+    "native/specs/product.rs": "24de04dda22e2ca1262ade8328b3f164612b59188df14dbe84988b94592563ae",
+    "native/specs/fast_product.rs": "1d3a4f9397375741f6fcaea5bacf5977f73c56ba051893cd81a83709385b2cd7"
+  },
+  "discovery_runs": [
+    {
+      "run_id": "discovery-a",
+      "split": "discovery",
+      "metadata_sha256": "dbd0d26c13c3186fdde7e764251e589888184115fa1b43c72d685bb0297703a6",
+      "timings_sha256": "02aa19e41d39d52f96978292fe7b8457c4db1982856e24651c05e384eea37074",
+      "summary_sha256": "f1034ad0e2eb75723f55cf4c0e6488c7ffd49cb370bd74b51f42107c15160407",
+      "result_dump_sha256": "a5eb0a8e66fbec72258c629261f7f4f652b1e9d55f3adc3a9f74d363bdd4d28b",
+      "harness_binary_sha256": "a8294ba699aba9b08530534eecca7e993aa84672b8f78816c9cfb2c680f9b9d1",
+      "oracle_checks_sha256": "5546d014e72c325452a36010f798ffe10b17a34e6625555b505fbec322bba139",
+      "inputs_csv_sha256": "808fe91db6a7867aa6c9842e0262e6b00d0a8aead8d4d3c464f8800c900e7d3e",
+      "run_directory": "/mnt/e/3sat/VeriGMP-packed-crossover-evidence-20261108/discovery-a"
+    },
+    {
+      "run_id": "discovery-b",
+      "split": "discovery",
+      "metadata_sha256": "bd8e7dbf2eae0acc21e1fc32172edc8fdb143efcc6b7a295eb82296d640ccfab",
+      "timings_sha256": "7d67301af040435f9c007788479f94a5e9aff35c84fc29a74af4620725a6d75e",
+      "summary_sha256": "ea4a4f0e09ee284b05e121f72b916ef05e818502e0856785d02b7b083f1278f4",
+      "result_dump_sha256": "a5eb0a8e66fbec72258c629261f7f4f652b1e9d55f3adc3a9f74d363bdd4d28b",
+      "harness_binary_sha256": "a8294ba699aba9b08530534eecca7e993aa84672b8f78816c9cfb2c680f9b9d1",
+      "oracle_checks_sha256": "5546d014e72c325452a36010f798ffe10b17a34e6625555b505fbec322bba139",
+      "inputs_csv_sha256": "808fe91db6a7867aa6c9842e0262e6b00d0a8aead8d4d3c464f8800c900e7d3e",
+      "run_directory": "/mnt/e/3sat/VeriGMP-packed-crossover-evidence-20261108/discovery-b"
+    }
+  ],
+  "candidate_count": 34,
+  "eligible_candidate_count": 0,
+  "selected_rule": null,
+  "discovery_result": null,
+  "conclusion": "no_discovery_candidate",
+  "no_confirmation_timings_read": true
+}
