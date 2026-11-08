@@ -21,7 +21,7 @@ and acceptance of the solver's actual dependency path and representative traces.
 | [toom4-fusion](toom4-fusion/index.json) | Four-group interpolation fusion and scaled subtraction | Verified candidate and measurements; GMP target not met |
 | [toom4-signed-eval](toom4-signed-eval/index.json) | Single-pass signed evaluation | Verified candidate and measurements; GMP target not met |
 | [toom8-primitives](toom8-primitives/) | Toom-8 arithmetic primitives and composition gates | Reproducible primitive archives; production performance acceptance remains open |
-| [combination-20261108](combination-20261108/) | Fused doubled-cross low-square correction with checked private Karatsuba recursion | Four-cell combination static gate passes; prereview and quiet-window measurements pending |
+| [doubled-cross and combination negative checkpoint](acceptance/arithmetic-negative-20261108/RESULTS.md) | Fused doubled-cross low-square correction, independently and with checked private Karatsuba recursion | Static candidates accepted; both fixed performance experiments NO-GO; production baseline preserved |
 
 Each archive's own index and audit define its exact claims and exclusions.
 Historical source and raw CSV retain their published bytes. Historical reports

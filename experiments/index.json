@@ -346,5 +346,14 @@
       "tracked_source_manifest_sha256": "98980c732e3d6b5d6f9a30358cba76a4f82ca9f4719b539ed42ccd15f211f335",
       "production_promotion_approved": false
     }
-  ]
+  ],
+  "negative_experiments_checkpoint": {
+    "path": "acceptance/arithmetic-negative-20261108/RESULTS.md",
+    "manifest": "acceptance/arithmetic-negative-20261108/manifest.json",
+    "baseline": "515f1efa0d79bcb73272df9f54917f156decf1e1",
+    "double_cross_performance": "NO-GO",
+    "combination_performance": "NO-GO",
+    "production_promotion_approved": false,
+    "gmp_parity_accepted": false
+  }
 }

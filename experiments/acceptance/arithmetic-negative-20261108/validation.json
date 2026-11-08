@@ -1,0 +1,47 @@
+{
+  "status": "pass",
+  "checks": [
+    {
+      "check": "checkpoint",
+      "status": "pass",
+      "source_sha256": "f4ef9f6209c29be38a05bc2cc6ab0d4ab620e30508cd8aeddf4c4515cca1ee2e",
+      "log_sha256": "1988779b2d2829d0bb9b4d534a573a94817325dda1620aee929c50277af90d0b",
+      "original_static_receipt_writes_intercepted": []
+    },
+    {
+      "check": "tamper",
+      "status": "pass",
+      "source_sha256": "cb44a2cd3aceb392fe54173c879328c21847e9c2dd3048b3dd6205f1e31748e4",
+      "log_sha256": "30b37754dee9441ef41d46b8e5cd6ab548dd6b3633225465043602b317e57e7f",
+      "original_static_receipt_writes_intercepted": []
+    },
+    {
+      "check": "combination-static",
+      "status": "pass",
+      "source_sha256": "8ffe5c02aeb8358b36bc8f0a78caa5484376365895a9a434d98a759e9b696966",
+      "log_sha256": "17fe902d2809060e9da5f5471afa261c58ac7a644652c7f01e606c4efddd92ac",
+      "original_static_receipt_writes_intercepted": [
+        {
+          "path": "E:\\3sat\\VeriGMP-negative-experiments-20261108\\experiments\\combination-20261108\\evidence\\package-check.json",
+          "sha256": "17fe902d2809060e9da5f5471afa261c58ac7a644652c7f01e606c4efddd92ac"
+        }
+      ]
+    },
+    {
+      "check": "double-static",
+      "status": "pass",
+      "source_sha256": "79d403839546d069f76cdc7032105d2447f9e70a1c26844cba042f9a777e3d61",
+      "log_sha256": "a154046ccaec81194aa66eb69a8569a38c4f7dc2fbb1c59997228cd56fea960e",
+      "original_static_receipt_writes_intercepted": [
+        {
+          "path": "E:\\3sat\\VeriGMP-double-cross-20261108\\experiments\\double-cross-20261108\\evidence\\package-check.json",
+          "sha256": "a154046ccaec81194aa66eb69a8569a38c4f7dc2fbb1c59997228cd56fea960e"
+        }
+      ]
+    }
+  ],
+  "fresh_proof": false,
+  "fresh_build": false,
+  "fresh_benchmark": false,
+  "actual_existing_receipts_modified": false
+}
