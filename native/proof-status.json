@@ -72,7 +72,11 @@
         "verified/fast_multiply.rs"
       ],
       "status": "impl_refined",
-      "scope": "Schoolbook, difference Karatsuba, low-product recursion and canonical modular multiplication under explicit interface preconditions"
+      "scope": "Schoolbook, difference Karatsuba, low-product recursion and canonical modular multiplication under explicit interface preconditions; checked public full-product entry and same-contract private recursion",
+      "validation": "Fresh complete pinned --no-cheating --compile -O build at b31fbce898054f6db668277f8a4da88f94c95aa2: 359 verified items, zero errors. Focused gate at 162fdef515793ab72210102c8733c21f0110a23d binds identical native bytes, 1898 exact Python/GMP cases for each baseline/candidate/ordinary control, 7 public prewrite panic and 6 workspace boundaries, ownership/privacy failures and 3 strict semantic VC mutants. Report SHA-256 96b7898dd215679cf9284d4ff70c5d6804c86e650722c8faee417efd91388df7; see local_receipt.",
+      "local_receipt": "../experiments/arithmetic-precondition-checks-20261108/RECEIPT.md",
+      "acceptance": "Functional/static candidate only; independent prereview, two coordinated measurement runs and final performance review pending. No speedup or feature-promotion claim.",
+      "cost": "Same arithmetic recursion, leaf thresholds, contiguous buffers and 3n full-product scratch. Source-level word/copy budgets are analytically unchanged; no composed bit-cost or peak-live-space theorem. Complete release objects retain all 154 other common function bodies and normalized relocations; Toom full grows by 32 bytes and wrapper/worker call costs require measurement."
     },
     {
       "files": [

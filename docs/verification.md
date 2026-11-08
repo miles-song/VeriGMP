@@ -83,6 +83,17 @@ At no layer is the expected answer defined from the code's own output. A caller
 relies only on the callee's contract, so changing a callee's body cannot silently
 change what a caller has proved, as long as the callee still verifies.
 
+`fast_multiply::full` retains its public pre-write assertions and direct leaf
+call. Its private recursive worker has the same exact-product, length, scratch
+and threshold contract, with local proof facts in place of repeated entry
+assertions. Rust slice safety checks remain. The
+[feature receipt](../experiments/arithmetic-precondition-checks-20261108/RECEIPT.md)
+binds the fresh 359-item full-library proof, exact integer/GMP cases, semantic
+mutants and complete release symbols. The ordinary public entry has identical
+bytes and normalized relocations; helper inlining differs inside the worker,
+so no whole-worker byte-identity claim is made. Performance acceptance and
+independent review are pending; this result does not establish a speedup.
+
 ## Termination and capacity
 
 Every loop and recursive function has a `decreases` measure, and Verus checks

@@ -53,6 +53,9 @@ experiment archives 保存证据；archive 合入本身不代表 candidate 已�
 每个函数都带有陈述上述结果的 Verus 契约，Rust 函数体被证明满足该契约。输出和可
 复用的 scratch 工作区由调用者持有，算术过程不分配内存。输入可以含有超出精度的高位，
 `dst` 和 `scratch` 的初始内容无关紧要。
+完整 Karatsuba 乘法在写入前检查公开入口的缓冲区契约；私有递归调用通过已验证的
+契约建立相同前提。[递归检查实验](experiments/arithmetic-precondition-checks-20261108/RECEIPT.md)
+记录该边界及其独立的性能测量方案。
 
 这两个函数背后是 schoolbook 乘法、差分形式 Karatsuba、五点 Toom-3、专用递归平方
 以及截断低位积递归。少于 512 个 limb 的乘积走原有 Karatsuba 路径，更大的乘积走

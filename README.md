@@ -63,6 +63,10 @@ Each function has a Verus contract stating exactly that result, and the Rust bod
 is proved to satisfy it. The caller owns the output and the reusable scratch
 workspace; the arithmetic does not allocate. Inputs may hold bits above the
 precision, and the initial contents of `dst` and `scratch` do not matter.
+Full Karatsuba multiplication checks its public buffer contract before writing;
+private recursive calls establish the same domain through verified contracts.
+The [checked-recursion experiment](experiments/arithmetic-precondition-checks-20261108/RECEIPT.md)
+records that boundary and its separate performance protocol.
 
 Behind those two functions are schoolbook multiplication, difference-form
 Karatsuba, five-point Toom-3, dedicated recursive squaring and truncated
