@@ -275,3 +275,13 @@ default path does not use it. The MAC4 timings are written to
   in dispatch and code generation.
 - Results on other CPUs, compilers or GMP builds may differ, including in which
   split or threshold is fastest.
+
+## Checked-recursion no-go
+
+The private checked-recursion worker was measured in a separate fixed-source
+experiment against the prior verified full-product path and GMP. It passed
+functional checks but missed the frozen performance criteria in both runs.
+The candidate was not promoted; production source and proof status remain at
+the baseline. The complete 86-cell results, raw rows, exact source/binary
+bindings and independent no-go review are preserved in
+[the experiment package](../experiments/acceptance/arithmetic-precondition-checks-20261108/RESULTS.md).

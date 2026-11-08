@@ -296,3 +296,11 @@ its reachable code-equivalent identity is `bf28217`, recorded in
 [history-provenance.json](../native/history-provenance.json). The frozen cutoff9
 candidate and the current gate contents are identified separately above.
 Verification items are not counts of public functions.
+
+An isolated checked-recursion candidate passed its source-bound 359-item proof,
+but failed the predeclared performance gates in both independent runs. Its
+production source was rejected and restored exactly to the baseline; the
+current production proof/status does not inherit the candidate's 359-item count.
+The evidence-only result, full raw runs, source restoration hashes and offline
+checker are in
+[the no-go experiment package](../experiments/acceptance/arithmetic-precondition-checks-20261108/RESULTS.md).
