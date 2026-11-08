@@ -2,8 +2,9 @@
 
 `packed_convolution` is an erased mathematical interface for clients that want
 to multiply finite coefficient arrays using an integer product. Its status is
-`model_proved`. It supplies no runtime polynomial multiplication, packing or
-extraction function and changes no arithmetic dispatch.
+`model_proved`. The separate `packed_layout` module supplies borrowed-slice
+packing and extraction under explicit representation preconditions. The
+mathematical model itself supplies no runtime implementation.
 
 `coefficient(a,c,k)` is the independent finite sum of `a[i]*c[k-i]` over all
 input indices `i`, with out-of-range terms equal to zero. `convolution(a,c)` has
@@ -72,7 +73,7 @@ retain defensive panic stubs for spec/proof names; these are not executable
 implementations of the mathematics. This is a focused model gate, not the
 complete-library performance/acceptance gate.
 
-`verified/packed_layout.rs` contains an experimental borrowed-slice candidate.
+`verified/packed_layout.rs` contains the borrowed-slice layout implementation.
 `checked_layout` keeps coefficient precision p separate from the aligned slot
 width, obtains the coefficient limb count from the existing precision helper,
 and checks both `count * coefficient_limbs` and `count * slot_limbs` before
@@ -90,22 +91,37 @@ invariant. For non-word-aligned p, canonical input chunks have zero unused top
 bits, so no runtime mask or precision change is needed. Slot padding does not
 change creation precision.
 
-The pinned same-source Verus/Rust gate `layout-gate-20261108-r60` passes the
-functional refinement and runtime checks for the source tree at commit
-`45df242b56aeaf14ca907369a6c934fc5e78296d`: the library build verified 350
-items, the independent integer oracle covered 208 valid and 18
-error-preservation cases, the borrow-overlap fixture was rejected by Rust, and
-three scoped semantic mutants were rejected by complete logical VCs. The
-candidate is recorded as `impl_refined`. A pinned optimized release-code
+The pinned same-source Verus/Rust gate at measured source
+`d82d63147cfd45939a6a34765872295dca83a3fa` passes the functional refinement and
+runtime checks: the library build verified 350 items, the independent integer
+oracle covered 208 valid and 18 error-preservation cases, the borrow-overlap
+fixture was rejected by Rust, and three scoped semantic mutants were rejected
+by complete logical VCs. The source is recorded as `impl_refined`. The retained
+[layout gate report](../experiments/packed-convolution/consumer-measurement-20261108/evidence/layout-verification.json)
+has SHA-256 `4317e976b385ad430f6279bafbfafae0f8ab23b6d66a64ec4fb3e375102e7091`.
+Independent review accepted the narrow API contracts and independently replayed
+the gate from the measurement package. A pinned optimized release-code
 comparison confirms the ghost operation counters add no instructions. The pack
 body has 140 instructions and 469 bytes, and extraction has 101 instructions
 and 318 bytes, byte-identical before and after those counters were added.
-Formal bit/peak-space bounds and independent Astra acceptance remain pending.
-It does not include product
-composition or alter arithmetic dispatch, and is not a performance claim.
+Formal bit/peak-space bounds and a composed product-refinement theorem remain open.
 The mathematical Seq and finite sums do not authorize materializing polynomial
 objects or repeated whole-integer shifts in a hot path. No FFI or arithmetic
 trust boundary is introduced by this module.
+
+The [consumer measurements](../experiments/packed-convolution/consumer-measurement-20261108/RESULTS.md)
+compose packing both operands, the exact mainline `toom_multiply::full` product,
+and extraction at `q=2p+ceil(log2(n))`. Two independent release runs each retain
+588 samples across 14 shapes, reuse/streaming phases, three paths and seven
+repetitions. The [independent review](../experiments/packed-convolution/consumer-measurement-20261108/INDEPENDENT_REVIEW.md)
+accepted these as local measurement evidence only. Python arbitrary integers
+check every coefficient of the first input pair for each shape; all 32 pairs
+receive cross-path checks against an exact bounded u128 schoolbook control.
+This control is a benchmark implementation, not an existing production baseline.
+Packing gains depend on shape; guard-word transitions produce material
+regressions against that direct control. These results enable neither an
+automatic dispatcher nor a high-performance claim for unmeasured shapes, a
+formal product-composition theorem, solver speedup or GMP parity.
 
 For retained lengths A and C, coefficient width p, slot width w and output order
 D, the candidate's source loops copy A+C coefficient chunks and zero at most
@@ -117,6 +133,6 @@ functions allocate no heap storage. A product
 routine would add its multiplication cost and product buffer. With
 `w=O(p+log L+64)`, this is an analytic construction budget under an explicit
 multiplication-cost model, not a composed bit-cost/space theorem or measured
-performance. Small-precision, sparse and ordinary-convolution crossovers require
-measurement. No benchmark, solver theorem, native-GMP parity or backend
-replacement follows from this model.
+performance. Further dense crossover measurements are separate from the retained
+14-shape comparison. No solver theorem, native-GMP parity or backend replacement
+follows from this model or the local measurements.

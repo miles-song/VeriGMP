@@ -9,7 +9,7 @@
       "status": "model_proved",
       "scope": "Independent finite convolution/product identity for arbitrary signed integer coefficients; exact shorter-input coefficient bound, guard sufficiency, no-carry extraction, canonical power-of-two residues, input truncation/empty cases and contiguous limb-slot interpretation",
       "validation": "Focused experiments/packed-convolution/verify.py gate binds the actual committed source, pinned tools, optimized model export, imported independent-oracle fixtures and semantic mutants; it does not assert complete-library acceptance",
-      "cost": "Specifications and proofs erase. The separate borrowed-slice packing/extraction implementation is functionally refined under explicit canonical coefficient and slot preconditions, with pinned same-source runtime and semantic-mutation evidence. Erased loop counters prove exact copied, written and zeroed word totals; a pinned optimized release-code comparison confirms the counters add no instructions. Formal bit/peak-space accounting, independent review and product composition remain pending. No dispatch change or performance claim."
+      "cost": "Specifications and proofs erase. The separate borrowed-slice packing/extraction implementation is functionally refined under explicit canonical coefficient and slot preconditions, with pinned same-source runtime and semantic-mutation evidence. Erased loop counters prove exact copied, written and zeroed word totals; a pinned optimized release-code comparison confirms the counters add no instructions. Narrow independent API review and local consumer measurement-evidence review passed. Formal bit/peak-space accounting and product-composition refinement remain open; no automatic dispatch or universal performance claim."
     },
     {
       "files": [
@@ -17,8 +17,11 @@
       ],
       "status": "impl_refined",
       "scope": "Checked borrowed-slice coefficient packing and extraction; precision and aligned slot width are distinct; checked metadata/length errors precede writes; canonical coefficient and slot conditions are explicit refinement-domain preconditions",
-      "validation": "Pinned same-source gate layout-gate-20261108-r60, bound to source tree commit 45df242b56aeaf14ca907369a6c934fc5e78296d: Verus 0.2026.10.26.d17fbd0 with Rust 1.99.1 verified 350 library items; the runtime oracle passed 208 valid and 18 error-preservation cases; the borrow-overlap fixture rejected with E0502; three scoped semantic mutants were rejected by complete logical VCs",
-      "cost": "Source performs no allocation. Erased loop counters prove exact pack word totals: count*coefficient_limbs copied, count*slot_limbs written and count*(slot_limbs-coefficient_limbs) zeroed. Extraction copies count*coefficient_limbs words and reads no guard padding. Pinned -O release bodies before and after adding ghost counters are byte-identical: pack 140 instructions/469 bytes (SHA-256 1fb0906eda2f584b355a7fe202e74214f2d7693fdcf0fa97c44a194be7b927ba), extract 101 instructions/318 bytes (SHA-256 b77f2878d64ded7336342cb46f7c46541fa074ccdebc2ae8edcc630ef34e772b). Formal bit/peak-space bounds and independent Astra acceptance remain pending. No product composition, dispatch change or performance claim."
+      "validation": "Pinned same-source gate at measured commit d82d63147cfd45939a6a34765872295dca83a3fa: Verus 0.2026.10.26.d17fbd0 with Rust 1.99.1 verified 350 library items; the runtime oracle passed 208 valid and 18 error-preservation cases; the borrow-overlap fixture rejected with E0502; three scoped semantic mutants were rejected by complete logical VCs. Retained report SHA-256 4317e976b385ad430f6279bafbfafae0f8ab23b6d66a64ec4fb3e375102e7091; independent review replayed the gate at package commit 84887ab1a94b258cc3f5f25fdd7a6044f7a910b2 and accepted measurement evidence separately from API refinement.",
+      "cost": "Source performs no allocation. Erased loop counters prove exact pack word totals: count*coefficient_limbs copied, count*slot_limbs written and count*(slot_limbs-coefficient_limbs) zeroed. Extraction copies count*coefficient_limbs words and reads no guard padding. Pinned -O release bodies before and after adding ghost counters are byte-identical: pack 140 instructions/469 bytes (SHA-256 1fb0906eda2f584b355a7fe202e74214f2d7693fdcf0fa97c44a194be7b927ba), extract 101 instructions/318 bytes (SHA-256 b77f2878d64ded7336342cb46f7c46541fa074ccdebc2ae8edcc630ef34e772b). Formal bit/peak-space bounds and composed product refinement remain open. Two independent measured consumer runs show shape-dependent tradeoffs only; no automatic dispatch, universal performance, solver speedup or GMP-parity claim.",
+      "independent_api_review": "../experiments/packed-convolution/layout-gate-20261108-r61-independent-review.md",
+      "consumer_measurement": "../experiments/packed-convolution/consumer-measurement-20261108/RESULTS.md",
+      "independent_measurement_review": "../experiments/packed-convolution/consumer-measurement-20261108/INDEPENDENT_REVIEW.md"
     },
     {
       "files": [
@@ -106,7 +109,7 @@
   "complete_multiprecision_api": false,
   "gmp_performance_parity_established": false,
   "remaining": [
-    "Independent acceptance of the packed-layout candidate and checked cost evidence, plus exact integer product composition",
+    "Composed packed-convolution product refinement, formal bit/peak-space bounds and a separately measured production strategy; scoped layout API and local measurement evidence have independent acceptance",
     "Architecture-specific assembly",
     "Higher Toom variants and FFT",
     "Composed cost model",
