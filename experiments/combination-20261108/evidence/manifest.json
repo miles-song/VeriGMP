@@ -1,10 +1,10 @@
 {
   "schema": 1,
-  "created_utc": "2026-11-08T10:30:23.956539+00:00",
+  "created_utc": "2026-11-08T11:56:39.299300+00:00",
   "benchmark_executed": false,
   "calibration_executed": false,
   "performance_accepted": false,
-  "entry_count": 1496,
+  "entry_count": 1529,
   "entries": [
     {
       "path": "harness-fixtures/bad-json.jsonl",
@@ -37,9 +37,149 @@
       "sha256": "ee9bd3aae7bbd7e6dc1deec9b9a80888e1b8fa7e1d823112e9ed218a01ceadfb"
     },
     {
-      "path": "operation-counts.json",
+      "path": "metadata/bench-build.json",
+      "bytes": 17662,
+      "sha256": "e8ee2615528153f640f696948a79637d47b342c4c803f7d867d4b17bf6b00d2a"
+    },
+    {
+      "path": "metadata/history/inputs/AGENTS.md",
+      "bytes": 6614,
+      "sha256": "c86708527b20f9605284d2d8ba24e28be7eee8990ade33989a4811a4d31090f3"
+    },
+    {
+      "path": "metadata/history/inputs/experiments/arithmetic-precondition-checks-20261108/bench.rs",
+      "bytes": 3209,
+      "sha256": "84e5ef873512c4938385d88621a0658829fe4866f3c4682428314f4d6e3f1c66"
+    },
+    {
+      "path": "metadata/history/inputs/experiments/arithmetic-precondition-checks-20261108/measure.py",
+      "bytes": 5331,
+      "sha256": "137d3b5607954f1fd3670220f73cd299d4f16bacb068a5a0981a30127137bcfa"
+    },
+    {
+      "path": "metadata/history/inputs/experiments/arithmetic-precondition-checks-20261108/oracle.py",
+      "bytes": 3639,
+      "sha256": "e3a1676f96dcdf18822577aad98f0e50d1de13b1b142d55c1b57f0e6f752f211"
+    },
+    {
+      "path": "metadata/history/inputs/experiments/arithmetic-precondition-checks-20261108/runtime.rs",
+      "bytes": 4362,
+      "sha256": "a6bf33514d07cf59439957bd597bfd61f8cf0357d3c41ce0060d1d7bfb15b0b5"
+    },
+    {
+      "path": "metadata/history/inputs/experiments/combination-20261108/PROTOCOL.md",
+      "bytes": 8266,
+      "sha256": "a79766e0b2b95c7030838b0dead6723b404f57ad97fb591273f491d48efe2b18"
+    },
+    {
+      "path": "metadata/history/inputs/experiments/combination-20261108/README.md",
+      "bytes": 1560,
+      "sha256": "612a6c37d81ccc2667d3e26780114fa1ef3b01776b9cdeaea585fff83a5d7469"
+    },
+    {
+      "path": "metadata/history/inputs/experiments/combination-20261108/check.py",
+      "bytes": 17102,
+      "sha256": "f80058a0d39ade5a3cc5309adf75d43587a697115bfa6c335f822efc99839634"
+    },
+    {
+      "path": "metadata/history/inputs/experiments/combination-20261108/codegen.py",
+      "bytes": 3621,
+      "sha256": "381df3b259714df83ec5570ae9a28dbb1d5bb03c33605c75a15f0eb234b016f5"
+    },
+    {
+      "path": "metadata/history/inputs/experiments/combination-20261108/common.py",
+      "bytes": 5110,
+      "sha256": "3d5d0798aa955810edeb3676aedea5c1606afdb865e770c3708a185874752728"
+    },
+    {
+      "path": "metadata/history/inputs/experiments/combination-20261108/low_runtime.rs",
+      "bytes": 3007,
+      "sha256": "d25d3593105ced23374f8ed00742615cfc3f57c8ff8ea4d6969671ad065e2fae"
+    },
+    {
+      "path": "metadata/history/inputs/experiments/combination-20261108/measure.py",
+      "bytes": 7525,
+      "sha256": "40d5e1a9703e293179f41a8ac1398ef86411f95848b1ba9b29bd7142199ac64e"
+    },
+    {
+      "path": "metadata/history/inputs/experiments/combination-20261108/operations.py",
+      "bytes": 7731,
+      "sha256": "742d6263fc7a8bb48dec7fbabd1eb3c6705e623172e73077e3624415073e4a8a"
+    },
+    {
+      "path": "metadata/history/inputs/experiments/combination-20261108/prepare.py",
+      "bytes": 5120,
+      "sha256": "abe8cbc2df62cf0d607891ae803f9f8e5d6001404bb513cfc97be00b72b0f1d6"
+    },
+    {
+      "path": "metadata/history/inputs/experiments/combination-20261108/prove.py",
+      "bytes": 2468,
+      "sha256": "4cd438efa1275307e6dc3225c470f960b49a8606121cc044b29c88df457ad9fe"
+    },
+    {
+      "path": "metadata/history/inputs/experiments/combination-20261108/square_oracle.py",
+      "bytes": 3248,
+      "sha256": "f702f4c0bf1f21023739baf2d3423b0eef917c06b10189e4de566eedcd4d92c7"
+    },
+    {
+      "path": "metadata/history/inputs/experiments/combination-20261108/test_measure.py",
+      "bytes": 3615,
+      "sha256": "73bcc51102721175476b7531917ee460a95fee11f533d6e7d66d8f7207c47fb2"
+    },
+    {
+      "path": "metadata/history/inputs/experiments/packed-convolution/layout_verify.py",
+      "bytes": 13414,
+      "sha256": "90a290d28e655f9105d412d039cd461dfd125733b1e1c64f839f33a2b8c96806"
+    },
+    {
+      "path": "metadata/history/inputs/experiments/packed-convolution/verus_logs.py",
+      "bytes": 3436,
+      "sha256": "a23550223961aabc9ceff5a03b2fad2bd663eaec79323789cd083dfb2d40d222"
+    },
+    {
+      "path": "metadata/history/manifest.json",
+      "bytes": 259935,
+      "sha256": "2a6b4a180ed7b5d304817d7b04479611d08aaea010afe037ce838b519e2729b0"
+    },
+    {
+      "path": "metadata/history/operation-counts.json",
       "bytes": 230670,
       "sha256": "fa34a4ca366316a02d84094fcc34b31dfc0289e0dd78876ec530f99cdb9dafc4"
+    },
+    {
+      "path": "metadata/history/package-check.json",
+      "bytes": 242,
+      "sha256": "e2a2ffc42832079ca848423ad44f7ac751612b664c7724b0708e8e05bebba449"
+    },
+    {
+      "path": "metadata/history/package.json",
+      "bytes": 756,
+      "sha256": "f0c0ef07e59dd833903eaba0ad81e98bc4b92f05291a9427db3bee0dc5cad640"
+    },
+    {
+      "path": "metadata/history/prepared.json",
+      "bytes": 46581,
+      "sha256": "1ad56f0463a70a15fe072ba751d5e532ea670bc86482f5569d4a92e6a86ce241"
+    },
+    {
+      "path": "metadata/operation-counts.json",
+      "bytes": 233294,
+      "sha256": "80edd6426df48f0c3cc3a45bf576731cf91fb6c5743398bbc4e3da136e8336db"
+    },
+    {
+      "path": "metadata/operation-fixtures.json",
+      "bytes": 18311,
+      "sha256": "6d8123bb8da1d83deecbe5ed453d60e7771147bf86e19dbad0527f940d01faa6"
+    },
+    {
+      "path": "metadata/verification.json",
+      "bytes": 2958,
+      "sha256": "5602c6811bb1c4b42168e45493b62e81843bf8017ddea31fffabd57823e74f2b"
+    },
+    {
+      "path": "operation-counts.json",
+      "bytes": 233294,
+      "sha256": "80edd6426df48f0c3cc3a45bf576731cf91fb6c5743398bbc4e3da136e8336db"
     },
     {
       "path": "producer/library.stderr.log",
@@ -1243,18 +1383,28 @@
     },
     {
       "path": "source/inputs/experiments/combination-20261108/PROTOCOL.md",
-      "bytes": 8266,
-      "sha256": "a79766e0b2b95c7030838b0dead6723b404f57ad97fb591273f491d48efe2b18"
+      "bytes": 8713,
+      "sha256": "9d0ff9f3eb847c3a8002497e585e4084d1145653181bcaa029aeeccbcbe65f09"
     },
     {
       "path": "source/inputs/experiments/combination-20261108/README.md",
-      "bytes": 1560,
-      "sha256": "612a6c37d81ccc2667d3e26780114fa1ef3b01776b9cdeaea585fff83a5d7469"
+      "bytes": 2084,
+      "sha256": "ec58ebab0cda52a3cd32d0fa1e1164acb7ac5fe332e61bab882ab1834d05b80e"
+    },
+    {
+      "path": "source/inputs/experiments/combination-20261108/RECEIPT.md",
+      "bytes": 4474,
+      "sha256": "3d305315b3f1cad0b993647af394d0420b35611d02f24e6c5bea89232eb801eb"
     },
     {
       "path": "source/inputs/experiments/combination-20261108/check.py",
       "bytes": 17102,
       "sha256": "f80058a0d39ade5a3cc5309adf75d43587a697115bfa6c335f822efc99839634"
+    },
+    {
+      "path": "source/inputs/experiments/combination-20261108/check_package.py",
+      "bytes": 12885,
+      "sha256": "8ffe5c02aeb8358b36bc8f0a78caa5484376365895a9a434d98a759e9b696966"
     },
     {
       "path": "source/inputs/experiments/combination-20261108/codegen.py",
@@ -1278,8 +1428,13 @@
     },
     {
       "path": "source/inputs/experiments/combination-20261108/operations.py",
-      "bytes": 7731,
-      "sha256": "742d6263fc7a8bb48dec7fbabd1eb3c6705e623172e73077e3624415073e4a8a"
+      "bytes": 8446,
+      "sha256": "8f62dbba5fc5119b0544468347a8ce22f0f4ba1ab0132887b8af5f590e7f8dd3"
+    },
+    {
+      "path": "source/inputs/experiments/combination-20261108/pack_evidence.py",
+      "bytes": 3711,
+      "sha256": "48e809560754ef75d0bd2eaba3f3a10135e06ef937e49c6b2543a741743282c8"
     },
     {
       "path": "source/inputs/experiments/combination-20261108/prepare.py",
@@ -1292,6 +1447,11 @@
       "sha256": "4cd438efa1275307e6dc3225c470f960b49a8606121cc044b29c88df457ad9fe"
     },
     {
+      "path": "source/inputs/experiments/combination-20261108/rebind_metadata.py",
+      "bytes": 12150,
+      "sha256": "74762fea3b7ff4743b903dafecb9665b979245203f6690d0704e365b33182a8e"
+    },
+    {
       "path": "source/inputs/experiments/combination-20261108/square_oracle.py",
       "bytes": 3248,
       "sha256": "f702f4c0bf1f21023739baf2d3423b0eef917c06b10189e4de566eedcd4d92c7"
@@ -1300,6 +1460,11 @@
       "path": "source/inputs/experiments/combination-20261108/test_measure.py",
       "bytes": 3615,
       "sha256": "73bcc51102721175476b7531917ee460a95fee11f533d6e7d66d8f7207c47fb2"
+    },
+    {
+      "path": "source/inputs/experiments/combination-20261108/test_operations.py",
+      "bytes": 4818,
+      "sha256": "574915f94d32f822b63a32ff641d669199d32ebce78d62e1dee81c524cf1a2d7"
     },
     {
       "path": "source/inputs/experiments/packed-convolution/layout_verify.py",
@@ -1313,8 +1478,8 @@
     },
     {
       "path": "source/prepared.json",
-      "bytes": 46581,
-      "sha256": "1ad56f0463a70a15fe072ba751d5e532ea670bc86482f5569d4a92e6a86ce241"
+      "bytes": 47204,
+      "sha256": "32e5c0b3235a93d683f7b21a570c5da23f3da379ad4284f599400dc0729d0f5e"
     },
     {
       "path": "static/baseline-bench-build.stderr.log",

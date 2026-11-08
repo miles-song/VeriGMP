@@ -1,9 +1,15 @@
 {
   "status": "pass",
-  "payloads": 1496,
+  "payloads": 1529,
   "source_cells": 4,
   "combined_verified_items": 366,
   "operation_cells": 86,
+  "enumerated_square_base_sizes": 129,
+  "original_build_sha256": "48dc256f11b7944f30e9be7358d749b6f8e33211f234171e738af3b8f7c3fe9f",
+  "metadata_build_sha256": "e8ee2615528153f640f696948a79637d47b342c4c803f7d867d4b17bf6b00d2a",
+  "proof_reexecuted": false,
+  "binaries_rebuilt": false,
   "benchmark_executed": false,
-  "archive_sha256": "85a8d8705b387285621f26af4d2684c33929eacb47b6774be96ddd5117b136f6"
+  "calibration_executed": false,
+  "archive_sha256": "f195f84f88e571b7e022f88b4f6baa13a55f65222937cf16488ed7581a396991"
 }
