@@ -139,7 +139,8 @@ def check_run(
     build_sha: str,
     primary: list[tuple[int, int, int]],
 ) -> dict[str, Any]:
-    base = f"window/measurement-E1-01/exact-by3-{run_name}"
+    dir_name = "exact-by3-run-1" if run_name == "run1" else "exact-by3-run-2"
+    base = f"window/measurement-E1-01/{dir_name}"
     measurement_name = f"{base}/measurement.json"
     raw_name = f"{base}/raw.jsonl"
     measurement = load_json_member(zf, measurement_name)
