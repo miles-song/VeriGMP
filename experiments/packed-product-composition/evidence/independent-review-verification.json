@@ -1,0 +1,874 @@
+{
+  "status": "pass",
+  "scope": "equal-length canonical exact packed product",
+  "benchmark_run": false,
+  "production_runtime_changed": false,
+  "bit_cost_proved": false,
+  "peak_space_proved": false,
+  "solver_integration": false,
+  "commands": [
+    {
+      "name": "verus-version",
+      "argv": [
+        "/mnt/e/3sat/VeriGMP-low-square-gated/deps/verus/verus-x86-linux/verus",
+        "--version"
+      ],
+      "cwd": "/mnt/e/3sat/VeriGMP-packed-product-independent-final-20261108/focused-replay",
+      "returncode": 0,
+      "stdout_sha256": "43bbcb88d622ee4e1fb08655b4393b56725fedd6fce064101e6f9cd64fd07152",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "timeout": false
+    },
+    {
+      "name": "rustc-version",
+      "argv": [
+        "/mnt/e/3sat/VeriGMP-low-square-gated/deps/cargo/bin/rustup",
+        "run",
+        "1.99.1-x86_64-unknown-linux-gnu",
+        "rustc",
+        "-vV"
+      ],
+      "cwd": "/mnt/e/3sat/VeriGMP-packed-product-independent-final-20261108/focused-replay",
+      "returncode": 0,
+      "stdout_sha256": "f22d5e4e9ced367e774ce5bc140d9e6b1235c1882fec80d011044851f3ae6369",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "timeout": false
+    },
+    {
+      "name": "rustc-sysroot",
+      "argv": [
+        "/mnt/e/3sat/VeriGMP-low-square-gated/deps/cargo/bin/rustup",
+        "run",
+        "1.99.1-x86_64-unknown-linux-gnu",
+        "rustc",
+        "--print",
+        "sysroot"
+      ],
+      "cwd": "/mnt/e/3sat/VeriGMP-packed-product-independent-final-20261108/focused-replay",
+      "returncode": 0,
+      "stdout_sha256": "d7ecc8f9f177cd3447cdaba95101831762c915404961b0dd891fca89dc776ccb",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "timeout": false
+    },
+    {
+      "name": "consumer-proof-release",
+      "argv": [
+        "/mnt/e/3sat/VeriGMP-low-square-gated/deps/verus/verus-x86-linux/verus",
+        "/mnt/e/3sat/VeriGMP-packed-product-independent-final-20261108/focused-replay/source/experiments/packed-product-composition/consumer.rs",
+        "--crate-type",
+        "lib",
+        "--crate-name",
+        "packed_product_consumer",
+        "--no-cheating",
+        "--import",
+        "verigmp=/mnt/e/3sat/VeriGMP-packed-product-independent-final-20261108/focused-replay/verigmp.vir",
+        "--extern",
+        "verigmp=/mnt/e/3sat/VeriGMP-packed-product-independent-final-20261108/focused-replay/libverigmp.rlib",
+        "--compile",
+        "-O",
+        "--export",
+        "/mnt/e/3sat/VeriGMP-packed-product-independent-final-20261108/focused-replay/consumer.vir",
+        "-o",
+        "/mnt/e/3sat/VeriGMP-packed-product-independent-final-20261108/focused-replay/libpacked_product_consumer.rlib"
+      ],
+      "cwd": "/mnt/e/3sat/VeriGMP-packed-product-independent-final-20261108/focused-replay/source",
+      "returncode": 0,
+      "stdout_sha256": "7b5e4fff93ae53089ff1e2be33e185bf9a66d29ecafabd0b6f458d69d7ab3e26",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "timeout": false
+    },
+    {
+      "name": "runtime-build",
+      "argv": [
+        "/mnt/e/3sat/VeriGMP-low-square-gated/deps/cargo/bin/rustup",
+        "run",
+        "1.99.1-x86_64-unknown-linux-gnu",
+        "rustc",
+        "/mnt/e/3sat/VeriGMP-packed-product-independent-final-20261108/focused-replay/source/experiments/packed-product-composition/runtime.rs",
+        "--edition=2024",
+        "-O",
+        "-L",
+        "dependency=/mnt/e/3sat/VeriGMP-packed-product-independent-final-20261108/focused-replay",
+        "-L",
+        "dependency=/mnt/e/3sat/VeriGMP-low-square-gated/deps/verus/verus-x86-linux",
+        "--extern",
+        "verigmp=/mnt/e/3sat/VeriGMP-packed-product-independent-final-20261108/focused-replay/libverigmp.rlib",
+        "--extern",
+        "packed_product_consumer=/mnt/e/3sat/VeriGMP-packed-product-independent-final-20261108/focused-replay/libpacked_product_consumer.rlib",
+        "-o",
+        "/mnt/e/3sat/VeriGMP-packed-product-independent-final-20261108/focused-replay/runtime"
+      ],
+      "cwd": "/mnt/e/3sat/VeriGMP-packed-product-independent-final-20261108/focused-replay",
+      "returncode": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "timeout": false
+    },
+    {
+      "name": "runtime-oracle",
+      "argv": [
+        "/mnt/e/3sat/VeriGMP-packed-product-independent-final-20261108/focused-replay/runtime",
+        "/mnt/e/3sat/VeriGMP-packed-product-independent-final-20261108/focused-replay/oracle/cases.bin"
+      ],
+      "cwd": "/mnt/e/3sat/VeriGMP-packed-product-independent-final-20261108/focused-replay",
+      "returncode": 0,
+      "stdout_sha256": "9f8ca4812e59e4518c6439648b5b949d2b69d3c084886a35d2251e295beeb327",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "timeout": false
+    },
+    {
+      "name": "layout-runtime-build",
+      "argv": [
+        "/mnt/e/3sat/VeriGMP-low-square-gated/deps/cargo/bin/rustup",
+        "run",
+        "1.99.1-x86_64-unknown-linux-gnu",
+        "rustc",
+        "/mnt/e/3sat/VeriGMP-packed-product-independent-final-20261108/focused-replay/layout-oracle/runtime-cases.rs",
+        "--edition=2024",
+        "-O",
+        "-L",
+        "dependency=/mnt/e/3sat/VeriGMP-packed-product-independent-final-20261108/focused-replay",
+        "-L",
+        "dependency=/mnt/e/3sat/VeriGMP-low-square-gated/deps/verus/verus-x86-linux",
+        "--extern",
+        "verigmp=/mnt/e/3sat/VeriGMP-packed-product-independent-final-20261108/focused-replay/libverigmp.rlib",
+        "--extern",
+        "packed_product_consumer=/mnt/e/3sat/VeriGMP-packed-product-independent-final-20261108/focused-replay/libpacked_product_consumer.rlib",
+        "-o",
+        "/mnt/e/3sat/VeriGMP-packed-product-independent-final-20261108/focused-replay/layout-runtime"
+      ],
+      "cwd": "/mnt/e/3sat/VeriGMP-packed-product-independent-final-20261108/focused-replay",
+      "returncode": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "timeout": false
+    },
+    {
+      "name": "layout-runtime-oracle",
+      "argv": [
+        "/mnt/e/3sat/VeriGMP-packed-product-independent-final-20261108/focused-replay/layout-runtime"
+      ],
+      "cwd": "/mnt/e/3sat/VeriGMP-packed-product-independent-final-20261108/focused-replay",
+      "returncode": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "timeout": false
+    },
+    {
+      "name": "alias-input",
+      "argv": [
+        "/mnt/e/3sat/VeriGMP-low-square-gated/deps/cargo/bin/rustup",
+        "run",
+        "1.99.1-x86_64-unknown-linux-gnu",
+        "rustc",
+        "/mnt/e/3sat/VeriGMP-packed-product-independent-final-20261108/focused-replay/alias-input.rs",
+        "--edition=2024",
+        "-O",
+        "-L",
+        "dependency=/mnt/e/3sat/VeriGMP-packed-product-independent-final-20261108/focused-replay",
+        "-L",
+        "dependency=/mnt/e/3sat/VeriGMP-low-square-gated/deps/verus/verus-x86-linux",
+        "--extern",
+        "verigmp=/mnt/e/3sat/VeriGMP-packed-product-independent-final-20261108/focused-replay/libverigmp.rlib",
+        "--extern",
+        "packed_product_consumer=/mnt/e/3sat/VeriGMP-packed-product-independent-final-20261108/focused-replay/libpacked_product_consumer.rlib",
+        "-o",
+        "/mnt/e/3sat/VeriGMP-packed-product-independent-final-20261108/focused-replay/alias-input"
+      ],
+      "cwd": "/mnt/e/3sat/VeriGMP-packed-product-independent-final-20261108/focused-replay",
+      "returncode": 1,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "a41f85e5615a9446fb809db9f97ba55b257f8b41bc86dfa150818b4224001e65",
+      "timeout": false
+    },
+    {
+      "name": "alias-output",
+      "argv": [
+        "/mnt/e/3sat/VeriGMP-low-square-gated/deps/cargo/bin/rustup",
+        "run",
+        "1.99.1-x86_64-unknown-linux-gnu",
+        "rustc",
+        "/mnt/e/3sat/VeriGMP-packed-product-independent-final-20261108/focused-replay/alias-output.rs",
+        "--edition=2024",
+        "-O",
+        "-L",
+        "dependency=/mnt/e/3sat/VeriGMP-packed-product-independent-final-20261108/focused-replay",
+        "-L",
+        "dependency=/mnt/e/3sat/VeriGMP-low-square-gated/deps/verus/verus-x86-linux",
+        "--extern",
+        "verigmp=/mnt/e/3sat/VeriGMP-packed-product-independent-final-20261108/focused-replay/libverigmp.rlib",
+        "--extern",
+        "packed_product_consumer=/mnt/e/3sat/VeriGMP-packed-product-independent-final-20261108/focused-replay/libpacked_product_consumer.rlib",
+        "-o",
+        "/mnt/e/3sat/VeriGMP-packed-product-independent-final-20261108/focused-replay/alias-output"
+      ],
+      "cwd": "/mnt/e/3sat/VeriGMP-packed-product-independent-final-20261108/focused-replay",
+      "returncode": 1,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "c6c77373462aa89104011849a7778686c6c8ca3aa374123c59595039d3af1c2d",
+      "timeout": false
+    },
+    {
+      "name": "invalid-scratch",
+      "argv": [
+        "/mnt/e/3sat/VeriGMP-low-square-gated/deps/verus/verus-x86-linux/verus",
+        "/mnt/e/3sat/VeriGMP-packed-product-independent-final-20261108/focused-replay/invalid-scratch.rs",
+        "--crate-type",
+        "lib",
+        "--crate-name",
+        "invalid_call",
+        "--no-cheating",
+        "--import",
+        "verigmp=/mnt/e/3sat/VeriGMP-packed-product-independent-final-20261108/focused-replay/verigmp.vir",
+        "--extern",
+        "verigmp=/mnt/e/3sat/VeriGMP-packed-product-independent-final-20261108/focused-replay/libverigmp.rlib",
+        "--import",
+        "packed_product_consumer=/mnt/e/3sat/VeriGMP-packed-product-independent-final-20261108/focused-replay/consumer.vir",
+        "--extern",
+        "packed_product_consumer=/mnt/e/3sat/VeriGMP-packed-product-independent-final-20261108/focused-replay/libpacked_product_consumer.rlib"
+      ],
+      "cwd": "/mnt/e/3sat/VeriGMP-packed-product-independent-final-20261108/focused-replay",
+      "returncode": 1,
+      "stdout_sha256": "a6301d4ef377555945776d2e2f2b068e4040a95de52b3c832497dada2ff916e8",
+      "stderr_sha256": "74f29ae3f182568345b052e671fee05b80d29419e232e54d06085b614333f67c",
+      "timeout": false
+    },
+    {
+      "name": "invalid-guard",
+      "argv": [
+        "/mnt/e/3sat/VeriGMP-low-square-gated/deps/verus/verus-x86-linux/verus",
+        "/mnt/e/3sat/VeriGMP-packed-product-independent-final-20261108/focused-replay/invalid-guard.rs",
+        "--crate-type",
+        "lib",
+        "--crate-name",
+        "invalid_call",
+        "--no-cheating",
+        "--import",
+        "verigmp=/mnt/e/3sat/VeriGMP-packed-product-independent-final-20261108/focused-replay/verigmp.vir",
+        "--extern",
+        "verigmp=/mnt/e/3sat/VeriGMP-packed-product-independent-final-20261108/focused-replay/libverigmp.rlib",
+        "--import",
+        "packed_product_consumer=/mnt/e/3sat/VeriGMP-packed-product-independent-final-20261108/focused-replay/consumer.vir",
+        "--extern",
+        "packed_product_consumer=/mnt/e/3sat/VeriGMP-packed-product-independent-final-20261108/focused-replay/libpacked_product_consumer.rlib"
+      ],
+      "cwd": "/mnt/e/3sat/VeriGMP-packed-product-independent-final-20261108/focused-replay",
+      "returncode": 1,
+      "stdout_sha256": "a6301d4ef377555945776d2e2f2b068e4040a95de52b3c832497dada2ff916e8",
+      "stderr_sha256": "6e88fea027e96adbb3f50728abcc0001299c6aee2a2e2b7c4bdda9c3d5f25645",
+      "timeout": false
+    },
+    {
+      "name": "invalid-output",
+      "argv": [
+        "/mnt/e/3sat/VeriGMP-low-square-gated/deps/verus/verus-x86-linux/verus",
+        "/mnt/e/3sat/VeriGMP-packed-product-independent-final-20261108/focused-replay/invalid-output.rs",
+        "--crate-type",
+        "lib",
+        "--crate-name",
+        "invalid_call",
+        "--no-cheating",
+        "--import",
+        "verigmp=/mnt/e/3sat/VeriGMP-packed-product-independent-final-20261108/focused-replay/verigmp.vir",
+        "--extern",
+        "verigmp=/mnt/e/3sat/VeriGMP-packed-product-independent-final-20261108/focused-replay/libverigmp.rlib",
+        "--import",
+        "packed_product_consumer=/mnt/e/3sat/VeriGMP-packed-product-independent-final-20261108/focused-replay/consumer.vir",
+        "--extern",
+        "packed_product_consumer=/mnt/e/3sat/VeriGMP-packed-product-independent-final-20261108/focused-replay/libpacked_product_consumer.rlib"
+      ],
+      "cwd": "/mnt/e/3sat/VeriGMP-packed-product-independent-final-20261108/focused-replay",
+      "returncode": 1,
+      "stdout_sha256": "a6301d4ef377555945776d2e2f2b068e4040a95de52b3c832497dada2ff916e8",
+      "stderr_sha256": "b9e5ac77de735b249533f13990a2d0f69b611f34b17379d4b1222987e7dc7239",
+      "timeout": false
+    },
+    {
+      "name": "mutant-insufficient-guard",
+      "argv": [
+        "/mnt/e/3sat/VeriGMP-low-square-gated/deps/verus/verus-x86-linux/verus",
+        "/mnt/e/3sat/VeriGMP-packed-product-independent-final-20261108/focused-replay/mutants/insufficient-guard/native/lib.rs",
+        "--crate-type",
+        "lib",
+        "--no-cheating",
+        "--verify-module",
+        "packed_product",
+        "--multiple-errors",
+        "0"
+      ],
+      "cwd": "/mnt/e/3sat/VeriGMP-packed-product-independent-final-20261108/focused-replay/mutants/insufficient-guard",
+      "returncode": 1,
+      "stdout_sha256": "ce749132e6abd967f163a5513df73372c1c2f688afea3abacce395b9407c32bb",
+      "stderr_sha256": "4ddf1269ff396e0cd5a8e4c7198c4ed2268ad8d88a80e4ce58312ab53ae00c0a",
+      "timeout": false
+    },
+    {
+      "name": "mutant-nonzero-final-tail",
+      "argv": [
+        "/mnt/e/3sat/VeriGMP-low-square-gated/deps/verus/verus-x86-linux/verus",
+        "/mnt/e/3sat/VeriGMP-packed-product-independent-final-20261108/focused-replay/mutants/nonzero-final-tail/native/lib.rs",
+        "--crate-type",
+        "lib",
+        "--no-cheating",
+        "--verify-module",
+        "packed_product",
+        "--multiple-errors",
+        "0"
+      ],
+      "cwd": "/mnt/e/3sat/VeriGMP-packed-product-independent-final-20261108/focused-replay/mutants/nonzero-final-tail",
+      "returncode": 1,
+      "stdout_sha256": "ce749132e6abd967f163a5513df73372c1c2f688afea3abacce395b9407c32bb",
+      "stderr_sha256": "e44f11eb7bf011fd8f93856c95f5c2f66bf28ff21720c5269ed8b497c04aa2f8",
+      "timeout": false
+    },
+    {
+      "name": "mutant-square-instead-of-product",
+      "argv": [
+        "/mnt/e/3sat/VeriGMP-low-square-gated/deps/verus/verus-x86-linux/verus",
+        "/mnt/e/3sat/VeriGMP-packed-product-independent-final-20261108/focused-replay/mutants/square-instead-of-product/experiments/packed-product-composition/consumer.rs",
+        "--crate-type",
+        "lib",
+        "--crate-name",
+        "consumer_mutant",
+        "--no-cheating",
+        "--import",
+        "verigmp=/mnt/e/3sat/VeriGMP-packed-product-independent-final-20261108/focused-replay/verigmp.vir",
+        "--extern",
+        "verigmp=/mnt/e/3sat/VeriGMP-packed-product-independent-final-20261108/focused-replay/libverigmp.rlib"
+      ],
+      "cwd": "/mnt/e/3sat/VeriGMP-packed-product-independent-final-20261108/focused-replay/mutants/square-instead-of-product",
+      "returncode": 1,
+      "stdout_sha256": "d323abcd4f3774a60f8db781c0fa2e4f4014d29d70b475d047e75475fa770987",
+      "stderr_sha256": "93bda8912cb4a6d8939d288003bc9c8f32616af5e8916000f24dba0ae6527482",
+      "timeout": false
+    },
+    {
+      "name": "mutant-extract-input-precision",
+      "argv": [
+        "/mnt/e/3sat/VeriGMP-low-square-gated/deps/verus/verus-x86-linux/verus",
+        "/mnt/e/3sat/VeriGMP-packed-product-independent-final-20261108/focused-replay/mutants/extract-input-precision/experiments/packed-product-composition/consumer.rs",
+        "--crate-type",
+        "lib",
+        "--crate-name",
+        "consumer_mutant",
+        "--no-cheating",
+        "--import",
+        "verigmp=/mnt/e/3sat/VeriGMP-packed-product-independent-final-20261108/focused-replay/verigmp.vir",
+        "--extern",
+        "verigmp=/mnt/e/3sat/VeriGMP-packed-product-independent-final-20261108/focused-replay/libverigmp.rlib"
+      ],
+      "cwd": "/mnt/e/3sat/VeriGMP-packed-product-independent-final-20261108/focused-replay/mutants/extract-input-precision",
+      "returncode": 1,
+      "stdout_sha256": "d323abcd4f3774a60f8db781c0fa2e4f4014d29d70b475d047e75475fa770987",
+      "stderr_sha256": "9f3e37019084ca09395e7caa6575d83b7d7ee4ddb601087408c3f43ccfa65526",
+      "timeout": false
+    },
+    {
+      "name": "consumer-codegen",
+      "argv": [
+        "/mnt/e/3sat/VeriGMP-low-square-gated/deps/verus/verus-x86-linux/verus",
+        "/mnt/e/3sat/VeriGMP-packed-product-independent-final-20261108/focused-replay/source/experiments/packed-product-composition/consumer.rs",
+        "--crate-type",
+        "lib",
+        "--crate-name",
+        "packed_product_consumer",
+        "--no-cheating",
+        "--import",
+        "verigmp=/mnt/e/3sat/VeriGMP-packed-product-independent-final-20261108/focused-replay/verigmp.vir",
+        "--extern",
+        "verigmp=/mnt/e/3sat/VeriGMP-packed-product-independent-final-20261108/focused-replay/libverigmp.rlib",
+        "--compile",
+        "-O",
+        "--emit=obj",
+        "-C",
+        "codegen-units=1",
+        "-o",
+        "/mnt/e/3sat/VeriGMP-packed-product-independent-final-20261108/focused-replay/consumer.o"
+      ],
+      "cwd": "/mnt/e/3sat/VeriGMP-packed-product-independent-final-20261108/focused-replay/source",
+      "returncode": 0,
+      "stdout_sha256": "7b5e4fff93ae53089ff1e2be33e185bf9a66d29ecafabd0b6f458d69d7ab3e26",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "timeout": false
+    },
+    {
+      "name": "control-codegen",
+      "argv": [
+        "/mnt/e/3sat/VeriGMP-low-square-gated/deps/cargo/bin/rustup",
+        "run",
+        "1.99.1-x86_64-unknown-linux-gnu",
+        "rustc",
+        "/mnt/e/3sat/VeriGMP-packed-product-independent-final-20261108/focused-replay/source/experiments/packed-product-composition/control.rs",
+        "--crate-type",
+        "lib",
+        "--crate-name",
+        "packed_product_consumer",
+        "--edition=2024",
+        "-O",
+        "-L",
+        "dependency=/mnt/e/3sat/VeriGMP-packed-product-independent-final-20261108/focused-replay",
+        "-L",
+        "dependency=/mnt/e/3sat/VeriGMP-low-square-gated/deps/verus/verus-x86-linux",
+        "--extern",
+        "verigmp=/mnt/e/3sat/VeriGMP-packed-product-independent-final-20261108/focused-replay/libverigmp.rlib",
+        "--extern",
+        "packed_product_consumer=/mnt/e/3sat/VeriGMP-packed-product-independent-final-20261108/focused-replay/libpacked_product_consumer.rlib",
+        "--emit=obj",
+        "-C",
+        "codegen-units=1",
+        "-o",
+        "/mnt/e/3sat/VeriGMP-packed-product-independent-final-20261108/focused-replay/control.o"
+      ],
+      "cwd": "/mnt/e/3sat/VeriGMP-packed-product-independent-final-20261108/focused-replay",
+      "returncode": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "timeout": false
+    },
+    {
+      "name": "consumer-symbols",
+      "argv": [
+        "objdump",
+        "-t",
+        "-C",
+        "/mnt/e/3sat/VeriGMP-packed-product-independent-final-20261108/focused-replay/consumer.o"
+      ],
+      "cwd": "/mnt/e/3sat/VeriGMP-packed-product-independent-final-20261108/focused-replay",
+      "returncode": 0,
+      "stdout_sha256": "b485f81768b945408cc4b275f9928ae1bc85ac31c703745343608985306ddbd3",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "timeout": false
+    },
+    {
+      "name": "consumer-dump-section",
+      "argv": [
+        "objcopy",
+        "--dump-section",
+        ".text._RNvCs66WoPdCnaZh_23packed_product_consumer7consume=/mnt/e/3sat/VeriGMP-packed-product-independent-final-20261108/focused-replay/consumer-body.bin",
+        "/mnt/e/3sat/VeriGMP-packed-product-independent-final-20261108/focused-replay/consumer.o"
+      ],
+      "cwd": "/mnt/e/3sat/VeriGMP-packed-product-independent-final-20261108/focused-replay",
+      "returncode": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "timeout": false
+    },
+    {
+      "name": "consumer-relocations",
+      "argv": [
+        "objdump",
+        "-r",
+        "--section=.text._RNvCs66WoPdCnaZh_23packed_product_consumer7consume",
+        "/mnt/e/3sat/VeriGMP-packed-product-independent-final-20261108/focused-replay/consumer.o"
+      ],
+      "cwd": "/mnt/e/3sat/VeriGMP-packed-product-independent-final-20261108/focused-replay",
+      "returncode": 0,
+      "stdout_sha256": "d68766353d486b8bd35d6c771529babcbadb68d34c026e149513f7e95fae602d",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "timeout": false
+    },
+    {
+      "name": "control-symbols",
+      "argv": [
+        "objdump",
+        "-t",
+        "-C",
+        "/mnt/e/3sat/VeriGMP-packed-product-independent-final-20261108/focused-replay/control.o"
+      ],
+      "cwd": "/mnt/e/3sat/VeriGMP-packed-product-independent-final-20261108/focused-replay",
+      "returncode": 0,
+      "stdout_sha256": "0c3992a630cd802cd170fea4a7ffa75a3ff33df6378ec64dbcba92e015c106a9",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "timeout": false
+    },
+    {
+      "name": "control-dump-section",
+      "argv": [
+        "objcopy",
+        "--dump-section",
+        ".text._RNvCs66WoPdCnaZh_23packed_product_consumer7consume=/mnt/e/3sat/VeriGMP-packed-product-independent-final-20261108/focused-replay/control-body.bin",
+        "/mnt/e/3sat/VeriGMP-packed-product-independent-final-20261108/focused-replay/control.o"
+      ],
+      "cwd": "/mnt/e/3sat/VeriGMP-packed-product-independent-final-20261108/focused-replay",
+      "returncode": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "timeout": false
+    },
+    {
+      "name": "control-relocations",
+      "argv": [
+        "objdump",
+        "-r",
+        "--section=.text._RNvCs66WoPdCnaZh_23packed_product_consumer7consume",
+        "/mnt/e/3sat/VeriGMP-packed-product-independent-final-20261108/focused-replay/control.o"
+      ],
+      "cwd": "/mnt/e/3sat/VeriGMP-packed-product-independent-final-20261108/focused-replay",
+      "returncode": 0,
+      "stdout_sha256": "2497b8f14207c9c88a51c9c1d29517ae3f831109c49e606d2752c98c13eb0472",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "timeout": false
+    }
+  ],
+  "mutants": [
+    {
+      "name": "insufficient-guard",
+      "source": "native/specs/packed_product.rs",
+      "before": "count <= pow(2, (q - 2 * p) as nat)",
+      "after": "count <= pow(2, (q - 2 * p + 1) as nat)",
+      "source_sha256": "aa59e7bb75a591600924d46074dc013b4e85987f7ac07b9c4a7d62dbd11d88cf",
+      "status": "pass"
+    },
+    {
+      "name": "nonzero-final-tail",
+      "source": "native/specs/packed_product.rs",
+      "before": "coefficients(output, 2 * count, q)[(2 * count - 1) as int] == 0",
+      "after": "coefficients(output, 2 * count, q)[(2 * count - 1) as int] == 1",
+      "source_sha256": "8cdf3f597aa24f7e5a67d39cc5aa92c2b1731d4370b278129e7636fc67d89815",
+      "status": "pass"
+    },
+    {
+      "name": "square-instead-of-product",
+      "source": "experiments/packed-product-composition/consumer.rs",
+      "before": "toom_multiply::full(product, packed_left, packed_right, scratch, 24);",
+      "after": "toom_multiply::full(product, packed_left, packed_left, scratch, 24);",
+      "source_sha256": "1640bb83b522f812c5b21614181e1e05126671de4325950adc2e54eaefc19c2e",
+      "status": "pass"
+    },
+    {
+      "name": "extract-input-precision",
+      "source": "experiments/packed-product-composition/consumer.rs",
+      "before": "layout::extract_coefficients(output, product, result_count, q, slot)",
+      "after": "layout::extract_coefficients(output, product, result_count, p, slot)",
+      "source_sha256": "3c0f7fd2181b5eede9569a9932cf75008dfd3751249fbcdd32fab37a3ea58fa8",
+      "status": "pass"
+    }
+  ],
+  "invalid_calls": [
+    {
+      "kind": "scratch",
+      "status": "pass",
+      "expected_precondition": "old(scratch)@.len() >= 12",
+      "fixture_sha256": "c6d9aa2c3f6800d95d9b06b63a50919277c2b18c5ae57ea76e28e337dc6bfa7d"
+    },
+    {
+      "kind": "guard",
+      "status": "pass",
+      "expected_precondition": "packed_product::guard_domain",
+      "fixture_sha256": "15977ee974c95f288276568980f4f61124ca99cb36adafc50fca9133ee510476"
+    },
+    {
+      "kind": "output",
+      "status": "pass",
+      "expected_precondition": "old(output)@.len() == 2",
+      "fixture_sha256": "28a08d7d5d2420a0152b47cff2309b1aedf9ce7b1565e252e48f936c174e3e53"
+    }
+  ],
+  "alias_checks": [
+    {
+      "kind": "input",
+      "status": "pass",
+      "expected_diagnostic": "E0502",
+      "fixture_sha256": "91478067beb0e005066eb2d624079cb90706bea7f39c9d46e367c31b8f11e779"
+    },
+    {
+      "kind": "output",
+      "status": "pass",
+      "expected_diagnostic": "E0499",
+      "fixture_sha256": "75fe335d50694b3bdb702fafaa4bd3d92b1b50de219b821a779d09af60e465b3"
+    }
+  ],
+  "source_git": {
+    "head": "0d7d0db8b939229489b3da8fa84d8be5d5356db0",
+    "branch": "codex/packed-product-refinement-20261108",
+    "root": "/mnt/e/3sat/VeriGMP-packed-product-refinement-20261108",
+    "git_command": [
+      "/mnt/c/Program Files/Git/cmd/git.exe",
+      "-C",
+      "E:/3sat/VeriGMP-packed-product-refinement-20261108"
+    ],
+    "source_sha256": {
+      "AGENTS.md": "c86708527b20f9605284d2d8ba24e28be7eee8990ade33989a4811a4d31090f3",
+      "LICENSE": "1126322e2cc8d165adc4c792eeb195717de2bcc7b39be1ce77959d78e87ef685",
+      "README.md": "45e1e1eb29dca2368681bdd9439a7527e615ddc47ebf39fb20785a4c9989117d",
+      "README.zh-CN.md": "7a2c38f59a2ddbd6f0c8e078bb719b87536ded1168571645c94ebea73bb5d5c3",
+      "docs/packed-convolution.md": "5c3241631947b9b87dc5c668fb370ca674d2671e683dad0c70fcb39c9b5e3c87",
+      "docs/packed-product-composition.md": "c7c9763a01452f86b7188a2f23ddd652df85c6796ee5ced21b558e88f9f51649",
+      "experiments/packed-convolution/layout_mutations.py": "36f4c5ec77b9d08165e3d47d18b58317e3c96f162887bd78b934ee6d5af8f9c5",
+      "experiments/packed-convolution/layout_oracle.py": "e99e8886a6e9316e650fa631a64bc7d9952b06ad4f1be9ae64bfaa58f260d53d",
+      "experiments/packed-convolution/layout_verify.py": "90a290d28e655f9105d412d039cd461dfd125733b1e1c64f839f33a2b8c96806",
+      "experiments/packed-convolution/verus_logs.py": "a23550223961aabc9ceff5a03b2fad2bd663eaec79323789cd083dfb2d40d222",
+      "experiments/packed-product-composition/PROTOCOL.md": "8e1ed1f96fada1c8facf10500a52b3c7cc3af71b51a16c3d3a0bafdc171e9fc1",
+      "experiments/packed-product-composition/RECEIPT.md": "0315bac9865b9f40e45717c82b210479e0d272b48a56b28793d25527ea838148",
+      "experiments/packed-product-composition/consumer.rs": "d3206a0211ad54af0fa457f554b7a4b0a929c52a31b7d3dcb1bc5d8e703b6b1c",
+      "experiments/packed-product-composition/control.rs": "43be821ac6c70faf3be533adaf4d3c4f2630c8db854b160f32a798f316cc3731",
+      "experiments/packed-product-composition/negative_checks.py": "0c874e4d666347831484b5ee5c443da68fa85955c5e452291bd8f34ac9c82252",
+      "experiments/packed-product-composition/oracle.py": "c4c56d359e5a6e091b2aa55264f76f8c7d29fca21beb5095adf79d64b9816a98",
+      "experiments/packed-product-composition/runtime.rs": "072d0233843ee208e351ddb8a711cd2c39aaf63a511d98c0d3b429e7146eebda",
+      "experiments/packed-product-composition/verify.py": "383c43ccdf90b0b45e0ae97d795b7b18efb3041133f8425f5e2583ad404be9cc",
+      "native/controls/fast_multiply.rs": "64ddb1d8919da86881791d88d42916fd0f2d73e14073c6a53850d337e02a6714",
+      "native/controls/limbs.rs": "b7161f5897667d8d6bc96ec5ca6eddf63384efd4eb0568ecbb6c4cccf500e4da",
+      "native/controls/multiply.rs": "6671972c9c3c61424338e6418d8c703e3426c63eb062cb12fddc9adad63a6882",
+      "native/controls/pow2.rs": "ba0a8a8bb404c4778ddd3c03ba254dfcca6efc28a94d293368db2e5ee2e79dac",
+      "native/fast_bench.rs": "dbad117ee7c07e79b4fc82421900491d7d8aa781c3d467057afa1c5ae6a9941a",
+      "native/fast_codegen.rs": "e68214b600c37fbf436a9d4ad0a649c000eb133e5ecf1d38948dbe5edda37283",
+      "native/fast_runner.rs": "bf789aee05d49953fafef8a4dd6e88a82b8bde905c844e3fb6a76f5287f053e1",
+      "native/lib.rs": "edb633153fd240e317b5c97c58ee01627e9cb8c0fdb1168d6b017642afe070d1",
+      "native/limbs_bench.rs": "937ed74d98f739b2333e1feb78c65dbefb86b5af1c051c864ef269fb6b304215",
+      "native/limbs_codegen.rs": "465962efb3dc1e0f2414295228414112e3843dbaf467a41b705e53a3255e255e",
+      "native/limbs_runner.rs": "4aced8bc95027c78bbac6690f112dcd9e0b892f521baa6e29515b65862c05c01",
+      "native/mac4_bench.rs": "6519f9828fb9dafbbb200926f7358dded24909e462447a1753626c81a399be1f",
+      "native/multiply_bench.rs": "d28537c1ee449c452b8c0f549a3555fbf50f59a680240b371335ccb106061d12",
+      "native/multiply_codegen.rs": "3855098a24804a8cba3ff8b094b159290e0e27e13fc1a558b456aebfeddb1229",
+      "native/multiply_runner.rs": "856d5b82363f2bf9170bf15cf45f2b0b9ae713a1475f5ceed1751fcaf18c52c7",
+      "native/pow2_bench.rs": "9e4390cabef56661544491deb928ee2f7a11199d34ada5b6a185a54a45622c1c",
+      "native/pow2_codegen.rs": "2372573334ffb9778295bd775ea23302207017bb699598606f3254f3cf3d36dd",
+      "native/pow2_runner.rs": "c916b36cc11923b309aacccd8e54ae5bde951d651abb1360f05715b82706a647",
+      "native/proof-status.json": "322d08f683d3e9b15777891bc23cd325bb9769aae6c70682f6b7b21e8adc47d1",
+      "native/specs/fast_product.rs": "1d3a4f9397375741f6fcaea5bacf5977f73c56ba051893cd81a83709385b2cd7",
+      "native/specs/packed_convolution.rs": "473c31ece4130e5517a44c5a88757137461f009dce19c0a628ee7af8be69e122",
+      "native/specs/packed_product.rs": "f792932175cc64633ea19bf19229e61100962d19bedfbc3923bd4f925e526658",
+      "native/specs/precision.rs": "38ffadc6cd04602b40457711b25ec3e89de5fb0ebf92136645da93fb18d4cde0",
+      "native/specs/product.rs": "24de04dda22e2ca1262ade8328b3f164612b59188df14dbe84988b94592563ae",
+      "native/specs/radix.rs": "51bddb73e0cfcc2fda095ac5f35fe4853417c1fff858133dab56b05ba9573219",
+      "native/specs/square.rs": "3d716c2905d4f34929e3177e853196f84faef8a63c10e7e1bb7593a9e62be87e",
+      "native/specs/square_base.rs": "9436705847c6cf4c8353a324e9154767a2a8ac57b13ca13a26b523f973ea6768",
+      "native/specs/toom.rs": "ed543569ac0996a16546211241b52f5a7ae945e8fce873f5195340cf290456ff",
+      "native/specs/toom_blocks.rs": "d799a910b67b26fbbdbdefc50bf49063f8ca39790f6d48f60a7ed1315d00df9d",
+      "native/square_base_bench.rs": "96d985005b1bf24282c2981fb6ac1290f9ce5ee056c58305798d87fb8447e671",
+      "native/toolchain.json": "a8f1ba756fd50480017e10d24c390a4b94528ab387c965d28c35cf3432c9e678",
+      "native/toom_bench.rs": "c1be0d2aec144ea6d4abf6946206e23f543fdbab0ddb2829278cbaa919b614f2",
+      "native/toom_codegen.rs": "ed180241882078324268bf9803b4d85d457000e18d4035d44435800e3c3652a7",
+      "native/toom_words_runner.rs": "ebfc236535004e57a0932a45dd263b8e944064ef394490cf367c92003681126d",
+      "native/verified/arithmetic.rs": "7c0181fed9d53f842062fd2f4e738dedf42985fee28bff53cabba4a7fc20cc54",
+      "native/verified/fast_multiply.rs": "c2d1b96fea047f720ac09e3a3c043eec22abc19d6ac72266cc32380a76e03b82",
+      "native/verified/fast_words.rs": "f07e442ee9a3a00f07affeb4ac537e97d82a6fc60a49cd43a54dde58e2d301e6",
+      "native/verified/kernel.rs": "53837b72617ee200e30cfd3af155ce7ca156c0684ee1d29688b78504bfb65569",
+      "native/verified/limbs.rs": "913c88133f2bd46b3b4a59794eba5b8d43dfdbdac720918e375b47a52adbff28",
+      "native/verified/mac4.rs": "9cf6fd885a42e63a7cb1f697833bfa7e82d5b65a85e4351de2252a11b6afce2f",
+      "native/verified/multiply.rs": "90b8d0ae56d80b92a7a470c94390bf8020a8f791872892932005a1311307b752",
+      "native/verified/packed_layout.rs": "fb8073712aa5681ef6f4f9dbb3aff85884955539d809e2e0131bc1b84d2626c8",
+      "native/verified/pow2.rs": "893234a990b3b3bf308253ce318411fb5247157cfabe2d02ce603c6c86c1dcec",
+      "native/verified/square.rs": "f23ad045015896f056ded2f79c5776cdd520205a5da9bc4801d86eafd9d5e9b7",
+      "native/verified/square_base.rs": "d56438d15c969b475d74c431bef66dbe8c6befd67699196b096c1773c68094b3",
+      "native/verified/square_low.rs": "1e85ae150c7d5801d57f41d460de651b5ba9d5ae96c910f52b83bb602dd6ad21",
+      "native/verified/toom_evaluate.rs": "80fb7c4b0db769debe3091289cfe8a71703e9e1bf7b9e26a622e4df08f164699",
+      "native/verified/toom_interpolate.rs": "dd3e97eac34fb6cf6920302eeb5cc2bc8b257a6beb7a2e952f52ccf20ae5e352",
+      "native/verified/toom_low.rs": "3edfb086069d72a35a15181d2a10107d58aafbd522d8c5d0b1d091b78bf7babd",
+      "native/verified/toom_multiply.rs": "58830125c0e82680f11fec6aba9677c8986c8f84fdbe53e3a38dc01b24871602",
+      "native/verified/toom_square.rs": "4bc0e13311e42f520efec7280259b171123b735a204180f7080f25cc3ad27eac",
+      "native/verified/toom_words.rs": "221e6592c48904135aef8cce941675fe067b8d2b9253bd507293363a3ab104d7"
+    }
+  },
+  "classifier_self_checks": [
+    {
+      "status": "pass",
+      "fixtures": 12,
+      "requires_unique_partial_summary_and_module_note": true,
+      "requires_returncode_one_and_positive_vc_errors": true,
+      "rejects_parse_solver_resource_timeout_load_panic_and_type_errors": true
+    },
+    {
+      "status": "pass",
+      "fixtures": 13,
+      "accepts_only_complete_logical_vc_failures": true
+    }
+  ],
+  "documentation_check": "pass (scoped links and status; no repository-wide checker exists)",
+  "toolchain": {
+    "verus_version": "Verus\n  Version: 0.2026.10.26.d17fbd0\n  Profile: release\n  Platform: linux_x86_64\n  Toolchain: 1.99.1-x86_64-unknown-linux-gnu (overridden by environment variable RUSTUP_TOOLCHAIN)\n\n",
+    "rustc_version": "rustc 1.99.1 (58cf8f9c3 2026-10-13)\nbinary: rustc\ncommit-hash: 58cf8f9c35b355199727627d07ae34a4e2846d67\ncommit-date: 2026-10-13\nhost: x86_64-unknown-linux-gnu\nrelease: 1.99.1\nLLVM version: 23.1.1\n",
+    "archive_sha256": "361674d05f0c1b2c9c3f4d5bc56a8fb2ab9241ed0cceca27780668c292bb4940",
+    "actual_file_sha256": {
+      "/mnt/e/3sat/VeriGMP-low-square-gated/deps/verus/verus-x86-linux/verus": "1208c995c8e5244577693eba311d34bc2050c4acf984e10c4c7baf2003abff14",
+      "/mnt/e/3sat/VeriGMP-low-square-gated/deps/verus/verus-x86-linux/rust_verify": "7dc66fc35b1ef434d7db3d17f4a7bc9fe1f40b896cbe18a1193820270fa462f6",
+      "/mnt/e/3sat/VeriGMP-low-square-gated/deps/verus/verus-x86-linux/z3": "e583c4186a45e72411fa2cb2048401eed03f0f8e5f24694676a8f6271a50b765",
+      "/mnt/e/3sat/VeriGMP-low-square-gated/deps/verus/verus-x86-linux/vstd.vir": "6bf002dd6aacba73f8cbf09a1855b6330aa4773752878d2b702a52cc4f1538e2",
+      "/mnt/e/3sat/VeriGMP-low-square-gated/deps/verus/verus-x86-linux/libvstd.rlib": "da07ffe583aa14ec1ba5e4aa2295cec538c2a9b59bfbbf4d60f16e20d540befd",
+      "/mnt/e/3sat/VeriGMP-low-square-gated/deps/verus/verus-x86-linux/libverus_builtin.rlib": "f01e88f055e7c19b1a9a6a6118648f20708347d23040ddaee6493b6a4e3f6510",
+      "/mnt/e/3sat/VeriGMP-low-square-gated/deps/verus/verus-x86-linux/libverus_builtin_macros.so": "57bf8ebf436d974a7e05efdd2341bd40c51e737bdb6dd791026165e21f64e3f0",
+      "/mnt/e/3sat/VeriGMP-low-square-gated/deps/verus/verus-x86-linux/libverus_state_machines_macros.so": "8489b80f5a493855ea658a2b2d1850d0957d3149c8240cf7e490b984049d1149",
+      "/mnt/e/3sat/VeriGMP-low-square-gated/deps/cargo/bin/rustup": "b1c8cb14e30889e7e2999e6b69e62d9e9b9ffc0f4df8180564d306d9680e6c55",
+      "/mnt/e/3sat/VeriGMP-low-square-gated/deps/rustup/toolchains/1.99.1-x86_64-unknown-linux-gnu/bin/rustc": "b53b780f77f952062f8ca8a3b70aef2390b1e45ad91939be94afdc9543026853",
+      "/usr/bin/python3": "1643dacd9feaedc58f3cc581e4d22577dfe25c09b10282936186ccf0f2e61118",
+      "/mnt/e/3sat/VeriGMP-low-square-gated/deps/rustup/toolchains/1.99.1-x86_64-unknown-linux-gnu/lib/librustc_driver-7ed0375ae352bd75.so": "5a2cd52edba7d15f8d898b92a912638f5b73a089c7c1bfde5604ab45665602c7",
+      "/mnt/e/3sat/VeriGMP-low-square-gated/deps/rustup/toolchains/1.99.1-x86_64-unknown-linux-gnu/lib/libLLVM-23-rust-1.99.1-stable.so": "ed06fbed8d297efa92979aeb227a4ce5b87b1a462d0aeac66d093300fad74824",
+      "/mnt/e/3sat/VeriGMP-low-square-gated/deps/rustup/toolchains/1.99.1-x86_64-unknown-linux-gnu/lib/libLLVM.so.23.1-rust-1.99.1-stable": "1cfbe1392a767227b88b33ab6187283e281c63f80f9b1ca9010d9cee5fdf9131",
+      "/usr/bin/objdump": "d0041e7511460b9ebfd95ce4f9d93c7ffea398ffc1cb2c316a220dd8e533db3d",
+      "/usr/bin/objcopy": "b22f4f909bff115ee2a37cd21ff76f5e0b8c65cd58f98edbce7b59f129980d67"
+    },
+    "python_version": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]",
+    "kernel": "Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.39"
+  },
+  "library_verified_items": 358,
+  "producer_reuse": {
+    "source_head": "b8f0c60c274d42c52dd65b2ee07d0c1a852df164",
+    "report_sha256": "08f4f6fe7957ac063419eef2cabc573c6ab626783dedd6d8ae7e6825998feae1",
+    "source": "/mnt/e/3sat/VeriGMP-packed-product-independent-final-20261108/reused-producer",
+    "native_and_toolchain_bytes_equal": true,
+    "tools_equal": true,
+    "original_complete_build_command": {
+      "name": "library-proof-release",
+      "argv": [
+        "/mnt/e/3sat/VeriGMP-low-square-gated/deps/verus/verus-x86-linux/verus",
+        "/mnt/e/3sat/VeriGMP-packed-product-evidence-20261108/gate-1/source/native/lib.rs",
+        "--crate-type",
+        "lib",
+        "--crate-name",
+        "verigmp",
+        "--no-cheating",
+        "--compile",
+        "-O",
+        "--export",
+        "/mnt/e/3sat/VeriGMP-packed-product-evidence-20261108/gate-1/verigmp.vir",
+        "-o",
+        "/mnt/e/3sat/VeriGMP-packed-product-evidence-20261108/gate-1/libverigmp.rlib"
+      ],
+      "cwd": "/mnt/e/3sat/VeriGMP-packed-product-evidence-20261108/gate-1/source",
+      "returncode": 0,
+      "stdout_sha256": "d70db666c64665674dfda6d48f88ed877f4a3ddd8ae4ab9bef3e2a1043fa12a1",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "timeout": false
+    }
+  },
+  "consumer_verified_items": 5,
+  "exports_sha256": {
+    "libverigmp.rlib": "02dabb57ecbee4b82fe99b4ed555cbd892160b999b47d01d9ac0ab9788372d28",
+    "verigmp.vir": "9890ff7d0d62f53101b41089017f913ecd6495421e54c79e2819735c3769ed41",
+    "libpacked_product_consumer.rlib": "f85beaf65694dd43ee4bbb7aa93d0537d000d6253e835ccbf7a70ae1fbbb3770",
+    "consumer.vir": "4e1936b64123de33fef683196491e81af982497bfe433a1ace2c4b567a02e95e"
+  },
+  "oracle": {
+    "status": "pass",
+    "cases": 476,
+    "maximum_nonempty_precision": 4097,
+    "maximum_count": 1024,
+    "precisions": [
+      1,
+      7,
+      17,
+      29,
+      30,
+      31,
+      53,
+      63,
+      64,
+      65,
+      70,
+      95,
+      126,
+      127,
+      128,
+      129,
+      255,
+      257,
+      521,
+      1025,
+      2049,
+      4097
+    ],
+    "largest_empty_precision": 18446744073709551615,
+    "binary_sha256": "81ad095353e892d813811aa4eb9fcb78d0779b73bc9501eb94ed6bf97d9f31b2",
+    "expected_definition": "independent finite coefficient sums with Python integers",
+    "intermediate_check": "independent whole-integer product and all exact radix slots",
+    "runtime_executed": false
+  },
+  "runtime_oracle": {
+    "status": "pass",
+    "stdout": "passed 476 exact packed-product fixtures with all intermediate words and canaries\n",
+    "executable_sha256": "99cfbc28023fd65b0b5f4b069ada0cf408c37472443b845ec4a62c5a9cbf2e0f",
+    "cases": 476
+  },
+  "layout_oracle": {
+    "status": "pass",
+    "scope": "independent fixture/oracle generation only",
+    "valid_cases": 208,
+    "error_cases": 18,
+    "precision_boundaries": [
+      1,
+      63,
+      64,
+      65,
+      127,
+      128,
+      129,
+      255
+    ],
+    "runtime_executed": true,
+    "rust_client": "runtime-cases.rs",
+    "borrow_checker_fixture": "alias-negative.rs",
+    "executable_sha256": "b64291e5241bbc71384bd9212b727b7aa74b55c958f217a044f6aeaea276c1a5"
+  },
+  "codegen_verified_items": 5,
+  "erasure": {
+    "status": "pass",
+    "complete_symbol_bytes_equal": true,
+    "complete_relocations_equal": true,
+    "symbols": [
+      {
+        "object_sha256": "6623199f86c49cd38e8ddcb756ba3fb45ee6780ce9b225a34bacde599567ac3b",
+        "symbol": "packed_product_consumer::consume",
+        "section": ".text._RNvCs66WoPdCnaZh_23packed_product_consumer7consume",
+        "full_symbol_bytes": 286,
+        "body_sha256": "fba40c21cc8ccfffc0d3408d176b1c1daa3cb8a21e9c737a426b314614b2729b",
+        "relocations": [
+          [
+            "0000000000000045",
+            "R_X86_64_GOTPCREL",
+            "_RNvNtCs9Cc19I5TWaA_7verigmp13packed_layout17pack_coefficients-0x0000000000000004"
+          ],
+          [
+            "0000000000000082",
+            "R_X86_64_GOTPCREL",
+            "_RNvNtCs9Cc19I5TWaA_7verigmp13packed_layout17pack_coefficients-0x0000000000000004"
+          ],
+          [
+            "00000000000000eb",
+            "R_X86_64_GOTPCREL",
+            "_RNvNtCs9Cc19I5TWaA_7verigmp13toom_multiply4full-0x0000000000000004"
+          ],
+          [
+            "000000000000010b",
+            "R_X86_64_GOTPCREL",
+            "_RNvNtCs9Cc19I5TWaA_7verigmp13packed_layout20extract_coefficients-0x0000000000000004"
+          ]
+        ]
+      },
+      {
+        "object_sha256": "6623199f86c49cd38e8ddcb756ba3fb45ee6780ce9b225a34bacde599567ac3b",
+        "symbol": "packed_product_consumer::consume",
+        "section": ".text._RNvCs66WoPdCnaZh_23packed_product_consumer7consume",
+        "full_symbol_bytes": 286,
+        "body_sha256": "fba40c21cc8ccfffc0d3408d176b1c1daa3cb8a21e9c737a426b314614b2729b",
+        "relocations": [
+          [
+            "0000000000000045",
+            "R_X86_64_GOTPCREL",
+            "_RNvNtCs9Cc19I5TWaA_7verigmp13packed_layout17pack_coefficients-0x0000000000000004"
+          ],
+          [
+            "0000000000000082",
+            "R_X86_64_GOTPCREL",
+            "_RNvNtCs9Cc19I5TWaA_7verigmp13packed_layout17pack_coefficients-0x0000000000000004"
+          ],
+          [
+            "00000000000000eb",
+            "R_X86_64_GOTPCREL",
+            "_RNvNtCs9Cc19I5TWaA_7verigmp13toom_multiply4full-0x0000000000000004"
+          ],
+          [
+            "000000000000010b",
+            "R_X86_64_GOTPCREL",
+            "_RNvNtCs9Cc19I5TWaA_7verigmp13packed_layout20extract_coefficients-0x0000000000000004"
+          ]
+        ]
+      }
+    ]
+  },
+  "remaining": [
+    "general unequal/truncated polynomial product consumers",
+    "composed worst-case bit cost and peak live-space theorem",
+    "SAT descriptor provenance, creation precision, lift/reduction and integration",
+    "production strategy and overall GMP performance target"
+  ]
+}

@@ -1,0 +1,1281 @@
+{
+  "reviewed_commit": "0d7d0db8b939229489b3da8fa84d8be5d5356db0",
+  "archive": "independent-review-replay.tar.gz",
+  "archive_sha256": "12ac6923eaffab7af74d788d5f3e66c670f9df4c8bce5ceeab8865bee8137347",
+  "archive_bytes": 5288894,
+  "independent_integrity_sha256": "2c1356f626f359451b6256c1706a8a6327530c67fcfa95af3424ef20e27f3d79",
+  "replay_audit_sha256": "d2318395d12ae63ab31a419c4aefa5b6b5ba797298c8ba7566eb723ecdfd5e3c",
+  "focused_gate_report_sha256": "38161c8c398464511f4575f12af28ce2107e1e062a87db160716f55114844429",
+  "members": [
+    {
+      "path": "focused-replay/alias-input.rs",
+      "size": 404,
+      "sha256": "91478067beb0e005066eb2d624079cb90706bea7f39c9d46e367c31b8f11e779"
+    },
+    {
+      "path": "focused-replay/alias-input.stderr.log",
+      "size": 1565,
+      "sha256": "a41f85e5615a9446fb809db9f97ba55b257f8b41bc86dfa150818b4224001e65"
+    },
+    {
+      "path": "focused-replay/alias-input.stdout.log",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "focused-replay/alias-output.rs",
+      "size": 411,
+      "sha256": "75fe335d50694b3bdb702fafaa4bd3d92b1b50de219b821a779d09af60e465b3"
+    },
+    {
+      "path": "focused-replay/alias-output.stderr.log",
+      "size": 1779,
+      "sha256": "c6c77373462aa89104011849a7778686c6c8ca3aa374123c59595039d3af1c2d"
+    },
+    {
+      "path": "focused-replay/alias-output.stdout.log",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "focused-replay/consumer-body.bin",
+      "size": 286,
+      "sha256": "fba40c21cc8ccfffc0d3408d176b1c1daa3cb8a21e9c737a426b314614b2729b"
+    },
+    {
+      "path": "focused-replay/consumer-codegen.stderr.log",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "focused-replay/consumer-codegen.stdout.log",
+      "size": 44,
+      "sha256": "7b5e4fff93ae53089ff1e2be33e185bf9a66d29ecafabd0b6f458d69d7ab3e26"
+    },
+    {
+      "path": "focused-replay/consumer-dump-section.stderr.log",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "focused-replay/consumer-dump-section.stdout.log",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "focused-replay/consumer-proof-release.stderr.log",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "focused-replay/consumer-proof-release.stdout.log",
+      "size": 44,
+      "sha256": "7b5e4fff93ae53089ff1e2be33e185bf9a66d29ecafabd0b6f458d69d7ab3e26"
+    },
+    {
+      "path": "focused-replay/consumer-relocations.stderr.log",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "focused-replay/consumer-relocations.stdout.log",
+      "size": 708,
+      "sha256": "d68766353d486b8bd35d6c771529babcbadb68d34c026e149513f7e95fae602d"
+    },
+    {
+      "path": "focused-replay/consumer-symbols.stderr.log",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "focused-replay/consumer-symbols.stdout.log",
+      "size": 782,
+      "sha256": "b485f81768b945408cc4b275f9928ae1bc85ac31c703745343608985306ddbd3"
+    },
+    {
+      "path": "focused-replay/consumer.o",
+      "size": 1912,
+      "sha256": "6623199f86c49cd38e8ddcb756ba3fb45ee6780ce9b225a34bacde599567ac3b"
+    },
+    {
+      "path": "focused-replay/consumer.vir",
+      "size": 59588,
+      "sha256": "4e1936b64123de33fef683196491e81af982497bfe433a1ace2c4b567a02e95e"
+    },
+    {
+      "path": "focused-replay/control-body.bin",
+      "size": 286,
+      "sha256": "fba40c21cc8ccfffc0d3408d176b1c1daa3cb8a21e9c737a426b314614b2729b"
+    },
+    {
+      "path": "focused-replay/control-codegen.stderr.log",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "focused-replay/control-codegen.stdout.log",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "focused-replay/control-dump-section.stderr.log",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "focused-replay/control-dump-section.stdout.log",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "focused-replay/control-relocations.stderr.log",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "focused-replay/control-relocations.stdout.log",
+      "size": 707,
+      "sha256": "2497b8f14207c9c88a51c9c1d29517ae3f831109c49e606d2752c98c13eb0472"
+    },
+    {
+      "path": "focused-replay/control-symbols.stderr.log",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "focused-replay/control-symbols.stdout.log",
+      "size": 781,
+      "sha256": "0c3992a630cd802cd170fea4a7ffa75a3ff33df6378ec64dbcba92e015c106a9"
+    },
+    {
+      "path": "focused-replay/control.o",
+      "size": 1912,
+      "sha256": "6623199f86c49cd38e8ddcb756ba3fb45ee6780ce9b225a34bacde599567ac3b"
+    },
+    {
+      "path": "focused-replay/invalid-guard.rs",
+      "size": 691,
+      "sha256": "15977ee974c95f288276568980f4f61124ca99cb36adafc50fca9133ee510476"
+    },
+    {
+      "path": "focused-replay/invalid-guard.stderr.log",
+      "size": 593,
+      "sha256": "6e88fea027e96adbb3f50728abcc0001299c6aee2a2e2b7c4bdda9c3d5f25645"
+    },
+    {
+      "path": "focused-replay/invalid-guard.stdout.log",
+      "size": 44,
+      "sha256": "a6301d4ef377555945776d2e2f2b068e4040a95de52b3c832497dada2ff916e8"
+    },
+    {
+      "path": "focused-replay/invalid-output.rs",
+      "size": 750,
+      "sha256": "28a08d7d5d2420a0152b47cff2309b1aedf9ce7b1565e252e48f936c174e3e53"
+    },
+    {
+      "path": "focused-replay/invalid-output.stderr.log",
+      "size": 594,
+      "sha256": "b9e5ac77de735b249533f13990a2d0f69b611f34b17379d4b1222987e7dc7239"
+    },
+    {
+      "path": "focused-replay/invalid-output.stdout.log",
+      "size": 44,
+      "sha256": "a6301d4ef377555945776d2e2f2b068e4040a95de52b3c832497dada2ff916e8"
+    },
+    {
+      "path": "focused-replay/invalid-scratch.rs",
+      "size": 750,
+      "sha256": "c6d9aa2c3f6800d95d9b06b63a50919277c2b18c5ae57ea76e28e337dc6bfa7d"
+    },
+    {
+      "path": "focused-replay/invalid-scratch.stderr.log",
+      "size": 595,
+      "sha256": "74f29ae3f182568345b052e671fee05b80d29419e232e54d06085b614333f67c"
+    },
+    {
+      "path": "focused-replay/invalid-scratch.stdout.log",
+      "size": 44,
+      "sha256": "a6301d4ef377555945776d2e2f2b068e4040a95de52b3c832497dada2ff916e8"
+    },
+    {
+      "path": "focused-replay/layout-oracle/alias-negative.rs",
+      "size": 178,
+      "sha256": "6dc0fe2d7f2a1cdb5aa76a9aad6c1f2ef73e79ee16b9842321da1c86fd076fca"
+    },
+    {
+      "path": "focused-replay/layout-oracle/error-cases.jsonl",
+      "size": 2874,
+      "sha256": "b3e69a80ffbfd2abfb2d30bcff7e1f10501463772f8666da1f1357c90a299b79"
+    },
+    {
+      "path": "focused-replay/layout-oracle/oracle-cases.jsonl",
+      "size": 64270,
+      "sha256": "4532954bb94a6dd6231ad7413463c0cca4e4a07beac603ba64755396ec83fca5"
+    },
+    {
+      "path": "focused-replay/layout-oracle/runtime-cases.rs",
+      "size": 195970,
+      "sha256": "894d5b6a4b50922ae89c13d26bf2da6c2ccb3ffe6e99fae7ff6abf1c75b239dd"
+    },
+    {
+      "path": "focused-replay/layout-runtime",
+      "size": 4697520,
+      "sha256": "b64291e5241bbc71384bd9212b727b7aa74b55c958f217a044f6aeaea276c1a5"
+    },
+    {
+      "path": "focused-replay/layout-runtime-build.stderr.log",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "focused-replay/layout-runtime-build.stdout.log",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "focused-replay/layout-runtime-oracle.stderr.log",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "focused-replay/layout-runtime-oracle.stdout.log",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "focused-replay/libpacked_product_consumer.rlib",
+      "size": 24026,
+      "sha256": "f85beaf65694dd43ee4bbb7aa93d0537d000d6253e835ccbf7a70ae1fbbb3770"
+    },
+    {
+      "path": "focused-replay/libverigmp.rlib",
+      "size": 628500,
+      "sha256": "02dabb57ecbee4b82fe99b4ed555cbd892160b999b47d01d9ac0ab9788372d28"
+    },
+    {
+      "path": "focused-replay/mutant-extract-input-precision.stderr.log",
+      "size": 1637,
+      "sha256": "9f3e37019084ca09395e7caa6575d83b7d7ee4ddb601087408c3f43ccfa65526"
+    },
+    {
+      "path": "focused-replay/mutant-extract-input-precision.stdout.log",
+      "size": 44,
+      "sha256": "d323abcd4f3774a60f8db781c0fa2e4f4014d29d70b475d047e75475fa770987"
+    },
+    {
+      "path": "focused-replay/mutant-insufficient-guard.stderr.log",
+      "size": 3760,
+      "sha256": "4ddf1269ff396e0cd5a8e4c7198c4ed2268ad8d88a80e4ce58312ab53ae00c0a"
+    },
+    {
+      "path": "focused-replay/mutant-insufficient-guard.stdout.log",
+      "size": 85,
+      "sha256": "ce749132e6abd967f163a5513df73372c1c2f688afea3abacce395b9407c32bb"
+    },
+    {
+      "path": "focused-replay/mutant-nonzero-final-tail.stderr.log",
+      "size": 3424,
+      "sha256": "e44f11eb7bf011fd8f93856c95f5c2f66bf28ff21720c5269ed8b497c04aa2f8"
+    },
+    {
+      "path": "focused-replay/mutant-nonzero-final-tail.stdout.log",
+      "size": 85,
+      "sha256": "ce749132e6abd967f163a5513df73372c1c2f688afea3abacce395b9407c32bb"
+    },
+    {
+      "path": "focused-replay/mutant-square-instead-of-product.stderr.log",
+      "size": 768,
+      "sha256": "93bda8912cb4a6d8939d288003bc9c8f32616af5e8916000f24dba0ae6527482"
+    },
+    {
+      "path": "focused-replay/mutant-square-instead-of-product.stdout.log",
+      "size": 44,
+      "sha256": "d323abcd4f3774a60f8db781c0fa2e4f4014d29d70b475d047e75475fa770987"
+    },
+    {
+      "path": "focused-replay/mutants/extract-input-precision/experiments/packed-product-composition/consumer.rs",
+      "size": 4480,
+      "sha256": "3c0f7fd2181b5eede9569a9932cf75008dfd3751249fbcdd32fab37a3ea58fa8"
+    },
+    {
+      "path": "focused-replay/mutants/insufficient-guard/native/controls/fast_multiply.rs",
+      "size": 3841,
+      "sha256": "64ddb1d8919da86881791d88d42916fd0f2d73e14073c6a53850d337e02a6714"
+    },
+    {
+      "path": "focused-replay/mutants/insufficient-guard/native/controls/limbs.rs",
+      "size": 877,
+      "sha256": "b7161f5897667d8d6bc96ec5ca6eddf63384efd4eb0568ecbb6c4cccf500e4da"
+    },
+    {
+      "path": "focused-replay/mutants/insufficient-guard/native/controls/multiply.rs",
+      "size": 1263,
+      "sha256": "6671972c9c3c61424338e6418d8c703e3426c63eb062cb12fddc9adad63a6882"
+    },
+    {
+      "path": "focused-replay/mutants/insufficient-guard/native/controls/pow2.rs",
+      "size": 993,
+      "sha256": "ba0a8a8bb404c4778ddd3c03ba254dfcca6efc28a94d293368db2e5ee2e79dac"
+    },
+    {
+      "path": "focused-replay/mutants/insufficient-guard/native/fast_bench.rs",
+      "size": 4081,
+      "sha256": "dbad117ee7c07e79b4fc82421900491d7d8aa781c3d467057afa1c5ae6a9941a"
+    },
+    {
+      "path": "focused-replay/mutants/insufficient-guard/native/fast_codegen.rs",
+      "size": 937,
+      "sha256": "e68214b600c37fbf436a9d4ad0a649c000eb133e5ecf1d38948dbe5edda37283"
+    },
+    {
+      "path": "focused-replay/mutants/insufficient-guard/native/fast_runner.rs",
+      "size": 2740,
+      "sha256": "bf789aee05d49953fafef8a4dd6e88a82b8bde905c844e3fb6a76f5287f053e1"
+    },
+    {
+      "path": "focused-replay/mutants/insufficient-guard/native/lib.rs",
+      "size": 1507,
+      "sha256": "edb633153fd240e317b5c97c58ee01627e9cb8c0fdb1168d6b017642afe070d1"
+    },
+    {
+      "path": "focused-replay/mutants/insufficient-guard/native/limbs_bench.rs",
+      "size": 2368,
+      "sha256": "937ed74d98f739b2333e1feb78c65dbefb86b5af1c051c864ef269fb6b304215"
+    },
+    {
+      "path": "focused-replay/mutants/insufficient-guard/native/limbs_codegen.rs",
+      "size": 485,
+      "sha256": "465962efb3dc1e0f2414295228414112e3843dbaf467a41b705e53a3255e255e"
+    },
+    {
+      "path": "focused-replay/mutants/insufficient-guard/native/limbs_runner.rs",
+      "size": 851,
+      "sha256": "4aced8bc95027c78bbac6690f112dcd9e0b892f521baa6e29515b65862c05c01"
+    },
+    {
+      "path": "focused-replay/mutants/insufficient-guard/native/mac4_bench.rs",
+      "size": 2526,
+      "sha256": "6519f9828fb9dafbbb200926f7358dded24909e462447a1753626c81a399be1f"
+    },
+    {
+      "path": "focused-replay/mutants/insufficient-guard/native/multiply_bench.rs",
+      "size": 2265,
+      "sha256": "d28537c1ee449c452b8c0f549a3555fbf50f59a680240b371335ccb106061d12"
+    },
+    {
+      "path": "focused-replay/mutants/insufficient-guard/native/multiply_codegen.rs",
+      "size": 1661,
+      "sha256": "3855098a24804a8cba3ff8b094b159290e0e27e13fc1a558b456aebfeddb1229"
+    },
+    {
+      "path": "focused-replay/mutants/insufficient-guard/native/multiply_runner.rs",
+      "size": 2847,
+      "sha256": "856d5b82363f2bf9170bf15cf45f2b0b9ae713a1475f5ceed1751fcaf18c52c7"
+    },
+    {
+      "path": "focused-replay/mutants/insufficient-guard/native/pow2_bench.rs",
+      "size": 2691,
+      "sha256": "9e4390cabef56661544491deb928ee2f7a11199d34ada5b6a185a54a45622c1c"
+    },
+    {
+      "path": "focused-replay/mutants/insufficient-guard/native/pow2_codegen.rs",
+      "size": 1395,
+      "sha256": "2372573334ffb9778295bd775ea23302207017bb699598606f3254f3cf3d36dd"
+    },
+    {
+      "path": "focused-replay/mutants/insufficient-guard/native/pow2_runner.rs",
+      "size": 2232,
+      "sha256": "c916b36cc11923b309aacccd8e54ae5bde951d651abb1360f05715b82706a647"
+    },
+    {
+      "path": "focused-replay/mutants/insufficient-guard/native/proof-status.json",
+      "size": 10573,
+      "sha256": "322d08f683d3e9b15777891bc23cd325bb9769aae6c70682f6b7b21e8adc47d1"
+    },
+    {
+      "path": "focused-replay/mutants/insufficient-guard/native/specs/fast_product.rs",
+      "size": 5848,
+      "sha256": "1d3a4f9397375741f6fcaea5bacf5977f73c56ba051893cd81a83709385b2cd7"
+    },
+    {
+      "path": "focused-replay/mutants/insufficient-guard/native/specs/packed_convolution.rs",
+      "size": 20824,
+      "sha256": "473c31ece4130e5517a44c5a88757137461f009dce19c0a628ee7af8be69e122"
+    },
+    {
+      "path": "focused-replay/mutants/insufficient-guard/native/specs/packed_product.rs",
+      "size": 5912,
+      "sha256": "aa59e7bb75a591600924d46074dc013b4e85987f7ac07b9c4a7d62dbd11d88cf"
+    },
+    {
+      "path": "focused-replay/mutants/insufficient-guard/native/specs/precision.rs",
+      "size": 3365,
+      "sha256": "38ffadc6cd04602b40457711b25ec3e89de5fb0ebf92136645da93fb18d4cde0"
+    },
+    {
+      "path": "focused-replay/mutants/insufficient-guard/native/specs/product.rs",
+      "size": 3815,
+      "sha256": "24de04dda22e2ca1262ade8328b3f164612b59188df14dbe84988b94592563ae"
+    },
+    {
+      "path": "focused-replay/mutants/insufficient-guard/native/specs/radix.rs",
+      "size": 2315,
+      "sha256": "51bddb73e0cfcc2fda095ac5f35fe4853417c1fff858133dab56b05ba9573219"
+    },
+    {
+      "path": "focused-replay/mutants/insufficient-guard/native/specs/square.rs",
+      "size": 1136,
+      "sha256": "3d716c2905d4f34929e3177e853196f84faef8a63c10e7e1bb7593a9e62be87e"
+    },
+    {
+      "path": "focused-replay/mutants/insufficient-guard/native/specs/square_base.rs",
+      "size": 2714,
+      "sha256": "9436705847c6cf4c8353a324e9154767a2a8ac57b13ca13a26b523f973ea6768"
+    },
+    {
+      "path": "focused-replay/mutants/insufficient-guard/native/specs/toom.rs",
+      "size": 4570,
+      "sha256": "ed543569ac0996a16546211241b52f5a7ae945e8fce873f5195340cf290456ff"
+    },
+    {
+      "path": "focused-replay/mutants/insufficient-guard/native/specs/toom_blocks.rs",
+      "size": 2220,
+      "sha256": "d799a910b67b26fbbdbdefc50bf49063f8ca39790f6d48f60a7ed1315d00df9d"
+    },
+    {
+      "path": "focused-replay/mutants/insufficient-guard/native/square_base_bench.rs",
+      "size": 2812,
+      "sha256": "96d985005b1bf24282c2981fb6ac1290f9ce5ee056c58305798d87fb8447e671"
+    },
+    {
+      "path": "focused-replay/mutants/insufficient-guard/native/toolchain.json",
+      "size": 466,
+      "sha256": "a8f1ba756fd50480017e10d24c390a4b94528ab387c965d28c35cf3432c9e678"
+    },
+    {
+      "path": "focused-replay/mutants/insufficient-guard/native/toom_bench.rs",
+      "size": 5246,
+      "sha256": "c1be0d2aec144ea6d4abf6946206e23f543fdbab0ddb2829278cbaa919b614f2"
+    },
+    {
+      "path": "focused-replay/mutants/insufficient-guard/native/toom_codegen.rs",
+      "size": 1541,
+      "sha256": "ed180241882078324268bf9803b4d85d457000e18d4035d44435800e3c3652a7"
+    },
+    {
+      "path": "focused-replay/mutants/insufficient-guard/native/toom_words_runner.rs",
+      "size": 4557,
+      "sha256": "ebfc236535004e57a0932a45dd263b8e944064ef394490cf367c92003681126d"
+    },
+    {
+      "path": "focused-replay/mutants/insufficient-guard/native/verified/arithmetic.rs",
+      "size": 2071,
+      "sha256": "7c0181fed9d53f842062fd2f4e738dedf42985fee28bff53cabba4a7fc20cc54"
+    },
+    {
+      "path": "focused-replay/mutants/insufficient-guard/native/verified/fast_multiply.rs",
+      "size": 13684,
+      "sha256": "c2d1b96fea047f720ac09e3a3c043eec22abc19d6ac72266cc32380a76e03b82"
+    },
+    {
+      "path": "focused-replay/mutants/insufficient-guard/native/verified/fast_words.rs",
+      "size": 17800,
+      "sha256": "f07e442ee9a3a00f07affeb4ac537e97d82a6fc60a49cd43a54dde58e2d301e6"
+    },
+    {
+      "path": "focused-replay/mutants/insufficient-guard/native/verified/kernel.rs",
+      "size": 2253,
+      "sha256": "53837b72617ee200e30cfd3af155ce7ca156c0684ee1d29688b78504bfb65569"
+    },
+    {
+      "path": "focused-replay/mutants/insufficient-guard/native/verified/limbs.rs",
+      "size": 5663,
+      "sha256": "913c88133f2bd46b3b4a59794eba5b8d43dfdbdac720918e375b47a52adbff28"
+    },
+    {
+      "path": "focused-replay/mutants/insufficient-guard/native/verified/mac4.rs",
+      "size": 7077,
+      "sha256": "9cf6fd885a42e63a7cb1f697833bfa7e82d5b65a85e4351de2252a11b6afce2f"
+    },
+    {
+      "path": "focused-replay/mutants/insufficient-guard/native/verified/multiply.rs",
+      "size": 9127,
+      "sha256": "90b8d0ae56d80b92a7a470c94390bf8020a8f791872892932005a1311307b752"
+    },
+    {
+      "path": "focused-replay/mutants/insufficient-guard/native/verified/packed_layout.rs",
+      "size": 46484,
+      "sha256": "fb8073712aa5681ef6f4f9dbb3aff85884955539d809e2e0131bc1b84d2626c8"
+    },
+    {
+      "path": "focused-replay/mutants/insufficient-guard/native/verified/pow2.rs",
+      "size": 3631,
+      "sha256": "893234a990b3b3bf308253ce318411fb5247157cfabe2d02ce603c6c86c1dcec"
+    },
+    {
+      "path": "focused-replay/mutants/insufficient-guard/native/verified/square.rs",
+      "size": 3608,
+      "sha256": "f23ad045015896f056ded2f79c5776cdd520205a5da9bc4801d86eafd9d5e9b7"
+    },
+    {
+      "path": "focused-replay/mutants/insufficient-guard/native/verified/square_base.rs",
+      "size": 17262,
+      "sha256": "d56438d15c969b475d74c431bef66dbe8c6befd67699196b096c1773c68094b3"
+    },
+    {
+      "path": "focused-replay/mutants/insufficient-guard/native/verified/square_low.rs",
+      "size": 3229,
+      "sha256": "1e85ae150c7d5801d57f41d460de651b5ba9d5ae96c910f52b83bb602dd6ad21"
+    },
+    {
+      "path": "focused-replay/mutants/insufficient-guard/native/verified/toom_evaluate.rs",
+      "size": 5449,
+      "sha256": "80fb7c4b0db769debe3091289cfe8a71703e9e1bf7b9e26a622e4df08f164699"
+    },
+    {
+      "path": "focused-replay/mutants/insufficient-guard/native/verified/toom_interpolate.rs",
+      "size": 2339,
+      "sha256": "dd3e97eac34fb6cf6920302eeb5cc2bc8b257a6beb7a2e952f52ccf20ae5e352"
+    },
+    {
+      "path": "focused-replay/mutants/insufficient-guard/native/verified/toom_low.rs",
+      "size": 3995,
+      "sha256": "3edfb086069d72a35a15181d2a10107d58aafbd522d8c5d0b1d091b78bf7babd"
+    },
+    {
+      "path": "focused-replay/mutants/insufficient-guard/native/verified/toom_multiply.rs",
+      "size": 5599,
+      "sha256": "58830125c0e82680f11fec6aba9677c8986c8f84fdbe53e3a38dc01b24871602"
+    },
+    {
+      "path": "focused-replay/mutants/insufficient-guard/native/verified/toom_square.rs",
+      "size": 4982,
+      "sha256": "4bc0e13311e42f520efec7280259b171123b735a204180f7080f25cc3ad27eac"
+    },
+    {
+      "path": "focused-replay/mutants/insufficient-guard/native/verified/toom_words.rs",
+      "size": 13654,
+      "sha256": "221e6592c48904135aef8cce941675fe067b8d2b9253bd507293363a3ab104d7"
+    },
+    {
+      "path": "focused-replay/mutants/nonzero-final-tail/native/controls/fast_multiply.rs",
+      "size": 3841,
+      "sha256": "64ddb1d8919da86881791d88d42916fd0f2d73e14073c6a53850d337e02a6714"
+    },
+    {
+      "path": "focused-replay/mutants/nonzero-final-tail/native/controls/limbs.rs",
+      "size": 877,
+      "sha256": "b7161f5897667d8d6bc96ec5ca6eddf63384efd4eb0568ecbb6c4cccf500e4da"
+    },
+    {
+      "path": "focused-replay/mutants/nonzero-final-tail/native/controls/multiply.rs",
+      "size": 1263,
+      "sha256": "6671972c9c3c61424338e6418d8c703e3426c63eb062cb12fddc9adad63a6882"
+    },
+    {
+      "path": "focused-replay/mutants/nonzero-final-tail/native/controls/pow2.rs",
+      "size": 993,
+      "sha256": "ba0a8a8bb404c4778ddd3c03ba254dfcca6efc28a94d293368db2e5ee2e79dac"
+    },
+    {
+      "path": "focused-replay/mutants/nonzero-final-tail/native/fast_bench.rs",
+      "size": 4081,
+      "sha256": "dbad117ee7c07e79b4fc82421900491d7d8aa781c3d467057afa1c5ae6a9941a"
+    },
+    {
+      "path": "focused-replay/mutants/nonzero-final-tail/native/fast_codegen.rs",
+      "size": 937,
+      "sha256": "e68214b600c37fbf436a9d4ad0a649c000eb133e5ecf1d38948dbe5edda37283"
+    },
+    {
+      "path": "focused-replay/mutants/nonzero-final-tail/native/fast_runner.rs",
+      "size": 2740,
+      "sha256": "bf789aee05d49953fafef8a4dd6e88a82b8bde905c844e3fb6a76f5287f053e1"
+    },
+    {
+      "path": "focused-replay/mutants/nonzero-final-tail/native/lib.rs",
+      "size": 1507,
+      "sha256": "edb633153fd240e317b5c97c58ee01627e9cb8c0fdb1168d6b017642afe070d1"
+    },
+    {
+      "path": "focused-replay/mutants/nonzero-final-tail/native/limbs_bench.rs",
+      "size": 2368,
+      "sha256": "937ed74d98f739b2333e1feb78c65dbefb86b5af1c051c864ef269fb6b304215"
+    },
+    {
+      "path": "focused-replay/mutants/nonzero-final-tail/native/limbs_codegen.rs",
+      "size": 485,
+      "sha256": "465962efb3dc1e0f2414295228414112e3843dbaf467a41b705e53a3255e255e"
+    },
+    {
+      "path": "focused-replay/mutants/nonzero-final-tail/native/limbs_runner.rs",
+      "size": 851,
+      "sha256": "4aced8bc95027c78bbac6690f112dcd9e0b892f521baa6e29515b65862c05c01"
+    },
+    {
+      "path": "focused-replay/mutants/nonzero-final-tail/native/mac4_bench.rs",
+      "size": 2526,
+      "sha256": "6519f9828fb9dafbbb200926f7358dded24909e462447a1753626c81a399be1f"
+    },
+    {
+      "path": "focused-replay/mutants/nonzero-final-tail/native/multiply_bench.rs",
+      "size": 2265,
+      "sha256": "d28537c1ee449c452b8c0f549a3555fbf50f59a680240b371335ccb106061d12"
+    },
+    {
+      "path": "focused-replay/mutants/nonzero-final-tail/native/multiply_codegen.rs",
+      "size": 1661,
+      "sha256": "3855098a24804a8cba3ff8b094b159290e0e27e13fc1a558b456aebfeddb1229"
+    },
+    {
+      "path": "focused-replay/mutants/nonzero-final-tail/native/multiply_runner.rs",
+      "size": 2847,
+      "sha256": "856d5b82363f2bf9170bf15cf45f2b0b9ae713a1475f5ceed1751fcaf18c52c7"
+    },
+    {
+      "path": "focused-replay/mutants/nonzero-final-tail/native/pow2_bench.rs",
+      "size": 2691,
+      "sha256": "9e4390cabef56661544491deb928ee2f7a11199d34ada5b6a185a54a45622c1c"
+    },
+    {
+      "path": "focused-replay/mutants/nonzero-final-tail/native/pow2_codegen.rs",
+      "size": 1395,
+      "sha256": "2372573334ffb9778295bd775ea23302207017bb699598606f3254f3cf3d36dd"
+    },
+    {
+      "path": "focused-replay/mutants/nonzero-final-tail/native/pow2_runner.rs",
+      "size": 2232,
+      "sha256": "c916b36cc11923b309aacccd8e54ae5bde951d651abb1360f05715b82706a647"
+    },
+    {
+      "path": "focused-replay/mutants/nonzero-final-tail/native/proof-status.json",
+      "size": 10573,
+      "sha256": "322d08f683d3e9b15777891bc23cd325bb9769aae6c70682f6b7b21e8adc47d1"
+    },
+    {
+      "path": "focused-replay/mutants/nonzero-final-tail/native/specs/fast_product.rs",
+      "size": 5848,
+      "sha256": "1d3a4f9397375741f6fcaea5bacf5977f73c56ba051893cd81a83709385b2cd7"
+    },
+    {
+      "path": "focused-replay/mutants/nonzero-final-tail/native/specs/packed_convolution.rs",
+      "size": 20824,
+      "sha256": "473c31ece4130e5517a44c5a88757137461f009dce19c0a628ee7af8be69e122"
+    },
+    {
+      "path": "focused-replay/mutants/nonzero-final-tail/native/specs/packed_product.rs",
+      "size": 5908,
+      "sha256": "8cdf3f597aa24f7e5a67d39cc5aa92c2b1731d4370b278129e7636fc67d89815"
+    },
+    {
+      "path": "focused-replay/mutants/nonzero-final-tail/native/specs/precision.rs",
+      "size": 3365,
+      "sha256": "38ffadc6cd04602b40457711b25ec3e89de5fb0ebf92136645da93fb18d4cde0"
+    },
+    {
+      "path": "focused-replay/mutants/nonzero-final-tail/native/specs/product.rs",
+      "size": 3815,
+      "sha256": "24de04dda22e2ca1262ade8328b3f164612b59188df14dbe84988b94592563ae"
+    },
+    {
+      "path": "focused-replay/mutants/nonzero-final-tail/native/specs/radix.rs",
+      "size": 2315,
+      "sha256": "51bddb73e0cfcc2fda095ac5f35fe4853417c1fff858133dab56b05ba9573219"
+    },
+    {
+      "path": "focused-replay/mutants/nonzero-final-tail/native/specs/square.rs",
+      "size": 1136,
+      "sha256": "3d716c2905d4f34929e3177e853196f84faef8a63c10e7e1bb7593a9e62be87e"
+    },
+    {
+      "path": "focused-replay/mutants/nonzero-final-tail/native/specs/square_base.rs",
+      "size": 2714,
+      "sha256": "9436705847c6cf4c8353a324e9154767a2a8ac57b13ca13a26b523f973ea6768"
+    },
+    {
+      "path": "focused-replay/mutants/nonzero-final-tail/native/specs/toom.rs",
+      "size": 4570,
+      "sha256": "ed543569ac0996a16546211241b52f5a7ae945e8fce873f5195340cf290456ff"
+    },
+    {
+      "path": "focused-replay/mutants/nonzero-final-tail/native/specs/toom_blocks.rs",
+      "size": 2220,
+      "sha256": "d799a910b67b26fbbdbdefc50bf49063f8ca39790f6d48f60a7ed1315d00df9d"
+    },
+    {
+      "path": "focused-replay/mutants/nonzero-final-tail/native/square_base_bench.rs",
+      "size": 2812,
+      "sha256": "96d985005b1bf24282c2981fb6ac1290f9ce5ee056c58305798d87fb8447e671"
+    },
+    {
+      "path": "focused-replay/mutants/nonzero-final-tail/native/toolchain.json",
+      "size": 466,
+      "sha256": "a8f1ba756fd50480017e10d24c390a4b94528ab387c965d28c35cf3432c9e678"
+    },
+    {
+      "path": "focused-replay/mutants/nonzero-final-tail/native/toom_bench.rs",
+      "size": 5246,
+      "sha256": "c1be0d2aec144ea6d4abf6946206e23f543fdbab0ddb2829278cbaa919b614f2"
+    },
+    {
+      "path": "focused-replay/mutants/nonzero-final-tail/native/toom_codegen.rs",
+      "size": 1541,
+      "sha256": "ed180241882078324268bf9803b4d85d457000e18d4035d44435800e3c3652a7"
+    },
+    {
+      "path": "focused-replay/mutants/nonzero-final-tail/native/toom_words_runner.rs",
+      "size": 4557,
+      "sha256": "ebfc236535004e57a0932a45dd263b8e944064ef394490cf367c92003681126d"
+    },
+    {
+      "path": "focused-replay/mutants/nonzero-final-tail/native/verified/arithmetic.rs",
+      "size": 2071,
+      "sha256": "7c0181fed9d53f842062fd2f4e738dedf42985fee28bff53cabba4a7fc20cc54"
+    },
+    {
+      "path": "focused-replay/mutants/nonzero-final-tail/native/verified/fast_multiply.rs",
+      "size": 13684,
+      "sha256": "c2d1b96fea047f720ac09e3a3c043eec22abc19d6ac72266cc32380a76e03b82"
+    },
+    {
+      "path": "focused-replay/mutants/nonzero-final-tail/native/verified/fast_words.rs",
+      "size": 17800,
+      "sha256": "f07e442ee9a3a00f07affeb4ac537e97d82a6fc60a49cd43a54dde58e2d301e6"
+    },
+    {
+      "path": "focused-replay/mutants/nonzero-final-tail/native/verified/kernel.rs",
+      "size": 2253,
+      "sha256": "53837b72617ee200e30cfd3af155ce7ca156c0684ee1d29688b78504bfb65569"
+    },
+    {
+      "path": "focused-replay/mutants/nonzero-final-tail/native/verified/limbs.rs",
+      "size": 5663,
+      "sha256": "913c88133f2bd46b3b4a59794eba5b8d43dfdbdac720918e375b47a52adbff28"
+    },
+    {
+      "path": "focused-replay/mutants/nonzero-final-tail/native/verified/mac4.rs",
+      "size": 7077,
+      "sha256": "9cf6fd885a42e63a7cb1f697833bfa7e82d5b65a85e4351de2252a11b6afce2f"
+    },
+    {
+      "path": "focused-replay/mutants/nonzero-final-tail/native/verified/multiply.rs",
+      "size": 9127,
+      "sha256": "90b8d0ae56d80b92a7a470c94390bf8020a8f791872892932005a1311307b752"
+    },
+    {
+      "path": "focused-replay/mutants/nonzero-final-tail/native/verified/packed_layout.rs",
+      "size": 46484,
+      "sha256": "fb8073712aa5681ef6f4f9dbb3aff85884955539d809e2e0131bc1b84d2626c8"
+    },
+    {
+      "path": "focused-replay/mutants/nonzero-final-tail/native/verified/pow2.rs",
+      "size": 3631,
+      "sha256": "893234a990b3b3bf308253ce318411fb5247157cfabe2d02ce603c6c86c1dcec"
+    },
+    {
+      "path": "focused-replay/mutants/nonzero-final-tail/native/verified/square.rs",
+      "size": 3608,
+      "sha256": "f23ad045015896f056ded2f79c5776cdd520205a5da9bc4801d86eafd9d5e9b7"
+    },
+    {
+      "path": "focused-replay/mutants/nonzero-final-tail/native/verified/square_base.rs",
+      "size": 17262,
+      "sha256": "d56438d15c969b475d74c431bef66dbe8c6befd67699196b096c1773c68094b3"
+    },
+    {
+      "path": "focused-replay/mutants/nonzero-final-tail/native/verified/square_low.rs",
+      "size": 3229,
+      "sha256": "1e85ae150c7d5801d57f41d460de651b5ba9d5ae96c910f52b83bb602dd6ad21"
+    },
+    {
+      "path": "focused-replay/mutants/nonzero-final-tail/native/verified/toom_evaluate.rs",
+      "size": 5449,
+      "sha256": "80fb7c4b0db769debe3091289cfe8a71703e9e1bf7b9e26a622e4df08f164699"
+    },
+    {
+      "path": "focused-replay/mutants/nonzero-final-tail/native/verified/toom_interpolate.rs",
+      "size": 2339,
+      "sha256": "dd3e97eac34fb6cf6920302eeb5cc2bc8b257a6beb7a2e952f52ccf20ae5e352"
+    },
+    {
+      "path": "focused-replay/mutants/nonzero-final-tail/native/verified/toom_low.rs",
+      "size": 3995,
+      "sha256": "3edfb086069d72a35a15181d2a10107d58aafbd522d8c5d0b1d091b78bf7babd"
+    },
+    {
+      "path": "focused-replay/mutants/nonzero-final-tail/native/verified/toom_multiply.rs",
+      "size": 5599,
+      "sha256": "58830125c0e82680f11fec6aba9677c8986c8f84fdbe53e3a38dc01b24871602"
+    },
+    {
+      "path": "focused-replay/mutants/nonzero-final-tail/native/verified/toom_square.rs",
+      "size": 4982,
+      "sha256": "4bc0e13311e42f520efec7280259b171123b735a204180f7080f25cc3ad27eac"
+    },
+    {
+      "path": "focused-replay/mutants/nonzero-final-tail/native/verified/toom_words.rs",
+      "size": 13654,
+      "sha256": "221e6592c48904135aef8cce941675fe067b8d2b9253bd507293363a3ab104d7"
+    },
+    {
+      "path": "focused-replay/mutants/square-instead-of-product/experiments/packed-product-composition/consumer.rs",
+      "size": 4479,
+      "sha256": "1640bb83b522f812c5b21614181e1e05126671de4325950adc2e54eaefc19c2e"
+    },
+    {
+      "path": "focused-replay/oracle/cases.bin",
+      "size": 4562176,
+      "sha256": "81ad095353e892d813811aa4eb9fcb78d0779b73bc9501eb94ed6bf97d9f31b2"
+    },
+    {
+      "path": "focused-replay/oracle/cases.jsonl",
+      "size": 315658,
+      "sha256": "7050e568631caf8af79ee6d3da7a77bdedb3230ba3f3cb4e432e7db71dbd614e"
+    },
+    {
+      "path": "focused-replay/reused-library-proof-release.stderr.log",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "focused-replay/reused-library-proof-release.stdout.log",
+      "size": 46,
+      "sha256": "d70db666c64665674dfda6d48f88ed877f4a3ddd8ae4ab9bef3e2a1043fa12a1"
+    },
+    {
+      "path": "focused-replay/runtime",
+      "size": 4573200,
+      "sha256": "99cfbc28023fd65b0b5f4b069ada0cf408c37472443b845ec4a62c5a9cbf2e0f"
+    },
+    {
+      "path": "focused-replay/runtime-build.stderr.log",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "focused-replay/runtime-build.stdout.log",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "focused-replay/runtime-oracle.stderr.log",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "focused-replay/runtime-oracle.stdout.log",
+      "size": 82,
+      "sha256": "9f8ca4812e59e4518c6439648b5b949d2b69d3c084886a35d2251e295beeb327"
+    },
+    {
+      "path": "focused-replay/rustc-sysroot.stderr.log",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "focused-replay/rustc-sysroot.stdout.log",
+      "size": 92,
+      "sha256": "d7ecc8f9f177cd3447cdaba95101831762c915404961b0dd891fca89dc776ccb"
+    },
+    {
+      "path": "focused-replay/rustc-version.stderr.log",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "focused-replay/rustc-version.stdout.log",
+      "size": 196,
+      "sha256": "f22d5e4e9ced367e774ce5bc140d9e6b1235c1882fec80d011044851f3ae6369"
+    },
+    {
+      "path": "focused-replay/source/AGENTS.md",
+      "size": 6614,
+      "sha256": "c86708527b20f9605284d2d8ba24e28be7eee8990ade33989a4811a4d31090f3"
+    },
+    {
+      "path": "focused-replay/source/LICENSE",
+      "size": 1056,
+      "sha256": "1126322e2cc8d165adc4c792eeb195717de2bcc7b39be1ce77959d78e87ef685"
+    },
+    {
+      "path": "focused-replay/source/README.md",
+      "size": 11439,
+      "sha256": "45e1e1eb29dca2368681bdd9439a7527e615ddc47ebf39fb20785a4c9989117d"
+    },
+    {
+      "path": "focused-replay/source/README.zh-CN.md",
+      "size": 9410,
+      "sha256": "7a2c38f59a2ddbd6f0c8e078bb719b87536ded1168571645c94ebea73bb5d5c3"
+    },
+    {
+      "path": "focused-replay/source/docs/packed-convolution.md",
+      "size": 9394,
+      "sha256": "5c3241631947b9b87dc5c668fb370ca674d2671e683dad0c70fcb39c9b5e3c87"
+    },
+    {
+      "path": "focused-replay/source/docs/packed-product-composition.md",
+      "size": 5768,
+      "sha256": "c7c9763a01452f86b7188a2f23ddd652df85c6796ee5ced21b558e88f9f51649"
+    },
+    {
+      "path": "focused-replay/source/experiments/packed-convolution/layout_mutations.py",
+      "size": 1713,
+      "sha256": "36f4c5ec77b9d08165e3d47d18b58317e3c96f162887bd78b934ee6d5af8f9c5"
+    },
+    {
+      "path": "focused-replay/source/experiments/packed-convolution/layout_oracle.py",
+      "size": 9516,
+      "sha256": "e99e8886a6e9316e650fa631a64bc7d9952b06ad4f1be9ae64bfaa58f260d53d"
+    },
+    {
+      "path": "focused-replay/source/experiments/packed-convolution/layout_verify.py",
+      "size": 13414,
+      "sha256": "90a290d28e655f9105d412d039cd461dfd125733b1e1c64f839f33a2b8c96806"
+    },
+    {
+      "path": "focused-replay/source/experiments/packed-convolution/verus_logs.py",
+      "size": 3436,
+      "sha256": "a23550223961aabc9ceff5a03b2fad2bd663eaec79323789cd083dfb2d40d222"
+    },
+    {
+      "path": "focused-replay/source/experiments/packed-product-composition/PROTOCOL.md",
+      "size": 5746,
+      "sha256": "8e1ed1f96fada1c8facf10500a52b3c7cc3af71b51a16c3d3a0bafdc171e9fc1"
+    },
+    {
+      "path": "focused-replay/source/experiments/packed-product-composition/RECEIPT.md",
+      "size": 6977,
+      "sha256": "0315bac9865b9f40e45717c82b210479e0d272b48a56b28793d25527ea838148"
+    },
+    {
+      "path": "focused-replay/source/experiments/packed-product-composition/consumer.rs",
+      "size": 4480,
+      "sha256": "d3206a0211ad54af0fa457f554b7a4b0a929c52a31b7d3dcb1bc5d8e703b6b1c"
+    },
+    {
+      "path": "focused-replay/source/experiments/packed-product-composition/control.rs",
+      "size": 1012,
+      "sha256": "43be821ac6c70faf3be533adaf4d3c4f2630c8db854b160f32a798f316cc3731"
+    },
+    {
+      "path": "focused-replay/source/experiments/packed-product-composition/negative_checks.py",
+      "size": 4106,
+      "sha256": "0c874e4d666347831484b5ee5c443da68fa85955c5e452291bd8f34ac9c82252"
+    },
+    {
+      "path": "focused-replay/source/experiments/packed-product-composition/oracle.py",
+      "size": 6144,
+      "sha256": "c4c56d359e5a6e091b2aa55264f76f8c7d29fca21beb5095adf79d64b9816a98"
+    },
+    {
+      "path": "focused-replay/source/experiments/packed-product-composition/runtime.rs",
+      "size": 3760,
+      "sha256": "072d0233843ee208e351ddb8a711cd2c39aaf63a511d98c0d3b429e7146eebda"
+    },
+    {
+      "path": "focused-replay/source/experiments/packed-product-composition/verify.py",
+      "size": 21638,
+      "sha256": "383c43ccdf90b0b45e0ae97d795b7b18efb3041133f8425f5e2583ad404be9cc"
+    },
+    {
+      "path": "focused-replay/source/native/controls/fast_multiply.rs",
+      "size": 3841,
+      "sha256": "64ddb1d8919da86881791d88d42916fd0f2d73e14073c6a53850d337e02a6714"
+    },
+    {
+      "path": "focused-replay/source/native/controls/limbs.rs",
+      "size": 877,
+      "sha256": "b7161f5897667d8d6bc96ec5ca6eddf63384efd4eb0568ecbb6c4cccf500e4da"
+    },
+    {
+      "path": "focused-replay/source/native/controls/multiply.rs",
+      "size": 1263,
+      "sha256": "6671972c9c3c61424338e6418d8c703e3426c63eb062cb12fddc9adad63a6882"
+    },
+    {
+      "path": "focused-replay/source/native/controls/pow2.rs",
+      "size": 993,
+      "sha256": "ba0a8a8bb404c4778ddd3c03ba254dfcca6efc28a94d293368db2e5ee2e79dac"
+    },
+    {
+      "path": "focused-replay/source/native/fast_bench.rs",
+      "size": 4081,
+      "sha256": "dbad117ee7c07e79b4fc82421900491d7d8aa781c3d467057afa1c5ae6a9941a"
+    },
+    {
+      "path": "focused-replay/source/native/fast_codegen.rs",
+      "size": 937,
+      "sha256": "e68214b600c37fbf436a9d4ad0a649c000eb133e5ecf1d38948dbe5edda37283"
+    },
+    {
+      "path": "focused-replay/source/native/fast_runner.rs",
+      "size": 2740,
+      "sha256": "bf789aee05d49953fafef8a4dd6e88a82b8bde905c844e3fb6a76f5287f053e1"
+    },
+    {
+      "path": "focused-replay/source/native/lib.rs",
+      "size": 1507,
+      "sha256": "edb633153fd240e317b5c97c58ee01627e9cb8c0fdb1168d6b017642afe070d1"
+    },
+    {
+      "path": "focused-replay/source/native/limbs_bench.rs",
+      "size": 2368,
+      "sha256": "937ed74d98f739b2333e1feb78c65dbefb86b5af1c051c864ef269fb6b304215"
+    },
+    {
+      "path": "focused-replay/source/native/limbs_codegen.rs",
+      "size": 485,
+      "sha256": "465962efb3dc1e0f2414295228414112e3843dbaf467a41b705e53a3255e255e"
+    },
+    {
+      "path": "focused-replay/source/native/limbs_runner.rs",
+      "size": 851,
+      "sha256": "4aced8bc95027c78bbac6690f112dcd9e0b892f521baa6e29515b65862c05c01"
+    },
+    {
+      "path": "focused-replay/source/native/mac4_bench.rs",
+      "size": 2526,
+      "sha256": "6519f9828fb9dafbbb200926f7358dded24909e462447a1753626c81a399be1f"
+    },
+    {
+      "path": "focused-replay/source/native/multiply_bench.rs",
+      "size": 2265,
+      "sha256": "d28537c1ee449c452b8c0f549a3555fbf50f59a680240b371335ccb106061d12"
+    },
+    {
+      "path": "focused-replay/source/native/multiply_codegen.rs",
+      "size": 1661,
+      "sha256": "3855098a24804a8cba3ff8b094b159290e0e27e13fc1a558b456aebfeddb1229"
+    },
+    {
+      "path": "focused-replay/source/native/multiply_runner.rs",
+      "size": 2847,
+      "sha256": "856d5b82363f2bf9170bf15cf45f2b0b9ae713a1475f5ceed1751fcaf18c52c7"
+    },
+    {
+      "path": "focused-replay/source/native/pow2_bench.rs",
+      "size": 2691,
+      "sha256": "9e4390cabef56661544491deb928ee2f7a11199d34ada5b6a185a54a45622c1c"
+    },
+    {
+      "path": "focused-replay/source/native/pow2_codegen.rs",
+      "size": 1395,
+      "sha256": "2372573334ffb9778295bd775ea23302207017bb699598606f3254f3cf3d36dd"
+    },
+    {
+      "path": "focused-replay/source/native/pow2_runner.rs",
+      "size": 2232,
+      "sha256": "c916b36cc11923b309aacccd8e54ae5bde951d651abb1360f05715b82706a647"
+    },
+    {
+      "path": "focused-replay/source/native/proof-status.json",
+      "size": 10573,
+      "sha256": "322d08f683d3e9b15777891bc23cd325bb9769aae6c70682f6b7b21e8adc47d1"
+    },
+    {
+      "path": "focused-replay/source/native/specs/fast_product.rs",
+      "size": 5848,
+      "sha256": "1d3a4f9397375741f6fcaea5bacf5977f73c56ba051893cd81a83709385b2cd7"
+    },
+    {
+      "path": "focused-replay/source/native/specs/packed_convolution.rs",
+      "size": 20824,
+      "sha256": "473c31ece4130e5517a44c5a88757137461f009dce19c0a628ee7af8be69e122"
+    },
+    {
+      "path": "focused-replay/source/native/specs/packed_product.rs",
+      "size": 5908,
+      "sha256": "f792932175cc64633ea19bf19229e61100962d19bedfbc3923bd4f925e526658"
+    },
+    {
+      "path": "focused-replay/source/native/specs/precision.rs",
+      "size": 3365,
+      "sha256": "38ffadc6cd04602b40457711b25ec3e89de5fb0ebf92136645da93fb18d4cde0"
+    },
+    {
+      "path": "focused-replay/source/native/specs/product.rs",
+      "size": 3815,
+      "sha256": "24de04dda22e2ca1262ade8328b3f164612b59188df14dbe84988b94592563ae"
+    },
+    {
+      "path": "focused-replay/source/native/specs/radix.rs",
+      "size": 2315,
+      "sha256": "51bddb73e0cfcc2fda095ac5f35fe4853417c1fff858133dab56b05ba9573219"
+    },
+    {
+      "path": "focused-replay/source/native/specs/square.rs",
+      "size": 1136,
+      "sha256": "3d716c2905d4f34929e3177e853196f84faef8a63c10e7e1bb7593a9e62be87e"
+    },
+    {
+      "path": "focused-replay/source/native/specs/square_base.rs",
+      "size": 2714,
+      "sha256": "9436705847c6cf4c8353a324e9154767a2a8ac57b13ca13a26b523f973ea6768"
+    },
+    {
+      "path": "focused-replay/source/native/specs/toom.rs",
+      "size": 4570,
+      "sha256": "ed543569ac0996a16546211241b52f5a7ae945e8fce873f5195340cf290456ff"
+    },
+    {
+      "path": "focused-replay/source/native/specs/toom_blocks.rs",
+      "size": 2220,
+      "sha256": "d799a910b67b26fbbdbdefc50bf49063f8ca39790f6d48f60a7ed1315d00df9d"
+    },
+    {
+      "path": "focused-replay/source/native/square_base_bench.rs",
+      "size": 2812,
+      "sha256": "96d985005b1bf24282c2981fb6ac1290f9ce5ee056c58305798d87fb8447e671"
+    },
+    {
+      "path": "focused-replay/source/native/toolchain.json",
+      "size": 466,
+      "sha256": "a8f1ba756fd50480017e10d24c390a4b94528ab387c965d28c35cf3432c9e678"
+    },
+    {
+      "path": "focused-replay/source/native/toom_bench.rs",
+      "size": 5246,
+      "sha256": "c1be0d2aec144ea6d4abf6946206e23f543fdbab0ddb2829278cbaa919b614f2"
+    },
+    {
+      "path": "focused-replay/source/native/toom_codegen.rs",
+      "size": 1541,
+      "sha256": "ed180241882078324268bf9803b4d85d457000e18d4035d44435800e3c3652a7"
+    },
+    {
+      "path": "focused-replay/source/native/toom_words_runner.rs",
+      "size": 4557,
+      "sha256": "ebfc236535004e57a0932a45dd263b8e944064ef394490cf367c92003681126d"
+    },
+    {
+      "path": "focused-replay/source/native/verified/arithmetic.rs",
+      "size": 2071,
+      "sha256": "7c0181fed9d53f842062fd2f4e738dedf42985fee28bff53cabba4a7fc20cc54"
+    },
+    {
+      "path": "focused-replay/source/native/verified/fast_multiply.rs",
+      "size": 13684,
+      "sha256": "c2d1b96fea047f720ac09e3a3c043eec22abc19d6ac72266cc32380a76e03b82"
+    },
+    {
+      "path": "focused-replay/source/native/verified/fast_words.rs",
+      "size": 17800,
+      "sha256": "f07e442ee9a3a00f07affeb4ac537e97d82a6fc60a49cd43a54dde58e2d301e6"
+    },
+    {
+      "path": "focused-replay/source/native/verified/kernel.rs",
+      "size": 2253,
+      "sha256": "53837b72617ee200e30cfd3af155ce7ca156c0684ee1d29688b78504bfb65569"
+    },
+    {
+      "path": "focused-replay/source/native/verified/limbs.rs",
+      "size": 5663,
+      "sha256": "913c88133f2bd46b3b4a59794eba5b8d43dfdbdac720918e375b47a52adbff28"
+    },
+    {
+      "path": "focused-replay/source/native/verified/mac4.rs",
+      "size": 7077,
+      "sha256": "9cf6fd885a42e63a7cb1f697833bfa7e82d5b65a85e4351de2252a11b6afce2f"
+    },
+    {
+      "path": "focused-replay/source/native/verified/multiply.rs",
+      "size": 9127,
+      "sha256": "90b8d0ae56d80b92a7a470c94390bf8020a8f791872892932005a1311307b752"
+    },
+    {
+      "path": "focused-replay/source/native/verified/packed_layout.rs",
+      "size": 46484,
+      "sha256": "fb8073712aa5681ef6f4f9dbb3aff85884955539d809e2e0131bc1b84d2626c8"
+    },
+    {
+      "path": "focused-replay/source/native/verified/pow2.rs",
+      "size": 3631,
+      "sha256": "893234a990b3b3bf308253ce318411fb5247157cfabe2d02ce603c6c86c1dcec"
+    },
+    {
+      "path": "focused-replay/source/native/verified/square.rs",
+      "size": 3608,
+      "sha256": "f23ad045015896f056ded2f79c5776cdd520205a5da9bc4801d86eafd9d5e9b7"
+    },
+    {
+      "path": "focused-replay/source/native/verified/square_base.rs",
+      "size": 17262,
+      "sha256": "d56438d15c969b475d74c431bef66dbe8c6befd67699196b096c1773c68094b3"
+    },
+    {
+      "path": "focused-replay/source/native/verified/square_low.rs",
+      "size": 3229,
+      "sha256": "1e85ae150c7d5801d57f41d460de651b5ba9d5ae96c910f52b83bb602dd6ad21"
+    },
+    {
+      "path": "focused-replay/source/native/verified/toom_evaluate.rs",
+      "size": 5449,
+      "sha256": "80fb7c4b0db769debe3091289cfe8a71703e9e1bf7b9e26a622e4df08f164699"
+    },
+    {
+      "path": "focused-replay/source/native/verified/toom_interpolate.rs",
+      "size": 2339,
+      "sha256": "dd3e97eac34fb6cf6920302eeb5cc2bc8b257a6beb7a2e952f52ccf20ae5e352"
+    },
+    {
+      "path": "focused-replay/source/native/verified/toom_low.rs",
+      "size": 3995,
+      "sha256": "3edfb086069d72a35a15181d2a10107d58aafbd522d8c5d0b1d091b78bf7babd"
+    },
+    {
+      "path": "focused-replay/source/native/verified/toom_multiply.rs",
+      "size": 5599,
+      "sha256": "58830125c0e82680f11fec6aba9677c8986c8f84fdbe53e3a38dc01b24871602"
+    },
+    {
+      "path": "focused-replay/source/native/verified/toom_square.rs",
+      "size": 4982,
+      "sha256": "4bc0e13311e42f520efec7280259b171123b735a204180f7080f25cc3ad27eac"
+    },
+    {
+      "path": "focused-replay/source/native/verified/toom_words.rs",
+      "size": 13654,
+      "sha256": "221e6592c48904135aef8cce941675fe067b8d2b9253bd507293363a3ab104d7"
+    },
+    {
+      "path": "focused-replay/verification.json",
+      "size": 43594,
+      "sha256": "38161c8c398464511f4575f12af28ce2107e1e062a87db160716f55114844429"
+    },
+    {
+      "path": "focused-replay/verigmp.vir",
+      "size": 2445130,
+      "sha256": "9890ff7d0d62f53101b41089017f913ecd6495421e54c79e2819735c3769ed41"
+    },
+    {
+      "path": "focused-replay/verus-version.stderr.log",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "focused-replay/verus-version.stdout.log",
+      "size": 182,
+      "sha256": "43bbcb88d622ee4e1fb08655b4393b56725fedd6fce064101e6f9cd64fd07152"
+    },
+    {
+      "path": "independent-audit/audit.py",
+      "size": 14847,
+      "sha256": "155c7de602a527c9b65d5f8f691f9a4323cf15da9ef25b1b7a067144e0e36013"
+    },
+    {
+      "path": "independent-audit/integrity-audit.json",
+      "size": 2235,
+      "sha256": "2c1356f626f359451b6256c1706a8a6327530c67fcfa95af3424ef20e27f3d79"
+    },
+    {
+      "path": "independent-audit/verify_replay.py",
+      "size": 7082,
+      "sha256": "a327b3149905be54381ea4bf87abda366405db76bd944625d0d09bf1e3445b08"
+    },
+    {
+      "path": "independent-audit/replay-audit.json",
+      "size": 2228,
+      "sha256": "d2318395d12ae63ab31a419c4aefa5b6b5ba797298c8ba7566eb723ecdfd5e3c"
+    }
+  ]
+}
