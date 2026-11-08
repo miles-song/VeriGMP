@@ -17,8 +17,9 @@
       ],
       "status": "model_proved",
       "scope": "Independent compact-input interpretation, positive/empty guard domain, no-carry exact product slots and canonical extracted finite convolution with final zero tail; equal-length nonnegative coefficients at arbitrary limb precision",
-      "validation": "Pinned Verus 0.2026.10.26.d17fbd0 and Rust 1.99.1: 358 complete-library items and 5 imported actual-call consumer items, zero errors. Passing focused gate at 0daa481d1087d742e55ecb77ca01422a3688f451 reuses the hash-identical producer built at b8f0c60c274d42c52dd65b2ee07d0c1a852df164; proof/client bytes remain first fixed source 886fc176bd542422b00dddd00a8b259c563e0296. Raw report SHA-256 e64a33d921810b456e343de139ccff96b4be484adc93e0cf642229fbc3568fe8. Exact source/tool/rlib/vir and raw archive identities are in the local receipt; independent final Astra acceptance remains pending.",
+      "validation": "Pinned Verus 0.2026.10.26.d17fbd0 and Rust 1.99.1: 358 complete-library items and 5 imported actual-call consumer items, zero errors. Passing focused gate at 0daa481d1087d742e55ecb77ca01422a3688f451 reuses the hash-identical producer built at b8f0c60c274d42c52dd65b2ee07d0c1a852df164; proof/client bytes remain first fixed source 886fc176bd542422b00dddd00a8b259c563e0296. Raw report SHA-256 e64a33d921810b456e343de139ccff96b4be484adc93e0cf642229fbc3568fe8. Exact source/tool/rlib/vir and raw archive identities are in the local receipt; independent review accepts candidate 0d7d0db8b939229489b3da8fa84d8be5d5356db0 for this scope; see independent_review.",
       "local_receipt": "../experiments/packed-product-composition/RECEIPT.md",
+      "independent_review": "../experiments/packed-product-composition/INDEPENDENT_REVIEW.md",
       "cost": "Only spec/proof code in native; no production runtime changes. The input p bound describes supplied integer representatives, not tensor creation provenance. No composed bit-cost or peak-live-space theorem."
     },
     {
@@ -27,8 +28,9 @@
       ],
       "status": "impl_refined",
       "scope": "External verified composition witness of actual pack_coefficients, toom_multiply::full and extract_coefficients calls under canonical/guard/length/12n-scratch preconditions; returns Ok and exactly 2n canonical q-bit finite convolution coefficients, including final zero; empty inputs skip positive-length Toom",
-      "validation": "Passing fixed-source gate at 0daa481d1087d742e55ecb77ca01422a3688f451 verifies 5 consumer items against matching source/tool-bound producer rlib and vir, runs 476 independent arbitrary-integer product fixtures plus 208 valid and 18 error-preservation layout cases, rejects 2 borrow overlaps and 3 intended invalid-call preconditions, and strictly rejects 4 semantic mutants. Complete optimized client and ordinary control objects, 286-byte symbol sections and all four call relocations are identical. No new production wrapper or out-of-domain error-handling contract. Raw report SHA-256 e64a33d921810b456e343de139ccff96b4be484adc93e0cf642229fbc3568fe8; independent final review pending.",
+      "validation": "Passing fixed-source gate at 0daa481d1087d742e55ecb77ca01422a3688f451 verifies 5 consumer items against matching source/tool-bound producer rlib and vir, runs 476 independent arbitrary-integer product fixtures plus 208 valid and 18 error-preservation layout cases, rejects 2 borrow overlaps and 3 intended invalid-call preconditions, and strictly rejects 4 semantic mutants. Complete optimized client and ordinary control objects, 286-byte symbol sections and all four call relocations are identical. No new production wrapper or out-of-domain error-handling contract. Raw report SHA-256 e64a33d921810b456e343de139ccff96b4be484adc93e0cf642229fbc3568fe8; independent review accepts candidate 0d7d0db8b939229489b3da8fa84d8be5d5356db0 for this scope; see independent_review.",
       "local_receipt": "../experiments/packed-product-composition/RECEIPT.md",
+      "independent_review": "../experiments/packed-product-composition/INDEPENDENT_REVIEW.md",
       "cost": "Caller-owned contiguous buffers and scratch are reused. The optimized full consume symbol bytes and relocation table match the plain control at first fixed source: 286 bytes, body SHA-256 fba40c21cc8ccfffc0d3408d176b1c1daa3cb8a21e9c737a426b314614b2729b. No runtime Seq, allocation or proof traversal; no performance or checked composed cost claim."
     },
     {
@@ -130,7 +132,7 @@
   "complete_multiprecision_api": false,
   "gmp_performance_parity_established": false,
   "remaining": [
-    "General unequal/truncated packed-product consumers, formal bit/peak-space bounds and a separately measured production strategy; equal-length canonical exact composition has a verified model and actual-call witness, with independent final acceptance pending",
+    "General unequal/truncated packed-product consumers, formal bit/peak-space bounds and a separately measured production strategy; equal-length canonical exact composition has a verified model and actual-call witness, with independent acceptance recorded in the feature review",
     "Architecture-specific assembly",
     "Higher Toom variants and FFT",
     "Composed cost model",

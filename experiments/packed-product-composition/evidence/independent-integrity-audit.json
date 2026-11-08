@@ -1,0 +1,62 @@
+{
+  "status": "pass",
+  "reviewed_commit": "0d7d0db8b939229489b3da8fa84d8be5d5356db0",
+  "reviewed_tree": "5000f7a417926e663602336bd38b5e5f4913060c",
+  "source_gate_commit": "0daa481d1087d742e55ecb77ca01422a3688f451",
+  "first_source": "886fc176bd542422b00dddd00a8b259c563e0296",
+  "main_commit": "98f755792ea5b66456dc330972563714c2ba820d",
+  "archive_sha256": "844e1f9e16889d8c81deb73a42692c4c9d6bbdc8248e14e3b5f0e0af82574f23",
+  "archive_members": 307,
+  "gate_source_files": 69,
+  "producer_source_files": 69,
+  "same_producer_native_files": 50,
+  "unchanged_native_files_against_main": 48,
+  "actual_tool_files": 16,
+  "producer_enclosing_status": "fail",
+  "producer_verified_items": 358,
+  "producer_reuse": "Original producer report/logs plus hash-identical retained gate-2 rlib/vir in derived directory",
+  "main_and_feature_paths_disjoint": true,
+  "independent_elf": {
+    "symbol": "_RNvCs66WoPdCnaZh_23packed_product_consumer7consume",
+    "section": ".text._RNvCs66WoPdCnaZh_23packed_product_consumer7consume",
+    "size": 286,
+    "body_sha256": "fba40c21cc8ccfffc0d3408d176b1c1daa3cb8a21e9c737a426b314614b2729b",
+    "object_sha256": "6623199f86c49cd38e8ddcb756ba3fb45ee6780ce9b225a34bacde599567ac3b",
+    "relocations": [
+      {
+        "offset": 69,
+        "type": 9,
+        "addend": -4,
+        "target": "_RNvNtCs9Cc19I5TWaA_7verigmp13packed_layout17pack_coefficients"
+      },
+      {
+        "offset": 130,
+        "type": 9,
+        "addend": -4,
+        "target": "_RNvNtCs9Cc19I5TWaA_7verigmp13packed_layout17pack_coefficients"
+      },
+      {
+        "offset": 235,
+        "type": 9,
+        "addend": -4,
+        "target": "_RNvNtCs9Cc19I5TWaA_7verigmp13toom_multiply4full"
+      },
+      {
+        "offset": 267,
+        "type": 9,
+        "addend": -4,
+        "target": "_RNvNtCs9Cc19I5TWaA_7verigmp13packed_layout20extract_coefficients"
+      }
+    ]
+  },
+  "independent_fixture_audit": {
+    "cases": 476,
+    "nonempty_cases": 430,
+    "coefficient_values": 19878,
+    "input_integer_values": 19878,
+    "maximum_nonempty_precision": 4097,
+    "maximum_count": 1024,
+    "maximum_result_precision": 8201
+  },
+  "script_sha256": "155c7de602a527c9b65d5f8f691f9a4323cf15da9ef25b1b7a067144e0e36013"
+}
