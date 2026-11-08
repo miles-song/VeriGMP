@@ -9,10 +9,13 @@ import re
 import shutil
 import subprocess
 
+from measure import public_remote_main
+
 COMMITS = {"baseline": "2d4e1748e5efe9143c21b13b53dbf6ebf1fffaba",
            "candidate": "d6a17984c758dab825339d0eab8562f21c5fa24b"}
 EXPECTED_MAIN = "bf1bc40946967581852dd3b675db8140d757574e"
 EXPECTED_NATIVE_TREE = "72dc8a5da2cbb7eddcdd26c219d50770e8b73b06"
+RUNTIME_ENVIRONMENT = {"PATH": "/usr/bin:/bin", "LANG": "C", "LC_ALL": "C", "TZ": "UTC"}
 
 
 def sha(path):
@@ -57,9 +60,9 @@ def verify_evidence(root, commit):
     return summary, tools
 
 
-def run(argv):
+def run(argv, env=None):
     return subprocess.run([str(x) for x in argv], check=True, stdout=subprocess.PIPE,
-                          stderr=subprocess.STDOUT).stdout.decode()
+                          stderr=subprocess.STDOUT, env=env).stdout.decode()
 
 
 def source_mapping(git, roots, evidence):
@@ -67,6 +70,10 @@ def source_mapping(git, roots, evidence):
     remote_tip = run([git, "rev-parse", "refs/remotes/origin/main"]).strip()
     if main_tip != EXPECTED_MAIN or remote_tip != main_tip:
         raise RuntimeError("refresh the pinned main identity before building")
+    origin = run([git, "remote", "get-url", "origin"]).strip()
+    if origin not in ("git@github.com:miles-song/VeriGMP.git", "https://github.com/miles-song/VeriGMP.git"):
+        raise RuntimeError("unexpected origin repository")
+    remote = public_remote_main(git, main_tip)
     subprocess.run([git, "merge-base", "--is-ancestor", COMMITS["baseline"], main_tip], check=True)
     trees = {label: run([git, "rev-parse", commit + ":native"]).strip()
              for label, commit in dict(COMMITS, main=main_tip).items()}
@@ -96,7 +103,8 @@ def source_mapping(git, roots, evidence):
                      if mappings["baseline"].get(name) != mappings["candidate"].get(name))
     if changed != ["native/verified/fast_words.rs"]:
         raise RuntimeError("candidate native source change differs from the planned optimization")
-    return dict(main_tip=main_tip, origin_main_tip=remote_tip, native_trees=trees,
+    return dict(main_tip=main_tip, origin_main_tip=remote_tip,
+                actual_public_main=dict(origin=origin, **remote), native_trees=trees,
                 proof_source_commits=COMMITS, source_archives={label: evidence[label][0]["source_archive_sha256"]
                                                                for label in COMMITS},
                 source_manifests={label: sha(roots[label] / "source-before.json") for label in COMMITS},
@@ -129,7 +137,8 @@ def main():
     harness_commit = run([git, "rev-parse", "HEAD"]).strip()
     mapping = source_mapping(git, roots, evidence)
     harness_files = ("bench.rs", "prepare.py", "measure.py", "verify.py", "build.py",
-                     "baseline_capture.py", "PROTOCOL.md", "host_monitor.ps1")
+                     "baseline_capture.py", "PROTOCOL.md", "host_monitor.ps1", "wsl_monitor.py",
+                     "review_telemetry.py", "protocol_checks.py", "monitor_smoke.py")
     harness = {}
     for name in harness_files:
         path = source.parent / name
@@ -144,15 +153,21 @@ def main():
     mapping_path.write_text(json.dumps(mapping, indent=2, sort_keys=True) + "\n")
     cc = Path(shutil.which("cc")).resolve()
     linker = Path(run([cc, "-print-prog-name=ld"]).strip()).resolve()
+    ldd = Path(shutil.which("ldd")).resolve()
+    shell = Path("/bin/bash").resolve()
     compiler_identity = dict(rustc_path=str(actual_rustc), rustc_sha256=sha(actual_rustc),
                              version=run([args.rustc, "--version", "--verbose"]),
                              sysroot=run([args.rustc, "--print", "sysroot"]).strip(),
                              frozen_tools_sha256=sha(roots["candidate"] / "tools-before.json"),
                              cc_path=str(cc), cc_sha256=sha(cc), cc_version=run([cc, "--version"]),
                              linker_path=str(linker), linker_sha256=sha(linker),
-                             linker_version=run([linker, "--version"]))
+                             linker_version=run([linker, "--version"]),
+                             ldd_path=str(ldd), ldd_sha256=sha(ldd),
+                             shell_path=str(shell), shell_sha256=sha(shell))
     build = dict(version=1, harness_commit=harness_commit, harness_files=harness,
                  native_mapping=str(mapping_path), native_mapping_sha256=sha(mapping_path),
+                 runtime_environment=RUNTIME_ENVIRONMENT,
+                 runtime_environment_policy="complete allowlist; all LD_* variables and GLIBC_TUNABLES absent",
                  compiler_identity=compiler_identity, binaries={})
     linked = None
     for label in ("baseline", "candidate"):
@@ -171,10 +186,12 @@ def main():
                 link_inputs[str(path)] = sha(path)
         if not link_inputs:
             raise RuntimeError("linker map does not identify permanent link inputs")
-        ldd = run(["ldd", target])
+        ldd_output = run([ldd, target], env=RUNTIME_ENVIRONMENT)
         dependencies = {}
-        for path in re.findall(r"(?:=>\s+|^\s*)(/\S+)\s+\(0x[0-9a-f]+\)", ldd, re.M):
+        for path in re.findall(r"(?:=>\s+|^\s*)(/\S+)\s+\(0x[0-9a-f]+\)", ldd_output, re.M):
             dependencies[path] = sha(path)
+        if "not found" in ldd_output:
+            raise RuntimeError("unresolved benchmark dependency")
         if not any("libgmp.so" in path for path in dependencies):
             raise RuntimeError("GMP shared library identity missing")
         if linked is not None and dependencies != linked:
@@ -187,7 +204,7 @@ def main():
             path=str(target), path_sha256=sha(target), rlib=str(rlib), rlib_sha256=sha(rlib),
             vir=str(vir), vir_sha256=sha(vir), proof_receipt=str(receipt), proof_receipt_sha256=sha(receipt),
             harness=str(source), harness_sha256=source_hash, compiler_identity=compiler_identity,
-            command=command, compile_output=compile_log, ldd=ldd, dependencies=dependencies,
+            command=command, compile_output=compile_log, ldd=ldd_output, dependencies=dependencies,
             link_map=str(link_map), link_map_sha256=sha(link_map), link_inputs=link_inputs,
             symbols=str(output / (label + "-symbols.txt")),
             symbols_sha256=sha(output / (label + "-symbols.txt")),
@@ -199,8 +216,9 @@ def main():
         raise RuntimeError("benchmark source changed during compilation")
     if {label: verify_evidence(root, COMMITS[label]) for label, root in roots.items()} != evidence:
         raise RuntimeError("proof identity changed during benchmark build")
-    if sha(cc) != compiler_identity["cc_sha256"] or sha(linker) != compiler_identity["linker_sha256"]:
-        raise RuntimeError("linker identity changed during benchmark build")
+    if any(sha(compiler_identity[name + "_path"]) != compiler_identity[name + "_sha256"]
+           for name in ("cc", "linker", "ldd", "shell")):
+        raise RuntimeError("linker or loader inspection tool changed during benchmark build")
     if any(sha(path) != digest for path, digest in harness.items()):
         raise RuntimeError("harness changed during benchmark build")
     if source_mapping(git, roots, evidence) != mapping:

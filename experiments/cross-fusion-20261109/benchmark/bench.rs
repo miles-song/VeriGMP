@@ -41,7 +41,7 @@ fn main() {
     let args: Vec<String> = env::args().collect();
     assert_eq!(args.len(), 8, "mode op n top input alias count");
     let mode = &args[1];
-    assert!(mode == "check" || mode == "sample" || mode == "calibrate");
+    assert!(mode == "check" || mode == "warmup_check" || mode == "sample" || mode == "calibrate");
     let op = args[2].as_str();
     let n: usize = args[3].parse().unwrap();
     let top: u32 = args[4].parse().unwrap();
@@ -79,6 +79,18 @@ fn main() {
         return;
     }
     assert!(count > 0);
+    if mode == "sample" || mode == "warmup_check" {
+        for _ in 0..count {
+            apply(black_box(op), black_box(&mut out), black_box(a), black_box(b),
+                black_box(&mut work), black_box(top));
+            black_box(&out);
+        }
+        assert_eq!(out, expected, "GMP comparison after sample warmup");
+    }
+    if mode == "warmup_check" {
+        println!("{{\"verified\":true,\"n\":{n},\"top\":{top},\"cpus_allowed\":\"{cpu_list}\"}}");
+        return;
+    }
     let mut iterations = count;
     let mut calibration = Vec::new();
     let elapsed = loop {
