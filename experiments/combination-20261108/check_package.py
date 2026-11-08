@@ -43,7 +43,7 @@ def main():
             if prepared['cells'][label]['native_manifest_sha256']!=digest:
                 raise RuntimeError('four-cell source identity mismatch: '+label)
             for path,expected in prepared['cells'][label]['native_sha256'].items():
-                if sha(bundle.read(label+'/'+path))!=expected:
+                if sha(bundle.read('source/'+label+'/'+path))!=expected:
                     raise RuntimeError('reconstructed native source mismatch: '+label+'/'+path)
         producer=read('producer/verification.json')
         check=read('static/verification.json')

@@ -1,0 +1,18 @@
+{
+  "status": "pass",
+  "archive": "evidence.zip",
+  "archive_bytes": 25789949,
+  "archive_sha256": "85a8d8705b387285621f26af4d2684c33929eacb47b6774be96ddd5117b136f6",
+  "manifest": "manifest.json",
+  "manifest_sha256": "2a6b4a180ed7b5d304817d7b04479611d08aaea010afe037ce838b519e2729b0",
+  "logical_payloads": 1496,
+  "benchmark_executed": false,
+  "calibration_executed": false,
+  "payload_roots": [
+    "/mnt/e/3sat/VeriGMP-combination-evidence-20261108/source-2",
+    "/mnt/e/3sat/VeriGMP-combination-evidence-20261108/producer-1",
+    "/mnt/e/3sat/VeriGMP-combination-evidence-20261108/check-2",
+    "/mnt/e/3sat/VeriGMP-combination-evidence-20261108/harness-fixtures-1",
+    "/mnt/e/3sat/VeriGMP-combination-evidence-20261108/operations-2.json"
+  ]
+}

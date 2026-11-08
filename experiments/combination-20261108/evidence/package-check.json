@@ -1,0 +1,9 @@
+{
+  "status": "pass",
+  "payloads": 1496,
+  "source_cells": 4,
+  "combined_verified_items": 366,
+  "operation_cells": 86,
+  "benchmark_executed": false,
+  "archive_sha256": "85a8d8705b387285621f26af4d2684c33929eacb47b6774be96ddd5117b136f6"
+}
