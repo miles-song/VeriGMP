@@ -23,6 +23,13 @@ python3 -B experiments/packed-product-composition/verify.py \
 ```
 
 The output directory must be outside the checkout and must not already exist.
+For gate/receipt-only changes, `--reuse-producer /prior/evidence` can reuse the
+complete library build only after checking identical native source inventories
+and bytes, toolchain bytes, actual tools/environment, raw successful proof logs
+and rlib/vir hashes. The new report names the original build commit and report;
+the actual-call client, all oracles, negative fixtures, mutants and generated-code
+checks run again. A prior gate's unrelated fixture failure does not invalidate
+its separately complete and successful library build.
 The gate copies all native Rust sources, the client/control, test/gate sources
 and relevant documentation/status into a retained snapshot, checks their bytes
 against HEAD, and records every command and raw stdout/stderr hash. It checks

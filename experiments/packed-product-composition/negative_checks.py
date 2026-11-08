@@ -50,6 +50,8 @@ def invalid_call(kind):
     n, q, scratch, out = {"scratch": (1, 2, 11, 2),
                           "guard": (3, 3, 36, 6),
                           "output": (1, 2, 12, 1)}[kind]
+    valid_guard = ("" if kind == "guard" else
+                   f"        verigmp::packed_product::guard_domain({n}, 1, {q}, 1),\n")
     return f'''use vstd::prelude::*;
 use verigmp::packed_layout as layout;
 use packed_product_consumer::consume;
@@ -57,7 +59,8 @@ verus! {{
 pub fn invalid_call(output: &mut [u64], left: &[u64], right: &[u64],
     packed_left: &mut [u64], packed_right: &mut [u64],
     product: &mut [u64], scratch: &mut [u64])
-    requires layout::compact_coefficients(left@, {n}, 1),
+    requires
+{valid_guard}        layout::compact_coefficients(left@, {n}, 1),
         layout::compact_coefficients(right@, {n}, 1),
         old(output)@.len() == {out}, old(packed_left)@.len() == {n},
         old(packed_right)@.len() == {n}, old(product)@.len() == {2*n},

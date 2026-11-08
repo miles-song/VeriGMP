@@ -32,6 +32,8 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--deps-root", required=True, type=Path)
     parser.add_argument("--output", required=True, type=Path)
+    parser.add_argument("--reuse-producer", type=Path,
+                        help="reuse only a hash-identical producer with complete pinned proof evidence")
     args = parser.parse_args()
     output = args.output.resolve()
     if output.exists() or output.is_relative_to(ROOT):
@@ -158,9 +160,44 @@ def main():
             kernel=platform.platform())
 
         library, metadata = output / "libverigmp.rlib", output / "verigmp.vir"
-        report["library_verified_items"] = positive(*run([verifier, snapshot / "native/lib.rs",
-            "--crate-type", "lib", "--crate-name", "verigmp", "--no-cheating", "--compile", "-O",
-            "--export", metadata, "-o", library], "library-proof-release", snapshot))
+        if args.reuse_producer:
+            reused = args.reuse_producer.resolve()
+            previous = json.loads((reused / "verification.json").read_text())
+            native_names = {name for name in sources if name.startswith("native/") and name.endswith(".rs")}
+            previous_native = {name for name in previous["source_git"]["source_sha256"]
+                               if name.startswith("native/") and name.endswith(".rs")}
+            if native_names != previous_native:
+                raise RuntimeError("reused producer native source inventory differs")
+            for name in native_names | {"native/toolchain.json"}:
+                if previous["source_git"]["source_sha256"][name] != sha(sources[name]):
+                    raise RuntimeError("reused producer source differs: " + name)
+            if previous["toolchain"] != report["toolchain"]:
+                raise RuntimeError("reused producer tools/environment differ")
+            old_command = next(command for command in previous["commands"]
+                               if command["name"] == "library-proof-release")
+            if old_command["returncode"] != 0 or old_command["timeout"]:
+                raise RuntimeError("reused library build did not complete")
+            logs = []
+            for stream in ("stdout", "stderr"):
+                path = reused / ("library-proof-release." + stream + ".log")
+                if file_sha(path) != old_command[stream + "_sha256"]:
+                    raise RuntimeError("reused producer proof log differs")
+                logs.append(path.read_text())
+                shutil.copyfile(path, output / ("reused-library-proof-release." + stream + ".log"))
+            report["library_verified_items"] = positive(0, "".join(logs))
+            for path in (library, metadata):
+                old = reused / path.name
+                if file_sha(old) != previous["exports_sha256"][path.name]:
+                    raise RuntimeError("reused producer export differs: " + path.name)
+                shutil.copyfile(old, path)
+            report["producer_reuse"] = dict(source_head=previous["source_git"]["head"],
+                report_sha256=file_sha(reused / "verification.json"), source=str(reused),
+                native_and_toolchain_bytes_equal=True, tools_equal=True,
+                original_complete_build_command=old_command)
+        else:
+            report["library_verified_items"] = positive(*run([verifier, snapshot / "native/lib.rs",
+                "--crate-type", "lib", "--crate-name", "verigmp", "--no-cheating", "--compile", "-O",
+                "--export", metadata, "-o", library], "library-proof-release", snapshot))
         imports = ["--import", f"verigmp={metadata}", "--extern", f"verigmp={library}"]
         consumer_lib, consumer_meta = output / "libpacked_product_consumer.rlib", output / "consumer.vir"
         consumer_command = [verifier, snapshot / CONSUMER, "--crate-type", "lib", "--crate-name",
@@ -208,7 +245,10 @@ def main():
             path.write_text(invalid_call(kind), encoding="utf-8")
             code, text = run([verifier, path, "--crate-type", "lib", "--crate-name", "invalid_call",
                               "--no-cheating", *client_imports], "invalid-" + kind)
-            passed = full_semantic_rejection(text, code) and anchor in text
+            lines = sources[CONSUMER].decode().splitlines()
+            expected_line = next(i + 1 for i, line in enumerate(lines) if anchor in line)
+            locations = re.findall(r"consumer\.rs:(\d+):\d+", text)
+            passed = full_semantic_rejection(text, code) and str(expected_line) in locations
             report["invalid_calls"].append(dict(kind=kind, status="pass" if passed else "fail",
                                                 expected_precondition=anchor, fixture_sha256=file_sha(path)))
             if not passed:
