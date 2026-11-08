@@ -1,0 +1,778 @@
+{
+  "baseline_drift_limits": {
+    "control_count": 71,
+    "each_cell_max": 1.1,
+    "each_cell_min": 0.9,
+    "geomean_max": 1.05,
+    "geomean_min": 0.95
+  },
+  "baseline_validation": {
+    "all_control_ratios": [
+      {
+        "cell": [
+          0,
+          1,
+          64
+        ],
+        "run2_over_run1": 0.9447948061157954
+      },
+      {
+        "cell": [
+          0,
+          2,
+          64
+        ],
+        "run2_over_run1": 0.8938525923338395
+      },
+      {
+        "cell": [
+          0,
+          7,
+          64
+        ],
+        "run2_over_run1": 0.9399218978510282
+      },
+      {
+        "cell": [
+          0,
+          8,
+          64
+        ],
+        "run2_over_run1": 0.975355735422517
+      },
+      {
+        "cell": [
+          0,
+          9,
+          64
+        ],
+        "run2_over_run1": 0.9631527018711732
+      },
+      {
+        "cell": [
+          0,
+          23,
+          64
+        ],
+        "run2_over_run1": 0.8989710791495671
+      },
+      {
+        "cell": [
+          0,
+          24,
+          64
+        ],
+        "run2_over_run1": 0.9275041796516412
+      },
+      {
+        "cell": [
+          0,
+          25,
+          64
+        ],
+        "run2_over_run1": 0.9179791486234019
+      },
+      {
+        "cell": [
+          0,
+          31,
+          64
+        ],
+        "run2_over_run1": 0.8884758037941818
+      },
+      {
+        "cell": [
+          0,
+          32,
+          64
+        ],
+        "run2_over_run1": 0.9323580638292783
+      },
+      {
+        "cell": [
+          0,
+          33,
+          64
+        ],
+        "run2_over_run1": 1.0093336876506585
+      },
+      {
+        "cell": [
+          0,
+          47,
+          64
+        ],
+        "run2_over_run1": 0.9669541332767191
+      },
+      {
+        "cell": [
+          0,
+          48,
+          64
+        ],
+        "run2_over_run1": 1.0175063843207661
+      },
+      {
+        "cell": [
+          0,
+          49,
+          64
+        ],
+        "run2_over_run1": 1.0445365326038836
+      },
+      {
+        "cell": [
+          0,
+          63,
+          64
+        ],
+        "run2_over_run1": 0.9718968823928258
+      },
+      {
+        "cell": [
+          0,
+          64,
+          64
+        ],
+        "run2_over_run1": 0.9747257099289981
+      },
+      {
+        "cell": [
+          0,
+          65,
+          64
+        ],
+        "run2_over_run1": 1.0071092699694597
+      },
+      {
+        "cell": [
+          0,
+          127,
+          64
+        ],
+        "run2_over_run1": 0.9373371419481901
+      },
+      {
+        "cell": [
+          0,
+          128,
+          64
+        ],
+        "run2_over_run1": 1.0128684002290749
+      },
+      {
+        "cell": [
+          0,
+          129,
+          64
+        ],
+        "run2_over_run1": 1.1175555311461582
+      },
+      {
+        "cell": [
+          0,
+          191,
+          64
+        ],
+        "run2_over_run1": 1.0807854790577893
+      },
+      {
+        "cell": [
+          0,
+          192,
+          64
+        ],
+        "run2_over_run1": 0.9249557605098189
+      },
+      {
+        "cell": [
+          0,
+          193,
+          64
+        ],
+        "run2_over_run1": 0.9670291283648198
+      },
+      {
+        "cell": [
+          0,
+          255,
+          64
+        ],
+        "run2_over_run1": 1.0668479988960093
+      },
+      {
+        "cell": [
+          0,
+          256,
+          64
+        ],
+        "run2_over_run1": 0.9855504426325531
+      },
+      {
+        "cell": [
+          0,
+          257,
+          64
+        ],
+        "run2_over_run1": 1.173458127810747
+      },
+      {
+        "cell": [
+          0,
+          511,
+          64
+        ],
+        "run2_over_run1": 1.0928411287840563
+      },
+      {
+        "cell": [
+          0,
+          512,
+          64
+        ],
+        "run2_over_run1": 0.9886894789876125
+      },
+      {
+        "cell": [
+          0,
+          513,
+          64
+        ],
+        "run2_over_run1": 0.9839927486796639
+      },
+      {
+        "cell": [
+          0,
+          1023,
+          64
+        ],
+        "run2_over_run1": 1.0135191814889786
+      },
+      {
+        "cell": [
+          0,
+          1024,
+          64
+        ],
+        "run2_over_run1": 1.027296903057314
+      },
+      {
+        "cell": [
+          0,
+          1025,
+          64
+        ],
+        "run2_over_run1": 1.0287561453035545
+      },
+      {
+        "cell": [
+          0,
+          2048,
+          64
+        ],
+        "run2_over_run1": 0.9832517536368558
+      },
+      {
+        "cell": [
+          0,
+          4096,
+          64
+        ],
+        "run2_over_run1": 0.9963702652632983
+      },
+      {
+        "cell": [
+          1,
+          1,
+          1
+        ],
+        "run2_over_run1": 1.0253292209026186
+      },
+      {
+        "cell": [
+          1,
+          1,
+          64
+        ],
+        "run2_over_run1": 1.0143643931268223
+      },
+      {
+        "cell": [
+          1,
+          2,
+          1
+        ],
+        "run2_over_run1": 1.0746649489700444
+      },
+      {
+        "cell": [
+          1,
+          23,
+          63
+        ],
+        "run2_over_run1": 0.999766613697799
+      },
+      {
+        "cell": [
+          1,
+          24,
+          63
+        ],
+        "run2_over_run1": 1.0817549421562995
+      },
+      {
+        "cell": [
+          1,
+          25,
+          63
+        ],
+        "run2_over_run1": 1.1938396060874066
+      },
+      {
+        "cell": [
+          1,
+          63,
+          63
+        ],
+        "run2_over_run1": 1.084304803470572
+      },
+      {
+        "cell": [
+          1,
+          64,
+          63
+        ],
+        "run2_over_run1": 1.0347141204763701
+      },
+      {
+        "cell": [
+          1,
+          65,
+          63
+        ],
+        "run2_over_run1": 1.10756276975769
+      },
+      {
+        "cell": [
+          1,
+          127,
+          63
+        ],
+        "run2_over_run1": 1.0651206047661215
+      },
+      {
+        "cell": [
+          1,
+          128,
+          63
+        ],
+        "run2_over_run1": 1.0719749528587186
+      },
+      {
+        "cell": [
+          1,
+          129,
+          63
+        ],
+        "run2_over_run1": 1.0331718237330045
+      },
+      {
+        "cell": [
+          1,
+          191,
+          63
+        ],
+        "run2_over_run1": 1.0478244437463347
+      },
+      {
+        "cell": [
+          1,
+          192,
+          63
+        ],
+        "run2_over_run1": 1.1464549673308244
+      },
+      {
+        "cell": [
+          1,
+          193,
+          63
+        ],
+        "run2_over_run1": 1.06351861823828
+      },
+      {
+        "cell": [
+          1,
+          255,
+          63
+        ],
+        "run2_over_run1": 1.092152863936246
+      },
+      {
+        "cell": [
+          1,
+          256,
+          63
+        ],
+        "run2_over_run1": 1.0817072555237988
+      },
+      {
+        "cell": [
+          1,
+          257,
+          63
+        ],
+        "run2_over_run1": 1.0544418760731495
+      },
+      {
+        "cell": [
+          1,
+          511,
+          63
+        ],
+        "run2_over_run1": 1.036744737672775
+      },
+      {
+        "cell": [
+          2,
+          1,
+          1
+        ],
+        "run2_over_run1": 0.9726734068940406
+      },
+      {
+        "cell": [
+          2,
+          1,
+          64
+        ],
+        "run2_over_run1": 0.9911479486522395
+      },
+      {
+        "cell": [
+          2,
+          2,
+          1
+        ],
+        "run2_over_run1": 0.9278705435109457
+      },
+      {
+        "cell": [
+          2,
+          23,
+          63
+        ],
+        "run2_over_run1": 1.0483019938032034
+      },
+      {
+        "cell": [
+          2,
+          24,
+          63
+        ],
+        "run2_over_run1": 0.9445970522635548
+      },
+      {
+        "cell": [
+          2,
+          25,
+          63
+        ],
+        "run2_over_run1": 0.9125957419927474
+      },
+      {
+        "cell": [
+          2,
+          63,
+          63
+        ],
+        "run2_over_run1": 1.107391184454415
+      },
+      {
+        "cell": [
+          2,
+          64,
+          63
+        ],
+        "run2_over_run1": 0.9658238981516927
+      },
+      {
+        "cell": [
+          2,
+          65,
+          63
+        ],
+        "run2_over_run1": 0.972876416593586
+      },
+      {
+        "cell": [
+          2,
+          127,
+          63
+        ],
+        "run2_over_run1": 1.0621913820361015
+      },
+      {
+        "cell": [
+          2,
+          128,
+          63
+        ],
+        "run2_over_run1": 1.0124776391935397
+      },
+      {
+        "cell": [
+          2,
+          129,
+          63
+        ],
+        "run2_over_run1": 0.9892099167130312
+      },
+      {
+        "cell": [
+          2,
+          191,
+          63
+        ],
+        "run2_over_run1": 1.084307388433818
+      },
+      {
+        "cell": [
+          2,
+          192,
+          63
+        ],
+        "run2_over_run1": 0.9878967557419399
+      },
+      {
+        "cell": [
+          2,
+          193,
+          63
+        ],
+        "run2_over_run1": 0.9722755510796217
+      },
+      {
+        "cell": [
+          2,
+          255,
+          63
+        ],
+        "run2_over_run1": 1.058769708915551
+      },
+      {
+        "cell": [
+          2,
+          256,
+          63
+        ],
+        "run2_over_run1": 0.9752524233181584
+      },
+      {
+        "cell": [
+          2,
+          257,
+          63
+        ],
+        "run2_over_run1": 1.0584305784550099
+      }
+    ],
+    "baseline_drift": true,
+    "control_cells": 71,
+    "run2_over_run1_geomean": 1.012098212025976
+  },
+  "control_drift_failed_cells": [
+    {
+      "cell": [
+        0,
+        2,
+        64
+      ],
+      "run2_over_run1": 0.8938525923338395
+    },
+    {
+      "cell": [
+        0,
+        23,
+        64
+      ],
+      "run2_over_run1": 0.8989710791495671
+    },
+    {
+      "cell": [
+        0,
+        31,
+        64
+      ],
+      "run2_over_run1": 0.8884758037941818
+    },
+    {
+      "cell": [
+        0,
+        129,
+        64
+      ],
+      "run2_over_run1": 1.1175555311461582
+    },
+    {
+      "cell": [
+        0,
+        257,
+        64
+      ],
+      "run2_over_run1": 1.173458127810747
+    },
+    {
+      "cell": [
+        1,
+        25,
+        63
+      ],
+      "run2_over_run1": 1.1938396060874066
+    },
+    {
+      "cell": [
+        1,
+        65,
+        63
+      ],
+      "run2_over_run1": 1.10756276975769
+    },
+    {
+      "cell": [
+        1,
+        192,
+        63
+      ],
+      "run2_over_run1": 1.1464549673308244
+    },
+    {
+      "cell": [
+        2,
+        63,
+        63
+      ],
+      "run2_over_run1": 1.107391184454415
+    }
+  ],
+  "disposition": "NO-GO",
+  "gmp_parity": false,
+  "independent_performance_receipt_sha256": "a61ad33cfdef28a287d3d7e7cb3c294b79d360bb5505fa30273a126b674998c1",
+  "isolated_candidate_verified_items": 369,
+  "measurement_retry": false,
+  "no_new_proof_oracle_or_timing": true,
+  "performance_accepted": false,
+  "performance_thresholds": {
+    "all_86_worst_max": 1.05,
+    "primary_geomean_max": 0.98
+  },
+  "pooling": false,
+  "production_base": "4510b46e4010dd287c9cf760f0195f2edc32e1f7",
+  "production_promotion": false,
+  "production_verified_items": 358,
+  "publication_head": "97d3ee9b281b5c65d3b4c84caadb51cb79b550c0",
+  "runs": [
+    {
+      "all_86_pass": false,
+      "all_86_worst": 1.0617446394400472,
+      "failed_cells": [
+        {
+          "cell": [
+            0,
+            8,
+            64
+          ],
+          "ratio": 1.0589258324090898
+        },
+        {
+          "cell": [
+            0,
+            1025,
+            64
+          ],
+          "ratio": 1.0588294376303937
+        },
+        {
+          "cell": [
+            1,
+            511,
+            63
+          ],
+          "ratio": 1.0617446394400472
+        },
+        {
+          "cell": [
+            2,
+            256,
+            63
+          ],
+          "ratio": 1.0584170369901076
+        }
+      ],
+      "measurement_sha256": "2716e9111364df389b976d3fb14f968138fbec284df169d2592b9b022dd7064a",
+      "performance_pass": false,
+      "primary_geomean": 0.9855939276239505,
+      "primary_pass": false,
+      "raw_sha256": "c780a0b2072634cf7cb3f042c05ba8768cfa132268eb9e191ef9b38f1d95f66d",
+      "raw_validation": {
+        "accepted_samples": 1806,
+        "calibrations": 258,
+        "cells": 86,
+        "exact_argv_bound": true,
+        "exact_order": true,
+        "invocations": 2064,
+        "retained_retries": 0,
+        "stdout_payload_bound": true
+      },
+      "run_id": "fused-interpolation-cpu8-20261109-run-1"
+    },
+    {
+      "all_86_pass": false,
+      "all_86_worst": 1.0730485054388073,
+      "failed_cells": [
+        {
+          "cell": [
+            0,
+            48,
+            64
+          ],
+          "ratio": 1.0506237840469277
+        },
+        {
+          "cell": [
+            0,
+            129,
+            64
+          ],
+          "ratio": 1.0730485054388073
+        },
+        {
+          "cell": [
+            1,
+            1,
+            64
+          ],
+          "ratio": 1.061204819573276
+        }
+      ],
+      "measurement_sha256": "268219fcceb93b30484dfb121e3cb96c29c3f29c178181aef7494ae43a67da29",
+      "performance_pass": false,
+      "primary_geomean": 0.9833143068125133,
+      "primary_pass": false,
+      "raw_sha256": "d50fd3fb95d374333fc3f811fb9a7bf4c90c2d7f1892c1738396fdd62ec42ad4",
+      "raw_validation": {
+        "accepted_samples": 1806,
+        "calibrations": 258,
+        "cells": 86,
+        "exact_argv_bound": true,
+        "exact_order": true,
+        "invocations": 2065,
+        "retained_retries": 1,
+        "stdout_payload_bound": true
+      },
+      "run_id": "fused-interpolation-cpu8-20261109-run-2"
+    }
+  ],
+  "source_head": "3a836713adbb0a6632f5131e8d57c97296d22f62",
+  "threshold_change": false
+}
