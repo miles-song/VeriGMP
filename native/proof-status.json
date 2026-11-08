@@ -131,6 +131,7 @@
   "cost_status": "Fixed-threshold Toom O(n^log3(5)) word bound is analytically derived from source recursion; no checked composed cost theorem",
   "complete_multiprecision_api": false,
   "gmp_performance_parity_established": false,
+  "development_candidate": "Restored Toom-4 source and scoped experimental entries are pending same-source verification, oracle, mutation, codegen, performance and independent review; production dispatch is unchanged. Historical archive results do not establish this source snapshot's status.",
   "remaining": [
     "General unequal/truncated packed-product consumers, formal bit/peak-space bounds and a separately measured production strategy; equal-length canonical exact composition has a verified model and actual-call witness, with independent acceptance recorded in the feature review",
     "Architecture-specific assembly",

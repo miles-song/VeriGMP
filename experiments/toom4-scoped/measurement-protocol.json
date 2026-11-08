@@ -1,0 +1,23 @@
+{
+  "status": "predeclared_unmeasured",
+  "scope": "Candidate entry against current default and GMP on a fixed platform and source snapshot; no production threshold follows from historical measurements",
+  "comparators": {
+    "A": "arithmetic::mul_mod or arithmetic::square_mod",
+    "B": "toom4_candidate::mul_mod or toom4_candidate::square_mod",
+    "C": "forced toom4_low::modular or toom4_square_low::low followed by normalize_top at every positive length; exploratory only",
+    "G": "GMP mpn_mul_n or mpn_sqr, followed by low-half copy and identical top-bit mask"
+  },
+  "inputs": "Identical deterministic operands per mode and run, seed 20261109 xor limbs xor top shifted 32; same immutable inputs, output length n and scratch capacities exactly 12n for product, 10n for square with surrounding canaries",
+  "allocation": "Input, expected, output, and scratch buffers are allocated and populated before calibration and recorded batches; all modes reuse the same output and scratch slices; GMP writes its full result into scratch. No allocation is intentionally included in a timed call.",
+  "sampling": "Two separate processes; seven repetitions for every operation and shape; G-ABBA-G then G-ACCA-G, or G-BAAB-G then G-CAAC-G, alternate within each run, starting ABBA/ACCA for run 0 and BAAB/CAAC for run 1; common iteration count calibrated to at least 20 ms and every retained batch at least 10 ms; no result-based retry or dropped samples",
+  "shapes": "All 26 registered key shapes plus 511/512/513, 1023/1024/1025, 1280/1536/1792, 2047/2048/2049, 2560/3072/3584 and 4095/4096/4097 at top 1/31/63/64, for both operations, deduplicated",
+  "identity": "Full positive proof report, native snapshot, proof-exported library and metadata, measurement source, binary, compiler, GMP shared library and all linked runtime libraries bound by SHA-256 before and after; raw per-batch CSV and process monitoring retained",
+  "window": "Parent schedules one quiet WSL window; single explicit CPU affinity and one benchmark thread; no other scheduled benchmark or heavy proof; preflight and continuous /proc process/aggregate monitoring, noting that WSL cannot observe all Windows host contention",
+  "stop": {
+    "busy": "Before start and at each one-second sample, abort if any other observed process exceeds 10% of one CPU or total non-benchmark guest busy time exceeds 20% of one CPU; no partial run is accepted",
+    "invalid": "Abort on failed result/canary comparison, batch under 10 ms, missing sample, timeout, process failure, source/tool/library drift, changed boot, CPU affinity failure or incomplete raw data",
+    "drift": "For every operation/shape in each run and in each comparison block separately, median of later/earlier A batches and later/earlier G batches over seven repetitions must each be within 0.90..1.10; after both runs the ratio of run-1 to run-0 median A time must also be within 0.90..1.10 in each block for every operation/shape. Failure invalidates the window without selective retry."
+  },
+  "candidate_policy": "For measured shapes proposed for enabled dispatch, require B/A median <= 0.98 in each run; no enabled measured shape may exceed 1.02 in either run, and every registered unchanged-path shape must be <= 1.03 in each run. Report all ratios and failures, including GMP comparisons. C/A is exploratory only and uses the paired A in its own block. These thresholds are experimental screening criteria, not a claim that unsampled lengths benefit.",
+  "final_acceptance": "A subsequent chosen production dispatch must be re-reviewed and reverified against its own final source, including default-path oracle, all top bits, alias, scratch/capacity, semantic mutations, code generation, boundary/regression and combination performance; backend GMP parity remains separate."
+}

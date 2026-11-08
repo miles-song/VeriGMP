@@ -30,10 +30,11 @@
   ],
   "not_yet_implemented": [
     "Architecture-specific addmul assembly",
-    "Toom-4 and higher",
+    "Production dispatch for Toom-4 and higher",
     "FFT"
   ],
   "evaluated_candidates": [
-    "Four-word row unrolling is proved and measured, but disabled in default dispatch because it lacks a consistent speedup"
+    "Four-word row unrolling is proved and measured, but disabled in default dispatch because it lacks a consistent speedup",
+    "Restored Toom-4 source is an experimental candidate; current-source correctness and performance acceptance are pending"
   ]
 }

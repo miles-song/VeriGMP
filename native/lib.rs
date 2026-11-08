@@ -28,3 +28,13 @@
 
 #[path="specs/square_base.rs"] pub mod square_base_spec;
 #[path="verified/square_base.rs"] pub mod square_base;
+
+#[path="specs/toom4.rs"] pub mod toom4;
+#[path="specs/toom4_blocks.rs"] pub mod toom4_blocks;
+#[path="verified/toom4_evaluate.rs"] pub mod toom4_evaluate;
+#[path="verified/toom4_interpolate.rs"] pub mod toom4_interpolate;
+#[path="verified/toom4_multiply.rs"] pub mod toom4_multiply;
+#[path="verified/toom4_square.rs"] pub mod toom4_square;
+#[path="verified/toom4_low.rs"] pub mod toom4_low;
+#[path="verified/toom4_square_low.rs"] pub mod toom4_square_low;
+#[path="verified/toom4_candidate.rs"] pub mod toom4_candidate;
