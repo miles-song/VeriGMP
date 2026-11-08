@@ -49,6 +49,12 @@ products, thresholds, workspace, precision and mathematical results do not
 change. The count is an analytic source schedule, not dynamic instruction data
 or a checked asymptotic cost theorem.
 
+The truncated-square base schedule uses `floor(m*m/4)` cross multiplications
+and `ceil(m/2)` diagonal multiplications, totaling 25 at m=9 and 1,056 at m=64.
+All 86 operation rows are checked against the analytic schedule. Independent
+fixtures enumerate every retained scalar pair once at lengths 1 through 129,
+including all 56 dedicated low-square leaf lengths in every source cell.
+
 The existing harness is fixed to four cells plus GMP over all 86 historical
 operation/shape controls, with 11 primary square shapes, seed `20261108`, seven
 accepted >=10ms samples and two independently launched runs. The combination

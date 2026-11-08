@@ -14,11 +14,16 @@ EVIDENCE = FEATURE / 'evidence'
 
 def main():
     p=argparse.ArgumentParser(description=__doc__)
-    for name in ('source','producer','check','operations','harness'):
+    for name in ('source','producer','check','operations','harness','metadata'):
         p.add_argument('--'+name,type=Path,required=True)
     args=p.parse_args()
     source=args.source.resolve();producer=args.producer.resolve();check=args.check.resolve()
     operations=args.operations.resolve();harness=args.harness.resolve()
+    metadata=args.metadata.resolve()
+    if json.loads((metadata/'verification.json').read_text())['status']!='metadata_only_pass':
+        raise RuntimeError('metadata-only reuse receipt missing')
+    if file_sha(operations)!=json.loads((metadata/'bench-build.json').read_text())['operation_counts_sha256']:
+        raise RuntimeError('corrected operation receipt binding mismatch')
     if json.loads((source/'prepared.json').read_text())['status']!='pass':
         raise RuntimeError('unprepared source')
     if json.loads((producer/'verification.json').read_text())['status']!='full_library_pass':
@@ -34,7 +39,7 @@ def main():
     EVIDENCE.mkdir(exist_ok=True)
     archive=EVIDENCE/'evidence.zip';manifest_path=EVIDENCE/'manifest.json'
     roots=[('source',source),('producer',producer),('static',check),
-           ('harness-fixtures',harness)]
+           ('harness-fixtures',harness),('metadata',metadata)]
     payload=[]
     for prefix,root in roots:
         for path in sorted(root.rglob('*')):

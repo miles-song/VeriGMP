@@ -24,7 +24,7 @@ def count(op, n, double, checks):
     def base_low(m, square=False):
         result['base_low_square_calls' if square else 'base_low_product_calls'] += 1
         if square:
-            result['base_word_multiplications'] += (m*m)//4 + m
+            result['base_word_multiplications'] += (m*m)//4 + (m+1)//2
         else:
             result['base_word_multiplications'] += m*(m+1)//2
     def full(m, inner=False):
@@ -101,7 +101,9 @@ def count(op, n, double, checks):
     return dict(sorted(result.items())), dict(sorted(lengths.items()))
 
 
-def verify_anchors(prepared):
+def verify_anchors(prepared, read_source=None):
+    if read_source is None:
+        read_source = lambda label, name: (prepared / label / name).read_bytes()
     anchors = {
         'native/verified/arithmetic.rs': ['if a.len()<512', 'modular(dst,a,b,scratch,top,192,128,2)',
                                           'square_low::low(dst,a,scratch,192,64,1)'],
@@ -118,20 +120,28 @@ def verify_anchors(prepared):
                                           'toom_square::full(product,&a[..k],work,threshold)',
                                           'toom_low::low(temp,&a[k..],&b[..h],work,threshold,low_limit,split_mode)'],
         'native/verified/toom_low.rs': ['if n<=low_limit {fast_multiply::base_low(dst,a,b);return;}',
-                                       'toom_multiply::full(product,&a[..k],&b[..k],work,threshold)']}
+                                       'toom_multiply::full(product,&a[..k],&b[..k],work,threshold)'],
+        'native/verified/square_base.rs': ['let square=(a as u128)*(a as u128);',
+            'let count=if i<n-i {i}else{n-i};',
+            'multiply::add_mul_word(&mut dst[i..i+count],&a[..count],a[i])',
+            'let mut j=0usize;let mut position=0usize;let mut carry=0u64;',
+            'while position<n-1',
+            'double_diagonal(dst[position],dst[position+1],a[position/2],carry)',
+            'carry=next;position+=2;j+=1;', 'if n%2==1 {',
+            'double_diagonal(dst[n-1],0,a[n/2],carry)']}
     checked = []
     for label in LABELS:
         for name, strings in anchors.items():
-            text = (prepared / label / name).read_text()
+            source = read_source(label, name)
+            text = source.decode()
             for string in strings:
                 if string not in text:
                     raise RuntimeError('source schedule anchor missing: ' + label + '/' + string)
-            checked.append(dict(cell=label, source=name, sha256=file_sha(prepared / label / name), anchors=strings))
+            checked.append(dict(cell=label, source=name, sha256=sha(source), anchors=strings))
     return checked
 
 
-def generate(prepared, data, output):
-    shapes = json.loads((prepared / 'baseline/native/performance-target.json').read_text())['key_shapes']['shapes']
+def operation_rows(shapes):
     rows = []
     for op,n,top in cells(shapes):
         counts = {}
@@ -146,11 +156,16 @@ def generate(prepared, data, output):
         if len(multiplies)!=1:
             raise RuntimeError('arithmetic multiplication count changed')
         rows.append(dict(op=op,n=n,top=top,both_factors_reached=reachable,cells=counts))
+    return rows
+
+
+def generate(prepared, data, output):
+    shapes = json.loads((prepared / 'baseline/native/performance-target.json').read_text())['key_shapes']['shapes']
     report = dict(status='pass', benchmark_run=False, basis='analytic source-control schedule; no dynamic instrumentation',
                   omitted=['evaluation/interpolation operations','data-dependent carry/comparison branches',
                            'machine instructions','cache misses','whole-program peak space'],
                   anchors=verify_anchors(prepared), prepared_sha256=file_sha(prepared/'prepared.json'),
-                  primary_square_sizes=PRIMARY, rows=rows,
+                  primary_square_sizes=PRIMARY, rows=operation_rows(shapes),
                   native_manifests={k:v['native_manifest_sha256'] for k,v in data['cells'].items()})
     write_json(output, report)
     return report

@@ -56,6 +56,13 @@ assertions but adds a public-to-worker call/frame and may change inlining.
 Potential cache/instruction interactions may help or hurt; isolated source or
 code-size gains do not establish timing improvement.
 
+For an m-limb truncated-square base case, the cross-product slices perform
+`sum(i=1..m-1, min(i,m-i)) = floor(m*m/4)` scalar multiplications. The
+two-word diagonal loop and its odd-length tail perform `ceil(m/2)` more.
+The exact total is `floor(m*m/4)+ceil(m/2)`: 25 at m=9 and 1,056 at m=64.
+Untimed fixtures enumerate the loop's actual scalar pairs and compare them
+with all unordered pairs whose positions lie below the retained output radix.
+
 ## Frozen measurements and decision rules
 
 Before any calibration or timing: freeze all four source manifests, successful

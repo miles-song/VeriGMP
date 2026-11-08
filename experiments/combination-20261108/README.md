@@ -19,6 +19,14 @@ complete-object comparisons, operation-count checks and measurement-driver
 fixtures, and builds all four frozen benchmark binaries. `measure.py` must wait
 for independent prereview and the main agent's coordinated quiet window.
 
+The exact retained-scalar-product schedule is also checked by
+`test_operations.py`. A `rebind_metadata.py` receipt can retain the original
+proofs, static gates and binary identities while freezing corrected untimed
+metadata. It checks every original payload, forbids compiled or measurement
+input changes, and records that it executed no build, verifier or benchmark.
+The effective frozen build is `metadata/bench-build.json` in the evidence
+archive; its original build remains under `static/bench-build/bench-build.json`.
+
 All scripts retain raw command output and failed attempts. Source-level visit
 counts, functional proofs, complete code generation and measured time are
 different evidence. No new imported-client/SAT proof, solver trace, complete
