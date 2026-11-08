@@ -17,14 +17,14 @@
     },
     {
       "name": "omit-first-product-high-limb",
-      "anchor": "toom_words::zero(&mut pm[2*k..]);",
-      "replacement": "toom_words::zero(&mut pm[2*k+1..]);",
+      "anchor": "toom_words::zero(&mut dst[2*k..]);",
+      "replacement": "toom_words::zero(&mut dst[2*k+1..]);",
       "expected": "poisoned scratch can expose stale limb 2k"
     },
     {
       "name": "omit-second-product-high-limb",
-      "anchor": "toom_words::zero(&mut pm[2*k..]);",
-      "replacement": "toom_words::zero(&mut pm[2*k..2*k+1]);",
+      "anchor": "toom_words::zero(&mut dst[2*k..]);",
+      "replacement": "toom_words::zero(&mut dst[2*k..2*k+1]);",
       "expected": "poisoned scratch can expose stale limb 2k+1"
     },
     {
@@ -38,7 +38,7 @@
     "name": "shorten-without-threshold",
     "anchor": "if k==threshold && ax[k]==0 && bx[k]==0",
     "replacement": "if ax[k]==0 && bx[k]==0",
-    "expected": "same numerical result; census identifies where policy differs, without measuring performance"
+    "expected": "same numerical result; this broadened policy directly calls fast_multiply at any k with zero high limbs; census identifies changed guards, without measuring performance"
   },
   "alias_negative": {
     "description": "Separate compile-time borrow-overlap checks; the runtime candidate must retain disjoint mutable slices and allow immutable a/b aliasing.",

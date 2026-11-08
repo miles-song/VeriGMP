@@ -27,10 +27,11 @@ The refinement argument is:
   and `work` disjoint. Immutable source operands may legally alias one another.
   The work slice satisfies the short call's 12k bound because the unchanged
   original call must already satisfy its 12m bound.
-* The original non-leaf preconditions imply `k < n`; the shortened call strictly
-  decreases the recursion measure. Since `k == threshold`, it dispatches to
-  the existing `fast_multiply::full` leaf for this Toom threshold. The public
-  capacity, output-size and threshold contracts do not change.
+* Since `k == threshold`, the original shortened recursive Toom call would
+  dispatch immediately to `fast_multiply::full` with threshold 24. The helper
+  calls that same leaf directly with the same slices and threshold. Its
+  preconditions establish the slice and workspace bounds. The public capacity,
+  output-size and threshold contracts do not change.
 
 These are arguments and candidate proof code, not proof results. Same-source
 Verus must establish every precondition, postcondition and termination claim.
@@ -120,7 +121,9 @@ shared operand for `mul_mod(a, a)` and reports `full`, `mul_mod`, shared
 parameter is applicable only to modular operations. The broadened condition
 that removes `k == threshold` is a dispatch-policy comparison, not a semantic
 mutant: under the slice, capacity and recursive multiplication contracts both
-paths produce the same integer when the two high words are zero.
+paths produce the same integer when the two high words are zero. This policy
+experiment also directly dispatches to `fast_multiply::full` at other values
+of `k`; any performance effect of that broader policy is unmeasured.
 
 For a runtime-only replay on the pinned Linux toolchain, first commit a clean
 feature worktree, then run `replay_gate.py` with `--out` naming a new directory

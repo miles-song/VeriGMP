@@ -8,6 +8,47 @@ use crate::fast_product::*;
 use crate::{toom,toom_blocks,toom_words,toom_evaluate,toom_interpolate,fast_multiply};
 verus! {
 #[verifier::spinoff_prover]
+pub proof fn zero_high_word(a:Seq<u64>,k:nat)
+    requires a.len()==k+1,a[k as int]==0,
+    ensures value(a)==value(a.subrange(0,k as int)),
+{
+    equal_prefix(a,a.subrange(0,k as int),k);
+}
+#[verifier::spinoff_prover]
+pub proof fn zero_padded_value(before:Seq<u64>,after:Seq<u64>,k:nat)
+    requires before.len()==after.len(), k<=before.len(),
+        forall|i:int| 0<=i<k ==> before[i]==after[i],
+        value(after.subrange(k as int,after.len() as int))==0,
+    ensures value(after)==value(before.subrange(0,k as int)),
+{
+    split(after,k);
+    equal_prefix(after,before,k);
+    equal_prefix(before,before.subrange(0,k as int),k);
+}
+#[inline(always)]
+#[verifier::spinoff_prover]
+pub fn negative_product_short(dst:&mut[u64],a:&[u64],b:&[u64],work:&mut[u64])
+    requires a@.len()>=2,a@.len()==b@.len(),old(dst)@.len()==2*a@.len(),
+        old(work)@.len()>=12*a@.len(),a@.len()<=usize::MAX/12,
+        a@[(a@.len()-1) as int]==0,b@[(b@.len()-1) as int]==0,
+    ensures final(dst)@.len()==old(dst)@.len(),final(work)@.len()==old(work)@.len(),
+        value(final(dst)@)==value(a@)*value(b@),
+{
+    let k=a.len()-1;
+    let ghost av=value(a@);let ghost bv=value(b@);
+    proof {
+        zero_high_word(a@,k as nat);
+        zero_high_word(b@,k as nat);
+    }
+    fast_multiply::full(&mut dst[..2*k],&a[..k],&b[..k],work,24);
+    let ghost short_product=dst@;
+    toom_words::zero(&mut dst[2*k..]);
+    proof {
+        zero_padded_value(short_product,dst@,(2*k) as nat);
+        assert(value(dst@)==av*bv);
+    }
+}
+#[verifier::spinoff_prover]
 #[verifier::rlimit(30)]
 pub fn full(dst:&mut[u64],a:&[u64],b:&[u64],scratch:&mut[u64],threshold:usize)
     requires a@.len()>0,a@.len()==b@.len(),old(dst)@.len()==2*a@.len(),
@@ -48,20 +89,7 @@ pub fn full(dst:&mut[u64],a:&[u64],b:&[u64],scratch:&mut[u64],threshold:usize)
     let negative=na!=nb;
     let ghost av=value(ax@);let ghost bv=value(bx@);
     if k==threshold && ax[k]==0 && bx[k]==0 {
-        proof {
-            equal_prefix(ax@,ax@.subrange(0,k as int),k as nat);
-            equal_prefix(bx@,bx@.subrange(0,k as int),k as nat);
-            assert(value(ax@)==value(ax@.subrange(0,k as int)));
-            assert(value(bx@)==value(bx@.subrange(0,k as int)));
-        }
-        full(&mut pm[..2*k],&ax[..k],&bx[..k],work,threshold);
-        let ghost short_product=pm@;
-        toom_words::zero(&mut pm[2*k..]);
-        proof {
-            split(pm@,(2*k) as nat);
-            equal_prefix(pm@,short_product,(2*k) as nat);
-            assert(value(pm@)==av*bv);
-        }
+        negative_product_short(pm,ax,bx,work);
     } else {
         full(pm,ax,bx,work,threshold);
     }
