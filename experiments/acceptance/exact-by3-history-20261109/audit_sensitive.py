@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Scan recovered non-main objects and ZIP members for common credential markers."""
+"""Scan non-main commit/blob content and selected paths for credential markers."""
 
 import argparse
 import hashlib
@@ -91,7 +91,7 @@ def audit(repo):
         raise RuntimeError("unexpected trailing object data")
     return {
         "result": "PASS" if not findings else "FINDINGS",
-        "scope": "objects reachable from candidate tip and not public main, including recursively scanned ZIP members",
+        "scope": "non-main commit and blob contents and recursively scanned ZIP members; filenames are limited to rev-list object paths and ZIP member names",
         "candidate_tip": TIP,
         "public_main": MAIN,
         "git_objects": len(names),

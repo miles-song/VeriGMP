@@ -1,0 +1,5 @@
+Path-redacted excerpt of the original stderr; the local original is retained.
+Original SHA-256: eafa17a3f32cd416e194a4b7b7613e036b62bad606d18254e2a38c1e8fad9ad3
+
+FAIL: command failed (255): ('git', '-C', '<original-fixture>', '--work-tree=<original-fixture>-checkout', '-c', 'core.autocrlf=false', 'checkout', '2010bd4a025d7cdf22e153a5e198f2f33b43cf77', '--', '.')
+error: unable to create file experiments/toom8-primitives/recursive/development/recursive-termination-negative1/overlays/candidate/native/verified/toom8_recursive_producer.rs: Filename too long

@@ -116,8 +116,8 @@ def verify(args):
     require(refs_after == [f"{MAIN} refs/heads/main", f"{TIP} refs/heads/recovered"], "unexpected refs")
 
     checkout.mkdir()
-    git(fixture, f"--work-tree={checkout}", "-c", "core.autocrlf=false", "checkout", TIP, "--", ".")
-    require(git(fixture, f"--work-tree={checkout}", "-c", "core.autocrlf=false", "diff-files", "--quiet", check=False).returncode == 0,
+    git(fixture, f"--work-tree={checkout}", "-c", "core.autocrlf=false", "-c", "core.longpaths=true", "checkout", TIP, "--", ".")
+    require(git(fixture, f"--work-tree={checkout}", "-c", "core.autocrlf=false", "-c", "core.longpaths=true", "diff-files", "--quiet", check=False).returncode == 0,
             "restored checkout differs from its index")
     require(git(fixture, "diff-index", "--cached", "--quiet", TIP, check=False).returncode == 0,
             "restored index differs from the candidate tree")
@@ -155,6 +155,8 @@ def verify(args):
         "main_source": source,
         "source_main": MAIN,
         "source_main_tree": MAIN_TREE,
+        "fixture": str(fixture),
+        "checkout": str(checkout),
         "bundle_sha256": BUNDLE_SHA256,
         "bundle_bytes": bundle.stat().st_size,
         "bundle_advertised_ref": heads,

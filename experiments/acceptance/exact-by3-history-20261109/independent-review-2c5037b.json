@@ -1,0 +1,46 @@
+{
+  "archive_commit": "2c5037bde797fffb3f35ace575812e45a4069d8e",
+  "git_version": "git version 2.52.0.windows.1",
+  "python_version": "3.14.7 (tags/v3.14.7:823f032, Aug  5 2026, 10:51:32) [MSC v.1944 64 bit (AMD64)]",
+  "licenses": {
+    "official_archive_sha256": "a3c2b80201b89e68616f4ad30bc66aee4927c3ce50e33929ca819d5c43538898",
+    "source_sha256": "edbe9d46289da509a128d1d7890f8b4d604818f0ed6e1c219f5cd89b352446ac",
+    "license_files_sha256": {
+      "COPYING.LESSERv3": "a853c2ffec17057872340eee242ae4d96cbf2b520ae27d903e1b2fef1a5f9d1c",
+      "COPYINGv2": "8177f97513213526df2cf6184d8ff986c675afb514d4e68a404010521b880643",
+      "COPYINGv3": "e6037104443f9a7829b2aa7c5370d0789a7bda3ca65a0b904cdc0c2e285d9195"
+    },
+    "source_notice_verbatim": true
+  },
+  "object_scope": {
+    "all_fixture_objects": 3564,
+    "all_objects_equal_main_or_tip_reachable": true,
+    "non_main_types": {
+      "blob": 40,
+      "commit": 4,
+      "tree": 27
+    },
+    "all_candidate_tree_paths": 4586,
+    "changed_paths_all_four_commits": 29,
+    "changed_paths_matching_filename_pattern": []
+  },
+  "bundle_tamper": {
+    "returncode": 1,
+    "diagnostic": "bundle SHA-256 differs",
+    "fixture_created": false
+  },
+  "static_tamper": {
+    "returncode": 1,
+    "diagnostic": "AssertionError on frozen archive hash"
+  },
+  "synthetic_scanner": {
+    "reused_public_blob_named_credentials_json": "PASS",
+    "reused_blob_filename_was_missed": true,
+    "synthetic_markers_detected": [
+      "credential_assignment",
+      "credential_filename",
+      "private_key_header"
+    ],
+    "nested_zip_archives": 2
+  }
+}

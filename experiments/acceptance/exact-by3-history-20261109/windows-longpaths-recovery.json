@@ -1,0 +1,101 @@
+{
+  "result": "PASS",
+  "git_version": "git version 2.52.0.windows.1",
+  "python_version": "3.14.7 (tags/v3.14.7:823f032, Aug  5 2026, 10:51:32) [MSC v.1944 64 bit (AMD64)]",
+  "main_source": "https://github.com/miles-song/VeriGMP.git",
+  "source_main": "2d4e1748e5efe9143c21b13b53dbf6ebf1fffaba",
+  "source_main_tree": "6b6e9c4247bace1506303da5acbaa55edfa87354",
+  "fixture": "E:\\3sat\\verigmp-exactby3-crossplatform-20261109\\windows\\deep-path-proof-with-command-scoped-git-configuration\\independent-main-only-recovery.git",
+  "checkout": "E:\\3sat\\verigmp-exactby3-crossplatform-20261109\\windows\\deep-path-proof-with-command-scoped-git-configuration\\independent-main-only-recovery.git-checkout",
+  "bundle_sha256": "15969149016acd56d7c8344dcce58679381af3b0a00b9f6ad573479adfa1e648",
+  "bundle_bytes": 22463053,
+  "bundle_advertised_ref": "2010bd4a025d7cdf22e153a5e198f2f33b43cf77 refs/heads/codex/gmp-exact-by3-20261109",
+  "bundle_verify_stdout": "The bundle contains this ref:\n2010bd4a025d7cdf22e153a5e198f2f33b43cf77 refs/heads/codex/gmp-exact-by3-20261109\nThe bundle requires this ref:\n4510b46e4010dd287c9cf760f0195f2edc32e1f7 \nThe bundle uses this hash algorithm: sha1\n",
+  "prerequisite_ancestor_of_main": "4510b46e4010dd287c9cf760f0195f2edc32e1f7",
+  "refs_before": [
+    "2d4e1748e5efe9143c21b13b53dbf6ebf1fffaba refs/heads/main"
+  ],
+  "initial_object_count": 3493,
+  "initial_objects_equal_main_reachable": true,
+  "candidate_commits_absent_before": {
+    "c28039e165e082fdcff7ab3ed72eb32252d0153e": true,
+    "d5acf5ba17b32993ea0272aa9b17669412cd688b": true,
+    "27f0e42188e3ecbcb6263ee9a4278e763e0da3a1": true,
+    "2010bd4a025d7cdf22e153a5e198f2f33b43cf77": true
+  },
+  "alternate_file_absent_before_and_after": true,
+  "git_environment_sanitized": true,
+  "refs_after": [
+    "2d4e1748e5efe9143c21b13b53dbf6ebf1fffaba refs/heads/main",
+    "2010bd4a025d7cdf22e153a5e198f2f33b43cf77 refs/heads/recovered"
+  ],
+  "recovered_non_main_graph_oldest_first": [
+    {
+      "commit": "c28039e165e082fdcff7ab3ed72eb32252d0153e",
+      "tree": "eec8663782d01d4bd61cd1b0f6622aceccd37899",
+      "parent": "4510b46e4010dd287c9cf760f0195f2edc32e1f7"
+    },
+    {
+      "commit": "d5acf5ba17b32993ea0272aa9b17669412cd688b",
+      "tree": "988c46ae554a1e10a0a356f3018d2568e9f2ff85",
+      "parent": "c28039e165e082fdcff7ab3ed72eb32252d0153e"
+    },
+    {
+      "commit": "27f0e42188e3ecbcb6263ee9a4278e763e0da3a1",
+      "tree": "17dc86851b82dc5d68dc8cf0140ffa257f765d00",
+      "parent": "d5acf5ba17b32993ea0272aa9b17669412cd688b"
+    },
+    {
+      "commit": "2010bd4a025d7cdf22e153a5e198f2f33b43cf77",
+      "tree": "3cc25bdec266408e012ffff9641e767d854474bd",
+      "parent": "27f0e42188e3ecbcb6263ee9a4278e763e0da3a1"
+    }
+  ],
+  "recovered_reachable_object_entries": 3492,
+  "missing_object_entries": 0,
+  "fsck_exit_code": 0,
+  "checkout_matches_recovered_tree": true,
+  "restored_file_hashes": {
+    "native/specs/exact_by3.rs": {
+      "sha256": "08b7913b202a5d26fa4e7444a12e1a454cf3c561df24195fabf44cef1eeb4b44",
+      "bytes": 3217
+    },
+    "native/verified/exact_by3.rs": {
+      "sha256": "9466ce3e36310971768f1742707ae0960bb0b05222ba607935e3d26a3db2e253",
+      "bytes": 3277
+    },
+    "native/verified/toom_interpolate.rs": {
+      "sha256": "f288b666feb11ffc815df3de66b8522dfe05f87178f9cbdaa2d92f9cd95242db",
+      "bytes": 2343
+    },
+    "experiments/acceptance/exact-by3-20261109/static-d5acf5b/evidence.zip": {
+      "sha256": "69ff54aa4c8e56979e1d6936efa8dad15c424e210e20d6b4693e851d6f5e2348",
+      "bytes": 22788327
+    }
+  },
+  "reference_license_hashes": {
+    "COPYING.LESSERv3": "a853c2ffec17057872340eee242ae4d96cbf2b520ae27d903e1b2fef1a5f9d1c",
+    "COPYINGv2": "8177f97513213526df2cf6184d8ff986c675afb514d4e68a404010521b880643",
+    "COPYINGv3": "e6037104443f9a7829b2aa7c5370d0789a7bda3ca65a0b904cdc0c2e285d9195"
+  },
+  "reference_notice_present": true,
+  "restored_static_checker": {
+    "actual_caller_cases_each": 1084,
+    "actual_helper_requests_each": 1237,
+    "archive_members": 1209,
+    "archive_sha256": "69ff54aa4c8e56979e1d6936efa8dad15c424e210e20d6b4693e851d6f5e2348",
+    "baseline_items_reused": 358,
+    "benchmark_executed": false,
+    "calibration_executed": false,
+    "complete_native_items_each": 373,
+    "helper_cases": 1022,
+    "independent_review_pending": true,
+    "performance_accepted": false,
+    "publication_checked": true,
+    "status": "pass",
+    "strict_logical_rejections": 8
+  },
+  "tip_recursive_tree_entries": 4586,
+  "tip_recursive_tree_listing_sha256": "0413d0ee577ca2b2c4b2f01d8cc0adaa9427dd4369540f5167dd5d2c1a163d55",
+  "verifier_sha256": "aad0fe1654ebf5527563029605d2b3a581a1f6614f73f4c898f673fa04b6ffab"
+}

@@ -1,0 +1,11 @@
+{
+  "result": "PASS",
+  "python_version": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]",
+  "verifier_sha256": "aad0fe1654ebf5527563029605d2b3a581a1f6614f73f4c898f673fa04b6ffab",
+  "original_bundle_sha256": "15969149016acd56d7c8344dcce58679381af3b0a00b9f6ad573479adfa1e648",
+  "damaged_bundle_sha256": "2507d765f7e9bae5ff5c7d608360bc3dfa830a6d02618b09f9eaf08e99a31ab4",
+  "returncode": 1,
+  "stderr": "FAIL: bundle SHA-256 differs",
+  "fixture_created": false,
+  "checker_sha256": "11e59cf2ae0e116bbbed2fc9900104625941cc00485a9532903b863897f25cde"
+}

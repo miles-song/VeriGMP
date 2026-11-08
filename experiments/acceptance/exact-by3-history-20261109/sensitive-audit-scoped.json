@@ -1,0 +1,24 @@
+{
+  "result": "PASS",
+  "scope": "non-main commit and blob contents and recursively scanned ZIP members; filenames are limited to rev-list object paths and ZIP member names",
+  "candidate_tip": "2010bd4a025d7cdf22e153a5e198f2f33b43cf77",
+  "public_main": "2d4e1748e5efe9143c21b13b53dbf6ebf1fffaba",
+  "git_objects": 71,
+  "git_blobs": 40,
+  "zip_archives": 1,
+  "zip_file_members": 1209,
+  "bytes_scanned_including_archive_and_members": 125862470,
+  "patterns": [
+    "aws_access_key",
+    "bearer_literal",
+    "credential_assignment",
+    "github_token",
+    "gitlab_token",
+    "openai_style_key",
+    "private_key_header",
+    "slack_token",
+    "credential_filename"
+  ],
+  "findings": [],
+  "scanner_sha256": "78390e0653b0609464396d56003b0e54080688a999ef0a0f8973d4f89ce642ea"
+}
