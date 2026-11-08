@@ -72,6 +72,11 @@ def git(*args):
                           text=True, timeout=60).stdout.strip()
 
 
+def git_bytes(*args):
+    return subprocess.run(git_adapter() + list(args), check=True, capture_output=True,
+                          timeout=60).stdout
+
+
 def ceil_log2(n):
     return 0 if n <= 1 else (n - 1).bit_length()
 
@@ -179,7 +184,8 @@ def main():
     source_files = [ROOT / "experiments/packed-convolution/consumer_bench.rs", Path(__file__).resolve()]
     source_hashes = {str(path.relative_to(ROOT)): file_sha(path) for path in source_files}
     for path in source_files:
-        if git("show", f"HEAD:{path.relative_to(ROOT).as_posix()}") != path.read_text(encoding="utf-8"):
+        relative = path.relative_to(ROOT).as_posix()
+        if git_bytes("show", f"HEAD:{relative}") != path.read_bytes():
             raise RuntimeError("Committed source does not match the measured source: " + str(path))
 
     layout_dir = args.layout_gate.resolve()
