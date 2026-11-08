@@ -1,0 +1,17 @@
+{
+  "status": "generated_without_runtime_execution",
+  "source_commit": "c50aa72dbc36ec4dfa0d6046b3773f88431819d4",
+  "generator_sha256": "d891fd20d768ce764ab269765e6572b91264d8475816d9a6b0dad892df883096",
+  "python": "3.14.7",
+  "format": "VGMPBN01",
+  "word_bits": 64,
+  "seeds": ["0x20261109", "0x2026110a", "0x2026110b", "0x2026110c"],
+  "forced_full_n": [573, 574, 575, 576, 577],
+  "default_n": [737, 738, 739, 740, 741, 742, 743, 744, 745, 746],
+  "primary_n": [740, 741, 742, 743],
+  "case_count": 162,
+  "fixture_sha256": "c755ef49c876c4193b96fc3079ce954eed0879a7413f74a2bb9aa8464ed72154",
+  "expected_sha256": "86aa208409cbbb649eaadc118c07e84816191263221e424e36812ee4d3bd56e2",
+  "cases_jsonl_sha256": "7a7e6471f36ee4b80c5a82f18fa783d8ee79d95e7a376498b5634a17ea10c265",
+  "expected_definition": "Python arbitrary integer products and power-of-two reductions computed from fixture inputs"
+}

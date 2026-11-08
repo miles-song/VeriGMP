@@ -1,0 +1,41 @@
+{
+  "status": "planned_pending_same_source_gate",
+  "source_commit": "c50aa72dbc36ec4dfa0d6046b3773f88431819d4",
+  "principle": "Each mutant must be rejected by a real semantic proof or by the independent Rust oracle; parse, type, timeout and tool errors are incomplete.",
+  "mutants": [
+    {
+      "name": "drop-high-a-condition",
+      "anchor": "if k==threshold && ax[k]==0 && bx[k]==0",
+      "replacement": "if k==threshold && bx[k]==0",
+      "expected": "TT and FT/FF rows with nonzero ax[k] must reject"
+    },
+    {
+      "name": "drop-high-b-condition",
+      "anchor": "if k==threshold && ax[k]==0 && bx[k]==0",
+      "replacement": "if k==threshold && ax[k]==0",
+      "expected": "TT and TF/FF rows with nonzero bx[k] must reject"
+    },
+    {
+      "name": "omit-first-product-padding",
+      "anchor": "toom_words::zero(&mut pm[2*k..]);",
+      "replacement": "// product high padding omitted",
+      "expected": "poisoned scratch and Python expected output expose stale limb"
+    },
+    {
+      "name": "wrong-point-sign",
+      "anchor": "let negative=na!=nb;",
+      "replacement": "let negative=na==nb;",
+      "expected": "signed negative evaluation rows reject"
+    },
+    {
+      "name": "shorten-without-threshold",
+      "anchor": "if k==threshold && ax[k]==0 && bx[k]==0",
+      "replacement": "if ax[k]==0 && bx[k]==0",
+      "expected": "non-threshold fallback controls reject through oracle or proof"
+    }
+  ],
+  "alias_negative": {
+    "description": "Separate compile-time borrow-overlap checks; the runtime candidate must retain disjoint mutable slices and allow immutable a/b aliasing.",
+    "status": "planned"
+  }
+}

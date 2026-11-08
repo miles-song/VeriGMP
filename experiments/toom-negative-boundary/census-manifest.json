@@ -1,0 +1,14 @@
+{
+  "status": "generated_without_runtime_execution",
+  "source_commit": "c50aa72dbc36ec4dfa0d6046b3773f88431819d4",
+  "generator_sha256": "d891fd20d768ce764ab269765e6572b91264d8475816d9a6b0dad892df883096",
+  "rows": 132,
+  "high_zero_counts": {
+    "11": 102,
+    "01": 14,
+    "00": 8,
+    "10": 8
+  },
+  "rows_sha256": "53ae2f5a9bf28251a614b85c08418b9eee006d6f4d695a3ba6e3880cd4a0f503",
+  "definition": "Independent Python evaluation of each default and shared row's three input blocks; no kernel instrumentation"
+}
