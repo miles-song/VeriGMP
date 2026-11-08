@@ -1,9 +1,8 @@
 //! Actual Rust-facing oracle runner for the -1-point boundary candidate.
 //!
-//! This file is experiment infrastructure. It imports the exact source tree
-//! under test and deliberately keeps expected values outside Rust so the
-//! arbitrary-integer oracle remains independent of the implementation.
-#[path="../../native/lib.rs"] mod verigmp;
+//! This file is linked against the separately compiled source under test.
+//! Expected values stay outside Rust in the independent integer oracle.
+extern crate verigmp;
 
 use std::fs;
 use std::io::{self, Write};

@@ -110,6 +110,27 @@ The generated corpus identity is recorded in `corpus-manifest.json`; the
 non-instrumented guard census identity is recorded in `census-manifest.json`.
 Those files are registration artifacts only: the listed fixture and census
 hashes were produced before any Rust executable, proof, build or timing run.
+They describe the historical corpus, not the expanded fixture and corrected
+census. The new execution records its own immutable manifest and results.
+
+The census models the first applicable full multiplication for each fixture;
+it is not an instrumented count of recursive calls. It evaluates the actual
+shared operand for `mul_mod(a, a)` and reports `full`, `mul_mod`, shared
+`mul_mod`, and the first `square_mod` cross-product separately. The `top`
+parameter is applicable only to modular operations. The broadened condition
+that removes `k == threshold` is a dispatch-policy comparison, not a semantic
+mutant: under the slice, capacity and recursive multiplication contracts both
+paths produce the same integer when the two high words are zero.
+
+For a runtime-only replay on the pinned Linux toolchain, first commit a clean
+feature worktree, then run `replay_gate.py` with `--out` naming a new directory
+outside the worktree, `--deps` naming the pinned Verus/Rustup dependency root,
+and `--cargo-home` naming its rustup launcher directory. The gate snapshots
+the source and actual runner, checks the pinned archive, records every argv,
+captures independent results and preserves each mutant source and diff. The
+`--no-verify` libraries it builds are solely for the numerical oracle; their
+success is neither proof nor performance acceptance. A timeout or failed
+build leaves the receipt incomplete. No old receipt is modified.
 
 Keep the trusted GMP solver backend until its separate parity, repeat and
 representative solver-trace gates pass. A localized optimization does not by

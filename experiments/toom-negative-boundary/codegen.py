@@ -23,7 +23,7 @@ def audit(assembly_path: Path, source_path: Path) -> dict:
     bodies = functions(assembly)
     roots = [name for name in ("verified_product", "verified_square") if name in bodies]
     report = {
-        "status": "pass",
+        "status": "inspection-only",
         "assembly_sha256": hashlib.sha256(assembly_path.read_bytes()).hexdigest(),
         "source_sha256": hashlib.sha256(source_path.read_bytes()).hexdigest(),
         "candidate_source_guard": "if k==threshold && ax[k]==0 && bx[k]==0" in source,
@@ -38,10 +38,12 @@ def audit(assembly_path: Path, source_path: Path) -> dict:
             "general_division": len(re.findall(r"(?m)^\s*i?div[bwlq]?\s", assembly)),
         },
         "reachable_calls": {name: calls(bodies[name]) for name in roots},
-        "interpretation": "Static assembly facts only; no runtime speed claim or path-frequency claim.",
+        "interpretation": "Static assembly facts only; source-to-assembly build provenance must be established separately.",
     }
     if not report["candidate_source_guard"]:
         raise RuntimeError("candidate guard anchor missing from source")
+    if set(roots) != {"verified_product", "verified_square"}:
+        raise RuntimeError("expected assembly roots are missing")
     return report
 
 
@@ -52,7 +54,8 @@ def main() -> None:
     parser.add_argument("--out", type=Path, required=True)
     args = parser.parse_args()
     report = audit(args.assembly, args.source)
-    args.out.write_text(json.dumps(report, indent=2) + "\n")
+    with args.out.open("x", encoding="utf-8") as f:
+        f.write(json.dumps(report, indent=2) + "\n")
     print(json.dumps(report, indent=2))
 
 
