@@ -24,7 +24,7 @@ def count(op, n, double, checks):
     def base_low(m, square=False):
         result['base_low_square_calls' if square else 'base_low_product_calls'] += 1
         if square:
-            result['base_word_multiplications'] += (m*m)//4 + (m+1)//2
+            result['base_word_multiplications'] += (m*m)//4 + m
         else:
             result['base_word_multiplications'] += m*(m+1)//2
     def full(m, inner=False):
