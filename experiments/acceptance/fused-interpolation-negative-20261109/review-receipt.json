@@ -1,0 +1,20 @@
+{
+  "schema": "independent-review-seal-v1",
+  "verdict": "NO-GO",
+  "evidence_acceptance": "ACCEPT_COMPLETE_FROZEN_NEGATIVE_EVIDENCE",
+  "performance_acceptance": "REJECTED",
+  "source": "3a836713adbb0a6632f5131e8d57c97296d22f62",
+  "publication": "97d3ee9b281b5c65d3b4c84caadb51cb79b550c0",
+  "build_sha256": "bac446bdf52f2a9ce6babb653019427d3f65ec36c90de68b5a8459ae945a62c4",
+  "identity_sha256": "2ef03539dfb28375a6de5ff09a7fad03245fcc9cd5c26447d775a73900c5ff01",
+  "root_freeze_sha256": "29946c99d968c26b8216b34040d7769578db1d9d716690699b33228a1a965b27",
+  "host_sha256": "66974bfa218ab35442d3d0006fc15d9b412e1104fe62d803bb72c12f8fcef6a1",
+  "review_sha256": "1db57480ce7c48274dbdfe54e2a8f470aa97ad79efd3555407db74affe83981a",
+  "manifest_sha256": "bd509bd71ffc33ace345fb4ba09437b686a2f393d15a02da486e281266742ee1",
+  "archive_sha256": "0438069f487ddac4d8e832ee10c9ec6563204bacaf34333efa6d81b746249341",
+  "archive_members": 175,
+  "archive_verified": true,
+  "remeasurement_authorized": false,
+  "candidate_promotion_authorized": false,
+  "publication_review_pending": true
+}
