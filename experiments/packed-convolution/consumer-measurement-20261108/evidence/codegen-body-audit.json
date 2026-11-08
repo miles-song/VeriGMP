@@ -1,0 +1,568 @@
+{
+  "status": "pass_complete_symbol_body_erasure_audit",
+  "reviewed_commit": "2faefeab7a377cd1820f4dd5ec0c37fd9a33dbb4",
+  "reviewed_tree": "02a13b531bff0b41745976702a04aaf959e1e530",
+  "scope": "Independent complete object-symbol byte audit of retained pinned optimized libraries; no build, timing, product-composition, bit-cost or peak-space theorem is claimed.",
+  "affinity": [
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15
+  ],
+  "platform": "Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+  "tools": {
+    "ar": {
+      "path": "/usr/bin/ar",
+      "sha256": "534681ac11c18868cfc4fdf98770aa0ba8973eedc90c231e94e6ba96e1a04f27",
+      "version": "GNU ar (GNU Binutils for Ubuntu) 2.42"
+    },
+    "nm": {
+      "path": "/usr/bin/nm",
+      "sha256": "910ad8a63896f722374fdf22951d2a436c74e3ac9677511cc56378296bdf86cc",
+      "version": "GNU nm (GNU Binutils for Ubuntu) 2.42"
+    },
+    "objdump": {
+      "path": "/usr/bin/objdump",
+      "sha256": "d0041e7511460b9ebfd95ce4f9d93c7ffea398ffc1cb2c316a220dd8e533db3d",
+      "version": "GNU objdump (GNU Binutils for Ubuntu) 2.42"
+    },
+    "objcopy": {
+      "path": "/usr/bin/objcopy",
+      "sha256": "b22f4f909bff115ee2a37cd21ff76f5e0b8c65cd58f98edbce7b59f129980d67",
+      "version": "GNU objcopy (GNU Binutils for Ubuntu) 2.42"
+    }
+  },
+  "libraries": [
+    {
+      "label": "before-counter-extension-r55",
+      "source_commit": "ae86c9e995304afb16a59eab83184fa5ea258aa6",
+      "packed_layout_source_sha256": "fce46ba30a91dc653091dbdd9a23baf147f62fa1e66a09d1d50fedda8eee51de",
+      "rlib_path": "/mnt/e/3sat/VeriGMP-packed-convolution-evidence/layout-gate-20261108-r55/libverigmp.rlib",
+      "rlib_sha256": "c9f2f3370c4ae957a2bf1dc4ca853b1adfc4c298a00695bc97dacca2e38fb99f",
+      "verification_report_sha256": "c10eb6008c6f19df4c780ed9ef1700c1e4e5b9bd22b80255c946dde83d5e3478",
+      "functions": [
+        {
+          "symbol": "verigmp::packed_layout::pack_coefficients",
+          "archive_member": "libverigmp.verigmp.7000fc1d8a625552-cgu.0.rcgu.o",
+          "section": ".text._RNvNtCs9Cc19I5TWaA_7verigmp13packed_layout17pack_coefficients",
+          "symbol_address": 0,
+          "symbol_size_bytes": 487,
+          "nm_size_hex": "00000000000001e7",
+          "instructions": 140,
+          "code_sha256": "84df6810c854bd5dd0fe25d5a7d38abed7d18ab11176932ef2135216672953f6",
+          "objcopy_and_disassembly_bytes_equal": true,
+          "commands": [
+            [
+              "ar",
+              "p",
+              "/mnt/e/3sat/VeriGMP-packed-convolution-evidence/layout-gate-20261108-r55/libverigmp.rlib",
+              "libverigmp.verigmp.7000fc1d8a625552-cgu.0.rcgu.o"
+            ],
+            [
+              "objdump",
+              "-t",
+              "-C",
+              "<extracted-object>"
+            ],
+            [
+              "nm",
+              "-S",
+              "-C",
+              "<extracted-object>"
+            ],
+            [
+              "objcopy",
+              "--dump-section",
+              ".text._RNvNtCs9Cc19I5TWaA_7verigmp13packed_layout17pack_coefficients=<section-bytes>",
+              "<extracted-object>"
+            ],
+            [
+              "objdump",
+              "-d",
+              "-C",
+              "--insn-width=32",
+              "<extracted-object>"
+            ]
+          ]
+        },
+        {
+          "symbol": "verigmp::packed_layout::extract_coefficients",
+          "archive_member": "libverigmp.verigmp.7000fc1d8a625552-cgu.0.rcgu.o",
+          "section": ".text._RNvNtCs9Cc19I5TWaA_7verigmp13packed_layout20extract_coefficients",
+          "symbol_address": 0,
+          "symbol_size_bytes": 324,
+          "nm_size_hex": "0000000000000144",
+          "instructions": 101,
+          "code_sha256": "45155a3921293655560a5c6a32a36c461ca92731112f696aea64492c9e26104c",
+          "objcopy_and_disassembly_bytes_equal": true,
+          "commands": [
+            [
+              "ar",
+              "p",
+              "/mnt/e/3sat/VeriGMP-packed-convolution-evidence/layout-gate-20261108-r55/libverigmp.rlib",
+              "libverigmp.verigmp.7000fc1d8a625552-cgu.0.rcgu.o"
+            ],
+            [
+              "objdump",
+              "-t",
+              "-C",
+              "<extracted-object>"
+            ],
+            [
+              "nm",
+              "-S",
+              "-C",
+              "<extracted-object>"
+            ],
+            [
+              "objcopy",
+              "--dump-section",
+              ".text._RNvNtCs9Cc19I5TWaA_7verigmp13packed_layout20extract_coefficients=<section-bytes>",
+              "<extracted-object>"
+            ],
+            [
+              "objdump",
+              "-d",
+              "-C",
+              "--insn-width=32",
+              "<extracted-object>"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "label": "after-counter-extension-r60",
+      "source_commit": "45df242b56aeaf14ca907369a6c934fc5e78296d",
+      "packed_layout_source_sha256": "fb8073712aa5681ef6f4f9dbb3aff85884955539d809e2e0131bc1b84d2626c8",
+      "rlib_path": "/mnt/e/3sat/VeriGMP-packed-convolution-evidence/layout-gate-20261108-r60/libverigmp.rlib",
+      "rlib_sha256": "0151e4c70a9584036a1da49ebc831162daf5fc4f9da0a8ced910dd76a6a1bdfa",
+      "verification_report_sha256": "461224e855ad9a81a80a3f513e13775b1032476b65f6fdae2454223cf4cff274",
+      "functions": [
+        {
+          "symbol": "verigmp::packed_layout::pack_coefficients",
+          "archive_member": "libverigmp.verigmp.7000fc1d8a625552-cgu.0.rcgu.o",
+          "section": ".text._RNvNtCs9Cc19I5TWaA_7verigmp13packed_layout17pack_coefficients",
+          "symbol_address": 0,
+          "symbol_size_bytes": 487,
+          "nm_size_hex": "00000000000001e7",
+          "instructions": 140,
+          "code_sha256": "84df6810c854bd5dd0fe25d5a7d38abed7d18ab11176932ef2135216672953f6",
+          "objcopy_and_disassembly_bytes_equal": true,
+          "commands": [
+            [
+              "ar",
+              "p",
+              "/mnt/e/3sat/VeriGMP-packed-convolution-evidence/layout-gate-20261108-r60/libverigmp.rlib",
+              "libverigmp.verigmp.7000fc1d8a625552-cgu.0.rcgu.o"
+            ],
+            [
+              "objdump",
+              "-t",
+              "-C",
+              "<extracted-object>"
+            ],
+            [
+              "nm",
+              "-S",
+              "-C",
+              "<extracted-object>"
+            ],
+            [
+              "objcopy",
+              "--dump-section",
+              ".text._RNvNtCs9Cc19I5TWaA_7verigmp13packed_layout17pack_coefficients=<section-bytes>",
+              "<extracted-object>"
+            ],
+            [
+              "objdump",
+              "-d",
+              "-C",
+              "--insn-width=32",
+              "<extracted-object>"
+            ]
+          ]
+        },
+        {
+          "symbol": "verigmp::packed_layout::extract_coefficients",
+          "archive_member": "libverigmp.verigmp.7000fc1d8a625552-cgu.0.rcgu.o",
+          "section": ".text._RNvNtCs9Cc19I5TWaA_7verigmp13packed_layout20extract_coefficients",
+          "symbol_address": 0,
+          "symbol_size_bytes": 324,
+          "nm_size_hex": "0000000000000144",
+          "instructions": 101,
+          "code_sha256": "45155a3921293655560a5c6a32a36c461ca92731112f696aea64492c9e26104c",
+          "objcopy_and_disassembly_bytes_equal": true,
+          "commands": [
+            [
+              "ar",
+              "p",
+              "/mnt/e/3sat/VeriGMP-packed-convolution-evidence/layout-gate-20261108-r60/libverigmp.rlib",
+              "libverigmp.verigmp.7000fc1d8a625552-cgu.0.rcgu.o"
+            ],
+            [
+              "objdump",
+              "-t",
+              "-C",
+              "<extracted-object>"
+            ],
+            [
+              "nm",
+              "-S",
+              "-C",
+              "<extracted-object>"
+            ],
+            [
+              "objcopy",
+              "--dump-section",
+              ".text._RNvNtCs9Cc19I5TWaA_7verigmp13packed_layout20extract_coefficients=<section-bytes>",
+              "<extracted-object>"
+            ],
+            [
+              "objdump",
+              "-d",
+              "-C",
+              "--insn-width=32",
+              "<extracted-object>"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "label": "accepted-feature-r61",
+      "source_commit": "a94e71a1945352b35e9df882612381d50dbf1fbf",
+      "packed_layout_source_sha256": "fb8073712aa5681ef6f4f9dbb3aff85884955539d809e2e0131bc1b84d2626c8",
+      "rlib_path": "/mnt/e/3sat/VeriGMP-packed-convolution-evidence/layout-gate-20261108-r61/libverigmp.rlib",
+      "rlib_sha256": "d9177c73c14c035a8461bf4a521036b6a2679ef37a12b5e5812ca3e2722726f1",
+      "verification_report_sha256": "08f3e7a5c76caf3ab0fb161509a63c242023fadacfbc7fa78ce05b7943b4d6c7",
+      "functions": [
+        {
+          "symbol": "verigmp::packed_layout::pack_coefficients",
+          "archive_member": "libverigmp.verigmp.7000fc1d8a625552-cgu.0.rcgu.o",
+          "section": ".text._RNvNtCs9Cc19I5TWaA_7verigmp13packed_layout17pack_coefficients",
+          "symbol_address": 0,
+          "symbol_size_bytes": 487,
+          "nm_size_hex": "00000000000001e7",
+          "instructions": 140,
+          "code_sha256": "84df6810c854bd5dd0fe25d5a7d38abed7d18ab11176932ef2135216672953f6",
+          "objcopy_and_disassembly_bytes_equal": true,
+          "commands": [
+            [
+              "ar",
+              "p",
+              "/mnt/e/3sat/VeriGMP-packed-convolution-evidence/layout-gate-20261108-r61/libverigmp.rlib",
+              "libverigmp.verigmp.7000fc1d8a625552-cgu.0.rcgu.o"
+            ],
+            [
+              "objdump",
+              "-t",
+              "-C",
+              "<extracted-object>"
+            ],
+            [
+              "nm",
+              "-S",
+              "-C",
+              "<extracted-object>"
+            ],
+            [
+              "objcopy",
+              "--dump-section",
+              ".text._RNvNtCs9Cc19I5TWaA_7verigmp13packed_layout17pack_coefficients=<section-bytes>",
+              "<extracted-object>"
+            ],
+            [
+              "objdump",
+              "-d",
+              "-C",
+              "--insn-width=32",
+              "<extracted-object>"
+            ]
+          ]
+        },
+        {
+          "symbol": "verigmp::packed_layout::extract_coefficients",
+          "archive_member": "libverigmp.verigmp.7000fc1d8a625552-cgu.0.rcgu.o",
+          "section": ".text._RNvNtCs9Cc19I5TWaA_7verigmp13packed_layout20extract_coefficients",
+          "symbol_address": 0,
+          "symbol_size_bytes": 324,
+          "nm_size_hex": "0000000000000144",
+          "instructions": 101,
+          "code_sha256": "45155a3921293655560a5c6a32a36c461ca92731112f696aea64492c9e26104c",
+          "objcopy_and_disassembly_bytes_equal": true,
+          "commands": [
+            [
+              "ar",
+              "p",
+              "/mnt/e/3sat/VeriGMP-packed-convolution-evidence/layout-gate-20261108-r61/libverigmp.rlib",
+              "libverigmp.verigmp.7000fc1d8a625552-cgu.0.rcgu.o"
+            ],
+            [
+              "objdump",
+              "-t",
+              "-C",
+              "<extracted-object>"
+            ],
+            [
+              "nm",
+              "-S",
+              "-C",
+              "<extracted-object>"
+            ],
+            [
+              "objcopy",
+              "--dump-section",
+              ".text._RNvNtCs9Cc19I5TWaA_7verigmp13packed_layout20extract_coefficients=<section-bytes>",
+              "<extracted-object>"
+            ],
+            [
+              "objdump",
+              "-d",
+              "-C",
+              "--insn-width=32",
+              "<extracted-object>"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "label": "measured-d82d631",
+      "source_commit": "d82d63147cfd45939a6a34765872295dca83a3fa",
+      "packed_layout_source_sha256": "fb8073712aa5681ef6f4f9dbb3aff85884955539d809e2e0131bc1b84d2626c8",
+      "rlib_path": "/mnt/e/3sat/VeriGMP-packed-consumer-evidence-20261108/layout-gate-d82d631/libverigmp.rlib",
+      "rlib_sha256": "ec417808bd516272626be29e4ef5056758c3c228b16fe5b6b9d2a5ea071e7ac3",
+      "verification_report_sha256": "4317e976b385ad430f6279bafbfafae0f8ab23b6d66a64ec4fb3e375102e7091",
+      "functions": [
+        {
+          "symbol": "verigmp::packed_layout::pack_coefficients",
+          "archive_member": "libverigmp.verigmp.7000fc1d8a625552-cgu.0.rcgu.o",
+          "section": ".text._RNvNtCs9Cc19I5TWaA_7verigmp13packed_layout17pack_coefficients",
+          "symbol_address": 0,
+          "symbol_size_bytes": 487,
+          "nm_size_hex": "00000000000001e7",
+          "instructions": 140,
+          "code_sha256": "84df6810c854bd5dd0fe25d5a7d38abed7d18ab11176932ef2135216672953f6",
+          "objcopy_and_disassembly_bytes_equal": true,
+          "commands": [
+            [
+              "ar",
+              "p",
+              "/mnt/e/3sat/VeriGMP-packed-consumer-evidence-20261108/layout-gate-d82d631/libverigmp.rlib",
+              "libverigmp.verigmp.7000fc1d8a625552-cgu.0.rcgu.o"
+            ],
+            [
+              "objdump",
+              "-t",
+              "-C",
+              "<extracted-object>"
+            ],
+            [
+              "nm",
+              "-S",
+              "-C",
+              "<extracted-object>"
+            ],
+            [
+              "objcopy",
+              "--dump-section",
+              ".text._RNvNtCs9Cc19I5TWaA_7verigmp13packed_layout17pack_coefficients=<section-bytes>",
+              "<extracted-object>"
+            ],
+            [
+              "objdump",
+              "-d",
+              "-C",
+              "--insn-width=32",
+              "<extracted-object>"
+            ]
+          ]
+        },
+        {
+          "symbol": "verigmp::packed_layout::extract_coefficients",
+          "archive_member": "libverigmp.verigmp.7000fc1d8a625552-cgu.0.rcgu.o",
+          "section": ".text._RNvNtCs9Cc19I5TWaA_7verigmp13packed_layout20extract_coefficients",
+          "symbol_address": 0,
+          "symbol_size_bytes": 324,
+          "nm_size_hex": "0000000000000144",
+          "instructions": 101,
+          "code_sha256": "45155a3921293655560a5c6a32a36c461ca92731112f696aea64492c9e26104c",
+          "objcopy_and_disassembly_bytes_equal": true,
+          "commands": [
+            [
+              "ar",
+              "p",
+              "/mnt/e/3sat/VeriGMP-packed-consumer-evidence-20261108/layout-gate-d82d631/libverigmp.rlib",
+              "libverigmp.verigmp.7000fc1d8a625552-cgu.0.rcgu.o"
+            ],
+            [
+              "objdump",
+              "-t",
+              "-C",
+              "<extracted-object>"
+            ],
+            [
+              "nm",
+              "-S",
+              "-C",
+              "<extracted-object>"
+            ],
+            [
+              "objcopy",
+              "--dump-section",
+              ".text._RNvNtCs9Cc19I5TWaA_7verigmp13packed_layout20extract_coefficients=<section-bytes>",
+              "<extracted-object>"
+            ],
+            [
+              "objdump",
+              "-d",
+              "-C",
+              "--insn-width=32",
+              "<extracted-object>"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "label": "independent-84887ab-replay",
+      "source_commit": "84887ab1a94b258cc3f5f25fdd7a6044f7a910b2",
+      "packed_layout_source_sha256": "fb8073712aa5681ef6f4f9dbb3aff85884955539d809e2e0131bc1b84d2626c8",
+      "rlib_path": "/mnt/e/3sat/VeriGMP-packed-review-replay-20261108/layout-gate/libverigmp.rlib",
+      "rlib_sha256": "e092a4b9d38fa0f5cfa24e008deb41a068c0111325ee03733f24bddbf39c6d80",
+      "verification_report_sha256": "aeaacf767409532783101782f262dc1081b616ef50cb91ff914431e264045e66",
+      "functions": [
+        {
+          "symbol": "verigmp::packed_layout::pack_coefficients",
+          "archive_member": "libverigmp.verigmp.7000fc1d8a625552-cgu.0.rcgu.o",
+          "section": ".text._RNvNtCs9Cc19I5TWaA_7verigmp13packed_layout17pack_coefficients",
+          "symbol_address": 0,
+          "symbol_size_bytes": 487,
+          "nm_size_hex": "00000000000001e7",
+          "instructions": 140,
+          "code_sha256": "84df6810c854bd5dd0fe25d5a7d38abed7d18ab11176932ef2135216672953f6",
+          "objcopy_and_disassembly_bytes_equal": true,
+          "commands": [
+            [
+              "ar",
+              "p",
+              "/mnt/e/3sat/VeriGMP-packed-review-replay-20261108/layout-gate/libverigmp.rlib",
+              "libverigmp.verigmp.7000fc1d8a625552-cgu.0.rcgu.o"
+            ],
+            [
+              "objdump",
+              "-t",
+              "-C",
+              "<extracted-object>"
+            ],
+            [
+              "nm",
+              "-S",
+              "-C",
+              "<extracted-object>"
+            ],
+            [
+              "objcopy",
+              "--dump-section",
+              ".text._RNvNtCs9Cc19I5TWaA_7verigmp13packed_layout17pack_coefficients=<section-bytes>",
+              "<extracted-object>"
+            ],
+            [
+              "objdump",
+              "-d",
+              "-C",
+              "--insn-width=32",
+              "<extracted-object>"
+            ]
+          ]
+        },
+        {
+          "symbol": "verigmp::packed_layout::extract_coefficients",
+          "archive_member": "libverigmp.verigmp.7000fc1d8a625552-cgu.0.rcgu.o",
+          "section": ".text._RNvNtCs9Cc19I5TWaA_7verigmp13packed_layout20extract_coefficients",
+          "symbol_address": 0,
+          "symbol_size_bytes": 324,
+          "nm_size_hex": "0000000000000144",
+          "instructions": 101,
+          "code_sha256": "45155a3921293655560a5c6a32a36c461ca92731112f696aea64492c9e26104c",
+          "objcopy_and_disassembly_bytes_equal": true,
+          "commands": [
+            [
+              "ar",
+              "p",
+              "/mnt/e/3sat/VeriGMP-packed-review-replay-20261108/layout-gate/libverigmp.rlib",
+              "libverigmp.verigmp.7000fc1d8a625552-cgu.0.rcgu.o"
+            ],
+            [
+              "objdump",
+              "-t",
+              "-C",
+              "<extracted-object>"
+            ],
+            [
+              "nm",
+              "-S",
+              "-C",
+              "<extracted-object>"
+            ],
+            [
+              "objcopy",
+              "--dump-section",
+              ".text._RNvNtCs9Cc19I5TWaA_7verigmp13packed_layout20extract_coefficients=<section-bytes>",
+              "<extracted-object>"
+            ],
+            [
+              "objdump",
+              "-d",
+              "-C",
+              "--insn-width=32",
+              "<extracted-object>"
+            ]
+          ]
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "symbol": "verigmp::packed_layout::pack_coefficients",
+      "bytes": 487,
+      "instructions": 140,
+      "code_sha256": "84df6810c854bd5dd0fe25d5a7d38abed7d18ab11176932ef2135216672953f6",
+      "body_hex": "554157415641554154534883ec284889342448897c24104d85c97465488b74246049ffc949c1e906b0014c39ce76544989d3498d79014c89c048f7e74989c2b00270404c89c048f7e64889c2b0027033b0034c39d1752cb004483914247524b0ff4d85c0741d4889c84809f848c1e82048894c2418741b4889c831d248f7f7eb1731c04883c4285b415c415d415e415f5dc389c831d2f7f748894424084989f54983e5fe4c895c2420498d6b08488b4424104c8d600831db4531db31d24531d2b0ffeb516666662e0f1f840000000000488b7c2420488d3cdf488b1ccf488b7c24104a8d3cdf48891ccf48ffc24a8d0ccd080000004801cd488d0cf5000000004901cc4c89f34d89d34c39c24c89ff0f846effffff4901f20f829a0000004c3b14240f87900000004c8d343b483b5424080f84980000004989ff31c94883fe017520eb646666662e0f1f840000000000488b7ccd0049893ccc4883c1024939cd743c4c39c9761931ff49897cccf84c39c972ddeb1a66662e0f1f840000000000488b7ccdf849897cccf84c39c972c131ff49893ccc4883c1024939cd75c440f6c6010f8442ffffff4c39c90f861fffffff31dbe925ffffff488d0d000000004c89df4c89d6488b1424ff1500000000488d0d000000004889df4c89f6488b542418ff1500000000",
+      "identical_in_all_five_builds": true
+    },
+    {
+      "symbol": "verigmp::packed_layout::extract_coefficients",
+      "bytes": 324,
+      "instructions": 101,
+      "code_sha256": "45155a3921293655560a5c6a32a36c461ca92731112f696aea64492c9e26104c",
+      "body_hex": "554157415641554154534883ec28488954242048897c24184d85c974684d89ce49ffce49c1ee0640b7014c3974246076564d89c449ffc64c89c049f7e640b70270454889cb4889c14c89e048f7642460703540b7034839c3752d40b7044839ce752540b7ff4d85e4741d4889f04c09f048c1e8204889742410741d4889f031d249f7f6eb1a31ff89f84883c4285b415c415d415e415f5dc389f031d241f7f6488944240831ff31ed4531ff0f1f440000488b4424604c8d2c074939fd72484939dd7743498d343e4839de774d4c397c24087456488b442420488d34f8488b442418488d3ce84c01f54a8d14f500000000ff150000000049ffc74c89ef4d39fc75af40b7ffeb81488d0d000000004c89ee4889daff1500000000488d0d000000004889daff15000000004901ee488d0d000000004889ef4c89f6488b542410ff1500000000",
+      "identical_in_all_five_builds": true
+    }
+  ],
+  "method": [
+    "Read the hash-bound rlib and source verification report for each retained build.",
+    "Extract each rcgu object with ar p, locate the exact global function symbol and size using objdump -t -C, and independently confirm its value/size using nm -S -C.",
+    "Dump its complete .text section with objcopy --dump-section, then slice exactly the symbol address and symbol byte length.",
+    "Reconstruct every instruction byte from objdump -d -C --insn-width=32, require contiguous instruction offsets and exact equality to the dumped complete symbol bytes, and count actual mnemonic-bearing instruction rows.",
+    "Compare the complete bodies across the builds before and after the ghost-counter extension, the measured library, and the independent-replay library."
+  ],
+  "historical_record": {
+    "path": "/mnt/e/3sat/VeriGMP-packed-convolution-evidence/layout-gate-20261108-r61/codegen-comparison.json",
+    "sha256": "8717c0eb2bf819ca5bae6dba47293e0dc53d7b632469904055133cd2aab6c0cb",
+    "status": "preserved; its 469/318 byte counts and associated code hashes do not reproduce for complete symbol bodies; use this additive audit for complete-body counts/hashes. Its instruction counts and equality relation are independently confirmed here."
+  },
+  "comparison_domain": "Complete function symbols in retained optimized relocatable Rust library objects; relocation fields are not linked executable addresses."
+}

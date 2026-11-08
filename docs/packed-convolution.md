@@ -2,8 +2,9 @@
 
 `packed_convolution` is an erased mathematical interface for clients that want
 to multiply finite coefficient arrays using an integer product. Its status is
-`model_proved`. It supplies no runtime polynomial multiplication, packing or
-extraction function and changes no arithmetic dispatch.
+`model_proved`. The separate `packed_layout` module supplies borrowed-slice
+packing and extraction under explicit representation preconditions. The
+mathematical model itself supplies no runtime implementation.
 
 `coefficient(a,c,k)` is the independent finite sum of `a[i]*c[k-i]` over all
 input indices `i`, with out-of-range terms equal to zero. `convolution(a,c)` has
@@ -72,21 +73,71 @@ retain defensive panic stubs for spec/proof names; these are not executable
 implementations of the mathematics. This is a focused model gate, not the
 complete-library performance/acceptance gate.
 
-Executable refinement remains open: linear limb packing and extraction with
-caller-owned buffers, checked initialized lengths and capacity, preservation on
-errors, permitted input/output aliasing, arbitrary machine-representable
-precision and composition with an exact integer product. The mathematical
-Seq and finite sums do not authorize materializing polynomial objects or
-repeated whole-integer shifts in a hot path. No FFI or arithmetic trust boundary
-is introduced by this module.
+`verified/packed_layout.rs` contains the borrowed-slice layout implementation.
+`checked_layout` keeps coefficient precision p separate from the aligned slot
+width, obtains the coefficient limb count from the existing precision helper,
+and checks both `count * coefficient_limbs` and `count * slot_limbs` before
+returning exact buffer lengths. `pack_coefficients` copies compact coefficient
+limbs into caller-owned slots and explicitly zeros guard/padding limbs.
+`extract_coefficients` copies only the coefficient limbs from caller-owned
+slots. Both validate exact slice lengths before their first write and preserve
+the destination on every returned error. Rust's safe mutable/shared slice
+borrows exclude input/output overlap at the call boundary.
 
-For a future implementation with retained lengths A and C, coefficient width p,
-slot width w and output order D, packing operands and scanning requested slots
-can use O((A+C+D)*w) bit work and O((A+C)*w) operand storage; an integer product
-adds its multiplication cost and product storage. With
-`w=O(p+log L+64)`, this is a candidate construction cost under an explicit
-multiplication-cost model. These are analytic design budgets, not checked
-operation counts, a composed bit-cost/space theorem or measured performance.
-Small-precision, sparse and ordinary-convolution crossovers require measurement.
-No benchmark, solver theorem, native-GMP parity or backend replacement follows
-from this model.
+Canonical p-bit coefficient chunks and canonical p-bit packed slots with zero
+guard/padding limbs are explicit Verus domain preconditions. The runtime does
+not scan those values; the caller must already maintain the representation
+invariant. For non-word-aligned p, canonical input chunks have zero unused top
+bits, so no runtime mask or precision change is needed. Slot padding does not
+change creation precision.
+
+The pinned same-source Verus/Rust gate at measured source
+`d82d63147cfd45939a6a34765872295dca83a3fa` passes the functional refinement and
+runtime checks: the library build verified 350 items, the independent integer
+oracle covered 208 valid and 18 error-preservation cases, the borrow-overlap
+fixture was rejected by Rust, and three scoped semantic mutants were rejected
+by complete logical VCs. The source is recorded as `impl_refined`. The retained
+[layout gate report](../experiments/packed-convolution/consumer-measurement-20261108/evidence/layout-verification.json)
+has SHA-256 `4317e976b385ad430f6279bafbfafae0f8ab23b6d66a64ec4fb3e375102e7091`.
+Independent review accepted the narrow API contracts and independently replayed
+the gate from the measurement package. A pinned optimized release-code
+comparison confirms the ghost operation counters add no instructions. The pack
+body has 140 instructions and 487 bytes, and extraction has 101 instructions
+and 324 bytes, byte-identical before and after those counters were added. The
+[complete-symbol audit](../experiments/packed-convolution/consumer-measurement-20261108/evidence/codegen-body-audit.json)
+binds full object-section bytes to the pinned sources and libraries: pack SHA-256
+`84df6810c854bd5dd0fe25d5a7d38abed7d18ab11176932ef2135216672953f6`
+and extract SHA-256
+`45155a3921293655560a5c6a32a36c461ca92731112f696aea64492c9e26104c`.
+Formal bit/peak-space bounds and a composed product-refinement theorem remain open.
+The mathematical Seq and finite sums do not authorize materializing polynomial
+objects or repeated whole-integer shifts in a hot path. No FFI or arithmetic
+trust boundary is introduced by this module.
+
+The [consumer measurements](../experiments/packed-convolution/consumer-measurement-20261108/RESULTS.md)
+compose packing both operands, the exact mainline `toom_multiply::full` product,
+and extraction at `q=2p+ceil(log2(n))`. Two independent release runs each retain
+588 samples across 14 shapes, reuse/streaming phases, three paths and seven
+repetitions. The [independent review](../experiments/packed-convolution/consumer-measurement-20261108/INDEPENDENT_REVIEW.md)
+accepted these as local measurement evidence only. Python arbitrary integers
+check every coefficient of the first input pair for each shape; all 32 pairs
+receive cross-path checks against an exact bounded u128 schoolbook control.
+This control is a benchmark implementation, not an existing production baseline.
+Packing gains depend on shape; guard-word transitions produce material
+regressions against that direct control. These results enable neither an
+automatic dispatcher nor a high-performance claim for unmeasured shapes, a
+formal product-composition theorem, solver speedup or GMP parity.
+
+For retained lengths A and C, coefficient width p, slot width w and output order
+D, the candidate's source loops copy A+C coefficient chunks and zero at most
+(A+C)*(w-ceil(p/64)) padding words; extraction copies at most D*ceil(p/64)
+words. Erased loop counters prove exact copied, written and zeroed word totals;
+they are not a bit-cost or peak-live-space theorem. Operand and packed-result
+storage is caller-owned and proportional to the supplied slice lengths; the
+functions allocate no heap storage. A product
+routine would add its multiplication cost and product buffer. With
+`w=O(p+log L+64)`, this is an analytic construction budget under an explicit
+multiplication-cost model, not a composed bit-cost/space theorem or measured
+performance. Further dense crossover measurements are separate from the retained
+14-shape comparison. No solver theorem, native-GMP parity or backend replacement
+follows from this model or the local measurements.

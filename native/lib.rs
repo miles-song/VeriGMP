@@ -9,6 +9,7 @@
 #[path="verified/pow2.rs"] pub mod pow2;
 #[path="verified/multiply.rs"] pub mod multiply;
 #[path="verified/fast_words.rs"] pub mod fast_words;
+#[path="verified/packed_layout.rs"] pub mod packed_layout;
 #[path="verified/fast_multiply.rs"] pub mod fast_multiply;
 #[path="specs/toom.rs"] pub mod toom;
 #[path="specs/toom_blocks.rs"] pub mod toom_blocks;
