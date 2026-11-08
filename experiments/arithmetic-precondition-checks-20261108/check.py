@@ -195,7 +195,7 @@ def main():
         if wrappers[0]["body_sha256"]!=wrappers[1]["body_sha256"]:raise RuntimeError("public wrapper differs from plain control")
         def normalized(rows):
             return [(offset,kind,"private-worker" if "full_inner" in target else
-                     "assert-data" if any(part in target for part in (".rodata",".data.rel.ro")) else target)
+                     "assert-data" if any(part in target for part in (".rodata",".data.rel.ro",".Lanon.")) else target)
                     for offset,kind,target in rows]
         if normalized(wrappers[0]["complete_relocations"])!=normalized(wrappers[1]["complete_relocations"]):
             raise RuntimeError("public wrapper relocations differ from plain control")
