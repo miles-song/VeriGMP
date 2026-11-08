@@ -1,11 +1,8 @@
 #!/usr/bin/env python3
 """Build and functionally check the comparator; never runs timing."""
 import argparse
-import hashlib
 import json
-import os
 from pathlib import Path
-import re
 import shutil
 import subprocess
 import sys
@@ -13,7 +10,8 @@ import sys
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / 'experiments/combination-20261108'))
 from common import file_sha, manifest, write_json
-from measure_window import expected_shapes
+from inspect_measurement import inspect
+from measure_window import benchmark_environment, expected_shapes, linked_paths, loader_probe, runtime_identity
 
 
 def main():
@@ -49,15 +47,19 @@ def main():
         files = [Path(__file__).resolve(), ROOT / 'experiments/toom4-scoped/measure.rs',
                  ROOT / 'experiments/toom4-scoped/measurement-protocol.json',
                  ROOT / 'experiments/toom4-scoped/measure_window.py',
+                 ROOT / 'experiments/toom4-scoped/inspect_measurement.py',
                  ROOT / 'experiments/combination-20261108/common.py',
                  *[ROOT / 'experiments/packed-convolution' / name for name in
                    ('layout_verify.py', 'layout_mutations.py', 'layout_oracle.py', 'verus_logs.py')]]
         report['source_sha256'] = {str(path.relative_to(ROOT)): file_sha(path) for path in files}
-        env = dict(os.environ, **data['tools']['environment'], PYTHONDONTWRITEBYTECODE='1',
-                   RAYON_NUM_THREADS='1', OMP_NUM_THREADS='1')
+        env = dict(data['tools']['environment'], LANG='C', LC_ALL='C', TZ='UTC',
+                   PYTHONDONTWRITEBYTECODE='1', RAYON_NUM_THREADS='1', OMP_NUM_THREADS='1')
+        bench_env = benchmark_environment()
+        report['build_environment'] = env
+        report['benchmark_environment'] = bench_env
 
-        def run(name, argv):
-            result = subprocess.run(list(map(str, argv)), cwd=ROOT, env=env, capture_output=True, timeout=300)
+        def run(name, argv, selected_env=env):
+            result = subprocess.run(list(map(str, argv)), cwd=ROOT, env=selected_env, capture_output=True, timeout=300)
             (out / (name + '.stdout.log')).write_bytes(result.stdout)
             (out / (name + '.stderr.log')).write_bytes(result.stderr)
             report['commands'].append({'name': name, 'argv': list(map(str, argv)), 'returncode': result.returncode})
@@ -65,26 +67,65 @@ def main():
                 raise RuntimeError(name + ' failed')
             return result.stdout.decode()
 
+        rustc_linked, rustc_ldd = linked_paths(rustc, env)
+        (out / 'rustc.ldd.log').write_text(rustc_ldd)
+        proof_linked = data['tools']['rustc_linked_sha256']
+        if {p: digest for p, digest in rustc_linked.items() if not Path(p).name.startswith('ld-linux')} != proof_linked:
+            raise RuntimeError('rustc dynamically resolved libraries differ from proof')
+        cc = Path('/usr/bin/cc').resolve(strict=True)
+        collect2 = Path(run('collect2-path', [cc, '-print-prog-name=collect2']).strip()).resolve(strict=True)
+        linker = Path(shutil.which('ld.bfd', path=env['PATH'])).resolve(strict=True)
+        gcc_linker = Path(run('gcc-linker-path', [cc, '-print-prog-name=ld']).strip()).resolve(strict=True)
+        if linker != gcc_linker:
+            raise RuntimeError('GCC and fixed BFD linker resolve differently')
+        cxx = Path('/usr/bin/c++').resolve(strict=True)
+        tool_paths = [rustc, cc, collect2, linker, cxx, Path('/usr/bin/ldd').resolve()]
+        tool_linked = {}
+        for tool in (cc, collect2, linker, cxx):
+            deps, output = linked_paths(tool, env)
+            (out / (tool.name + '.ldd.log')).write_text(output)
+            tool_linked.update(deps)
+        tool_linked.update(rustc_linked)
+        report['tool_linked_sha256'] = tool_linked
+        report['linker_paths'] = {'cc': str(cc), 'collect2': str(collect2), 'ld_bfd': str(linker)}
+        run('cc-link-plan', [cc, '-###', '-fuse-ld=bfd', '-x', 'c', '/dev/null', '-o', '/dev/null'])
+
         binary = out / 'measure'
         run('build', [rustc, '--edition=2021', ROOT / 'experiments/toom4-scoped/measure.rs', '-O',
-                      '-C', 'codegen-units=1', '--extern', 'verigmp=' + str(proof / 'libverigmp.rlib'),
+                      '-C', 'codegen-units=1', '-C', 'linker=/usr/bin/cc', '-C', 'link-arg=-fuse-ld=bfd',
+                      '--extern', 'verigmp=' + str(proof / 'libverigmp.rlib'),
                       '-L', 'dependency=' + str(verifier.parent), '-o', binary])
         abi = out / 'gmp-abi'
-        cxx = Path(shutil.which('c++')).resolve()
-        run('gmp-abi-build', [cxx, '-std=c++17', ROOT / 'native/controls/gmp_abi.cpp', '-lgmp', '-o', abi])
-        report['gmp_abi'] = run('gmp-abi', [abi]).strip()
-        report['self_test'] = run('self-test', [binary, '--self-test']).strip()
-        shape_lines = run('shapes', [binary, '--list']).splitlines()
+        run('gmp-abi-build', [cxx, '-fuse-ld=bfd', '-std=c++17', ROOT / 'native/controls/gmp_abi.cpp', '-lgmp', '-o', abi])
+        report['gmp_abi'] = run('gmp-abi', [abi], bench_env).strip()
+        report['self_test'] = run('self-test', [binary, '--self-test'], bench_env).strip()
+        shape_lines = run('shapes', [binary, '--list'], bench_env).splitlines()
         shapes = [tuple(map(int, line.split(','))) for line in shape_lines]
         if len(shapes) != len(set(shapes)) or set(shapes) != expected_shapes():
             raise RuntimeError('invalid shape list')
         report['shapes'] = shapes
-        linked = run('linked', ['ldd', binary])
-        paths = [Path(p).resolve() for p in re.findall(r'=>\s+(\S+)\s+\(', linked)]
-        paths += [Path(p).resolve() for p in re.findall(r'(?m)^\s*(/\S+)\s+\(', linked)]
-        if len([p for p in paths if p.name.startswith('libgmp')]) != 1:
-            raise RuntimeError('GMP linkage ambiguous')
-        report['identity_sha256'] = {str(p): file_sha(p) for p in sorted(set(paths + [binary, abi, rustc, cxx]))}
+        checks = run('all-inputs-gmp', [binary, '--check-inputs'], bench_env).splitlines()
+        if len(checks) != 2 * len(shapes) or set(checks) != {
+                f'{op},{n},{top},pass' for n, top in shapes for op in range(2)}:
+            raise RuntimeError('actual timing input GMP checks incomplete')
+        report['actual_timing_inputs_checked'] = len(checks)
+        report['runtime_sha256'], linked = runtime_identity(binary, bench_env)
+        (out / 'measure.ldd.log').write_text(linked)
+        report['loader_probe_metadata'] = loader_probe(binary, bench_env, report['runtime_sha256'], out)
+        report['loader_probe_negative_cases'] = ['hash', 'paths', 'environment', 'metadata']
+        for label, artifact in (('binary', binary), ('rlib', proof / 'libverigmp.rlib')):
+            run('nm-' + label, ['/usr/bin/nm', '-C', '-S', '--defined-only', artifact], bench_env)
+            run('objdump-' + label, ['/usr/bin/objdump', '-d', '-C', artifact], bench_env)
+        run('relocations-binary', ['/usr/bin/readelf', '-Wr', binary], bench_env)
+        inspection = inspect(*[(out / (name + '.stdout.log')).read_text() for name in
+                               ('nm-binary', 'nm-rlib', 'objdump-binary', 'relocations-binary')])
+        write_json(out / 'codegen-observation.json', inspection)
+        report['codegen_observation_sha256'] = file_sha(out / 'codegen-observation.json')
+        report['identity_sha256'] = dict(report['runtime_sha256'], **tool_linked)
+        report['identity_sha256'].update({str(p): file_sha(p) for p in [abi, *tool_paths,
+                                                                        Path('/usr/bin/nm').resolve(),
+                                                                        Path('/usr/bin/objdump').resolve(),
+                                                                        Path('/usr/bin/readelf').resolve()]})
         report['native_manifest_sha256'] = data['native_manifest_sha256']
         report['proof_exports_sha256'] = data['exports_sha256']
         if manifest(ROOT) != data['native_sha256'] or manifest(proof / 'snapshot') != data['native_sha256']:
@@ -95,8 +136,14 @@ def main():
             raise RuntimeError('measurement source changed during preparation')
         if any(file_sha(path) != digest for path, digest in report['identity_sha256'].items()):
             raise RuntimeError('binary, compiler or runtime changed during preparation')
+        if runtime_identity(binary, bench_env)[0] != report['runtime_sha256']:
+            raise RuntimeError('runtime resolution changed during preparation')
+        if linked_paths(rustc, env)[0] != rustc_linked:
+            raise RuntimeError('rustc resolution changed during preparation')
         if any(file_sha(proof / name) != digest for name, digest in data['exports_sha256'].items()):
             raise RuntimeError('proof export changed during preparation')
+        report['evidence_sha256'] = {path.name: file_sha(path) for path in sorted(out.iterdir())
+                                     if path.is_file() and path != target}
         report['status'] = 'prepared_no_timing'
         write_json(target, report)
         print(json.dumps({'status': report['status'], 'shapes': len(shapes), 'self_test': report['self_test']}, indent=2))

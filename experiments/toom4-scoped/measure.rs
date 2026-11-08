@@ -1,6 +1,7 @@
 //! Unverified, non-allocating timed calls into the proved library and GMP.
 extern crate verigmp;
 use std::hint::black_box;
+use std::io::{Read, Write};
 use std::time::Instant;
 use verigmp::{arithmetic, pow2, toom4_candidate, toom4_low, toom4_square_low};
 
@@ -106,6 +107,14 @@ fn shape(op: u8, n: usize, top: u32, run: Option<u8>) {
                (u64::MAX, u64::MAX, u64::MAX, u64::MAX));
 }
 
+fn barrier(phase: &str) {
+    eprintln!("VERIGMP_CONTROL_{phase}");
+    std::io::stderr().flush().unwrap();
+    let mut byte = [0];
+    std::io::stdin().read_exact(&mut byte).unwrap();
+    assert_eq!(byte, [b'G']);
+}
+
 fn main() {
     let args: Vec<String> = std::env::args().collect();
     match args.get(1).map(String::as_str) {
@@ -119,12 +128,24 @@ fn main() {
         Some("--list") if args.len() == 2 => {
             for (n, top) in shapes() { println!("{n},{top}"); }
         }
+        Some("--check-inputs") if args.len() == 2 => {
+            for (n, top) in shapes() { for op in 0..2 {
+                shape(op, n, top, None);
+                println!("{op},{n},{top},pass");
+            } }
+        }
         Some("--run") if args.len() == 3 => {
             let run: u8 = args[2].parse().unwrap();
             assert!(run < 2);
+            barrier("READY");
             println!("run,operation,limbs,top,repetition,position,mode,iterations,ns");
             for (n, top) in shapes() { for op in 0..2 { shape(op, n, top, Some(run)); } }
+            barrier("DONE");
         }
-        _ => panic!("expected --self-test, --list, or --run 0|1"),
+        Some("--check-loader") if args.len() == 2 => {
+            barrier("READY");
+            barrier("DONE");
+        }
+        _ => panic!("expected --self-test, --list, --check-inputs, --check-loader, or --run 0|1"),
     }
 }
