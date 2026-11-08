@@ -62,6 +62,10 @@ semantics. q is convolution output precision, not a change to input provenance.
 
 The source-bound acceptance procedure is
 [`experiments/packed-product-composition/PROTOCOL.md`](../experiments/packed-product-composition/PROTOCOL.md).
+The [fixed-source local receipt](../experiments/packed-product-composition/RECEIPT.md)
+records the passing proof/oracle/mutation/ownership checks, exact tool/export
+identities and complete raw evidence archive. Independent final acceptance is
+separate from this local result.
 It builds the complete native library and imports its matching compiled library
 and Verus metadata into the actual-call client. The independent Python oracle
 uses finite sums and arbitrary integers, with non-word-aligned and large
