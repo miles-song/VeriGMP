@@ -1,0 +1,344 @@
+{
+  "reviewed_commit": "80447fdb090e6ea47e09ee487434bd5d7d13089e",
+  "reviewed_tree": "c2605e2d1de339661074864c9044dd01f360742a",
+  "main_commit": "8cc144b349269d31a59b18838aea28f52645a8fa",
+  "measured_source": "83c4c52f52b40c8adac2cbda6ed4f0768d0f99a0",
+  "audit_script_sha256": "ef7ea2363c329037434a200e1e76478577e7445cb4340c65f54815902e940a18",
+  "status": "pass",
+  "archives": [
+    {
+      "name": "layout-gate.zip",
+      "entries": 238,
+      "sha256": "77ee40e7ddde2e746b6293be0723f6c825014b050e952af451e6c7e60ca36efd"
+    },
+    {
+      "name": "discovery-a.zip",
+      "entries": 12,
+      "sha256": "9d95b2e84fa1efd4f46229701a3f3d5cab3528fb82da4ee6cbb142b5ae4d59a6"
+    },
+    {
+      "name": "discovery-b.zip",
+      "entries": 12,
+      "sha256": "f0512d7c1bf34a1fd7d5cfaa7b42b47d18a61c6266a3f5d60fd3d61af0faf67e"
+    },
+    {
+      "name": "confirmation-a.zip",
+      "entries": 12,
+      "sha256": "5002aab9420cd1024493c2304b3ab5d3a61df952be9cac435177bea6f6f0fd36"
+    },
+    {
+      "name": "confirmation-b.zip",
+      "entries": 12,
+      "sha256": "b3b7a50935204a668c1ffe2d85a3dc13828a3004b2442de2061d0ec9ad19ee2d"
+    },
+    {
+      "name": "aborted-train-a.zip",
+      "entries": 6,
+      "sha256": "1c41bc03562a2aa0f68b5c63fd68a86b6d32dbb75108345f1cbeb81541a60d99"
+    }
+  ],
+  "runs": [
+    {
+      "name": "discovery-a",
+      "samples": 6860,
+      "shape_phase_groups": 490,
+      "short_attempts": 1,
+      "minimum_ns": 12107023
+    },
+    {
+      "name": "discovery-b",
+      "samples": 6860,
+      "shape_phase_groups": 490,
+      "short_attempts": 1,
+      "minimum_ns": 13222321
+    },
+    {
+      "name": "confirmation-a",
+      "samples": 3220,
+      "shape_phase_groups": 230,
+      "short_attempts": 0,
+      "minimum_ns": 18729766
+    },
+    {
+      "name": "confirmation-b",
+      "samples": 3220,
+      "shape_phase_groups": 230,
+      "short_attempts": 0,
+      "minimum_ns": 17200359
+    }
+  ],
+  "analysis_identities": {
+    "preregistered_source_sha256": "8469eab95bd2608d4b18229241078a510c3e2dab3a1b958b60e34bc96f0a779e",
+    "final_script_sha256": "8373387692748a718b2b0a6cb2af0b5c7b371d6d8e1924541d26d3f208014573",
+    "unchanged_selection_functions": true,
+    "confirm_diff": "Manually reviewed: metadata counts, self-hash and emulator caveat only"
+  },
+  "native_rust_files_identical_to_main": 49,
+  "branch_commit_author_and_committer_checks": 2,
+  "reused_gate": {
+    "verified_items": 350,
+    "valid_cases": 208,
+    "error_cases": 18,
+    "semantic_rejections": [
+      "mutant-write-nonzero-padding",
+      "mutant-extract-guard-instead-of-coefficient",
+      "mutant-wrong-precision-error"
+    ],
+    "alias_error": "E0502",
+    "policy": "Identity and retained-log verification; no new proof execution claimed"
+  },
+  "independent_release_rebuild": {
+    "sha256": "a8294ba699aba9b08530534eecca7e993aa84672b8f78816c9cfb2c680f9b9d1",
+    "executed": false,
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "accepted_samples": 20160,
+  "independent_tool_identities": 9,
+  "gate_source_identities": 59,
+  "oracle_records": 23040,
+  "oracle_coefficients": 8752640,
+  "additional_direct_sum_coefficients": 56960,
+  "candidate_eligibility": [
+    {
+      "index": 0,
+      "eligible": false,
+      "regressions": 33,
+      "coverage": true
+    },
+    {
+      "index": 1,
+      "eligible": false,
+      "regressions": 86,
+      "coverage": true
+    },
+    {
+      "index": 2,
+      "eligible": false,
+      "regressions": 86,
+      "coverage": true
+    },
+    {
+      "index": 3,
+      "eligible": false,
+      "regressions": 33,
+      "coverage": true
+    },
+    {
+      "index": 4,
+      "eligible": false,
+      "regressions": 2,
+      "coverage": true
+    },
+    {
+      "index": 5,
+      "eligible": false,
+      "regressions": 117,
+      "coverage": true
+    },
+    {
+      "index": 6,
+      "eligible": false,
+      "regressions": 23,
+      "coverage": true
+    },
+    {
+      "index": 7,
+      "eligible": false,
+      "regressions": 96,
+      "coverage": true
+    },
+    {
+      "index": 8,
+      "eligible": false,
+      "regressions": 29,
+      "coverage": true
+    },
+    {
+      "index": 9,
+      "eligible": false,
+      "regressions": 90,
+      "coverage": true
+    },
+    {
+      "index": 10,
+      "eligible": false,
+      "regressions": 55,
+      "coverage": true
+    },
+    {
+      "index": 11,
+      "eligible": false,
+      "regressions": 64,
+      "coverage": true
+    },
+    {
+      "index": 12,
+      "eligible": false,
+      "regressions": 65,
+      "coverage": true
+    },
+    {
+      "index": 13,
+      "eligible": false,
+      "regressions": 54,
+      "coverage": true
+    },
+    {
+      "index": 14,
+      "eligible": false,
+      "regressions": 93,
+      "coverage": true
+    },
+    {
+      "index": 15,
+      "eligible": false,
+      "regressions": 26,
+      "coverage": true
+    },
+    {
+      "index": 16,
+      "eligible": false,
+      "regressions": 118,
+      "coverage": true
+    },
+    {
+      "index": 17,
+      "eligible": false,
+      "regressions": 1,
+      "coverage": true
+    },
+    {
+      "index": 18,
+      "eligible": false,
+      "regressions": 118,
+      "coverage": true
+    },
+    {
+      "index": 19,
+      "eligible": false,
+      "regressions": 1,
+      "coverage": true
+    },
+    {
+      "index": 20,
+      "eligible": false,
+      "regressions": 118,
+      "coverage": true
+    },
+    {
+      "index": 21,
+      "eligible": false,
+      "regressions": 1,
+      "coverage": true
+    },
+    {
+      "index": 22,
+      "eligible": false,
+      "regressions": 91,
+      "coverage": true
+    },
+    {
+      "index": 23,
+      "eligible": false,
+      "regressions": 28,
+      "coverage": true
+    },
+    {
+      "index": 24,
+      "eligible": false,
+      "regressions": 82,
+      "coverage": true
+    },
+    {
+      "index": 25,
+      "eligible": false,
+      "regressions": 37,
+      "coverage": true
+    },
+    {
+      "index": 26,
+      "eligible": false,
+      "regressions": 71,
+      "coverage": true
+    },
+    {
+      "index": 27,
+      "eligible": false,
+      "regressions": 48,
+      "coverage": true
+    },
+    {
+      "index": 28,
+      "eligible": false,
+      "regressions": 67,
+      "coverage": true
+    },
+    {
+      "index": 29,
+      "eligible": false,
+      "regressions": 52,
+      "coverage": true
+    },
+    {
+      "index": 30,
+      "eligible": false,
+      "regressions": 50,
+      "coverage": true
+    },
+    {
+      "index": 31,
+      "eligible": false,
+      "regressions": 69,
+      "coverage": true
+    },
+    {
+      "index": 32,
+      "eligible": false,
+      "regressions": 50,
+      "coverage": true
+    },
+    {
+      "index": 33,
+      "eligible": false,
+      "regressions": 69,
+      "coverage": true
+    }
+  ],
+  "strata_verified": 22,
+  "universal_bulk_zero": {
+    "groups": 1440,
+    "geometric_mean_ratio": 1.0599187040059173,
+    "maximum_ratio": 1.4754353659348973,
+    "regression_groups": 1206,
+    "passes_no_regression": false,
+    "passes_gain": false
+  },
+  "universal_layout": {
+    "geometric_mean_ratio": 0.9434685851099173,
+    "minimum_ratio": 0.67776605,
+    "maximum_ratio": 1.18785872,
+    "median_ratio": 0.9664431250000001,
+    "regression_groups": 234,
+    "wins_over_1pct": 1063,
+    "regressions_over_1pct": 138,
+    "regressions_over_5pct": 29,
+    "passes_no_regression": false,
+    "passes_gain": true
+  },
+  "unrounded_raw_universal": {
+    "geometric_mean_ratio": 0.9434685850346096,
+    "minimum_ratio": 0.6777660465733766,
+    "maximum_ratio": 1.1878587205037487,
+    "median_ratio": 0.9664431241317817,
+    "regression_groups": 234,
+    "wins_over_1pct": 1063,
+    "regressions_over_1pct": 138,
+    "regressions_over_5pct": 29,
+    "passes_no_regression": false,
+    "passes_gain": true
+  },
+  "independent_winner_changes": 168,
+  "selected_rule": null,
+  "oracle_method": "Independent Python integer multiplication using fixed 128-bit digits for every result coefficient, plus independently evaluated direct finite sums at edge/middle/tail positions for every input pair; no benchmark timings rerun."
+}
