@@ -1,0 +1,24 @@
+{
+  "verdict": "independent_astra_max_accept_evidence_only_native_candidate_no_go",
+  "accepted_feature_commit": "82a7ea19fb63fab403fc2e597c45bbd033698617",
+  "accepted_feature_tree": "f0bfa311e7d53beb795291fd4f7548679ca86b52",
+  "native_baseline": "de9ca4562c0c9c7d34f1a6a65cbaf48e48c7e1f9",
+  "review_files": {
+    "review.json": {
+      "path": "package-review/review.json",
+      "sha256": "8936ddb4797e9e6c9d83775888f8b65149cd5bfe79ad40420e363e906f9ce557"
+    },
+    "REVIEW.md": {
+      "path": "package-review/REVIEW.md",
+      "sha256": "2885c60f5d4d6cb0161f99fc8864d03d079e52e06a2bff7082087dbd66baabc7"
+    },
+    "review-evidence.zip": {
+      "path": "package-review/review-evidence.zip",
+      "sha256": "4e3d6a38abe1937dd8f98bcd4a0201532ee8bc7f3b79d56ee1ebc302b8b5aa16"
+    }
+  },
+  "additive_scope": "Exact-byte copies of independent final package review and its evidence; no change to reviewed native files, package, checker, reports or results.",
+  "native_promotion_accepted": false,
+  "performance_acceptance": false,
+  "gmp_replacement_accepted": false
+}

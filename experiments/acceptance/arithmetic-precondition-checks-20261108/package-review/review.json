@@ -1,0 +1,59 @@
+{
+  "verdict": "ACCEPT EVIDENCE-ONLY PACKAGE / NO-GO NATIVE OPTIMIZATION",
+  "accepted_tree": "f0bfa311e7d53beb795291fd4f7548679ca86b52",
+  "head": "905edec767a9e5eeee838e083cad93e027d73c51",
+  "baseline": "de9ca4562c0c9c7d34f1a6a65cbaf48e48c7e1f9",
+  "native_exact_baseline_files": 57,
+  "performance_acceptance": false,
+  "native_promotion_accepted": false,
+  "evidence_package_accepted": true,
+  "unresolved_findings": [],
+  "package_sha256": "a641e887179b0f9656f1b248a1e12d1de0e509c5f0c928d2be07bea537ee0706",
+  "package_bytes": 34006246,
+  "manifest_sha256": "9a7bf570a42684ebecc5b667abb1203bcb58ca665dfd47ff93c4e63265720445",
+  "checker_sha256": "066d040eb9ee0039657994e54f0936043986046a40191e738bb3feed609fcce2",
+  "logical_payloads": 2484,
+  "unique_objects": 440,
+  "historical_archive_members_independently_matched": 2349,
+  "final_audit_sha256": "b43380c2b00b3b958dceb83844ce1e57de4775abcf268e1eef985ab9a51b2b5b",
+  "review_text_sha256": "2885c60f5d4d6cb0161f99fc8864d03d079e52e06a2bff7082087dbd66baabc7",
+  "source_identities_sha256": "86bb401f9ae4f746535b0d0ac377563244aeff99d8ce884bdaba6488c847088d",
+  "independent_performance_review_sha256": "66e24fc5271103691001d1d7992691f0ece0a6fd1b489462f58190aecfa9480c",
+  "checker_results": [
+    {
+      "name": "author-checker",
+      "argv": [
+        "C:\\Users\\23247\\AppData\\Local\\Programs\\Python\\Python314\\python.exe",
+        "E:\\3sat\\VeriGMP-precondition-package-astra-20261108\\final-audit\\snapshot\\experiments\\acceptance\\arithmetic-precondition-checks-20261108\\check_evidence.py"
+      ],
+      "returncode": 0,
+      "stdout_sha256": "16e144558595f7b67e48ca42d3fa15250f0602691379ca3b44fe15244277be0a",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "independent-replay",
+      "argv": [
+        "C:\\Users\\23247\\AppData\\Local\\Programs\\Python\\Python314\\python.exe",
+        "E:\\3sat\\VeriGMP-precondition-package-astra-20261108\\final-audit\\independent-final\\replay_audit.py",
+        "--output",
+        "E:\\3sat\\VeriGMP-precondition-package-astra-20261108\\final-audit\\independent-replay-output"
+      ],
+      "returncode": 0,
+      "stdout_sha256": "99702933c34e907626c4d4b2566e241a4afaa1901545a76a987707da161037f6",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "independent_replay_outputs_identical": {
+    "all-cells.csv": true,
+    "all-cells.json": true,
+    "audit.json": true,
+    "independent-expected-results.json": true,
+    "sample-selection.csv": true
+  },
+  "source_mutations": false,
+  "benchmark_executed": false,
+  "process_changes": false,
+  "reviewer_commit": null,
+  "merge_or_push": false,
+  "scope": "VeriGMP evidence-only restoration and negative-result preservation; excludes all M6 claims"
+}
