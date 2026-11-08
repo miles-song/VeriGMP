@@ -41,11 +41,11 @@ product has 4096 output limbs, and scratch is 12 times the packed operand limb
 length. The exact extraction precision is `q=2p+ceil(log2(n))`; the `2n`
 coefficient output includes its final zero tail. Empty input returns empty.
 
-One nonblocking documentation defect remains: `RESULTS.md:58` names
-`evidence/consumer-evidence.zip`, which is absent. The two run archives,
-layout-gate archive, confirmation table, and receipt are present separately.
-Update that reference or provide the aggregate archive before relying on that
-link. Seven observations per group make the reported 95th percentile the
-maximum sample; these are descriptive microbenchmark results, not significance
-tests. I reviewed the two recorded timing runs and recomputed their summaries;
-I did not rerun the full timing protocol.
+**Follow-up:** The documentation-only update now names
+`evidence/consumer-run-one.zip` and `evidence/consumer-run-two.zip` at
+`RESULTS.md:58-59`. Both files exist relative to that document and their SHA-256
+hashes match `receipt.json`; the stale-link issue is resolved. Seven
+observations per group make the reported 95th percentile the maximum sample;
+these are descriptive microbenchmark results, not significance tests. I
+reviewed the two recorded timing runs and recomputed their summaries; I did not
+rerun the full timing protocol.
