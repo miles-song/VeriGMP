@@ -284,6 +284,60 @@ pub fn mul_word(dst:&mut[u64],rhs:&[u64],word:u64)->(carry_out:u64)
     carry
 }
 
+#[inline(always)]
+fn cross_limb(a:u64,b:u64,c:u64,carry:u64)->(out:(u64,u64))
+    requires carry<=2,
+    ensures out.1<=2,
+        (out.0 as int)+base()*(out.1 as int)==(a as int)+(b as int)+(c as int)+(carry as int),
+{
+    let total=(a as u128)+(b as u128)+(c as u128)+(carry as u128);
+    let radix=18446744073709551616u128;
+    let low=(total%radix) as u64;
+    let next=(total/radix) as u64;
+    proof {
+        lemma_fundamental_div_mod(total as int,base());
+        lemma_mod_division_less_than_divisor(total as int,base());
+        assert(next<=2) by(nonlinear_arith)
+            requires total as int==(a as int)+(b as int)+(c as int)+(carry as int),
+                a<=u64::MAX,b<=u64::MAX,c<=u64::MAX,carry<=2,
+                total as int==base()*(next as int)+(low as int),low>=0;
+    }
+    (low,next)
+}
+
+proof fn cross_step(original:Seq<u64>,before:Seq<u64>,after:Seq<u64>,z0:Seq<u64>,z2:Seq<u64>,
+    i:nat,incoming:u64,low:u64,next:u64,plus:bool)
+    requires original.len()==before.len(),before.len()==after.len(),after.len()==z0.len(),i<original.len(),
+        before[i as int]==original[i as int],after[i as int]==low,
+        forall|j:int| 0<=j<i ==> before[j]==after[j],
+        prefix(before,i)+radix(i)*((incoming as int)-(if plus {0int}else{1int}))
+            ==prefix(z0,i)+extended(z2,i)+(if plus {prefix(original,i)}else{-prefix(original,i)}),
+        (low as int)+base()*(next as int)==(z0[i as int] as int)+digit(z2,i)
+            +(if plus {original[i as int] as int}else{base()-1-(original[i as int] as int)})+(incoming as int),
+    ensures prefix(after,i+1)+radix(i+1)*((next as int)-(if plus {0int}else{1int}))
+            ==prefix(z0,i+1)+extended(z2,i+1)+(if plus {prefix(original,i+1)}else{-prefix(original,i+1)}),
+{
+    equal_prefix(after,before,i);
+    extended_step(z2,i);
+    assert((low as int)+base()*((next as int)-(if plus {0int}else{1int}))
+        ==(z0[i as int] as int)+digit(z2,i)+(if plus {original[i as int] as int}else{-(original[i as int] as int)})
+            +(incoming as int)-(if plus {0int}else{1int})) by(nonlinear_arith)
+        requires (low as int)+base()*(next as int)==(z0[i as int] as int)+digit(z2,i)
+            +(if plus {original[i as int] as int}else{base()-1-(original[i as int] as int)})+(incoming as int);
+    assert(prefix(after,i+1)+radix(i+1)*((next as int)-(if plus {0int}else{1int}))
+        ==prefix(z0,i+1)+extended(z2,i+1)+(if plus {prefix(original,i+1)}else{-prefix(original,i+1)})) by(nonlinear_arith)
+        requires prefix(before,i)+radix(i)*((incoming as int)-(if plus {0int}else{1int}))
+                ==prefix(z0,i)+extended(z2,i)+(if plus {prefix(original,i)}else{-prefix(original,i)}),
+            prefix(after,i+1)==prefix(before,i)+(low as int)*radix(i),
+            prefix(z0,i+1)==prefix(z0,i)+(z0[i as int] as int)*radix(i),
+            prefix(original,i+1)==prefix(original,i)+(original[i as int] as int)*radix(i),
+            extended(z2,i+1)==extended(z2,i)+digit(z2,i)*radix(i),
+            (low as int)+base()*((next as int)-(if plus {0int}else{1int}))
+                ==(z0[i as int] as int)+digit(z2,i)+(if plus {original[i as int] as int}else{-(original[i as int] as int)})
+                    +(incoming as int)-(if plus {0int}else{1int}),
+            radix(i+1)==base()*radix(i);
+}
+
 /// Reconstruct the cross term from z0, z2 and an absolute difference product.
 pub fn combine_cross(dst:&mut[u64],z0:&[u64],z2:&[u64],negative:bool)->(high:u64)
     requires old(dst)@.len()==z0@.len(),z2@.len()<=z0@.len(),
@@ -292,36 +346,82 @@ pub fn combine_cross(dst:&mut[u64],z0:&[u64],z2:&[u64],negative:bool)->(high:u64
         value(final(dst)@)+radix(z0@.len())*(high as int)
             ==value(z0@)+value(z2@)+(if negative {value(old(dst)@)}else{-value(old(dst)@)}),
 {
+    assert!(dst.len()==z0.len() && z2.len()<=z0.len());
     let ghost original=dst@;
-    let first=if negative {limbs::add_assign(dst,z0) as i64}
-        else {
-            let borrow=reverse_subtract(dst,z0);
-            proof {
-                assert(value(dst@)+radix(z0@.len())*(-(borrow as int))==value(z0@)-value(original))
-                    by(nonlinear_arith)
-                    requires value(dst@)-radix(z0@.len())*(borrow as int)==value(z0@)-value(original);
-            }
-            -(borrow as i64)
-        };
-    let ghost middle=dst@;
-    let second=add_extended(dst,z2);
-    let carry=first+(second as i64);
-    proof {
-        assert(value(dst@)+radix(z0@.len())*(carry as int)
-            ==value(z0@)+value(z2@)+(if negative {value(original)}else{-value(original)}))
-            by(nonlinear_arith)
-            requires value(middle)+radix(z0@.len())*(first as int)
-                ==value(z0@)+(if negative {value(original)}else{-value(original)}),
-                value(dst@)+radix(z0@.len())*(second as int)==value(middle)+value(z2@),
-                carry as int==first as int+second as int;
-        prefix_range(dst@,dst@.len());
-        assert(0<=carry<=1) by(nonlinear_arith)
-            requires 0<=value(dst@)<radix(z0@.len()),
-                value(dst@)+radix(z0@.len())*(carry as int)
-                    ==value(z0@)+value(z2@)+(if negative {value(original)}else{-value(original)}),
-                0<=value(z0@)+value(z2@)+(if negative {value(original)}else{-value(original)})<2*radix(z0@.len());
+    let mut i=0usize;
+    if negative {
+        let mut carry=0u64;
+        while i<z2.len()
+            invariant i<=z2@.len(),z2@.len()<=z0@.len(),dst@.len()==z0@.len(),dst@.len()==original.len(),carry<=2,
+                forall|j:int| i<=j<dst@.len() ==> #[trigger] dst@[j]==original[j],
+                prefix(dst@,i as nat)+radix(i as nat)*(carry as int)
+                    ==prefix(z0@,i as nat)+extended(z2@,i as nat)+prefix(original,i as nat),
+            decreases z2.len()-i,
+        {
+            let ghost before=dst@;let ghost incoming=carry;
+            let (low,next)=cross_limb(z0[i],z2[i],dst[i],carry);
+            dst[i]=low;
+            proof {cross_step(original,before,dst@,z0@,z2@,i as nat,incoming,low,next,true);}
+            carry=next;i+=1;
+        }
+        while i<dst.len()
+            invariant z2@.len()<=i<=dst@.len(),z2@.len()<=z0@.len(),dst@.len()==z0@.len(),dst@.len()==original.len(),carry<=2,
+                forall|j:int| i<=j<dst@.len() ==> #[trigger] dst@[j]==original[j],
+                prefix(dst@,i as nat)+radix(i as nat)*(carry as int)
+                    ==prefix(z0@,i as nat)+extended(z2@,i as nat)+prefix(original,i as nat),
+            decreases dst.len()-i,
+        {
+            let ghost before=dst@;let ghost incoming=carry;
+            let (low,next)=cross_limb(z0[i],0,dst[i],carry);
+            dst[i]=low;
+            proof {cross_step(original,before,dst@,z0@,z2@,i as nat,incoming,low,next,true);}
+            carry=next;i+=1;
+        }
+        proof {
+            prefix_range(dst@,dst@.len());
+            assert(carry<=1) by(nonlinear_arith)
+                requires 0<=value(dst@)<radix(dst@.len()),
+                    value(dst@)+radix(z0@.len())*(carry as int)==value(z0@)+value(z2@)+value(original),
+                    0<=value(z0@)+value(z2@)+value(original)<2*radix(z0@.len());
+        }
+        carry
+    } else {
+        let mut carry=1u64;
+        while i<z2.len()
+            invariant i<=z2@.len(),z2@.len()<=z0@.len(),dst@.len()==z0@.len(),dst@.len()==original.len(),carry<=2,
+                forall|j:int| i<=j<dst@.len() ==> #[trigger] dst@[j]==original[j],
+                prefix(dst@,i as nat)+radix(i as nat)*((carry as int)-1)
+                    ==prefix(z0@,i as nat)+extended(z2@,i as nat)-prefix(original,i as nat),
+            decreases z2.len()-i,
+        {
+            let ghost before=dst@;let ghost incoming=carry;
+            let (low,next)=cross_limb(z0[i],z2[i],u64::MAX-dst[i],carry);
+            dst[i]=low;
+            proof {cross_step(original,before,dst@,z0@,z2@,i as nat,incoming,low,next,false);}
+            carry=next;i+=1;
+        }
+        while i<dst.len()
+            invariant z2@.len()<=i<=dst@.len(),z2@.len()<=z0@.len(),dst@.len()==z0@.len(),dst@.len()==original.len(),carry<=2,
+                forall|j:int| i<=j<dst@.len() ==> #[trigger] dst@[j]==original[j],
+                prefix(dst@,i as nat)+radix(i as nat)*((carry as int)-1)
+                    ==prefix(z0@,i as nat)+extended(z2@,i as nat)-prefix(original,i as nat),
+            decreases dst.len()-i,
+        {
+            let ghost before=dst@;let ghost incoming=carry;
+            let (low,next)=cross_limb(z0[i],0,u64::MAX-dst[i],carry);
+            dst[i]=low;
+            proof {cross_step(original,before,dst@,z0@,z2@,i as nat,incoming,low,next,false);}
+            carry=next;i+=1;
+        }
+        proof {
+            prefix_range(dst@,dst@.len());
+            assert(carry>=1) by(nonlinear_arith)
+                requires 0<=value(dst@)<radix(z0@.len()),
+                    value(dst@)+radix(z0@.len())*((carry as int)-1)==value(z0@)+value(z2@)-value(original),
+                    0<=value(z0@)+value(z2@)-value(original)<2*radix(z0@.len());
+        }
+        carry-1
     }
-    carry as u64
 }
 
 /// Add a slice plus its one-word high part, modulo the destination radix.
