@@ -13,6 +13,35 @@ FULL_SIZES=(1,2,7,8,9,23,24,25,31,32,33,47,48,49,63,64,65,127,128,129,
 SEED=20261108
 
 
+def sample_paths(cell_index,repetition):
+    paths=["baseline","candidate"] if repetition%2==0 else ["candidate","baseline"]
+    paths.insert((cell_index+repetition)%3,"gmp")
+    return paths
+
+
+def record(raw,row):
+    raw.write(json.dumps(row,sort_keys=True)+"\n");raw.flush();os.fsync(raw.fileno())
+
+
+def invoke(command,raw,fields,cpu,timeout=180):
+    invocation=dict(fields,argv=command)
+    record(raw,dict(invocation,record="invocation",cpu=cpu,timeout_seconds=timeout))
+    process=subprocess.Popen(command,stdout=subprocess.PIPE,stderr=subprocess.PIPE,
+        preexec_fn=None if cpu is None else lambda:os.sched_setaffinity(0,{cpu}))
+    try:stdout,stderr=process.communicate(timeout=timeout);timed_out=False
+    except subprocess.TimeoutExpired:
+        process.kill();stdout,stderr=process.communicate();timed_out=True
+    record(raw,dict(invocation,record="outcome",returncode=process.returncode,timed_out=timed_out,
+        stdout=stdout.decode(errors="replace"),stderr=stderr.decode(errors="replace"),
+        stdout_hex=stdout.hex(),stderr_hex=stderr.hex()))
+    if timed_out:raise TimeoutError("measurement process timed out")
+    if process.returncode:raise RuntimeError("measurement process returned "+str(process.returncode))
+    try:row=json.loads(stdout)
+    except ValueError as error:
+        record(raw,dict(invocation,record="parse_failure",failure=repr(error)));raise
+    row.update(invocation);record(raw,dict(row,record="result"));return row
+
+
 def main():
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--build",required=True,type=Path,help="frozen bench-build.json")
@@ -34,11 +63,7 @@ def main():
     def call(cell,path,count,kind,rep):
         op,n,top=cell;binary=files["baseline" if path in ("baseline","gmp") else "candidate"]
         command=[str(binary),str(op),str(n),str(top),str(SEED),str(path=="gmp").lower(),str(count),"registered"]
-        result=subprocess.run(command,capture_output=True,text=True,check=True,timeout=180,
-                              preexec_fn=lambda:os.sched_setaffinity(0,{args.cpu}))
-        row=json.loads(result.stdout)
-        row.update(op=op,n=n,top=top,path=path,kind=kind,repetition=rep,argv=command)
-        raw.write(json.dumps(row,sort_keys=True)+"\n");raw.flush();return row
+        return invoke(command,raw,dict(op=op,n=n,top=top,path=path,kind=kind,repetition=rep),args.cpu)
     try:
         for index,cell in enumerate(cells):
             counts={};groups={path:[] for path in ("baseline","candidate","gmp")}
@@ -46,9 +71,7 @@ def main():
             for path in groups:
                 row=call(cell,path,0,"calibration",-1);counts[path]=row["iterations"];checksums.add(row["checksum"])
             for rep in range(7):
-                paths=["baseline","candidate","gmp"] if rep%2==0 else ["candidate","baseline","gmp"]
-                offset=(index+rep)%3;paths=paths[offset:]+paths[:offset]
-                for path in paths:
+                for path in sample_paths(index,rep):
                     row=call(cell,path,counts[path],"sample",rep);checksums.add(row["checksum"])
                     while row["ns"]<10_000_000:
                         counts[path]*=2;row=call(cell,path,counts[path],"sample-retry",rep)
