@@ -1,0 +1,85 @@
+{
+  "status": "ready_for_independent_review",
+  "candidate_branch": "codex/packed-consumer-measurement-20261108",
+  "measured_source_commit": "d82d63147cfd45939a6a34765872295dca83a3fa",
+  "measured_source_tree": "737447114e3ae3a7a422e4a546833b8118965990",
+  "base_feature_commit": "a94e71a1945352b35e9df882612381d50dbf1fbf",
+  "feature_review_tip": "0a98c832f9a16c9428a2565ccdf94abafc7c69d3",
+  "mainline_baseline_commit": "8da9dc207d8cae7c0b64aa0d370d1fa7ca2585aa",
+  "source_sha256": {
+    "experiments/packed-convolution/consumer_bench.rs": "6493f5baa633f22d4620d22bb49c8e578eb14c6c5daef48792b23965f09fbd29",
+    "experiments/packed-convolution/measure_consumer.py": "7363732841479eda1da698633a9c6bee339ba0e3ccd952934dc2a186b5bcbec3"
+  },
+  "packed_layout_source_sha256": "fb8073712aa5681ef6f4f9dbb3aff85884955539d809e2e0131bc1b84d2626c8",
+  "layout_gate": {
+    "status": "pass_runtime_refinement_candidate",
+    "verified_items": 350,
+    "valid_runtime_oracle_cases": 208,
+    "error_preservation_cases": 18,
+    "overlap_borrow_rejected": "E0502",
+    "semantic_mutants_rejected": 3,
+    "verification_json_sha256": "4317e976b385ad430f6279bafbfafae0f8ab23b6d66a64ec4fb3e375102e7091",
+    "library_rlib_sha256": "ec417808bd516272626be29e4ef5056758c3c228b16fe5b6b9d2a5ea071e7ac3",
+    "library_metadata_sha256": "8ec91d11bfffee62fc6ef812f7a2d5715bd1a82b8b516cec217bf0de09c43fc8"
+  },
+  "composition": {
+    "input_coefficient_precision_bits": "p",
+    "exact_product": "verigmp::toom_multiply::full, threshold 24, 12n caller-owned scratch",
+    "output_coefficient_precision_bits": "q = 2p + ceil(log2(n)); for n=0 output is empty",
+    "operation": "pack both operands, compute exact full integer product, extract exact q-bit coefficients including final zero tail",
+    "modes": ["layout", "bulk_zero", "direct"],
+    "formal_composition_claimed": false,
+    "gmp_parity_claimed": false,
+    "production_dispatch_changed": false
+  },
+  "measurement": {
+    "runs": 2,
+    "workloads": 14,
+    "cache_phases": ["reuse", "streaming"],
+    "modes": 3,
+    "repetitions_per_group_per_run": 7,
+    "raw_samples_per_run": 588,
+    "minimum_batch_ns": 10000000,
+    "short_attempts": [0, 0],
+    "identical_inputs_and_outputs": true,
+    "all_coefficients_checked_by_python_arbitrary_integer_oracle": true,
+    "release_binary_sha256": "be88210e88b40174b2998b3aa4aa462cd117a80cfb855409d79a7a8372e47df1",
+    "cpu": "AMD Ryzen 7 7745HX with Radeon Graphics",
+    "affinity": [0],
+    "system": "WSL2 Linux 6.6.87.2-microsoft-standard-WSL2",
+    "rustc": "1.99.1, LLVM 23.1.1",
+    "verus": "0.2026.10.26.d17fbd0",
+    "verus_archive_sha256": "361674d05f0c1b2c9c3f4d5bc56a8fb2ab9241ed0cceca27780668c292bb4940",
+    "direct_baseline": "benchmark-only exact u128 schoolbook coefficient convolution; no existing ordinary polynomial-convolution runtime was found in this repository"
+  },
+  "summary": {
+    "nonempty_layout_over_bulk_zero_ratio_range": [0.711762, 1.041727],
+    "nonempty_layout_over_direct_ratio_range": [0.300089, 3.549533],
+    "layout_over_bulk_zero_regressions": [
+      {"count": 64, "precision_bits": 30, "phase": "reuse", "ratio": 1.011152},
+      {"count": 257, "precision_bits": 17, "phase": "reuse", "ratio": 1.041727},
+      {"count": 1024, "precision_bits": 17, "phase": "reuse", "ratio": 1.019094}
+    ],
+    "guard_boundary": {
+      "shape": [64, 29],
+      "required_guard_bits": 6,
+      "available_guard_bits": 6,
+      "layout_over_direct_reuse": 0.995943,
+      "layout_over_direct_streaming": 0.966271
+    },
+    "strategy_or_dispatch_candidate": "not implemented; measurements identify shape-dependent regions only"
+  },
+  "review_state": "independent Astra Max review pending",
+  "evidence_files_sha256": {
+    "layout-gate.zip": "f233bea038a138b04deb2270ba4909d31a3367377b7d225da733b6a4fd681785",
+    "consumer-run-one.zip": "65b341ab7d0697423d48849e0040f5c65e395c0e5e115d6a46767f68891ffe30",
+    "consumer-run-two.zip": "d5d5290ed1171a5d6724c0149ea896dd7b6b4e02844f774a32756437e8bf7f59",
+    "confirmation.csv": "69aafed0e75977cc418793ca096efe14aec1442afe74c304edef6405e8262213",
+    "confirmation-runs.json": "5b73215786b36707791729640bf50def26abe55711d4f35e8dd78dab69626f62",
+    "layout-verification.json": "4317e976b385ad430f6279bafbfafae0f8ab23b6d66a64ec4fb3e375102e7091",
+    "run-one-metadata.json": "eb44c0f1a7a09ca4bb0ad3af64c79cc8c3191e1122a3f8e005927cef3bf8e7bf",
+    "run-one-timings.csv": "80c167b0f18a5c7e0a25807d3100a86a08613e467c1dccd19707ce719c8a8d86",
+    "run-two-metadata.json": "03f3b2b2e7314227a3028063baae3d389d3b9dda7199171a7bbefc418e5ec90d",
+    "run-two-timings.csv": "8094ff19d20ec47595486d57aea130c9003898eba549a19ad75d946af696da96"
+  }
+}

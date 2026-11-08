@@ -1,0 +1,51 @@
+{
+  "status": "pass",
+  "run_ids": [
+    "consumer-independent-one",
+    "consumer-independent-two"
+  ],
+  "run_pids": [
+    2817,
+    3539
+  ],
+  "measured_source_commit": "d82d63147cfd45939a6a34765872295dca83a3fa",
+  "measured_source_tree": "737447114e3ae3a7a422e4a546833b8118965990",
+  "source_sha256": {
+    "experiments/packed-convolution/consumer_bench.rs": "6493f5baa633f22d4620d22bb49c8e578eb14c6c5daef48792b23965f09fbd29",
+    "experiments/packed-convolution/measure_consumer.py": "7363732841479eda1da698633a9c6bee339ba0e3ccd952934dc2a186b5bcbec3"
+  },
+  "library_rlib_sha256": "ec417808bd516272626be29e4ef5056758c3c228b16fe5b6b9d2a5ea071e7ac3",
+  "harness_binary_sha256": "be88210e88b40174b2998b3aa4aa462cd117a80cfb855409d79a7a8372e47df1",
+  "cpu_model": "AMD Ryzen 7 7745HX with Radeon Graphics",
+  "cpu_affinity": [
+    0
+  ],
+  "workload_phase_groups": 28,
+  "repetitions_per_mode_per_run": 7,
+  "raw_samples_per_run": 588,
+  "short_attempts_per_run": [
+    0,
+    0
+  ],
+  "discarded_attempts_sha256": [
+    "5d563019762834153f369719d306b43777e01fe6a6825685d019cc5e5adc0574",
+    "5d563019762834153f369719d306b43777e01fe6a6825685d019cc5e5adc0574"
+  ],
+  "all_batches_at_least_10ms": true,
+  "all_coefficients_independently_oracle_checked": true,
+  "inputs_identical": true,
+  "outputs_identical": true,
+  "run_metadata_sha256": [
+    "eb44c0f1a7a09ca4bb0ad3af64c79cc8c3191e1122a3f8e005927cef3bf8e7bf",
+    "03f3b2b2e7314227a3028063baae3d389d3b9dda7199171a7bbefc418e5ec90d"
+  ],
+  "run_timings_sha256": [
+    "80c167b0f18a5c7e0a25807d3100a86a08613e467c1dccd19707ce719c8a8d86",
+    "8094ff19d20ec47595486d57aea130c9003898eba549a19ad75d946af696da96"
+  ],
+  "run_stdout_sha256": [
+    "197089950c2691347e9bef50ffb156b7054b906139951e46262ee2e958a9ee7a",
+    "ddd8ce2d7fd616fcb31ad25e606ae1961b0cd5a9b15c7124a72e9d35a998d9e5"
+  ],
+  "confirmation_csv_sha256": "69aafed0e75977cc418793ca096efe14aec1442afe74c304edef6405e8262213"
+}
