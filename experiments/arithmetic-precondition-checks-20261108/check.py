@@ -55,7 +55,8 @@ def main():
         names=[p.relative_to(ROOT).as_posix() for p in (ROOT/"native").rglob("*.rs")]
         names += [p.relative_to(ROOT).as_posix() for p in FEATURE.iterdir() if p.suffix in (".rs",".py",".md")]
         names += ["AGENTS.md","native/toolchain.json","native/performance-target.json","native/proof-status.json",
-            "native/controls/gmp_abi.cpp"]
+            "native/controls/gmp_abi.cpp","experiments/packed-convolution/layout_verify.py",
+            "experiments/packed-convolution/verus_logs.py"]
         sources={name:(ROOT/name).read_bytes() for name in sorted(set(names))}
         for name,data in sources.items():
             if git("show",head+":"+name)!=data:raise RuntimeError("HEAD byte mismatch: "+name)
@@ -97,6 +98,10 @@ def main():
         report["tools"]=dict(archive_sha256=pin["sha256"],actual_sha256=tools,verus=version,rustc=rust_version)
         producer=args.producer.resolve();baseline=args.baseline.resolve()
         build=json.loads((producer/"build-source.json").read_text())
+        build_command=json.loads((producer/"build-command.json").read_text())
+        if build_command["returncode"]!=0 or any(flag not in build_command["argv"]
+                for flag in ("--compile","--no-cheating","-O")):
+            raise RuntimeError("modified producer lacks successful full release proof command")
         if {k:v for k,v in build["source_sha256"].items() if k.endswith(".rs")}!=native:
             raise RuntimeError("modified producer is not this native source")
         proof=(producer/"library.stdout.log").read_text()+(producer/"library.stderr.log").read_text()
@@ -113,12 +118,12 @@ def main():
         for name in ("verus","rust_verify","z3","vstd.vir","libvstd.rlib"):
             expected=next(v for k,v in old["toolchain"]["actual_file_sha256"].items() if k.endswith("/"+name))
             if tools[name]!=expected:raise RuntimeError("baseline producer tool differs")
-        report["producer"]=dict(build_source=build,verified_items=verified,
+        report["producer"]=dict(build_source=build,build_command=build_command,verified_items=verified,
             rlib_sha256=file_sha(producer/"libverigmp.rlib"),vir_sha256=file_sha(producer/"verigmp.vir"))
         report["baseline"]=dict(source=BASE,report_sha256=file_sha(baseline/"verification.json"),
             rlib_sha256=file_sha(baseline/"libverigmp.rlib"),vir_sha256=file_sha(baseline/"verigmp.vir"),
             library_verified_items=old["library_verified_items"])
-        for name in ("build-source.json","library.stdout.log","library.stderr.log","libverigmp.rlib","verigmp.vir"):
+        for name in ("build-source.json","build-command.json","library.stdout.log","library.stderr.log","libverigmp.rlib","verigmp.vir"):
             shutil.copyfile(producer/name,out/name)
         ordinary(["c++","-std=c++17",snapshot/"native/controls/gmp_abi.cpp","-lgmp","-o",out/"gmp-abi"],"gmp-abi-build")
         report["gmp_abi"]=ordinary([out/"gmp-abi"],"gmp-abi-check")
