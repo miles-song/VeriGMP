@@ -4,6 +4,7 @@
 #[path="specs/product.rs"] pub mod product;
 #[path="specs/fast_product.rs"] pub mod fast_product;
 #[path="specs/packed_convolution.rs"] pub mod packed_convolution;
+#[path="specs/packed_product.rs"] pub mod packed_product;
 #[path="verified/kernel.rs"] pub mod kernel;
 #[path="verified/limbs.rs"] pub mod limbs;
 #[path="verified/pow2.rs"] pub mod pow2;
