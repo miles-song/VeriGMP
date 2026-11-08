@@ -1,0 +1,2 @@
+# Evidence hashes cover the exact recorded bytes, including CSV line endings.
+evidence/** -text -eol whitespace=cr-at-eol

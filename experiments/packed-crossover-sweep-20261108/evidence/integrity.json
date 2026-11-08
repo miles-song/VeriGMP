@@ -1,0 +1,81 @@
+{
+  "status": "pass",
+  "scope": "archive integrity, committed measurement source identity, portable document links, complete raw groups, independent executable/result identities, and raw-row median recomputation",
+  "accepted_rows": 20160,
+  "registered_shapes": 360,
+  "archive_checks": [
+    {
+      "archive": "layout-gate.zip",
+      "entries": 238,
+      "all_entry_hashes_match": true
+    },
+    {
+      "archive": "discovery-a.zip",
+      "entries": 12,
+      "all_entry_hashes_match": true
+    },
+    {
+      "archive": "discovery-b.zip",
+      "entries": 12,
+      "all_entry_hashes_match": true
+    },
+    {
+      "archive": "confirmation-a.zip",
+      "entries": 12,
+      "all_entry_hashes_match": true
+    },
+    {
+      "archive": "confirmation-b.zip",
+      "entries": 12,
+      "all_entry_hashes_match": true
+    },
+    {
+      "archive": "aborted-train-a.zip",
+      "entries": 6,
+      "all_entry_hashes_match": true
+    }
+  ],
+  "raw_process_checks": [
+    {
+      "run_id": "discovery-a",
+      "accepted_rows": 6860,
+      "shape_phase_groups": 490,
+      "every_group_has_seven_unique_samples": true,
+      "medians_recomputed": true,
+      "actual_archived_binary_matches": true,
+      "all_batches_at_least_10ms": true
+    },
+    {
+      "run_id": "discovery-b",
+      "accepted_rows": 6860,
+      "shape_phase_groups": 490,
+      "every_group_has_seven_unique_samples": true,
+      "medians_recomputed": true,
+      "actual_archived_binary_matches": true,
+      "all_batches_at_least_10ms": true
+    },
+    {
+      "run_id": "confirmation-a",
+      "accepted_rows": 3220,
+      "shape_phase_groups": 230,
+      "every_group_has_seven_unique_samples": true,
+      "medians_recomputed": true,
+      "actual_archived_binary_matches": true,
+      "all_batches_at_least_10ms": true
+    },
+    {
+      "run_id": "confirmation-b",
+      "accepted_rows": 3220,
+      "shape_phase_groups": 230,
+      "every_group_has_seven_unique_samples": true,
+      "medians_recomputed": true,
+      "actual_archived_binary_matches": true,
+      "all_batches_at_least_10ms": true
+    }
+  ],
+  "source_snapshot_hashes_match": true,
+  "seven_unique_samples_per_group": true,
+  "selection_frozen_hash_matches": true,
+  "no_candidate_promoted": true,
+  "environment_guaranteed_emulator_free": false
+}
