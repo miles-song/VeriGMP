@@ -65,8 +65,9 @@ Baseline controls 的 run2/run1 geometric mean 为1.012098212025976，落在[0.9
 Control identity 的已知边界保留：61/71 controls 的完整 library arithmetic bodies 和
 normalized relocations 相同；10个 default square controls 会进入改变的 Toom full caller，
 即使 interpolation visits为零。全部71 controls 的最终 absolute/raw layout identity 为false。
-新增 `shift_factor` 是26-byte cold spec panic stub，无 library incoming references、
-actual roots 不可达、最终 benchmark ELF 不存在。没有修改 inline/padding 逼近 identity。
+新增 `shift_factor` 是26-byte cold spec panic stub，zero incoming arithmetic/callgraph references；
+存在且仅存在1个 `.eh_frame` unwind metadata relocation，actual roots 不可达、
+最终 benchmark ELF 不存在。没有修改 inline/padding 逼近 identity。
 
 Rev1 的 host window 在任何 ADB、pause 或 benchmark invocation 前因 process timestamp
 identity rejection 退出，失败 receipt、原 scripts/plans/grants 与修订前后 records 全部保留。

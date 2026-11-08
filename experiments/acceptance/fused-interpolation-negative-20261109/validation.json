@@ -83,5 +83,20 @@
   ],
   "benchmark_executed": false,
   "verifier_executed": false,
-  "compiler_executed": false
+  "compiler_executed": false,
+  "documentation_binding_update": {
+    "status": "pass",
+    "prior_publication_head": "226cbc02e7205b8013cf91937a72b2894cbbb380",
+    "prior_full_offline_validation_sha256": "8729d7f3e50d626a0baea2a80926db4062c20e368fb22fe86c93a5b1905a852a",
+    "prior_manifest_sha256": "8d7f58e16f386339c260f0b4d03450fb073380725aa38f8a9825fdece3ffa8a6",
+    "current_manifest_sha256": "af1664df4ad54e697bf5c3696c6318696e8db64a9b664feace687985fd98649e",
+    "prior_results_sha256": "520967fc1794f53db9f47c8efd49f08c4aae236e93d80cd606489f442443e5bf",
+    "current_results_sha256": "5321482720abb26c048c5067b93b77c1a6f893555fed6f0c3657394c9685882a",
+    "scope": "Exact RESULTS disclosure replacement; all 12 top-level manifest inputs and 59 protected production files rehashed. Prior full offline replay retained; no full replay repeated.",
+    "corrected_disclosure": "Zero incoming arithmetic/callgraph references; exactly one .eh_frame unwind metadata relocation; absent from final benchmark ELF.",
+    "literal_review_zip_sha256": "0438069f487ddac4d8e832ee10c9ec6563204bacaf34333efa6d81b746249341",
+    "source_bundle_sha256": "b9509950190594072afea9d6b4349226c67e33ce3c348aac953f67d9795737b8",
+    "native_proof_codegen_oracle_timing_repeated": false,
+    "full_offline_replay_repeated": false
+  }
 }
