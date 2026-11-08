@@ -55,8 +55,8 @@ Python oracle uses arbitrary-precision integer sums.
 
 The complete per-workload, per-run medians, 95th-percentile samples, ratios,
 raw rows, input/result hashes, and tool/source identities are preserved in
-`evidence/confirmation.csv`, `evidence/consumer-evidence.zip`, and
-`evidence/receipt.json`.
+`evidence/confirmation.csv`, `evidence/consumer-run-one.zip`,
+`evidence/consumer-run-two.zip`, and `evidence/receipt.json`.
 
 ## Observations
 
