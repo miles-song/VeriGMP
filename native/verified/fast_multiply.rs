@@ -88,6 +88,29 @@ pub fn full(dst:&mut[u64],a:&[u64],b:&[u64],scratch:&mut[u64],threshold:usize)
     proof {lemma_fundamental_div_mod(usize::MAX as int,3);lemma_mod_division_less_than_divisor(usize::MAX as int,3);}
     assert!(a.len()>0 && a.len()==b.len());assert!(a.len()<=usize::MAX/3);
     assert!(dst.len()==2*a.len() && scratch.len()>=3*a.len());assert!(threshold>=8);
+    full_inner(dst,a,b,scratch,threshold);
+}
+
+// The public entry retains its runtime checks. Recursive callers establish the
+// same domain in Verus; the private worker needs only Rust's slice safety checks.
+#[verifier::rlimit(20)]
+#[verifier::spinoff_prover]
+fn full_inner(dst:&mut[u64],a:&[u64],b:&[u64],scratch:&mut[u64],threshold:usize)
+    requires a@.len()>0,a@.len()==b@.len(),old(dst)@.len()==2*a@.len(),
+        old(scratch)@.len()>=3*a@.len(),threshold>=8,
+    ensures final(dst)@.len()==old(dst)@.len(),final(scratch)@.len()==old(scratch)@.len(),
+        value(final(dst)@)==value(a@)*value(b@),
+    decreases a.len(),
+{
+    let _lengths=(dst.len(),a.len(),b.len(),scratch.len());
+    proof {
+        lemma_fundamental_div_mod(usize::MAX as int,3);
+        lemma_mod_division_less_than_divisor(usize::MAX as int,3);
+        assert(a@.len()>0 && a@.len()==b@.len());
+        assert(a@.len()<=usize::MAX/3);
+        assert(dst@.len()==2*a@.len() && scratch@.len()>=3*a@.len());
+        assert(threshold>=8);
+    }
     let n=a.len();
     if n<=threshold {base_full(dst,a,b);return;}
     let h=n/2;
@@ -98,10 +121,10 @@ pub fn full(dst:&mut[u64],a:&[u64],b:&[u64],scratch:&mut[u64],threshold:usize)
     let negative=neg_a!=neg_b;
     let ghost diffs=dst@;
     let (diff_product,child_scratch)=scratch.split_at_mut(2*k);
-    full(diff_product,&dst[..k],&dst[k..2*k],child_scratch,threshold);
+    full_inner(diff_product,&dst[..k],&dst[k..2*k],child_scratch,threshold);
     let ghost difference=value(diff_product@);
-    full(&mut dst[2*k..],&a[k..],&b[k..],child_scratch,threshold);
-    full(&mut dst[..2*k],&a[..k],&b[..k],child_scratch,threshold);
+    full_inner(&mut dst[2*k..],&a[k..],&b[k..],child_scratch,threshold);
+    full_inner(&mut dst[..2*k],&a[..k],&b[..k],child_scratch,threshold);
     let ghost products=dst@;
     proof {
         split(a@,k as nat);split(b@,k as nat);split(products,(2*k) as nat);
