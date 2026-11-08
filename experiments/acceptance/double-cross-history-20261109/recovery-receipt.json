@@ -1,0 +1,100 @@
+{
+  "result": "PASS",
+  "git_version": "git version 2.52.0.windows.1",
+  "python_version": "3.14.7 (tags/v3.14.7:823f032, Aug  5 2026, 10:51:32) [MSC v.1944 64 bit (AMD64)]",
+  "source_main": "338632fef7f0cbe5b442cc6b00b7161bebded647",
+  "source_main_tree": "cbea0ab1dd217a81c56e8a2558bf6e6c86243d11",
+  "source_repository_uri": "file:///C:/Users/23247/.codex/worktrees/gmp-double-cross-history-20261109/VeriGMP",
+  "fixture": "E:\\3sat\\VeriGMP-double-cross-history-fixture-20261109",
+  "bundle_sha256": "88b007fa20648ab061556d5219fe2c06e613172861488f73a2b57c03fa7a2f5a",
+  "bundle_bytes": 30047575,
+  "bundle_advertised_ref": "3ce342e2f09964518c9ff889b2538006c44741c0 refs/heads/codex/verigmp-double-cross-20261108",
+  "bundle_verify_stdout": "The bundle contains this ref:\n3ce342e2f09964518c9ff889b2538006c44741c0 refs/heads/codex/verigmp-double-cross-20261108\nThe bundle requires this ref:\n515f1efa0d79bcb73272df9f54917f156decf1e1 \nThe bundle uses this hash algorithm: sha1\n",
+  "bundle_verify_stderr": "C:/Users/23247/.codex/worktrees/gmp-double-cross-history-20261109/VeriGMP/experiments/acceptance/double-cross-history-20261109/source.bundle is okay\n",
+  "prerequisite_ancestor_of_main": "515f1efa0d79bcb73272df9f54917f156decf1e1",
+  "refs_before": [
+    "338632fef7f0cbe5b442cc6b00b7161bebded647 refs/heads/main"
+  ],
+  "candidate_commits_absent_before": {
+    "5305c6b3d7052cc617f7ff9772b932026b26765a": true,
+    "9fd574a8bf9d8481904241d7f59c7b40cd3531ca": true,
+    "7e5db4b61e8a6b9f1079be90081cabe2081ae1e8": true,
+    "f46b835cb8f812293924418abc42a39978d78694": true,
+    "5e020923d41cabf7aae8ac513e7058fedcd50c6f": true,
+    "e51ed428ed9e20a78150dd72af47a37057b2ac72": true,
+    "9c1d6f001520c382e117f3d86e488c71834e1bc7": true,
+    "3ce342e2f09964518c9ff889b2538006c44741c0": true
+  },
+  "alternate_file_absent_before_and_after": true,
+  "git_environment_sanitized": true,
+  "refs_after": [
+    "338632fef7f0cbe5b442cc6b00b7161bebded647 refs/heads/main",
+    "3ce342e2f09964518c9ff889b2538006c44741c0 refs/heads/recovered"
+  ],
+  "recovered_non_main_graph_oldest_first": [
+    {
+      "commit": "5305c6b3d7052cc617f7ff9772b932026b26765a",
+      "tree": "1d08fa13c51bf110668fd84cb0dd43e17d30e524",
+      "parents": [
+        "515f1efa0d79bcb73272df9f54917f156decf1e1"
+      ]
+    },
+    {
+      "commit": "9fd574a8bf9d8481904241d7f59c7b40cd3531ca",
+      "tree": "1e3f1d98512674044ad0d702d309698f26803736",
+      "parents": [
+        "5305c6b3d7052cc617f7ff9772b932026b26765a"
+      ]
+    },
+    {
+      "commit": "7e5db4b61e8a6b9f1079be90081cabe2081ae1e8",
+      "tree": "345b0f98aaa97bab76c88cc7a44f2f10728fb698",
+      "parents": [
+        "9fd574a8bf9d8481904241d7f59c7b40cd3531ca"
+      ]
+    },
+    {
+      "commit": "f46b835cb8f812293924418abc42a39978d78694",
+      "tree": "a2a18255218b3ae21fde586db7eec87f65fa1ac5",
+      "parents": [
+        "7e5db4b61e8a6b9f1079be90081cabe2081ae1e8"
+      ]
+    },
+    {
+      "commit": "5e020923d41cabf7aae8ac513e7058fedcd50c6f",
+      "tree": "49f197f2f83c1ab472d00f54246615315dc96635",
+      "parents": [
+        "f46b835cb8f812293924418abc42a39978d78694"
+      ]
+    },
+    {
+      "commit": "e51ed428ed9e20a78150dd72af47a37057b2ac72",
+      "tree": "70516e29c6c5843292f2ecb81f470dd5ea74a8b5",
+      "parents": [
+        "5e020923d41cabf7aae8ac513e7058fedcd50c6f"
+      ]
+    },
+    {
+      "commit": "9c1d6f001520c382e117f3d86e488c71834e1bc7",
+      "tree": "71f9ae8f20ea3e883bbc3fbcf9e39b7d77104c51",
+      "parents": [
+        "e51ed428ed9e20a78150dd72af47a37057b2ac72"
+      ]
+    },
+    {
+      "commit": "3ce342e2f09964518c9ff889b2538006c44741c0",
+      "tree": "eb63c089229bf15e2464a44fbdcccee177362aa5",
+      "parents": [
+        "9c1d6f001520c382e117f3d86e488c71834e1bc7"
+      ]
+    }
+  ],
+  "recovered_reachable_object_entries": 3400,
+  "missing_object_entries": 0,
+  "fsck_exit_code": 0,
+  "fsck_stdout": "",
+  "fsck_stderr": "notice: HEAD points to an unborn branch (master)\n",
+  "tip_recursive_tree_entries": 4550,
+  "tip_recursive_tree_listing_sha256": "2cb9f1eab0d016b7f4ef5bf6839788cf4414e60b30cca109778e02e7aa59c358",
+  "verifier_sha256": "57a694e3e43dd715f7e6ecac4d7fcde6c666015ec0e80bc7b14ac652d08d7b21"
+}
