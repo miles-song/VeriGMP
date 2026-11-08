@@ -27,9 +27,10 @@ python experiments/acceptance/double-cross-history-20261109/verify_history.py \
 ```
 
 Use paths appropriate to the host. The script fetches only the specified main
-commit into a new bare repository over local Git transport, confirms all eight
-candidate commits are absent and no alternates are configured, checks the
-bundle, and imports its advertised ref. It compares every recovered commit,
+commit into a new bare repository over local Git transport, confirms the
+initial object set equals the main-reachable set, all eight candidate commits
+are absent and no alternates are configured, checks the bundle, and imports
+its advertised ref. It compares every recovered commit,
 tree and parent with the recorded identities, verifies the tip tree and all
 reachable objects, and runs `git fsck --full`. The fixture is retained for
 inspection. `recovery-receipt.json` records one completed run; repeating the

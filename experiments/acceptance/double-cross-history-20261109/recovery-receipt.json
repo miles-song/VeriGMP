@@ -5,7 +5,7 @@
   "source_main": "338632fef7f0cbe5b442cc6b00b7161bebded647",
   "source_main_tree": "cbea0ab1dd217a81c56e8a2558bf6e6c86243d11",
   "source_repository_uri": "file:///C:/Users/23247/.codex/worktrees/gmp-double-cross-history-20261109/VeriGMP",
-  "fixture": "E:\\3sat\\VeriGMP-double-cross-history-fixture-20261109",
+  "fixture": "E:\\3sat\\VeriGMP-double-cross-history-fixture-v2-20261109",
   "bundle_sha256": "88b007fa20648ab061556d5219fe2c06e613172861488f73a2b57c03fa7a2f5a",
   "bundle_bytes": 30047575,
   "bundle_advertised_ref": "3ce342e2f09964518c9ff889b2538006c44741c0 refs/heads/codex/verigmp-double-cross-20261108",
@@ -15,6 +15,9 @@
   "refs_before": [
     "338632fef7f0cbe5b442cc6b00b7161bebded647 refs/heads/main"
   ],
+  "initial_object_count": 3449,
+  "main_reachable_object_count": 3449,
+  "initial_objects_equal_main_reachable": true,
   "candidate_commits_absent_before": {
     "5305c6b3d7052cc617f7ff9772b932026b26765a": true,
     "9fd574a8bf9d8481904241d7f59c7b40cd3531ca": true,
@@ -96,5 +99,5 @@
   "fsck_stderr": "notice: HEAD points to an unborn branch (master)\n",
   "tip_recursive_tree_entries": 4550,
   "tip_recursive_tree_listing_sha256": "2cb9f1eab0d016b7f4ef5bf6839788cf4414e60b30cca109778e02e7aa59c358",
-  "verifier_sha256": "57a694e3e43dd715f7e6ecac4d7fcde6c666015ec0e80bc7b14ac652d08d7b21"
+  "verifier_sha256": "a5e8c35758b0bc7a586861928daa0787a3e23371a5fd13d2f3c2c9e322abf181"
 }

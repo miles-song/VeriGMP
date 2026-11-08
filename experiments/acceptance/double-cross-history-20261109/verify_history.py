@@ -77,6 +77,9 @@ def verify(args):
     require(not alternate_file.exists(), "fixture has an alternates file before recovery")
     refs_before = git(fixture, "for-each-ref", "--format=%(objectname) %(refname)").stdout.splitlines()
     require(refs_before == [f"{MAIN} refs/heads/main"], "fixture contains refs other than main")
+    main_objects = set(git(fixture, "rev-list", "--objects", "--no-object-names", MAIN).stdout.splitlines())
+    initial_objects = set(git(fixture, "cat-file", "--batch-all-objects", "--batch-check=%(objectname)").stdout.splitlines())
+    require(initial_objects == main_objects, "fixture contains missing or non-main objects before recovery")
     absent_before = {commit: git(fixture, "cat-file", "-e", commit, check=False).returncode != 0 for commit, _, _ in GRAPH}
     require(all(absent_before.values()), "a candidate commit was already present in the main-only fixture")
 
@@ -113,6 +116,9 @@ def verify(args):
         "bundle_verify_stderr": bundle_check.stderr,
         "prerequisite_ancestor_of_main": BOUNDARY,
         "refs_before": refs_before,
+        "initial_object_count": len(initial_objects),
+        "main_reachable_object_count": len(main_objects),
+        "initial_objects_equal_main_reachable": True,
         "candidate_commits_absent_before": absent_before,
         "alternate_file_absent_before_and_after": True,
         "git_environment_sanitized": True,
