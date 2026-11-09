@@ -8,6 +8,7 @@
 #[path="verified/pow2.rs"] mod pow2;
 #[path="verified/multiply.rs"] mod multiply;
 #[path="verified/fast_words.rs"] mod fast_words;
+#[path="verified/fixed_row.rs"] mod fixed_row;
 #[path="verified/fast_multiply.rs"] mod fast_multiply;
 #[no_mangle]
 pub fn verified_fast(out:&mut[u64],a:&[u64],b:&[u64],scratch:&mut[u64],top:u32){fast_multiply::mul_mod(out,a,b,scratch,top);}

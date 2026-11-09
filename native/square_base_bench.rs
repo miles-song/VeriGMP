@@ -10,6 +10,7 @@
 #[path="verified/pow2.rs"] mod pow2;
 #[path="verified/multiply.rs"] mod multiply;
 #[path="verified/fast_words.rs"] mod fast_words;
+#[path="verified/fixed_row.rs"] mod fixed_row;
 #[path="verified/toom_words.rs"] mod toom_words;
 #[path="verified/toom_evaluate.rs"] mod toom_evaluate;
 #[path="verified/toom_interpolate.rs"] mod toom_interpolate;

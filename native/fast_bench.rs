@@ -8,6 +8,7 @@
 #[path="verified/pow2.rs"] mod pow2;
 #[path="verified/multiply.rs"] mod multiply;
 #[path="verified/fast_words.rs"] mod fast_words;
+#[path="verified/fixed_row.rs"] mod fixed_row;
 #[path="verified/fast_multiply.rs"] mod fast_multiply;
 #[path="controls/fast_multiply.rs"] mod ordinary;
 use std::hint::black_box;

@@ -16,7 +16,9 @@ fn wide(a:u64,b:u64,acc:u64,carry:u128)->(out:(u64,u128))
             ==(a as int)*(b as int)+(acc as int)+(carry as int),
 {
     assert((a as int)*(b as int)+(acc as int)+(carry as int)<=u128::MAX)
-        by(nonlinear_arith);
+        by(nonlinear_arith)
+        requires 0<=a as int<=u64::MAX,0<=b as int<=u64::MAX,
+            0<=acc as int<=u64::MAX,0<=carry as int<=u64::MAX;
     let total=(a as u128)*(b as u128)+(acc as u128)+carry;
     let radix:u128=18446744073709551616;
     proof {lemma_fundamental_div_mod(total as int,radix as int);}
