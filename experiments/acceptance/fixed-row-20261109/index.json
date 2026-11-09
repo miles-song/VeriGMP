@@ -55,7 +55,7 @@
     "profile": "Independent Astra Max requested; retained reviews disclose unexposed runtime identity."
   },
   "public_scope": "Only public VeriGMP arithmetic sources, test inputs/harnesses, native proof pairs and measurement/provenance metadata. VeriCount-named dependency paths are retained metadata; no private solver sources or M3 data are copied.",
-  "excluded": "Tool binaries, shared dependencies, cache files, private solver/M3 content, and96MB local oracle stdout. Detailed local gates have their separate public archive.",
+  "excluded": "Tool binaries, shared dependencies, cache files, private solver/M3 content, and complete raw stdout for the 4885 baseline/4905 candidate runtime cases plus complete run-02 runtime replay evidence. Those full runtime records remain external local evidence under E:/3sat/VeriGMP-fixed-row-local-gates-20261109/, not public archived evidence. experiments/fixed-row-20261109/ is the public harness/summary package; this ZIP retains only the listed subset of local gate bindings, public source/fixtures, mutation source/logs and selected receipts.",
   "files": {
     "baseline/artifacts.json": {
       "bytes": 14083,
@@ -4099,6 +4099,7 @@
     "genuine_typed_vc_rejections": 4,
     "original_five_attempt_group_passed": false,
     "fifth_dispatch_resource_limit_accepted": false,
-    "separate_gate_archive": "experiments/fixed-row-20261109/"
+    "public_harness_summary_package": "experiments/fixed-row-20261109/",
+    "external_local_runtime_evidence": "Full 4885 baseline/4905 candidate raw runtime stdout and complete run-02 runtime replay evidence are retained only externally at E:/3sat/VeriGMP-fixed-row-local-gates-20261109/, not in either public package."
   }
 }
