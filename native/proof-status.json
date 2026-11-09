@@ -76,6 +76,18 @@
     },
     {
       "files": [
+        "verified/fixed_row.rs"
+      ],
+      "status": "impl_refined",
+      "scope": "Const-sized full schoolbook product with direct first-row writes and exact u128 multiply/accumulate carries; fast_multiply::full selects N=15/20/22/23 at its existing basecase boundary, with caller-owned 2N output and no additional scratch or allocation",
+      "validation": "Arithmetic source d12759a022d2e285d0bc6b5869ccfb5c1d85f665: full-r05-toolbound strictly verifies and compiles all 371 library items, zero errors, with 58 stable Rust source files, an explicit Rust 1.99.1 environment and 111 stable tool identities. The final rlib/vir pair is used by the 4-item actual consumer, optimized runtime replay and measured candidate. Local gates include 4905 candidate and 4885 baseline independent integer-oracle cases, 18 assertion controls, 5 workspace boundaries, 2 borrow negatives, 4 typed semantic VC rejections and actual linked-code inspection. Original mutation classifications, supplemental audited classifications and the unaccepted resource-limited fifth attempt remain distinct.",
+      "local_gates": "../experiments/fixed-row-20261109/local-gates.json",
+      "evidence": "../experiments/acceptance/fixed-row-20261109/index.json",
+      "performance": "Two separately scheduled runs of the frozen principal/leaf and boundary suites retain 3472 observations. Principal geometric mean new/old is 0.9256327470891145 and 0.9177123140676965; every declared cell in each run is at most 1.03. Completed independent performance review accepts this declared scope. Final integrated feature review is pending; whole-library GMP parity remains false.",
+      "cost": "N*N wide products, O(N^2) word work and O(1) additional live words; analytic source counts, not a checked composed cost theorem. Const-sized inner loops erase indexing/carry helper overhead in inspected optimized selected leaves; no proof objects remain at runtime."
+    },
+    {
+      "files": [
         "specs/toom.rs",
         "specs/toom_blocks.rs",
         "specs/square.rs"

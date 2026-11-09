@@ -8,6 +8,41 @@ proof overhead and not evidence of parity with GMP.
 
 ## Published data sets
 
+### Const-sized full-product rows (2026-11-09)
+
+The [fixed-row archive](../experiments/acceptance/fixed-row-20261109/README.md)
+compares arithmetic source `d12759a022d2e285d0bc6b5869ccfb5c1d85f665`
+against the preceding native implementation on the same machine and inputs.
+The candidate selects the new full-product leaf only at 15, 20, 22 and 23 limbs.
+Both sides use their actual verified library exports; the timed public calls
+are `arithmetic::mul_mod` and `arithmetic::square_mod`. Forced full-product calls
+also cover the selected leaves and their neighbors.
+
+| Fixed phase | Principal geometric mean, new/old | Worst declared cell, new/old |
+| --- | ---: | ---: |
+| Principal workloads and leaves, run 1 | 0.9256327471 | 1.0291525071 |
+| Boundary workloads, run 1 | — | 1.0204333437 |
+| Principal workloads and leaves, run 2 | 0.9177123141 | 1.0190359299 |
+| Boundary workloads, run 2 | — | 1.0274416755 |
+
+The eight principal cells are 1,024/4,096 limbs, random/all-max inputs and
+default modular product/square with `top=63`. Eighteen forced full-product cells
+cover the selected and neighboring leaf sizes. Thirty-six default-entry boundary
+cells cover sizes around the existing recursion and dispatch thresholds. Each
+cell has fourteen observations per side in each independent run, collected in
+seven ABBA/BAAB blocks. The frozen rule requires a principal geometric mean at
+most 0.97 and every declared cell at most 1.03. All four phases pass; the
+principal time reductions are 7.4367% and 8.2288%. The 3,472 raw observations,
+frozen counts and order, exact checksums, complete source/tool/library identities,
+and pre/post-flight and resume receipts are retained. Every batch exceeds 10 ms;
+the shortest is 27.659370 ms. Measurements ran on an AMD Ryzen 7 7745HX under WSL,
+pinned to CPU 8, with the emulator paused during each bounded window and observed
+running afterward. This does not assert an exclusive host or stable CPU clocks.
+
+These ratios compare the candidate with its previous implementation. They do
+not establish the registered GMP target, a solver speedup or a complexity bound.
+The historical data sets below retain their own source and hardware identities.
+
 The frozen baseline data set in [docs/data/2026-11-01/](data/2026-11-01/) was
 produced from source commit `ab5eaf670865a4438301b6dce6b4e5175c4a6c22`. The
 reachable code-equivalent identity is `bf2821728fb5c7228609c4447327ba95eccdc5c9`,

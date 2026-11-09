@@ -64,6 +64,12 @@ Toom-3 路径。平方总是走专用低位平方递归：不超过 64 个 limb 
 少于 9 个 limb 时保留通用乘法。
 这些阈值是固定的、经测量选定的策略，并非最优性声明。
 
+Full-product Karatsuba 在 15、20、22、23 limbs 的 leaves 使用 const-sized
+wide-multiply row kernel：first row 直接写入 caller-owned destination，后续 rows
+在原 buffer 中累加，保留 exact carries，无额外 workspace。
+[fixed-row evidence](experiments/acceptance/fixed-row-20261109/README.md) 记录对应的
+source-bound proof、public-entry measurements 和 neighboring sizes。
+
 ## 快速开始
 
 固定版本的引导脚本支持 x86_64 Linux（含 WSL）。先安装 Python 3.12 或更高版本、

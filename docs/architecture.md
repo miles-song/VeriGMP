@@ -66,7 +66,7 @@ function's postcondition.
 | Slice arithmetic | `verified/limbs.rs`, `pow2.rs`, `fast_words.rs` | Exact addition with carry out, subtraction with borrow, absolute differences, word scaling and precision normalization. |
 | Toom words | `verified/toom_words.rs` | Padded add/subtract, exact scaling, exact division by a word, shifted modular accumulation. |
 | Evaluation and interpolation | `verified/toom_evaluate.rs`, `toom_interpolate.rs` | Evaluate three blocks at 1, -1 and 2 (with a sign for -1); recover the middle coefficients from five point products in place. |
-| Basecase and Karatsuba | `verified/multiply.rs`, `fast_multiply.rs`, `square.rs`, `square_base.rs` | Schoolbook rows, difference-form Karatsuba, low-product recursion, Karatsuba squaring, the triangular full-square leaf and the triangular low-square leaf. |
+| Basecase and Karatsuba | `verified/multiply.rs`, `fixed_row.rs`, `fast_multiply.rs`, `square.rs`, `square_base.rs` | Schoolbook rows, const-sized wide-multiply leaves at 15/20/22/23 limbs, difference-form Karatsuba, low-product recursion, Karatsuba squaring and triangular square leaves. |
 | Toom recursion | `verified/toom_multiply.rs`, `toom_square.rs` | Full products and full squares with five recursive point products. |
 | Low products | `verified/toom_low.rs`, `square_low.rs` | Products and squares modulo `B^n` built from one full block product and shorter low products. |
 | Public dispatch | `verified/arithmetic.rs` | Fixed policy for `mul_mod` and `square_mod`, plus workspace sizing. |

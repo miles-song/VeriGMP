@@ -6,7 +6,8 @@ raw measurements and reproducible preparation scripts. The machine-readable
 All candidates in these archives remain experimental. Individual optimizations
 can be enabled through scoped dispatch after reproducible gains against the
 current implementation, relevant regression and combination measurements,
-same-source proof and correctness checks, independent review and exact-commit CI.
+same-source proof and correctness checks, and independent review. CI supplies
+additional evidence and does not block development or merge.
 They need not first meet the overall GMP target. Replacing a consuming solver's
 trusted GMP backend additionally requires the complete registered
 [performance target](../native/performance-target.json), independent confirmation
@@ -14,6 +15,7 @@ and acceptance of the solver's actual dependency path and representative traces.
 
 | Archive | Optimization mechanism | Accepted scope |
 | --- | --- | --- |
+| [fixed-row full-product leaves](acceptance/fixed-row-20261109/README.md) | Const-sized wide-multiply rows at 15/20/22/23 limbs | Actual native refinement and two complete performance runs; final feature review is recorded by the archive |
 | [scaled-subtraction](scaled-subtraction/index.json) | Double-carry, single-carry and split-slow-path scaled subtraction | Three reproducible experiments; GMP target not met |
 | [toom4](toom4/index.json) | Four-way evaluation, recursive multiplication and interpolation | Verified candidate and measurements; GMP target not met |
 | [toom4-entry](toom4-entry/index.json) | Toom-4 entry-policy changes | Verified candidate and measurements; GMP target not met |

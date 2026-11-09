@@ -78,6 +78,12 @@ its cross products and diagonals below the output radix. Below 9 limbs the
 low-square entry retains generic multiplication. These thresholds are a fixed,
 measured policy, not a claim of optimality.
 
+Full-product Karatsuba leaves of 15, 20, 22 and 23 limbs use a const-sized
+wide-multiply row kernel. It writes the first row directly and accumulates later
+rows in the caller's destination, with exact carries and no extra workspace.
+The [fixed-row evidence](experiments/acceptance/fixed-row-20261109/README.md)
+records its source-bound proof, public-entry measurements and neighboring sizes.
+
 ## Quick start
 
 The pinned bootstrap supports x86_64 Linux, including WSL. Install Python 3.12 or

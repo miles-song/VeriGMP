@@ -14,6 +14,22 @@ kept apart:
 The current functional-refinement proofs do not establish the cost bound, and a
 benchmark says nothing about worst cases.
 
+The [fixed-row gate](../experiments/acceptance/fixed-row-20261109/README.md)
+binds the complete 371-item library proof and optimized export at arithmetic
+source `d12759a022d2e285d0bc6b5869ccfb5c1d85f665` to 58 captured Rust sources,
+an explicit tool environment and 111 hashed tool files. Its final rlib/vir pair
+is used by the actual imported consumer, runtime replay and timed candidate.
+The focused gates retain 4,905 candidate and 4,885 baseline integer-oracle cases,
+18 assertion controls, five workspace boundaries, borrow rejection, four typed
+semantic VC failures and inspection of actual linked code. Two original mutant
+classifications missed the diagnostic `requires not satisfied`; their unchanged
+raw failures are classified in a separate audited supplement. A fifth attempt
+with a resource-limit diagnostic remains unaccepted. The four default-entry,
+selected-leaf and neighboring-size measurement phases contain 3,472 observations.
+This is functional and observed-performance evidence, with independent review
+recorded by the archive; it establishes neither a checked cost theorem nor GMP
+parity. Earlier proof exports retain their own tool-provenance qualifications.
+
 The frozen low-square candidate reports 234 library verification items,
 11,292 integer oracle cases and five new semantic mutants rejected by the proof.
 The current Toom/square gate checks those 11,292 cases, including 1,440 direct
