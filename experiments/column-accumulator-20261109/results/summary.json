@@ -1,0 +1,99 @@
+{
+  "archive_sha256": "3a7d87be42435ab186162af853c415048fbb178436ea31f5eb8d686d32289cc6",
+  "baseline_native_tree": "72dc8a5da2cbb7eddcdd26c219d50770e8b73b06",
+  "batches_per_side_per_cell": 14,
+  "benchmark_replayed_for_archive": false,
+  "blocks_per_cell": 7,
+  "build_status": "compiled_unverified_prototype",
+  "calls": 224,
+  "candidate_formal_proof": false,
+  "cell_limit": 1.03,
+  "cell_ratios_sha256": "a39eae4b01349f712eec00acc1d78a4a53bdeb7fe70d63b64e0d6b47389369ee",
+  "cells": 8,
+  "cells_summary": [
+    {
+      "count": 262144,
+      "minimum_batch_ns": 47092524,
+      "n": 15,
+      "operation": "full",
+      "pattern": "random",
+      "ratio": 1.5521974801634209
+    },
+    {
+      "count": 262144,
+      "minimum_batch_ns": 46279356,
+      "n": 15,
+      "operation": "full",
+      "pattern": "max",
+      "ratio": 1.5099131072940366
+    },
+    {
+      "count": 131072,
+      "minimum_batch_ns": 40225810,
+      "n": 20,
+      "operation": "full",
+      "pattern": "random",
+      "ratio": 1.367242352187343
+    },
+    {
+      "count": 131072,
+      "minimum_batch_ns": 39810920,
+      "n": 20,
+      "operation": "full",
+      "pattern": "max",
+      "ratio": 1.3511981166586062
+    },
+    {
+      "count": 65536,
+      "minimum_batch_ns": 56666914,
+      "n": 46,
+      "operation": "low",
+      "pattern": "random",
+      "ratio": 1.0511322592239705
+    },
+    {
+      "count": 65536,
+      "minimum_batch_ns": 55229161,
+      "n": 46,
+      "operation": "low",
+      "pattern": "max",
+      "ratio": 0.9615379419009223
+    },
+    {
+      "count": 16384,
+      "minimum_batch_ns": 77568828,
+      "n": 115,
+      "operation": "low",
+      "pattern": "random",
+      "ratio": 0.7898951721176314
+    },
+    {
+      "count": 16384,
+      "minimum_batch_ns": 88987273,
+      "n": 115,
+      "operation": "low",
+      "pattern": "max",
+      "ratio": 0.7667612221596166
+    }
+  ],
+  "environment_limits": "These are one-host forced-leaf prototype observations. Stable clocks, an exclusive host, production/default dispatch, independent repeated-run performance acceptance and GMP parity are not established. No samples were discarded or new environment rejection threshold applied.",
+  "geomean_limit": 0.9,
+  "geomean_ratio": 1.1295737902573288,
+  "low_115": "Prospective scoped hypothesis only; broad failure and retained variation prevent accepted performance claims.",
+  "low_115_all_max_variation": "For all-max low-115, row batch max/min is 2.0788 and column batch max/min is 2.1662. Retain this variation with the favorable cell ratios; any follow-up scope needs its own prospective measurements.",
+  "minimum_batch_ns": 39810920,
+  "numerical_go": false,
+  "oracle_scope": "12118 cases and 5 invalid-input controls in each retained build03 mode; saved evidence, no replay.",
+  "postflight_named_checks": 23,
+  "production_acceptance": false,
+  "retained_external_history": [
+    "build-01",
+    "build-02",
+    "oracle-release-01",
+    "oracle-overflow-01"
+  ],
+  "reviewer_runtime_identity": "Codex GPT-6 as exposed in this context; no Astra Max runtime attestation",
+  "source_commit": "8df6f173040f8cc9a0957420be9dfb832fe26807",
+  "status": "NO_GO_FOR_PREREGISTERED_BROAD_PROTOTYPE_SCOPE",
+  "worst_cell_ratio": 1.5521974801634209
+}

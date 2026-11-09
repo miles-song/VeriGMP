@@ -1,0 +1,20 @@
+{
+  "archive_sha256": "3a7d87be42435ab186162af853c415048fbb178436ea31f5eb8d686d32289cc6",
+  "calls": 224,
+  "checker_sha256": "7ed6703d62c87a1f32cf8e43d666642a3bc34acb500ed4d3ef3e506b565d3dfc",
+  "entries": 66,
+  "geomean_ratio": 1.1295737902573288,
+  "interpreter": {
+    "path": "C:\\Users\\23247\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+    "sha256": "4d6f5f81a4bca11191c4c7c6b43632694d0a4ce74e068619d8fdc161d469859a",
+    "version": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]"
+  },
+  "limitations": "Omitted executable/pair/tool binaries are bound by retained original receipts and review, not reverified by this portable checker.",
+  "manifest_sha256": "53d1bce075ed08316075cf22c2c09128efcb535d0fca3b7e0acf7f6bd67c3438",
+  "original_file_bindings": 69,
+  "postflight_checks": 23,
+  "proof_build_oracle_benchmark_or_process_control_executed": false,
+  "status": "pass_archive_integrity_and_saved_data_only",
+  "summary_sha256": "5689517106fff8f582637681e9076af63954e0ada259149476503838e154dc39",
+  "worst_cell_ratio": 1.5521974801634209
+}

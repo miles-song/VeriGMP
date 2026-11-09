@@ -265,6 +265,14 @@ default path does not use it. The MAC4 timings are written to
 
 ## Reading the results
 
+The [bounded split-sum column prototype](../experiments/column-accumulator-20261109/results/RESULTS.md)
+completed its preregistered eight-cell forced-leaf screen and was retained as a
+broad NO-GO: 224 calls, candidate/baseline geometric mean 1.12957 (limit 0.90),
+worst cell 1.55220 (limit 1.03). Low-115 favorable medians remain a prospective
+scoped hypothesis because the broad scope failed and substantial variation was
+retained. Its portable raw/source/receipt/review archive makes no proof,
+production/default-dispatch or GMP-parity claim.
+
 - The comparison with mode 0 measures an algorithm change between two verified
   implementations. Comparing with GMP measures the remaining gap to a mature
   library computing the same result through its public API. Neither isolates the

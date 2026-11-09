@@ -25,6 +25,13 @@ remeasure any runtime change made during refinement. Retain unsuccessful
 prototypes and their original results instead of tuning acceptance thresholds
 after observing them.
 
+When a performance or design blocker persists, seek independent research grounded
+in primary papers and advanced project implementations. Record the access date,
+paper version and project revision, and turn each relevant idea into a falsifiable
+experiment with a fixed comparison and rejection rule. Distinguish prior art and
+novelty claims from hypotheses and observed evidence. The root agent retains
+responsibility for implementation, testing and the existing acceptance gates.
+
 Merge each independently accepted optimization into main as soon as its own
 local correctness/oracle, boundary and semantic-mutation gates, relevant
 performance evidence and independent Astra Max review pass. GitHub CI is

@@ -1,13 +1,19 @@
 # Bounded split-sum column prototype
 
 This is an unverified, independently written Rust prototype. Production native
-source and default dispatch are unchanged. Its selection order is prototype,
-integer oracle and boundaries, performance screen, then Verus refinement and
-production acceptance if the measurements justify that work.
+source and default dispatch are unchanged. Its registered broad investment
+screen is **NO-GO**: all 224 calls completed, but the eight-cell geometric mean
+candidate/baseline ratio was 1.1295737903 (limit 0.90), with worst cell
+1.5521974802 (limit 1.03). The completed independent review approves retaining
+the negative experiment. There is no candidate formal proof or production claim.
+The [portable results archive](results/RESULTS.md) retains every sample, exact
+inputs, original source/build/oracle identities, controllers and both reviews.
 
-The baseline is public main `7219cbd013dbf323f7121e4a9e197964f55377ca`, native tree
-`72dc8a5da2cbb7eddcdd26c219d50770e8b73b06`. The independent design is retained at
-`E:/3sat/VeriGMP-fundamental-optimization-design-20261109/DESIGN.md`.
+The design baseline was public main `7219cbd013dbf323f7121e4a9e197964f55377ca`,
+native tree `72dc8a5da2cbb7eddcdd26c219d50770e8b73b06`. The actual measured
+prototype source is `8df6f173040f8cc9a0957420be9dfb832fe26807`, with the same
+native tree. The independent [design](DESIGN.md) and [design plan](design-plan.json)
+retain their original design-time wording and do not claim completed proof.
 
 For radix `B=2^64`, arbitrary u64 limbs and positive operand lengths at most
 128, define `A=sum(a[i]*B^i)`, `C=sum(b[j]*B^j)` and the independent convolution
@@ -27,19 +33,24 @@ another arbitrary u128 product. With at most 128 terms, each half sum is at most
 `128*(B-1)` and the column carry is at most `128*(B-1)`. These are mathematical
 design bounds; machine-checked refinement is pending.
 
-The first performance screen is fixed before timing: full products at 15 and
+The registered performance screen covered full products at 15 and
 20 limbs, low products at 46 and 115 limbs, each with deterministic random and
-all-max inputs. Compare the existing row kernel and this column kernel with
-identical input bytes and preallocated caller buffers. Seven interleaved samples
-of at least 10 ms per cell are required. The prospective go threshold is a
+all-max inputs. It compared the existing row kernel and this column kernel with
+identical input bytes and preallocated caller buffers, using seven alternating
+ABBA/BAAB blocks, or 14 batches per side per cell. Each batch had to last at least
+10 ms. The prospectively fixed go threshold was a
 geometric mean of cell median candidate/baseline ratios at most 0.90 and every
-cell at most 1.03. A failure stops expansion of this candidate. This is a decision
-to invest in refinement, not a GMP-parity gate or production acceptance.
+cell at most 1.03. That broad scope failed. Low-115 random/all-max ratios of
+0.7898951721/0.7667612222 are a prospective scoped hypothesis only; retained
+sample variation and the broad failure prevent accepted performance claims.
+The screen is an investment decision, not a GMP-parity or production gate.
 
 The direct prototype supports rectangular operands and arbitrary requested
-prefixes within its bounded domain. The first production proposal, if justified,
-will retain equal-length wrappers and existing thresholds: full leaves 8..=24,
-low leaves 32..=128, with the existing row implementation elsewhere.
+prefixes within its bounded domain. Its historical production proposal retained
+equal-length wrappers and existing thresholds: full leaves 8..=24, low leaves
+32..=128, with the existing row implementation elsewhere. The failed broad
+screen does not justify implementing that proposal. Any narrower follow-up
+requires a new prospective experiment.
 
 Comba and delayed-carry multiplication have prior art. This prototype makes no
 claim to invent those algorithms or improve asymptotic multiplication bounds.

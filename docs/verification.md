@@ -304,3 +304,11 @@ current production proof/status does not inherit the candidate's 359-item count.
 The evidence-only result, full raw runs, source restoration hashes and offline
 checker are in
 [the no-go experiment package](../experiments/acceptance/arithmetic-precondition-checks-20261108/RESULTS.md).
+
+The [split-sum column prototype archive](../experiments/column-accumulator-20261109/results/RESULTS.md)
+retains an unverified Rust candidate and its failed broad investment screen.
+Build03 is ordinary optimized/overflow-checked compilation; its two 12,118-case
+integer-oracle receipts and 224 saved timing calls establish neither candidate
+Verus refinement nor production acceptance. The 358-item historical comparator
+pair is recorded separately. Production native tree and formal scope are
+unchanged; the completed independent review approves the negative-result archive.
