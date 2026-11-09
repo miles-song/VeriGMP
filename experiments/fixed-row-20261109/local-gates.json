@@ -1,0 +1,23 @@
+{
+  "schema": "verigmp-fixed-row-focused-local-gates-v1",
+  "receipt_path": "/mnt/e/3sat/VeriGMP-fixed-row-local-gates-20261109/receipt.json",
+  "receipt_sha256": "2074438ae22b45cbef38e641bd1dce11336b6bdd74bcc41036490fefd4a0641f",
+  "arithmetic_source_commit": "d12759a022d2e285d0bc6b5869ccfb5c1d85f665",
+  "native_tree": "5790ad2fbadc9877332124c6a66ae3b70b016d03",
+  "baseline_native_tree": "72dc8a5da2cbb7eddcdd26c219d50770e8b73b06",
+  "runtime_cases": {
+    "old": 4885,
+    "new": 4905
+  },
+  "imported_consumer": "4 verified / 0 errors; executed",
+  "semantic_mutants": "4 typed VC failures; extra dispatch/resource-limit attempt not accepted",
+  "codegen": "4 equal positive-path controls; actual selected native leaves 15/20/22/23; 16 native function closure",
+  "bounded_child_wall_seconds": 118.62485970999114,
+  "benchmark_samples_by_this_leaf": 0,
+  "qualifications": [
+    "Invalid-domain calls are observed native assertion tests, not proofs of behavior outside contracts.",
+    "Original r04 runtime/mutation identities remain original; final r05 runtime replay and imported consumer are separately bound.",
+    "Four valid semantic VC rejections and one unaccepted dispatch/resource-limit attempt are reported individually.",
+    "No checked resource/cost theorem, universal GMP parity, consuming-solver backend acceptance or independent Astra review follows from this receipt."
+  ]
+}
