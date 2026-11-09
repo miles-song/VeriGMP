@@ -1,6 +1,8 @@
 {
   "schema": "fixed-row-public-acceptance-archive-v1",
-  "status": "measured/go_pending_final_independent_acceptance",
+  "status": "accepted_scoped_incremental_feature",
+  "final_acceptance": "final-acceptance.json",
+  "final_independent_review": "final-review/review.json",
   "source_commit": "d12759a022d2e285d0bc6b5869ccfb5c1d85f665",
   "native_tree": "5790ad2fbadc9877332124c6a66ae3b70b016d03",
   "gmp_parity": false,

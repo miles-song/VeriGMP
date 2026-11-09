@@ -909,7 +909,7 @@
   "mutation_rejections": 4,
   "original_mutation_group_passed": false,
   "dispatch_resource_limit_accepted": false,
-  "acceptance_status": "measured/go_pending_final_independent_acceptance",
+  "acceptance_status": "accepted_scoped_incremental_feature",
   "gmp_parity": false,
   "limitations": [
     "Retained tool hash maps attest identities; tool binaries are deliberately omitted.",

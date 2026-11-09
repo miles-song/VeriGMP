@@ -1,0 +1,25 @@
+{
+  "schema": "fixed-row-scoped-final-acceptance-v1",
+  "status": "accepted_scoped_incremental_feature",
+  "date": "2026-11-09",
+  "reviewed_commit": "9246041e98dbd98931003bf1c35ec23e4e5288eb",
+  "reviewed_tree": "c7159ae4ba237024c424bb342b560f0b09191d58",
+  "arithmetic_source_commit": "d12759a022d2e285d0bc6b5869ccfb5c1d85f665",
+  "publication": {
+    "repository": "https://github.com/miles-song/VeriGMP",
+    "branch": "main",
+    "confirmed_remote_sha": "9246041e98dbd98931003bf1c35ec23e4e5288eb"
+  },
+  "review": {
+    "decision": "ACCEPT_SCOPED_INCREMENTAL_FIXED_ROW_FEATURE_FOR_MERGE",
+    "json": "final-review/review.json",
+    "json_sha256": "3435bb0fb62c5f6ef88ca8d0656851610a2a6c3913b40be73fa11445d4109b25",
+    "markdown": "final-review/REVIEW.md",
+    "markdown_sha256": "e544038c510411f01876cc6de68e8669d377cb6b8c925abf1d0663c9d9bd723b"
+  },
+  "publication_followup": "This metadata descendant adds byte-identical review copies and acceptance status; arithmetic, executable harnesses, ZIP and original evidence remain unchanged. The final delta receives a separate narrow review.",
+  "proof_scope": "371 checked library items at the pinned arithmetic snapshot; no new whole-source proof is asserted for this metadata revision.",
+  "gmp_performance_parity_established": false,
+  "consuming_solver_backend_replacement": false,
+  "checked_composed_cost_theorem": false
+}

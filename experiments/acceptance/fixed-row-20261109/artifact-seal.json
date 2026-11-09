@@ -1,29 +1,41 @@
 {
   "schema": "fixed-row-public-archive-top-level-seal-v1",
   "source_commit": "d12759a022d2e285d0bc6b5869ccfb5c1d85f665",
-  "status": "measured/go_pending_final_independent_acceptance",
+  "status": "accepted_scoped_incremental_feature",
   "gmp_parity": false,
   "files": {
     "audit-result.json": {
-      "bytes": 22025,
-      "sha256": "de51fe28001508847408144608cf941138451731dab31a015e23b3f5e439b563"
+      "bytes": 22012,
+      "sha256": "0bf2832396d9029117465df790e946d6e1d1dfc8d27be099a10a461baac3461f"
     },
     "audit.py": {
       "bytes": 18622,
       "sha256": "5a679bbf668de5ba7c5086f8b4454730fcf4d886f28a928feeba0fd622a27bce"
     },
     "index.json": {
-      "bytes": 332611,
-      "sha256": "f5bc5d0d506e4ab4175c86ad9c1707aad6f078124d2e38ef234d2121140b5d6f"
+      "bytes": 332703,
+      "sha256": "349a3bf695dc460476fca8f7950e941f95835e3ad7e66736ec46d4df7cde23e3"
     },
     "README.md": {
-      "bytes": 6549,
-      "sha256": "97caee70858bdf3fb26810c65d995bfb731a4deef61c22cb512181359867662d"
+      "bytes": 6708,
+      "sha256": "19088336b336b1cecdff4b842c3c047e163c6fc890f7a66cc1118129894e5709"
     },
     "retained-evidence.zip": {
       "bytes": 5549513,
       "sha256": "422561b315d651143181e744ff1c15f92d621122f00268d65c512c7eddb57639"
+    },
+    "final-acceptance.json": {
+      "bytes": 1384,
+      "sha256": "0be7d734c3437ea28a56eea836f7b270fe6f1e02f66201e2ede2bb0f65ee7c11"
+    },
+    "final-review/review.json": {
+      "bytes": 82148,
+      "sha256": "3435bb0fb62c5f6ef88ca8d0656851610a2a6c3913b40be73fa11445d4109b25"
+    },
+    "final-review/REVIEW.md": {
+      "bytes": 7243,
+      "sha256": "e544038c510411f01876cc6de68e8669d377cb6b8c925abf1d0663c9d9bd723b"
     }
   },
-  "note": "Hashes bind committed archive files; no external signature or final acceptance is implied."
+  "note": "Hashes bind committed archive files. The separate final independent review accepts its exact source commit; these hashes are not an external signature."
 }

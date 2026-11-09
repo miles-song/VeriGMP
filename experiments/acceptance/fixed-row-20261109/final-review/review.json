@@ -1,0 +1,2080 @@
+{
+  "schema": "verigmp-native-fixed-row-final-feature-independent-review-v1",
+  "status": "FINAL",
+  "decision": "ACCEPT_SCOPED_INCREMENTAL_FIXED_ROW_FEATURE_FOR_MERGE",
+  "reviewer": {
+    "role": "independent leaf; no delegation",
+    "requested_profile": "Astra Max",
+    "runtime_model_and_reasoning_identity": "UNVERIFIED: not exposed by this runtime"
+  },
+  "scope": "Final incremental native fixed-row feature acceptance; no whole-library GMP parity, consuming-solver backend replacement or checked cost theorem.",
+  "arithmetic_source_commit": "d12759a022d2e285d0bc6b5869ccfb5c1d85f665",
+  "proven_snapshot_native_tree": "5790ad2fbadc9877332124c6a66ae3b70b016d03",
+  "baseline_native_tree": "72dc8a5da2cbb7eddcdd26c219d50770e8b73b06",
+  "final_candidate_commit": "9246041e98dbd98931003bf1c35ec23e4e5288eb",
+  "final_source_mapping": {
+    "captured_native_tree_files": 58,
+    "rust_sources": 51,
+    "cpp_controls": 2,
+    "json_metadata": 5,
+    "final_native_tree": "5781d6d4d3a2a45e59d54516fd46e50302a5c897",
+    "proven_native_tree": "5790ad2fbadc9877332124c6a66ae3b70b016d03",
+    "rust_files_byte_identical": true,
+    "changed_captured_paths": [
+      "native/proof-status.json"
+    ],
+    "interpretation": "All 51 Rust files, both C++ controls and four other JSON files match the proved snapshot. proof-status.json changes claims metadata only; the final native tree ID consequently differs. This mapping carries the actual arithmetic refinement claim, not a claim that the full final metadata tree was re-proved.",
+    "files": [
+      {
+        "path": "native/controls/fast_multiply.rs",
+        "snapshot_sha256": "64ddb1d8919da86881791d88d42916fd0f2d73e14073c6a53850d337e02a6714",
+        "candidate_sha256": "64ddb1d8919da86881791d88d42916fd0f2d73e14073c6a53850d337e02a6714",
+        "worktree_sha256": "64ddb1d8919da86881791d88d42916fd0f2d73e14073c6a53850d337e02a6714",
+        "match": true
+      },
+      {
+        "path": "native/controls/gmp_abi.cpp",
+        "snapshot_sha256": "433b99417b38004a1684537a644cfe9cd7e7852df8864ce12dc9d1c4dfce6ed8",
+        "candidate_sha256": "433b99417b38004a1684537a644cfe9cd7e7852df8864ce12dc9d1c4dfce6ed8",
+        "worktree_sha256": "433b99417b38004a1684537a644cfe9cd7e7852df8864ce12dc9d1c4dfce6ed8",
+        "match": true
+      },
+      {
+        "path": "native/controls/gmp_multiply.cpp",
+        "snapshot_sha256": "87658c00944326f26f5fd016d0c845ca2efe7b32d2329abe190787830a39f5f4",
+        "candidate_sha256": "87658c00944326f26f5fd016d0c845ca2efe7b32d2329abe190787830a39f5f4",
+        "worktree_sha256": "87658c00944326f26f5fd016d0c845ca2efe7b32d2329abe190787830a39f5f4",
+        "match": true
+      },
+      {
+        "path": "native/controls/limbs.rs",
+        "snapshot_sha256": "b7161f5897667d8d6bc96ec5ca6eddf63384efd4eb0568ecbb6c4cccf500e4da",
+        "candidate_sha256": "b7161f5897667d8d6bc96ec5ca6eddf63384efd4eb0568ecbb6c4cccf500e4da",
+        "worktree_sha256": "b7161f5897667d8d6bc96ec5ca6eddf63384efd4eb0568ecbb6c4cccf500e4da",
+        "match": true
+      },
+      {
+        "path": "native/controls/multiply.rs",
+        "snapshot_sha256": "6671972c9c3c61424338e6418d8c703e3426c63eb062cb12fddc9adad63a6882",
+        "candidate_sha256": "6671972c9c3c61424338e6418d8c703e3426c63eb062cb12fddc9adad63a6882",
+        "worktree_sha256": "6671972c9c3c61424338e6418d8c703e3426c63eb062cb12fddc9adad63a6882",
+        "match": true
+      },
+      {
+        "path": "native/controls/pow2.rs",
+        "snapshot_sha256": "ba0a8a8bb404c4778ddd3c03ba254dfcca6efc28a94d293368db2e5ee2e79dac",
+        "candidate_sha256": "ba0a8a8bb404c4778ddd3c03ba254dfcca6efc28a94d293368db2e5ee2e79dac",
+        "worktree_sha256": "ba0a8a8bb404c4778ddd3c03ba254dfcca6efc28a94d293368db2e5ee2e79dac",
+        "match": true
+      },
+      {
+        "path": "native/fast_bench.rs",
+        "snapshot_sha256": "8ad4aa23338d9e7f7554135409eaa3115c581f6ef0d7baf78f39973306b9f38f",
+        "candidate_sha256": "8ad4aa23338d9e7f7554135409eaa3115c581f6ef0d7baf78f39973306b9f38f",
+        "worktree_sha256": "8ad4aa23338d9e7f7554135409eaa3115c581f6ef0d7baf78f39973306b9f38f",
+        "match": true
+      },
+      {
+        "path": "native/fast_codegen.rs",
+        "snapshot_sha256": "4409f9355fe2298d6e9edbed777f5d2dc31f1d8eeeab9ad3b23fdb9ed13fee18",
+        "candidate_sha256": "4409f9355fe2298d6e9edbed777f5d2dc31f1d8eeeab9ad3b23fdb9ed13fee18",
+        "worktree_sha256": "4409f9355fe2298d6e9edbed777f5d2dc31f1d8eeeab9ad3b23fdb9ed13fee18",
+        "match": true
+      },
+      {
+        "path": "native/fast_runner.rs",
+        "snapshot_sha256": "9c96f46161a4dae1f236d8586008cdf3392ae5817e4552c1e14a83c6425bf1e7",
+        "candidate_sha256": "9c96f46161a4dae1f236d8586008cdf3392ae5817e4552c1e14a83c6425bf1e7",
+        "worktree_sha256": "9c96f46161a4dae1f236d8586008cdf3392ae5817e4552c1e14a83c6425bf1e7",
+        "match": true
+      },
+      {
+        "path": "native/gmp-reference.json",
+        "snapshot_sha256": "e67ba09749bc761cd581218bebd6cde5f1fdf56a2711924e1ceb45d4c7e247ff",
+        "candidate_sha256": "e67ba09749bc761cd581218bebd6cde5f1fdf56a2711924e1ceb45d4c7e247ff",
+        "worktree_sha256": "e67ba09749bc761cd581218bebd6cde5f1fdf56a2711924e1ceb45d4c7e247ff",
+        "match": true
+      },
+      {
+        "path": "native/history-provenance.json",
+        "snapshot_sha256": "0fe7570b05bfe4757721f72b31c5b0941170f4aa649feafab518892d3a3ffafa",
+        "candidate_sha256": "0fe7570b05bfe4757721f72b31c5b0941170f4aa649feafab518892d3a3ffafa",
+        "worktree_sha256": "0fe7570b05bfe4757721f72b31c5b0941170f4aa649feafab518892d3a3ffafa",
+        "match": true
+      },
+      {
+        "path": "native/lib.rs",
+        "snapshot_sha256": "51cedad17438bef5dd4ab2ea8014e00bda4cda6a7b0619ec45626c149d07d056",
+        "candidate_sha256": "51cedad17438bef5dd4ab2ea8014e00bda4cda6a7b0619ec45626c149d07d056",
+        "worktree_sha256": "51cedad17438bef5dd4ab2ea8014e00bda4cda6a7b0619ec45626c149d07d056",
+        "match": true
+      },
+      {
+        "path": "native/limbs_bench.rs",
+        "snapshot_sha256": "937ed74d98f739b2333e1feb78c65dbefb86b5af1c051c864ef269fb6b304215",
+        "candidate_sha256": "937ed74d98f739b2333e1feb78c65dbefb86b5af1c051c864ef269fb6b304215",
+        "worktree_sha256": "937ed74d98f739b2333e1feb78c65dbefb86b5af1c051c864ef269fb6b304215",
+        "match": true
+      },
+      {
+        "path": "native/limbs_codegen.rs",
+        "snapshot_sha256": "465962efb3dc1e0f2414295228414112e3843dbaf467a41b705e53a3255e255e",
+        "candidate_sha256": "465962efb3dc1e0f2414295228414112e3843dbaf467a41b705e53a3255e255e",
+        "worktree_sha256": "465962efb3dc1e0f2414295228414112e3843dbaf467a41b705e53a3255e255e",
+        "match": true
+      },
+      {
+        "path": "native/limbs_runner.rs",
+        "snapshot_sha256": "4aced8bc95027c78bbac6690f112dcd9e0b892f521baa6e29515b65862c05c01",
+        "candidate_sha256": "4aced8bc95027c78bbac6690f112dcd9e0b892f521baa6e29515b65862c05c01",
+        "worktree_sha256": "4aced8bc95027c78bbac6690f112dcd9e0b892f521baa6e29515b65862c05c01",
+        "match": true
+      },
+      {
+        "path": "native/mac4_bench.rs",
+        "snapshot_sha256": "8eb2164e7e5c66a825dbc47a0c559a3ca018fdf09c221800b2eb571cd644a207",
+        "candidate_sha256": "8eb2164e7e5c66a825dbc47a0c559a3ca018fdf09c221800b2eb571cd644a207",
+        "worktree_sha256": "8eb2164e7e5c66a825dbc47a0c559a3ca018fdf09c221800b2eb571cd644a207",
+        "match": true
+      },
+      {
+        "path": "native/multiply_bench.rs",
+        "snapshot_sha256": "d28537c1ee449c452b8c0f549a3555fbf50f59a680240b371335ccb106061d12",
+        "candidate_sha256": "d28537c1ee449c452b8c0f549a3555fbf50f59a680240b371335ccb106061d12",
+        "worktree_sha256": "d28537c1ee449c452b8c0f549a3555fbf50f59a680240b371335ccb106061d12",
+        "match": true
+      },
+      {
+        "path": "native/multiply_codegen.rs",
+        "snapshot_sha256": "3855098a24804a8cba3ff8b094b159290e0e27e13fc1a558b456aebfeddb1229",
+        "candidate_sha256": "3855098a24804a8cba3ff8b094b159290e0e27e13fc1a558b456aebfeddb1229",
+        "worktree_sha256": "3855098a24804a8cba3ff8b094b159290e0e27e13fc1a558b456aebfeddb1229",
+        "match": true
+      },
+      {
+        "path": "native/multiply_runner.rs",
+        "snapshot_sha256": "856d5b82363f2bf9170bf15cf45f2b0b9ae713a1475f5ceed1751fcaf18c52c7",
+        "candidate_sha256": "856d5b82363f2bf9170bf15cf45f2b0b9ae713a1475f5ceed1751fcaf18c52c7",
+        "worktree_sha256": "856d5b82363f2bf9170bf15cf45f2b0b9ae713a1475f5ceed1751fcaf18c52c7",
+        "match": true
+      },
+      {
+        "path": "native/performance-target.json",
+        "snapshot_sha256": "7e1f7c27007d65ca77979c693c0f105d2ac4686fd90e853ab86c43684f485a37",
+        "candidate_sha256": "7e1f7c27007d65ca77979c693c0f105d2ac4686fd90e853ab86c43684f485a37",
+        "worktree_sha256": "7e1f7c27007d65ca77979c693c0f105d2ac4686fd90e853ab86c43684f485a37",
+        "match": true
+      },
+      {
+        "path": "native/pow2_bench.rs",
+        "snapshot_sha256": "9e4390cabef56661544491deb928ee2f7a11199d34ada5b6a185a54a45622c1c",
+        "candidate_sha256": "9e4390cabef56661544491deb928ee2f7a11199d34ada5b6a185a54a45622c1c",
+        "worktree_sha256": "9e4390cabef56661544491deb928ee2f7a11199d34ada5b6a185a54a45622c1c",
+        "match": true
+      },
+      {
+        "path": "native/pow2_codegen.rs",
+        "snapshot_sha256": "2372573334ffb9778295bd775ea23302207017bb699598606f3254f3cf3d36dd",
+        "candidate_sha256": "2372573334ffb9778295bd775ea23302207017bb699598606f3254f3cf3d36dd",
+        "worktree_sha256": "2372573334ffb9778295bd775ea23302207017bb699598606f3254f3cf3d36dd",
+        "match": true
+      },
+      {
+        "path": "native/pow2_runner.rs",
+        "snapshot_sha256": "c916b36cc11923b309aacccd8e54ae5bde951d651abb1360f05715b82706a647",
+        "candidate_sha256": "c916b36cc11923b309aacccd8e54ae5bde951d651abb1360f05715b82706a647",
+        "worktree_sha256": "c916b36cc11923b309aacccd8e54ae5bde951d651abb1360f05715b82706a647",
+        "match": true
+      },
+      {
+        "path": "native/proof-status.json",
+        "snapshot_sha256": "ed7e0c35cc8391682f2ea9b94d93de048f5577b41ed9db368f20ff4c5c42286a",
+        "candidate_sha256": "66c89d25d61563e6c32901f84a1f4b13ea866df0b95d6673373f9cc7f406672c",
+        "worktree_sha256": "66c89d25d61563e6c32901f84a1f4b13ea866df0b95d6673373f9cc7f406672c",
+        "match": false
+      },
+      {
+        "path": "native/specs/fast_product.rs",
+        "snapshot_sha256": "1d3a4f9397375741f6fcaea5bacf5977f73c56ba051893cd81a83709385b2cd7",
+        "candidate_sha256": "1d3a4f9397375741f6fcaea5bacf5977f73c56ba051893cd81a83709385b2cd7",
+        "worktree_sha256": "1d3a4f9397375741f6fcaea5bacf5977f73c56ba051893cd81a83709385b2cd7",
+        "match": true
+      },
+      {
+        "path": "native/specs/packed_convolution.rs",
+        "snapshot_sha256": "473c31ece4130e5517a44c5a88757137461f009dce19c0a628ee7af8be69e122",
+        "candidate_sha256": "473c31ece4130e5517a44c5a88757137461f009dce19c0a628ee7af8be69e122",
+        "worktree_sha256": "473c31ece4130e5517a44c5a88757137461f009dce19c0a628ee7af8be69e122",
+        "match": true
+      },
+      {
+        "path": "native/specs/packed_product.rs",
+        "snapshot_sha256": "f792932175cc64633ea19bf19229e61100962d19bedfbc3923bd4f925e526658",
+        "candidate_sha256": "f792932175cc64633ea19bf19229e61100962d19bedfbc3923bd4f925e526658",
+        "worktree_sha256": "f792932175cc64633ea19bf19229e61100962d19bedfbc3923bd4f925e526658",
+        "match": true
+      },
+      {
+        "path": "native/specs/precision.rs",
+        "snapshot_sha256": "38ffadc6cd04602b40457711b25ec3e89de5fb0ebf92136645da93fb18d4cde0",
+        "candidate_sha256": "38ffadc6cd04602b40457711b25ec3e89de5fb0ebf92136645da93fb18d4cde0",
+        "worktree_sha256": "38ffadc6cd04602b40457711b25ec3e89de5fb0ebf92136645da93fb18d4cde0",
+        "match": true
+      },
+      {
+        "path": "native/specs/product.rs",
+        "snapshot_sha256": "24de04dda22e2ca1262ade8328b3f164612b59188df14dbe84988b94592563ae",
+        "candidate_sha256": "24de04dda22e2ca1262ade8328b3f164612b59188df14dbe84988b94592563ae",
+        "worktree_sha256": "24de04dda22e2ca1262ade8328b3f164612b59188df14dbe84988b94592563ae",
+        "match": true
+      },
+      {
+        "path": "native/specs/radix.rs",
+        "snapshot_sha256": "51bddb73e0cfcc2fda095ac5f35fe4853417c1fff858133dab56b05ba9573219",
+        "candidate_sha256": "51bddb73e0cfcc2fda095ac5f35fe4853417c1fff858133dab56b05ba9573219",
+        "worktree_sha256": "51bddb73e0cfcc2fda095ac5f35fe4853417c1fff858133dab56b05ba9573219",
+        "match": true
+      },
+      {
+        "path": "native/specs/square.rs",
+        "snapshot_sha256": "3d716c2905d4f34929e3177e853196f84faef8a63c10e7e1bb7593a9e62be87e",
+        "candidate_sha256": "3d716c2905d4f34929e3177e853196f84faef8a63c10e7e1bb7593a9e62be87e",
+        "worktree_sha256": "3d716c2905d4f34929e3177e853196f84faef8a63c10e7e1bb7593a9e62be87e",
+        "match": true
+      },
+      {
+        "path": "native/specs/square_base.rs",
+        "snapshot_sha256": "9436705847c6cf4c8353a324e9154767a2a8ac57b13ca13a26b523f973ea6768",
+        "candidate_sha256": "9436705847c6cf4c8353a324e9154767a2a8ac57b13ca13a26b523f973ea6768",
+        "worktree_sha256": "9436705847c6cf4c8353a324e9154767a2a8ac57b13ca13a26b523f973ea6768",
+        "match": true
+      },
+      {
+        "path": "native/specs/toom.rs",
+        "snapshot_sha256": "ed543569ac0996a16546211241b52f5a7ae945e8fce873f5195340cf290456ff",
+        "candidate_sha256": "ed543569ac0996a16546211241b52f5a7ae945e8fce873f5195340cf290456ff",
+        "worktree_sha256": "ed543569ac0996a16546211241b52f5a7ae945e8fce873f5195340cf290456ff",
+        "match": true
+      },
+      {
+        "path": "native/specs/toom_blocks.rs",
+        "snapshot_sha256": "d799a910b67b26fbbdbdefc50bf49063f8ca39790f6d48f60a7ed1315d00df9d",
+        "candidate_sha256": "d799a910b67b26fbbdbdefc50bf49063f8ca39790f6d48f60a7ed1315d00df9d",
+        "worktree_sha256": "d799a910b67b26fbbdbdefc50bf49063f8ca39790f6d48f60a7ed1315d00df9d",
+        "match": true
+      },
+      {
+        "path": "native/square_base_bench.rs",
+        "snapshot_sha256": "ba53fdf05c538b374bffeaad897b75233f9fcf45fa8087640150c01673f5d032",
+        "candidate_sha256": "ba53fdf05c538b374bffeaad897b75233f9fcf45fa8087640150c01673f5d032",
+        "worktree_sha256": "ba53fdf05c538b374bffeaad897b75233f9fcf45fa8087640150c01673f5d032",
+        "match": true
+      },
+      {
+        "path": "native/toolchain.json",
+        "snapshot_sha256": "a8f1ba756fd50480017e10d24c390a4b94528ab387c965d28c35cf3432c9e678",
+        "candidate_sha256": "a8f1ba756fd50480017e10d24c390a4b94528ab387c965d28c35cf3432c9e678",
+        "worktree_sha256": "a8f1ba756fd50480017e10d24c390a4b94528ab387c965d28c35cf3432c9e678",
+        "match": true
+      },
+      {
+        "path": "native/toom_bench.rs",
+        "snapshot_sha256": "970b5bdc16fd647de73784f0ee546caf0bf992eb97dffe2e4d48ac79db52ee08",
+        "candidate_sha256": "970b5bdc16fd647de73784f0ee546caf0bf992eb97dffe2e4d48ac79db52ee08",
+        "worktree_sha256": "970b5bdc16fd647de73784f0ee546caf0bf992eb97dffe2e4d48ac79db52ee08",
+        "match": true
+      },
+      {
+        "path": "native/toom_codegen.rs",
+        "snapshot_sha256": "64233b677b7c27a18446a8f94d84487d9c3ce149ecbadea3fcdb84d16e7a1963",
+        "candidate_sha256": "64233b677b7c27a18446a8f94d84487d9c3ce149ecbadea3fcdb84d16e7a1963",
+        "worktree_sha256": "64233b677b7c27a18446a8f94d84487d9c3ce149ecbadea3fcdb84d16e7a1963",
+        "match": true
+      },
+      {
+        "path": "native/toom_words_runner.rs",
+        "snapshot_sha256": "4fdbaccc6798afd2dc5c9832f3f4719fdb8a8f6c5442365d240834a88fe98cce",
+        "candidate_sha256": "4fdbaccc6798afd2dc5c9832f3f4719fdb8a8f6c5442365d240834a88fe98cce",
+        "worktree_sha256": "4fdbaccc6798afd2dc5c9832f3f4719fdb8a8f6c5442365d240834a88fe98cce",
+        "match": true
+      },
+      {
+        "path": "native/verified/arithmetic.rs",
+        "snapshot_sha256": "7c0181fed9d53f842062fd2f4e738dedf42985fee28bff53cabba4a7fc20cc54",
+        "candidate_sha256": "7c0181fed9d53f842062fd2f4e738dedf42985fee28bff53cabba4a7fc20cc54",
+        "worktree_sha256": "7c0181fed9d53f842062fd2f4e738dedf42985fee28bff53cabba4a7fc20cc54",
+        "match": true
+      },
+      {
+        "path": "native/verified/fast_multiply.rs",
+        "snapshot_sha256": "3035aa1ee860afbe7c9fd9930c04618f3360567ad1597e28fbe63372d21c4a73",
+        "candidate_sha256": "3035aa1ee860afbe7c9fd9930c04618f3360567ad1597e28fbe63372d21c4a73",
+        "worktree_sha256": "3035aa1ee860afbe7c9fd9930c04618f3360567ad1597e28fbe63372d21c4a73",
+        "match": true
+      },
+      {
+        "path": "native/verified/fast_words.rs",
+        "snapshot_sha256": "f07e442ee9a3a00f07affeb4ac537e97d82a6fc60a49cd43a54dde58e2d301e6",
+        "candidate_sha256": "f07e442ee9a3a00f07affeb4ac537e97d82a6fc60a49cd43a54dde58e2d301e6",
+        "worktree_sha256": "f07e442ee9a3a00f07affeb4ac537e97d82a6fc60a49cd43a54dde58e2d301e6",
+        "match": true
+      },
+      {
+        "path": "native/verified/fixed_row.rs",
+        "snapshot_sha256": "f170517e04cd4468914e483446ef9d244236d9ad6e7176052105f3a69b1ec33a",
+        "candidate_sha256": "f170517e04cd4468914e483446ef9d244236d9ad6e7176052105f3a69b1ec33a",
+        "worktree_sha256": "f170517e04cd4468914e483446ef9d244236d9ad6e7176052105f3a69b1ec33a",
+        "match": true
+      },
+      {
+        "path": "native/verified/kernel.rs",
+        "snapshot_sha256": "53837b72617ee200e30cfd3af155ce7ca156c0684ee1d29688b78504bfb65569",
+        "candidate_sha256": "53837b72617ee200e30cfd3af155ce7ca156c0684ee1d29688b78504bfb65569",
+        "worktree_sha256": "53837b72617ee200e30cfd3af155ce7ca156c0684ee1d29688b78504bfb65569",
+        "match": true
+      },
+      {
+        "path": "native/verified/limbs.rs",
+        "snapshot_sha256": "913c88133f2bd46b3b4a59794eba5b8d43dfdbdac720918e375b47a52adbff28",
+        "candidate_sha256": "913c88133f2bd46b3b4a59794eba5b8d43dfdbdac720918e375b47a52adbff28",
+        "worktree_sha256": "913c88133f2bd46b3b4a59794eba5b8d43dfdbdac720918e375b47a52adbff28",
+        "match": true
+      },
+      {
+        "path": "native/verified/mac4.rs",
+        "snapshot_sha256": "9cf6fd885a42e63a7cb1f697833bfa7e82d5b65a85e4351de2252a11b6afce2f",
+        "candidate_sha256": "9cf6fd885a42e63a7cb1f697833bfa7e82d5b65a85e4351de2252a11b6afce2f",
+        "worktree_sha256": "9cf6fd885a42e63a7cb1f697833bfa7e82d5b65a85e4351de2252a11b6afce2f",
+        "match": true
+      },
+      {
+        "path": "native/verified/multiply.rs",
+        "snapshot_sha256": "90b8d0ae56d80b92a7a470c94390bf8020a8f791872892932005a1311307b752",
+        "candidate_sha256": "90b8d0ae56d80b92a7a470c94390bf8020a8f791872892932005a1311307b752",
+        "worktree_sha256": "90b8d0ae56d80b92a7a470c94390bf8020a8f791872892932005a1311307b752",
+        "match": true
+      },
+      {
+        "path": "native/verified/packed_layout.rs",
+        "snapshot_sha256": "fb8073712aa5681ef6f4f9dbb3aff85884955539d809e2e0131bc1b84d2626c8",
+        "candidate_sha256": "fb8073712aa5681ef6f4f9dbb3aff85884955539d809e2e0131bc1b84d2626c8",
+        "worktree_sha256": "fb8073712aa5681ef6f4f9dbb3aff85884955539d809e2e0131bc1b84d2626c8",
+        "match": true
+      },
+      {
+        "path": "native/verified/pow2.rs",
+        "snapshot_sha256": "893234a990b3b3bf308253ce318411fb5247157cfabe2d02ce603c6c86c1dcec",
+        "candidate_sha256": "893234a990b3b3bf308253ce318411fb5247157cfabe2d02ce603c6c86c1dcec",
+        "worktree_sha256": "893234a990b3b3bf308253ce318411fb5247157cfabe2d02ce603c6c86c1dcec",
+        "match": true
+      },
+      {
+        "path": "native/verified/square.rs",
+        "snapshot_sha256": "f23ad045015896f056ded2f79c5776cdd520205a5da9bc4801d86eafd9d5e9b7",
+        "candidate_sha256": "f23ad045015896f056ded2f79c5776cdd520205a5da9bc4801d86eafd9d5e9b7",
+        "worktree_sha256": "f23ad045015896f056ded2f79c5776cdd520205a5da9bc4801d86eafd9d5e9b7",
+        "match": true
+      },
+      {
+        "path": "native/verified/square_base.rs",
+        "snapshot_sha256": "d56438d15c969b475d74c431bef66dbe8c6befd67699196b096c1773c68094b3",
+        "candidate_sha256": "d56438d15c969b475d74c431bef66dbe8c6befd67699196b096c1773c68094b3",
+        "worktree_sha256": "d56438d15c969b475d74c431bef66dbe8c6befd67699196b096c1773c68094b3",
+        "match": true
+      },
+      {
+        "path": "native/verified/square_low.rs",
+        "snapshot_sha256": "1e85ae150c7d5801d57f41d460de651b5ba9d5ae96c910f52b83bb602dd6ad21",
+        "candidate_sha256": "1e85ae150c7d5801d57f41d460de651b5ba9d5ae96c910f52b83bb602dd6ad21",
+        "worktree_sha256": "1e85ae150c7d5801d57f41d460de651b5ba9d5ae96c910f52b83bb602dd6ad21",
+        "match": true
+      },
+      {
+        "path": "native/verified/toom_evaluate.rs",
+        "snapshot_sha256": "80fb7c4b0db769debe3091289cfe8a71703e9e1bf7b9e26a622e4df08f164699",
+        "candidate_sha256": "80fb7c4b0db769debe3091289cfe8a71703e9e1bf7b9e26a622e4df08f164699",
+        "worktree_sha256": "80fb7c4b0db769debe3091289cfe8a71703e9e1bf7b9e26a622e4df08f164699",
+        "match": true
+      },
+      {
+        "path": "native/verified/toom_interpolate.rs",
+        "snapshot_sha256": "dd3e97eac34fb6cf6920302eeb5cc2bc8b257a6beb7a2e952f52ccf20ae5e352",
+        "candidate_sha256": "dd3e97eac34fb6cf6920302eeb5cc2bc8b257a6beb7a2e952f52ccf20ae5e352",
+        "worktree_sha256": "dd3e97eac34fb6cf6920302eeb5cc2bc8b257a6beb7a2e952f52ccf20ae5e352",
+        "match": true
+      },
+      {
+        "path": "native/verified/toom_low.rs",
+        "snapshot_sha256": "3edfb086069d72a35a15181d2a10107d58aafbd522d8c5d0b1d091b78bf7babd",
+        "candidate_sha256": "3edfb086069d72a35a15181d2a10107d58aafbd522d8c5d0b1d091b78bf7babd",
+        "worktree_sha256": "3edfb086069d72a35a15181d2a10107d58aafbd522d8c5d0b1d091b78bf7babd",
+        "match": true
+      },
+      {
+        "path": "native/verified/toom_multiply.rs",
+        "snapshot_sha256": "58830125c0e82680f11fec6aba9677c8986c8f84fdbe53e3a38dc01b24871602",
+        "candidate_sha256": "58830125c0e82680f11fec6aba9677c8986c8f84fdbe53e3a38dc01b24871602",
+        "worktree_sha256": "58830125c0e82680f11fec6aba9677c8986c8f84fdbe53e3a38dc01b24871602",
+        "match": true
+      },
+      {
+        "path": "native/verified/toom_square.rs",
+        "snapshot_sha256": "4bc0e13311e42f520efec7280259b171123b735a204180f7080f25cc3ad27eac",
+        "candidate_sha256": "4bc0e13311e42f520efec7280259b171123b735a204180f7080f25cc3ad27eac",
+        "worktree_sha256": "4bc0e13311e42f520efec7280259b171123b735a204180f7080f25cc3ad27eac",
+        "match": true
+      },
+      {
+        "path": "native/verified/toom_words.rs",
+        "snapshot_sha256": "221e6592c48904135aef8cce941675fe067b8d2b9253bd507293363a3ab104d7",
+        "candidate_sha256": "221e6592c48904135aef8cce941675fe067b8d2b9253bd507293363a3ab104d7",
+        "worktree_sha256": "221e6592c48904135aef8cce941675fe067b8d2b9253bd507293363a3ab104d7",
+        "match": true
+      }
+    ]
+  },
+  "findings": [],
+  "proof": {
+    "verified": 371,
+    "errors": 0,
+    "scope": "full-library, no module filter; --no-cheating --compile -O and paired export",
+    "receipt_sha256": "17e33e5e751364715de148216d5d34aeab7e21ae01d1cfc629cf7eb7426b6fc0",
+    "rlib_sha256": "2d533b2038d572b6ab7d79295dec53143f7b7a5cde654ca5763f3695c6aec7c8",
+    "vir_sha256": "a53e2cfa19826103656eafcb0ff97bf0d4928e6fd3ffcc90f5eba5511d708d18",
+    "captured_native_files": 58,
+    "rust_files": 51,
+    "cpp_files": 2,
+    "json_files": 5,
+    "tool_paths": 111,
+    "prior_static_review_sha256": "1e24dee2b2599653d72e6fcebc6b11f10a454edb35fc82db64ad26b1c850c3e5",
+    "prior_provenance_addendum_sha256": "c240ccedd4bbb205ed5e87c330ebc5b59c21bb63b7cb9fe38841bd1bfea42d28",
+    "qualification": "r05 closes the earlier explicit compiler/environment provenance gap for its own export. r04 and focused r03 retain their original scope and qualifications. Saved identities do not constitute OS-level exec attestation."
+  },
+  "core": {
+    "algorithm": "Const-sized full schoolbook rows with direct first-row writes, exact u128 multiply-accumulate carries and caller-owned output.",
+    "enabled_dispatch": [
+      15,
+      20,
+      22,
+      23
+    ],
+    "domain": "0 < N <= usize::MAX/2, a.len=b.len=N, dst.len=2N. Mutable slice aliasing is excluded by Rust; no extra scratch.",
+    "arithmetic": "For B=2^64, the maximum wide sum (B-1)^2+2(B-1)=B^2-1 fits u128. Row invariants retain exact prefix plus carry and the unread suffix frame. Final carry stores establish full 2N product.",
+    "unchanged_policy": "Full/low recursion, thresholds, parent recomposition, dedicated square policies and public modular semantics are unchanged outside the selected full-product leaves.",
+    "no_new_trust": "No added assume/admit, external_body, custom axiom, unsafe, FFI or unchecked verification bypass in arithmetic."
+  },
+  "functional": {
+    "status": "PASS",
+    "independent_check_count": 101,
+    "identities": {
+      "receipt.json": "2074438ae22b45cbef38e641bd1dce11336b6bdd74bcc41036490fefd4a0641f",
+      "audited-mutations.json": "8cf26ecf4302a0e01984f2610eb95c8dfd4f9db8a1c2cb101ef16dfd0ddb9434",
+      "run-01/binding.json": "6f686c41fbcd0febc79853bf00372d305c1e180e1b4a36728f38ca3b75ff9b0a",
+      "run-01/runtime.json": "33d2ce817187fde58924834ad0cdb04d8f4990d1f387fcb756611267fdef3155",
+      "run-01/proof-gates.json": "0a071071c61c495403905a6d338d8d212a3925bf62195485fdf20c8779805500",
+      "run-02/binding.json": "bc129abd06bfd817e42af19496668cdc69b324272c1b0580f49e96c03a5e5b41",
+      "run-02/recheck.json": "ecdfe57d550efca3730b1edab8199dd28ba34cddf9648724d24745d5b8b99787",
+      "run-02/consumer.json": "28990f66e0fa1cd07f8ef50d6e1677aec84ca296af8d6a7e932a802c0be8bf2b",
+      "run-02/codegen-review.json": "2f40c969db5334081e038935df7aed04969c9affdaf65406068a0f0ebc7f687a"
+    },
+    "fixtures": [
+      {
+        "label": "old",
+        "cases": 4885,
+        "shape_count": 51,
+        "ops": {
+          "mul": 1020,
+          "square": 1020,
+          "gmp_mul": 1020,
+          "gmp_square": 1020,
+          "full": 255,
+          "forced": 510,
+          "control": 20,
+          "base": 20
+        },
+        "full_output_bytes_equal": true,
+        "input_sha256": "32f932d7805dcdf4aeedbf80ebc7008e07bfa3a87446a20863f45cc96c23d1ae",
+        "stdout_sha256": "f1c1d96d9cd175d812eb1459af4b57bc9021781b7eeb55666c4bcaa75c87b47d"
+      },
+      {
+        "label": "new",
+        "cases": 4905,
+        "shape_count": 51,
+        "ops": {
+          "mul": 1020,
+          "square": 1020,
+          "gmp_mul": 1020,
+          "gmp_square": 1020,
+          "full": 255,
+          "forced": 510,
+          "direct": 20,
+          "control": 20,
+          "base": 20
+        },
+        "full_output_bytes_equal": true,
+        "input_sha256": "2f8c87cb6235dfc14900b0b9946149699ec88a63b43924d264a318937bec2b2d",
+        "stdout_sha256": "9892c335e80221a68844af84894aa43e97320975e6dad40b59cb343949318b06"
+      }
+    ],
+    "imported_consumer": "Final r05 metadata+rlib; 4/0 proof and successful executable output.",
+    "invalid_calls": "18 historical r04 native assertion controls, plus five workspace overflow boundaries; observational invalid-domain behavior only.",
+    "borrow_rejections": [
+      "E0502: output/input overlap",
+      "E0499: output/scratch overlap"
+    ],
+    "mutation_scope": "Four actual fixed_row-module typed VC rejections over complete retained source snapshots; no full-library mutation proof claim.",
+    "mutations": [
+      {
+        "name": "wide-omit-acc",
+        "accepted": true,
+        "original_status": "typed_failed_vc",
+        "changed_file": "native/verified/fixed_row.rs",
+        "source_sha256": "3053aa2c8fe2793b176ed98104abef426b73eedd79c2bb095bcd29e31912756d",
+        "diagnostics": [
+          "error: postcondition not satisfied",
+          "--> /mnt/e/3sat/VeriGMP-fixed-row-local-gates-20261109/run-01/mutations/wide-omit-acc/native/verified/fixed_row.rs:15:9",
+          "--> /mnt/e/3sat/VeriGMP-fixed-row-local-gates-20261109/run-01/mutations/wide-omit-acc/native/verified/fixed_row.rs:139:13",
+          "--> /mnt/e/3sat/VeriGMP-fixed-row-local-gates-20261109/run-01/mutations/wide-omit-acc/native/verified/fixed_row.rs:139:13",
+          "error: aborting due to 1 previous error"
+        ]
+      },
+      {
+        "name": "first-wrong-carry",
+        "accepted": true,
+        "original_status": "typed_failed_vc",
+        "changed_file": "native/verified/fixed_row.rs",
+        "source_sha256": "fe17312eb778a4442f3a4f1ce1d23f3110102e119126211cace39ed5bb1e381d",
+        "diagnostics": [
+          "error: invariant not satisfied before loop",
+          "--> /mnt/e/3sat/VeriGMP-fixed-row-local-gates-20261109/run-01/mutations/first-wrong-carry/native/verified/fixed_row.rs:39:13",
+          "--> /mnt/e/3sat/VeriGMP-fixed-row-local-gates-20261109/run-01/mutations/first-wrong-carry/native/verified/fixed_row.rs:139:13",
+          "--> /mnt/e/3sat/VeriGMP-fixed-row-local-gates-20261109/run-01/mutations/first-wrong-carry/native/verified/fixed_row.rs:139:13",
+          "error: aborting due to 1 previous error"
+        ]
+      },
+      {
+        "name": "wrong-first-row-store",
+        "accepted": true,
+        "original_status": "not_detected",
+        "changed_file": "native/verified/fixed_row.rs",
+        "source_sha256": "45a8b2695aeb437bb718e82d9da89ff0b35136539d24f121d509d830e2dfc96a",
+        "diagnostics": [
+          "--> /mnt/e/3sat/VeriGMP-fixed-row-local-gates-20261109/run-01/mutations/wrong-first-row-store/native/verified/fixed_row.rs:139:13",
+          "--> /mnt/e/3sat/VeriGMP-fixed-row-local-gates-20261109/run-01/mutations/wrong-first-row-store/native/verified/fixed_row.rs:139:13",
+          "error: requires not satisfied",
+          "--> /mnt/e/3sat/VeriGMP-fixed-row-local-gates-20261109/run-01/mutations/wrong-first-row-store/native/verified/fixed_row.rs:120:22",
+          "error: aborting due to 1 previous error"
+        ]
+      },
+      {
+        "name": "wrong-add-row-store",
+        "accepted": true,
+        "original_status": "not_detected",
+        "changed_file": "native/verified/fixed_row.rs",
+        "source_sha256": "74fc844e4fd2a15a054b2c2242934bef4a1d5376210da5269f34b7dcde24a7e8",
+        "diagnostics": [
+          "--> /mnt/e/3sat/VeriGMP-fixed-row-local-gates-20261109/run-01/mutations/wrong-add-row-store/native/verified/fixed_row.rs:139:13",
+          "--> /mnt/e/3sat/VeriGMP-fixed-row-local-gates-20261109/run-01/mutations/wrong-add-row-store/native/verified/fixed_row.rs:139:13",
+          "error: requires not satisfied",
+          "--> /mnt/e/3sat/VeriGMP-fixed-row-local-gates-20261109/run-01/mutations/wrong-add-row-store/native/verified/fixed_row.rs:148:26",
+          "error: aborting due to 1 previous error"
+        ]
+      },
+      {
+        "name": "dispatch-omit15",
+        "accepted": false,
+        "original_status": "not_detected",
+        "changed_file": "native/verified/fast_multiply.rs",
+        "source_sha256": "d30422d64a5b6c3b4be985d693b1392789179b0f720ba162e7d86bb1118c591a",
+        "diagnostics": [
+          "error: postcondition not satisfied",
+          "error: function body check: resource limit (rlimit) exceeded; consider rerunning with `--profile` for more details",
+          "error: aborting due to 2 previous errors"
+        ]
+      }
+    ],
+    "original_five_attempt_group_passed": false,
+    "carry_store_diagnostic": "The two requires-not-satisfied diagnostics at fixed_row.rs:120 and :148 are checked local proof-premise failures for the actual post-store prefix equality. They are not caller-input precondition failures or tool/type errors.",
+    "r04_r05_boundary": "Original Python oracle, invalid-call and mutation evidence remains r04-bound. r05 replay of all frozen original integer-validated fixtures has byte-identical complete output; final imported consumer and codegen use r05."
+  },
+  "code_generation": {
+    "status": "PASS",
+    "independent_check_count": 29,
+    "ordinary_control_instruction_counts": [
+      282,
+      380,
+      416,
+      432
+    ],
+    "same_positive_instructions": true,
+    "selected_native_regions": {
+      "15": {
+        "entry": "0x229f4",
+        "last": "0x22dc4",
+        "multiply_sites": 30,
+        "calls": 0,
+        "divisions": 0,
+        "backward_branches": [
+          "0x22dbe jne 22bc0 <verigmp::fast_multiply::full+0x4c0>"
+        ]
+      },
+      "20": {
+        "entry": "0x233b8",
+        "last": "0x238ee",
+        "multiply_sites": 40,
+        "calls": 0,
+        "divisions": 0,
+        "backward_branches": [
+          "0x238e8 jne 23620 <verigmp::fast_multiply::full+0xf20>"
+        ]
+      },
+      "22": {
+        "entry": "0x22dc9",
+        "last": "0x233b3",
+        "multiply_sites": 44,
+        "calls": 0,
+        "divisions": 0,
+        "backward_branches": [
+          "0x233ad jne 23090 <verigmp::fast_multiply::full+0x990>"
+        ]
+      },
+      "23": {
+        "entry": "0x238f3",
+        "last": "0x23f2e",
+        "multiply_sites": 46,
+        "calls": 0,
+        "divisions": 0,
+        "backward_branches": [
+          "0x23f29 jne 23be0 <verigmp::fast_multiply::full+0x14e0>"
+        ]
+      }
+    },
+    "native_closure_functions": 16,
+    "qualification": "Independently rehashed saved assembly/ELF/disassembly and recomputed four wrapper identities and selected jump-table regions. Existing closure traversal inspected statically; no objdump or candidate execution. Inner loops are unrolled; outer row loop remains.",
+    "cold_panic_excluded": true
+  },
+  "performance": {
+    "status": "PASS",
+    "independent_check_count": 295,
+    "prior_review_sha256": "42ae3e270a6d303098f0452769cf2757137c35739f12a6b93ae2272682ce65ca",
+    "observations": 3472,
+    "cell_run_results": 124,
+    "thresholds": {
+      "principal_gm_max": 0.97,
+      "every_declared_cell_ratio_max": 1.03,
+      "every_batch_ns_min": 10000000,
+      "independent_runs": 2
+    },
+    "phases": [
+      {
+        "phase": "native-principal-leaves-run1",
+        "raw_observations": 728,
+        "cells": 26,
+        "principal_gm": 0.9256327470891145,
+        "worst_ratio": 1.0291525071126046,
+        "minimum_batch_ns": 35754047,
+        "all_go": true,
+        "stats": [
+          {
+            "group": "principal",
+            "n": 1024,
+            "pattern": "random",
+            "op": "mul",
+            "count": 512,
+            "old_median_ns": 189731.2490234375,
+            "new_median_ns": 158607.3896484375,
+            "ratio": 0.8359581801353383
+          },
+          {
+            "group": "principal",
+            "n": 1024,
+            "pattern": "random",
+            "op": "square",
+            "count": 512,
+            "old_median_ns": 123919.7333984375,
+            "new_median_ns": 123476.765625,
+            "ratio": 0.9964253653450558
+          },
+          {
+            "group": "principal",
+            "n": 1024,
+            "pattern": "max",
+            "op": "mul",
+            "count": 512,
+            "old_median_ns": 185263.5224609375,
+            "new_median_ns": 150418.96875,
+            "ratio": 0.8119189722397488
+          },
+          {
+            "group": "principal",
+            "n": 1024,
+            "pattern": "max",
+            "op": "square",
+            "count": 512,
+            "old_median_ns": 110471.4169921875,
+            "new_median_ns": 111191.392578125,
+            "ratio": 1.0065173019912328
+          },
+          {
+            "group": "principal",
+            "n": 4096,
+            "pattern": "random",
+            "op": "mul",
+            "count": 64,
+            "old_median_ns": 1338800.0703125,
+            "new_median_ns": 1199375.625,
+            "ratio": 0.8958586510381974
+          },
+          {
+            "group": "principal",
+            "n": 4096,
+            "pattern": "random",
+            "op": "square",
+            "count": 64,
+            "old_median_ns": 913107.0078125,
+            "new_median_ns": 925965.796875,
+            "ratio": 1.0140824557828172
+          },
+          {
+            "group": "principal",
+            "n": 4096,
+            "pattern": "max",
+            "op": "mul",
+            "count": 64,
+            "old_median_ns": 1346919.2734375,
+            "new_median_ns": 1178497.421875,
+            "ratio": 0.8749577239824721
+          },
+          {
+            "group": "principal",
+            "n": 4096,
+            "pattern": "max",
+            "op": "square",
+            "count": 64,
+            "old_median_ns": 925960.84375,
+            "new_median_ns": 922229.9375,
+            "ratio": 0.9959707731971793
+          },
+          {
+            "group": "leaf",
+            "n": 14,
+            "pattern": "random",
+            "op": "forced",
+            "count": 262144,
+            "old_median_ns": 165.24785614013672,
+            "new_median_ns": 163.04892921447754,
+            "ratio": 0.9866931591306431
+          },
+          {
+            "group": "leaf",
+            "n": 14,
+            "pattern": "max",
+            "op": "forced",
+            "count": 262144,
+            "old_median_ns": 159.61716842651367,
+            "new_median_ns": 161.74662971496582,
+            "ratio": 1.0133410541575454
+          },
+          {
+            "group": "leaf",
+            "n": 15,
+            "pattern": "random",
+            "op": "forced",
+            "count": 262144,
+            "old_median_ns": 184.6160545349121,
+            "new_median_ns": 146.14869499206543,
+            "ratio": 0.7916358919068317
+          },
+          {
+            "group": "leaf",
+            "n": 15,
+            "pattern": "max",
+            "op": "forced",
+            "count": 262144,
+            "old_median_ns": 184.8744125366211,
+            "new_median_ns": 142.2972755432129,
+            "ratio": 0.7696969720730052
+          },
+          {
+            "group": "leaf",
+            "n": 16,
+            "pattern": "random",
+            "op": "forced",
+            "count": 262144,
+            "old_median_ns": 203.580961227417,
+            "new_median_ns": 208.58720207214355,
+            "ratio": 1.0245909087693823
+          },
+          {
+            "group": "leaf",
+            "n": 16,
+            "pattern": "max",
+            "op": "forced",
+            "count": 262144,
+            "old_median_ns": 221.383544921875,
+            "new_median_ns": 218.52646827697754,
+            "ratio": 0.987094448930675
+          },
+          {
+            "group": "leaf",
+            "n": 19,
+            "pattern": "random",
+            "op": "forced",
+            "count": 262144,
+            "old_median_ns": 328.35691261291504,
+            "new_median_ns": 318.75400161743164,
+            "ratio": 0.9707546556000061
+          },
+          {
+            "group": "leaf",
+            "n": 19,
+            "pattern": "max",
+            "op": "forced",
+            "count": 262144,
+            "old_median_ns": 316.95164680480957,
+            "new_median_ns": 321.1080780029297,
+            "ratio": 1.0131137706335371
+          },
+          {
+            "group": "leaf",
+            "n": 20,
+            "pattern": "random",
+            "op": "forced",
+            "count": 262144,
+            "old_median_ns": 360.2954158782959,
+            "new_median_ns": 282.5405693054199,
+            "ratio": 0.7841914075333649
+          },
+          {
+            "group": "leaf",
+            "n": 20,
+            "pattern": "max",
+            "op": "forced",
+            "count": 262144,
+            "old_median_ns": 353.3672847747803,
+            "new_median_ns": 264.8607578277588,
+            "ratio": 0.7495338964289482
+          },
+          {
+            "group": "leaf",
+            "n": 21,
+            "pattern": "random",
+            "op": "forced",
+            "count": 262144,
+            "old_median_ns": 348.6005668640137,
+            "new_median_ns": 345.0398750305176,
+            "ratio": 0.9897857543218365
+          },
+          {
+            "group": "leaf",
+            "n": 21,
+            "pattern": "max",
+            "op": "forced",
+            "count": 262144,
+            "old_median_ns": 345.44197273254395,
+            "new_median_ns": 344.8953094482422,
+            "ratio": 0.998417496055915
+          },
+          {
+            "group": "leaf",
+            "n": 22,
+            "pattern": "random",
+            "op": "forced",
+            "count": 262144,
+            "old_median_ns": 412.4086399078369,
+            "new_median_ns": 329.5560531616211,
+            "ratio": 0.7991007492841776
+          },
+          {
+            "group": "leaf",
+            "n": 22,
+            "pattern": "max",
+            "op": "forced",
+            "count": 262144,
+            "old_median_ns": 407.99050521850586,
+            "new_median_ns": 318.699275970459,
+            "ratio": 0.781143854805578
+          },
+          {
+            "group": "leaf",
+            "n": 23,
+            "pattern": "random",
+            "op": "forced",
+            "count": 262144,
+            "old_median_ns": 458.63216972351074,
+            "new_median_ns": 362.13914680480957,
+            "ratio": 0.7896069458518956
+          },
+          {
+            "group": "leaf",
+            "n": 23,
+            "pattern": "max",
+            "op": "forced",
+            "count": 262144,
+            "old_median_ns": 463.67195892333984,
+            "new_median_ns": 366.24435806274414,
+            "ratio": 0.7898781692841087
+          },
+          {
+            "group": "leaf",
+            "n": 24,
+            "pattern": "random",
+            "op": "forced",
+            "count": 262144,
+            "old_median_ns": 482.18888092041016,
+            "new_median_ns": 483.0630626678467,
+            "ratio": 1.001812944640631
+          },
+          {
+            "group": "leaf",
+            "n": 24,
+            "pattern": "max",
+            "op": "forced",
+            "count": 262144,
+            "old_median_ns": 452.88103675842285,
+            "new_median_ns": 466.0836544036865,
+            "ratio": 1.0291525071126046
+          }
+        ],
+        "hashes": {
+          "plan.json": "b5a38803dbd829671a2bd91361f16d3a572f5ca06dad95e9fc93f061454cf59b",
+          "raw.jsonl": "f2c4938617a188aecba3b5ee3b9ca87cf91f25aa0787bf29fc454b174eb17bde",
+          "report.json": "69b12fbc673c4b876b998fddf8416ae1e1aa9f2072a6c36d6b590cde7e839bb6",
+          "postflight.json": "41f0a340a97428095455e2713d3dd1f2f6066084ceb72107149effea3cd59176",
+          "preflight.json": "c531dd64c493377ab6e3e4d8cf7e8c7b147f02353bd5b70da5f86c1fb532a65c",
+          "linkage-before.json": "bd551bd4f7ea7113484df5419e3681f9b53b6990fb38c908652dd7122a3e7250",
+          "linkage-window-start.json": "48b7cd6187571e0791ff16a1f5fb77664d661c735b238540a09535b73570c305",
+          "linkage-after.json": "a7223a8fb42294e8f02a91442ca83964ebc5bb976f8fe53c529b816e859bb30a",
+          "window.json": "3af2be3ea85f69ed0f7bfcd8d510756febc2b31e9b98aed3120e5cfd6f20f24a"
+        },
+        "window_seconds": 80.9681206,
+        "qemu_resume_status": 0,
+        "qemu_cpu_advance_ms": 906.25
+      },
+      {
+        "phase": "native-boundaries-run1",
+        "raw_observations": 1008,
+        "cells": 36,
+        "principal_gm": null,
+        "worst_ratio": 1.0204333437142519,
+        "minimum_batch_ns": 27659370,
+        "all_go": true,
+        "stats": [
+          {
+            "group": "boundary",
+            "n": 63,
+            "pattern": "random",
+            "op": "mul",
+            "count": 65536,
+            "old_median_ns": 1592.3905487060547,
+            "new_median_ns": 1620.4626388549805,
+            "ratio": 1.0176288977422885
+          },
+          {
+            "group": "boundary",
+            "n": 63,
+            "pattern": "random",
+            "op": "square",
+            "count": 65536,
+            "old_median_ns": 917.7171630859375,
+            "new_median_ns": 912.2127990722656,
+            "ratio": 0.9940021128130995
+          },
+          {
+            "group": "boundary",
+            "n": 64,
+            "pattern": "random",
+            "op": "mul",
+            "count": 32768,
+            "old_median_ns": 1664.3909606933594,
+            "new_median_ns": 1640.9500427246094,
+            "ratio": 0.9859162188918733
+          },
+          {
+            "group": "boundary",
+            "n": 64,
+            "pattern": "random",
+            "op": "square",
+            "count": 32768,
+            "old_median_ns": 876.8372802734375,
+            "new_median_ns": 894.7539978027344,
+            "ratio": 1.0204333437142519
+          },
+          {
+            "group": "boundary",
+            "n": 65,
+            "pattern": "random",
+            "op": "mul",
+            "count": 32768,
+            "old_median_ns": 1690.6814727783203,
+            "new_median_ns": 1437.766357421875,
+            "ratio": 0.8504064074583922
+          },
+          {
+            "group": "boundary",
+            "n": 65,
+            "pattern": "random",
+            "op": "square",
+            "count": 32768,
+            "old_median_ns": 1017.6725463867188,
+            "new_median_ns": 1026.5369110107422,
+            "ratio": 1.008710429160634
+          },
+          {
+            "group": "boundary",
+            "n": 127,
+            "pattern": "random",
+            "op": "mul",
+            "count": 16384,
+            "old_median_ns": 5580.808563232422,
+            "new_median_ns": 4673.086761474609,
+            "ratio": 0.8373494106681816
+          },
+          {
+            "group": "boundary",
+            "n": 127,
+            "pattern": "random",
+            "op": "square",
+            "count": 16384,
+            "old_median_ns": 3438.9547729492188,
+            "new_median_ns": 3349.1764221191406,
+            "ratio": 0.9738937099329501
+          },
+          {
+            "group": "boundary",
+            "n": 128,
+            "pattern": "random",
+            "op": "mul",
+            "count": 16384,
+            "old_median_ns": 5485.114288330078,
+            "new_median_ns": 4739.2469482421875,
+            "ratio": 0.8640197266855916
+          },
+          {
+            "group": "boundary",
+            "n": 128,
+            "pattern": "random",
+            "op": "square",
+            "count": 16384,
+            "old_median_ns": 3354.046661376953,
+            "new_median_ns": 3399.73681640625,
+            "ratio": 1.0136223969557239
+          },
+          {
+            "group": "boundary",
+            "n": 129,
+            "pattern": "random",
+            "op": "mul",
+            "count": 16384,
+            "old_median_ns": 5473.383728027344,
+            "new_median_ns": 4706.150970458984,
+            "ratio": 0.8598247819461989
+          },
+          {
+            "group": "boundary",
+            "n": 129,
+            "pattern": "random",
+            "op": "square",
+            "count": 16384,
+            "old_median_ns": 3568.6558532714844,
+            "new_median_ns": 3607.0194702148438,
+            "ratio": 1.01075015874904
+          },
+          {
+            "group": "boundary",
+            "n": 191,
+            "pattern": "random",
+            "op": "mul",
+            "count": 8192,
+            "old_median_ns": 10599.168273925781,
+            "new_median_ns": 10552.007873535156,
+            "ratio": 0.9955505564991698
+          },
+          {
+            "group": "boundary",
+            "n": 191,
+            "pattern": "random",
+            "op": "square",
+            "count": 8192,
+            "old_median_ns": 7023.674865722656,
+            "new_median_ns": 6939.892150878906,
+            "ratio": 0.9880713847885199
+          },
+          {
+            "group": "boundary",
+            "n": 192,
+            "pattern": "random",
+            "op": "mul",
+            "count": 8192,
+            "old_median_ns": 10687.502746582031,
+            "new_median_ns": 10820.145385742188,
+            "ratio": 1.0124110039833745
+          },
+          {
+            "group": "boundary",
+            "n": 192,
+            "pattern": "random",
+            "op": "square",
+            "count": 8192,
+            "old_median_ns": 6939.0675048828125,
+            "new_median_ns": 6892.935607910156,
+            "ratio": 0.9933518593182449
+          },
+          {
+            "group": "boundary",
+            "n": 193,
+            "pattern": "random",
+            "op": "mul",
+            "count": 8192,
+            "old_median_ns": 11268.287536621094,
+            "new_median_ns": 11471.745300292969,
+            "ratio": 1.0180557838101532
+          },
+          {
+            "group": "boundary",
+            "n": 193,
+            "pattern": "random",
+            "op": "square",
+            "count": 8192,
+            "old_median_ns": 7090.608459472656,
+            "new_median_ns": 7001.29443359375,
+            "ratio": 0.9874038982141811
+          },
+          {
+            "group": "boundary",
+            "n": 511,
+            "pattern": "random",
+            "op": "mul",
+            "count": 2048,
+            "old_median_ns": 58549.61328125,
+            "new_median_ns": 50243.095703125,
+            "ratio": 0.8581285663113835
+          },
+          {
+            "group": "boundary",
+            "n": 511,
+            "pattern": "random",
+            "op": "square",
+            "count": 2048,
+            "old_median_ns": 38802.83154296875,
+            "new_median_ns": 38846.743896484375,
+            "ratio": 1.0011316791009697
+          },
+          {
+            "group": "boundary",
+            "n": 512,
+            "pattern": "random",
+            "op": "mul",
+            "count": 2048,
+            "old_median_ns": 62679.66259765625,
+            "new_median_ns": 61145.49609375,
+            "ratio": 0.975523695560486
+          },
+          {
+            "group": "boundary",
+            "n": 512,
+            "pattern": "random",
+            "op": "square",
+            "count": 2048,
+            "old_median_ns": 40403.895751953125,
+            "new_median_ns": 40320.1328125,
+            "ratio": 0.9979268598264048
+          },
+          {
+            "group": "boundary",
+            "n": 513,
+            "pattern": "random",
+            "op": "mul",
+            "count": 2048,
+            "old_median_ns": 62603.045166015625,
+            "new_median_ns": 61445.231689453125,
+            "ratio": 0.9815054767145572
+          },
+          {
+            "group": "boundary",
+            "n": 513,
+            "pattern": "random",
+            "op": "square",
+            "count": 2048,
+            "old_median_ns": 38668.545654296875,
+            "new_median_ns": 39258.38818359375,
+            "ratio": 1.0152538069202335
+          },
+          {
+            "group": "boundary",
+            "n": 1023,
+            "pattern": "random",
+            "op": "mul",
+            "count": 1024,
+            "old_median_ns": 191496.2548828125,
+            "new_median_ns": 159806.2861328125,
+            "ratio": 0.8345138980948066
+          },
+          {
+            "group": "boundary",
+            "n": 1023,
+            "pattern": "random",
+            "op": "square",
+            "count": 1024,
+            "old_median_ns": 107038.86572265625,
+            "new_median_ns": 108718.71923828125,
+            "ratio": 1.015693865067457
+          },
+          {
+            "group": "boundary",
+            "n": 1024,
+            "pattern": "random",
+            "op": "mul",
+            "count": 512,
+            "old_median_ns": 166102.205078125,
+            "new_median_ns": 139251.64453125,
+            "ratio": 0.8383491625879017
+          },
+          {
+            "group": "boundary",
+            "n": 1024,
+            "pattern": "random",
+            "op": "square",
+            "count": 512,
+            "old_median_ns": 109579.9248046875,
+            "new_median_ns": 110634.3798828125,
+            "ratio": 1.0096227030635807
+          },
+          {
+            "group": "boundary",
+            "n": 1025,
+            "pattern": "random",
+            "op": "mul",
+            "count": 512,
+            "old_median_ns": 166923.9130859375,
+            "new_median_ns": 141689.44140625,
+            "ratio": 0.8488265029666778
+          },
+          {
+            "group": "boundary",
+            "n": 1025,
+            "pattern": "random",
+            "op": "square",
+            "count": 512,
+            "old_median_ns": 110808.353515625,
+            "new_median_ns": 110400.8330078125,
+            "ratio": 0.9963222943498115
+          },
+          {
+            "group": "boundary",
+            "n": 4095,
+            "pattern": "random",
+            "op": "mul",
+            "count": 128,
+            "old_median_ns": 1338960.51953125,
+            "new_median_ns": 1198917.21484375,
+            "ratio": 0.8954089365259799
+          },
+          {
+            "group": "boundary",
+            "n": 4095,
+            "pattern": "random",
+            "op": "square",
+            "count": 128,
+            "old_median_ns": 964627.078125,
+            "new_median_ns": 942620.00390625,
+            "ratio": 0.9771859252992084
+          },
+          {
+            "group": "boundary",
+            "n": 4096,
+            "pattern": "random",
+            "op": "mul",
+            "count": 64,
+            "old_median_ns": 1376117.25,
+            "new_median_ns": 1197285.609375,
+            "ratio": 0.870046218354577
+          },
+          {
+            "group": "boundary",
+            "n": 4096,
+            "pattern": "random",
+            "op": "square",
+            "count": 64,
+            "old_median_ns": 928227.109375,
+            "new_median_ns": 930549.5,
+            "ratio": 1.0025019637991006
+          },
+          {
+            "group": "boundary",
+            "n": 4097,
+            "pattern": "random",
+            "op": "mul",
+            "count": 64,
+            "old_median_ns": 1337149.484375,
+            "new_median_ns": 1167096.046875,
+            "ratio": 0.8728239142391137
+          },
+          {
+            "group": "boundary",
+            "n": 4097,
+            "pattern": "random",
+            "op": "square",
+            "count": 64,
+            "old_median_ns": 915838.71875,
+            "new_median_ns": 923120.9375,
+            "ratio": 1.0079514204858464
+          }
+        ],
+        "hashes": {
+          "plan.json": "36f4e37aa9a14630ff69957a1457e076f84055a6ba19f781c06251cfe46a21fe",
+          "raw.jsonl": "6e7afde38355b0cb23529c66d064ee2e229cb6243396e05deaf4394ceafb3b6a",
+          "report.json": "4d21eccc2ab9c12fd40b070ece5c79709cb106a48ca2287bf375d83e610e3a83",
+          "postflight.json": "89004a72a9e996f1f4cdfd4ad5cc5988d8bd9cd29b6e854c0db321246a8d28d7",
+          "preflight.json": "f14e5f343b52a60a22a5de3f54ed391ec072fde33a7408a004d0de75361f0148",
+          "linkage-before.json": "ed909ee6bdae50e59239fa0c5a5388f72d68320963f3b5308aeef510e0fa11c6",
+          "linkage-window-start.json": "9310c47597b6324131c068ea9c4477f0738afb9e1e089ed9f87d627bb2775755",
+          "linkage-after.json": "f775d62df084b28cdac656637171f62487bdd14b5cf5b1f940c36c9bc661f248",
+          "window.json": "0852d1af92086d8bc5db8f8bf8ce8e313500ab0e2561494b8057cdc12166e4d0"
+        },
+        "window_seconds": 105.2242445,
+        "qemu_resume_status": 0,
+        "qemu_cpu_advance_ms": 640.625
+      },
+      {
+        "phase": "native-principal-leaves-run2",
+        "raw_observations": 728,
+        "cells": 26,
+        "principal_gm": 0.9177123140676965,
+        "worst_ratio": 1.0190359298881189,
+        "minimum_batch_ns": 36892222,
+        "all_go": true,
+        "stats": [
+          {
+            "group": "principal",
+            "n": 1024,
+            "pattern": "random",
+            "op": "mul",
+            "count": 512,
+            "old_median_ns": 168902.2861328125,
+            "new_median_ns": 143688.08203125,
+            "ratio": 0.8507172124257935
+          },
+          {
+            "group": "principal",
+            "n": 1024,
+            "pattern": "random",
+            "op": "square",
+            "count": 512,
+            "old_median_ns": 108289.015625,
+            "new_median_ns": 105729.888671875,
+            "ratio": 0.97636762197574
+          },
+          {
+            "group": "principal",
+            "n": 1024,
+            "pattern": "max",
+            "op": "mul",
+            "count": 512,
+            "old_median_ns": 166820.3271484375,
+            "new_median_ns": 142067.4609375,
+            "ratio": 0.8516196039532263
+          },
+          {
+            "group": "principal",
+            "n": 1024,
+            "pattern": "max",
+            "op": "square",
+            "count": 512,
+            "old_median_ns": 107268.83984375,
+            "new_median_ns": 104878.283203125,
+            "ratio": 0.9777143423560175
+          },
+          {
+            "group": "principal",
+            "n": 4096,
+            "pattern": "random",
+            "op": "mul",
+            "count": 64,
+            "old_median_ns": 1371476.21875,
+            "new_median_ns": 1204759.2265625,
+            "ratio": 0.878439749878091
+          },
+          {
+            "group": "principal",
+            "n": 4096,
+            "pattern": "random",
+            "op": "square",
+            "count": 64,
+            "old_median_ns": 986606.703125,
+            "new_median_ns": 964966.1640625,
+            "ratio": 0.9780656881876484
+          },
+          {
+            "group": "principal",
+            "n": 4096,
+            "pattern": "max",
+            "op": "mul",
+            "count": 64,
+            "old_median_ns": 1448459.359375,
+            "new_median_ns": 1269017.2265625,
+            "ratio": 0.876115175996427
+          },
+          {
+            "group": "principal",
+            "n": 4096,
+            "pattern": "max",
+            "op": "square",
+            "count": 64,
+            "old_median_ns": 1030099.203125,
+            "new_median_ns": 995483.5625,
+            "ratio": 0.966395818460992
+          },
+          {
+            "group": "leaf",
+            "n": 14,
+            "pattern": "random",
+            "op": "forced",
+            "count": 262144,
+            "old_median_ns": 178.7853832244873,
+            "new_median_ns": 176.85286712646484,
+            "ratio": 0.9891908607786133
+          },
+          {
+            "group": "leaf",
+            "n": 14,
+            "pattern": "max",
+            "op": "forced",
+            "count": 262144,
+            "old_median_ns": 173.73993110656738,
+            "new_median_ns": 174.3911075592041,
+            "ratio": 1.0037479953427477
+          },
+          {
+            "group": "leaf",
+            "n": 15,
+            "pattern": "random",
+            "op": "forced",
+            "count": 262144,
+            "old_median_ns": 196.4969253540039,
+            "new_median_ns": 156.07377815246582,
+            "ratio": 0.7942810192642314
+          },
+          {
+            "group": "leaf",
+            "n": 15,
+            "pattern": "max",
+            "op": "forced",
+            "count": 262144,
+            "old_median_ns": 193.90796279907227,
+            "new_median_ns": 152.78980827331543,
+            "ratio": 0.7879501494821874
+          },
+          {
+            "group": "leaf",
+            "n": 16,
+            "pattern": "random",
+            "op": "forced",
+            "count": 262144,
+            "old_median_ns": 211.37871551513672,
+            "new_median_ns": 209.0530605316162,
+            "ratio": 0.98899768608276
+          },
+          {
+            "group": "leaf",
+            "n": 16,
+            "pattern": "max",
+            "op": "forced",
+            "count": 262144,
+            "old_median_ns": 204.7243194580078,
+            "new_median_ns": 206.3773365020752,
+            "ratio": 1.0080743560337317
+          },
+          {
+            "group": "leaf",
+            "n": 19,
+            "pattern": "random",
+            "op": "forced",
+            "count": 262144,
+            "old_median_ns": 276.60891342163086,
+            "new_median_ns": 276.52344703674316,
+            "ratio": 0.9996910208574609
+          },
+          {
+            "group": "leaf",
+            "n": 19,
+            "pattern": "max",
+            "op": "forced",
+            "count": 262144,
+            "old_median_ns": 280.1979274749756,
+            "new_median_ns": 285.2135829925537,
+            "ratio": 1.017900401915093
+          },
+          {
+            "group": "leaf",
+            "n": 20,
+            "pattern": "random",
+            "op": "forced",
+            "count": 262144,
+            "old_median_ns": 317.4572582244873,
+            "new_median_ns": 240.24005889892578,
+            "ratio": 0.7567634781531503
+          },
+          {
+            "group": "leaf",
+            "n": 20,
+            "pattern": "max",
+            "op": "forced",
+            "count": 262144,
+            "old_median_ns": 315.4167366027832,
+            "new_median_ns": 247.43020629882812,
+            "ratio": 0.7844549054808934
+          },
+          {
+            "group": "leaf",
+            "n": 21,
+            "pattern": "random",
+            "op": "forced",
+            "count": 262144,
+            "old_median_ns": 343.416561126709,
+            "new_median_ns": 339.24821281433105,
+            "ratio": 0.9878621220284133
+          },
+          {
+            "group": "leaf",
+            "n": 21,
+            "pattern": "max",
+            "op": "forced",
+            "count": 262144,
+            "old_median_ns": 340.96667671203613,
+            "new_median_ns": 347.4572944641113,
+            "ratio": 1.0190359298881189
+          },
+          {
+            "group": "leaf",
+            "n": 22,
+            "pattern": "random",
+            "op": "forced",
+            "count": 262144,
+            "old_median_ns": 384.7615718841553,
+            "new_median_ns": 300.0695152282715,
+            "ratio": 0.7798843157824944
+          },
+          {
+            "group": "leaf",
+            "n": 22,
+            "pattern": "max",
+            "op": "forced",
+            "count": 262144,
+            "old_median_ns": 391.2843418121338,
+            "new_median_ns": 302.02099990844727,
+            "ratio": 0.7718709072530577
+          },
+          {
+            "group": "leaf",
+            "n": 23,
+            "pattern": "random",
+            "op": "forced",
+            "count": 262144,
+            "old_median_ns": 413.844913482666,
+            "new_median_ns": 330.6443214416504,
+            "ratio": 0.7989570746663279
+          },
+          {
+            "group": "leaf",
+            "n": 23,
+            "pattern": "max",
+            "op": "forced",
+            "count": 262144,
+            "old_median_ns": 410.91397285461426,
+            "new_median_ns": 331.2622489929199,
+            "ratio": 0.8061596121729451
+          },
+          {
+            "group": "leaf",
+            "n": 24,
+            "pattern": "random",
+            "op": "forced",
+            "count": 262144,
+            "old_median_ns": 461.669958114624,
+            "new_median_ns": 452.7532424926758,
+            "ratio": 0.9806859522366097
+          },
+          {
+            "group": "leaf",
+            "n": 24,
+            "pattern": "max",
+            "op": "forced",
+            "count": 262144,
+            "old_median_ns": 441.5209674835205,
+            "new_median_ns": 441.8287296295166,
+            "ratio": 1.000697049899465
+          }
+        ],
+        "hashes": {
+          "plan.json": "ecbf11b2b2f6472a85c8a60706c56b4520a5ba4eb86d6cf89489d5594c40da7f",
+          "raw.jsonl": "864b669536ba22ca47c41bc64d028d5ba7250fc33f55276233060e5bd76e782f",
+          "report.json": "002d21310365d46231b359a373aca3bca7cb8ffe478017a293945d82dcc9087e",
+          "postflight.json": "dda6dfefa3b64f73eeb8090379a6bd917cd424325de1c8faf8e4e5ff4f20c136",
+          "preflight.json": "be1b56c02d58c181fa1c4da66d68faf50a9f32f2e73faf46efbb5206a155cdf1",
+          "linkage-before.json": "e2d0a7a7fbc469b736d0e803695300dedf42719078e006da1b7834c55ca84c1b",
+          "linkage-window-start.json": "445f55deef87c6e4733c39690097caaca751febb9d32c26ddd572d4e365f5bbe",
+          "linkage-after.json": "6b9af3c4dbbd22b0380c8f2f34d91693fdfac65c885cd0dfae9b7915a802c0bf",
+          "window.json": "68d309ab51eab56733b4cf9e204f172282cc2441e8235bf98543972f458d6957"
+        },
+        "window_seconds": 72.2968298,
+        "qemu_resume_status": 0,
+        "qemu_cpu_advance_ms": 640.625
+      },
+      {
+        "phase": "native-boundaries-run2",
+        "raw_observations": 1008,
+        "cells": 36,
+        "principal_gm": null,
+        "worst_ratio": 1.0274416754786213,
+        "minimum_batch_ns": 30084902,
+        "all_go": true,
+        "stats": [
+          {
+            "group": "boundary",
+            "n": 63,
+            "pattern": "random",
+            "op": "mul",
+            "count": 65536,
+            "old_median_ns": 1609.876609802246,
+            "new_median_ns": 1654.0543212890625,
+            "ratio": 1.0274416754786213
+          },
+          {
+            "group": "boundary",
+            "n": 63,
+            "pattern": "random",
+            "op": "square",
+            "count": 65536,
+            "old_median_ns": 900.6361999511719,
+            "new_median_ns": 915.4591979980469,
+            "ratio": 1.0164583635963984
+          },
+          {
+            "group": "boundary",
+            "n": 64,
+            "pattern": "random",
+            "op": "mul",
+            "count": 32768,
+            "old_median_ns": 1710.0346069335938,
+            "new_median_ns": 1708.0496520996094,
+            "ratio": 0.998839231191032
+          },
+          {
+            "group": "boundary",
+            "n": 64,
+            "pattern": "random",
+            "op": "square",
+            "count": 32768,
+            "old_median_ns": 987.9322052001953,
+            "new_median_ns": 986.9723358154297,
+            "ratio": 0.9990284056135501
+          },
+          {
+            "group": "boundary",
+            "n": 65,
+            "pattern": "random",
+            "op": "mul",
+            "count": 32768,
+            "old_median_ns": 1732.5007934570312,
+            "new_median_ns": 1476.6384887695312,
+            "ratio": 0.8523161976873024
+          },
+          {
+            "group": "boundary",
+            "n": 65,
+            "pattern": "random",
+            "op": "square",
+            "count": 32768,
+            "old_median_ns": 1113.6335754394531,
+            "new_median_ns": 1097.4034576416016,
+            "ratio": 0.9854259801825327
+          },
+          {
+            "group": "boundary",
+            "n": 127,
+            "pattern": "random",
+            "op": "mul",
+            "count": 16384,
+            "old_median_ns": 6001.763763427734,
+            "new_median_ns": 5059.676788330078,
+            "ratio": 0.8430316466572135
+          },
+          {
+            "group": "boundary",
+            "n": 127,
+            "pattern": "random",
+            "op": "square",
+            "count": 16384,
+            "old_median_ns": 3356.9909057617188,
+            "new_median_ns": 3349.57763671875,
+            "ratio": 0.9977916922472906
+          },
+          {
+            "group": "boundary",
+            "n": 128,
+            "pattern": "random",
+            "op": "mul",
+            "count": 16384,
+            "old_median_ns": 5516.712463378906,
+            "new_median_ns": 4672.448089599609,
+            "ratio": 0.8469624111490854
+          },
+          {
+            "group": "boundary",
+            "n": 128,
+            "pattern": "random",
+            "op": "square",
+            "count": 16384,
+            "old_median_ns": 3376.561279296875,
+            "new_median_ns": 3363.2135620117188,
+            "ratio": 0.9960469494905966
+          },
+          {
+            "group": "boundary",
+            "n": 129,
+            "pattern": "random",
+            "op": "mul",
+            "count": 16384,
+            "old_median_ns": 5593.887756347656,
+            "new_median_ns": 4796.696868896484,
+            "ratio": 0.8574889375378402
+          },
+          {
+            "group": "boundary",
+            "n": 129,
+            "pattern": "random",
+            "op": "square",
+            "count": 16384,
+            "old_median_ns": 3446.1412353515625,
+            "new_median_ns": 3473.855438232422,
+            "ratio": 1.008042097229376
+          },
+          {
+            "group": "boundary",
+            "n": 191,
+            "pattern": "random",
+            "op": "mul",
+            "count": 8192,
+            "old_median_ns": 10870.182983398438,
+            "new_median_ns": 10725.527404785156,
+            "ratio": 0.9866924430955571
+          },
+          {
+            "group": "boundary",
+            "n": 191,
+            "pattern": "random",
+            "op": "square",
+            "count": 8192,
+            "old_median_ns": 7493.530517578125,
+            "new_median_ns": 7497.2974853515625,
+            "ratio": 1.000502695994178
+          },
+          {
+            "group": "boundary",
+            "n": 192,
+            "pattern": "random",
+            "op": "mul",
+            "count": 8192,
+            "old_median_ns": 12423.1083984375,
+            "new_median_ns": 12105.660461425781,
+            "ratio": 0.974446980028634
+          },
+          {
+            "group": "boundary",
+            "n": 192,
+            "pattern": "random",
+            "op": "square",
+            "count": 8192,
+            "old_median_ns": 7257.7969970703125,
+            "new_median_ns": 7085.810302734375,
+            "ratio": 0.9763031820254325
+          },
+          {
+            "group": "boundary",
+            "n": 193,
+            "pattern": "random",
+            "op": "mul",
+            "count": 8192,
+            "old_median_ns": 10998.111938476562,
+            "new_median_ns": 10892.368957519531,
+            "ratio": 0.9903853514540898
+          },
+          {
+            "group": "boundary",
+            "n": 193,
+            "pattern": "random",
+            "op": "square",
+            "count": 8192,
+            "old_median_ns": 6979.973449707031,
+            "new_median_ns": 6819.738464355469,
+            "ratio": 0.9770436110529492
+          },
+          {
+            "group": "boundary",
+            "n": 511,
+            "pattern": "random",
+            "op": "mul",
+            "count": 2048,
+            "old_median_ns": 58090.605712890625,
+            "new_median_ns": 50664.06005859375,
+            "ratio": 0.8721558234217399
+          },
+          {
+            "group": "boundary",
+            "n": 511,
+            "pattern": "random",
+            "op": "square",
+            "count": 2048,
+            "old_median_ns": 37426.65087890625,
+            "new_median_ns": 37482.93505859375,
+            "ratio": 1.0015038529594755
+          },
+          {
+            "group": "boundary",
+            "n": 512,
+            "pattern": "random",
+            "op": "mul",
+            "count": 2048,
+            "old_median_ns": 58113.662353515625,
+            "new_median_ns": 58729.644775390625,
+            "ratio": 1.0105996145644354
+          },
+          {
+            "group": "boundary",
+            "n": 512,
+            "pattern": "random",
+            "op": "square",
+            "count": 2048,
+            "old_median_ns": 34695.243408203125,
+            "new_median_ns": 34973.119873046875,
+            "ratio": 1.0080090651497793
+          },
+          {
+            "group": "boundary",
+            "n": 513,
+            "pattern": "random",
+            "op": "mul",
+            "count": 2048,
+            "old_median_ns": 57808.132080078125,
+            "new_median_ns": 57601.6220703125,
+            "ratio": 0.9964276650648466
+          },
+          {
+            "group": "boundary",
+            "n": 513,
+            "pattern": "random",
+            "op": "square",
+            "count": 2048,
+            "old_median_ns": 39814.078125,
+            "new_median_ns": 39131.94091796875,
+            "ratio": 0.9828669345328148
+          },
+          {
+            "group": "boundary",
+            "n": 1023,
+            "pattern": "random",
+            "op": "mul",
+            "count": 1024,
+            "old_median_ns": 186154.8447265625,
+            "new_median_ns": 159505.423828125,
+            "ratio": 0.8568427217804507
+          },
+          {
+            "group": "boundary",
+            "n": 1023,
+            "pattern": "random",
+            "op": "square",
+            "count": 1024,
+            "old_median_ns": 108691.84619140625,
+            "new_median_ns": 108679.3935546875,
+            "ratio": 0.9998854317305751
+          },
+          {
+            "group": "boundary",
+            "n": 1024,
+            "pattern": "random",
+            "op": "mul",
+            "count": 512,
+            "old_median_ns": 166707.7744140625,
+            "new_median_ns": 143601.21484375,
+            "ratio": 0.8613948290562544
+          },
+          {
+            "group": "boundary",
+            "n": 1024,
+            "pattern": "random",
+            "op": "square",
+            "count": 512,
+            "old_median_ns": 106518.8974609375,
+            "new_median_ns": 107933.9482421875,
+            "ratio": 1.0132845045806913
+          },
+          {
+            "group": "boundary",
+            "n": 1025,
+            "pattern": "random",
+            "op": "mul",
+            "count": 512,
+            "old_median_ns": 167224.2734375,
+            "new_median_ns": 139793.3212890625,
+            "ratio": 0.835963095640599
+          },
+          {
+            "group": "boundary",
+            "n": 1025,
+            "pattern": "random",
+            "op": "square",
+            "count": 512,
+            "old_median_ns": 106223.708984375,
+            "new_median_ns": 105493.544921875,
+            "ratio": 0.9931261667524017
+          },
+          {
+            "group": "boundary",
+            "n": 4095,
+            "pattern": "random",
+            "op": "mul",
+            "count": 128,
+            "old_median_ns": 1331616.91015625,
+            "new_median_ns": 1162777.8828125,
+            "ratio": 0.8732075073123405
+          },
+          {
+            "group": "boundary",
+            "n": 4095,
+            "pattern": "random",
+            "op": "square",
+            "count": 128,
+            "old_median_ns": 927939.3046875,
+            "new_median_ns": 915124.1640625,
+            "ratio": 0.9861896779667979
+          },
+          {
+            "group": "boundary",
+            "n": 4096,
+            "pattern": "random",
+            "op": "mul",
+            "count": 64,
+            "old_median_ns": 1374663.0078125,
+            "new_median_ns": 1198788.3828125,
+            "ratio": 0.8720598255714547
+          },
+          {
+            "group": "boundary",
+            "n": 4096,
+            "pattern": "random",
+            "op": "square",
+            "count": 64,
+            "old_median_ns": 924183.359375,
+            "new_median_ns": 907143.0625,
+            "ratio": 0.9815617791619577
+          },
+          {
+            "group": "boundary",
+            "n": 4097,
+            "pattern": "random",
+            "op": "mul",
+            "count": 64,
+            "old_median_ns": 1327076.609375,
+            "new_median_ns": 1181089.1875,
+            "ratio": 0.8899932220614195
+          },
+          {
+            "group": "boundary",
+            "n": 4097,
+            "pattern": "random",
+            "op": "square",
+            "count": 64,
+            "old_median_ns": 907255.0234375,
+            "new_median_ns": 900449.265625,
+            "ratio": 0.9924985173554469
+          }
+        ],
+        "hashes": {
+          "plan.json": "d4a09eae6bbbb0b2e744377bd692e2b5d711ededf44f13951c4b227a8ec4061c",
+          "raw.jsonl": "7a3e2574dfaf61c12ff5aeacaec44329eaac293e8b73d51edb5c4176426d5fc9",
+          "report.json": "805ade26a274d432434992a59149f12bba863b54ac5030b8086455f9308b74d6",
+          "postflight.json": "59c4a6bf5ed9850233aaba1ebeb2331777471b1148b57d9bc338170945459d38",
+          "preflight.json": "9a435d443278d4867069b3b1bcdddad703edb0c2450d57da93e9fc087d298ea1",
+          "linkage-before.json": "6b9e995e46d6ed267e32d30efb5f2c3e027fdef0fe1c2b715657dfca3a5ab234",
+          "linkage-window-start.json": "048f9f8aee969bf8a56ae6684c5962671d3fb9a46eb68ef9ed83128d39ed976e",
+          "linkage-after.json": "70ee57cad47313ffd4fe53a198bd5b52df5c601362c55c6f26b5244df5ca3011",
+          "window.json": "c64408448eefd77ad65323c9d759f651d64264eb23acebe019826e972801dc55"
+        },
+        "window_seconds": 103.6700471,
+        "qemu_resume_status": 0,
+        "qemu_cpu_advance_ms": 703.125
+      }
+    ],
+    "protocol": "All fixed cells retained. Seven ABBA/BAAB blocks per cell; second run reverses orientation, 14 observations per arm. Counts fixed prospectively. No pooled preflight, omitted cells, calibration or retrospective subset.",
+    "boundaries": "Actual library candidate versus prior native implementation; GMP expected results outside timing. Same runner/ordinary source and buffers; candidate adds --cfg has_fixed_row for an unmeasured direct branch. No identical-complete-argv claim.",
+    "host": "AMD Ryzen 7 7745HX, WSL, CPU 8; no exclusive-host or stable-clock claim.",
+    "restoration": "All four windows retain resume status 0, live emulator and positive CPU advancement; no watchdog intervention.",
+    "identity_qualification": "Independent saved-data recomputation only; no candidate or benchmark executed. Tool postflights and ldd evidence are historical collector observations, not OS exec attestation or an exclusive-host/stable-clock claim."
+  },
+  "review_actions": "Read-only source/Git inspection, saved-log parsing, assembly/ELF inspection, hashing and raw-statistics recomputation. No proof/build/oracle/candidate/benchmark execution, process/emulator control, source/ref changes or delegation.",
+  "archive": {
+    "status": "PASS",
+    "retained_zip_sha256": "422561b315d651143181e744ff1c15f92d621122f00268d65c512c7eddb57639",
+    "members": 672,
+    "uncompressed_bytes": 25585799,
+    "all_members_hashed_and_compared_with_original_files": true,
+    "final_manifest_member_map_unchanged": true,
+    "final_top_level_hashes": {
+      "README.md": "97caee70858bdf3fb26810c65d995bfb731a4deef61c22cb512181359867662d",
+      "index.json": "f5bc5d0d506e4ab4175c86ad9c1707aad6f078124d2e38ef234d2121140b5d6f",
+      "artifact-seal.json": "c76d36cbbbd6eb9c4713b42939ae2f0ce50df03e64842929265d8bfbf3b6d65d",
+      "audit.py": "5a679bbf668de5ba7c5086f8b4454730fcf4d886f28a928feeba0fd622a27bce",
+      "audit-result.json": "de51fe28001508847408144608cf941138451731dab31a015e23b3f5e439b563",
+      "retained-evidence.zip": "422561b315d651143181e744ff1c15f92d621122f00268d65c512c7eddb57639"
+    },
+    "public_scope": "Read README and index changes at 90d6cee directly: public harness/summary package; full runtime stdout and complete run-02 replay evidence remain external local evidence, not included in either public package.",
+    "receipt_boundary": "The raw 4,905/4,885-case stdout and complete run-02 replay records were independently inspected in the external local evidence folder; their publication is not asserted. Public ZIP closure and replayable saved-data performance checks are separately verified.",
+    "original_reviews_unchanged": true
+  },
+  "final_candidate_native_tree": "5781d6d4d3a2a45e59d54516fd46e50302a5c897",
+  "blockers": [],
+  "acceptance": {
+    "accepted": "Incremental implementation and measured dispatch to const-sized full-product rows at N=15/20/22/23, under the existing caller contracts and unchanged parent/default policy.",
+    "evidence_basis": "Prior static review and repaired strict full-library provenance, final imported functional/codegen gates, two separately scheduled declared-workload measurements, exact final Rust-source mapping and truthful artifact/claim boundaries.",
+    "merge_recommendation": "ACCEPT for the exact frozen candidate 9246041e98dbd98931003bf1c35ec23e4e5288eb.",
+    "excluded": [
+      "Whole-library GMP parity",
+      "Consuming-solver GMP backend replacement",
+      "Universal improvement for every input, forced threshold or host",
+      "Checked composed cost/resource theorem",
+      "Certification of reviewer runtime model/reasoning identity"
+    ],
+    "metadata_only_publication_followup": {
+      "acceptable_planned_scope": "Add byte-identical copies of this formal review and update final-review/acceptance status and their archive metadata/seals in a separate publication commit.",
+      "invariants": "No Rust/arithmetic/harness executable-source change, no retained ZIP change, and no rewrite or relabeling of original proof, runtime, mutation, performance or review evidence.",
+      "completion": "Parent will provide the exact follow-up delta for a final scoped inspection. This review does not assert that an unobserved future commit already matches that scope."
+    }
+  },
+  "final_seal_audit": {
+    "status": "PASS",
+    "checks": 84,
+    "exact_head": true,
+    "clean_worktree": true,
+    "claims_and_top_level_seal": true
+  },
+  "independent_audit_counts": {
+    "previous_static_grouped_checks": 28,
+    "previous_r05_provenance_checks": 24,
+    "final_functional_checks": 101,
+    "final_codegen_checks": 29,
+    "final_performance_checks": 295,
+    "final_source_claim_seal_checks": 84,
+    "archive_members_individually_verified": 672
+  },
+  "claims_review": {
+    "source_count": "58 native-tree files including 51 Rust sources",
+    "original_mutations": "Four genuine typed VC rejections; original five-attempt group remains failed; dispatch/resource-limit attempt excluded.",
+    "historic_provenance": "r04 original gap remains; only r05 closes explicit resolved-compiler/environment binding.",
+    "analytical_cost": "N*N wide products, quadratic word-work and constant additional live words are source-level analytic counts, not checked cost/resource theorems.",
+    "runtime_erasure": "Actual successful selected code regions match same-algorithm ordinary controls, without runtime proof objects or helper calls; inner loops unrolled, outer loop retained.",
+    "parity_and_backend": "Remain unaccepted/false. No GMP timing result is inferred from these native old/new measurements."
+  }
+}
+

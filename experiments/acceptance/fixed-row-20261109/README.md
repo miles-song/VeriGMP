@@ -1,6 +1,6 @@
 # Fixed-row public acceptance evidence
 
-Status: `measured/go_pending_final_independent_acceptance`. GMP parity and solver backend substitution are both **false**. Root owns the final combined independent feature review and acceptance decision.
+Status: `accepted_scoped_incremental_feature`. The [final independent review](final-review/REVIEW.md) accepts exact commit `9246041e98dbd98931003bf1c35ec23e4e5288eb`; that commit is published on public main. [final-acceptance.json](final-acceptance.json) binds the review and publication identities. GMP parity and solver backend substitution are both **false**.
 
 Arithmetic source is `d12759a022d2e285d0bc6b5869ccfb5c1d85f665`, native tree `5790ad2fbadc9877332124c6a66ae3b70b016d03`. The baseline public source is `a32f84f1825e8c95bbf35f81fd6a3aad6e666f91`, native tree `72dc8a5da2cbb7eddcdd26c219d50770e8b73b06`. Its retained collector summary names another commit with those same native bytes; the original summary remains unchanged.
 
