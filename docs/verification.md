@@ -16,7 +16,8 @@ benchmark says nothing about worst cases.
 
 The [fixed-row gate](../experiments/acceptance/fixed-row-20261109/README.md)
 binds the complete 371-item library proof and optimized export at arithmetic
-source `d12759a022d2e285d0bc6b5869ccfb5c1d85f665` to 58 captured Rust sources,
+source `d12759a022d2e285d0bc6b5869ccfb5c1d85f665` to 58 captured native-tree
+files, including 51 Rust sources,
 an explicit tool environment and 111 hashed tool files. Its final rlib/vir pair
 is used by the actual imported consumer, runtime replay and timed candidate.
 The focused gates retain 4,905 candidate and 4,885 baseline integer-oracle cases,
