@@ -1,0 +1,29 @@
+{
+  "schema": "fixed-row-public-archive-top-level-seal-v1",
+  "source_commit": "d12759a022d2e285d0bc6b5869ccfb5c1d85f665",
+  "status": "measured/go_pending_final_independent_acceptance",
+  "gmp_parity": false,
+  "files": {
+    "audit-result.json": {
+      "bytes": 22025,
+      "sha256": "de51fe28001508847408144608cf941138451731dab31a015e23b3f5e439b563"
+    },
+    "audit.py": {
+      "bytes": 18622,
+      "sha256": "5a679bbf668de5ba7c5086f8b4454730fcf4d886f28a928feeba0fd622a27bce"
+    },
+    "index.json": {
+      "bytes": 331971,
+      "sha256": "a5e4d54e31bc97d0dd0623abee741d07ca09dcbb9013eabc47928ab95a830f8f"
+    },
+    "README.md": {
+      "bytes": 6104,
+      "sha256": "da21ca4a7c98920a1f9c53ee1e8eaa494b82ae276d47aac454b68d701c0d5955"
+    },
+    "retained-evidence.zip": {
+      "bytes": 5549513,
+      "sha256": "422561b315d651143181e744ff1c15f92d621122f00268d65c512c7eddb57639"
+    }
+  },
+  "note": "Hashes bind committed archive files; no external signature or final acceptance is implied."
+}

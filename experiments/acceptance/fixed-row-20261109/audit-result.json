@@ -1,0 +1,919 @@
+{
+  "status": "pass",
+  "scope": "retained public artifact integrity/statistics audit; no proof/build/benchmark execution",
+  "archive_sha256": "422561b315d651143181e744ff1c15f92d621122f00268d65c512c7eddb57639",
+  "retained_files": 672,
+  "observations": 3472,
+  "phases": {
+    "native-principal-leaves-run1": {
+      "observations": 728,
+      "principal_gm": 0.9256327470891145,
+      "worst": 1.0291525071126046,
+      "min_batch_ns": 35754047,
+      "cells": [
+        {
+          "group": "principal",
+          "n": 1024,
+          "pattern": "random",
+          "op": "mul",
+          "ratio": 0.8359581801353383
+        },
+        {
+          "group": "principal",
+          "n": 1024,
+          "pattern": "random",
+          "op": "square",
+          "ratio": 0.9964253653450558
+        },
+        {
+          "group": "principal",
+          "n": 1024,
+          "pattern": "max",
+          "op": "mul",
+          "ratio": 0.8119189722397488
+        },
+        {
+          "group": "principal",
+          "n": 1024,
+          "pattern": "max",
+          "op": "square",
+          "ratio": 1.0065173019912328
+        },
+        {
+          "group": "principal",
+          "n": 4096,
+          "pattern": "random",
+          "op": "mul",
+          "ratio": 0.8958586510381974
+        },
+        {
+          "group": "principal",
+          "n": 4096,
+          "pattern": "random",
+          "op": "square",
+          "ratio": 1.0140824557828172
+        },
+        {
+          "group": "principal",
+          "n": 4096,
+          "pattern": "max",
+          "op": "mul",
+          "ratio": 0.8749577239824721
+        },
+        {
+          "group": "principal",
+          "n": 4096,
+          "pattern": "max",
+          "op": "square",
+          "ratio": 0.9959707731971793
+        },
+        {
+          "group": "leaf",
+          "n": 14,
+          "pattern": "random",
+          "op": "forced",
+          "ratio": 0.9866931591306431
+        },
+        {
+          "group": "leaf",
+          "n": 14,
+          "pattern": "max",
+          "op": "forced",
+          "ratio": 1.0133410541575454
+        },
+        {
+          "group": "leaf",
+          "n": 15,
+          "pattern": "random",
+          "op": "forced",
+          "ratio": 0.7916358919068317
+        },
+        {
+          "group": "leaf",
+          "n": 15,
+          "pattern": "max",
+          "op": "forced",
+          "ratio": 0.7696969720730052
+        },
+        {
+          "group": "leaf",
+          "n": 16,
+          "pattern": "random",
+          "op": "forced",
+          "ratio": 1.0245909087693823
+        },
+        {
+          "group": "leaf",
+          "n": 16,
+          "pattern": "max",
+          "op": "forced",
+          "ratio": 0.987094448930675
+        },
+        {
+          "group": "leaf",
+          "n": 19,
+          "pattern": "random",
+          "op": "forced",
+          "ratio": 0.9707546556000061
+        },
+        {
+          "group": "leaf",
+          "n": 19,
+          "pattern": "max",
+          "op": "forced",
+          "ratio": 1.0131137706335371
+        },
+        {
+          "group": "leaf",
+          "n": 20,
+          "pattern": "random",
+          "op": "forced",
+          "ratio": 0.7841914075333649
+        },
+        {
+          "group": "leaf",
+          "n": 20,
+          "pattern": "max",
+          "op": "forced",
+          "ratio": 0.7495338964289482
+        },
+        {
+          "group": "leaf",
+          "n": 21,
+          "pattern": "random",
+          "op": "forced",
+          "ratio": 0.9897857543218365
+        },
+        {
+          "group": "leaf",
+          "n": 21,
+          "pattern": "max",
+          "op": "forced",
+          "ratio": 0.998417496055915
+        },
+        {
+          "group": "leaf",
+          "n": 22,
+          "pattern": "random",
+          "op": "forced",
+          "ratio": 0.7991007492841776
+        },
+        {
+          "group": "leaf",
+          "n": 22,
+          "pattern": "max",
+          "op": "forced",
+          "ratio": 0.781143854805578
+        },
+        {
+          "group": "leaf",
+          "n": 23,
+          "pattern": "random",
+          "op": "forced",
+          "ratio": 0.7896069458518956
+        },
+        {
+          "group": "leaf",
+          "n": 23,
+          "pattern": "max",
+          "op": "forced",
+          "ratio": 0.7898781692841087
+        },
+        {
+          "group": "leaf",
+          "n": 24,
+          "pattern": "random",
+          "op": "forced",
+          "ratio": 1.001812944640631
+        },
+        {
+          "group": "leaf",
+          "n": 24,
+          "pattern": "max",
+          "op": "forced",
+          "ratio": 1.0291525071126046
+        }
+      ]
+    },
+    "native-boundaries-run1": {
+      "observations": 1008,
+      "principal_gm": null,
+      "worst": 1.0204333437142519,
+      "min_batch_ns": 27659370,
+      "cells": [
+        {
+          "group": "boundary",
+          "n": 63,
+          "pattern": "random",
+          "op": "mul",
+          "ratio": 1.0176288977422885
+        },
+        {
+          "group": "boundary",
+          "n": 63,
+          "pattern": "random",
+          "op": "square",
+          "ratio": 0.9940021128130995
+        },
+        {
+          "group": "boundary",
+          "n": 64,
+          "pattern": "random",
+          "op": "mul",
+          "ratio": 0.9859162188918733
+        },
+        {
+          "group": "boundary",
+          "n": 64,
+          "pattern": "random",
+          "op": "square",
+          "ratio": 1.0204333437142519
+        },
+        {
+          "group": "boundary",
+          "n": 65,
+          "pattern": "random",
+          "op": "mul",
+          "ratio": 0.8504064074583922
+        },
+        {
+          "group": "boundary",
+          "n": 65,
+          "pattern": "random",
+          "op": "square",
+          "ratio": 1.008710429160634
+        },
+        {
+          "group": "boundary",
+          "n": 127,
+          "pattern": "random",
+          "op": "mul",
+          "ratio": 0.8373494106681816
+        },
+        {
+          "group": "boundary",
+          "n": 127,
+          "pattern": "random",
+          "op": "square",
+          "ratio": 0.9738937099329501
+        },
+        {
+          "group": "boundary",
+          "n": 128,
+          "pattern": "random",
+          "op": "mul",
+          "ratio": 0.8640197266855916
+        },
+        {
+          "group": "boundary",
+          "n": 128,
+          "pattern": "random",
+          "op": "square",
+          "ratio": 1.0136223969557239
+        },
+        {
+          "group": "boundary",
+          "n": 129,
+          "pattern": "random",
+          "op": "mul",
+          "ratio": 0.8598247819461989
+        },
+        {
+          "group": "boundary",
+          "n": 129,
+          "pattern": "random",
+          "op": "square",
+          "ratio": 1.01075015874904
+        },
+        {
+          "group": "boundary",
+          "n": 191,
+          "pattern": "random",
+          "op": "mul",
+          "ratio": 0.9955505564991698
+        },
+        {
+          "group": "boundary",
+          "n": 191,
+          "pattern": "random",
+          "op": "square",
+          "ratio": 0.9880713847885199
+        },
+        {
+          "group": "boundary",
+          "n": 192,
+          "pattern": "random",
+          "op": "mul",
+          "ratio": 1.0124110039833745
+        },
+        {
+          "group": "boundary",
+          "n": 192,
+          "pattern": "random",
+          "op": "square",
+          "ratio": 0.9933518593182449
+        },
+        {
+          "group": "boundary",
+          "n": 193,
+          "pattern": "random",
+          "op": "mul",
+          "ratio": 1.0180557838101532
+        },
+        {
+          "group": "boundary",
+          "n": 193,
+          "pattern": "random",
+          "op": "square",
+          "ratio": 0.9874038982141811
+        },
+        {
+          "group": "boundary",
+          "n": 511,
+          "pattern": "random",
+          "op": "mul",
+          "ratio": 0.8581285663113835
+        },
+        {
+          "group": "boundary",
+          "n": 511,
+          "pattern": "random",
+          "op": "square",
+          "ratio": 1.0011316791009697
+        },
+        {
+          "group": "boundary",
+          "n": 512,
+          "pattern": "random",
+          "op": "mul",
+          "ratio": 0.975523695560486
+        },
+        {
+          "group": "boundary",
+          "n": 512,
+          "pattern": "random",
+          "op": "square",
+          "ratio": 0.9979268598264048
+        },
+        {
+          "group": "boundary",
+          "n": 513,
+          "pattern": "random",
+          "op": "mul",
+          "ratio": 0.9815054767145572
+        },
+        {
+          "group": "boundary",
+          "n": 513,
+          "pattern": "random",
+          "op": "square",
+          "ratio": 1.0152538069202335
+        },
+        {
+          "group": "boundary",
+          "n": 1023,
+          "pattern": "random",
+          "op": "mul",
+          "ratio": 0.8345138980948066
+        },
+        {
+          "group": "boundary",
+          "n": 1023,
+          "pattern": "random",
+          "op": "square",
+          "ratio": 1.015693865067457
+        },
+        {
+          "group": "boundary",
+          "n": 1024,
+          "pattern": "random",
+          "op": "mul",
+          "ratio": 0.8383491625879017
+        },
+        {
+          "group": "boundary",
+          "n": 1024,
+          "pattern": "random",
+          "op": "square",
+          "ratio": 1.0096227030635807
+        },
+        {
+          "group": "boundary",
+          "n": 1025,
+          "pattern": "random",
+          "op": "mul",
+          "ratio": 0.8488265029666778
+        },
+        {
+          "group": "boundary",
+          "n": 1025,
+          "pattern": "random",
+          "op": "square",
+          "ratio": 0.9963222943498115
+        },
+        {
+          "group": "boundary",
+          "n": 4095,
+          "pattern": "random",
+          "op": "mul",
+          "ratio": 0.8954089365259799
+        },
+        {
+          "group": "boundary",
+          "n": 4095,
+          "pattern": "random",
+          "op": "square",
+          "ratio": 0.9771859252992084
+        },
+        {
+          "group": "boundary",
+          "n": 4096,
+          "pattern": "random",
+          "op": "mul",
+          "ratio": 0.870046218354577
+        },
+        {
+          "group": "boundary",
+          "n": 4096,
+          "pattern": "random",
+          "op": "square",
+          "ratio": 1.0025019637991006
+        },
+        {
+          "group": "boundary",
+          "n": 4097,
+          "pattern": "random",
+          "op": "mul",
+          "ratio": 0.8728239142391137
+        },
+        {
+          "group": "boundary",
+          "n": 4097,
+          "pattern": "random",
+          "op": "square",
+          "ratio": 1.0079514204858464
+        }
+      ]
+    },
+    "native-principal-leaves-run2": {
+      "observations": 728,
+      "principal_gm": 0.9177123140676965,
+      "worst": 1.0190359298881189,
+      "min_batch_ns": 36892222,
+      "cells": [
+        {
+          "group": "principal",
+          "n": 1024,
+          "pattern": "random",
+          "op": "mul",
+          "ratio": 0.8507172124257935
+        },
+        {
+          "group": "principal",
+          "n": 1024,
+          "pattern": "random",
+          "op": "square",
+          "ratio": 0.97636762197574
+        },
+        {
+          "group": "principal",
+          "n": 1024,
+          "pattern": "max",
+          "op": "mul",
+          "ratio": 0.8516196039532263
+        },
+        {
+          "group": "principal",
+          "n": 1024,
+          "pattern": "max",
+          "op": "square",
+          "ratio": 0.9777143423560175
+        },
+        {
+          "group": "principal",
+          "n": 4096,
+          "pattern": "random",
+          "op": "mul",
+          "ratio": 0.878439749878091
+        },
+        {
+          "group": "principal",
+          "n": 4096,
+          "pattern": "random",
+          "op": "square",
+          "ratio": 0.9780656881876484
+        },
+        {
+          "group": "principal",
+          "n": 4096,
+          "pattern": "max",
+          "op": "mul",
+          "ratio": 0.876115175996427
+        },
+        {
+          "group": "principal",
+          "n": 4096,
+          "pattern": "max",
+          "op": "square",
+          "ratio": 0.966395818460992
+        },
+        {
+          "group": "leaf",
+          "n": 14,
+          "pattern": "random",
+          "op": "forced",
+          "ratio": 0.9891908607786133
+        },
+        {
+          "group": "leaf",
+          "n": 14,
+          "pattern": "max",
+          "op": "forced",
+          "ratio": 1.0037479953427477
+        },
+        {
+          "group": "leaf",
+          "n": 15,
+          "pattern": "random",
+          "op": "forced",
+          "ratio": 0.7942810192642314
+        },
+        {
+          "group": "leaf",
+          "n": 15,
+          "pattern": "max",
+          "op": "forced",
+          "ratio": 0.7879501494821874
+        },
+        {
+          "group": "leaf",
+          "n": 16,
+          "pattern": "random",
+          "op": "forced",
+          "ratio": 0.98899768608276
+        },
+        {
+          "group": "leaf",
+          "n": 16,
+          "pattern": "max",
+          "op": "forced",
+          "ratio": 1.0080743560337317
+        },
+        {
+          "group": "leaf",
+          "n": 19,
+          "pattern": "random",
+          "op": "forced",
+          "ratio": 0.9996910208574609
+        },
+        {
+          "group": "leaf",
+          "n": 19,
+          "pattern": "max",
+          "op": "forced",
+          "ratio": 1.017900401915093
+        },
+        {
+          "group": "leaf",
+          "n": 20,
+          "pattern": "random",
+          "op": "forced",
+          "ratio": 0.7567634781531503
+        },
+        {
+          "group": "leaf",
+          "n": 20,
+          "pattern": "max",
+          "op": "forced",
+          "ratio": 0.7844549054808934
+        },
+        {
+          "group": "leaf",
+          "n": 21,
+          "pattern": "random",
+          "op": "forced",
+          "ratio": 0.9878621220284133
+        },
+        {
+          "group": "leaf",
+          "n": 21,
+          "pattern": "max",
+          "op": "forced",
+          "ratio": 1.0190359298881189
+        },
+        {
+          "group": "leaf",
+          "n": 22,
+          "pattern": "random",
+          "op": "forced",
+          "ratio": 0.7798843157824944
+        },
+        {
+          "group": "leaf",
+          "n": 22,
+          "pattern": "max",
+          "op": "forced",
+          "ratio": 0.7718709072530577
+        },
+        {
+          "group": "leaf",
+          "n": 23,
+          "pattern": "random",
+          "op": "forced",
+          "ratio": 0.7989570746663279
+        },
+        {
+          "group": "leaf",
+          "n": 23,
+          "pattern": "max",
+          "op": "forced",
+          "ratio": 0.8061596121729451
+        },
+        {
+          "group": "leaf",
+          "n": 24,
+          "pattern": "random",
+          "op": "forced",
+          "ratio": 0.9806859522366097
+        },
+        {
+          "group": "leaf",
+          "n": 24,
+          "pattern": "max",
+          "op": "forced",
+          "ratio": 1.000697049899465
+        }
+      ]
+    },
+    "native-boundaries-run2": {
+      "observations": 1008,
+      "principal_gm": null,
+      "worst": 1.0274416754786213,
+      "min_batch_ns": 30084902,
+      "cells": [
+        {
+          "group": "boundary",
+          "n": 63,
+          "pattern": "random",
+          "op": "mul",
+          "ratio": 1.0274416754786213
+        },
+        {
+          "group": "boundary",
+          "n": 63,
+          "pattern": "random",
+          "op": "square",
+          "ratio": 1.0164583635963984
+        },
+        {
+          "group": "boundary",
+          "n": 64,
+          "pattern": "random",
+          "op": "mul",
+          "ratio": 0.998839231191032
+        },
+        {
+          "group": "boundary",
+          "n": 64,
+          "pattern": "random",
+          "op": "square",
+          "ratio": 0.9990284056135501
+        },
+        {
+          "group": "boundary",
+          "n": 65,
+          "pattern": "random",
+          "op": "mul",
+          "ratio": 0.8523161976873024
+        },
+        {
+          "group": "boundary",
+          "n": 65,
+          "pattern": "random",
+          "op": "square",
+          "ratio": 0.9854259801825327
+        },
+        {
+          "group": "boundary",
+          "n": 127,
+          "pattern": "random",
+          "op": "mul",
+          "ratio": 0.8430316466572135
+        },
+        {
+          "group": "boundary",
+          "n": 127,
+          "pattern": "random",
+          "op": "square",
+          "ratio": 0.9977916922472906
+        },
+        {
+          "group": "boundary",
+          "n": 128,
+          "pattern": "random",
+          "op": "mul",
+          "ratio": 0.8469624111490854
+        },
+        {
+          "group": "boundary",
+          "n": 128,
+          "pattern": "random",
+          "op": "square",
+          "ratio": 0.9960469494905966
+        },
+        {
+          "group": "boundary",
+          "n": 129,
+          "pattern": "random",
+          "op": "mul",
+          "ratio": 0.8574889375378402
+        },
+        {
+          "group": "boundary",
+          "n": 129,
+          "pattern": "random",
+          "op": "square",
+          "ratio": 1.008042097229376
+        },
+        {
+          "group": "boundary",
+          "n": 191,
+          "pattern": "random",
+          "op": "mul",
+          "ratio": 0.9866924430955571
+        },
+        {
+          "group": "boundary",
+          "n": 191,
+          "pattern": "random",
+          "op": "square",
+          "ratio": 1.000502695994178
+        },
+        {
+          "group": "boundary",
+          "n": 192,
+          "pattern": "random",
+          "op": "mul",
+          "ratio": 0.974446980028634
+        },
+        {
+          "group": "boundary",
+          "n": 192,
+          "pattern": "random",
+          "op": "square",
+          "ratio": 0.9763031820254325
+        },
+        {
+          "group": "boundary",
+          "n": 193,
+          "pattern": "random",
+          "op": "mul",
+          "ratio": 0.9903853514540898
+        },
+        {
+          "group": "boundary",
+          "n": 193,
+          "pattern": "random",
+          "op": "square",
+          "ratio": 0.9770436110529492
+        },
+        {
+          "group": "boundary",
+          "n": 511,
+          "pattern": "random",
+          "op": "mul",
+          "ratio": 0.8721558234217399
+        },
+        {
+          "group": "boundary",
+          "n": 511,
+          "pattern": "random",
+          "op": "square",
+          "ratio": 1.0015038529594755
+        },
+        {
+          "group": "boundary",
+          "n": 512,
+          "pattern": "random",
+          "op": "mul",
+          "ratio": 1.0105996145644354
+        },
+        {
+          "group": "boundary",
+          "n": 512,
+          "pattern": "random",
+          "op": "square",
+          "ratio": 1.0080090651497793
+        },
+        {
+          "group": "boundary",
+          "n": 513,
+          "pattern": "random",
+          "op": "mul",
+          "ratio": 0.9964276650648466
+        },
+        {
+          "group": "boundary",
+          "n": 513,
+          "pattern": "random",
+          "op": "square",
+          "ratio": 0.9828669345328148
+        },
+        {
+          "group": "boundary",
+          "n": 1023,
+          "pattern": "random",
+          "op": "mul",
+          "ratio": 0.8568427217804507
+        },
+        {
+          "group": "boundary",
+          "n": 1023,
+          "pattern": "random",
+          "op": "square",
+          "ratio": 0.9998854317305751
+        },
+        {
+          "group": "boundary",
+          "n": 1024,
+          "pattern": "random",
+          "op": "mul",
+          "ratio": 0.8613948290562544
+        },
+        {
+          "group": "boundary",
+          "n": 1024,
+          "pattern": "random",
+          "op": "square",
+          "ratio": 1.0132845045806913
+        },
+        {
+          "group": "boundary",
+          "n": 1025,
+          "pattern": "random",
+          "op": "mul",
+          "ratio": 0.835963095640599
+        },
+        {
+          "group": "boundary",
+          "n": 1025,
+          "pattern": "random",
+          "op": "square",
+          "ratio": 0.9931261667524017
+        },
+        {
+          "group": "boundary",
+          "n": 4095,
+          "pattern": "random",
+          "op": "mul",
+          "ratio": 0.8732075073123405
+        },
+        {
+          "group": "boundary",
+          "n": 4095,
+          "pattern": "random",
+          "op": "square",
+          "ratio": 0.9861896779667979
+        },
+        {
+          "group": "boundary",
+          "n": 4096,
+          "pattern": "random",
+          "op": "mul",
+          "ratio": 0.8720598255714547
+        },
+        {
+          "group": "boundary",
+          "n": 4096,
+          "pattern": "random",
+          "op": "square",
+          "ratio": 0.9815617791619577
+        },
+        {
+          "group": "boundary",
+          "n": 4097,
+          "pattern": "random",
+          "op": "mul",
+          "ratio": 0.8899932220614195
+        },
+        {
+          "group": "boundary",
+          "n": 4097,
+          "pattern": "random",
+          "op": "square",
+          "ratio": 0.9924985173554469
+        }
+      ]
+    }
+  },
+  "mutation_rejections": 4,
+  "original_mutation_group_passed": false,
+  "dispatch_resource_limit_accepted": false,
+  "acceptance_status": "measured/go_pending_final_independent_acceptance",
+  "gmp_parity": false,
+  "limitations": [
+    "Retained tool hash maps attest identities; tool binaries are deliberately omitted.",
+    "Original Windows wrapper uses a120s owned command timeout and140s independent resume watchdog; actual windows were below120s. No hard real-time guarantee is inferred.",
+    "Archive audit does not replace root final independent acceptance, local gate qualifications, or source proof review."
+  ]
+}
