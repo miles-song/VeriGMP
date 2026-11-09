@@ -1,0 +1,1300 @@
+{
+  "schema": "verigmp-fundamental-optimization-design-v1",
+  "created_date": "2026-11-09",
+  "timezone": "America/Los_Angeles",
+  "language": "zh-CN with English technical terms",
+  "status": "design_only",
+  "implementation_owner": "original primary agent",
+  "preferred_direction": "D1",
+  "scope": {
+    "public_source_only": true,
+    "private_vericount_algorithm_read": false,
+    "existing_source_modified": false,
+    "branches_modified": false,
+    "receipts_modified": false,
+    "proof_build_oracle_calibration_benchmark_executed": false,
+    "service_or_emulator_changed": false,
+    "agents_spawned": false,
+    "messages_to_other_threads": false
+  },
+  "review_identity": {
+    "requested": "independent Astra Max design research",
+    "runtime_model_and_effort_attestation": "not available in this design artifact; no independent runtime identity claim"
+  },
+  "artifacts": {
+    "design": "E:/3sat/VeriGMP-fundamental-optimization-design-20261109/DESIGN.md",
+    "plan": "E:/3sat/VeriGMP-fundamental-optimization-design-20261109/plan.json"
+  },
+  "baseline": {
+    "path": "E:/3sat/VeriGMP-scaled-experiments",
+    "head": "7219cbd013dbf323f7121e4a9e197964f55377ca",
+    "main": "7219cbd013dbf323f7121e4a9e197964f55377ca",
+    "native_tree": "72dc8a5da2cbb7eddcdd26c219d50770e8b73b06",
+    "initial_worktree_status": "clean",
+    "remote": "git@github.com:miles-song/VeriGMP.git",
+    "inspected_file_hashes": [
+      {
+        "path": "AGENTS.md",
+        "sha256": "c86708527b20f9605284d2d8ba24e28be7eee8990ade33989a4811a4d31090f3"
+      },
+      {
+        "path": "native/performance-target.json",
+        "sha256": "7e1f7c27007d65ca77979c693c0f105d2ac4686fd90e853ab86c43684f485a37"
+      },
+      {
+        "path": "native/toolchain.json",
+        "sha256": "a8f1ba756fd50480017e10d24c390a4b94528ab387c965d28c35cf3432c9e678"
+      },
+      {
+        "path": "native/gmp-reference.json",
+        "sha256": "e67ba09749bc761cd581218bebd6cde5f1fdf56a2711924e1ceb45d4c7e247ff"
+      },
+      {
+        "path": "native/verified/arithmetic.rs",
+        "sha256": "7c0181fed9d53f842062fd2f4e738dedf42985fee28bff53cabba4a7fc20cc54"
+      },
+      {
+        "path": "native/verified/fast_multiply.rs",
+        "sha256": "c2d1b96fea047f720ac09e3a3c043eec22abc19d6ac72266cc32380a76e03b82"
+      },
+      {
+        "path": "native/verified/multiply.rs",
+        "sha256": "90b8d0ae56d80b92a7a470c94390bf8020a8f791872892932005a1311307b752"
+      },
+      {
+        "path": "native/verified/fast_words.rs",
+        "sha256": "f07e442ee9a3a00f07affeb4ac537e97d82a6fc60a49cd43a54dde58e2d301e6"
+      },
+      {
+        "path": "native/verified/square.rs",
+        "sha256": "f23ad045015896f056ded2f79c5776cdd520205a5da9bc4801d86eafd9d5e9b7"
+      },
+      {
+        "path": "native/verified/square_base.rs",
+        "sha256": "d56438d15c969b475d74c431bef66dbe8c6befd67699196b096c1773c68094b3"
+      },
+      {
+        "path": "native/verified/square_low.rs",
+        "sha256": "1e85ae150c7d5801d57f41d460de651b5ba9d5ae96c910f52b83bb602dd6ad21"
+      },
+      {
+        "path": "native/verified/toom_low.rs",
+        "sha256": "3edfb086069d72a35a15181d2a10107d58aafbd522d8c5d0b1d091b78bf7babd"
+      },
+      {
+        "path": "native/verified/toom_multiply.rs",
+        "sha256": "58830125c0e82680f11fec6aba9677c8986c8f84fdbe53e3a38dc01b24871602"
+      },
+      {
+        "path": "native/verified/toom_square.rs",
+        "sha256": "4bc0e13311e42f520efec7280259b171123b735a204180f7080f25cc3ad27eac"
+      },
+      {
+        "path": "native/verified/toom_evaluate.rs",
+        "sha256": "80fb7c4b0db769debe3091289cfe8a71703e9e1bf7b9e26a622e4df08f164699"
+      },
+      {
+        "path": "native/verified/toom_interpolate.rs",
+        "sha256": "dd3e97eac34fb6cf6920302eeb5cc2bc8b257a6beb7a2e952f52ccf20ae5e352"
+      },
+      {
+        "path": "native/verified/toom_words.rs",
+        "sha256": "221e6592c48904135aef8cce941675fe067b8d2b9253bd507293363a3ab104d7"
+      },
+      {
+        "path": "native/verified/mac4.rs",
+        "sha256": "9cf6fd885a42e63a7cb1f697833bfa7e82d5b65a85e4351de2252a11b6afce2f"
+      },
+      {
+        "path": "native/toom_bench.rs",
+        "sha256": "c1be0d2aec144ea6d4abf6946206e23f543fdbab0ddb2829278cbaa919b614f2"
+      }
+    ],
+    "delivery_worktree_status": "clean",
+    "delivery_head_main_native_unchanged": true
+  },
+  "instructions_read": [
+    "C:/Users/23247/.codex/skills/karpathy-guidelines/SKILL.md",
+    "E:/3sat/AGENTS.md",
+    "E:/3sat/sat-counting-lab-src/AGENTS.md",
+    "E:/3sat/VeriGMP-scaled-experiments/AGENTS.md"
+  ],
+  "inspected_candidates": [
+    {
+      "name": "low-square25..64",
+      "path": "C:/Users/23247/.codex/worktrees/verigmp-low-square-mainline/VeriGMP-negative-experiments-20261108",
+      "head": "9e6b2b6e9ccf90e44ae0260ed921be79502d818e",
+      "native_tree": "a4d704d1c98300cf805286d3cedbd8100d25ad6c",
+      "worktree_status": "clean",
+      "performance_acceptance": "not established by this design"
+    },
+    {
+      "name": "Karatsuba cross fusion",
+      "path": "E:/3sat/VeriGMP-cross-fusion-experiment-20261109",
+      "head": "a2f8eb971a44f7d3e6a4f9555b32a86994da490a",
+      "native_tree": "0ac6cdffb11a20505b86a75a9ad2ed8323acd971",
+      "worktree_status": "clean",
+      "performance_acceptance": "not established by this design"
+    },
+    {
+      "name": "scoped Toom-4",
+      "path": "C:/Users/23247/.codex/worktrees/gmp-toom4-scoped-20261109/VeriGMP",
+      "head": "3bceade19b67e3d7140f150e594356270d0ee4b7",
+      "native_tree": "4f8fd288f3103886d4b60bcd8b3880fdef06334d",
+      "worktree_status": "clean",
+      "candidate_dispatch": {
+        "mul_min_limbs": 2048,
+        "square_min_limbs": 1024
+      },
+      "performance_acceptance": "not established by this design"
+    }
+  ],
+  "registered_target": {
+    "source": "native/performance-target.json",
+    "principal": {
+      "operations": [
+        "mul_mod",
+        "square_mod"
+      ],
+      "limbs": [
+        256,
+        512,
+        1024,
+        2048,
+        4096
+      ],
+      "top": 63,
+      "max_each_median_over_gmp": 1
+    },
+    "key_shapes": {
+      "operations": [
+        "mul_mod",
+        "square_mod"
+      ],
+      "shapes": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          64
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          23,
+          63
+        ],
+        [
+          24,
+          63
+        ],
+        [
+          25,
+          63
+        ],
+        [
+          63,
+          63
+        ],
+        [
+          64,
+          63
+        ],
+        [
+          65,
+          63
+        ],
+        [
+          127,
+          63
+        ],
+        [
+          128,
+          63
+        ],
+        [
+          129,
+          63
+        ],
+        [
+          191,
+          63
+        ],
+        [
+          192,
+          63
+        ],
+        [
+          193,
+          63
+        ],
+        [
+          255,
+          63
+        ],
+        [
+          256,
+          63
+        ],
+        [
+          257,
+          63
+        ],
+        [
+          511,
+          63
+        ],
+        [
+          512,
+          63
+        ],
+        [
+          513,
+          63
+        ],
+        [
+          1023,
+          63
+        ],
+        [
+          1024,
+          63
+        ],
+        [
+          1025,
+          63
+        ],
+        [
+          2048,
+          63
+        ],
+        [
+          4096,
+          63
+        ]
+      ],
+      "max_each_median_over_gmp": 1.2
+    },
+    "repetitions": 7,
+    "minimum_batch_ms": 10,
+    "confirmation": "second independent run",
+    "comparator": "public GMP mpn_mul_n/mpn_sqr full product + low-half copy + mask",
+    "scoped_feature_before_global_parity": true,
+    "solver_promotion": "requires complete library target and frozen representative exact arithmetic traces"
+  },
+  "observed_environment": {
+    "evidence_only": true,
+    "fresh_runtime_probe": false,
+    "receipt": "experiments/acceptance/fused-interpolation-20261108/timing-20261109/receipts/host-window-start.json",
+    "cpu": "AMD Ryzen 7 7745HX",
+    "cores": 8,
+    "logical_processors": 16,
+    "per_core_l1d_kib": 32,
+    "per_core_l2_kib": 1024,
+    "shared_l3_mib": 32,
+    "kernel": "6.6.87.2-microsoft-standard-WSL2",
+    "relevant_reported_flags": [
+      "bmi2",
+      "adx",
+      "avx512ifma"
+    ],
+    "verus": {
+      "version": "0.2026.10.26.d17fbd0",
+      "commit": "d17fbd0c58abf0d5e86825ea64b96aba72b1b31f",
+      "recorded_binary_sha256": "1208c995c8e5244577693eba311d34bc2050c4acf984e10c4c7baf2003abff14"
+    },
+    "rust": {
+      "version": "1.99.1-x86_64-unknown-linux-gnu",
+      "recorded_rustc_sha256": "b53b780f77f952062f8ca8a3b70aef2390b1e45ad91939be94afdc9543026853",
+      "recorded_llvm_library_sha256": "ed06fbed8d297efa92979aeb227a4ce5b87b1a462d0aeac66d093300fad74824"
+    },
+    "gmp": {
+      "library": "libgmp.so.10.5.0",
+      "recorded_binary_sha256": "0ccdfb6d6f5c039465f6d002cf7e4c072d48ac6a2cffc8dd6c748dec31592804",
+      "actual_dispatch": "not established"
+    }
+  },
+  "static_analysis": {
+    "type": "analytic source-level recurrence expansion, not execution/proof/profile",
+    "recurrence": {
+      "karatsuba": "K(n)=2*K(ceil(n/2))+K(floor(n/2)); n<=24 uses leaf",
+      "toom3": "T(n)=T(ceil(n/3))+T(n-2*ceil(n/3))+3*T(ceil(n/3)+1); n<=192 uses K",
+      "mul_low": "M(n-h)+2*L(h), with actual threshold/low_limit and h=floor(11*n/36) or floor(9*n/40)",
+      "square_low": "S(n-h)+one general low product(h), with square limits and h=floor(11*n/36)"
+    },
+    "cost_model": {
+      "full_row_products": "n*n",
+      "full_row_dst_reads": "n*(n-1)",
+      "full_row_dst_writes": "n*n+n",
+      "low_row_products": "n*(n+1)/2",
+      "low_row_dst_reads": "n*(n-1)/2",
+      "low_row_dst_writes": "n*(n+1)/2",
+      "full_column_dst_writes": "2*n",
+      "low_column_dst_writes": "n",
+      "full_square_products": "n*(n+1)/2 for n>=8",
+      "low_square_products": "(n*(n+1)/2 + ceil(n/2))/2 for n>=9",
+      "exclusions": [
+        "evaluation/interpolation word multiplications",
+        "recursion recombination traffic",
+        "square-leaf traffic in dst metrics",
+        "compiler spills",
+        "cache misses",
+        "cycle timings"
+      ],
+      "column_traffic_scope": "hypothetical replacement of all general multiplication leaves; actual first implementation is bounded to declared full/low scopes",
+      "input_load_caveat": "column scanning may load more a-operand words, so removed dst loads are not net total-load savings"
+    },
+    "counts": [
+      {
+        "op": "mul_mod",
+        "n": 256,
+        "word_muls": 18186,
+        "full_mul_leaves": 45,
+        "low_mul_leaves": 4,
+        "square_leaves": 0,
+        "toom_mul_nodes": 0,
+        "toom_square_nodes": 0,
+        "karatsuba_nodes": 21,
+        "row_dst_reads": 17238,
+        "row_dst_writes": 19042,
+        "column_dst_writes": 1804,
+        "hist": {
+          "full_13": 2,
+          "full_14": 16,
+          "full_22": 15,
+          "full_23": 12,
+          "low_23": 4
+        },
+        "mul_leaf_word_muls": 18186
+      },
+      {
+        "op": "square_mod",
+        "n": 256,
+        "word_muls": 9396,
+        "full_mul_leaves": 9,
+        "low_mul_leaves": 2,
+        "square_leaves": 27,
+        "toom_mul_nodes": 0,
+        "toom_square_nodes": 0,
+        "karatsuba_nodes": 17,
+        "row_dst_reads": 2118,
+        "row_dst_writes": 2414,
+        "column_dst_writes": 296,
+        "hist": {
+          "full_13": 1,
+          "full_14": 8,
+          "low_23": 2,
+          "sqr_22": 15,
+          "sqr_23": 12
+        },
+        "mul_leaf_word_muls": 2289
+      },
+      {
+        "op": "mul_mod",
+        "n": 512,
+        "word_muls": 51530,
+        "full_mul_leaves": 135,
+        "low_mul_leaves": 2,
+        "square_leaves": 0,
+        "toom_mul_nodes": 1,
+        "toom_square_nodes": 0,
+        "karatsuba_nodes": 65,
+        "row_dst_reads": 49030,
+        "row_dst_writes": 53800,
+        "column_dst_writes": 4770,
+        "hist": {
+          "full_16": 25,
+          "full_17": 110,
+          "low_115": 2
+        },
+        "mul_leaf_word_muls": 51530
+      },
+      {
+        "op": "square_mod",
+        "n": 512,
+        "word_muls": 23553,
+        "full_mul_leaves": 27,
+        "low_mul_leaves": 2,
+        "square_leaves": 135,
+        "toom_mul_nodes": 0,
+        "toom_square_nodes": 1,
+        "karatsuba_nodes": 78,
+        "row_dst_reads": 6946,
+        "row_dst_writes": 7786,
+        "column_dst_writes": 840,
+        "hist": {
+          "full_13": 5,
+          "full_14": 22,
+          "low_47": 2,
+          "sqr_14": 4,
+          "sqr_15": 131
+        },
+        "mul_leaf_word_muls": 7413
+      },
+      {
+        "op": "mul_mod",
+        "n": 1024,
+        "word_muls": 146237,
+        "full_mul_leaves": 279,
+        "low_mul_leaves": 4,
+        "square_leaves": 0,
+        "toom_mul_nodes": 6,
+        "toom_square_nodes": 0,
+        "karatsuba_nodes": 126,
+        "row_dst_reads": 139764,
+        "row_dst_writes": 152506,
+        "column_dst_writes": 12742,
+        "hist": {
+          "full_21": 1,
+          "full_22": 146,
+          "full_23": 132,
+          "low_51": 4
+        },
+        "mul_leaf_word_muls": 146237
+      },
+      {
+        "op": "square_mod",
+        "n": 1024,
+        "word_muls": 70161,
+        "full_mul_leaves": 63,
+        "low_mul_leaves": 4,
+        "square_leaves": 225,
+        "toom_mul_nodes": 1,
+        "toom_square_nodes": 6,
+        "karatsuba_nodes": 128,
+        "row_dst_reads": 20856,
+        "row_dst_writes": 23234,
+        "column_dst_writes": 2378,
+        "hist": {
+          "full_16": 6,
+          "full_17": 13,
+          "full_18": 22,
+          "full_19": 22,
+          "low_29": 4,
+          "sqr_19": 10,
+          "sqr_20": 167,
+          "sqr_21": 48
+        },
+        "mul_leaf_word_muls": 22103
+      },
+      {
+        "op": "mul_mod",
+        "n": 2048,
+        "word_muls": 418838,
+        "full_mul_leaves": 945,
+        "low_mul_leaves": 4,
+        "square_leaves": 0,
+        "toom_mul_nodes": 8,
+        "toom_square_nodes": 0,
+        "karatsuba_nodes": 455,
+        "row_dst_reads": 399306,
+        "row_dst_writes": 437958,
+        "column_dst_writes": 38652,
+        "hist": {
+          "full_14": 4,
+          "full_15": 266,
+          "full_22": 451,
+          "full_23": 224,
+          "low_103": 4
+        },
+        "mul_leaf_word_muls": 418838
+      },
+      {
+        "op": "square_mod",
+        "n": 2048,
+        "word_muls": 208690,
+        "full_mul_leaves": 189,
+        "low_mul_leaves": 4,
+        "square_leaves": 675,
+        "toom_mul_nodes": 1,
+        "toom_square_nodes": 6,
+        "karatsuba_nodes": 416,
+        "row_dst_reads": 63906,
+        "row_dst_writes": 70902,
+        "column_dst_writes": 6996,
+        "hist": {
+          "full_16": 18,
+          "full_17": 36,
+          "full_18": 83,
+          "full_19": 52,
+          "low_58": 4,
+          "sqr_19": 29,
+          "sqr_20": 646
+        },
+        "mul_leaf_word_muls": 67520
+      },
+      {
+        "op": "mul_mod",
+        "n": 4096,
+        "word_muls": 990025,
+        "full_mul_leaves": 3933,
+        "low_mul_leaves": 8,
+        "square_leaves": 0,
+        "toom_mul_nodes": 43,
+        "toom_square_nodes": 0,
+        "karatsuba_nodes": 1877,
+        "row_dst_reads": 927970,
+        "row_dst_writes": 1051712,
+        "column_dst_writes": 123742,
+        "hist": {
+          "full_14": 232,
+          "full_15": 3143,
+          "full_19": 18,
+          "full_20": 388,
+          "full_21": 152,
+          "low_46": 8
+        },
+        "mul_leaf_word_muls": 990025
+      },
+      {
+        "op": "square_mod",
+        "n": 4096,
+        "word_muls": 514422,
+        "full_mul_leaves": 595,
+        "low_mul_leaves": 8,
+        "square_leaves": 3375,
+        "toom_mul_nodes": 8,
+        "toom_square_nodes": 31,
+        "karatsuba_nodes": 1903,
+        "row_dst_reads": 173574,
+        "row_dst_writes": 193588,
+        "column_dst_writes": 20014,
+        "hist": {
+          "full_12": 122,
+          "full_13": 244,
+          "full_20": 20,
+          "full_21": 16,
+          "full_22": 46,
+          "full_23": 45,
+          "full_24": 102,
+          "low_35": 8,
+          "sqr_13": 1691,
+          "sqr_14": 1684
+        },
+        "mul_leaf_word_muls": 183721
+      }
+    ],
+    "asymptotics": {
+      "full_toom3_exponent": 1.4649735207179269,
+      "d1_change": "same multiplication recurrence; O(1) extra storage per leaf",
+      "d2_change": "same recursive products; O(n) recomposition and O(n) live scratch",
+      "d3_change": "O(N log N) fixed-word operations within finite certified NTT domain; no unbounded claim"
+    }
+  },
+  "historical_evidence": [
+    {
+      "id": "H-low-square",
+      "path": "docs/data/2026-11-02-low-square-cutoff9",
+      "baseline": "c083839dc07f9b0cffea1a52cd6810d817105355",
+      "current_main_fresh_timing": false,
+      "square23_over_baseline": [
+        0.6709389421164051,
+        0.643622119752181
+      ],
+      "square64_over_baseline": [
+        0.5528088225381604,
+        0.5295812492219947
+      ],
+      "mul4096_over_gmp": [
+        2.3296549511170426,
+        2.3589954438229452
+      ],
+      "square4096_over_gmp": [
+        2.1728328626201017,
+        2.1412906081425604
+      ]
+    },
+    {
+      "id": "H-fused",
+      "path": "experiments/acceptance/fused-interpolation-20261108/timing-20261109",
+      "decision": "NO-GO",
+      "primary_geomeans": [
+        0.9823753468,
+        0.986343124
+      ],
+      "primary_limit": 0.98,
+      "all_cell_worst": [
+        1.0387009525,
+        1.0629641214
+      ],
+      "all_cell_limit": 1.05,
+      "control_drift": "failed",
+      "baseline_native_tree": "72dc8a5da2cbb7eddcdd26c219d50770e8b73b06",
+      "captured_baseline_head": "4510b46e4010dd287c9cf760f0195f2edc32e1f7",
+      "publication_baseline_head": "bf1bc40946967581852dd3b675db8140d757574e",
+      "candidate_head": "3a836713adbb0a6632f5131e8d57c97296d22f62",
+      "caveat": "same native baseline tree does not establish new timing at design HEAD"
+    },
+    {
+      "id": "H-by3",
+      "path": "experiments/acceptance/exact-by3-negative-20261109/RESULTS.md",
+      "decision": "NO-GO",
+      "primary_geomeans": [
+        1.003475113457792,
+        0.999232749796327
+      ]
+    },
+    {
+      "id": "H-double-cross",
+      "path": "experiments/acceptance/arithmetic-negative-20261108/RESULTS.md",
+      "decision": "NO-GO",
+      "primary_geomeans": [
+        0.9914866040028288,
+        0.9832239874205505
+      ]
+    },
+    {
+      "id": "H-toom8",
+      "paths": [
+        "experiments/toom8-primitives/recursive/README.md",
+        "experiments/toom8-primitives/recomposition/README.md"
+      ],
+      "finding": "15-child recursion and 15-coefficient recomposition already exist as public experiments; not claimed novel; saved proof declarations not rerun"
+    }
+  ],
+  "directions": [
+    {
+      "id": "D1",
+      "rank": 1,
+      "name": "Bounded split-sum column multiplication leaf",
+      "mechanism": "carry/dataflow + repeated output-store avoidance",
+      "status": "design_only",
+      "source_anchors": [
+        "native/verified/multiply.rs:14",
+        "native/verified/fast_multiply.rs:22",
+        "native/verified/fast_multiply.rs:149",
+        "native/verified/mac4.rs:1"
+      ],
+      "modules_to_add": [
+        "native/specs/column_product.rs",
+        "native/verified/column_multiply.rs"
+      ],
+      "modules_to_integrate": [
+        "native/lib.rs",
+        "native/verified/fast_multiply.rs"
+      ],
+      "identity": "D_k=sum(a_i*b_j,i+j=k); output_k=(C_k+D_k) mod B; C_(k+1)=floor((C_k+D_k)/B); split products into low/high halves and combine two scalar lanes only at column end",
+      "bounds": {
+        "radix_bits": 64,
+        "max_input_limbs_each": 128,
+        "carry_type": "u128",
+        "carry_bound": "min(r,s)*(B-1)",
+        "half_sum_bound": "128*(B-1)",
+        "low_sum_bound": "<129*B",
+        "conservative_next_bound": "<130*B"
+      },
+      "exact_semantics": {
+        "full": "A*B in r+s limbs, including final empty-column carry flush",
+        "low": "A*B modulo radix^q",
+        "public_modular": "low n words then unchanged precision mask"
+      },
+      "scratch": {
+        "extra_words": 0,
+        "allocation": "none",
+        "alias": "dst disjoint from immutable inputs; a and b may be the same immutable slice"
+      },
+      "dispatch_scope": {
+        "full_leaf": [
+          8,
+          24
+        ],
+        "low_leaf": [
+          32,
+          128
+        ],
+        "recursion_thresholds": "unchanged",
+        "outside_scope": "existing row implementation"
+      },
+      "novelty": "Comba and delayed carries are known; no mathematical novelty claim; full-u64 verified implementation and composition novelty unconfirmed",
+      "risks": [
+        "u128 accumulator lowering may serialize flags",
+        "register spills can erase store savings",
+        "two-operand column loads may offset dst-load savings",
+        "tiny leaves incur setup overhead",
+        "general leaf optimization covers only part of square workload"
+      ],
+      "minimum_experiment": {
+        "executed": false,
+        "full_lengths": [
+          15,
+          20
+        ],
+        "low_lengths": [
+          46,
+          115
+        ],
+        "data_classes": [
+          "dense_random",
+          "all_max"
+        ],
+        "cell_count": 8,
+        "paths": [
+          "current_row",
+          "candidate_column"
+        ],
+        "repetitions": 7,
+        "min_batch_ms": 10,
+        "ordering": "interleaved/rotated",
+        "go": {
+          "geomean_candidate_over_baseline_max": 0.9,
+          "every_cell_ratio_max": 1.03
+        },
+        "interpretation": "proposed investment gate, not predicted speedup or existing registered gate",
+        "stop": "archive NO-GO; no timing retries to chase success"
+      },
+      "integration_screen": {
+        "mul_lengths": [
+          512,
+          4096
+        ],
+        "square_lengths": [
+          4096
+        ],
+        "required_repeated_mul_reduction_fraction": 0.03,
+        "square_role": "regression constraint"
+      },
+      "proof_obligations": [
+        "independent convolution spec",
+        "exact product-half decomposition",
+        "lane partition completeness and odd tail",
+        "u128 safety including carry high part",
+        "outer prefix-and-carry invariant",
+        "full carry flush",
+        "truncation and mask correctness",
+        "frame/alias/capacity/termination",
+        "proof erasure and unchanged public contract"
+      ],
+      "mutation_targets": [
+        "omit odd tail",
+        "wrong lane1 index",
+        "carry narrowed to u64",
+        "omit carry>>64",
+        "omit low_sum>>64",
+        "wrong product-high shift",
+        "omit final full carry word",
+        "low writes one extra word",
+        "wrong top mask"
+      ],
+      "transfer": {
+        "full": "direct",
+        "residue": "direct exact truncated columns",
+        "unequal": "spec supports rectangular products; public wrapper and shape dispatch remain future separately accepted work"
+      }
+    },
+    {
+      "id": "D2",
+      "rank": 2,
+      "name": "Single-write Toom recomposition and requested-prefix output",
+      "mechanism": "memory/scratch scheduling + work avoidance",
+      "status": "design_only",
+      "source_anchors": [
+        "native/verified/toom_multiply.rs:27",
+        "native/verified/toom_multiply.rs:75",
+        "native/verified/toom_square.rs:72",
+        "native/verified/toom_low.rs:37",
+        "native/verified/square_low.rs:40"
+      ],
+      "identity": "A*B=sum(c_j*B^(j*k),j=0..4); stream coefficient word columns with exact carry; emit only q output words",
+      "coefficient_bounds": [
+        "c0,c4 < B^(2k)",
+        "c1,c3 < 2*B^(2k)",
+        "c2 < 3*B^(2k)",
+        "word 2k+1 of every recovered coefficient is zero"
+      ],
+      "implementation": [
+        "add native/verified/toom_recompose.rs::write_prefix",
+        "two-stream k-word band loops plus single guard at band start",
+        "keep disjoint coefficient bank and existing interpolation",
+        "then add prefix entry to eliminate central 2k-word output and low-half copy"
+      ],
+      "scratch": "stage 1 unchanged bank; stage 2 remove outer full-result temporary; maintain existing linear upper-bound contracts unless separately tightened",
+      "alias": "all coefficient slices immutable and disjoint from dst; no in-place overlap in first implementation",
+      "work": "balanced output stores approximately16k to6k per node; same five child products; source counts only",
+      "risks": [
+        "linear overhead may be a small cycle fraction",
+        "dynamic 5-way indexing would add overhead",
+        "guards and short high blocks easy to mishandle",
+        "new prefix entry may alter inlining"
+      ],
+      "minimum_experiment": {
+        "full_lengths": [
+          193,
+          769,
+          3175
+        ],
+        "prefix_shapes": "central product sizes at real low dispatch",
+        "helper_geomean_ratio_max": 0.8,
+        "whole_operation_required_reduction": 0.03,
+        "whole_lengths": [
+          1024,
+          4096
+        ],
+        "executed": false
+      },
+      "proof_obligations": [
+        "input-defined coefficients",
+        "band coverage",
+        "small guards and padding zero",
+        "full and prefix output meaning",
+        "arbitrary old dst overwritten",
+        "short c4 tail",
+        "capacity and frame invariants"
+      ],
+      "mutation_targets": [
+        "omit top c2 guard",
+        "shift a band by one limb",
+        "truncate short c4 incorrectly",
+        "leave dirty output word"
+      ],
+      "prior_art": "GMP output placement and interleaved interpolation/recomposition",
+      "combination": "separate 7/15-coefficient proofs for Toom4/Toom8; no arithmetic point-product deletion",
+      "transfer": {
+        "full": "emit all2n words",
+        "residue": "emit exact q prefix then mask; do not truncate point values before division",
+        "unequal": "requires separate unequal Toom decomposition"
+      }
+    },
+    {
+      "id": "D3",
+      "rank": 3,
+      "name": "Exact two-prime NTT/CRT large path",
+      "mechanism": "algorithm and representation",
+      "status": "design_only",
+      "source_anchors": [
+        "native/verified/toom_multiply.rs:12",
+        "native/verified/toom_low.rs:13",
+        "native/verified/arithmetic.rs:23"
+      ],
+      "identity": "linear convolution of radix2^16 digits via two NTT primes; CRT unique under coefficient bound; exact radix carry and repack",
+      "digit_bits": 16,
+      "primes": [
+        167772161,
+        469762049
+      ],
+      "primitive_roots": [
+        3,
+        3
+      ],
+      "prime_product": "78812994116517889",
+      "domain": [
+        "N=next_power_of_two(La+Lb-1) <=2^25",
+        "min(La,Lb)*(65535)^2 < p1*p2",
+        "primality and root-order certificates proved in actual core"
+      ],
+      "counts_4096": {
+        "primes": [
+          167772161,
+          469762049
+        ],
+        "prime_product": "78812994116517889",
+        "coeff_bound_4096": "70366596710400",
+        "transform_length_4096": 32768,
+        "mul_butterflies_4096": 1474560,
+        "square_butterflies_4096": 983040
+      },
+      "scratch": {
+        "type": "new caller-owned u64 array API in initial prototype",
+        "full_words": "2*N+La+Lb-1 plus explicitly accounted twiddles",
+        "low_words": "2*N+4*q plus explicitly accounted twiddles",
+        "low4096_words": 81920,
+        "current_mul4096_words": 49152,
+        "requires_new_capacity_contract": true,
+        "forbidden": "hidden allocation or unchecked u64/u32 alias reinterpretation"
+      },
+      "minimum_experiment": {
+        "initial_length": 4096,
+        "future_lengths_if_justified": [
+          8192,
+          16384
+        ],
+        "includes": [
+          "pack",
+          "all forward and inverse transforms",
+          "pointwise products",
+          "CRT",
+          "carry",
+          "unpack",
+          "specified setup cost"
+        ],
+        "executed": false,
+        "go": "strong end-to-end signal at a declared scope; larger-size success cannot count as4096 parity"
+      },
+      "risks": [
+        "NTT crossover may exceed registered sizes",
+        "conversion/twiddle/cache overhead",
+        "proof burden",
+        "workspace API growth",
+        "finite fixed-prime domain",
+        "power-of-two padding jumps"
+      ],
+      "proof_obligations": [
+        "primes and root orders",
+        "butterfly modular arithmetic bounds",
+        "inverse normalization",
+        "convolution/no cyclic alias",
+        "CRT uniqueness",
+        "carry packing and masks",
+        "capacity and finite-domain fallback"
+      ],
+      "mutation_targets": [
+        "wrong root",
+        "omit inverse N",
+        "CRT sign error",
+        "insufficient padding",
+        "insufficient coefficient bound",
+        "omit radix carry"
+      ],
+      "novelty": "known exact NTT/CRT methods; library integration novelty unconfirmed",
+      "combination": "alternative path to Toom, not a multiplicative speedup factor",
+      "transfer": {
+        "full": "exact under certified coefficient bounds",
+        "residue": "full linear NTT in stage1; only high CRT/unpack omitted",
+        "unequal": "N depends on sum of lengths; not recommended for extreme imbalance"
+      }
+    },
+    {
+      "id": "D4",
+      "rank": 4,
+      "name": "Bounded Toom evaluation top-carry peeling",
+      "mechanism": "bounded scalar representation and recursive-work reshaping",
+      "status": "design_only_lower_priority",
+      "source_anchors": [
+        "native/verified/toom_evaluate.rs:10",
+        "native/verified/toom_evaluate.rs:71",
+        "native/verified/toom_multiply.rs:45",
+        "native/verified/toom_square.rs:46"
+      ],
+      "identity": "(x+alpha*Q)*(y+beta*Q)=x*y+Q*(alpha*y+beta*x)+alpha*beta*Q^2",
+      "bounds": {
+        "alpha_beta_max": 6,
+        "correction_carry_max": 12,
+        "product_guard_max": 48
+      },
+      "scratch": "existing 2(k+1)-word products and disjoint eval arrays",
+      "implementation": "k-word recursive product, fused correction on upper k words, write top guard and final zero",
+      "minimum_experiment": {
+        "k": [
+          132,
+          265,
+          1059,
+          192,
+          193
+        ],
+        "top_pairs": [
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            6,
+            6
+          ]
+        ],
+        "executed": false,
+        "go": "consistent gain including nonzero guards and parent calls"
+      },
+      "static_counterexample": {
+        "k": 24,
+        "current_full25_word_products": 482,
+        "peeled_full24_word_products_before_correction": 576,
+        "conclusion": "shorter recursion can cost more"
+      },
+      "risks": [
+        "extra correction multiplies/loads",
+        "threshold discontinuities",
+        "LLVM does not automatically exploit ghost top bounds"
+      ],
+      "proof_obligations": [
+        "peeled identity",
+        "u128 correction bounds",
+        "lower-prefix frame",
+        "guard flush",
+        "negative-point sign compatibility",
+        "unchanged interpolation preconditions"
+      ],
+      "mutation_targets": [
+        "omit alpha*beta",
+        "omit cross correction",
+        "truncate carry",
+        "wrong negative point sign"
+      ],
+      "novelty": "explicit GMP SMALLER_RECURSION prior art; not a new idea",
+      "combination": "new histograms require D1/D2/Toom4 remeasurement; Toom4 top bounds differ",
+      "transfer": {
+        "full": "preserves exact Toom point product",
+        "residue": "only through surrounding exact low composition",
+        "unequal": "requires generalized point-length contract"
+      }
+    }
+  ],
+  "common_production_gates": {
+    "proof": "same immutable source, actual functions and composition, no assume/admit/external_body/custom axioms/hidden FFI/unchecked verification flags",
+    "oracle": "independent integer outputs for complete and truncated products, full-u64 inputs, arbitrary old dst, capacity/alias domain",
+    "boundaries": {
+      "limbs": [
+        0,
+        1,
+        2,
+        7,
+        8,
+        9,
+        13,
+        14,
+        15,
+        16,
+        19,
+        20,
+        21,
+        23,
+        24,
+        25,
+        31,
+        32,
+        33,
+        35,
+        45,
+        46,
+        47,
+        63,
+        64,
+        65,
+        95,
+        96,
+        97,
+        114,
+        115,
+        116,
+        127,
+        128,
+        129
+      ],
+      "tops": [
+        1,
+        63,
+        64
+      ],
+      "additional": "all registered shapes and recursive cutoff +/-1; empty only where API permits"
+    },
+    "codegen": "forced and default roots; erased proof objects; no allocation/general division in hot kernel; correct instruction/store shape; inspect spills and panic paths",
+    "mutation": "semantic counterexamples or VC failures; tool errors/timeouts do not count",
+    "proposed_d1_feature_acceptance": {
+      "metric": "candidate/current-main median ratio",
+      "principal_mul_geomean_max": 0.97,
+      "each_targeted_principal_cell_max": 1,
+      "registered_all_shape_regression_max": 1.05,
+      "independent_runs": 2,
+      "no_pooling_for_pass": true,
+      "not_a_replacement_for_gmp_target": true
+    },
+    "combinations": {
+      "first_pair_only": true,
+      "factorial_paths": [
+        "T00_current",
+        "T10_new",
+        "T01_other_accepted",
+        "T11_both"
+      ],
+      "interaction": "T11*T00/(T10*T01)",
+      "reverify_new_native_trees": true
+    },
+    "review": "independent implementation/proof/performance review after actual work; this design is not acceptance",
+    "incremental_merge": "allowed once scoped gates accepted, without waiting for overall GMP parity"
+  },
+  "next_action": "Original primary agent rechecks latest public main, starts isolated D1 experiment, writes independent column spec and full-u64 two-lane helper, proves u128 carry invariant, then performs same-source oracle/codegen and the predeclared full15/20 + low46/115 screen. Do not create additional agents or run benchmarks from this design chat.",
+  "phases": [
+    {
+      "phase": 1,
+      "scope": "D1 leaf only",
+      "exit": "small strong-signal screen passes"
+    },
+    {
+      "phase": 2,
+      "scope": "fixed-scope default integration and acceptance",
+      "exit": "proof/oracle/mutation/codegen/boundary/regression and independent runs pass; relevant combination passes"
+    },
+    {
+      "phase": 3,
+      "scope": "D2 prefix evolution; D3 only when large-size deficit justifies it",
+      "exit": "separate scoped evidence; D4 only after specific shape evidence"
+    }
+  ],
+  "assumptions": [
+    "Public main native tree is unchanged during analysis; recheck before implementation",
+    "Single-threaded exact arithmetic with caller-owned buffers remains the target",
+    "No secret-dependent constant-time API contract is claimed by existing generic workload",
+    "Compiler optimization may not exploit proof-only value bounds",
+    "Source-level operation counts predict scope, not runtime percentages",
+    "No private SAT distribution or end-to-end speedup is assumed",
+    "Known prior art prevents global originality claims for Comba, storage scheduling, carry peeling or NTT/CRT"
+  ],
+  "performance_evidence_gaps": [
+    "No new candidate implementation or timing",
+    "No cycle profile assigning dominance to carry/stores/interpolation",
+    "No measured current GMP internal dispatch/configuration proof",
+    "No performance acceptance of D1-D4 or combinations",
+    "No representative private solver trace acceptance",
+    "No machine-checked bit-cost or whole-machine peak-live-space theorem for proposed designs",
+    "No exhaustive novelty survey",
+    "Historical cutoff9 data are not current-main fresh timings"
+  ],
+  "sources": [
+    {
+      "id": "S-gmp",
+      "kind": "primary release source",
+      "version": "6.3.0",
+      "mercurial_node": "bc0ec1699e58",
+      "url": "https://ftp.gnu.org/gnu/gmp/gmp-6.3.0.tar.xz",
+      "sha256": "a3c2b80201b89e68616f4ad30bc66aee4927c3ce50e33929ca819d5c43538898",
+      "local_archive": "E:/3sat/VeriGMP-optimization-opportunities-20261108/gmp-6.3.0.tar.xz",
+      "hash_checked": true
+    },
+    {
+      "kind": "primary implementation",
+      "version": "GMP 6.3.0 / bc0ec1699e58",
+      "path": "mpn/generic/toom33_mul.c",
+      "url": "https://gmplib.org/repo/gmp/file/bc0ec1699e58/mpn/generic/toom33_mul.c",
+      "sha256": "c90e5a5f53b4334bdbce16da821c251cb28ec829162933f6113686bd030e6289",
+      "hash_checked": true
+    },
+    {
+      "kind": "primary implementation",
+      "version": "GMP 6.3.0 / bc0ec1699e58",
+      "path": "mpn/generic/toom_interpolate_5pts.c",
+      "url": "https://gmplib.org/repo/gmp/file/bc0ec1699e58/mpn/generic/toom_interpolate_5pts.c",
+      "sha256": "d0c2a28a0cb0418de418b7a07cecfd43538b16669ccea0d3a970ac2da7dcca31",
+      "hash_checked": true
+    },
+    {
+      "kind": "primary implementation",
+      "version": "GMP 6.3.0 / bc0ec1699e58",
+      "path": "mpn/generic/mullo_n.c",
+      "url": "https://gmplib.org/repo/gmp/file/bc0ec1699e58/mpn/generic/mullo_n.c",
+      "sha256": "2827a74d3d2abd6b397fc2498fae0b03252282b7872b07bf5e6db34a6174dadf",
+      "hash_checked": true
+    },
+    {
+      "kind": "primary implementation",
+      "version": "GMP 6.3.0 / bc0ec1699e58",
+      "path": "mpn/generic/mul_basecase.c",
+      "url": "https://gmplib.org/repo/gmp/file/bc0ec1699e58/mpn/generic/mul_basecase.c",
+      "sha256": "b105d712b9f22b1aed8c270be2a889235b439623060c71016970c848c42320c1",
+      "hash_checked": true
+    },
+    {
+      "kind": "primary implementation",
+      "version": "GMP 6.3.0 / bc0ec1699e58",
+      "path": "mpn/generic/mul_n.c",
+      "url": "https://gmplib.org/repo/gmp/file/bc0ec1699e58/mpn/generic/mul_n.c",
+      "sha256": "042149c7e1be083ad3a7c01ede62a9b51e83cd156ed7d5ac6d09ec065f8f402b",
+      "hash_checked": true
+    },
+    {
+      "kind": "primary implementation",
+      "version": "GMP 6.3.0 / bc0ec1699e58",
+      "path": "mpn/x86_64/zen3/gmp-mparam.h",
+      "url": "https://gmplib.org/repo/gmp/file/bc0ec1699e58/mpn/x86_64/zen3/gmp-mparam.h",
+      "sha256": "f36cea137b436ec1d919970ef5c9976808abe507ff89a38e58c079042bc0f1e0",
+      "hash_checked": true
+    },
+    {
+      "kind": "primary implementation",
+      "version": "GMP 6.3.0 / bc0ec1699e58",
+      "path": "mpn/x86_64/zen3/addmul_1.asm",
+      "url": "https://gmplib.org/repo/gmp/file/bc0ec1699e58/mpn/x86_64/zen3/addmul_1.asm",
+      "sha256": "b482976e6bc32d47052e05aa3ff9421157d13f62cdcad2ff42d658f255784577",
+      "hash_checked": true
+    },
+    {
+      "kind": "primary implementation",
+      "version": "GMP 6.3.0 / bc0ec1699e58",
+      "path": "mpn/x86_64/coreibwl/addmul_1.asm",
+      "url": "https://gmplib.org/repo/gmp/file/bc0ec1699e58/mpn/x86_64/coreibwl/addmul_1.asm",
+      "sha256": "2590f2ca34b9283d68ec9d92f371810b47d78f346f838c509ade2cedac25c3d4",
+      "hash_checked": true
+    },
+    {
+      "id": "S-gmp-manual",
+      "kind": "official manual",
+      "version": "GNU MP6.3.0",
+      "urls": [
+        "https://gmplib.org/manual/Multiplication-Algorithms",
+        "https://gmplib.org/manual/FFT-Multiplication"
+      ],
+      "usage": "algorithm families and Fermat FFT mechanics"
+    },
+    {
+      "id": "S-delayed-comba",
+      "kind": "primary research paper",
+      "title": "Techniques for Performance Improvement of Integer Multiplication in Cryptographic Applications",
+      "authors": [
+        "Robert Brumnik",
+        "Vladislav Kovtun",
+        "Andrew Okhrimenko",
+        "Sergii Kavun"
+      ],
+      "year": 2014,
+      "article": "863617",
+      "doi": "10.1155/2014/863617",
+      "url": "https://onlinelibrary.wiley.com/doi/10.1155/2014/863617",
+      "usage": "modified Comba/delayed-carry prior art only; old Win32/GMP4.1.2 speedups not transferred"
+    },
+    {
+      "id": "S-comba-original",
+      "kind": "primary paper bibliographic/abstract only",
+      "title": "Exponentiation Cryptosystems on the IBM PC",
+      "author": "P. G. Comba",
+      "year": 1990,
+      "journal": "IBM Systems Journal29(4):526-538",
+      "doi": "10.1147/sj.294.0526",
+      "url": "https://doi.org/10.1147/sj.294.0526",
+      "limitation": "full PDF fetch failed; no detailed implementation/speed claim based on unread body"
+    },
+    {
+      "id": "S-atcoder-convolution",
+      "kind": "primary source",
+      "version": "v1.5.1",
+      "tag_object": "f002e2e41a804e3bb7651037e82d5a24639e604c",
+      "commit": "d8ca7f26686f6c78d15d13ca438ea866526e87fb",
+      "path": "atcoder/convolution.hpp",
+      "url": "https://github.com/atcoder/ac-library/blob/d8ca7f26686f6c78d15d13ca438ea866526e87fb/atcoder/convolution.hpp",
+      "sha256": "4d9f9fe449e2ebb36e65ec2433da34ba8c3dff9fe1deaf5475e6964934bbcb91",
+      "usage": "NTT and CRT prior art; proposed two-prime bounded reconstruction is not a copy of convolution_ll"
+    },
+    {
+      "id": "S-atcoder-math",
+      "kind": "primary source",
+      "version": "v1.5.1",
+      "commit": "d8ca7f26686f6c78d15d13ca438ea866526e87fb",
+      "path": "atcoder/internal_math.hpp",
+      "url": "https://github.com/atcoder/ac-library/blob/d8ca7f26686f6c78d15d13ca438ea866526e87fb/atcoder/internal_math.hpp",
+      "sha256": "487416d11ce878d7785559a02c84f094529e39fa5cc593d4c45e91fc7da53f56",
+      "usage": "prime/root constants and reduction reference; does not discharge Verus certificates"
+    },
+    {
+      "kind": "primary implementation",
+      "version": "GMP 6.3.0 / bc0ec1699e58",
+      "path": "mpn/generic/toom3_sqr.c",
+      "url": "https://gmplib.org/repo/gmp/file/bc0ec1699e58/mpn/generic/toom3_sqr.c",
+      "sha256": "2509295cf5ed658194774f1e9025d1e594d6361d69d798f4d8240e65635af763",
+      "hash_checked": true
+    }
+  ],
+  "delivery_checks": {
+    "artifact_json_parsed": true,
+    "required_directions": 4,
+    "public_source_unchanged": true,
+    "proof_build_oracle_calibration_benchmark_run": false
+  }
+}

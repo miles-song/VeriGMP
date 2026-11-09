@@ -14,6 +14,17 @@ trailers, for this task's new commits.
 
 ## Incremental feature acceptance
 
+Select performance optimizations with a prototype first. State the independent
+integer identity and input domain, implement an isolated optimized Rust
+prototype, check it against independent integer oracles and boundaries, then
+measure it against the current implementation. Invest in full Verus refinement
+and production integration only after a preregistered performance screen shows
+a useful gain. Prototype evidence establishes neither proof nor merge acceptance.
+Preserve the winning algorithm and data layout in the verified implementation;
+remeasure any runtime change made during refinement. Retain unsuccessful
+prototypes and their original results instead of tuning acceptance thresholds
+after observing them.
+
 Merge each independently accepted optimization into main as soon as its own
 local correctness/oracle, boundary and semantic-mutation gates, relevant
 performance evidence and independent Astra Max review pass. GitHub CI is
