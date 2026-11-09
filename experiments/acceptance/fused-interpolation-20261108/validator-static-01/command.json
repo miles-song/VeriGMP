@@ -1,0 +1,15 @@
+{
+  "argv": [
+    "wsl",
+    "-d",
+    "Ubuntu",
+    "--exec",
+    "bash",
+    "-lc",
+    "python3 /mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/VeriGMP-negative-experiments-20261108/experiments/fused-interpolation-20261108/test_raw_validate.py --output /mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/validator-static-01/verification.json"
+  ],
+  "cwd": "C:\\Users\\23247\\.codex\\worktrees\\gmp-fused-interpolation-20261108\\VeriGMP-negative-experiments-20261108",
+  "returncode": 0,
+  "benchmark_executed": false,
+  "verus_executed": false
+}

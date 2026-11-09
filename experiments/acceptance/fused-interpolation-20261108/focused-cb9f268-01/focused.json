@@ -1,0 +1,54 @@
+{
+  "status": "focused_pass",
+  "phase": "focused-frontend-type-helper",
+  "head": "cb9f26860accdfb3471e5e668b42a6a732da3608",
+  "argv": [
+    "/mnt/e/3sat/VeriCount/deps/verus/verus-x86-linux/verus",
+    "native/lib.rs",
+    "--crate-type",
+    "lib",
+    "--crate-name",
+    "verigmp",
+    "--verify-module",
+    "toom_words",
+    "--no-cheating",
+    "--multiple-errors",
+    "0",
+    "--num-threads",
+    "2"
+  ],
+  "cwd": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/focused-cb9f268-01/source",
+  "start_utc": "2026-11-08T15:53:13.788340+00:00",
+  "driver_pid": 645,
+  "compile": false,
+  "full_native_proof": false,
+  "timing": false,
+  "binding_sha256": "ab314e476eec2d41ccb82128e2db8403370dedb70f39c1c9bc55b2b1418f9876",
+  "backup_sha256": "571a825e20cbcefaa955428d11e9dae3567337d9d5eaeb5a3af595e4ee304769",
+  "driver_sha256": "8074c43fccf5b31c7680979505b357132b9e3a3258ade00666efa736d0fdf8ed",
+  "stdout": "focused.stdout.log",
+  "stderr": "focused.stderr.log",
+  "selected_environment": {
+    "CARGO_HOME": "/mnt/e/3sat/VeriCount/deps/cargo",
+    "RUSTUP_HOME": "/mnt/e/3sat/VeriCount/deps/rustup",
+    "RUSTUP_TOOLCHAIN": "1.99.1-x86_64-unknown-linux-gnu",
+    "PATH": "/mnt/e/3sat/VeriCount/deps/cargo/bin:/mnt/e/3sat/VeriCount/deps/verus/verus-x86-linux:/mnt/e/3sat/VeriCount/deps/cargo/bin:/home/smy/.local/bin:/home/smy/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/snap/bin"
+  },
+  "terminal": {
+    "stdin_isatty": false,
+    "stdout_isatty": false,
+    "tty_name": null
+  },
+  "verus_launcher_pid": 871,
+  "returncode": 0,
+  "stop_utc": "2026-11-08T15:53:21.541496+00:00",
+  "summary": [
+    [
+      "37",
+      "0"
+    ]
+  ],
+  "fatal_or_frontend_diagnostic": false,
+  "stdout_sha256": "a0081da17a017398c192de22351b0da539ed86f8015d02106cf1829f55f2e9bb",
+  "stderr_sha256": "ead5f6bbb0b40125e36d79dca1f6d3a753a289ca1eb4c96a717711faa507fb08"
+}

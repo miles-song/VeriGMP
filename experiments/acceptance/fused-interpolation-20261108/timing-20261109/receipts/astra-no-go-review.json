@@ -1,0 +1,139 @@
+{
+  "schema": "verigmp-fused-interpolation-independent-no-go-review-v1",
+  "review_date": "2026-11-09",
+  "review_scope": "Read-only audit of the frozen fused-interpolation timing evidence and acceptance decision.",
+  "decision": {
+    "performance_result": "NO_GO",
+    "enable_candidate": false,
+    "merge_justified": false,
+    "gmp_parity_claim": false,
+    "numeric_gates_pass": false,
+    "reasons": [
+      "Both independent runs exceed the registered primary 15-cell geometric-mean limit of 0.98.",
+      "Run 2 exceeds the registered all-86-cell worst-ratio limit of 1.05.",
+      "Nine of 71 baseline control cells exceed the registered per-cell run2/run1 drift interval.",
+      "The approved timing-attempt-02 output directory is empty; the runner wrote data to its sibling timing directory.",
+      "The independent static review receipt does not attest that its runtime was Astra Max."
+    ]
+  },
+  "source_identity": {
+    "baseline": {
+      "head": "4510b46e4010dd287c9cf760f0195f2edc32e1f7",
+      "tree": "d8bb9a0f95160a2e260f7b9f276cb4fd0a867778",
+      "native_tree": "72dc8a5da2cbb7eddcdd26c219d50770e8b73b06",
+      "native_manifest_sha256": "7e8d3f151d3eda7c5a3df285f882618a26022d0f7b7661ff266812a4b123f446",
+      "verified_items": 358,
+      "rlib_sha256": "02dabb57ecbee4b82fe99b4ed555cbd892160b999b47d01d9ac0ab9788372d28",
+      "vir_sha256": "9890ff7d0d62f53101b41089017f913ecd6495421e54c79e2819735c3769ed41"
+    },
+    "candidate": {
+      "head": "3a836713adbb0a6632f5131e8d57c97296d22f62",
+      "tree": "96bd28b9bc45702e1d7f6c8e9a60d7653f2cd941",
+      "native_tree": "212dd5d00d4b2159abd4627a6aaec8b16a1157e5",
+      "native_manifest_sha256": "d9d91876478ba6c8bcc9324a05a3bd303c1d2c4d9becd620d256a32ce3ddf72b",
+      "verified_items": 369,
+      "rlib_sha256": "59151180a613df39efc32c6d9b012fd105d219fb2c678f9bf127b23407fefece",
+      "vir_sha256": "c896366cb7ec15f3ee57e78962607ea5e9b82901c9d04614cec4ce242421b5d8"
+    }
+  },
+  "build_identity": {
+    "build_receipt": "E:/3sat/VeriGMP-evidence/fused-interpolation-resume-20261109/bench-build-pre-timing.json",
+    "build_sha256": "b4a46f45e64fd91ad286c2efb8ff50b1b8d489a2534bac7ed69fd1540bcc85a3",
+    "identity_receipt": "E:/3sat/VeriGMP-evidence/fused-interpolation-resume-20261109/identity-pre-timing.json",
+    "identity_sha256": "99e8fae840f709574f058754d489f4cd19893d74ff05b6b3c55f3bb9b9e57e6f",
+    "baseline_binary_sha256": "f9b3f8318426c6dfdd2887f2ea986bd2678f9865ef6a157b140cbbbf7f4375ac",
+    "candidate_binary_sha256": "6bce14a79d96857f7ed4e7ce4e0d6fc46527951705382ee91661230777d89ccc",
+    "gmp_sha256": "0ccdfb6d6f5c039465f6d002cf7e4c072d48ac6a2cffc8dd6c748dec31592804",
+    "validation": "The read-only summarizer accepted the externally anchored build digest and validated both runs against the same source, producer, tool, library, GMP, binary, and input identities."
+  },
+  "timing_recomputation": {
+    "method": "Reran experiments/fused-interpolation-20261108/summarize.py against the existing raw files, with no benchmark, calibration, proof, or build invocation.",
+    "summary_receipt_sha256": "cf69728da6c51fd7c50c1a6498455525cc82bfca2e4c0817c36db7ee71b69e64",
+    "seed": 20261108,
+    "cpu_affinity": 8,
+    "matrix_cells_per_run": 86,
+    "calibrations_per_run": 258,
+    "accepted_samples_per_run": 1806,
+    "retained_retries_per_run": 0,
+    "invocations_per_run": 2064,
+    "raw_validation": "Both runs pass exact cell order, argv binding, stdout payload binding, counts, and raw median/ratio recomputation.",
+    "thresholds": {
+      "primary_15_geomean_max": 0.98,
+      "all_86_worst_ratio_max": 1.05,
+      "control_drift_geomean_range": [0.95, 1.05],
+      "each_control_drift_range": [0.9, 1.1]
+    },
+    "runs": [
+      {
+        "run_id": "fused-20261109-1",
+        "raw_sha256": "2500e81da0ed1d00e093d5d59af256b8cd8cdebb6547a9e929579ec86bbb43a1",
+        "measurement_sha256": "e2ee99dbd8ad3a791e603427443629c23edd554f243dfafb05a700342f70abc9",
+        "primary_15_geomean": 0.9823753468399021,
+        "primary_pass": false,
+        "all_86_worst_ratio": 1.0387009525475814,
+        "all_86_pass": true,
+        "performance_pass": false,
+        "worst_cell": [0, 1023, 64]
+      },
+      {
+        "run_id": "fused-20261109-2",
+        "raw_sha256": "8e1100e24e7fcbd7ce997db1e32aa81d191db212c8a8e2e323f8147ef9257b6c",
+        "measurement_sha256": "8ccabf5f9e1a652d91ccd8f4fdbe46374c2cd31bbae6b4649a82ac2641f3297c",
+        "primary_15_geomean": 0.9863431240034981,
+        "primary_pass": false,
+        "all_86_worst_ratio": 1.0629641214487358,
+        "all_86_pass": false,
+        "performance_pass": false,
+        "failed_cells": [
+          {"cell": [0, 513, 64], "candidate_over_baseline": 1.0629641214487358},
+          {"cell": [1, 1, 64], "candidate_over_baseline": 1.0526127077309462}
+        ]
+      }
+    ]
+  },
+  "baseline_control_drift": {
+    "control_cells": 71,
+    "run2_over_run1_geomean": 1.0065619565787198,
+    "geomean_pass": true,
+    "out_of_range_control_cells": 9,
+    "per_cell_drift_pass": false,
+    "outliers": [
+      {"cell": [0, 25, 64], "run2_over_run1": 0.8991141504232817},
+      {"cell": [0, 191, 64], "run2_over_run1": 1.1338653546819062},
+      {"cell": [0, 255, 64], "run2_over_run1": 1.1159446838730176},
+      {"cell": [0, 256, 64], "run2_over_run1": 1.1847604998896437},
+      {"cell": [0, 257, 64], "run2_over_run1": 1.1831267512920955},
+      {"cell": [0, 511, 64], "run2_over_run1": 1.1623700755527155},
+      {"cell": [0, 512, 64], "run2_over_run1": 1.1604075324830443},
+      {"cell": [1, 64, 63], "run2_over_run1": 0.8464079913959142},
+      {"cell": [1, 193, 63], "run2_over_run1": 1.112535514133553}
+    ]
+  },
+  "protocol_deviation": {
+    "classification": "material output-path/provenance deviation",
+    "root_approved_output_directory": "E:/3sat/VeriGMP-evidence/fused-interpolation-resume-20261109/timing-attempt-02",
+    "actual_run_and_summary_directory": "E:/3sat/VeriGMP-evidence/fused-interpolation-resume-20261109/timing",
+    "approved_directory_empty": true,
+    "evidence": "root-protocol-review.json records output_directory=timing-attempt-02; run_fused_timing.ps1 sets runRoot to timing-attempt-02 but sets run1, run2, and summary paths under timing/.",
+    "consequence": "Raw measurements remain structurally valid and identity-bound, but the execution does not satisfy the specifically approved output-location provenance. Preserve the data as NO-GO evidence; do not claim exact path compliance or erase the discrepancy. This deviation does not explain or reverse the numeric failures."
+  },
+  "host_receipts": {
+    "machine": "AMD Ryzen 7 7745HX, Windows 11, WSL2 kernel 6.6.87.2-microsoft-standard-WSL2, Rust 1.99.1, Python 3.12.3",
+    "measurement_cpu": 8,
+    "qemu_suspended_in_start_and_after_run_snapshots": true,
+    "start_receipt_sha256": "ca2aa13c3eab2dbdaf8476d4bf44764585b3a7ce17ff2bce35cc3ab37c96ddf5",
+    "after_run_1_receipt_sha256": "24ca545f393cd038fdb595f6b99851a7b45dd9e2636e261baae32d23dcd97ccb",
+    "after_run_2_receipt_sha256": "981ff3509ea52ca45d8789993f957d73dfe36a76d490147bd6b71025e3d96b25",
+    "interpretation": "Host counters and load are retained as observations. No post hoc host exclusion was applied; the reported numerical failures remain included."
+  },
+  "independent_review": {
+    "receipt_sha256": "f14341baec374b40f57751c8d6defa1c4322428c592062ce5c3b81ec04ab3b71",
+    "receipt_decision": {"static_accept": "ACCEPT", "timing_ready": "READY"},
+    "identity_caveat": "The receipt names an independent Astra Max requested role and gpt-6-astra/max dispatch, but also says its runtime identity was Codex GPT-6 and was not identified as Astra Max. Preserve that caveat; this audit does not treat the Astra Max review requirement as independently established."
+  },
+  "claim_limits": [
+    "The static package reports 369 candidate verification items, 4,036 independent integer-oracle fixtures per producer, and semantic-mutation rejection; those are static/correctness claims only.",
+    "The measured candidate result is a NO-GO on the frozen inputs, binaries, and host. It does not establish universal GMP parity or solver parity.",
+    "No candidate enablement, merge, production performance acceptance, or GMP parity claim is justified."
+  ]
+}

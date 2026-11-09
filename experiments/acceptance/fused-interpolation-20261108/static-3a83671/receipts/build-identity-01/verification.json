@@ -1,0 +1,26 @@
+{
+  "status": "static_binding_pass",
+  "driver_sha256": "2ff98fecc3cae33df99861113e6329499fef9bbaa79146f2d563ba1c04cc4656",
+  "source_head": "3a836713adbb0a6632f5131e8d57c97296d22f62",
+  "source_tree": "96bd28b9bc45702e1d7f6c8e9a60d7653f2cd941",
+  "native_tree": "212dd5d00d4b2159abd4627a6aaec8b16a1157e5",
+  "driver_pid": 656,
+  "start_utc": "2026-11-08T16:42:33.501922+00:00",
+  "native_reproved": false,
+  "bench_recompiled": false,
+  "benchmark_executed": false,
+  "timing_authorized": false,
+  "bench_build": {
+    "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/build-identity-01/bench-build.json",
+    "sha256": "bac446bdf52f2a9ce6babb653019427d3f65ec36c90de68b5a8459ae945a62c4"
+  },
+  "identity": {
+    "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/build-identity-01/identity.json",
+    "sha256": "2ef03539dfb28375a6de5ff09a7fad03245fcc9cd5c26447d775a73900c5ff01"
+  },
+  "normalized_producer_items": {
+    "baseline": 358,
+    "candidate": 369
+  },
+  "stop_utc": "2026-11-08T16:42:50.810166+00:00"
+}

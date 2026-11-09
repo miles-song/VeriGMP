@@ -1,0 +1,775 @@
+{
+  "schema": "fused-interpolation-identity-v1",
+  "status": "static_pass",
+  "sources": {
+    "baseline": {
+      "head": "4510b46e4010dd287c9cf760f0195f2edc32e1f7",
+      "tree": "d8bb9a0f95160a2e260f7b9f276cb4fd0a867778",
+      "root": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/build-identity-01/baseline-source",
+      "native_tree": "72dc8a5da2cbb7eddcdd26c219d50770e8b73b06",
+      "native_manifest_sha256": "7e8d3f151d3eda7c5a3df285f882618a26022d0f7b7661ff266812a4b123f446",
+      "files": {
+        "native/controls/fast_multiply.rs": {
+          "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/build-identity-01/baseline-source/native/controls/fast_multiply.rs",
+          "sha256": "64ddb1d8919da86881791d88d42916fd0f2d73e14073c6a53850d337e02a6714"
+        },
+        "native/controls/gmp_abi.cpp": {
+          "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/build-identity-01/baseline-source/native/controls/gmp_abi.cpp",
+          "sha256": "433b99417b38004a1684537a644cfe9cd7e7852df8864ce12dc9d1c4dfce6ed8"
+        },
+        "native/controls/gmp_multiply.cpp": {
+          "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/build-identity-01/baseline-source/native/controls/gmp_multiply.cpp",
+          "sha256": "87658c00944326f26f5fd016d0c845ca2efe7b32d2329abe190787830a39f5f4"
+        },
+        "native/controls/limbs.rs": {
+          "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/build-identity-01/baseline-source/native/controls/limbs.rs",
+          "sha256": "b7161f5897667d8d6bc96ec5ca6eddf63384efd4eb0568ecbb6c4cccf500e4da"
+        },
+        "native/controls/multiply.rs": {
+          "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/build-identity-01/baseline-source/native/controls/multiply.rs",
+          "sha256": "6671972c9c3c61424338e6418d8c703e3426c63eb062cb12fddc9adad63a6882"
+        },
+        "native/controls/pow2.rs": {
+          "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/build-identity-01/baseline-source/native/controls/pow2.rs",
+          "sha256": "ba0a8a8bb404c4778ddd3c03ba254dfcca6efc28a94d293368db2e5ee2e79dac"
+        },
+        "native/fast_bench.rs": {
+          "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/build-identity-01/baseline-source/native/fast_bench.rs",
+          "sha256": "dbad117ee7c07e79b4fc82421900491d7d8aa781c3d467057afa1c5ae6a9941a"
+        },
+        "native/fast_codegen.rs": {
+          "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/build-identity-01/baseline-source/native/fast_codegen.rs",
+          "sha256": "e68214b600c37fbf436a9d4ad0a649c000eb133e5ecf1d38948dbe5edda37283"
+        },
+        "native/fast_runner.rs": {
+          "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/build-identity-01/baseline-source/native/fast_runner.rs",
+          "sha256": "bf789aee05d49953fafef8a4dd6e88a82b8bde905c844e3fb6a76f5287f053e1"
+        },
+        "native/gmp-reference.json": {
+          "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/build-identity-01/baseline-source/native/gmp-reference.json",
+          "sha256": "e67ba09749bc761cd581218bebd6cde5f1fdf56a2711924e1ceb45d4c7e247ff"
+        },
+        "native/history-provenance.json": {
+          "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/build-identity-01/baseline-source/native/history-provenance.json",
+          "sha256": "0fe7570b05bfe4757721f72b31c5b0941170f4aa649feafab518892d3a3ffafa"
+        },
+        "native/lib.rs": {
+          "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/build-identity-01/baseline-source/native/lib.rs",
+          "sha256": "edb633153fd240e317b5c97c58ee01627e9cb8c0fdb1168d6b017642afe070d1"
+        },
+        "native/limbs_bench.rs": {
+          "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/build-identity-01/baseline-source/native/limbs_bench.rs",
+          "sha256": "937ed74d98f739b2333e1feb78c65dbefb86b5af1c051c864ef269fb6b304215"
+        },
+        "native/limbs_codegen.rs": {
+          "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/build-identity-01/baseline-source/native/limbs_codegen.rs",
+          "sha256": "465962efb3dc1e0f2414295228414112e3843dbaf467a41b705e53a3255e255e"
+        },
+        "native/limbs_runner.rs": {
+          "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/build-identity-01/baseline-source/native/limbs_runner.rs",
+          "sha256": "4aced8bc95027c78bbac6690f112dcd9e0b892f521baa6e29515b65862c05c01"
+        },
+        "native/mac4_bench.rs": {
+          "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/build-identity-01/baseline-source/native/mac4_bench.rs",
+          "sha256": "6519f9828fb9dafbbb200926f7358dded24909e462447a1753626c81a399be1f"
+        },
+        "native/multiply_bench.rs": {
+          "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/build-identity-01/baseline-source/native/multiply_bench.rs",
+          "sha256": "d28537c1ee449c452b8c0f549a3555fbf50f59a680240b371335ccb106061d12"
+        },
+        "native/multiply_codegen.rs": {
+          "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/build-identity-01/baseline-source/native/multiply_codegen.rs",
+          "sha256": "3855098a24804a8cba3ff8b094b159290e0e27e13fc1a558b456aebfeddb1229"
+        },
+        "native/multiply_runner.rs": {
+          "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/build-identity-01/baseline-source/native/multiply_runner.rs",
+          "sha256": "856d5b82363f2bf9170bf15cf45f2b0b9ae713a1475f5ceed1751fcaf18c52c7"
+        },
+        "native/performance-target.json": {
+          "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/build-identity-01/baseline-source/native/performance-target.json",
+          "sha256": "7e1f7c27007d65ca77979c693c0f105d2ac4686fd90e853ab86c43684f485a37"
+        },
+        "native/pow2_bench.rs": {
+          "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/build-identity-01/baseline-source/native/pow2_bench.rs",
+          "sha256": "9e4390cabef56661544491deb928ee2f7a11199d34ada5b6a185a54a45622c1c"
+        },
+        "native/pow2_codegen.rs": {
+          "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/build-identity-01/baseline-source/native/pow2_codegen.rs",
+          "sha256": "2372573334ffb9778295bd775ea23302207017bb699598606f3254f3cf3d36dd"
+        },
+        "native/pow2_runner.rs": {
+          "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/build-identity-01/baseline-source/native/pow2_runner.rs",
+          "sha256": "c916b36cc11923b309aacccd8e54ae5bde951d651abb1360f05715b82706a647"
+        },
+        "native/proof-status.json": {
+          "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/build-identity-01/baseline-source/native/proof-status.json",
+          "sha256": "ed7e0c35cc8391682f2ea9b94d93de048f5577b41ed9db368f20ff4c5c42286a"
+        },
+        "native/specs/fast_product.rs": {
+          "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/build-identity-01/baseline-source/native/specs/fast_product.rs",
+          "sha256": "1d3a4f9397375741f6fcaea5bacf5977f73c56ba051893cd81a83709385b2cd7"
+        },
+        "native/specs/packed_convolution.rs": {
+          "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/build-identity-01/baseline-source/native/specs/packed_convolution.rs",
+          "sha256": "473c31ece4130e5517a44c5a88757137461f009dce19c0a628ee7af8be69e122"
+        },
+        "native/specs/packed_product.rs": {
+          "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/build-identity-01/baseline-source/native/specs/packed_product.rs",
+          "sha256": "f792932175cc64633ea19bf19229e61100962d19bedfbc3923bd4f925e526658"
+        },
+        "native/specs/precision.rs": {
+          "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/build-identity-01/baseline-source/native/specs/precision.rs",
+          "sha256": "38ffadc6cd04602b40457711b25ec3e89de5fb0ebf92136645da93fb18d4cde0"
+        },
+        "native/specs/product.rs": {
+          "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/build-identity-01/baseline-source/native/specs/product.rs",
+          "sha256": "24de04dda22e2ca1262ade8328b3f164612b59188df14dbe84988b94592563ae"
+        },
+        "native/specs/radix.rs": {
+          "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/build-identity-01/baseline-source/native/specs/radix.rs",
+          "sha256": "51bddb73e0cfcc2fda095ac5f35fe4853417c1fff858133dab56b05ba9573219"
+        },
+        "native/specs/square.rs": {
+          "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/build-identity-01/baseline-source/native/specs/square.rs",
+          "sha256": "3d716c2905d4f34929e3177e853196f84faef8a63c10e7e1bb7593a9e62be87e"
+        },
+        "native/specs/square_base.rs": {
+          "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/build-identity-01/baseline-source/native/specs/square_base.rs",
+          "sha256": "9436705847c6cf4c8353a324e9154767a2a8ac57b13ca13a26b523f973ea6768"
+        },
+        "native/specs/toom.rs": {
+          "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/build-identity-01/baseline-source/native/specs/toom.rs",
+          "sha256": "ed543569ac0996a16546211241b52f5a7ae945e8fce873f5195340cf290456ff"
+        },
+        "native/specs/toom_blocks.rs": {
+          "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/build-identity-01/baseline-source/native/specs/toom_blocks.rs",
+          "sha256": "d799a910b67b26fbbdbdefc50bf49063f8ca39790f6d48f60a7ed1315d00df9d"
+        },
+        "native/square_base_bench.rs": {
+          "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/build-identity-01/baseline-source/native/square_base_bench.rs",
+          "sha256": "96d985005b1bf24282c2981fb6ac1290f9ce5ee056c58305798d87fb8447e671"
+        },
+        "native/toolchain.json": {
+          "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/build-identity-01/baseline-source/native/toolchain.json",
+          "sha256": "a8f1ba756fd50480017e10d24c390a4b94528ab387c965d28c35cf3432c9e678"
+        },
+        "native/toom_bench.rs": {
+          "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/build-identity-01/baseline-source/native/toom_bench.rs",
+          "sha256": "c1be0d2aec144ea6d4abf6946206e23f543fdbab0ddb2829278cbaa919b614f2"
+        },
+        "native/toom_codegen.rs": {
+          "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/build-identity-01/baseline-source/native/toom_codegen.rs",
+          "sha256": "ed180241882078324268bf9803b4d85d457000e18d4035d44435800e3c3652a7"
+        },
+        "native/toom_words_runner.rs": {
+          "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/build-identity-01/baseline-source/native/toom_words_runner.rs",
+          "sha256": "ebfc236535004e57a0932a45dd263b8e944064ef394490cf367c92003681126d"
+        },
+        "native/verified/arithmetic.rs": {
+          "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/build-identity-01/baseline-source/native/verified/arithmetic.rs",
+          "sha256": "7c0181fed9d53f842062fd2f4e738dedf42985fee28bff53cabba4a7fc20cc54"
+        },
+        "native/verified/fast_multiply.rs": {
+          "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/build-identity-01/baseline-source/native/verified/fast_multiply.rs",
+          "sha256": "c2d1b96fea047f720ac09e3a3c043eec22abc19d6ac72266cc32380a76e03b82"
+        },
+        "native/verified/fast_words.rs": {
+          "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/build-identity-01/baseline-source/native/verified/fast_words.rs",
+          "sha256": "f07e442ee9a3a00f07affeb4ac537e97d82a6fc60a49cd43a54dde58e2d301e6"
+        },
+        "native/verified/kernel.rs": {
+          "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/build-identity-01/baseline-source/native/verified/kernel.rs",
+          "sha256": "53837b72617ee200e30cfd3af155ce7ca156c0684ee1d29688b78504bfb65569"
+        },
+        "native/verified/limbs.rs": {
+          "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/build-identity-01/baseline-source/native/verified/limbs.rs",
+          "sha256": "913c88133f2bd46b3b4a59794eba5b8d43dfdbdac720918e375b47a52adbff28"
+        },
+        "native/verified/mac4.rs": {
+          "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/build-identity-01/baseline-source/native/verified/mac4.rs",
+          "sha256": "9cf6fd885a42e63a7cb1f697833bfa7e82d5b65a85e4351de2252a11b6afce2f"
+        },
+        "native/verified/multiply.rs": {
+          "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/build-identity-01/baseline-source/native/verified/multiply.rs",
+          "sha256": "90b8d0ae56d80b92a7a470c94390bf8020a8f791872892932005a1311307b752"
+        },
+        "native/verified/packed_layout.rs": {
+          "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/build-identity-01/baseline-source/native/verified/packed_layout.rs",
+          "sha256": "fb8073712aa5681ef6f4f9dbb3aff85884955539d809e2e0131bc1b84d2626c8"
+        },
+        "native/verified/pow2.rs": {
+          "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/build-identity-01/baseline-source/native/verified/pow2.rs",
+          "sha256": "893234a990b3b3bf308253ce318411fb5247157cfabe2d02ce603c6c86c1dcec"
+        },
+        "native/verified/square.rs": {
+          "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/build-identity-01/baseline-source/native/verified/square.rs",
+          "sha256": "f23ad045015896f056ded2f79c5776cdd520205a5da9bc4801d86eafd9d5e9b7"
+        },
+        "native/verified/square_base.rs": {
+          "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/build-identity-01/baseline-source/native/verified/square_base.rs",
+          "sha256": "d56438d15c969b475d74c431bef66dbe8c6befd67699196b096c1773c68094b3"
+        },
+        "native/verified/square_low.rs": {
+          "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/build-identity-01/baseline-source/native/verified/square_low.rs",
+          "sha256": "1e85ae150c7d5801d57f41d460de651b5ba9d5ae96c910f52b83bb602dd6ad21"
+        },
+        "native/verified/toom_evaluate.rs": {
+          "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/build-identity-01/baseline-source/native/verified/toom_evaluate.rs",
+          "sha256": "80fb7c4b0db769debe3091289cfe8a71703e9e1bf7b9e26a622e4df08f164699"
+        },
+        "native/verified/toom_interpolate.rs": {
+          "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/build-identity-01/baseline-source/native/verified/toom_interpolate.rs",
+          "sha256": "dd3e97eac34fb6cf6920302eeb5cc2bc8b257a6beb7a2e952f52ccf20ae5e352"
+        },
+        "native/verified/toom_low.rs": {
+          "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/build-identity-01/baseline-source/native/verified/toom_low.rs",
+          "sha256": "3edfb086069d72a35a15181d2a10107d58aafbd522d8c5d0b1d091b78bf7babd"
+        },
+        "native/verified/toom_multiply.rs": {
+          "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/build-identity-01/baseline-source/native/verified/toom_multiply.rs",
+          "sha256": "58830125c0e82680f11fec6aba9677c8986c8f84fdbe53e3a38dc01b24871602"
+        },
+        "native/verified/toom_square.rs": {
+          "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/build-identity-01/baseline-source/native/verified/toom_square.rs",
+          "sha256": "4bc0e13311e42f520efec7280259b171123b735a204180f7080f25cc3ad27eac"
+        },
+        "native/verified/toom_words.rs": {
+          "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/build-identity-01/baseline-source/native/verified/toom_words.rs",
+          "sha256": "221e6592c48904135aef8cce941675fe067b8d2b9253bd507293363a3ab104d7"
+        }
+      }
+    },
+    "candidate": {
+      "head": "3a836713adbb0a6632f5131e8d57c97296d22f62",
+      "tree": "96bd28b9bc45702e1d7f6c8e9a60d7653f2cd941",
+      "root": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/source",
+      "native_tree": "212dd5d00d4b2159abd4627a6aaec8b16a1157e5",
+      "native_manifest_sha256": "d9d91876478ba6c8bcc9324a05a3bd303c1d2c4d9becd620d256a32ce3ddf72b",
+      "files": {
+        "native/controls/fast_multiply.rs": {
+          "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/source/native/controls/fast_multiply.rs",
+          "sha256": "64ddb1d8919da86881791d88d42916fd0f2d73e14073c6a53850d337e02a6714"
+        },
+        "native/controls/gmp_abi.cpp": {
+          "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/source/native/controls/gmp_abi.cpp",
+          "sha256": "433b99417b38004a1684537a644cfe9cd7e7852df8864ce12dc9d1c4dfce6ed8"
+        },
+        "native/controls/gmp_multiply.cpp": {
+          "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/source/native/controls/gmp_multiply.cpp",
+          "sha256": "87658c00944326f26f5fd016d0c845ca2efe7b32d2329abe190787830a39f5f4"
+        },
+        "native/controls/limbs.rs": {
+          "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/source/native/controls/limbs.rs",
+          "sha256": "b7161f5897667d8d6bc96ec5ca6eddf63384efd4eb0568ecbb6c4cccf500e4da"
+        },
+        "native/controls/multiply.rs": {
+          "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/source/native/controls/multiply.rs",
+          "sha256": "6671972c9c3c61424338e6418d8c703e3426c63eb062cb12fddc9adad63a6882"
+        },
+        "native/controls/pow2.rs": {
+          "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/source/native/controls/pow2.rs",
+          "sha256": "ba0a8a8bb404c4778ddd3c03ba254dfcca6efc28a94d293368db2e5ee2e79dac"
+        },
+        "native/fast_bench.rs": {
+          "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/source/native/fast_bench.rs",
+          "sha256": "dbad117ee7c07e79b4fc82421900491d7d8aa781c3d467057afa1c5ae6a9941a"
+        },
+        "native/fast_codegen.rs": {
+          "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/source/native/fast_codegen.rs",
+          "sha256": "e68214b600c37fbf436a9d4ad0a649c000eb133e5ecf1d38948dbe5edda37283"
+        },
+        "native/fast_runner.rs": {
+          "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/source/native/fast_runner.rs",
+          "sha256": "bf789aee05d49953fafef8a4dd6e88a82b8bde905c844e3fb6a76f5287f053e1"
+        },
+        "native/gmp-reference.json": {
+          "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/source/native/gmp-reference.json",
+          "sha256": "e67ba09749bc761cd581218bebd6cde5f1fdf56a2711924e1ceb45d4c7e247ff"
+        },
+        "native/history-provenance.json": {
+          "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/source/native/history-provenance.json",
+          "sha256": "0fe7570b05bfe4757721f72b31c5b0941170f4aa649feafab518892d3a3ffafa"
+        },
+        "native/lib.rs": {
+          "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/source/native/lib.rs",
+          "sha256": "edb633153fd240e317b5c97c58ee01627e9cb8c0fdb1168d6b017642afe070d1"
+        },
+        "native/limbs_bench.rs": {
+          "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/source/native/limbs_bench.rs",
+          "sha256": "937ed74d98f739b2333e1feb78c65dbefb86b5af1c051c864ef269fb6b304215"
+        },
+        "native/limbs_codegen.rs": {
+          "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/source/native/limbs_codegen.rs",
+          "sha256": "465962efb3dc1e0f2414295228414112e3843dbaf467a41b705e53a3255e255e"
+        },
+        "native/limbs_runner.rs": {
+          "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/source/native/limbs_runner.rs",
+          "sha256": "4aced8bc95027c78bbac6690f112dcd9e0b892f521baa6e29515b65862c05c01"
+        },
+        "native/mac4_bench.rs": {
+          "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/source/native/mac4_bench.rs",
+          "sha256": "6519f9828fb9dafbbb200926f7358dded24909e462447a1753626c81a399be1f"
+        },
+        "native/multiply_bench.rs": {
+          "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/source/native/multiply_bench.rs",
+          "sha256": "d28537c1ee449c452b8c0f549a3555fbf50f59a680240b371335ccb106061d12"
+        },
+        "native/multiply_codegen.rs": {
+          "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/source/native/multiply_codegen.rs",
+          "sha256": "3855098a24804a8cba3ff8b094b159290e0e27e13fc1a558b456aebfeddb1229"
+        },
+        "native/multiply_runner.rs": {
+          "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/source/native/multiply_runner.rs",
+          "sha256": "856d5b82363f2bf9170bf15cf45f2b0b9ae713a1475f5ceed1751fcaf18c52c7"
+        },
+        "native/performance-target.json": {
+          "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/source/native/performance-target.json",
+          "sha256": "7e1f7c27007d65ca77979c693c0f105d2ac4686fd90e853ab86c43684f485a37"
+        },
+        "native/pow2_bench.rs": {
+          "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/source/native/pow2_bench.rs",
+          "sha256": "9e4390cabef56661544491deb928ee2f7a11199d34ada5b6a185a54a45622c1c"
+        },
+        "native/pow2_codegen.rs": {
+          "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/source/native/pow2_codegen.rs",
+          "sha256": "2372573334ffb9778295bd775ea23302207017bb699598606f3254f3cf3d36dd"
+        },
+        "native/pow2_runner.rs": {
+          "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/source/native/pow2_runner.rs",
+          "sha256": "c916b36cc11923b309aacccd8e54ae5bde951d651abb1360f05715b82706a647"
+        },
+        "native/proof-status.json": {
+          "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/source/native/proof-status.json",
+          "sha256": "ed7e0c35cc8391682f2ea9b94d93de048f5577b41ed9db368f20ff4c5c42286a"
+        },
+        "native/specs/fast_product.rs": {
+          "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/source/native/specs/fast_product.rs",
+          "sha256": "1d3a4f9397375741f6fcaea5bacf5977f73c56ba051893cd81a83709385b2cd7"
+        },
+        "native/specs/packed_convolution.rs": {
+          "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/source/native/specs/packed_convolution.rs",
+          "sha256": "473c31ece4130e5517a44c5a88757137461f009dce19c0a628ee7af8be69e122"
+        },
+        "native/specs/packed_product.rs": {
+          "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/source/native/specs/packed_product.rs",
+          "sha256": "f792932175cc64633ea19bf19229e61100962d19bedfbc3923bd4f925e526658"
+        },
+        "native/specs/precision.rs": {
+          "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/source/native/specs/precision.rs",
+          "sha256": "38ffadc6cd04602b40457711b25ec3e89de5fb0ebf92136645da93fb18d4cde0"
+        },
+        "native/specs/product.rs": {
+          "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/source/native/specs/product.rs",
+          "sha256": "24de04dda22e2ca1262ade8328b3f164612b59188df14dbe84988b94592563ae"
+        },
+        "native/specs/radix.rs": {
+          "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/source/native/specs/radix.rs",
+          "sha256": "51bddb73e0cfcc2fda095ac5f35fe4853417c1fff858133dab56b05ba9573219"
+        },
+        "native/specs/square.rs": {
+          "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/source/native/specs/square.rs",
+          "sha256": "3d716c2905d4f34929e3177e853196f84faef8a63c10e7e1bb7593a9e62be87e"
+        },
+        "native/specs/square_base.rs": {
+          "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/source/native/specs/square_base.rs",
+          "sha256": "9436705847c6cf4c8353a324e9154767a2a8ac57b13ca13a26b523f973ea6768"
+        },
+        "native/specs/toom.rs": {
+          "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/source/native/specs/toom.rs",
+          "sha256": "ed543569ac0996a16546211241b52f5a7ae945e8fce873f5195340cf290456ff"
+        },
+        "native/specs/toom_blocks.rs": {
+          "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/source/native/specs/toom_blocks.rs",
+          "sha256": "d799a910b67b26fbbdbdefc50bf49063f8ca39790f6d48f60a7ed1315d00df9d"
+        },
+        "native/square_base_bench.rs": {
+          "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/source/native/square_base_bench.rs",
+          "sha256": "96d985005b1bf24282c2981fb6ac1290f9ce5ee056c58305798d87fb8447e671"
+        },
+        "native/toolchain.json": {
+          "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/source/native/toolchain.json",
+          "sha256": "a8f1ba756fd50480017e10d24c390a4b94528ab387c965d28c35cf3432c9e678"
+        },
+        "native/toom_bench.rs": {
+          "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/source/native/toom_bench.rs",
+          "sha256": "c1be0d2aec144ea6d4abf6946206e23f543fdbab0ddb2829278cbaa919b614f2"
+        },
+        "native/toom_codegen.rs": {
+          "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/source/native/toom_codegen.rs",
+          "sha256": "ed180241882078324268bf9803b4d85d457000e18d4035d44435800e3c3652a7"
+        },
+        "native/toom_words_runner.rs": {
+          "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/source/native/toom_words_runner.rs",
+          "sha256": "ebfc236535004e57a0932a45dd263b8e944064ef394490cf367c92003681126d"
+        },
+        "native/verified/arithmetic.rs": {
+          "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/source/native/verified/arithmetic.rs",
+          "sha256": "7c0181fed9d53f842062fd2f4e738dedf42985fee28bff53cabba4a7fc20cc54"
+        },
+        "native/verified/fast_multiply.rs": {
+          "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/source/native/verified/fast_multiply.rs",
+          "sha256": "c2d1b96fea047f720ac09e3a3c043eec22abc19d6ac72266cc32380a76e03b82"
+        },
+        "native/verified/fast_words.rs": {
+          "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/source/native/verified/fast_words.rs",
+          "sha256": "f07e442ee9a3a00f07affeb4ac537e97d82a6fc60a49cd43a54dde58e2d301e6"
+        },
+        "native/verified/kernel.rs": {
+          "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/source/native/verified/kernel.rs",
+          "sha256": "53837b72617ee200e30cfd3af155ce7ca156c0684ee1d29688b78504bfb65569"
+        },
+        "native/verified/limbs.rs": {
+          "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/source/native/verified/limbs.rs",
+          "sha256": "913c88133f2bd46b3b4a59794eba5b8d43dfdbdac720918e375b47a52adbff28"
+        },
+        "native/verified/mac4.rs": {
+          "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/source/native/verified/mac4.rs",
+          "sha256": "9cf6fd885a42e63a7cb1f697833bfa7e82d5b65a85e4351de2252a11b6afce2f"
+        },
+        "native/verified/multiply.rs": {
+          "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/source/native/verified/multiply.rs",
+          "sha256": "90b8d0ae56d80b92a7a470c94390bf8020a8f791872892932005a1311307b752"
+        },
+        "native/verified/packed_layout.rs": {
+          "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/source/native/verified/packed_layout.rs",
+          "sha256": "fb8073712aa5681ef6f4f9dbb3aff85884955539d809e2e0131bc1b84d2626c8"
+        },
+        "native/verified/pow2.rs": {
+          "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/source/native/verified/pow2.rs",
+          "sha256": "893234a990b3b3bf308253ce318411fb5247157cfabe2d02ce603c6c86c1dcec"
+        },
+        "native/verified/square.rs": {
+          "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/source/native/verified/square.rs",
+          "sha256": "f23ad045015896f056ded2f79c5776cdd520205a5da9bc4801d86eafd9d5e9b7"
+        },
+        "native/verified/square_base.rs": {
+          "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/source/native/verified/square_base.rs",
+          "sha256": "d56438d15c969b475d74c431bef66dbe8c6befd67699196b096c1773c68094b3"
+        },
+        "native/verified/square_low.rs": {
+          "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/source/native/verified/square_low.rs",
+          "sha256": "1e85ae150c7d5801d57f41d460de651b5ba9d5ae96c910f52b83bb602dd6ad21"
+        },
+        "native/verified/toom_evaluate.rs": {
+          "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/source/native/verified/toom_evaluate.rs",
+          "sha256": "80fb7c4b0db769debe3091289cfe8a71703e9e1bf7b9e26a622e4df08f164699"
+        },
+        "native/verified/toom_interpolate.rs": {
+          "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/source/native/verified/toom_interpolate.rs",
+          "sha256": "e91af522cccd59774108ee87c06cdf96fdb31280ffa9873785e4483b17278ffc"
+        },
+        "native/verified/toom_low.rs": {
+          "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/source/native/verified/toom_low.rs",
+          "sha256": "3edfb086069d72a35a15181d2a10107d58aafbd522d8c5d0b1d091b78bf7babd"
+        },
+        "native/verified/toom_multiply.rs": {
+          "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/source/native/verified/toom_multiply.rs",
+          "sha256": "58830125c0e82680f11fec6aba9677c8986c8f84fdbe53e3a38dc01b24871602"
+        },
+        "native/verified/toom_square.rs": {
+          "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/source/native/verified/toom_square.rs",
+          "sha256": "4bc0e13311e42f520efec7280259b171123b735a204180f7080f25cc3ad27eac"
+        },
+        "native/verified/toom_words.rs": {
+          "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/source/native/verified/toom_words.rs",
+          "sha256": "419a8505e44e589214616e23902c58506a640492553b5026b8a7ec5c82738cad"
+        }
+      }
+    }
+  },
+  "tools": {
+    "verus": {
+      "path": "/mnt/e/3sat/VeriCount/deps/verus/verus-x86-linux/verus",
+      "sha256": "1208c995c8e5244577693eba311d34bc2050c4acf984e10c4c7baf2003abff14"
+    },
+    "rust_verify": {
+      "path": "/mnt/e/3sat/VeriCount/deps/verus/verus-x86-linux/rust_verify",
+      "sha256": "7dc66fc35b1ef434d7db3d17f4a7bc9fe1f40b896cbe18a1193820270fa462f6"
+    },
+    "z3": {
+      "path": "/mnt/e/3sat/VeriCount/deps/verus/verus-x86-linux/z3",
+      "sha256": "e583c4186a45e72411fa2cb2048401eed03f0f8e5f24694676a8f6271a50b765"
+    },
+    "vstd.vir": {
+      "path": "/mnt/e/3sat/VeriCount/deps/verus/verus-x86-linux/vstd.vir",
+      "sha256": "6bf002dd6aacba73f8cbf09a1855b6330aa4773752878d2b702a52cc4f1538e2"
+    },
+    "libvstd.rlib": {
+      "path": "/mnt/e/3sat/VeriCount/deps/verus/verus-x86-linux/libvstd.rlib",
+      "sha256": "da07ffe583aa14ec1ba5e4aa2295cec538c2a9b59bfbbf4d60f16e20d540befd"
+    },
+    "libverus_builtin.rlib": {
+      "path": "/mnt/e/3sat/VeriCount/deps/verus/verus-x86-linux/libverus_builtin.rlib",
+      "sha256": "f01e88f055e7c19b1a9a6a6118648f20708347d23040ddaee6493b6a4e3f6510"
+    },
+    "libverus_builtin_macros.so": {
+      "path": "/mnt/e/3sat/VeriCount/deps/verus/verus-x86-linux/libverus_builtin_macros.so",
+      "sha256": "57bf8ebf436d974a7e05efdd2341bd40c51e737bdb6dd791026165e21f64e3f0"
+    },
+    "libverus_state_machines_macros.so": {
+      "path": "/mnt/e/3sat/VeriCount/deps/verus/verus-x86-linux/libverus_state_machines_macros.so",
+      "sha256": "8489b80f5a493855ea658a2b2d1850d0957d3149c8240cf7e490b984049d1149"
+    },
+    "rustup": {
+      "path": "/mnt/e/3sat/VeriCount/deps/cargo/bin/rustup",
+      "sha256": "b1c8cb14e30889e7e2999e6b69e62d9e9b9ffc0f4df8180564d306d9680e6c55"
+    },
+    "rustc": {
+      "path": "/mnt/e/3sat/VeriCount/deps/rustup/toolchains/1.99.1-x86_64-unknown-linux-gnu/bin/rustc",
+      "sha256": "b53b780f77f952062f8ca8a3b70aef2390b1e45ad91939be94afdc9543026853"
+    },
+    "llvm": {
+      "path": "/mnt/e/3sat/VeriCount/deps/rustup/toolchains/1.99.1-x86_64-unknown-linux-gnu/lib/libLLVM-23-rust-1.99.1-stable.so",
+      "sha256": "ed06fbed8d297efa92979aeb227a4ce5b87b1a462d0aeac66d093300fad74824"
+    },
+    "rustc_driver": {
+      "path": "/mnt/e/3sat/VeriCount/deps/rustup/toolchains/1.99.1-x86_64-unknown-linux-gnu/lib/librustc_driver-7ed0375ae352bd75.so",
+      "sha256": "5a2cd52edba7d15f8d898b92a912638f5b73a089c7c1bfde5604ab45665602c7"
+    },
+    "archive": {
+      "path": "/mnt/e/3sat/VeriCount/deps/verus-download/verus-0.2026.10.26.d17fbd0-x86-linux.zip",
+      "sha256": "361674d05f0c1b2c9c3f4d5bc56a8fb2ab9241ed0cceca27780668c292bb4940"
+    },
+    "python": {
+      "path": "/usr/bin/python3.12",
+      "sha256": "1643dacd9feaedc58f3cc581e4d22577dfe25c09b10282936186ccf0f2e61118"
+    },
+    "git": {
+      "path": "/mnt/c/Program Files/Git/cmd/git.exe",
+      "sha256": "3cbd024d9d11ef08bd6a0cb5a973613c50825b4952bc6006f3f4222f436091e5"
+    },
+    "ar": {
+      "path": "/usr/bin/x86_64-linux-gnu-ar",
+      "sha256": "534681ac11c18868cfc4fdf98770aa0ba8973eedc90c231e94e6ba96e1a04f27"
+    },
+    "objdump": {
+      "path": "/usr/bin/x86_64-linux-gnu-objdump",
+      "sha256": "d0041e7511460b9ebfd95ce4f9d93c7ffea398ffc1cb2c316a220dd8e533db3d"
+    },
+    "objcopy": {
+      "path": "/usr/bin/x86_64-linux-gnu-objcopy",
+      "sha256": "b22f4f909bff115ee2a37cd21ff76f5e0b8c65cd58f98edbce7b59f129980d67"
+    },
+    "gmp": {
+      "path": "/usr/lib/x86_64-linux-gnu/libgmp.so.10.5.0",
+      "sha256": "0ccdfb6d6f5c039465f6d002cf7e4c072d48ac6a2cffc8dd6c748dec31592804"
+    }
+  },
+  "inputs": {
+    "AGENTS.md": {
+      "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/source/AGENTS.md",
+      "sha256": "c86708527b20f9605284d2d8ba24e28be7eee8990ade33989a4811a4d31090f3"
+    },
+    "experiments/arithmetic-precondition-checks-20261108/bench.rs": {
+      "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/source/experiments/arithmetic-precondition-checks-20261108/bench.rs",
+      "sha256": "84e5ef873512c4938385d88621a0658829fe4866f3c4682428314f4d6e3f1c66"
+    },
+    "experiments/arithmetic-precondition-checks-20261108/measure.py": {
+      "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/source/experiments/arithmetic-precondition-checks-20261108/measure.py",
+      "sha256": "137d3b5607954f1fd3670220f73cd299d4f16bacb068a5a0981a30127137bcfa"
+    },
+    "experiments/combination-20261108/codegen.py": {
+      "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/source/experiments/combination-20261108/codegen.py",
+      "sha256": "381df3b259714df83ec5570ae9a28dbb1d5bb03c33605c75a15f0eb234b016f5"
+    },
+    "experiments/fused-interpolation-20261108/bridge.rs": {
+      "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/source/experiments/fused-interpolation-20261108/bridge.rs",
+      "sha256": "c152e5df83215fe3f37a6d285e3409e1868aa67d028c7d51d909fe598a98e713"
+    },
+    "experiments/fused-interpolation-20261108/GATES.md": {
+      "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/source/experiments/fused-interpolation-20261108/GATES.md",
+      "sha256": "612d640158c8f879564f66e9abe62a724c3919b35769758d874a955d141bbc50"
+    },
+    "experiments/fused-interpolation-20261108/mutations.py": {
+      "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/source/experiments/fused-interpolation-20261108/mutations.py",
+      "sha256": "77197ceda17fd7c5b385ef8b7859c07e8a995f8276280052086f96797b26b700"
+    },
+    "experiments/fused-interpolation-20261108/oracle.py": {
+      "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/source/experiments/fused-interpolation-20261108/oracle.py",
+      "sha256": "af944047d065b45a633d0e01eb782239659e50cdf3d666020ad4232fc13267bb"
+    },
+    "experiments/fused-interpolation-20261108/preflight.py": {
+      "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/source/experiments/fused-interpolation-20261108/preflight.py",
+      "sha256": "a05399a0bc1762888ffc5268723ba42504d9e2a2d8335181b5daddadebe38c5e"
+    },
+    "experiments/fused-interpolation-20261108/PROTOCOL.md": {
+      "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/source/experiments/fused-interpolation-20261108/PROTOCOL.md",
+      "sha256": "028750061ea4808ce1003b427d1a56a3d209b3c6e954d8bf07d939265109202e"
+    },
+    "experiments/fused-interpolation-20261108/RAW_FORMAT.md": {
+      "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/source/experiments/fused-interpolation-20261108/RAW_FORMAT.md",
+      "sha256": "f63e78167dde9c737ffc2339bc6740f2d99a939119d85d84bd6aa6e029429bc1"
+    },
+    "experiments/fused-interpolation-20261108/raw_validate.py": {
+      "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/source/experiments/fused-interpolation-20261108/raw_validate.py",
+      "sha256": "90f564d57098ac703b73635f47981c334b6c32ff9b0c98c17540991838c14e59"
+    },
+    "experiments/fused-interpolation-20261108/runtime.rs": {
+      "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/source/experiments/fused-interpolation-20261108/runtime.rs",
+      "sha256": "1158daa3ed22f4673ef5e85557416f2b8c8290d296a5ee0a29f20696a64cb407"
+    },
+    "experiments/fused-interpolation-20261108/summarize.py": {
+      "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/source/experiments/fused-interpolation-20261108/summarize.py",
+      "sha256": "75f126e153ecd6ec34b22bf87f786c206df28e4618033dbc2aaaccae134a5750"
+    },
+    "experiments/fused-interpolation-20261108/test_raw_validate.py": {
+      "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/source/experiments/fused-interpolation-20261108/test_raw_validate.py",
+      "sha256": "b994e5730a0af9a5bfe3b8de246c8849fe2e98fc05b41de4b8d351c4be1ed86f"
+    },
+    "experiments/packed-convolution/layout_verify.py": {
+      "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/source/experiments/packed-convolution/layout_verify.py",
+      "sha256": "90a290d28e655f9105d412d039cd461dfd125733b1e1c64f839f33a2b8c96806"
+    },
+    "experiments/packed-convolution/verus_logs.py": {
+      "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/source/experiments/packed-convolution/verus_logs.py",
+      "sha256": "a23550223961aabc9ceff5a03b2fad2bd663eaec79323789cd083dfb2d40d222"
+    }
+  },
+  "producers": {
+    "baseline": {
+      "native_tree": "72dc8a5da2cbb7eddcdd26c219d50770e8b73b06",
+      "native_manifest_sha256": "7e8d3f151d3eda7c5a3df285f882618a26022d0f7b7661ff266812a4b123f446",
+      "tools_sha256": {
+        "rust_verify": "7dc66fc35b1ef434d7db3d17f4a7bc9fe1f40b896cbe18a1193820270fa462f6",
+        "libvstd.rlib": "da07ffe583aa14ec1ba5e4aa2295cec538c2a9b59bfbbf4d60f16e20d540befd",
+        "archive": "361674d05f0c1b2c9c3f4d5bc56a8fb2ab9241ed0cceca27780668c292bb4940",
+        "z3": "e583c4186a45e72411fa2cb2048401eed03f0f8e5f24694676a8f6271a50b765",
+        "llvm": "ed06fbed8d297efa92979aeb227a4ce5b87b1a462d0aeac66d093300fad74824",
+        "verus": "1208c995c8e5244577693eba311d34bc2050c4acf984e10c4c7baf2003abff14",
+        "libverus_state_machines_macros.so": "8489b80f5a493855ea658a2b2d1850d0957d3149c8240cf7e490b984049d1149",
+        "vstd.vir": "6bf002dd6aacba73f8cbf09a1855b6330aa4773752878d2b702a52cc4f1538e2",
+        "rustc_driver": "5a2cd52edba7d15f8d898b92a912638f5b73a089c7c1bfde5604ab45665602c7",
+        "libverus_builtin_macros.so": "57bf8ebf436d974a7e05efdd2341bd40c51e737bdb6dd791026165e21f64e3f0",
+        "rustc": "b53b780f77f952062f8ca8a3b70aef2390b1e45ad91939be94afdc9543026853",
+        "libverus_builtin.rlib": "f01e88f055e7c19b1a9a6a6118648f20708347d23040ddaee6493b6a4e3f6510",
+        "rustup": "b1c8cb14e30889e7e2999e6b69e62d9e9b9ffc0f4df8180564d306d9680e6c55"
+      },
+      "receipt": {
+        "path": "/mnt/e/3sat/VeriGMP-precondition-evidence-20261108/baseline-binding/verification.json",
+        "sha256": "e64a33d921810b456e343de139ccff96b4be484adc93e0cf642229fbc3568fe8"
+      },
+      "rlib": {
+        "path": "/mnt/e/3sat/VeriGMP-precondition-evidence-20261108/baseline-binding/libverigmp.rlib",
+        "sha256": "02dabb57ecbee4b82fe99b4ed555cbd892160b999b47d01d9ac0ab9788372d28"
+      },
+      "vir": {
+        "path": "/mnt/e/3sat/VeriGMP-precondition-evidence-20261108/baseline-binding/verigmp.vir",
+        "sha256": "9890ff7d0d62f53101b41089017f913ecd6495421e54c79e2819735c3769ed41"
+      },
+      "verified_items": 358,
+      "proof": {
+        "argv": [
+          "/mnt/e/3sat/VeriGMP-low-square-gated/deps/verus/verus-x86-linux/verus",
+          "/mnt/e/3sat/VeriGMP-packed-product-evidence-20261108/gate-1/source/native/lib.rs",
+          "--crate-type",
+          "lib",
+          "--crate-name",
+          "verigmp",
+          "--no-cheating",
+          "--compile",
+          "-O",
+          "--export",
+          "/mnt/e/3sat/VeriGMP-packed-product-evidence-20261108/gate-1/verigmp.vir",
+          "-o",
+          "/mnt/e/3sat/VeriGMP-packed-product-evidence-20261108/gate-1/libverigmp.rlib"
+        ],
+        "cwd": "/mnt/e/3sat/VeriGMP-packed-product-evidence-20261108/gate-1/source",
+        "returncode": 0,
+        "stdout": {
+          "path": "/mnt/e/3sat/VeriGMP-packed-product-evidence-20261108/gate-1/library-proof-release.stdout.log",
+          "sha256": "d70db666c64665674dfda6d48f88ed877f4a3ddd8ae4ab9bef3e2a1043fa12a1"
+        },
+        "stderr": {
+          "path": "/mnt/e/3sat/VeriGMP-packed-product-evidence-20261108/gate-1/library-proof-release.stderr.log",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      }
+    },
+    "candidate": {
+      "native_tree": "212dd5d00d4b2159abd4627a6aaec8b16a1157e5",
+      "native_manifest_sha256": "d9d91876478ba6c8bcc9324a05a3bd303c1d2c4d9becd620d256a32ce3ddf72b",
+      "tools_sha256": {
+        "rust_verify": "7dc66fc35b1ef434d7db3d17f4a7bc9fe1f40b896cbe18a1193820270fa462f6",
+        "libvstd.rlib": "da07ffe583aa14ec1ba5e4aa2295cec538c2a9b59bfbbf4d60f16e20d540befd",
+        "archive": "361674d05f0c1b2c9c3f4d5bc56a8fb2ab9241ed0cceca27780668c292bb4940",
+        "z3": "e583c4186a45e72411fa2cb2048401eed03f0f8e5f24694676a8f6271a50b765",
+        "llvm": "ed06fbed8d297efa92979aeb227a4ce5b87b1a462d0aeac66d093300fad74824",
+        "verus": "1208c995c8e5244577693eba311d34bc2050c4acf984e10c4c7baf2003abff14",
+        "libverus_state_machines_macros.so": "8489b80f5a493855ea658a2b2d1850d0957d3149c8240cf7e490b984049d1149",
+        "vstd.vir": "6bf002dd6aacba73f8cbf09a1855b6330aa4773752878d2b702a52cc4f1538e2",
+        "rustc_driver": "5a2cd52edba7d15f8d898b92a912638f5b73a089c7c1bfde5604ab45665602c7",
+        "libverus_builtin_macros.so": "57bf8ebf436d974a7e05efdd2341bd40c51e737bdb6dd791026165e21f64e3f0",
+        "rustc": "b53b780f77f952062f8ca8a3b70aef2390b1e45ad91939be94afdc9543026853",
+        "libverus_builtin.rlib": "f01e88f055e7c19b1a9a6a6118648f20708347d23040ddaee6493b6a4e3f6510",
+        "rustup": "b1c8cb14e30889e7e2999e6b69e62d9e9b9ffc0f4df8180564d306d9680e6c55"
+      },
+      "receipt": {
+        "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/full-native.json",
+        "sha256": "e73252c3da01bb60f05db5753a4815f0470d2796da558f93229567698964329b"
+      },
+      "rlib": {
+        "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/libverigmp.rlib",
+        "sha256": "59151180a613df39efc32c6d9b012fd105d219fb2c678f9bf127b23407fefece"
+      },
+      "vir": {
+        "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/verigmp.vir",
+        "sha256": "c896366cb7ec15f3ee57e78962607ea5e9b82901c9d04614cec4ce242421b5d8"
+      },
+      "verified_items": 369,
+      "proof": {
+        "argv": [
+          "/mnt/e/3sat/VeriCount/deps/verus/verus-x86-linux/verus",
+          "native/lib.rs",
+          "--crate-type",
+          "lib",
+          "--crate-name",
+          "verigmp",
+          "--no-cheating",
+          "--compile",
+          "-O",
+          "--num-threads",
+          "2",
+          "--export",
+          "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/verigmp.vir",
+          "-o",
+          "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/libverigmp.rlib"
+        ],
+        "cwd": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/source",
+        "returncode": 0,
+        "stdout": {
+          "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/full-native.stdout.log",
+          "sha256": "e1cb5915bdda1c3b152a6ba8e90399668238f2106a92d5fab07416e629f45b76"
+        },
+        "stderr": {
+          "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/full-native.stderr.log",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      }
+    }
+  },
+  "gate_receipts": {
+    "correctness": {
+      "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/untimed-01/verification.json",
+      "sha256": "dc43436ff9a7bb487125639bcc5c3a71d13c08ab79cf17c6a3b0b9f6807eb278"
+    },
+    "semantic_mutants": {
+      "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/untimed-01/verification.json",
+      "sha256": "dc43436ff9a7bb487125639bcc5c3a71d13c08ab79cf17c6a3b0b9f6807eb278"
+    },
+    "domain_alias_capacity": {
+      "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/untimed-01/verification.json",
+      "sha256": "dc43436ff9a7bb487125639bcc5c3a71d13c08ab79cf17c6a3b0b9f6807eb278"
+    },
+    "control_identity": {
+      "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/codegen-05/control-identity.json",
+      "sha256": "22b4a942cbb1fd89bb70daf54b3d642ec36dd305dab7436024fe077fddf59630"
+    },
+    "host": {
+      "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/codegen-05/host.json",
+      "sha256": "3d4786636ab6cfc8fd43d76feaa9b5d9e2e3f7c3682d647e42b0be2fce13540d"
+    }
+  },
+  "independent_review_pending": true,
+  "timing_authorized": false,
+  "scope": "same-source static identities only; root/Astra review remains required"
+}

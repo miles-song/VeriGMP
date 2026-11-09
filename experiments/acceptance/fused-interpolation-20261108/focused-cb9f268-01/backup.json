@@ -1,0 +1,117 @@
+{
+  "status": "public_origin_backup_confirmed",
+  "root_destination_authorized": true,
+  "destination": "origin",
+  "visibility": "public",
+  "changed_visibility": false,
+  "commands": [
+    {
+      "name": "head",
+      "argv": [
+        "/mnt/c/Program Files/Git/cmd/git.exe",
+        "-C",
+        "C:/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/VeriGMP-negative-experiments-20261108",
+        "rev-parse",
+        "HEAD"
+      ],
+      "cwd": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/VeriGMP-negative-experiments-20261108",
+      "start_utc": "2026-11-08T15:48:58.762898+00:00",
+      "stdout_sha256": "7367b0d164f791b93cbe605cbc2dfc261102f8c7bbbaf440d8cc08595391a30e",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "returncode": 0,
+      "stop_utc": "2026-11-08T15:48:58.830590+00:00"
+    },
+    {
+      "name": "status",
+      "argv": [
+        "/mnt/c/Program Files/Git/cmd/git.exe",
+        "-C",
+        "C:/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/VeriGMP-negative-experiments-20261108",
+        "status",
+        "--porcelain"
+      ],
+      "cwd": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/VeriGMP-negative-experiments-20261108",
+      "start_utc": "2026-11-08T15:48:58.834196+00:00",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "returncode": 0,
+      "stop_utc": "2026-11-08T15:48:58.917391+00:00"
+    },
+    {
+      "name": "branch",
+      "argv": [
+        "/mnt/c/Program Files/Git/cmd/git.exe",
+        "-C",
+        "C:/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/VeriGMP-negative-experiments-20261108",
+        "branch",
+        "--show-current"
+      ],
+      "cwd": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/VeriGMP-negative-experiments-20261108",
+      "start_utc": "2026-11-08T15:48:58.921038+00:00",
+      "stdout_sha256": "faedbbc30ee8a4361e57a47e2063fca3317b61181ebf623dd91e0e7e8e79a148",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "returncode": 0,
+      "stop_utc": "2026-11-08T15:48:58.987948+00:00"
+    },
+    {
+      "name": "origin",
+      "argv": [
+        "/mnt/c/Program Files/Git/cmd/git.exe",
+        "-C",
+        "C:/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/VeriGMP-negative-experiments-20261108",
+        "remote",
+        "get-url",
+        "origin"
+      ],
+      "cwd": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/VeriGMP-negative-experiments-20261108",
+      "start_utc": "2026-11-08T15:48:58.991163+00:00",
+      "stdout_sha256": "0a2bf12069cb8bdc787582fbacd9620826e465e17c11a973f5f44508e5a33d57",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "returncode": 0,
+      "stop_utc": "2026-11-08T15:48:59.059670+00:00"
+    },
+    {
+      "name": "visibility",
+      "argv": [
+        "/mnt/c/Program Files/GitHub CLI/gh.exe",
+        "repo",
+        "view",
+        "miles-song/VeriGMP",
+        "--json",
+        "isPrivate,nameWithOwner,url"
+      ],
+      "cwd": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/VeriGMP-negative-experiments-20261108",
+      "start_utc": "2026-11-08T15:48:59.062816+00:00",
+      "stdout_sha256": "777ca9412322d03fc888c954032996d69b24ad9dd34f9a8f23e243dcc47a5663",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "returncode": 0,
+      "stop_utc": "2026-11-08T15:49:00.412036+00:00"
+    },
+    {
+      "name": "remote-confirmation",
+      "argv": [
+        "/mnt/c/Program Files/Git/cmd/git.exe",
+        "-C",
+        "C:/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/VeriGMP-negative-experiments-20261108",
+        "ls-remote",
+        "--heads",
+        "origin",
+        "refs/heads/codex/gmp-fused-interpolation-20261108"
+      ],
+      "cwd": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/VeriGMP-negative-experiments-20261108",
+      "start_utc": "2026-11-08T15:49:00.416044+00:00",
+      "stdout_sha256": "885b502b124c9ed8753c971bc84c3494434baade5924b3bac5550e472651e2f0",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "returncode": 0,
+      "stop_utc": "2026-11-08T15:49:08.341220+00:00"
+    }
+  ],
+  "head": "cb9f26860accdfb3471e5e668b42a6a732da3608",
+  "origin_url": "git@github.com:miles-song/VeriGMP.git",
+  "github_visibility": {
+    "isPrivate": false,
+    "nameWithOwner": "miles-song/VeriGMP",
+    "url": "https://github.com/miles-song/VeriGMP"
+  },
+  "confirmed_remote_sha": "cb9f26860accdfb3471e5e668b42a6a732da3608"
+}

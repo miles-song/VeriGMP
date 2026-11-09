@@ -1,0 +1,438 @@
+{
+  "baseline": {
+    "text": {
+      "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/codegen-02/baseline-final-text.bin",
+      "sha256": "6526af0675d7727ea70c4f9c11289618fbf17b050e1041af6fe66f8d334ad60d"
+    },
+    "section": {
+      "size": 271459,
+      "address": 97872,
+      "file_offset": 93776,
+      "alignment": "2**4"
+    },
+    "arithmetic_symbols": {
+      "verigmp::arithmetic::square_mod": {
+        "address": 107120,
+        "address_hex": "0x1a270",
+        "size": 145,
+        "section": ".text",
+        "section_alignment": "2**4",
+        "body": {
+          "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/codegen-05/baseline-final-arithmetic-bodies/0.bin",
+          "sha256": "f6e5e96a59c43bae024573a50f7eacdd107ed0ce5c9d432697def3c537a87dd9"
+        },
+        "relative_offset": 9248
+      },
+      "verigmp::arithmetic::mul_mod": {
+        "address": 107280,
+        "address_hex": "0x1a310",
+        "size": 233,
+        "section": ".text",
+        "section_alignment": "2**4",
+        "body": {
+          "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/codegen-05/baseline-final-arithmetic-bodies/1.bin",
+          "sha256": "09590e4de3f390600ac78fd510ff015e258d63ef78eec4bdf4654c62bc719717"
+        },
+        "relative_offset": 9408
+      },
+      "verigmp::fast_multiply::full": {
+        "address": 114656,
+        "address_hex": "0x1bfe0",
+        "size": 901,
+        "section": ".text",
+        "section_alignment": "2**4",
+        "body": {
+          "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/codegen-05/baseline-final-arithmetic-bodies/2.bin",
+          "sha256": "6eac0b3e9513a890d13724b7f0ef32005373f845a24ab2109ac71e7e4e998bdf"
+        },
+        "relative_offset": 16784
+      },
+      "verigmp::square_low::low": {
+        "address": 108704,
+        "address_hex": "0x1a8a0",
+        "size": 1347,
+        "section": ".text",
+        "section_alignment": "2**4",
+        "body": {
+          "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/codegen-05/baseline-final-arithmetic-bodies/3.bin",
+          "sha256": "1408e886f633a86897e4bf96dfb5ef0310abb93bc7f7e1f8a0bc08d9e3f9d257"
+        },
+        "relative_offset": 10832
+      },
+      "verigmp::fast_multiply::low": {
+        "address": 113344,
+        "address_hex": "0x1bac0",
+        "size": 1297,
+        "section": ".text",
+        "section_alignment": "2**4",
+        "body": {
+          "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/codegen-05/baseline-final-arithmetic-bodies/4.bin",
+          "sha256": "a1be4392d8fcbab805274fa65d5f61906eacad2a36185feb7084f1f3c5fc0d18"
+        },
+        "relative_offset": 15472
+      },
+      "verigmp::toom_low::low": {
+        "address": 121792,
+        "address_hex": "0x1dbc0",
+        "size": 1313,
+        "section": ".text",
+        "section_alignment": "2**4",
+        "body": {
+          "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/codegen-05/baseline-final-arithmetic-bodies/5.bin",
+          "sha256": "0b4f68930abbfa089dec50113db5a1b1b069f24a9e154ad8e3468ab275ee1d32"
+        },
+        "relative_offset": 23920
+      },
+      "verigmp::fast_words::combine_cross": {
+        "address": 107520,
+        "address_hex": "0x1a400",
+        "size": 592,
+        "section": ".text",
+        "section_alignment": "2**4",
+        "body": {
+          "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/codegen-05/baseline-final-arithmetic-bodies/6.bin",
+          "sha256": "a79a844bf5bbc52413388a3b11aa4eeb894dd920def23f96f809ace468b73a4a"
+        },
+        "relative_offset": 9648
+      },
+      "verigmp::fast_words::abs_difference": {
+        "address": 108112,
+        "address_hex": "0x1a650",
+        "size": 578,
+        "section": ".text",
+        "section_alignment": "2**4",
+        "body": {
+          "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/codegen-05/baseline-final-arithmetic-bodies/7.bin",
+          "sha256": "c55cbaea7cab041e06cd820a18a8392218dc12fa5f55c36f49e579693aec5490"
+        },
+        "relative_offset": 10240
+      },
+      "verigmp::square_base::low": {
+        "address": 110064,
+        "address_hex": "0x1adf0",
+        "size": 531,
+        "section": ".text",
+        "section_alignment": "2**4",
+        "body": {
+          "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/codegen-05/baseline-final-arithmetic-bodies/8.bin",
+          "sha256": "addd81376bb3a0a61b17a7b46855d0132e7a9b0e673a5eec0c895c0c9644d55b"
+        },
+        "relative_offset": 12192
+      },
+      "verigmp::toom_square::full": {
+        "address": 111040,
+        "address_hex": "0x1b1c0",
+        "size": 2299,
+        "section": ".text",
+        "section_alignment": "2**4",
+        "body": {
+          "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/codegen-05/baseline-final-arithmetic-bodies/9.bin",
+          "sha256": "baaee93946ece54bb02519f5631f4afbfe307b8c93f6e38f91e2150eb8857f44"
+        },
+        "relative_offset": 13168
+      },
+      "verigmp::square_base::full": {
+        "address": 110608,
+        "address_hex": "0x1b010",
+        "size": 421,
+        "section": ".text",
+        "section_alignment": "2**4",
+        "body": {
+          "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/codegen-05/baseline-final-arithmetic-bodies/10.bin",
+          "sha256": "e6fd1fb4edf7f027689f18e61e6a41ce6a2f02b423980d5b9b23defd1a0a6541"
+        },
+        "relative_offset": 12736
+      },
+      "verigmp::square::full": {
+        "address": 120992,
+        "address_hex": "0x1d8a0",
+        "size": 795,
+        "section": ".text",
+        "section_alignment": "2**4",
+        "body": {
+          "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/codegen-05/baseline-final-arithmetic-bodies/11.bin",
+          "sha256": "2842cd7da92e4aa8eb6b93662505c6b694ad4e60339b419cd2f97cb60128e115"
+        },
+        "relative_offset": 23120
+      },
+      "verigmp::toom_evaluate::negative": {
+        "address": 116032,
+        "address_hex": "0x1c540",
+        "size": 635,
+        "section": ".text",
+        "section_alignment": "2**4",
+        "body": {
+          "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/codegen-05/baseline-final-arithmetic-bodies/12.bin",
+          "sha256": "10beafe402823bd3f7a343f0cdb8a5576c8c55af6093cf09bb84d7b293655d2e"
+        },
+        "relative_offset": 18160
+      },
+      "verigmp::toom_interpolate::interpolate": {
+        "address": 119312,
+        "address_hex": "0x1d210",
+        "size": 1679,
+        "section": ".text",
+        "section_alignment": "2**4",
+        "body": {
+          "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/codegen-05/baseline-final-arithmetic-bodies/13.bin",
+          "sha256": "b28fae47a8d2e9921faba7a874739e992e0f98ee62be02777bd47950113bd3d4"
+        },
+        "relative_offset": 21440
+      },
+      "verigmp::fast_multiply::base_full": {
+        "address": 115568,
+        "address_hex": "0x1c370",
+        "size": 457,
+        "section": ".text",
+        "section_alignment": "2**4",
+        "body": {
+          "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/codegen-05/baseline-final-arithmetic-bodies/14.bin",
+          "sha256": "fd45d537a5e42b8d54ec6f27b433556844ca89d2ae6fd4559444191747ab1043"
+        },
+        "relative_offset": 17696
+      },
+      "verigmp::toom_multiply::full": {
+        "address": 116672,
+        "address_hex": "0x1c7c0",
+        "size": 2640,
+        "section": ".text",
+        "section_alignment": "2**4",
+        "body": {
+          "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/codegen-05/baseline-final-arithmetic-bodies/15.bin",
+          "sha256": "13574bf046298290ed08ec18abecd2a70a85c2697287f754c1845e8d94495183"
+        },
+        "relative_offset": 18800
+      }
+    },
+    "complete_symbols": {
+      "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/codegen-02/baseline-final-symbols.stdout.log",
+      "sha256": "88a97af3ba704f6bb26defe2145882b574972a1aaab5680be9a5598781e51c41"
+    },
+    "complete_disassembly": {
+      "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/codegen-02/baseline-final-complete-assembly.stdout.log",
+      "sha256": "e70e611d6750e7b980ffeb91ef090c9c21897d7a1a386ba2224818761e8d9325"
+    },
+    "complete_dynamic_relocations_and_sections": {
+      "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/codegen-02/baseline-final-readelf.stdout.log",
+      "sha256": "52c039cc3bc243df058d87fbf18636c361a30581246b2424dfce7c5867a6230e"
+    }
+  },
+  "candidate": {
+    "text": {
+      "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/codegen-02/candidate-final-text.bin",
+      "sha256": "a338f036ac022ae070e8cbc12bec9b83a8d5c64fb4a7baa8b854c53e60220813"
+    },
+    "section": {
+      "size": 271011,
+      "address": 96848,
+      "file_offset": 92752,
+      "alignment": "2**4"
+    },
+    "arithmetic_symbols": {
+      "verigmp::arithmetic::square_mod": {
+        "address": 106096,
+        "address_hex": "0x19e70",
+        "size": 145,
+        "section": ".text",
+        "section_alignment": "2**4",
+        "body": {
+          "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/codegen-05/candidate-final-arithmetic-bodies/0.bin",
+          "sha256": "cf594735a90ee274982cd0e1b196e449e3953e34e25fd92b0b66a48c01b16b05"
+        },
+        "relative_offset": 9248
+      },
+      "verigmp::arithmetic::mul_mod": {
+        "address": 106256,
+        "address_hex": "0x19f10",
+        "size": 233,
+        "section": ".text",
+        "section_alignment": "2**4",
+        "body": {
+          "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/codegen-05/candidate-final-arithmetic-bodies/1.bin",
+          "sha256": "bd0bb55072e298d22f93ca8945e7050a1c482caf38f0bd156f24f0e4e2887e9b"
+        },
+        "relative_offset": 9408
+      },
+      "verigmp::fast_multiply::full": {
+        "address": 113616,
+        "address_hex": "0x1bbd0",
+        "size": 901,
+        "section": ".text",
+        "section_alignment": "2**4",
+        "body": {
+          "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/codegen-05/candidate-final-arithmetic-bodies/2.bin",
+          "sha256": "f17844e4e1d51a6992f0f83e33cea41376238f4ab00850d2e15df76ef2916fcb"
+        },
+        "relative_offset": 16768
+      },
+      "verigmp::square_low::low": {
+        "address": 107680,
+        "address_hex": "0x1a4a0",
+        "size": 1347,
+        "section": ".text",
+        "section_alignment": "2**4",
+        "body": {
+          "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/codegen-05/candidate-final-arithmetic-bodies/3.bin",
+          "sha256": "c063e89f9d25a2376b96a3daafb4fba43d5044bd36e626a61688fdc512412def"
+        },
+        "relative_offset": 10832
+      },
+      "verigmp::fast_multiply::low": {
+        "address": 112304,
+        "address_hex": "0x1b6b0",
+        "size": 1297,
+        "section": ".text",
+        "section_alignment": "2**4",
+        "body": {
+          "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/codegen-05/candidate-final-arithmetic-bodies/4.bin",
+          "sha256": "4cd6789100dc0ea0318be62a886321062282e3ac9a7ffbb07e5c6f496ff11c15"
+        },
+        "relative_offset": 15456
+      },
+      "verigmp::toom_low::low": {
+        "address": 120320,
+        "address_hex": "0x1d600",
+        "size": 1313,
+        "section": ".text",
+        "section_alignment": "2**4",
+        "body": {
+          "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/codegen-05/candidate-final-arithmetic-bodies/5.bin",
+          "sha256": "436232e5da2edcbea79b80e036da930dd7bed66c26fac8ba40830b10fb995542"
+        },
+        "relative_offset": 23472
+      },
+      "verigmp::fast_words::combine_cross": {
+        "address": 106496,
+        "address_hex": "0x1a000",
+        "size": 592,
+        "section": ".text",
+        "section_alignment": "2**4",
+        "body": {
+          "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/codegen-05/candidate-final-arithmetic-bodies/6.bin",
+          "sha256": "aa8d6f8fa2d53569a026776548e7f1eeed8e6d65306990ebf41c8e36419473e0"
+        },
+        "relative_offset": 9648
+      },
+      "verigmp::fast_words::abs_difference": {
+        "address": 107088,
+        "address_hex": "0x1a250",
+        "size": 578,
+        "section": ".text",
+        "section_alignment": "2**4",
+        "body": {
+          "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/codegen-05/candidate-final-arithmetic-bodies/7.bin",
+          "sha256": "06ee3b058f39d264d9b270a47966fe5f1523db292aced9b24a661780f71a6d9f"
+        },
+        "relative_offset": 10240
+      },
+      "verigmp::square_base::low": {
+        "address": 109040,
+        "address_hex": "0x1a9f0",
+        "size": 531,
+        "section": ".text",
+        "section_alignment": "2**4",
+        "body": {
+          "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/codegen-05/candidate-final-arithmetic-bodies/8.bin",
+          "sha256": "8f20196c9ba642ebe6983d1136fbee609b4e9dd03152f3817efad22a6cb29c75"
+        },
+        "relative_offset": 12192
+      },
+      "verigmp::toom_square::full": {
+        "address": 110016,
+        "address_hex": "0x1adc0",
+        "size": 2286,
+        "section": ".text",
+        "section_alignment": "2**4",
+        "body": {
+          "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/codegen-05/candidate-final-arithmetic-bodies/9.bin",
+          "sha256": "ea85454271b47b213c04d9465b5429fb9707f87401d7f3941ef0260da35a2446"
+        },
+        "relative_offset": 13168
+      },
+      "verigmp::square_base::full": {
+        "address": 109584,
+        "address_hex": "0x1ac10",
+        "size": 421,
+        "section": ".text",
+        "section_alignment": "2**4",
+        "body": {
+          "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/codegen-05/candidate-final-arithmetic-bodies/10.bin",
+          "sha256": "b2b8b3329f897efa1a07b961458ff8b1b5123316be9db64441d55be639236d83"
+        },
+        "relative_offset": 12736
+      },
+      "verigmp::square::full": {
+        "address": 119520,
+        "address_hex": "0x1d2e0",
+        "size": 795,
+        "section": ".text",
+        "section_alignment": "2**4",
+        "body": {
+          "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/codegen-05/candidate-final-arithmetic-bodies/11.bin",
+          "sha256": "6d0fae0104f8d7d7b339cc4e7fafc535ce5cf3685dc5511ad6b8344dc4a3cb36"
+        },
+        "relative_offset": 22672
+      },
+      "verigmp::toom_evaluate::negative": {
+        "address": 114992,
+        "address_hex": "0x1c130",
+        "size": 635,
+        "section": ".text",
+        "section_alignment": "2**4",
+        "body": {
+          "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/codegen-05/candidate-final-arithmetic-bodies/12.bin",
+          "sha256": "e032bbe7591ec8b8e69b429e2feb55db9d433e2a0dc5de989e06d586c48a05af"
+        },
+        "relative_offset": 18144
+      },
+      "verigmp::toom_interpolate::interpolate": {
+        "address": 118304,
+        "address_hex": "0x1ce20",
+        "size": 1215,
+        "section": ".text",
+        "section_alignment": "2**4",
+        "body": {
+          "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/codegen-05/candidate-final-arithmetic-bodies/13.bin",
+          "sha256": "e2d3aba23952b4bdb40b0732d5aa8ad74a07cb3f834ba33f462e456ab1c707c9"
+        },
+        "relative_offset": 21456
+      },
+      "verigmp::fast_multiply::base_full": {
+        "address": 114528,
+        "address_hex": "0x1bf60",
+        "size": 457,
+        "section": ".text",
+        "section_alignment": "2**4",
+        "body": {
+          "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/codegen-05/candidate-final-arithmetic-bodies/14.bin",
+          "sha256": "20efda98d5e9d022754b7af7c5a1a5a2563b70f8a94ed15e1574ea7a76e46f50"
+        },
+        "relative_offset": 17680
+      },
+      "verigmp::toom_multiply::full": {
+        "address": 115632,
+        "address_hex": "0x1c3b0",
+        "size": 2672,
+        "section": ".text",
+        "section_alignment": "2**4",
+        "body": {
+          "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/codegen-05/candidate-final-arithmetic-bodies/15.bin",
+          "sha256": "52e745b299c49260c4a049a807e7be762ab1f2317fb3df9b47e0b40751d31ade"
+        },
+        "relative_offset": 18784
+      }
+    },
+    "complete_symbols": {
+      "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/codegen-02/candidate-final-symbols.stdout.log",
+      "sha256": "bba383b862036717cb803ca4e5b8e8b67480b20c197753dff87dbe86909015d1"
+    },
+    "complete_disassembly": {
+      "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/codegen-02/candidate-final-complete-assembly.stdout.log",
+      "sha256": "2311e9533a4f36b4e87b8c1834c708222edbb83b72400a4cc9ef2d1596f44c55"
+    },
+    "complete_dynamic_relocations_and_sections": {
+      "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/codegen-02/candidate-final-readelf.stdout.log",
+      "sha256": "3ff4f6a7d3d8806a58d23d204331bc57d391bb475f7ed848da8112433684b4d9"
+    }
+  }
+}

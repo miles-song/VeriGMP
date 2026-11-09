@@ -1,0 +1,68 @@
+{
+  "label": "after-run-2",
+  "captured_at_utc": "2026-11-09T04:57:38.3767066+00:00",
+  "os": "Microsoft Windows 11 专业工作站版",
+  "version": "10.0.26200",
+  "build": "26200",
+  "cpu_name": "AMD Ryzen 7 7745HX with Radeon Graphics        ",
+  "cores": 8.0,
+  "logical_processors": 16.0,
+  "total_cpu_samples": [
+    23.353,
+    24.044,
+    15.063
+  ],
+  "qemu_pid": 11540,
+  "qemu_suspended": true,
+  "processes": [
+    {
+      "ProcessId": 24104,
+      "ParentProcessId": 1688,
+      "Name": "wslservice.exe",
+      "CreationDate": "2026-11-07T17:43:38.656997+08:00",
+      "CommandLine": null
+    },
+    {
+      "ProcessId": 17360,
+      "ParentProcessId": 4732,
+      "Name": "emulator.exe",
+      "CreationDate": "2026-11-07T17:58:43.347624+08:00",
+      "CommandLine": "\"E:\\aigc_plat\\.local\\mobile-sdk\\android\\emulator\\emulator.exe\" -avd opc_toolchain_api36"
+    },
+    {
+      "ProcessId": 11540,
+      "ParentProcessId": 17360,
+      "Name": "qemu-system-x86_64.exe",
+      "CreationDate": "2026-11-07T17:58:43.728081+08:00",
+      "CommandLine": "E:\\aigc_plat\\.local\\mobile-sdk\\android\\emulator\\qemu\\windows-x86_64\\qemu-system-x86_64.exe -avd opc_toolchain_api36"
+    },
+    {
+      "ProcessId": 6912,
+      "ParentProcessId": 27628,
+      "Name": "vmmemWSL",
+      "CreationDate": "2026-11-07T23:41:38.698982+08:00",
+      "CommandLine": null
+    },
+    {
+      "ProcessId": 32572,
+      "ParentProcessId": 9932,
+      "Name": "python.exe",
+      "CreationDate": "2026-11-09T09:39:19.618979+08:00",
+      "CommandLine": "C:\\Users\\23247\\AppData\\Local\\Programs\\Python\\Python314\\python.exe -m browser_harness.daemon"
+    },
+    {
+      "ProcessId": 27928,
+      "ParentProcessId": 24104,
+      "Name": "wslhost.exe",
+      "CreationDate": "2026-11-09T12:53:53.899496+08:00",
+      "CommandLine": " --vm-id {bd2685aa-a7ce-412e-8810-a51d0e12efee} --handle 3628"
+    },
+    {
+      "ProcessId": 14252,
+      "ParentProcessId": 24104,
+      "Name": "wslhost.exe",
+      "CreationDate": "2026-11-09T12:53:54.05316+08:00",
+      "CommandLine": " --vm-id {bd2685aa-a7ce-412e-8810-a51d0e12efee} --handle 3856"
+    }
+  ]
+}

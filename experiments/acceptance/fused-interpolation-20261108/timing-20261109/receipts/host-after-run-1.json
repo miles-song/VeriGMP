@@ -1,0 +1,264 @@
+{
+  "schema": "fused-interpolation-host-observation-v1",
+  "label": "after-run-1",
+  "captured_at_utc": "2026-11-09T04:55:54.941095+00:00",
+  "windows": {
+    "label": "after-run-1",
+    "captured_at_utc": "2026-11-09T04:55:54.7860260+00:00",
+    "os": "Microsoft Windows 11 \u4e13\u4e1a\u5de5\u4f5c\u7ad9\u7248",
+    "version": "10.0.26200",
+    "build": "26200",
+    "cpu_name": "AMD Ryzen 7 7745HX with Radeon Graphics        ",
+    "cores": 8.0,
+    "logical_processors": 16.0,
+    "total_cpu_samples": [
+      2.476,
+      5.16,
+      8.259
+    ],
+    "qemu_pid": 11540,
+    "qemu_suspended": true,
+    "processes": [
+      {
+        "ProcessId": 24104,
+        "ParentProcessId": 1688,
+        "Name": "wslservice.exe",
+        "CreationDate": "2026-11-07T17:43:38.656997+08:00",
+        "CommandLine": null
+      },
+      {
+        "ProcessId": 17360,
+        "ParentProcessId": 4732,
+        "Name": "emulator.exe",
+        "CreationDate": "2026-11-07T17:58:43.347624+08:00",
+        "CommandLine": "\"E:\\aigc_plat\\.local\\mobile-sdk\\android\\emulator\\emulator.exe\" -avd opc_toolchain_api36"
+      },
+      {
+        "ProcessId": 11540,
+        "ParentProcessId": 17360,
+        "Name": "qemu-system-x86_64.exe",
+        "CreationDate": "2026-11-07T17:58:43.728081+08:00",
+        "CommandLine": "E:\\aigc_plat\\.local\\mobile-sdk\\android\\emulator\\qemu\\windows-x86_64\\qemu-system-x86_64.exe -avd opc_toolchain_api36"
+      },
+      {
+        "ProcessId": 6912,
+        "ParentProcessId": 27628,
+        "Name": "vmmemWSL",
+        "CreationDate": "2026-11-07T23:41:38.698982+08:00",
+        "CommandLine": null
+      },
+      {
+        "ProcessId": 32572,
+        "ParentProcessId": 9932,
+        "Name": "python.exe",
+        "CreationDate": "2026-11-09T09:39:19.618979+08:00",
+        "CommandLine": "C:\\Users\\23247\\AppData\\Local\\Programs\\Python\\Python314\\python.exe -m browser_harness.daemon"
+      },
+      {
+        "ProcessId": 27928,
+        "ParentProcessId": 24104,
+        "Name": "wslhost.exe",
+        "CreationDate": "2026-11-09T12:53:53.899496+08:00",
+        "CommandLine": " --vm-id {bd2685aa-a7ce-412e-8810-a51d0e12efee} --handle 3628"
+      },
+      {
+        "ProcessId": 14252,
+        "ParentProcessId": 24104,
+        "Name": "wslhost.exe",
+        "CreationDate": "2026-11-09T12:53:54.05316+08:00",
+        "CommandLine": " --vm-id {bd2685aa-a7ce-412e-8810-a51d0e12efee} --handle 3856"
+      }
+    ]
+  },
+  "wsl": {
+    "kernel": "6.6.87.2-microsoft-standard-WSL2",
+    "platform": "Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+    "machine": "x86_64",
+    "python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]",
+    "python_sha256": "1643dacd9feaedc58f3cc581e4d22577dfe25c09b10282936186ccf0f2e61118",
+    "rustc": "rustc 1.99.1 (58cf8f9c3 2026-10-13)",
+    "lscpu_json": {
+      "lscpu": [
+        {
+          "field": "Architecture:",
+          "data": "x86_64"
+        },
+        {
+          "field": "CPU op-mode(s):",
+          "data": "32-bit, 64-bit"
+        },
+        {
+          "field": "Address sizes:",
+          "data": "48 bits physical, 48 bits virtual"
+        },
+        {
+          "field": "Byte Order:",
+          "data": "Little Endian"
+        },
+        {
+          "field": "CPU(s):",
+          "data": "16"
+        },
+        {
+          "field": "On-line CPU(s) list:",
+          "data": "0-15"
+        },
+        {
+          "field": "Vendor ID:",
+          "data": "AuthenticAMD"
+        },
+        {
+          "field": "Model name:",
+          "data": "AMD Ryzen 7 7745HX with Radeon Graphics"
+        },
+        {
+          "field": "CPU family:",
+          "data": "25"
+        },
+        {
+          "field": "Model:",
+          "data": "97"
+        },
+        {
+          "field": "Thread(s) per core:",
+          "data": "2"
+        },
+        {
+          "field": "Core(s) per socket:",
+          "data": "8"
+        },
+        {
+          "field": "Socket(s):",
+          "data": "1"
+        },
+        {
+          "field": "Stepping:",
+          "data": "2"
+        },
+        {
+          "field": "BogoMIPS:",
+          "data": "7186.29"
+        },
+        {
+          "field": "Flags:",
+          "data": "fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm constant_tsc rep_good nopl tsc_reliable nonstop_tsc cpuid extd_apicid tsc_known_freq pni pclmulqdq ssse3 fma cx16 sse4_1 sse4_2 movbe popcnt aes xsave avx f16c rdrand hypervisor lahf_lm cmp_legacy cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw topoext perfctr_core ssbd ibrs ibpb stibp vmmcall fsgsbase bmi1 avx2 smep bmi2 erms invpcid avx512f avx512dq rdseed adx smap avx512ifma clflushopt clwb avx512cd sha_ni avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves avx512_bf16 clzero xsaveerptr arat avx512vbmi umip avx512_vbmi2 gfni vaes vpclmulqdq avx512_vnni avx512_bitalg avx512_vpopcntdq rdpid fsrm"
+        },
+        {
+          "field": "Hypervisor vendor:",
+          "data": "Microsoft"
+        },
+        {
+          "field": "Virtualization type:",
+          "data": "full"
+        },
+        {
+          "field": "L1d cache:",
+          "data": "256 KiB (8 instances)"
+        },
+        {
+          "field": "L1i cache:",
+          "data": "256 KiB (8 instances)"
+        },
+        {
+          "field": "L2 cache:",
+          "data": "8 MiB (8 instances)"
+        },
+        {
+          "field": "L3 cache:",
+          "data": "32 MiB (1 instance)"
+        },
+        {
+          "field": "NUMA node(s):",
+          "data": "1"
+        },
+        {
+          "field": "NUMA node0 CPU(s):",
+          "data": "0-15"
+        },
+        {
+          "field": "Vulnerability Gather data sampling:",
+          "data": "Not affected"
+        },
+        {
+          "field": "Vulnerability Itlb multihit:",
+          "data": "Not affected"
+        },
+        {
+          "field": "Vulnerability L1tf:",
+          "data": "Not affected"
+        },
+        {
+          "field": "Vulnerability Mds:",
+          "data": "Not affected"
+        },
+        {
+          "field": "Vulnerability Meltdown:",
+          "data": "Not affected"
+        },
+        {
+          "field": "Vulnerability Mmio stale data:",
+          "data": "Not affected"
+        },
+        {
+          "field": "Vulnerability Reg file data sampling:",
+          "data": "Not affected"
+        },
+        {
+          "field": "Vulnerability Retbleed:",
+          "data": "Not affected"
+        },
+        {
+          "field": "Vulnerability Spec rstack overflow:",
+          "data": "Vulnerable: Safe RET, no microcode"
+        },
+        {
+          "field": "Vulnerability Spec store bypass:",
+          "data": "Mitigation; Speculative Store Bypass disabled via prctl"
+        },
+        {
+          "field": "Vulnerability Spectre v1:",
+          "data": "Mitigation; usercopy/swapgs barriers and __user pointer sanitization"
+        },
+        {
+          "field": "Vulnerability Spectre v2:",
+          "data": "Mitigation; Retpolines; IBPB conditional; IBRS_FW; STIBP always-on; RSB filling; PBRSB-eIBRS Not affected; BHI Not affected"
+        },
+        {
+          "field": "Vulnerability Srbds:",
+          "data": "Not affected"
+        },
+        {
+          "field": "Vulnerability Tsx async abort:",
+          "data": "Not affected"
+        }
+      ]
+    },
+    "affinity": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15
+    ],
+    "loadavg": "0.92 0.51 0.23 1/335 3633",
+    "proc_stat": "cpu  2833030 16 2919932 207675484 333767 0 431606 0 0 0\ncpu0 211042 0 677521 12180767 28167 0 335848 0 0 0\ncpu1 166136 0 207236 12959870 49651 0 37348 0 0 0\ncpu2 207127 0 218825 12897672 39314 0 27250 0 0 0\ncpu3 218500 0 213997 12892164 47613 0 15620 0 0 0\ncpu4 198718 0 155468 13003006 17852 0 2524 0 0 0\ncpu5 161065 0 122057 13086345 14655 0 3625 0 0 0\ncpu6 148202 0 146392 13064945 16440 0 1216 0 0 0\ncpu7 120702 0 112668 13137264 12682 0 2080 0 0 0\ncpu8 258869 3 156322 12942622 16285 0 838 0 0 0\ncpu9 145948 2 116154 13108615 12531 0 1340 0 0 0\ncpu10 157050 1 149800 13052986 15220 0 536 0 0 0\ncpu11 137677 0 113006 13120528 11550 0 951 0 0 0\ncpu12 155656 0 143265 13061515 14323 0 500 0 0 0\ncpu13 129296 0 111931 13129065 11484 0 837 0 0 0\ncpu14 222056 7 151103 12986835 14459 0 418 0 0 0\ncpu15 194980 2 124182 13051279 11535 0 670 0 0 0\nintr 648651976 0 0 0 0 0 0 0 0 0 20 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 2301021 1 1 4582 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0\nctxt 1359656130\nbtime 1794066098\nprocesses 1628824\nprocs_running 1\nprocs_blocked 0\nsoftirq 413432861 0 8174444 1833 46829 0 0 300563079 45988170 28 58658478\n",
+    "processes": [
+      {
+        "pid": 3609,
+        "comm": "python3",
+        "cpu_ticks": 3
+      }
+    ]
+  }
+}

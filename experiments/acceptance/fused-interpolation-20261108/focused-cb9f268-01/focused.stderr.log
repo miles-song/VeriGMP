@@ -1,0 +1,224 @@
+note: verifying module toom_words
+
+note: while loop: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> native/verified/toom_words.rs:30:5
+   |
+30 |     while...len()
+   |     ^^^^^...^^^^^
+
+note: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> native/verified/toom_words.rs:24:1
+   |
+24 | pub f...u64])
+   | ^^^^^...^^^^^
+
+note: while loop: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> native/verified/toom_words.rs:14:5
+   |
+14 |     while...len()
+   |     ^^^^^...^^^^^
+
+note: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> native/verified/toom_words.rs:10:1
+   |
+10 | pub f...u64])
+   | ^^^^^...^^^^^
+
+note: assert_nonlinear_by: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> native/verified/toom_words.rs:60:13
+   |
+60 | ...   assert(pr...
+   |       ^^^^^^
+
+note: while loop: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> native/verified/toom_words.rs:49:5
+   |
+49 |     while...len()
+   |     ^^^^^...^^^^^
+
+note: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> native/verified/toom_words.rs:42:1
+   |
+42 | pub f...t:u64)
+   | ^^^^^...^^^^^
+
+note: assert_nonlinear_by: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> native/verified/toom_words.rs:89:13
+   |
+89 | ...   assert(pr...
+   |       ^^^^^^
+
+note: while loop: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> native/verified/toom_words.rs:79:5
+   |
+79 |     while...len()
+   |     ^^^^^...^^^^^
+
+note: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+  --> native/verified/toom_words.rs:74:1
+   |
+74 | pub f...t:u64)
+   | ^^^^^...^^^^^
+
+note: assert_nonlinear_by: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+   --> native/verified/toom_words.rs:120:13
+    |
+120 | ...   assert(pr...
+    |       ^^^^^^
+
+note: while loop: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+   --> native/verified/toom_words.rs:109:5
+    |
+109 |     while...len()
+    |     ^^^^^...^^^^^
+
+note: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+   --> native/verified/toom_words.rs:102:1
+    |
+102 | pub f...t:u64)
+    | ^^^^^...^^^^^
+
+note: assert_nonlinear_by: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+   --> native/verified/toom_words.rs:159:13
+    |
+159 | ...   assert(q<...
+    |       ^^^^^^
+
+note: assert_nonlinear_by: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+   --> native/verified/toom_words.rs:166:13
+    |
+166 | ...   assert(va...
+    |       ^^^^^^
+
+note: while loop: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+   --> native/verified/toom_words.rs:144:5
+    |
+144 |     while i>0
+    |     ^^^^^^^^^
+
+note: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+   --> native/verified/toom_words.rs:136:1
+    |
+136 | pub f...r:u64)
+    | ^^^^^...^^^^^
+
+note: assert_nonlinear_by: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+   --> native/verified/toom_words.rs:189:9
+    |
+189 | ...   assert(ca...
+    |       ^^^^^^
+
+note: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+   --> native/verified/toom_words.rs:181:1
+    |
+181 | pub f...u64])
+    | ^^^^^...^^^^^
+
+note: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+   --> native/verified/toom_words.rs:195:1
+    |
+195 | pub f...u64])
+    | ^^^^^...^^^^^
+
+note: `bit_vector` assertion not satisfied: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+   --> native/verified/toom_words.rs:218:13
+    |
+218 | ...   assert(hi...
+    |       ^^^^^^
+
+note: `bit_vector` assertion not satisfied: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+   --> native/verified/toom_words.rs:219:13
+    |
+219 | ...   assert((l...
+    |       ^^^^^^
+
+note: `bit_vector` assertion not satisfied: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+   --> native/verified/toom_words.rs:223:13
+    |
+223 | ...   assert(hi...
+    |       ^^^^^^
+
+note: `bit_vector` assertion not satisfied: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+   --> native/verified/toom_words.rs:224:13
+    |
+224 | ...   assert((l...
+    |       ^^^^^^
+
+note: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+   --> native/verified/toom_words.rs:209:1
+    |
+209 | fn sh...,u64))
+    | ^^^^^...^^^^^
+
+note: assert_nonlinear_by: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+   --> native/verified/toom_words.rs:257:13
+    |
+257 | ...   assert(pr...
+    |       ^^^^^^
+
+note: while loop: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+   --> native/verified/toom_words.rs:242:5
+    |
+242 |     while...len()
+    |     ^^^^^...^^^^^
+
+note: assert_nonlinear_by: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+   --> native/verified/toom_words.rs:275:9
+    |
+275 | ...   assert(va...
+    |       ^^^^^^
+
+note: assert_nonlinear_by: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+   --> native/verified/toom_words.rs:283:9
+    |
+283 | ...   assert(bo...
+    |       ^^^^^^
+
+note: assert_nonlinear_by: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+   --> native/verified/toom_words.rs:288:9
+    |
+288 | ...   assert(bo...
+    |       ^^^^^^
+
+note: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+   --> native/verified/toom_words.rs:234:1
+    |
+234 | pub f...:u32)
+    | ^^^^^...^^^^^
+
+note: assert_nonlinear_by: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+   --> native/verified/toom_words.rs:301:9
+    |
+301 | ...   assert(ca...
+    |       ^^^^^^
+
+note: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+   --> native/verified/toom_words.rs:293:1
+    |
+293 | pub f...:u64)
+    | ^^^^^...^^^^^
+
+note: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+   --> native/verified/toom_words.rs:308:1
+    |
+308 | pub f...:u64)
+    | ^^^^^...^^^^^
+
+note: assert_nonlinear_by: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+   --> native/verified/toom_words.rs:329:13
+    |
+329 | ...   assert(va...
+    |       ^^^^^^
+
+note: assert_nonlinear_by: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+   --> native/verified/toom_words.rs:347:13
+    |
+347 | ...   assert(va...
+    |       ^^^^^^
+
+note: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function
+   --> native/verified/toom_words.rs:318:1
+    |
+318 | pub f...size)
+    | ^^^^^...^^^^^
+

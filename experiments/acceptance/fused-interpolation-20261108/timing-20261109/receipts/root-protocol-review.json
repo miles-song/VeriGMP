@@ -1,0 +1,67 @@
+{
+  "schema": "verigmp-root-timing-protocol-review-v1",
+  "reviewed_at_utc": "2026-11-09",
+  "decision": "APPROVE_BOUNDED_MEASUREMENT",
+  "scope": "Fused shifted-subtraction interpolation candidate; timing only, no performance acceptance or merge authorization.",
+  "candidate": {
+    "source_head": "3a836713adbb0a6632f5131e8d57c97296d22f62",
+    "source_tree": "96bd28b9bc45702e1d7f6c8e9a60d7653f2cd941",
+    "native_tree": "212dd5d00d4b2159abd4627a6aaec8b16a1157e5",
+    "baseline_public_main": "bf1bc40946967581852dd3b675db8140d757574e",
+    "baseline_native_tree": "72dc8a5da2cbb7eddcdd26c219d50770e8b73b06"
+  },
+  "review_inputs": {
+    "protocol": "experiments/fused-interpolation-20261108/PROTOCOL.md",
+    "independent_static_review": "E:/3sat/VeriGMP-evidence/fused-interpolation-resume-20261109/independent-astra-review.json",
+    "independent_review_decision": "static_accept=ACCEPT; timing_ready=READY; benchmark_executed=false",
+    "review_identity_disclosure": "The independent receipt records requested Astra Max review role and configured gpt-6-astra/max dispatch; its runtime context did not self-attest Astra Max. This limitation remains disclosed."
+  },
+  "frozen_measurement_policy": {
+    "matrix_cells": 86,
+    "independent_complete_runs": 2,
+    "cpu_affinity": 8,
+    "quiet_window_max_seconds": 480,
+    "primary_cells": 15,
+    "each_run_primary_geomean_max": 0.98,
+    "each_run_all_cells_worst_ratio_max": 1.05,
+    "cross_run_baseline_drift_geomean_range": [0.95, 1.05],
+    "cross_run_each_control_ratio_range": [0.90, 1.10],
+    "postselection_or_automatic_retry": false,
+    "preserve_all_raw_observations_and_failures": true
+  },
+  "codegen_disclosure": {
+    "toom_multiply_full_bytes": "2640 -> 2672",
+    "toom_square_full_bytes": "2299 -> 2286",
+    "changed_library_callers_have_different_normalized_relocations": true,
+    "final_executable_body_and_layout_identity": "false for all 71 controls",
+    "interpretation": "Any result describes the complete frozen binaries and must not be attributed only to removed interpolation loop visits."
+  },
+  "preconditions_before_first_calibration": [
+    "Capture fresh Windows and WSL host/process/load observations after suspending only the previously authorized Android emulator qemu process.",
+    "Verify the exact static-passing external build and identity receipts with raw_validate.validate_build under WSL.",
+    "Recheck candidate, baseline, binary, tool, GMP and CPU-affinity identities.",
+    "Run no proof, build, or competing benchmark work during the bounded quiet window."
+  ],
+  "interpretation_limits": {
+    "gmp_parity_claim": false,
+    "checked_cost_theorem_claim": false,
+    "solver_speedup_claim": false,
+    "production_dispatch_or_merge_authorized": false
+  },
+  "execution_attempt_history": [
+    {
+      "attempt": 1,
+      "result": "Infrastructure abort before build validation or first calibration",
+      "cause": "Host-capture helper path was incorrect and the temporary .NET Process object released the native handle before finally resumed qemu.",
+      "benchmark_children_started": 0,
+      "emulator_recovery": "Root used a fresh live Process handle; NtResumeProcess returned success and qemu PID 11540 remained alive."
+    },
+    {
+      "attempt": 2,
+      "authorization": "Root explicitly authorizes one new bounded attempt after correcting both infrastructure defects; this is not an automatic retry or candidate-result postselection.",
+      "output_directory": "timing-attempt-02"
+    }
+  ],
+  "timing_authorized": true,
+  "measurement_started_at_review_time": false
+}

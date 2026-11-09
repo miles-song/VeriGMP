@@ -1,0 +1,669 @@
+{
+  "status": "adjudicated",
+  "new_measurements_executed": false,
+  "performance_thresholds": {
+    "primary_geomean_max": 0.98,
+    "all_86_worst_max": 1.05
+  },
+  "runs": [
+    {
+      "primary_geomean": 0.9823753468399021,
+      "all_86_worst": 1.0387009525475814,
+      "primary_pass": false,
+      "all_86_pass": true,
+      "performance_pass": false,
+      "failed_cells": [],
+      "run_id": "fused-20261109-1",
+      "raw_sha256": "2500e81da0ed1d00e093d5d59af256b8cd8cdebb6547a9e929579ec86bbb43a1",
+      "measurement_sha256": "e2ee99dbd8ad3a791e603427443629c23edd554f243dfafb05a700342f70abc9",
+      "raw_validation": {
+        "cells": 86,
+        "calibrations": 258,
+        "accepted_samples": 1806,
+        "retained_retries": 0,
+        "invocations": 2064,
+        "exact_order": true,
+        "stdout_payload_bound": true,
+        "exact_argv_bound": true
+      }
+    },
+    {
+      "primary_geomean": 0.9863431240034981,
+      "all_86_worst": 1.0629641214487358,
+      "primary_pass": false,
+      "all_86_pass": false,
+      "performance_pass": false,
+      "failed_cells": [
+        {
+          "cell": [
+            0,
+            513,
+            64
+          ],
+          "ratio": 1.0629641214487358
+        },
+        {
+          "cell": [
+            1,
+            1,
+            64
+          ],
+          "ratio": 1.0526127077309462
+        }
+      ],
+      "run_id": "fused-20261109-2",
+      "raw_sha256": "8e1100e24e7fcbd7ce997db1e32aa81d191db212c8a8e2e323f8147ef9257b6c",
+      "measurement_sha256": "8ccabf5f9e1a652d91ccd8f4fdbe46374c2cd31bbae6b4649a82ac2641f3297c",
+      "raw_validation": {
+        "cells": 86,
+        "calibrations": 258,
+        "accepted_samples": 1806,
+        "retained_retries": 0,
+        "invocations": 2064,
+        "exact_order": true,
+        "stdout_payload_bound": true,
+        "exact_argv_bound": true
+      }
+    }
+  ],
+  "same_frozen_build": true,
+  "cpu": 8,
+  "seed": 20261108,
+  "build_sha256": "b4a46f45e64fd91ad286c2efb8ff50b1b8d489a2534bac7ed69fd1540bcc85a3",
+  "identity_receipt": {
+    "path": "/mnt/e/3sat/VeriGMP-evidence/fused-interpolation-resume-20261109/identity-pre-timing.json",
+    "sha256": "99e8fae840f709574f058754d489f4cd19893d74ff05b6b3c55f3bb9b9e57e6f"
+  },
+  "source_identity": {
+    "baseline": {
+      "head": "4510b46e4010dd287c9cf760f0195f2edc32e1f7",
+      "tree": "d8bb9a0f95160a2e260f7b9f276cb4fd0a867778",
+      "native_tree": "72dc8a5da2cbb7eddcdd26c219d50770e8b73b06",
+      "native_manifest_sha256": "7e8d3f151d3eda7c5a3df285f882618a26022d0f7b7661ff266812a4b123f446"
+    },
+    "candidate": {
+      "head": "3a836713adbb0a6632f5131e8d57c97296d22f62",
+      "tree": "96bd28b9bc45702e1d7f6c8e9a60d7653f2cd941",
+      "native_tree": "212dd5d00d4b2159abd4627a6aaec8b16a1157e5",
+      "native_manifest_sha256": "d9d91876478ba6c8bcc9324a05a3bd303c1d2c4d9becd620d256a32ce3ddf72b"
+    }
+  },
+  "baseline_validation": {
+    "control_cells": 71,
+    "run2_over_run1_geomean": 1.0065619565787198,
+    "baseline_drift": true,
+    "all_control_ratios": [
+      {
+        "cell": [
+          0,
+          1,
+          64
+        ],
+        "run2_over_run1": 0.9863026994384378
+      },
+      {
+        "cell": [
+          0,
+          2,
+          64
+        ],
+        "run2_over_run1": 1.0701228418700734
+      },
+      {
+        "cell": [
+          0,
+          7,
+          64
+        ],
+        "run2_over_run1": 1.0457965820139832
+      },
+      {
+        "cell": [
+          0,
+          8,
+          64
+        ],
+        "run2_over_run1": 1.0255633836817437
+      },
+      {
+        "cell": [
+          0,
+          9,
+          64
+        ],
+        "run2_over_run1": 0.9908144461324635
+      },
+      {
+        "cell": [
+          0,
+          23,
+          64
+        ],
+        "run2_over_run1": 1.0016448334212489
+      },
+      {
+        "cell": [
+          0,
+          24,
+          64
+        ],
+        "run2_over_run1": 0.9091656106294732
+      },
+      {
+        "cell": [
+          0,
+          25,
+          64
+        ],
+        "run2_over_run1": 0.8991141504232817
+      },
+      {
+        "cell": [
+          0,
+          31,
+          64
+        ],
+        "run2_over_run1": 0.9080262124975521
+      },
+      {
+        "cell": [
+          0,
+          32,
+          64
+        ],
+        "run2_over_run1": 0.912080726402052
+      },
+      {
+        "cell": [
+          0,
+          33,
+          64
+        ],
+        "run2_over_run1": 1.0383641229792722
+      },
+      {
+        "cell": [
+          0,
+          47,
+          64
+        ],
+        "run2_over_run1": 0.9996001946122559
+      },
+      {
+        "cell": [
+          0,
+          48,
+          64
+        ],
+        "run2_over_run1": 0.9118870184036216
+      },
+      {
+        "cell": [
+          0,
+          49,
+          64
+        ],
+        "run2_over_run1": 0.9917388096054778
+      },
+      {
+        "cell": [
+          0,
+          63,
+          64
+        ],
+        "run2_over_run1": 1.0216322209953648
+      },
+      {
+        "cell": [
+          0,
+          64,
+          64
+        ],
+        "run2_over_run1": 0.9626663019692796
+      },
+      {
+        "cell": [
+          0,
+          65,
+          64
+        ],
+        "run2_over_run1": 0.9792413874105058
+      },
+      {
+        "cell": [
+          0,
+          127,
+          64
+        ],
+        "run2_over_run1": 1.036164109742563
+      },
+      {
+        "cell": [
+          0,
+          128,
+          64
+        ],
+        "run2_over_run1": 0.9396993380914392
+      },
+      {
+        "cell": [
+          0,
+          129,
+          64
+        ],
+        "run2_over_run1": 0.9986970960786055
+      },
+      {
+        "cell": [
+          0,
+          191,
+          64
+        ],
+        "run2_over_run1": 1.1338653546819062
+      },
+      {
+        "cell": [
+          0,
+          192,
+          64
+        ],
+        "run2_over_run1": 1.0131977863023476
+      },
+      {
+        "cell": [
+          0,
+          193,
+          64
+        ],
+        "run2_over_run1": 1.0666040476288001
+      },
+      {
+        "cell": [
+          0,
+          255,
+          64
+        ],
+        "run2_over_run1": 1.1159446838730176
+      },
+      {
+        "cell": [
+          0,
+          256,
+          64
+        ],
+        "run2_over_run1": 1.1847604998896437
+      },
+      {
+        "cell": [
+          0,
+          257,
+          64
+        ],
+        "run2_over_run1": 1.1831267512920955
+      },
+      {
+        "cell": [
+          0,
+          511,
+          64
+        ],
+        "run2_over_run1": 1.1623700755527155
+      },
+      {
+        "cell": [
+          0,
+          512,
+          64
+        ],
+        "run2_over_run1": 1.1604075324830443
+      },
+      {
+        "cell": [
+          0,
+          513,
+          64
+        ],
+        "run2_over_run1": 0.9288300231069494
+      },
+      {
+        "cell": [
+          0,
+          1023,
+          64
+        ],
+        "run2_over_run1": 1.013842649503704
+      },
+      {
+        "cell": [
+          0,
+          1024,
+          64
+        ],
+        "run2_over_run1": 1.0106002113904626
+      },
+      {
+        "cell": [
+          0,
+          1025,
+          64
+        ],
+        "run2_over_run1": 1.040743170060588
+      },
+      {
+        "cell": [
+          0,
+          2048,
+          64
+        ],
+        "run2_over_run1": 1.0028719239833133
+      },
+      {
+        "cell": [
+          0,
+          4096,
+          64
+        ],
+        "run2_over_run1": 1.0200007564075466
+      },
+      {
+        "cell": [
+          1,
+          1,
+          1
+        ],
+        "run2_over_run1": 0.9306777339474884
+      },
+      {
+        "cell": [
+          1,
+          1,
+          64
+        ],
+        "run2_over_run1": 1.0298040998827727
+      },
+      {
+        "cell": [
+          1,
+          2,
+          1
+        ],
+        "run2_over_run1": 1.0073447828491142
+      },
+      {
+        "cell": [
+          1,
+          23,
+          63
+        ],
+        "run2_over_run1": 0.9637687975134774
+      },
+      {
+        "cell": [
+          1,
+          24,
+          63
+        ],
+        "run2_over_run1": 1.0061214316281186
+      },
+      {
+        "cell": [
+          1,
+          25,
+          63
+        ],
+        "run2_over_run1": 1.0443854349592896
+      },
+      {
+        "cell": [
+          1,
+          63,
+          63
+        ],
+        "run2_over_run1": 0.9931375949381318
+      },
+      {
+        "cell": [
+          1,
+          64,
+          63
+        ],
+        "run2_over_run1": 0.8464079913959142
+      },
+      {
+        "cell": [
+          1,
+          65,
+          63
+        ],
+        "run2_over_run1": 1.024019357696238
+      },
+      {
+        "cell": [
+          1,
+          127,
+          63
+        ],
+        "run2_over_run1": 0.9745115880934976
+      },
+      {
+        "cell": [
+          1,
+          128,
+          63
+        ],
+        "run2_over_run1": 0.9910966085911943
+      },
+      {
+        "cell": [
+          1,
+          129,
+          63
+        ],
+        "run2_over_run1": 1.0000970124663067
+      },
+      {
+        "cell": [
+          1,
+          191,
+          63
+        ],
+        "run2_over_run1": 1.0149998824995639
+      },
+      {
+        "cell": [
+          1,
+          192,
+          63
+        ],
+        "run2_over_run1": 1.028175807897768
+      },
+      {
+        "cell": [
+          1,
+          193,
+          63
+        ],
+        "run2_over_run1": 1.112535514133553
+      },
+      {
+        "cell": [
+          1,
+          255,
+          63
+        ],
+        "run2_over_run1": 1.0367090565689085
+      },
+      {
+        "cell": [
+          1,
+          256,
+          63
+        ],
+        "run2_over_run1": 1.0545512289824257
+      },
+      {
+        "cell": [
+          1,
+          257,
+          63
+        ],
+        "run2_over_run1": 1.0336989457006331
+      },
+      {
+        "cell": [
+          1,
+          511,
+          63
+        ],
+        "run2_over_run1": 0.946416464444926
+      },
+      {
+        "cell": [
+          2,
+          1,
+          1
+        ],
+        "run2_over_run1": 1.0157861145909872
+      },
+      {
+        "cell": [
+          2,
+          1,
+          64
+        ],
+        "run2_over_run1": 0.920639027417127
+      },
+      {
+        "cell": [
+          2,
+          2,
+          1
+        ],
+        "run2_over_run1": 0.9880299089630896
+      },
+      {
+        "cell": [
+          2,
+          23,
+          63
+        ],
+        "run2_over_run1": 0.9615887533519243
+      },
+      {
+        "cell": [
+          2,
+          24,
+          63
+        ],
+        "run2_over_run1": 0.9523457285021665
+      },
+      {
+        "cell": [
+          2,
+          25,
+          63
+        ],
+        "run2_over_run1": 0.9341560206569316
+      },
+      {
+        "cell": [
+          2,
+          63,
+          63
+        ],
+        "run2_over_run1": 0.9856301401652634
+      },
+      {
+        "cell": [
+          2,
+          64,
+          63
+        ],
+        "run2_over_run1": 1.0190258574801825
+      },
+      {
+        "cell": [
+          2,
+          65,
+          63
+        ],
+        "run2_over_run1": 1.0623455847830556
+      },
+      {
+        "cell": [
+          2,
+          127,
+          63
+        ],
+        "run2_over_run1": 1.004337838208477
+      },
+      {
+        "cell": [
+          2,
+          128,
+          63
+        ],
+        "run2_over_run1": 0.9752514798903055
+      },
+      {
+        "cell": [
+          2,
+          129,
+          63
+        ],
+        "run2_over_run1": 1.07578937241515
+      },
+      {
+        "cell": [
+          2,
+          191,
+          63
+        ],
+        "run2_over_run1": 0.9707293285573996
+      },
+      {
+        "cell": [
+          2,
+          192,
+          63
+        ],
+        "run2_over_run1": 0.9921724977657238
+      },
+      {
+        "cell": [
+          2,
+          193,
+          63
+        ],
+        "run2_over_run1": 0.998399156830833
+      },
+      {
+        "cell": [
+          2,
+          255,
+          63
+        ],
+        "run2_over_run1": 0.9973988559405592
+      },
+      {
+        "cell": [
+          2,
+          256,
+          63
+        ],
+        "run2_over_run1": 0.9930004751810056
+      },
+      {
+        "cell": [
+          2,
+          257,
+          63
+        ],
+        "run2_over_run1": 1.063258346381481
+      }
+    ]
+  },
+  "numeric_gates_pass": false,
+  "promotion_requires": "root-approved protocol, frozen host/control identities, all static gates and independent review in addition to numeric gates",
+  "gmp_parity": false
+}

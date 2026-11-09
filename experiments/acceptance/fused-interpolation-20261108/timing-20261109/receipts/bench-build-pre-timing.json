@@ -1,0 +1,237 @@
+{
+  "schema": "fused-interpolation-bench-build-v1",
+  "status": "static_pass",
+  "seed": 20261108,
+  "cell_count": 86,
+  "key_shapes": [
+    [
+      1,
+      1
+    ],
+    [
+      1,
+      64
+    ],
+    [
+      2,
+      1
+    ],
+    [
+      23,
+      63
+    ],
+    [
+      24,
+      63
+    ],
+    [
+      25,
+      63
+    ],
+    [
+      63,
+      63
+    ],
+    [
+      64,
+      63
+    ],
+    [
+      65,
+      63
+    ],
+    [
+      127,
+      63
+    ],
+    [
+      128,
+      63
+    ],
+    [
+      129,
+      63
+    ],
+    [
+      191,
+      63
+    ],
+    [
+      192,
+      63
+    ],
+    [
+      193,
+      63
+    ],
+    [
+      255,
+      63
+    ],
+    [
+      256,
+      63
+    ],
+    [
+      257,
+      63
+    ],
+    [
+      511,
+      63
+    ],
+    [
+      512,
+      63
+    ],
+    [
+      513,
+      63
+    ],
+    [
+      1023,
+      63
+    ],
+    [
+      1024,
+      63
+    ],
+    [
+      1025,
+      63
+    ],
+    [
+      2048,
+      63
+    ],
+    [
+      4096,
+      63
+    ]
+  ],
+  "source_head": "3a836713adbb0a6632f5131e8d57c97296d22f62",
+  "source_tree": "96bd28b9bc45702e1d7f6c8e9a60d7653f2cd941",
+  "identity_receipt": {
+    "path": "/mnt/e/3sat/VeriGMP-evidence/fused-interpolation-resume-20261109/identity-pre-timing.json",
+    "sha256": "99e8fae840f709574f058754d489f4cd19893d74ff05b6b3c55f3bb9b9e57e6f"
+  },
+  "binaries": {
+    "baseline": {
+      "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/codegen-02/bench-build/baseline-bench",
+      "sha256": "f9b3f8318426c6dfdd2887f2ea986bd2678f9865ef6a157b140cbbbf7f4375ac",
+      "library_sha256": "02dabb57ecbee4b82fe99b4ed555cbd892160b999b47d01d9ac0ab9788372d28",
+      "gmp_path": "/lib/x86_64-linux-gnu/libgmp.so.10",
+      "gmp_sha256": "0ccdfb6d6f5c039465f6d002cf7e4c072d48ac6a2cffc8dd6c748dec31592804",
+      "argv": [
+        "/mnt/e/3sat/VeriCount/deps/cargo/bin/rustup",
+        "run",
+        "1.99.1-x86_64-unknown-linux-gnu",
+        "rustc",
+        "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/source/experiments/arithmetic-precondition-checks-20261108/bench.rs",
+        "-O",
+        "--edition=2024",
+        "-L",
+        "dependency=/mnt/e/3sat/VeriCount/deps/verus/verus-x86-linux",
+        "-L",
+        "dependency=/mnt/e/3sat/VeriGMP-precondition-evidence-20261108/baseline-binding",
+        "--extern",
+        "verigmp=/mnt/e/3sat/VeriGMP-precondition-evidence-20261108/baseline-binding/libverigmp.rlib",
+        "-o",
+        "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/codegen-02/bench-build/baseline-bench"
+      ],
+      "build_command": {
+        "argv": [
+          "/mnt/e/3sat/VeriCount/deps/cargo/bin/rustup",
+          "run",
+          "1.99.1-x86_64-unknown-linux-gnu",
+          "rustc",
+          "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/source/experiments/arithmetic-precondition-checks-20261108/bench.rs",
+          "-O",
+          "--edition=2024",
+          "-L",
+          "dependency=/mnt/e/3sat/VeriCount/deps/verus/verus-x86-linux",
+          "-L",
+          "dependency=/mnt/e/3sat/VeriGMP-precondition-evidence-20261108/baseline-binding",
+          "--extern",
+          "verigmp=/mnt/e/3sat/VeriGMP-precondition-evidence-20261108/baseline-binding/libverigmp.rlib",
+          "-o",
+          "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/codegen-02/bench-build/baseline-bench"
+        ],
+        "returncode": 0,
+        "stdout": {
+          "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/codegen-02/baseline-bench-build.stdout.log",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stderr": {
+          "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/codegen-02/baseline-bench-build.stderr.log",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      },
+      "ldd": "\tlinux-vdso.so.1 (0x00007fffdf9ab000)\n\tlibgmp.so.10 => /lib/x86_64-linux-gnu/libgmp.so.10 (0x000071f10856f000)\n\tlibgcc_s.so.1 => /lib/x86_64-linux-gnu/libgcc_s.so.1 (0x000071f108541000)\n\tlibc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x000071f108200000)\n\t/lib64/ld-linux-x86-64.so.2 (0x000071f108665000)\n"
+    },
+    "candidate": {
+      "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/codegen-02/bench-build/candidate-bench",
+      "sha256": "6bce14a79d96857f7ed4e7ce4e0d6fc46527951705382ee91661230777d89ccc",
+      "library_sha256": "59151180a613df39efc32c6d9b012fd105d219fb2c678f9bf127b23407fefece",
+      "gmp_path": "/lib/x86_64-linux-gnu/libgmp.so.10",
+      "gmp_sha256": "0ccdfb6d6f5c039465f6d002cf7e4c072d48ac6a2cffc8dd6c748dec31592804",
+      "argv": [
+        "/mnt/e/3sat/VeriCount/deps/cargo/bin/rustup",
+        "run",
+        "1.99.1-x86_64-unknown-linux-gnu",
+        "rustc",
+        "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/source/experiments/arithmetic-precondition-checks-20261108/bench.rs",
+        "-O",
+        "--edition=2024",
+        "-L",
+        "dependency=/mnt/e/3sat/VeriCount/deps/verus/verus-x86-linux",
+        "-L",
+        "dependency=/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01",
+        "--extern",
+        "verigmp=/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/libverigmp.rlib",
+        "-o",
+        "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/codegen-02/bench-build/candidate-bench"
+      ],
+      "build_command": {
+        "argv": [
+          "/mnt/e/3sat/VeriCount/deps/cargo/bin/rustup",
+          "run",
+          "1.99.1-x86_64-unknown-linux-gnu",
+          "rustc",
+          "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/source/experiments/arithmetic-precondition-checks-20261108/bench.rs",
+          "-O",
+          "--edition=2024",
+          "-L",
+          "dependency=/mnt/e/3sat/VeriCount/deps/verus/verus-x86-linux",
+          "-L",
+          "dependency=/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01",
+          "--extern",
+          "verigmp=/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/libverigmp.rlib",
+          "-o",
+          "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/codegen-02/bench-build/candidate-bench"
+        ],
+        "returncode": 0,
+        "stdout": {
+          "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/codegen-02/candidate-bench-build.stdout.log",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stderr": {
+          "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/codegen-02/candidate-bench-build.stderr.log",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      },
+      "ldd": "\tlinux-vdso.so.1 (0x00007ffc8b50d000)\n\tlibgmp.so.10 => /lib/x86_64-linux-gnu/libgmp.so.10 (0x000074888020d000)\n\tlibgcc_s.so.1 => /lib/x86_64-linux-gnu/libgcc_s.so.1 (0x00007488801df000)\n\tlibc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x000074887fe00000)\n\t/lib64/ld-linux-x86-64.so.2 (0x0000748880302000)\n"
+    }
+  },
+  "benchmark_executed": false,
+  "timing_authorized": true,
+  "independent_review_pending": false,
+  "independent_review_receipt": {
+    "path": "/mnt/e/3sat/VeriGMP-evidence/fused-interpolation-resume-20261109/independent-astra-review.json",
+    "sha256": "f14341baec374b40f57751c8d6defa1c4322428c592062ce5c3b81ec04ab3b71"
+  },
+  "root_protocol_review_receipt": {
+    "path": "/mnt/e/3sat/VeriGMP-evidence/fused-interpolation-resume-20261109/root-protocol-review.json",
+    "sha256": "b3c72bc8fbb450f91fedcfbaed5e60f8c809a6ebd98fd5d08e2eaee4d6b0f7a5"
+  }
+}

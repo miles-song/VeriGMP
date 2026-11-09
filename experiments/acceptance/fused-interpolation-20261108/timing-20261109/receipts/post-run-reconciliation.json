@@ -1,0 +1,81 @@
+{
+  "schema": "fused-interpolation-post-run-reconciliation-v1",
+  "status": "NO_GO_RETAINED",
+  "candidate_source_head": "3a836713adbb0a6632f5131e8d57c97296d22f62",
+  "candidate_source_tree": "96bd28b9bc45702e1d7f6c8e9a60d7653f2cd941",
+  "baseline_public_main": "bf1bc40946967581852dd3b675db8140d757574e",
+  "frozen_build": {
+    "path": "bench-build-pre-timing.json",
+    "sha256": "b4a46f45e64fd91ad286c2efb8ff50b1b8d489a2534bac7ed69fd1540bcc85a3"
+  },
+  "root_protocol_review": {
+    "path": "root-protocol-review.json",
+    "sha256": "b3c72bc8fbb450f91fedcfbaed5e60f8c809a6ebd98fd5d08e2eaee4d6b0f7a5"
+  },
+  "host_receipts": {
+    "window_start": "ca2aa13c3eab2dbdaf8476d4bf44764585b3a7ce17ff2bce35cc3ab37c96ddf5",
+    "after_run_1": "24ca545f393cd038fdb595f6b99851a7b45dd9e2636e261baae32d23dcd97ccb",
+    "after_run_2": "981ff3509ea52ca45d8789993f957d73dfe36a76d490147bd6b71025e3d96b25"
+  },
+  "actual_output_location": "timing/",
+  "approved_output_location": "timing-attempt-02/",
+  "output_path_deviation": {
+    "material": true,
+    "detail": "A stale runner path variable wrote run1, run2 and summary under the sibling timing/ directory. The approved timing-attempt-02 directory remained empty. The two raw runs and summary are retained in timing/ and passed the frozen raw/build validators, but exact approved output-path compliance is not claimed.",
+    "first_attempt_failure_record": "timing-runner-failure.txt"
+  },
+  "runs": [
+    {
+      "run_id": "fused-20261109-1",
+      "raw_sha256": "2500e81da0ed1d00e093d5d59af256b8cd8cdebb6547a9e929579ec86bbb43a1",
+      "measurement_sha256": "e2ee99dbd8ad3a791e603427443629c23edd554f243dfafb05a700342f70abc9",
+      "primary_15_geomean": 0.9823753468399021,
+      "primary_threshold": 0.98,
+      "all_86_worst_ratio": 1.0387009525475814,
+      "all_86_threshold": 1.05,
+      "gate_pass": false
+    },
+    {
+      "run_id": "fused-20261109-2",
+      "raw_sha256": "8e1100e24e7fcbd7ce997db1e32aa81d191db212c8a8e2e323f8147ef9257b6c",
+      "measurement_sha256": "8ccabf5f9e1a652d91ccd8f4fdbe46374c2cd31bbae6b4649a82ac2641f3297c",
+      "primary_15_geomean": 0.9863431240034981,
+      "primary_threshold": 0.98,
+      "all_86_worst_ratio": 1.0629641214487358,
+      "all_86_threshold": 1.05,
+      "gate_pass": false
+    }
+  ],
+  "baseline_drift": {
+    "control_count": 71,
+    "run2_over_run1_geomean": 1.0065619565787198,
+    "geomean_range": [0.95, 1.05],
+    "outside_individual_range_count": 9,
+    "individual_range": [0.9, 1.1],
+    "classification": "drift gate failed"
+  },
+  "independent_review": {
+    "decision": "NO-GO",
+    "report_json": "astra-no-go-review.json",
+    "report_json_sha256": "5371ac40158c003b9c1771756dd0a30124e55071b3efd2350290b3d129833d49",
+    "report_markdown_sha256": "6f02f6b16e5efb0b5da7095486a13e75b158345527fb4fb546005b96c3a7d2fa",
+    "runtime_identity_caveat": "The configured review request used gpt-6-astra/max; the review context only self-identified as Codex GPT-6. Astra Max runtime identity is not established by that receipt."
+  },
+  "emulator_recovery": {
+    "qemu_pid": 11540,
+    "resume_status": 0,
+    "process_alive_after_resume": true
+  },
+  "promotion": {
+    "enable_candidate": false,
+    "merge_candidate": false,
+    "claim_stable_performance_gain": false,
+    "rerun_authorized": false,
+    "reason": "Both independent runs miss registered numeric thresholds, the baseline control drift gate fails, and the independent reviewer identifies a material output-path deviation. Preserve these outcomes without postselection or retry."
+  },
+  "summary": {
+    "path": "timing/summary.json",
+    "sha256": "cf69728da6c51fd7c50c1a6498455525cc82bfca2e4c0817c36db7ee71b69e64",
+    "numeric_gates_pass": false
+  }
+}

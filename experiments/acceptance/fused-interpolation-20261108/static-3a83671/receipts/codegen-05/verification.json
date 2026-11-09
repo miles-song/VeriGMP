@@ -1,0 +1,124 @@
+{
+  "status": "pass",
+  "source_head": "3a836713adbb0a6632f5131e8d57c97296d22f62",
+  "source_tree": "96bd28b9bc45702e1d7f6c8e9a60d7653f2cd941",
+  "native_tree": "212dd5d00d4b2159abd4627a6aaec8b16a1157e5",
+  "native_manifest_sha256": "d9d91876478ba6c8bcc9324a05a3bd303c1d2c4d9becd620d256a32ce3ddf72b",
+  "start_utc": "2026-11-08T16:41:01.221406+00:00",
+  "driver_pid": 629,
+  "driver_sha256": "d5e5a53f3aaeef0d6992cea4e0587717d7f1b8dbedfa9407442810dc86b188f3",
+  "retained_prior": {
+    "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/codegen-02/verification.json",
+    "sha256": "ea8d6fd79419353e0d91bd9a820c93fcc262182db53f49ef03f6b467991d8fdc"
+  },
+  "reuse": "all successful complete codegen/compile artifacts; only metadata import failed",
+  "compile_executed": false,
+  "benchmark_executed": false,
+  "timing": false,
+  "commands": [
+    {
+      "argv": [
+        "lscpu"
+      ],
+      "returncode": 0,
+      "stdout": {
+        "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/codegen-05/host-lscpu.stdout.log",
+        "sha256": "d19f0483f5c845cced5d86fada3ed4c859ba3329e86507587d7cc0d64f88fb37"
+      },
+      "stderr": {
+        "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/codegen-05/host-lscpu.stderr.log",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "argv": [
+        "uname",
+        "-a"
+      ],
+      "returncode": 0,
+      "stdout": {
+        "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/codegen-05/host-uname.stdout.log",
+        "sha256": "d2c40da8daa03670b6cc5b6a8008860af4788f20b3bf9985e816ce6b9010a9fb"
+      },
+      "stderr": {
+        "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/codegen-05/host-uname.stderr.log",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "argv": [
+        "cat",
+        "/proc/cpuinfo"
+      ],
+      "returncode": 0,
+      "stdout": {
+        "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/codegen-05/host-cpuinfo.stdout.log",
+        "sha256": "637f53f0bac9e4c145c6aa45ae4c02d151ac80e5c48075471e0ec8d3b5de90f5"
+      },
+      "stderr": {
+        "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/codegen-05/host-cpuinfo.stderr.log",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "argv": [
+        "cat",
+        "/proc/stat"
+      ],
+      "returncode": 0,
+      "stdout": {
+        "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/codegen-05/host-stat.stdout.log",
+        "sha256": "8e1d18cb25b30a9fcfe089d5c0686e0881a07316437ac142410727c43a3c44c4"
+      },
+      "stderr": {
+        "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/codegen-05/host-stat.stderr.log",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "argv": [
+        "cat",
+        "/proc/loadavg"
+      ],
+      "returncode": 0,
+      "stdout": {
+        "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/codegen-05/host-loadavg.stdout.log",
+        "sha256": "ccb5cfe4761a8c9d8ed3e16f5ef5639a6217692988728b04bc346444f340ff2c"
+      },
+      "stderr": {
+        "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/codegen-05/host-loadavg.stderr.log",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "argv": [
+        "cat",
+        "/proc/meminfo"
+      ],
+      "returncode": 0,
+      "stdout": {
+        "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/codegen-05/host-meminfo.stdout.log",
+        "sha256": "b77c719c8c17f00ef2189b5d0b96306c509b2290db6edc856c68dc7a218b0e67"
+      },
+      "stderr": {
+        "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/codegen-05/host-meminfo.stderr.log",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    }
+  ],
+  "control_identity": {
+    "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/codegen-05/control-identity.json",
+    "sha256": "22b4a942cbb1fd89bb70daf54b3d642ec36dd305dab7436024fe077fddf59630"
+  },
+  "host": {
+    "path": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/codegen-05/host.json",
+    "sha256": "3d4786636ab6cfc8fd43d76feaa9b5d9e2e3f7c3682d647e42b0be2fce13540d"
+  },
+  "stop_utc": "2026-11-08T16:41:02.260105+00:00",
+  "control_identity_counts": {
+    "library_body_identity": 61,
+    "library_relocation_identity": 61,
+    "final_body_identity": 0,
+    "final_layout_identity": 0
+  }
+}

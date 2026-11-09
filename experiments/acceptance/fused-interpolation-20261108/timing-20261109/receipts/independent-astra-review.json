@@ -1,0 +1,68 @@
+{
+  "schema": "verigmp-independent-static-review-v1",
+  "reviewed_at_utc": "2026-11-09T04:18:41Z",
+  "review_identity": {
+    "agent": "/root/fused_interpolation_astra_audit",
+    "requested_role": "independent Astra Max acceptance audit",
+    "runtime_model_identity": "Codex GPT-6, as exposed in this agent context; not identified as Astra Max"
+  },
+  "candidate": {
+    "source_head": "3a836713adbb0a6632f5131e8d57c97296d22f62",
+    "source_tree": "96bd28b9bc45702e1d7f6c8e9a60d7653f2cd941",
+    "native_tree": "212dd5d00d4b2159abd4627a6aaec8b16a1157e5",
+    "native_manifest_sha256": "d9d91876478ba6c8bcc9324a05a3bd303c1d2c4d9becd620d256a32ce3ddf72b"
+  },
+  "baseline": {
+    "public_upstream_main": "bf1bc40946967581852dd3b675db8140d757574e",
+    "live_main_native_tree": "72dc8a5da2cbb7eddcdd26c219d50770e8b73b06",
+    "registered_baseline_native_tree": "72dc8a5da2cbb7eddcdd26c219d50770e8b73b06",
+    "identity_match": true
+  },
+  "evidence_archive": {
+    "repository_relative_path": "experiments/acceptance/fused-interpolation-20261108/static-3a83671",
+    "evidence_zip_sha256": "77116e0a56509aa4b09c238733e6ad41af0b023b01ceb2c56ac5c7ee7463416f",
+    "zip_entries": 943,
+    "manifest_entries_match": true,
+    "zip_crc_check_passed": true,
+    "canonical_receipts_match_archive_bytes": true
+  },
+  "decision": {
+    "static_accept": "ACCEPT",
+    "timing_ready": "READY",
+    "benchmark_executed": false,
+    "timing_authorized": false,
+    "production_performance_acceptance": "PENDING"
+  },
+  "accepted_static_scope": {
+    "full_candidate_proof": "369 verified, 0 errors; complete native source snapshot with --no-cheating --compile -O --num-threads 2",
+    "runtime_oracle": "Both baseline and candidate producers passed 4036 fixtures with independent Python integer expectations; GMP was an additional control",
+    "boundaries_and_aliases": "Helper shifts 1 and 4, carry values 1 through 15 for shift 4, simultaneous carry and borrow, long borrow chains, capacity and pre-write rejection boundaries, interpolation signs/zero/short inputs, workspace boundaries, canaries, read-only inputs, legal aliases and disjoint slices were covered",
+    "semantic_mutants": "wrong-shift, lost-shift-carry, lost-borrow, and zero-scalar-shift-carry were strictly rejected; parse, timeout, resource, and type failures were not counted as semantic detection",
+    "binary_identity": "Archived baseline/candidate rlib and VIR hashes match producer receipts; compiled benchmark executable hashes match bench-build.json",
+    "codegen": "Full library and final executable sections, relocations, disassembly, default-root callgraphs, and per-control identity comparisons are retained"
+  },
+  "disclosures": {
+    "caller_codegen_differences": {
+      "toom_multiply_full_bytes": "2640 -> 2672",
+      "toom_square_full_bytes": "2299 -> 2286",
+      "changed_library_callers_have_different_normalized_relocations": true,
+      "controls_with_changed_library_callers": [65, 127, 128, 129, 191, 192, 193, 255, 256, 257],
+      "final_executable_body_and_layout_identity": "false for all 71 controls",
+      "interpretation": "These compiler-context and layout effects are disclosed; performance results describe the complete frozen binaries and must not be attributed solely to removed loop visits."
+    },
+    "no_measured_performance_yet": true,
+    "no_GMP_parity_claim": true,
+    "no_checked_cost_theorem_or_dynamic_instruction_count_claim": true
+  },
+  "timing_preconditions": [
+    "Root must approve the final protocol, freeze the external build digest, capture fresh host/affinity observations, and grant the bounded quiet window.",
+    "Pass --cpu 8 to measure.py: its CLI defaults to CPU 0, while the raw validator and summarizer require CPU 8.",
+    "Run two complete independent 86-cell runs with the same frozen binaries and retain all retries and raw outcomes.",
+    "Each run must independently meet primary 15-cell geometric mean <= 0.98 and all-86 worst ratio <= 1.05; control baseline drift must also pass."
+  ],
+  "limitations": [
+    "This receipt accepts static functional, proof, boundary, mutation, identity, and codegen evidence only.",
+    "The captured host snapshot is not a substitute for fresh pre-run and per-run host, affinity, and Windows host observations.",
+    "Timing remains unauthorized until root completes the registered approval and quiet-window steps."
+  ]
+}

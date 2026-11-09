@@ -1,0 +1,7 @@
+MethodInvocationException: E:\3sat\VeriGMP-evidence\fused-interpolation-resume-20261109\run_fused_timing.ps1:52
+Line |
+  52 |      $snapshot.Invoke('window-start', (Join-Path $EvidenceWindows 'hos …
+     |      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     | Exception calling "Invoke" with "3" argument(s): "WSL host capture failed: window-start"
+
+

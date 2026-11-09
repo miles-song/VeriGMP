@@ -1,0 +1,79 @@
+{
+  "status": "pass",
+  "phase": "complete-native-proof-and-optimized-build",
+  "head": "3a836713adbb0a6632f5131e8d57c97296d22f62",
+  "tree": "96bd28b9bc45702e1d7f6c8e9a60d7653f2cd941",
+  "native_tree": "212dd5d00d4b2159abd4627a6aaec8b16a1157e5",
+  "native_manifest_sha256": "d9d91876478ba6c8bcc9324a05a3bd303c1d2c4d9becd620d256a32ce3ddf72b",
+  "binding_sha256": "1b026bfcc5a714e1a72c3fdf7f5346f296114e7ccf6a21b7090555a9c984afea",
+  "preflight_sha256": "bbb47282820f8f795a7dd2d280b745548daa5c01301baaa6380a9d0d03c7dea0",
+  "driver_sha256": "cce9f72151d0c38194f06ca8c5dcf11f653e8fc7edd11b7ffc02adf09ac99dbd",
+  "argv": [
+    "/mnt/e/3sat/VeriCount/deps/verus/verus-x86-linux/verus",
+    "native/lib.rs",
+    "--crate-type",
+    "lib",
+    "--crate-name",
+    "verigmp",
+    "--no-cheating",
+    "--compile",
+    "-O",
+    "--num-threads",
+    "2",
+    "--export",
+    "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/verigmp.vir",
+    "-o",
+    "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/libverigmp.rlib"
+  ],
+  "cwd": "/mnt/c/Users/23247/.codex/worktrees/gmp-fused-interpolation-20261108/gates-3a83671-01/source",
+  "driver_pid": 627,
+  "start_utc": "2026-11-08T16:24:22.091445+00:00",
+  "timeout_seconds": 900,
+  "terminal": {
+    "stdin_isatty": false,
+    "stdout_isatty": false,
+    "tty_name": null
+  },
+  "selected_environment": {
+    "CARGO_HOME": "/mnt/e/3sat/VeriCount/deps/cargo",
+    "RUSTUP_HOME": "/mnt/e/3sat/VeriCount/deps/rustup",
+    "RUSTUP_TOOLCHAIN": "1.99.1-x86_64-unknown-linux-gnu",
+    "PATH": "/mnt/e/3sat/VeriCount/deps/cargo/bin:/mnt/e/3sat/VeriCount/deps/verus/verus-x86-linux:/mnt/e/3sat/VeriCount/deps/cargo/bin:/home/smy/.local/bin:/home/smy/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/snap/bin"
+  },
+  "process_affinity": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15
+  ],
+  "focused_scope_reused": false,
+  "timing": false,
+  "verus_launcher_pid": 1012,
+  "returncode": 0,
+  "timed_out": false,
+  "stop_utc": "2026-11-08T16:24:54.556131+00:00",
+  "summary": [
+    [
+      "369",
+      "0"
+    ]
+  ],
+  "stdout_sha256": "e1cb5915bdda1c3b152a6ba8e90399668238f2106a92d5fab07416e629f45b76",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "exports_sha256": {
+    "libverigmp.rlib": "59151180a613df39efc32c6d9b012fd105d219fb2c678f9bf127b23407fefece",
+    "verigmp.vir": "c896366cb7ec15f3ee57e78962607ea5e9b82901c9d04614cec4ce242421b5d8"
+  }
+}
